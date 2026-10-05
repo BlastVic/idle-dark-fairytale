@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using Assets.Scripts.Extentions;
 
 namespace Assets.Scripts.Services.Statistics
 {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Assets.Scripts.Extentions;
 using Assets.Scripts.Services.Purchasing.Purchased;
 using Scripts.Level;
@@ -159,6 +159,12 @@ namespace Assets.Scripts.Services.Purchasing
             Initialized.SafeInvoke(false);
         }
 
+        // Unity IAP 5 adds a diagnostic message to initialization failures.
+        public void OnInitializeFailed(InitializationFailureReason error, String message)
+        {
+            LoggerMethods.Log("OnInitializeFailed InitializationFailureReason:" + error + " Message:" + message);
+            Initialized.SafeInvoke(false);
+        }
 
         public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
         {
