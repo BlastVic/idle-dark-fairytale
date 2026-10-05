@@ -27,7 +27,7 @@ namespace Assets.Scripts.Services.Ads.MediationProxy
 
         public Boolean IsInterstitialAvailable()
         {
-            return true;
+            return false;
         }
 
         public void ShowInterstitial()
@@ -37,7 +37,7 @@ namespace Assets.Scripts.Services.Ads.MediationProxy
 
         public Boolean IsRewardedVideoAvailable()
         {
-            return true;
+            return false;
         }
 
         public void ShowRewardedVideo()

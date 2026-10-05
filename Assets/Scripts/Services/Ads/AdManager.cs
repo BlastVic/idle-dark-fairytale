@@ -20,11 +20,7 @@ namespace Assets.Scripts.Services.Ads
         protected override void Awake()
         {
             base.Awake();
-#if UNITY_EDITOR
             _mediationProxy = EditorAdMediationProxy.Create(gameObject.transform);
-#else
-            _mediationProxy = IronsourceAdMediationProxy.Create(gameObject.transform);
-#endif
             _mediationProxy.Initialize();
             _mediationProxy.RewardedVideoFinished += OnRewardedVideoFinished;
             Invoke("ShowBanner", 3);
