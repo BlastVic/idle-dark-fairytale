@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Enemy
+  - DyingEnemy
+  - MapGraphics
+  - MenuCenter
+  - ItemContainer
+  - Pet
+  - TutorialGirl
+  - Intro
+  - ChestParticle
+  - CherryChest
+  - ChestDropIn
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Chest
+  - UI Front
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: BG
+    uniqueID: 1049567933
+    locked: 0
+  - name: BG2
+    uniqueID: 305486459
+    locked: 0
+  - name: Character_Back
+    uniqueID: 1492228335
+    locked: 0
+  - name: Character
+    uniqueID: 1833574041
+    locked: 0
+  - name: Character_Front
+    uniqueID: 2475356971
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Front
+    uniqueID: 2669464705
+    locked: 0
+  - name: UI
+    uniqueID: 1992692751
+    locked: 0
+  - name: UI_Front
+    uniqueID: 352741583
+    locked: 0

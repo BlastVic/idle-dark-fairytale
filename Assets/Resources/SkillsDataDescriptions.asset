@@ -1,0 +1,716 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aa9b301831724998a3c03f716f754f4, type: 3}
+  m_Name: SkillsDataDescriptions
+  m_EditorClassIdentifier: 
+  _skillDataArr:
+  - key: Regen
+    skillsType: 1
+    desc: Restore [VAL1]% of HP every 2 seconds
+    icon: {fileID: 21300000, guid: 82dcc92db54c9734db534269846c2fb5, type: 3}
+    iconGray: {fileID: 21300000, guid: d618c64bf36cc114f849fe096a74d772, type: 3}
+    value1:
+    - 0
+    - 0.02
+    - 0.024
+    - 0.028
+    - 0.032
+    - 0.036
+    - 0.04
+    - 0.044
+    - 0.048
+    - 0.052
+    - 0.06
+    value2: []
+    value3: []
+    value4: []
+    value5: []
+  - key: Path Cleaner
+    skillsType: 2
+    desc: '[VAL1]% Chance to perform a quick 3 hit combo'
+    icon: {fileID: 21300000, guid: 854372ab39572ef4c9b290a968836b09, type: 3}
+    iconGray: {fileID: 21300000, guid: fe0f83caa48359d4b91fb2b70c73d065, type: 3}
+    value1:
+    - 0
+    - 0.05
+    - 0.07
+    - 0.09
+    - 0.11
+    - 0.13
+    - 0.15
+    - 0.17
+    - 0.19
+    - 0.21
+    - 0.25
+    value2: []
+    value3: []
+    value4: []
+    value5: []
+  - key: Sinister Stampede
+    skillsType: 3
+    desc: '[VAL1]% Chance to perform an AOE (have to have more than 1 enemy)'
+    icon: {fileID: 21300000, guid: 9f8f16c1f9045ed4a922cadc502efa2a, type: 3}
+    iconGray: {fileID: 21300000, guid: 41c0a4e893b3a754e8e2730a1bf4cc33, type: 3}
+    value1:
+    - 0
+    - 0.06
+    - 0.075
+    - 0.09
+    - 0.105
+    - 0.12
+    - 0.135
+    - 0.15
+    - 0.165
+    - 0.18
+    - 0.21
+    value2: []
+    value3: []
+    value4: []
+    value5: []
+  - key: Angel On My Shoulder
+    skillsType: 4
+    desc: Increases HP+[VAL1]%, DEF+[VAL2]%
+    icon: {fileID: 21300000, guid: 748cd0f4d3f6b3d41993c302c9c24e1b, type: 3}
+    iconGray: {fileID: 21300000, guid: ea343db2dc5c96d43840120cdc99281d, type: 3}
+    value1:
+    - 0
+    - 0.03
+    - 0.05
+    - 0.07
+    - 0.09
+    - 0.11
+    - 0.13
+    - 0.15
+    - 0.17
+    - 0.19
+    - 0.23
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.01
+    - 0.02
+    - 0.03
+    - 0.04
+    - 0.05
+    - 0.06
+    - 0.07
+    - 0.08
+    - 0.09
+    - 0.11
+    value4: []
+    value5: []
+  - key: Devil On My Shoulder
+    skillsType: 5
+    desc: Increase DMG+[VAL1]%, ATK SPD+[VAL2], CRIT+[VAL3]% & CRIT DMG+[VAL4]
+    icon: {fileID: 21300000, guid: 461a8461db9bd0340bc2046afce257c5, type: 3}
+    iconGray: {fileID: 21300000, guid: dba8113de4c80cd4491ca2ddf57908cd, type: 3}
+    value1:
+    - 0
+    - 0.03
+    - 0.05
+    - 0.07
+    - 0.09
+    - 0.11
+    - 0.13
+    - 0.15
+    - 0.17
+    - 0.19
+    - 0.23
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: Ressurrection
+    skillsType: 6
+    desc: '[VAL1]% chance to come back to life after dying with 40% HP'
+    icon: {fileID: 21300000, guid: 16f877aa799841242a1bd5b02434097c, type: 3}
+    iconGray: {fileID: 21300000, guid: c5972fce312a98944899f7207def3c6a, type: 3}
+    value1:
+    - 0
+    - 0.1
+    - 0.13
+    - 0.16
+    - 0.19
+    - 0.21
+    - 0.24
+    - 0.27
+    - 0.3
+    - 0.33
+    - 0.4
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: Lucky Bastard
+    skillsType: 7
+    desc: '[VAL1]% Chance to restore 20% HP upon killing an enemy'
+    icon: {fileID: 21300000, guid: 2c938173a3cd77b43af7ea5fe34c881b, type: 3}
+    iconGray: {fileID: 21300000, guid: e1dc015dcba12904ab940510bc41fb9f, type: 3}
+    value1:
+    - 0
+    - 0.05
+    - 0.085
+    - 0.12
+    - 0.155
+    - 0.19
+    - 0.225
+    - 0.26
+    - 0.295
+    - 0.33
+    - 0.4
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: Twice The Fun
+    skillsType: 10
+    desc: '[VAL1]% Chance to receive double XP on kills'
+    icon: {fileID: 21300000, guid: 4c078ceace34c7d499fc7040818f4d84, type: 3}
+    iconGray: {fileID: 21300000, guid: 45d767828825a644faf0e7d9b567a8bc, type: 3}
+    value1:
+    - 0
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+    - 0.6
+    - 0.7
+    - 0.8
+    - 0.9
+    - 1
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: Last But Not Least
+    skillsType: 8
+    desc: Every 3rd strike deals [VAL1]% more DMG
+    icon: {fileID: 21300000, guid: efb3f59414014e24dbcca255c881abe0, type: 3}
+    iconGray: {fileID: 21300000, guid: 3aaab6b745c4f5d4bac603394ab14480, type: 3}
+    value1:
+    - 0
+    - 0.15
+    - 0.3
+    - 0.45
+    - 0.6
+    - 0.75
+    - 0.9
+    - 1.05
+    - 1.2
+    - 1.35
+    - 1.65
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: Tairon The Dragon
+    skillsType: 9
+    desc: Small Helper Dragon deals [VAL1]% DMG intermittently
+    icon: {fileID: 21300000, guid: 062331ee2fcb6454d9710b87a50a25a3, type: 3}
+    iconGray: {fileID: 21300000, guid: fdedbca3a26841a41a8192641dc5020b, type: 3}
+    value1:
+    - 0
+    - 1.5
+    - 1.75
+    - 2
+    - 2.25
+    - 2.5
+    - 2.75
+    - 3
+    - 3.25
+    - 3.5
+    - 4
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: Lightning Demi God
+    skillsType: 11
+    desc: Enemies less than 50% HP will be struck by lightning for [VAL1]% of your
+      DMG
+    icon: {fileID: 21300000, guid: 3ea7fd4980f5ebd4a96dded6164dcc25, type: 3}
+    iconGray: {fileID: 21300000, guid: d895ef9464cc00b409771b8f34a071ef, type: 3}
+    value1:
+    - 0
+    - 0.5
+    - 0.7
+    - 0.9
+    - 1.1
+    - 1.3
+    - 1.5
+    - 1.7
+    - 1.9
+    - 2.1
+    - 2.3
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: Boss Killer
+    skillsType: 12
+    desc: '[VAL1]% Chance to do a 6 hit combo for 150% DMG (Only on bosses)'
+    icon: {fileID: 21300000, guid: a1d3244c7d04aa14182f22a5600da462, type: 3}
+    iconGray: {fileID: 21300000, guid: 4b20df62632555744ac0c67364ebf671, type: 3}
+    value1:
+    - 0
+    - 0.1
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.6
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: My Lucky Stars
+    skillsType: 13
+    desc: Taking a critical hit has a [VAL1]% chance of granting you a 10% HP absorb
+    icon: {fileID: 21300000, guid: 49222b932a46d834baafb5bc8842db62, type: 3}
+    iconGray: {fileID: 21300000, guid: dda282c8992970e4ab6f6bd87374b84a, type: 3}
+    value1:
+    - 0
+    - 0.1
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.6
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: Battlefield Tactician
+    skillsType: 14
+    desc: DMG increased by [VAL1]% when fighting more than one enemy
+    icon: {fileID: 21300000, guid: 98dc826f294deb64f97d785a011a8037, type: 3}
+    iconGray: {fileID: 21300000, guid: a4962aa3937e0ce4e939f7c8168d897c, type: 3}
+    value1:
+    - 0
+    - 0.1
+    - 0.15
+    - 0.2
+    - 0.25
+    - 0.3
+    - 0.35
+    - 0.4
+    - 0.45
+    - 0.5
+    - 0.6
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []
+  - key: Breath Of Hell
+    skillsType: 15
+    desc: Dragon now has [VAL1]% chance to strike twice and even thrice!
+    icon: {fileID: 21300000, guid: 64addb3219c1a4c479a8e74d11c063af, type: 3}
+    iconGray: {fileID: 21300000, guid: 96663c43d4712ec45a353edb42715bfd, type: 3}
+    value1:
+    - 0
+    - 0.04
+    - 0.08
+    - 0.12
+    - 0.16
+    - 0.2
+    - 0.24
+    - 0.28
+    - 0.32
+    - 0.36
+    - 0.44
+    value2:
+    - 0
+    - 0.02
+    - 0.04
+    - 0.06
+    - 0.08
+    - 0.1
+    - 0.12
+    - 0.14
+    - 0.16
+    - 0.18
+    - 0.22
+    value3:
+    - 0
+    - 0.5
+    - 1
+    - 1.5
+    - 2
+    - 2.5
+    - 3
+    - 3.5
+    - 4
+    - 4.5
+    - 5.5
+    value4:
+    - 0
+    - 2
+    - 4
+    - 6
+    - 8
+    - 10
+    - 12
+    - 14
+    - 16
+    - 18
+    - 22
+    value5: []

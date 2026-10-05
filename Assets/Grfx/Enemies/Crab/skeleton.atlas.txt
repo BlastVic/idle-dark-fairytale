@@ -1,0 +1,80 @@
+
+skeleton.png
+size: 412,417
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Shadow
+  rotate: false
+  xy: 62, 335
+  size: 298, 80
+  orig: 302, 84
+  offset: 2, 2
+  index: -1
+claw1
+  rotate: false
+  xy: 178, 202
+  size: 232, 131
+  orig: 232, 131
+  offset: 0, 0
+  index: -1
+claw2
+  rotate: true
+  xy: 2, 2
+  size: 198, 200
+  orig: 198, 200
+  offset: 0, 0
+  index: -1
+h
+  rotate: false
+  xy: 2, 358
+  size: 58, 57
+  orig: 58, 57
+  offset: 0, 0
+  index: -1
+l
+  rotate: true
+  xy: 2, 248
+  size: 85, 174
+  orig: 85, 174
+  offset: 0, 0
+  index: -1
+
+skeleton2.png
+size: 347,437
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+2b
+  rotate: false
+  xy: 2, 2
+  size: 343, 433
+  orig: 343, 433
+  offset: 0, 0
+  index: -1
+
+skeleton3.png
+size: 347,437
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+3b
+  rotate: false
+  xy: 2, 2
+  size: 343, 433
+  orig: 343, 433
+  offset: 0, 0
+  index: -1
+
+skeleton4.png
+size: 347,437
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+b
+  rotate: false
+  xy: 2, 2
+  size: 343, 433
+  orig: 343, 433
+  offset: 0, 0
+  index: -1

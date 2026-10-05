@@ -1,0 +1,97 @@
+
+RedHood.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cape
+  rotate: false
+  xy: 4, 4
+  size: 291, 227
+  orig: 291, 227
+  offset: 0, 0
+  index: -1
+far_leg
+  rotate: false
+  xy: 303, 4
+  size: 71, 66
+  orig: 71, 66
+  offset: 0, 0
+  index: -1
+far_boot
+  rotate: false
+  xy: 382, 4
+  size: 87, 101
+  orig: 87, 101
+  offset: 0, 0
+  index: -1
+near_leg
+  rotate: false
+  xy: 477, 4
+  size: 51, 64
+  orig: 51, 64
+  offset: 0, 0
+  index: -1
+near_boot
+  rotate: false
+  xy: 536, 4
+  size: 80, 96
+  orig: 80, 96
+  offset: 0, 0
+  index: -1
+torso
+  rotate: false
+  xy: 624, 4
+  size: 75, 79
+  orig: 75, 79
+  offset: 0, 0
+  index: -1
+skirt
+  rotate: false
+  xy: 707, 4
+  size: 232, 137
+  orig: 232, 137
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 947, 4
+  size: 163, 146
+  orig: 163, 146
+  offset: 0, 0
+  index: -1
+upper_arm
+  rotate: false
+  xy: 1118, 4
+  size: 59, 55
+  orig: 59, 55
+  offset: 0, 0
+  index: -1
+forearm
+  rotate: false
+  xy: 1185, 4
+  size: 39, 44
+  orig: 39, 44
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 1232, 4
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+scythe
+  rotate: false
+  xy: 1273, 4
+  size: 219, 182
+  orig: 219, 182
+  offset: 0, 0
+  index: -1
+lantern
+  rotate: false
+  xy: 1500, 4
+  size: 58, 113
+  orig: 58, 113
+  offset: 0, 0
+  index: -1

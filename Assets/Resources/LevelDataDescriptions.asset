@@ -1,0 +1,5088 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c93ff055a21c14acbb9517be3ecdcc30, type: 3}
+  m_Name: LevelDataDescriptions
+  m_EditorClassIdentifier: 
+  _expLevelDb: 0400000007000000090000000b0000000d0000000f0000001200000015000000190000001b0000001e0000002100000024000000270000002a0000002d0000002f00000032000000370000003c00000041000000460000004b00000050000000550000005a0000005f00000064000000690000006e00000073000000780000007d000000820000008700000096000000a5000000b9000000cd000000e10000002c0100005e01000090010000f4010000ee020000e8030000e2040000dc050000d6060000d0070000ca080000c4090000be0a0000b80b0000b20c0000ac0d0000941100007c150000641900004c1d0000342100001c250000f22b0000d4300000b6350000983a00007a3f00005c4400003e490000204e000002530000e4570000c65c0000a86100008a6600006c6b00004e70000030750000127a0000f47e0000d6830000b88800007c920000409c000004a60000c8af00008cb9000050c3000014cd0000d8d600009ce0000060ea000024f40000e8fd0000ac07010070110100341b0100f8240100bc2e010080380100084c0100905f010018730100a0860100b0ad0100c0d40100d0fb0100e0220200f04902001098020030e60200503403007082030090d00300b01e0400d06c0400f0ba0400100905003057050050a5050070f3050090410600b08f0600d0dd0600f02b0700107a070030c80700501608007064080090b20800b0000900d04e0900f09c090010eb090030390a0050870a0070d50a0090230b00b0710b00d0bf0b00f00d0c00105c0c0030aa0c0040d10c00601f0d00806d0d00a0bb0d00f07e0e0040420f00e0c81000804f120020d6130070991400c05c15001020160060e31600006a1800a0f0190040771b00e0fd1c0080841e00200b2000c091210060182300009f2400a025260040ac2700e032290030f6290080b92a0020402c00c0c62d00604d2f0000d43000a05a320040e13300e067350080ee360020753800c0fb390060823b0000093d00a08f3e0040164000e09c41008023430020aa4400c030460060b74700003e4900a0c44a00404b4c00e0d14d0080584f0020df5000c065520060ec530000735500a0f9560040805800e0065a00808d5b0020145d00c09a5e006021600000a86100a02e630040b56400e03b660080c2670020496900c0cf6a0060566c0000dd6d00a0636f0040ea7000e070720000127a0020b381004054890060f5900080969800a037a000c0d8a700e079af00001bb70020bcbe00405dc60060fecd00809fd500a040dd00c0e1e400e082ec000024f40020c5fb004066030160070b0180a81201a0491a01c0ea2101e08b2901002d310120ce3801406f40016010480180b14f01a0525701c0f35e01e094660100366e0120d7750140787d016019850180ba8c01a05b9401c0fc9b01e09da301003fab0120e0b2014081ba016022c20180c3c901a064d101c005d901e0a6e0010048e80120e9ef01408af701602bff0180cc0602a06d0e02c00e1602e0af1d020051250220f22c024093340260343c0280d54302a0764b02c0175302e0b85a02005a620220fb6902409c7102603d790280de8002a07f8802c0209002e0c1970200639f022004a70240a5ae026046b60280e7bd02a088c502c029cd02e0cad402006cdc02200de40240aeeb02604ff30280f0fa02a0910203c0320a03e0d31103007519032016210340b728036058300380f93703a09a3f03c03b4703e0dc4e03007e5603201f5e0340c0650360616d0380027503a0a37c03c0448403e0e58b030087930320289b0340c9a203606aaa03800bb203a0acb903c04dc103e0eec8030090d0032031d80340d2df036073e7038014ef03a0b5f603c056fe03e0f7050400990d04203a150440db1c04607c2404801d2c04a0be3304c05f3b04e000430400a24a042043520440e459046085610480266904a0c77004c0687804e009800400ab8704204c8f0440ed9604608e9e04802fa604a0d0ad04c071b504e012bd0400b4c4042055cc0440f6d3046097db048038e304a0d9ea04c07af204e01bfa0400bd0105205e090540ff100560a0180580412005a0e22705c0832f05e024370500c63e052067460540084e0560a95505804a5d05a0eb6405c08c6c05e02d740500cf7b052070830540118b0560b2920580539a05a0f4a105c095a905e036b10500d8b8052079c005401ac80560bbcf05805cd705a0fdde05ffffff7f
+  _fusionLevelDb:
+  - requirement: 75
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 150
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Headband
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head1
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head1
+      itemGrade: 0
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 0
+        dmgMax: 0
+        defMin: 1
+        defMax: 3
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 3
+        critMax: 9
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 5
+        hpMax_rolled: 20
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 0.5
+        percChanceBonus2: 0
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 1
+  - requirement: 190
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 230
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 25
+    itemsGiven: []
+  - requirement: 270
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 310
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc2
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 10
+        dmgMax: 20
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 5
+        atkSpdMax: 25
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 15
+        hpMax_rolled: 50
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 0.33
+        percChanceBonus2: 0
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 15
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 0.5
+      m_IconName: Acc2
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 10
+        dmgMax: 20
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 5
+        atkSpdMax: 25
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 15
+        hpMax_rolled: 50
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 0.33
+        percChanceBonus2: 0
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 15
+  - requirement: 400
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 50
+    itemsGiven: []
+  - requirement: 500
+    statPointsGiven: 0
+    skillPointsGiven: 1
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 700
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 900
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Dagger
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep6
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep6
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 120
+        dmgMax: 200
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 30
+        atkSpdMax: 40
+        critMin: 1
+        critMax: 6
+        critDmgMin: 10
+        critDmgMax: 40
+        hpMin: 0
+        hpMax_rolled: 0
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 100
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 45
+    - m_ItemBasicTitle: Dagger
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep6
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep6
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 120
+        dmgMax: 200
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 30
+        atkSpdMax: 40
+        critMin: 1
+        critMax: 6
+        critDmgMin: 10
+        critDmgMax: 40
+        hpMin: 0
+        hpMax_rolled: 0
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 100
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 45
+  - requirement: 1100
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 1300
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 50
+    itemsGiven: []
+  - requirement: 1500
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 50
+    itemsGiven:
+    - m_ItemBasicTitle: Collar
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc20
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 30
+        dmgMax: 50
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 100
+        hpMax_rolled: 120
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 25
+    - m_ItemBasicTitle: Collar
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc20
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 30
+        dmgMax: 50
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 100
+        hpMax_rolled: 120
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 25
+    - m_ItemBasicTitle: Collar
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 0.5
+      m_IconName: Acc20
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 30
+        dmgMax: 50
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 100
+        hpMax_rolled: 120
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 25
+  - requirement: 1700
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Robe
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body11
+      m_ItemType: 3
+      m_SkinIfApplicable: 11
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 60
+        dmgMax: 150
+        defMin: 50
+        defMax: 70
+        atkSpdMin: 15
+        atkSpdMax: 30
+        critMin: 1
+        critMax: 6
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 100
+        hpMax_rolled: 300
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 100
+        percChanceBonus2: 50
+        percChanceBonus3: 25
+        percChanceBonus4: 0
+      fusionExp: 200
+  - requirement: 2000
+    statPointsGiven: 0
+    skillPointsGiven: 1
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2300
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 50
+    itemsGiven: []
+  - requirement: 2600
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 50
+    itemsGiven: []
+  - requirement: 3000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Crescent
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh10
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh10
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 140
+        dmgMax: 240
+        defMin: 60
+        defMax: 90
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 6
+        critMax: 10
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 150
+        hpMax_rolled: 300
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 133
+    - m_ItemBasicTitle: Crescent
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh10
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh10
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 140
+        dmgMax: 240
+        defMin: 60
+        defMax: 90
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 6
+        critMax: 10
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 150
+        hpMax_rolled: 300
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 133
+    - m_ItemBasicTitle: Crescent
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh10
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh10
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 140
+        dmgMax: 240
+        defMin: 60
+        defMax: 90
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 6
+        critMax: 10
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 150
+        hpMax_rolled: 300
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 133
+  - requirement: 3400
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 100
+    itemsGiven: []
+  - requirement: 3800
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 100
+    itemsGiven: []
+  - requirement: 4200
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 100
+    itemsGiven: []
+  - requirement: 4600
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Headband
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head2
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head2
+      itemGrade: 0
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 170
+        dmgMax: 300
+        defMin: 120
+        defMax: 150
+        atkSpdMin: 10
+        atkSpdMax: 25
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 500
+        hpMax_rolled: 700
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 80
+    - m_ItemBasicTitle: Headband
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head2
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head2
+      itemGrade: 0
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 170
+        dmgMax: 300
+        defMin: 120
+        defMax: 150
+        atkSpdMin: 10
+        atkSpdMax: 25
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 500
+        hpMax_rolled: 700
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 80
+    - m_ItemBasicTitle: Headband
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head2
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head2
+      itemGrade: 0
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 170
+        dmgMax: 300
+        defMin: 120
+        defMax: 150
+        atkSpdMin: 10
+        atkSpdMax: 25
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 500
+        hpMax_rolled: 700
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 80
+  - requirement: 5000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 150
+    itemsGiven: []
+  - requirement: 5500
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 150
+    itemsGiven: []
+  - requirement: 6000
+    statPointsGiven: 3
+    skillPointsGiven: 1
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 6500
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 7000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 7500
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Melty
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh5
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh5
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 0
+        dmgMax: 0
+        defMin: 180
+        defMax: 270
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 6
+        critMax: 12
+        critDmgMin: 20
+        critDmgMax: 30
+        hpMin: 500
+        hpMax_rolled: 999
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.5
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 260
+    - m_ItemBasicTitle: Melty
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh5
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh5
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 0
+        dmgMax: 0
+        defMin: 180
+        defMax: 270
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 6
+        critMax: 12
+        critDmgMin: 20
+        critDmgMax: 30
+        hpMin: 500
+        hpMax_rolled: 999
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.5
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 260
+    - m_ItemBasicTitle: Melty
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh5
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh5
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 0
+        dmgMax: 0
+        defMin: 180
+        defMax: 270
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 6
+        critMax: 12
+        critDmgMin: 20
+        critDmgMax: 30
+        hpMin: 500
+        hpMax_rolled: 999
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.5
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 260
+  - requirement: 8000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 250
+    itemsGiven: []
+  - requirement: 8500
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 250
+    itemsGiven: []
+  - requirement: 9000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc6
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 700
+        dmgMax: 1300
+        defMin: 100
+        defMax: 170
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 1000
+        hpMax_rolled: 2000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.5
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 555
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc6
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 700
+        dmgMax: 1300
+        defMin: 100
+        defMax: 170
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 1000
+        hpMax_rolled: 2000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.5
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 555
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc6
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 1
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 700
+        dmgMax: 1300
+        defMin: 100
+        defMax: 170
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 1000
+        hpMax_rolled: 2000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.5
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 555
+  - requirement: 10000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 11000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 12000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Palm Earring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc14
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 1500
+        dmgMax: 2500
+        defMin: 300
+        defMax: 400
+        atkSpdMin: 15
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 8
+        critDmgMin: 20
+        critDmgMax: 30
+        hpMin: 3000
+        hpMax_rolled: 5000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 600
+    - m_ItemBasicTitle: Palm Earring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc14
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 1500
+        dmgMax: 2500
+        defMin: 300
+        defMax: 400
+        atkSpdMin: 15
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 8
+        critDmgMin: 20
+        critDmgMax: 30
+        hpMin: 3000
+        hpMax_rolled: 5000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 600
+    - m_ItemBasicTitle: Palm Earring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc14
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 1500
+        dmgMax: 2500
+        defMin: 300
+        defMax: 400
+        atkSpdMin: 15
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 8
+        critDmgMin: 20
+        critDmgMax: 30
+        hpMin: 3000
+        hpMax_rolled: 5000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 600
+  - requirement: 13000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 14000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 12000
+    itemsGiven: []
+  - requirement: 15000
+    statPointsGiven: 0
+    skillPointsGiven: 1
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 16000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 25000
+    itemsGiven: []
+  - requirement: 17000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 40000
+    itemsGiven: []
+  - requirement: 18000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 80000
+    itemsGiven: []
+  - requirement: 20000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Morningstar
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep16
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep16
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 3400
+        dmgMax: 4400
+        defMin: 250
+        defMax: 350
+        atkSpdMin: 10
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 8
+        critDmgMin: 15
+        critDmgMax: 30
+        hpMin: 2000
+        hpMax_rolled: 4400
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 700
+    - m_ItemBasicTitle: Morningstar
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep16
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep16
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 3400
+        dmgMax: 4400
+        defMin: 250
+        defMax: 350
+        atkSpdMin: 10
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 8
+        critDmgMin: 15
+        critDmgMax: 30
+        hpMin: 2000
+        hpMax_rolled: 4400
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 700
+    - m_ItemBasicTitle: Morningstar
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep16
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep16
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 3400
+        dmgMax: 4400
+        defMin: 250
+        defMax: 350
+        atkSpdMin: 10
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 8
+        critDmgMin: 15
+        critDmgMax: 30
+        hpMin: 2000
+        hpMax_rolled: 4400
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 700
+  - requirement: 22000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 24000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 60000
+    itemsGiven: []
+  - requirement: 26000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Shirt
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body22
+      m_ItemType: 3
+      m_SkinIfApplicable: 22
+      m_AttachmentIfApplicable: 
+      itemGrade: 0
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 2000
+        dmgMax: 3000
+        defMin: 1000
+        defMax: 1500
+        atkSpdMin: 30
+        atkSpdMax: 40
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 5000
+        hpMax_rolled: 7000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 500
+    - m_ItemBasicTitle: Shirt
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body22
+      m_ItemType: 3
+      m_SkinIfApplicable: 22
+      m_AttachmentIfApplicable: 
+      itemGrade: 0
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 2000
+        dmgMax: 3000
+        defMin: 1000
+        defMax: 1500
+        atkSpdMin: 30
+        atkSpdMax: 40
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 5000
+        hpMax_rolled: 7000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 500
+    - m_ItemBasicTitle: Shirt
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body22
+      m_ItemType: 3
+      m_SkinIfApplicable: 22
+      m_AttachmentIfApplicable: 
+      itemGrade: 0
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 2000
+        dmgMax: 3000
+        defMin: 1000
+        defMax: 1500
+        atkSpdMin: 30
+        atkSpdMax: 40
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 5000
+        hpMax_rolled: 7000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 500
+    - m_ItemBasicTitle: Shirt
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 0.5
+      m_IconName: Body22
+      m_ItemType: 3
+      m_SkinIfApplicable: 22
+      m_AttachmentIfApplicable: 
+      itemGrade: 0
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 2000
+        dmgMax: 3000
+        defMin: 1000
+        defMax: 1500
+        atkSpdMin: 30
+        atkSpdMax: 40
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 5000
+        hpMax_rolled: 7000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 0.25
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 500
+  - requirement: 28000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 30000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 32000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Shield
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh17
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh17
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 3000
+        dmgMax: 4000
+        defMin: 700
+        defMax: 900
+        atkSpdMin: 20
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 6
+        critDmgMin: 15
+        critDmgMax: 30
+        hpMin: 3000
+        hpMax_rolled: 5000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 250
+    - m_ItemBasicTitle: Shield
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh17
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh17
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 3000
+        dmgMax: 4000
+        defMin: 700
+        defMax: 900
+        atkSpdMin: 20
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 6
+        critDmgMin: 15
+        critDmgMax: 30
+        hpMin: 3000
+        hpMax_rolled: 5000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 250
+    - m_ItemBasicTitle: Shield
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh17
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh17
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 3000
+        dmgMax: 4000
+        defMin: 700
+        defMax: 900
+        atkSpdMin: 20
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 6
+        critDmgMin: 15
+        critDmgMax: 30
+        hpMin: 3000
+        hpMax_rolled: 5000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 250
+  - requirement: 34000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 36000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 38000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 125000
+    itemsGiven: []
+  - requirement: 40000
+    statPointsGiven: 2
+    skillPointsGiven: 1
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 45000
+    statPointsGiven: 2
+    skillPointsGiven: 1
+    expGiven: 40000
+    itemsGiven:
+    - m_ItemBasicTitle: Horns
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head21
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head21
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 4000
+        dmgMax: 6000
+        defMin: 900
+        defMax: 1200
+        atkSpdMin: 10
+        atkSpdMax: 25
+        critMin: 3
+        critMax: 6
+        critDmgMin: 15
+        critDmgMax: 30
+        hpMin: 5000
+        hpMax_rolled: 7000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 333
+    - m_ItemBasicTitle: Horns
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head21
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head21
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 4000
+        dmgMax: 6000
+        defMin: 900
+        defMax: 1200
+        atkSpdMin: 10
+        atkSpdMax: 25
+        critMin: 3
+        critMax: 6
+        critDmgMin: 15
+        critDmgMax: 30
+        hpMin: 5000
+        hpMax_rolled: 7000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 333
+    - m_ItemBasicTitle: Horns
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head21
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head21
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 4000
+        dmgMax: 6000
+        defMin: 900
+        defMax: 1200
+        atkSpdMin: 10
+        atkSpdMax: 25
+        critMin: 3
+        critMax: 6
+        critDmgMin: 15
+        critDmgMax: 30
+        hpMin: 5000
+        hpMax_rolled: 7000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 333
+  - requirement: 50000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 200000
+    itemsGiven: []
+  - requirement: 55000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 60000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Armor
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body18
+      m_ItemType: 3
+      m_SkinIfApplicable: 18
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 3000
+        dmgMax: 6000
+        defMin: 2000
+        defMax: 2500
+        atkSpdMin: 20
+        atkSpdMax: 30
+        critMin: 0
+        critMax: 0
+        critDmgMin: 30
+        critDmgMax: 50
+        hpMin: 7000
+        hpMax_rolled: 9000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 500
+    - m_ItemBasicTitle: Armor
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body18
+      m_ItemType: 3
+      m_SkinIfApplicable: 18
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 3000
+        dmgMax: 6000
+        defMin: 2000
+        defMax: 2500
+        atkSpdMin: 20
+        atkSpdMax: 30
+        critMin: 0
+        critMax: 0
+        critDmgMin: 30
+        critDmgMax: 50
+        hpMin: 7000
+        hpMax_rolled: 9000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 500
+    - m_ItemBasicTitle: Armor
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body18
+      m_ItemType: 3
+      m_SkinIfApplicable: 18
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 3000
+        dmgMax: 6000
+        defMin: 2000
+        defMax: 2500
+        atkSpdMin: 20
+        atkSpdMax: 30
+        critMin: 0
+        critMax: 0
+        critDmgMin: 30
+        critDmgMax: 50
+        hpMin: 7000
+        hpMax_rolled: 9000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 500
+  - requirement: 65000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 70000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 75000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 80000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 85000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 300000
+    itemsGiven: []
+  - requirement: 90000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc17
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 10000
+        dmgMax: 20000
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 6
+        critMax: 10
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 1
+        hpMax_rolled: 1
+        dmgPercMin: 10
+        dmgPercMax: 20
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0
+      fusionExp: 1000
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc17
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 10000
+        dmgMax: 20000
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 6
+        critMax: 10
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 1
+        hpMax_rolled: 1
+        dmgPercMin: 10
+        dmgPercMax: 20
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0
+      fusionExp: 1000
+    - m_ItemBasicTitle: Earring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc8
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 0
+        dmgMax: 0
+        defMin: 800
+        defMax: 1200
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 10000
+        hpMax_rolled: 20000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 10
+        hpPercMax: 20
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 1000
+    - m_ItemBasicTitle: Earring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc8
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 0
+        dmgMax: 0
+        defMin: 800
+        defMax: 1200
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 10000
+        hpMax_rolled: 20000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 10
+        hpPercMax: 20
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 1000
+  - requirement: 95000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Woody
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep20
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep20
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 13000
+        dmgMax: 16000
+        defMin: 1500
+        defMax: 1700
+        atkSpdMin: 10
+        atkSpdMax: 30
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 13000
+        hpMax_rolled: 16000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 500
+    - m_ItemBasicTitle: Woody
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep20
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep20
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 13000
+        dmgMax: 16000
+        defMin: 1500
+        defMax: 1700
+        atkSpdMin: 10
+        atkSpdMax: 30
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 13000
+        hpMax_rolled: 16000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 500
+    - m_ItemBasicTitle: Woody
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep20
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep20
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 13000
+        dmgMax: 16000
+        defMin: 1500
+        defMax: 1700
+        atkSpdMin: 10
+        atkSpdMax: 30
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 13000
+        hpMax_rolled: 16000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 500
+  - requirement: 100000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 110000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Leather
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body25
+      m_ItemType: 3
+      m_SkinIfApplicable: 25
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 9000
+        dmgMax: 12000
+        defMin: 3500
+        defMax: 4500
+        atkSpdMin: 20
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 5
+        critDmgMin: 15
+        critDmgMax: 40
+        hpMin: 12000
+        hpMax_rolled: 15000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 500
+    - m_ItemBasicTitle: Leather
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body25
+      m_ItemType: 3
+      m_SkinIfApplicable: 25
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 9000
+        dmgMax: 12000
+        defMin: 3500
+        defMax: 4500
+        atkSpdMin: 20
+        atkSpdMax: 30
+        critMin: 4
+        critMax: 5
+        critDmgMin: 15
+        critDmgMax: 40
+        hpMin: 12000
+        hpMax_rolled: 15000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.25
+        percChanceBonus4: 0
+      fusionExp: 500
+    - m_ItemBasicTitle: Leather
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body25
+      m_ItemType: 3
+      m_SkinIfApplicable: 25
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 9000
+        dmgMax: 12000
+        defMin: 3500
+        defMax: 4500
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 12000
+        hpMax_rolled: 15000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0
+        percChanceBonus4: 0
+      fusionExp: 500
+  - requirement: 120000
+    statPointsGiven: 1
+    skillPointsGiven: 1
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 130000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven:
+    - m_ItemBasicTitle: Necklace
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc19
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 18000
+        dmgMax: 22000
+        defMin: 1200
+        defMax: 1600
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 18000
+        hpMax_rolled: 22000
+        dmgPercMin: 15
+        dmgPercMax: 20
+        hpPercMin: 15
+        hpPercMax: 20
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0
+      fusionExp: 600
+    - m_ItemBasicTitle: Necklace
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc19
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 18000
+        dmgMax: 22000
+        defMin: 1200
+        defMax: 1600
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 18000
+        hpMax_rolled: 22000
+        dmgPercMin: 15
+        dmgPercMax: 20
+        hpPercMin: 15
+        hpPercMax: 20
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0
+      fusionExp: 600
+    - m_ItemBasicTitle: Necklace
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc19
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 2
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 18000
+        dmgMax: 22000
+        defMin: 1200
+        defMax: 1600
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 18000
+        hpMax_rolled: 22000
+        dmgPercMin: 15
+        dmgPercMax: 20
+        hpPercMin: 15
+        hpPercMax: 20
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0
+      fusionExp: 600
+  - requirement: 140000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 150000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 160000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Horns
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head22
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head22
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 15000
+        dmgMax: 20000
+        defMin: 2000
+        defMax: 2500
+        atkSpdMin: 10
+        atkSpdMax: 25
+        critMin: 5
+        critMax: 10
+        critDmgMin: 30
+        critDmgMax: 50
+        hpMin: 10000
+        hpMax_rolled: 15000
+        dmgPercMin: 15
+        dmgPercMax: 20
+        hpPercMin: 15
+        hpPercMax: 20
+        defPercMin: 15
+        defPercMax: 20
+        percChanceBonus1: 100
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.5
+      fusionExp: 400
+    - m_ItemBasicTitle: Horns
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head22
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head22
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 15000
+        dmgMax: 20000
+        defMin: 2000
+        defMax: 2500
+        atkSpdMin: 10
+        atkSpdMax: 25
+        critMin: 5
+        critMax: 10
+        critDmgMin: 30
+        critDmgMax: 50
+        hpMin: 10000
+        hpMax_rolled: 15000
+        dmgPercMin: 15
+        dmgPercMax: 20
+        hpPercMin: 15
+        hpPercMax: 20
+        defPercMin: 15
+        defPercMax: 20
+        percChanceBonus1: 100
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.5
+      fusionExp: 400
+    - m_ItemBasicTitle: Horns
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Head22
+      m_ItemType: 2
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Head/Head22
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 15000
+        dmgMax: 20000
+        defMin: 2000
+        defMax: 2500
+        atkSpdMin: 10
+        atkSpdMax: 25
+        critMin: 5
+        critMax: 10
+        critDmgMin: 30
+        critDmgMax: 50
+        hpMin: 10000
+        hpMax_rolled: 15000
+        dmgPercMin: 15
+        dmgPercMax: 20
+        hpPercMin: 15
+        hpPercMax: 20
+        defPercMin: 15
+        defPercMax: 20
+        percChanceBonus1: 100
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.5
+      fusionExp: 400
+  - requirement: 170000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 180000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 190000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 200000
+    statPointsGiven: 3
+    skillPointsGiven: 1
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 250000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven:
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc16
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 25000
+        dmgMax: 28000
+        defMin: 4000
+        defMax: 5000
+        atkSpdMin: 25
+        atkSpdMax: 30
+        critMin: 10
+        critMax: 12
+        critDmgMin: 30
+        critDmgMax: 50
+        hpMin: 25000
+        hpMax_rolled: 28000
+        dmgPercMin: 15
+        dmgPercMax: 30
+        hpPercMin: 15
+        hpPercMax: 30
+        defPercMin: 15
+        defPercMax: 25
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 3000
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc16
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 25000
+        dmgMax: 28000
+        defMin: 4000
+        defMax: 5000
+        atkSpdMin: 25
+        atkSpdMax: 30
+        critMin: 10
+        critMax: 12
+        critDmgMin: 30
+        critDmgMax: 50
+        hpMin: 25000
+        hpMax_rolled: 28000
+        dmgPercMin: 15
+        dmgPercMax: 30
+        hpPercMin: 15
+        hpPercMax: 30
+        defPercMin: 15
+        defPercMax: 25
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 3000
+    - m_ItemBasicTitle: Ring
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc16
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 25000
+        dmgMax: 28000
+        defMin: 4000
+        defMax: 5000
+        atkSpdMin: 25
+        atkSpdMax: 30
+        critMin: 10
+        critMax: 12
+        critDmgMin: 30
+        critDmgMax: 50
+        hpMin: 25000
+        hpMax_rolled: 28000
+        dmgPercMin: 15
+        dmgPercMax: 30
+        hpPercMin: 15
+        hpPercMax: 30
+        defPercMin: 15
+        defPercMax: 25
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 3000
+  - requirement: 300000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 350000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 400000
+    statPointsGiven: 1
+    skillPointsGiven: 1
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 450000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Claws
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep28
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep28
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 30000
+        dmgMax: 33000
+        defMin: 2300
+        defMax: 2400
+        atkSpdMin: 15
+        atkSpdMax: 30
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 25000
+        hpMax_rolled: 30000
+        dmgPercMin: 15
+        dmgPercMax: 30
+        hpPercMin: 15
+        hpPercMax: 25
+        defPercMin: 15
+        defPercMax: 25
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.1
+      fusionExp: 4000
+    - m_ItemBasicTitle: Claws
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep28
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep28
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 30000
+        dmgMax: 33000
+        defMin: 2300
+        defMax: 2400
+        atkSpdMin: 15
+        atkSpdMax: 30
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 25000
+        hpMax_rolled: 30000
+        dmgPercMin: 15
+        dmgPercMax: 30
+        hpPercMin: 15
+        hpPercMax: 25
+        defPercMin: 15
+        defPercMax: 25
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.1
+      fusionExp: 4000
+    - m_ItemBasicTitle: Claws
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep28
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep28
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 30000
+        dmgMax: 33000
+        defMin: 2300
+        defMax: 2400
+        atkSpdMin: 15
+        atkSpdMax: 30
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 25000
+        hpMax_rolled: 30000
+        dmgPercMin: 15
+        dmgPercMax: 30
+        hpPercMin: 15
+        hpPercMax: 25
+        defPercMin: 15
+        defPercMax: 25
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.1
+      fusionExp: 4000
+  - requirement: 500000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 550000
+    statPointsGiven: 2
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 600000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 650000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 700000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Shield
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh19
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh19
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 30000
+        dmgMax: 40000
+        defMin: 3000
+        defMax: 3300
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 30000
+        hpMax_rolled: 40000
+        dmgPercMin: 20
+        dmgPercMax: 35
+        hpPercMin: 20
+        hpPercMax: 35
+        defPercMin: 20
+        defPercMax: 35
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 4000
+    - m_ItemBasicTitle: Shield
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh19
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh19
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 30000
+        dmgMax: 40000
+        defMin: 3000
+        defMax: 3300
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 30000
+        hpMax_rolled: 40000
+        dmgPercMin: 20
+        dmgPercMax: 35
+        hpPercMin: 20
+        hpPercMax: 35
+        defPercMin: 20
+        defPercMax: 35
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 0.5
+        percChanceBonus4: 0.1
+      fusionExp: 4000
+    - m_ItemBasicTitle: Shield
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Sh19
+      m_ItemType: 1
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Shields/Sh19
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 30000
+        dmgMax: 40000
+        defMin: 3000
+        defMax: 3300
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 30000
+        hpMax_rolled: 40000
+        dmgPercMin: 20
+        dmgPercMax: 35
+        hpPercMin: 20
+        hpPercMax: 35
+        defPercMin: 20
+        defPercMax: 35
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.1
+      fusionExp: 4000
+  - requirement: 750000
+    statPointsGiven: 1
+    skillPointsGiven: 1
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 800000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 850000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 900000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 950000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1000000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1050000
+    statPointsGiven: 10
+    skillPointsGiven: 2
+    expGiven: 1000000
+    itemsGiven:
+    - m_ItemBasicTitle: Leather
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body26
+      m_ItemType: 3
+      m_SkinIfApplicable: 26
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 40000
+        dmgMax: 50000
+        defMin: 8500
+        defMax: 9500
+        atkSpdMin: 15
+        atkSpdMax: 25
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 40000
+        hpMax_rolled: 50000
+        dmgPercMin: 20
+        dmgPercMax: 35
+        hpPercMin: 20
+        hpPercMax: 35
+        defPercMin: 20
+        defPercMax: 35
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.1
+      fusionExp: 2000
+    - m_ItemBasicTitle: Leather
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body26
+      m_ItemType: 3
+      m_SkinIfApplicable: 26
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 40000
+        dmgMax: 50000
+        defMin: 8500
+        defMax: 9500
+        atkSpdMin: 15
+        atkSpdMax: 25
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 40000
+        hpMax_rolled: 50000
+        dmgPercMin: 20
+        dmgPercMax: 35
+        hpPercMin: 20
+        hpPercMax: 35
+        defPercMin: 20
+        defPercMax: 35
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.1
+      fusionExp: 2000
+    - m_ItemBasicTitle: Leather
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Body26
+      m_ItemType: 3
+      m_SkinIfApplicable: 26
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 40000
+        dmgMax: 50000
+        defMin: 8500
+        defMax: 9500
+        atkSpdMin: 15
+        atkSpdMax: 25
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 40000
+        hpMax_rolled: 50000
+        dmgPercMin: 20
+        dmgPercMax: 35
+        hpPercMin: 20
+        hpPercMax: 35
+        defPercMin: 20
+        defPercMax: 35
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.1
+      fusionExp: 2000
+    - m_ItemBasicTitle: Leather
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 0.5
+      m_IconName: Body26
+      m_ItemType: 3
+      m_SkinIfApplicable: 26
+      m_AttachmentIfApplicable: 
+      itemGrade: 3
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 40000
+        dmgMax: 50000
+        defMin: 8500
+        defMax: 9500
+        atkSpdMin: 15
+        atkSpdMax: 25
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 40000
+        hpMax_rolled: 50000
+        dmgPercMin: 20
+        dmgPercMax: 35
+        hpPercMin: 20
+        hpPercMax: 35
+        defPercMin: 20
+        defPercMax: 35
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 1
+      fusionExp: 2000
+  - requirement: 1100000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1150000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1200000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1250000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1300000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1350000
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven:
+    - m_ItemBasicTitle: Day
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc28
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 55000
+        dmgMax: 65000
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 10
+        atkSpdMax: 20
+        critMin: 3
+        critMax: 6
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 1
+        hpMax_rolled: 1
+        dmgPercMin: 20
+        dmgPercMax: 40
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 1
+      fusionExp: 2000
+    - m_ItemBasicTitle: Day
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc28
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 55000
+        dmgMax: 65000
+        defMin: 0
+        defMax: 0
+        atkSpdMin: 10
+        atkSpdMax: 20
+        critMin: 3
+        critMax: 6
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 1
+        hpMax_rolled: 1
+        dmgPercMin: 20
+        dmgPercMax: 40
+        hpPercMin: 0
+        hpPercMax: 0
+        defPercMin: 0
+        defPercMax: 0
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 1
+      fusionExp: 2000
+    - m_ItemBasicTitle: Night
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc29
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 0
+        dmgMax: 0
+        defMin: 6500
+        defMax: 7500
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 55000
+        hpMax_rolled: 60000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 20
+        hpPercMax: 40
+        defPercMin: 15
+        defPercMax: 35
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0
+      fusionExp: 2000
+    - m_ItemBasicTitle: Night
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Acc29
+      m_ItemType: 4
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: 
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 0
+        dmgMax: 0
+        defMin: 6500
+        defMax: 7500
+        atkSpdMin: 0
+        atkSpdMax: 0
+        critMin: 0
+        critMax: 0
+        critDmgMin: 0
+        critDmgMax: 0
+        hpMin: 55000
+        hpMax_rolled: 60000
+        dmgPercMin: 0
+        dmgPercMax: 0
+        hpPercMin: 20
+        hpPercMax: 40
+        defPercMin: 15
+        defPercMax: 35
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0
+      fusionExp: 2000
+  - requirement: 1400000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1500000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1600000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1700000
+    statPointsGiven: 3
+    skillPointsGiven: 0
+    expGiven: 350000
+    itemsGiven: []
+  - requirement: 1800000
+    statPointsGiven: 1
+    skillPointsGiven: 1
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 1900000
+    statPointsGiven: 1
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven:
+    - m_ItemBasicTitle: Claws
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep4
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep4
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 60000
+        dmgMax: 70000
+        defMin: 4000
+        defMax: 5000
+        atkSpdMin: 15
+        atkSpdMax: 20
+        critMin: 4
+        critMax: 6
+        critDmgMin: 15
+        critDmgMax: 25
+        hpMin: 6000
+        hpMax_rolled: 7000
+        dmgPercMin: 25
+        dmgPercMax: 45
+        hpPercMin: 25
+        hpPercMax: 45
+        defPercMin: 25
+        defPercMax: 45
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.5
+      fusionExp: 5000
+    - m_ItemBasicTitle: Claws
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep4
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep4
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 60000
+        dmgMax: 70000
+        defMin: 4000
+        defMax: 5000
+        atkSpdMin: 15
+        atkSpdMax: 20
+        critMin: 4
+        critMax: 6
+        critDmgMin: 15
+        critDmgMax: 25
+        hpMin: 6000
+        hpMax_rolled: 7000
+        dmgPercMin: 25
+        dmgPercMax: 45
+        hpPercMin: 25
+        hpPercMax: 45
+        defPercMin: 25
+        defPercMax: 45
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.5
+      fusionExp: 5000
+    - m_ItemBasicTitle: Claws
+      m_ItemFinalTitle: 
+      uniqueId: 0
+      m_ChanceDrop: 1
+      m_IconName: Wep4
+      m_ItemType: 0
+      m_SkinIfApplicable: 
+      m_AttachmentIfApplicable: Weapons/Wep4
+      itemGrade: 4
+      baseStat:
+        hpNow: 0
+        hpMax: 0
+        hpPerc: 0
+        dmg: 0
+        dmgPerc: 0
+        def: 0
+        defPerc: 0
+        block: 0
+        atkSpd: 0
+        crit: 0
+        critDmg: 0
+        pierce: 0
+        absorb: 0
+      rollStat:
+        dmgMin: 60000
+        dmgMax: 70000
+        defMin: 4000
+        defMax: 5000
+        atkSpdMin: 15
+        atkSpdMax: 20
+        critMin: 4
+        critMax: 6
+        critDmgMin: 15
+        critDmgMax: 25
+        hpMin: 6000
+        hpMax_rolled: 7000
+        dmgPercMin: 25
+        dmgPercMax: 45
+        hpPercMin: 25
+        hpPercMax: 45
+        defPercMin: 25
+        defPercMax: 45
+        percChanceBonus1: 1
+        percChanceBonus2: 1
+        percChanceBonus3: 1
+        percChanceBonus4: 0.5
+      fusionExp: 5000
+  - requirement: 2000000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2100000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2200000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2300000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2400000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2500000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2600000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2700000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2800000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 2900000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 3000000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 3100000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 3200000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 3300000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 3400000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 3500000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 3600000
+    statPointsGiven: 4
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  - requirement: 1e+11
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    itemsGiven: []
+  _rebirthLevelDb:
+  - minLevel: 0
+    statPointsGiven: 0
+    skillPointsGiven: 0
+    expGiven: 0
+    crystalsGiven: 0
+  - minLevel: 60
+    statPointsGiven: 10
+    skillPointsGiven: 3
+    expGiven: 50
+    crystalsGiven: 10000
+  - minLevel: 90
+    statPointsGiven: 20
+    skillPointsGiven: 4
+    expGiven: 50
+    crystalsGiven: 15000
+  - minLevel: 110
+    statPointsGiven: 30
+    skillPointsGiven: 5
+    expGiven: 60
+    crystalsGiven: 30000
+  - minLevel: 120
+    statPointsGiven: 50
+    skillPointsGiven: 6
+    expGiven: 60
+    crystalsGiven: 70000
+  - minLevel: 130
+    statPointsGiven: 70
+    skillPointsGiven: 8
+    expGiven: 80
+    crystalsGiven: 100000
+  - minLevel: 140
+    statPointsGiven: 100
+    skillPointsGiven: 9
+    expGiven: 80
+    crystalsGiven: 200000
+  - minLevel: 150
+    statPointsGiven: 130
+    skillPointsGiven: 10
+    expGiven: 100
+    crystalsGiven: 400000
+  - minLevel: 160
+    statPointsGiven: 160
+    skillPointsGiven: 11
+    expGiven: 100
+    crystalsGiven: 800000
+  - minLevel: 180
+    statPointsGiven: 190
+    skillPointsGiven: 13
+    expGiven: 120
+    crystalsGiven: 1200000
+  - minLevel: 200
+    statPointsGiven: 220
+    skillPointsGiven: 14
+    expGiven: 120
+    crystalsGiven: 1600000
+  - minLevel: 220
+    statPointsGiven: 260
+    skillPointsGiven: 16
+    expGiven: 140
+    crystalsGiven: 2000000
+  - minLevel: 240
+    statPointsGiven: 320
+    skillPointsGiven: 17
+    expGiven: 140
+    crystalsGiven: 2400000
+  - minLevel: 260
+    statPointsGiven: 360
+    skillPointsGiven: 18
+    expGiven: 160
+    crystalsGiven: 2800000
+  - minLevel: 270
+    statPointsGiven: 400
+    skillPointsGiven: 19
+    expGiven: 160
+    crystalsGiven: 3200000
+  - minLevel: 280
+    statPointsGiven: 440
+    skillPointsGiven: 20
+    expGiven: 180
+    crystalsGiven: 3600000
+  - minLevel: 290
+    statPointsGiven: 480
+    skillPointsGiven: 21
+    expGiven: 180
+    crystalsGiven: 4000000
+  - minLevel: 295
+    statPointsGiven: 520
+    skillPointsGiven: 23
+    expGiven: 200
+    crystalsGiven: 4400000
+  - minLevel: 300
+    statPointsGiven: 560
+    skillPointsGiven: 24
+    expGiven: 200
+    crystalsGiven: 4800000
+  - minLevel: 999
+    statPointsGiven: 600
+    skillPointsGiven: 25
+    expGiven: 220
+    crystalsGiven: 5000000
+  _rebirthOneLiners:
+  - Death is only the beginning.
+  - Stare into the void...
+  - Nothing lasts forever
+  - The greatest adventure is still ahead
+  - The journey into the great unknown starts today
+  - Step forward great warrior, this is your destiny
+  - Instant destiny awaits you
+  - Oh boi, here it comes!
+  - You ain't ready for what's about to come!
+  _hpLevelDb: 00000000020000000400000006000000090000000b0000000e0000001100000015000000180000001c0000002000000024000000280000002d00000032000000370000003c0000004100000046000000500000005a000000640000006e000000780000008200000091000000a0000000af000000be000000d2000000e6000000fa0000002c0100005e01000090010000c2010000f401000026020000580200008a020000bc020000ee020000200300005203000084030000b6030000e80300004c040000b00400001405000078050000dc05000040060000a4060000080700006c070000d00700003408000098080000fc08000060090000c4090000280a00008c0a0000f00a0000540b0000b80b0000800c0000480d0000100e0000d80e0000a00f00006810000030110000f8110000c0120000881300005014000018150000e0150000a8160000701700003818000000190000c8190000901a0000581b0000201c0000e81c0000b01d0000781e0000401f000008200000d0200000982100006022000028230000f0230000b82400008025000048260000102700003c28000068290000942a0000c02b0000ec2c0000182e0000442f0000703000009c310000c8320000f4330000203500004c36000078370000a4380000d0390000fc3a0000283c0000543d0000803e0000ac3f0000d840000004420000304300005c44000088450000b4460000e04700000c490000384a0000644b0000904c0000bc4d0000e84e0000145000004051000008520000fc530000f0550000e4570000d8590000cc5b0000c05d0000b45f0000a86100009c6300009065000084670000786900006c6b0000606d0000546f0000487100003c7300003075000024770000187900000c7b0000007d0000f47e0000e8800000dc820000d0840000c4860000b8880000ac8a0000a08c0000948e0000889000007c9200007094000064960000589800004c9a0000409c0000349e000028a000001ca2000010a4000004a60000f8a70000eca90000e0ab0000d4ad0000c8af0000bcb10000b0b30000a4b5000098b700008cb9000080bb000074bd000068bf00005cc1000050c3000044c5000038c700002cc9000020cb000014cd000008cf0000fcd00000f0d20000e4d40000d8d60000ccd80000c0da0000b4dc0000a8de00009ce0000090e2000084e4000078e600006ce80000c0da0000b4dc0000a8de00009ce0000090e2000084e4000078e600006ce8000060ea000054ec000048ee00003cf0000030f2000024f4000018f600000cf8000000fa0000f4fb0000e8fd0000dcff0000d0010100c4030100b8050100ac070100a0090100940b0100880d01007c0f01007011010064130100581501004c17010040190100341b0100281d01001c1f01001021010004230100f8240100ec260100e0280100d42a0100c82c0100bc2e0100b0300100a4320100983401008c36010080380100743a0100683c01005c3e01005040010044420100384401002c46010020480100144a0100084c0100fc4d0100f04f0100e4510100d8530100cc550100c0570100b4590100a85b01009c5d0100905f010084610100786301006c6501006067010054690100486b01003c6d0100306f010024710100187301000c75010000770100f4780100e87a0100
+  _dmgLevelDb: 00000000020000000400000006000000090000000b0000000e0000001100000015000000180000001c0000002000000024000000280000002d00000032000000370000003c0000004100000046000000500000005a000000640000006e000000780000008200000091000000a0000000af000000be000000d2000000e6000000fa0000002c0100005e01000090010000c2010000f401000026020000580200008a020000bc020000ee020000200300005203000084030000b6030000e80300004c040000b00400001405000078050000dc05000040060000a4060000080700006c070000d00700003408000098080000fc08000060090000c4090000280a00008c0a0000f00a0000540b0000b80b0000800c0000480d0000100e0000d80e0000a00f00006810000030110000f8110000c0120000881300005014000018150000e0150000a8160000701700003818000000190000c8190000901a0000581b0000201c0000e81c0000b01d0000781e0000401f000008200000d0200000982100006022000028230000f0230000b82400008025000048260000102700003c28000068290000942a0000c02b0000ec2c0000182e0000442f0000703000009c310000c8320000f4330000203500004c36000078370000a4380000d0390000fc3a0000283c0000543d0000803e0000ac3f0000d840000004420000304300005c44000088450000b4460000e04700000c490000384a0000644b0000904c0000bc4d0000e84e0000145000004051000008520000fc530000f0550000e4570000d8590000cc5b0000c05d0000b45f0000a86100009c6300009065000084670000786900006c6b0000606d0000546f0000487100003c7300003075000024770000187900000c7b0000007d0000f47e0000e8800000dc820000d0840000c4860000b8880000ac8a0000a08c0000948e0000889000007c9200007094000064960000589800004c9a0000409c0000349e000028a000001ca2000010a4000004a60000f8a70000eca90000e0ab0000d4ad0000c8af0000bcb10000b0b30000a4b5000098b700008cb9000080bb000074bd000068bf00005cc1000050c3000044c5000038c700002cc9000020cb000014cd000008cf0000fcd00000f0d20000e4d40000d8d60000ccd80000c0da0000b4dc0000a8de00009ce0000090e2000084e4000078e600006ce8000060ea000054ec000048ee00003cf0000030f2000024f4000018f600000cf8000000fa0000f4fb0000e8fd0000dcff0000d0010100c4030100b8050100ac070100a0090100940b0100880d01007c0f01007011010064130100581501004c17010040190100341b0100281d01001c1f01001021010004230100f8240100ec260100e0280100d42a0100c82c0100bc2e0100b0300100a4320100983401008c36010080380100743a0100683c01005c3e01005040010044420100384401002c46010020480100144a0100084c0100fc4d0100f04f0100e4510100d8530100cc550100c0570100b4590100a85b01009c5d0100905f010084610100786301006c6501006067010054690100486b01003c6d0100306f010024710100187301000c75010000770100f4780100e87a0100dc7c0100d07e0100c4800100b8820100ac840100a086010094880100888a0100
+  _defLevelDb: 000000000100000002000000030000000500000007000000090000000b0000000d0000000f0000001200000015000000180000001b0000001e00000022000000260000002a0000002e00000032000000370000003c00000041000000460000004c00000052000000580000005e000000640000006b000000720000007900000080000000870000008e000000950000009c000000a3000000aa000000b2000000ba000000c2000000ca000000d2000000dc000000e7000000f2000000fd00000008010000130100001e01000029010000360100004a0100005e01000072010000860100009a010000b8010000d6010000f401000012020000300200004e0200006c0200008a020000a8020000c6020000e402000002030000200300003e0300005c0300007a03000098030000b6030000d4030000f2030000100400002e0400004c0400006a04000088040000a6040000ba040000d8040000f60400001405000032050000500500006e0500008c050000aa050000c8050000e60500000406000022060000400600005e0600007c0600009a060000b8060000d6060000f406000012070000300700004e0700006c07000094070000bc070000e40700000c080000340800005c08000084080000ac080000d4080000fc080000240900004c0900007e0900004c0900007e090000b0090000e2090000140a0000460a0000780a0000aa0a0000f00a0000220b0000540b0000860b0000b80b0000ea0b00001c0c00004e0c0000800c0000b20c0000e40c0000160d0000480d00007a0d0000ac0d0000de0d0000100e0000420e0000740e0000a60e0000d80e00000a0f00003c0f00006e0f0000a00f0000d20f00000410000036100000681000009a100000cc100000fe100000301100006211000094110000c6110000f81100002a1200005c1200008e120000c0120000f2120000241300005613000088130000ba130000ec1300001e1400005014000082140000b4140000e6140000181500004a1500007c150000ae150000e0150000121600004416000076160000a8160000da1600000c1700003e17000070170000a2170000d417000006180000381800006a1800009c180000ce18000000190000321900006419000096190000c8190000fa1900002c1a00005e1a0000901a0000c21a0000f41a0000261b0000581b00008a1b0000bc1b0000ee1b0000201c0000521c0000841c0000b61c0000e81c00001a1d00004c1d00007e1d0000781e0000aa1e0000dc1e00000e1f0000401f0000721f0000a41f0000d61f0000082000003a2000006c2000009e200000d0200000022100003421000066210000282300005a2300008c230000be230000f0230000222400005424000086240000b8240000
+  _atkSpdLevelDb: 00000000050000000a0000000e00000012000000130000001400000015000000160000001700000018000000190000001a0000001b0000001c0000001d0000001e0000001f000000200000002100000022000000230000002400000025000000260000002700000028000000290000002a0000002b0000002c0000002d0000002e0000002f000000300000003100000032000000330000003400000035000000360000003700000038000000390000003a0000003b0000003c0000003d0000003e0000003f000000400000004100000042000000430000004400000045000000460000004700000048000000490000004a0000004b0000004c0000004d0000004e0000004f000000500000005100000052000000530000005400000055000000560000005700000058000000590000005a0000005b0000005c0000005d0000005e0000005f000000600000006100000062000000630000006400000065000000660000006700000068000000690000006a0000006b0000006c0000006d0000006e0000006f000000700000007100000072000000730000007400000075000000760000007700000078000000790000007a0000007b0000007c0000007d0000007e0000007f000000800000008100000082000000830000008400000085000000860000008700000088000000890000008a0000008b0000008c0000008d0000008e0000008f00000090000000910000009200000093000000940000009500000096000000970000009800000099000000
+  _critLevelDb:
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10.5
+  - 11
+  - 11.5
+  - 12
+  - 12.5
+  - 13
+  - 13.5
+  - 14
+  - 14.5
+  - 15
+  - 15.5
+  - 16
+  - 16.5
+  - 17
+  - 17.5
+  - 18
+  - 18.5
+  - 19
+  - 19.5
+  - 20
+  - 20.4
+  - 20.8
+  - 21.2
+  - 21.6
+  - 22
+  - 22.4
+  - 22.8
+  - 23.2
+  - 23.6
+  - 24
+  - 24.4
+  - 24.8
+  - 25.2
+  - 25.6
+  - 26
+  - 26.4
+  - 26.8
+  - 27.2
+  - 27.6
+  - 28
+  - 28.4
+  - 28.8
+  - 29.2
+  - 29.6
+  - 30
+  - 30.4
+  - 30.8
+  - 31.2
+  - 31.6
+  - 32
+  - 32.4
+  - 32.8
+  - 33.2
+  - 33.6
+  - 34
+  - 34.4
+  - 34.8
+  - 35.2
+  - 35.6
+  - 36
+  - 36.4
+  - 36.8
+  - 37.2
+  - 37.6
+  - 38
+  - 38.4
+  - 38.8
+  - 39.2
+  - 39.6
+  - 40
+  - 40.4
+  - 40.8
+  - 41.2
+  - 41.6
+  - 42
+  - 42.4
+  - 42.8
+  - 43.2
+  - 43.6
+  - 44
+  - 44.4
+  - 44.8
+  - 45.2
+  - 45.6
+  - 46
+  - 46.4
+  - 46.8
+  - 47.2
+  - 47.6
+  - 48
+  - 48.4
+  _critDmgLevelDb: 00000000050000000a0000000f00000014000000190000001e00000023000000280000002d00000032000000360000003a0000003e00000042000000460000004a0000004e00000052000000560000005a0000005e0000006200000066000000690000006c0000006f0000007200000075000000780000007b0000007e0000008100000084000000870000008a0000008d000000900000009300000096000000980000009a0000009c0000009e000000a0000000a2000000a4000000a6000000a8000000aa000000ac000000ae000000b0000000b2000000b4000000b6000000b8000000ba000000bc000000be000000c0000000c2000000c4000000c6000000c8000000ca000000cc000000ce000000d0000000d2000000d4000000d6000000d8000000da000000dc000000e0000000e2000000e4000000e6000000e8000000ea000000ec000000ee000000f0000000f2000000f4000000f6000000f8000000fa000000fb000000fc000000fd000000fe000000ff00000000010000010100000201000003010000040100000501000006010000
+  _enemyDb:
+  - key: Mob1
+    assetRef:
+      m_AssetGUID: 0b3ec52bdc73c424e81508d4cf611002
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob2
+    assetRef:
+      m_AssetGUID: 873edb48beac54540aee5d4f0cf21977
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob3
+    assetRef:
+      m_AssetGUID: 177b862fb68a7544c993fafcd179f7c4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob4
+    assetRef:
+      m_AssetGUID: 401e869ef36910e4e9e77b12dd1da30b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob5
+    assetRef:
+      m_AssetGUID: 10ff478a3ddb6c84790a18434e3bbb31
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob6
+    assetRef:
+      m_AssetGUID: 37aea790773297b4b905f8a5eb318e15
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob7
+    assetRef:
+      m_AssetGUID: 72dc73ebb02deef48bd9862e27532520
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob8
+    assetRef:
+      m_AssetGUID: ed1e15bdcb4693d4397d7fcfdeba1efb
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob9
+    assetRef:
+      m_AssetGUID: 60eca259503ec3b4f9a7a1f56549b144
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob10
+    assetRef:
+      m_AssetGUID: 2ea8fc7701c135444b3e17c56be9dab0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob11
+    assetRef:
+      m_AssetGUID: c665f3b142a02ec41aaf3fa8c2eee5de
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob12
+    assetRef:
+      m_AssetGUID: 801770c376360a54e9a6847b487d3ef8
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob13
+    assetRef:
+      m_AssetGUID: e971bdee6ed18774e85a6abf04cf4c66
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob14
+    assetRef:
+      m_AssetGUID: eb6f4ce98e1acc242a590f5ae8dbedc3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob15
+    assetRef:
+      m_AssetGUID: 711fdd86396e2ad46b4251b7f2462f21
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob16
+    assetRef:
+      m_AssetGUID: aac36b8224dea65459f225e650b31448
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob17
+    assetRef:
+      m_AssetGUID: a179cc27f2642b2409df45185c9102de
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob18
+    assetRef:
+      m_AssetGUID: 69e54db2ec96dc740af0a7a06db8b461
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob19
+    assetRef:
+      m_AssetGUID: 95286f831eba8f14dbd95fe94a11762b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob20
+    assetRef:
+      m_AssetGUID: 2a185a33ec91137439dbb1eb1bd62201
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob21
+    assetRef:
+      m_AssetGUID: ccd3a99b35b62ab458caa8cd27fd5f09
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob22
+    assetRef:
+      m_AssetGUID: 3fcd3b51289f0c04daa71af4959bf3bb
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob23
+    assetRef:
+      m_AssetGUID: 560030cacb3dd1c44a1bb8a44a1ec14e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob24
+    assetRef:
+      m_AssetGUID: f51d00c97804b7c49a74f642d464059c
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob25
+    assetRef:
+      m_AssetGUID: d46a7083ab248044f9630540660147a1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob26
+    assetRef:
+      m_AssetGUID: 956aa5089275f084f8c641a2e4bccff1
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob27
+    assetRef:
+      m_AssetGUID: 060d0c864c891794590679b8dfe18ca4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob28
+    assetRef:
+      m_AssetGUID: 9df83b09c9fa3ea4bbcc974acd75cf7e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob29
+    assetRef:
+      m_AssetGUID: b0b328ae25339b74a918d4732ea3592f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob30
+    assetRef:
+      m_AssetGUID: 49c1dbcca61f2b440b53027fdcd3abde
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob31
+    assetRef:
+      m_AssetGUID: 28d684a492461f7488876da12cda6402
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob32
+    assetRef:
+      m_AssetGUID: 216da9df59e36fb419edee5caefca8f3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob33
+    assetRef:
+      m_AssetGUID: 993e87ac3575bd74493bc0edbaadf91f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob34
+    assetRef:
+      m_AssetGUID: f5ba652a334ff8b4fa44409aa483858a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob35
+    assetRef:
+      m_AssetGUID: 1176d6da19293aa41b3ae9ed8797f6bc
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob36
+    assetRef:
+      m_AssetGUID: 891b51c7df233084fac9945c89f7c85a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob37
+    assetRef:
+      m_AssetGUID: 1b7d1bf0de5ac974fa4da6c64a585c8e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob38
+    assetRef:
+      m_AssetGUID: 4db52ed91eca523428f53ce66d23c214
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob39
+    assetRef:
+      m_AssetGUID: 3485213bf5b08504daf76e4e7eab8b1a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob40
+    assetRef:
+      m_AssetGUID: 2c7395cd2523e8746a6345f29374c659
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Mob41
+    assetRef:
+      m_AssetGUID: 1c21a801d78acbf4fb50d508ae4710c3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: MiniBoss1
+    assetRef:
+      m_AssetGUID: 7577539e7c010b04fa5ccb40f86caf97
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: MiniBoss2
+    assetRef:
+      m_AssetGUID: 30d68d911522874449051714723aa3aa
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: MiniBoss3
+    assetRef:
+      m_AssetGUID: 4f03026f02aa35c47aa2e95fa504b1aa
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: MiniBoss4
+    assetRef:
+      m_AssetGUID: 62a040c1a23ab5c4fb8904e53df75ca9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: MiniBoss5
+    assetRef:
+      m_AssetGUID: f951fe8048c6d6048892ec07cf2af904
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Boss1
+    assetRef:
+      m_AssetGUID: cb980cc0206bd0b4788a41987c9977e3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Boss2
+    assetRef:
+      m_AssetGUID: 61a07345c16b79443abc7b746b07c6eb
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Boss3
+    assetRef:
+      m_AssetGUID: 3cc37142a46f6e14ba44d64d3548c1b4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Boss4
+    assetRef:
+      m_AssetGUID: 0263bd9b029ab314d9702e287ae0904f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Boss5
+    assetRef:
+      m_AssetGUID: 65c0b1c4cd3be1f4483ec40d85f3e267
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Boss6
+    assetRef:
+      m_AssetGUID: 74a12b1e6d29ac54cb098d5b109b5740
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Boss7
+    assetRef:
+      m_AssetGUID: b3ce8a2a510e92a47b21c0871f06df3f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Boss7
+    assetRef:
+      m_AssetGUID: b3ce8a2a510e92a47b21c0871f06df3f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  _mapDb:
+  - key: Clouds
+    assetRef:
+      m_AssetGUID: 6d1234cc1f18a4780814a9fefd2ffe39
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map1
+    assetRef:
+      m_AssetGUID: 5ed1fca255d984942b448b63d1532138
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map2
+    assetRef:
+      m_AssetGUID: e7039766d6c3e44468ba06d24c71c39e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map3
+    assetRef:
+      m_AssetGUID: 9bf21d0ba1fa1b44c8bb8a626ed712ce
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map4
+    assetRef:
+      m_AssetGUID: b36beb40409ee874b859a96ba670aa00
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map5
+    assetRef:
+      m_AssetGUID: 41e4fae477d373b4985fa13c47f7b787
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map6
+    assetRef:
+      m_AssetGUID: edcfb933e1e08044cb049b3b2341e281
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map7
+    assetRef:
+      m_AssetGUID: b467120f1eea56844a88d5f48a3de862
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map8
+    assetRef:
+      m_AssetGUID: 240e299c7ef5fde43b394e8dd3949d98
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map9
+    assetRef:
+      m_AssetGUID: a37298be2f201ba4098442ea04da6303
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map10
+    assetRef:
+      m_AssetGUID: 78b4531d13f43b34380f23f83dc77256
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map11
+    assetRef:
+      m_AssetGUID: 026b71c256d9c924fa7d7f5313289ecc
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map12
+    assetRef:
+      m_AssetGUID: e0d364e8e22d8e94bbd878e3d65b3732
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map13
+    assetRef:
+      m_AssetGUID: d27a76ba462ed0a449552ce77a46086a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map14
+    assetRef:
+      m_AssetGUID: a3e006e9130166d4b9b183341c0fff7e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map15
+    assetRef:
+      m_AssetGUID: 793a6c8b6822936448ac6f7038cc8810
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map16
+    assetRef:
+      m_AssetGUID: a8b9d0fdf2b284545bd1ccc33f21f30f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map17
+    assetRef:
+      m_AssetGUID: 148b639510721954abcff30c9f242e22
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map18
+    assetRef:
+      m_AssetGUID: 3b8cbeec5e608554d9ad35010acf1231
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map19
+    assetRef:
+      m_AssetGUID: e29eadc3f342547429b4bc6e7b76e520
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map20
+    assetRef:
+      m_AssetGUID: 16d6c4e3eb82b5440a740dcf7dc08511
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map21
+    assetRef:
+      m_AssetGUID: 961985cd6bce2e642a8bf3bf829b36cf
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map22
+    assetRef:
+      m_AssetGUID: db584afe17dc78547948da695187339e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map23
+    assetRef:
+      m_AssetGUID: 03c28f62b2c71234497462278c98fcec
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map24
+    assetRef:
+      m_AssetGUID: 0b8b24f3be5ad4040b3bc6afeaf6195b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map25
+    assetRef:
+      m_AssetGUID: 4f30b69bd881a7740937b874f9bec42c
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map26
+    assetRef:
+      m_AssetGUID: 8404ce8f6735f3e4aaeb28411d91f8fc
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map27
+    assetRef:
+      m_AssetGUID: e12cf41371551ea42bf2389dc4e3cdb9
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map28
+    assetRef:
+      m_AssetGUID: e73b9f7d74c2eeb4e90a19b698f0e73a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map29
+    assetRef:
+      m_AssetGUID: cef27b63849d8884495b85cdf346f563
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map30
+    assetRef:
+      m_AssetGUID: 2481b4c9fc16f4c41a415a0a9597968e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map31
+    assetRef:
+      m_AssetGUID: d6b5abaadcb826742be16efdc5816cf8
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map32
+    assetRef:
+      m_AssetGUID: ee3c21d2e7519c04bad99eee090aa991
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map33
+    assetRef:
+      m_AssetGUID: c7ef19b31a05c4740a8bbdbe6fac0154
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map34
+    assetRef:
+      m_AssetGUID: d25ad9d5c79a3c44db05dd1c3a8e08ed
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map35
+    assetRef:
+      m_AssetGUID: 2b4b6b816e9ba81409210dcd3a28d54d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map36
+    assetRef:
+      m_AssetGUID: 9119ebd44b0b8f142998e29589d09b8b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map37
+    assetRef:
+      m_AssetGUID: d26500d5faf484848818cadb7db619d4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map38
+    assetRef:
+      m_AssetGUID: df769a5ab640edc47a02f8ea95b103fe
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map39
+    assetRef:
+      m_AssetGUID: 9a321019497858441a991ff80f2059b4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map40
+    assetRef:
+      m_AssetGUID: 7bb56fd65874cef449ad5735a91134f6
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Map41
+    assetRef:
+      m_AssetGUID: 20ef08b67c77e3d4bb7248a0a3a8cb34
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  _particleDb:
+  - key: Hit_Particle
+    assetRef:
+      m_AssetGUID: 4fb6b46bfaeac8b48a0aacd4528c3093
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Shield_Particle
+    assetRef:
+      m_AssetGUID: cb797ddfeaef0fe4baf7dbddf1fca6e0
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: AOE_Particle
+    assetRef:
+      m_AssetGUID: 8500d3e5902d1d24ab111a446684653f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Heal_Particle
+    assetRef:
+      m_AssetGUID: 4d91a4388ae9e45a7b570fa15529b606
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Res_Particle
+    assetRef:
+      m_AssetGUID: 2c63e98af8a344319a4ba7dd5979f573
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Lightning_Particle
+    assetRef:
+      m_AssetGUID: f01657185861543ab9c8e23e6f5d3351
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: Absorb_Particle
+    assetRef:
+      m_AssetGUID: 326cee5a0a1024eabb136968f3d39173
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  _generalObjectsDb:
+  - key: MapPackage
+    assetRef:
+      m_AssetGUID: 432997815b89b624f93c2bc36807935a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: CampPackage
+    assetRef:
+      m_AssetGUID: d0df8446feba5a940b8f6cd10ee50ae3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: ChestDropIn
+    assetRef:
+      m_AssetGUID: d6301b9d4bc08cb46bf08170e744f4ca
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: CherriesChestDropIn
+    assetRef:
+      m_AssetGUID: 8e41fac3d31db4e11912fdf0104b479a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: ChestPackage
+    assetRef:
+      m_AssetGUID: b90ce2ee895c64461929bdaece2c06bd
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: FusionPackage
+    assetRef:
+      m_AssetGUID: 0de4298cd9d9d46998f26727620d36d4
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: PetDragon
+    assetRef:
+      m_AssetGUID: fb9b90fe7c60d4e169e0c53f2ff05d94
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: RebirthPackage
+    assetRef:
+      m_AssetGUID: dabbd59e3387d48d69670edfc152d1d6
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: CashMallPackage
+    assetRef:
+      m_AssetGUID: 0e33a3b07569d470489af69d481d040d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0
+  - key: XPBoosterPackage
+    assetRef:
+      m_AssetGUID: bb6601e3f9842470ebfaf7d31e0f7d1e
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_EditorAssetChanged: 0

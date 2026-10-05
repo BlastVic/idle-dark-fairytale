@@ -1,0 +1,76 @@
+
+skeleton.png
+size: 981,934
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+2t1
+  rotate: false
+  xy: 2, 273
+  size: 471, 163
+  orig: 471, 163
+  offset: 0, 0
+  index: -1
+2t2
+  rotate: false
+  xy: 2, 123
+  size: 466, 148
+  orig: 467, 148
+  offset: 0, 0
+  index: -1
+Shadow
+  rotate: true
+  xy: 896, 196
+  size: 298, 80
+  orig: 302, 84
+  offset: 2, 2
+  index: -1
+b
+  rotate: false
+  xy: 2, 438
+  size: 630, 494
+  orig: 630, 494
+  offset: 0, 0
+  index: -1
+eyes1
+  rotate: false
+  xy: 2, 22
+  size: 363, 99
+  orig: 364, 99
+  offset: 0, 0
+  index: -1
+eyes2
+  rotate: true
+  xy: 762, 87
+  size: 339, 132
+  orig: 339, 132
+  offset: 0, 0
+  index: -1
+eyes3
+  rotate: true
+  xy: 611, 2
+  size: 424, 149
+  orig: 425, 149
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: true
+  xy: 634, 428
+  size: 504, 214
+  orig: 504, 214
+  offset: 0, 0
+  index: -1
+t1
+  rotate: true
+  xy: 475, 6
+  size: 430, 134
+  orig: 430, 134
+  offset: 0, 0
+  index: -1
+t2
+  rotate: true
+  xy: 850, 496
+  size: 436, 129
+  orig: 436, 129
+  offset: 0, 0
+  index: -1
