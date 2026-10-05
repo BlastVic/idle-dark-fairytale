@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2250706265291184127}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.62, z: 0}
+  m_LocalPosition: {x: 0, y: 2.75, z: 0}
   m_LocalScale: {x: 0.7941175, y: 0.7941175, z: 1}
   m_Children: []
   m_Father: {fileID: 2722327831800427606}
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonAnimation: {fileID: 2722327831800427595}
+  useEquipmentAppearance: 0
   isCampPlayer: 0
   ab: {fileID: 0}
   rootPos: {fileID: 2250706265291184127}
@@ -141,7 +142,7 @@ GameObject:
   - component: {fileID: 2722327831800427595}
   - component: {fileID: 2722327831800427607}
   m_Layer: 0
-  m_Name: New SkeletonAnimation
+  m_Name: Red Hood
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,8 +156,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2722327831800427594}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -13.244445, z: 0}
-  m_LocalScale: {x: 1.2592593, y: 1.2592593, z: 1}
+  m_LocalPosition: {x: 0, y: -9.4, z: 0}
+  m_LocalScale: {x: 1.65, y: 1.65, z: 1}
   m_Children:
   - {fileID: 8563094468729313550}
   m_Father: {fileID: 2722327831721309742}
@@ -188,28 +189,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 908241f02e765b94e88db3feca780fdd, type: 2}
-  - {fileID: 2100000, guid: 43b1211fd5ccfde4f956fe969572b3ef, type: 2}
-  - {fileID: 2100000, guid: 908241f02e765b94e88db3feca780fdd, type: 2}
-  - {fileID: 2100000, guid: 07940d747603e0a488eae00902f2dff1, type: 2}
-  - {fileID: 2100000, guid: 908241f02e765b94e88db3feca780fdd, type: 2}
-  - {fileID: 2100000, guid: e7bff9ea314a9fc4c8d3427a124faf92, type: 2}
-  - {fileID: 2100000, guid: df2bd1a8dc4019147b0cd6d771885bd5, type: 2}
-  - {fileID: 2100000, guid: 908241f02e765b94e88db3feca780fdd, type: 2}
-  - {fileID: 2100000, guid: 3306cc5e4895d4748879f624b641ec21, type: 2}
-  - {fileID: 2100000, guid: 6ca4541980d45f24490b7a3b53ca0f74, type: 2}
-  - {fileID: 2100000, guid: 3306cc5e4895d4748879f624b641ec21, type: 2}
-  - {fileID: 2100000, guid: d877e99cffba4a8429a0f165d051893f, type: 2}
-  - {fileID: 2100000, guid: 4607ae596969c7549824bf67a62806a1, type: 2}
-  - {fileID: 2100000, guid: df2bd1a8dc4019147b0cd6d771885bd5, type: 2}
-  - {fileID: 2100000, guid: 07940d747603e0a488eae00902f2dff1, type: 2}
-  - {fileID: 2100000, guid: 908241f02e765b94e88db3feca780fdd, type: 2}
-  - {fileID: 2100000, guid: 07940d747603e0a488eae00902f2dff1, type: 2}
-  - {fileID: 2100000, guid: 908241f02e765b94e88db3feca780fdd, type: 2}
-  - {fileID: 2100000, guid: 07940d747603e0a488eae00902f2dff1, type: 2}
-  - {fileID: 2100000, guid: 6ca4541980d45f24490b7a3b53ca0f74, type: 2}
-  - {fileID: 2100000, guid: 7ad93624b4807fc4cb1e8b2f293d07f8, type: 2}
-  - {fileID: 2100000, guid: a043d176e3d4a2a45a4469f33702bdde, type: 2}
+  - {fileID: 2100000, guid: fcd8d3e246bab394fb4eee368ccc3127, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -242,8 +222,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 6b3ea6c4b0dae2e46b2c8e41907971d6, type: 2}
-  initialSkinName: 1
+  skeletonDataAsset: {fileID: 11400000, guid: 790bff26a1ad48bcafc010324a3f1733, type: 2}
+  initialSkinName: default
   initialFlipX: 0
   initialFlipY: 0
   separatorSlotNames: []
@@ -280,18 +260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonAnimation: {fileID: 2722327831800427595}
   whiteMats:
-  - {fileID: 2100000, guid: 5642b7c5209dc3e4ebe888934d74e67c, type: 2}
-  - {fileID: 2100000, guid: d50d8760909b18c4680c3e56fdf1be77, type: 2}
-  - {fileID: 2100000, guid: 5642b7c5209dc3e4ebe888934d74e67c, type: 2}
-  - {fileID: 2100000, guid: d50d8760909b18c4680c3e56fdf1be77, type: 2}
-  - {fileID: 2100000, guid: 5642b7c5209dc3e4ebe888934d74e67c, type: 2}
-  - {fileID: 2100000, guid: d50d8760909b18c4680c3e56fdf1be77, type: 2}
-  - {fileID: 2100000, guid: 57479943e191ed14b9bb4c3a4ce257b8, type: 2}
+  - {fileID: 2100000, guid: 1af2cf41db0c417a872cbea3cd34bbba, type: 2}
   origMats:
-  - {fileID: 2100000, guid: 07940d747603e0a488eae00902f2dff1, type: 2}
-  - {fileID: 2100000, guid: 908241f02e765b94e88db3feca780fdd, type: 2}
-  - {fileID: 2100000, guid: 07940d747603e0a488eae00902f2dff1, type: 2}
-  - {fileID: 2100000, guid: 908241f02e765b94e88db3feca780fdd, type: 2}
-  - {fileID: 2100000, guid: 07940d747603e0a488eae00902f2dff1, type: 2}
-  - {fileID: 2100000, guid: 908241f02e765b94e88db3feca780fdd, type: 2}
-  - {fileID: 2100000, guid: a043d176e3d4a2a45a4469f33702bdde, type: 2}
+  - {fileID: 2100000, guid: fcd8d3e246bab394fb4eee368ccc3127, type: 2}

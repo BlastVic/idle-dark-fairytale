@@ -69,7 +69,7 @@ public class WaveManager : MonoBehaviour
         //Debug.Log("aspect Ratio:" + System.Math.Round(aspectRatio, 1));
 
         //simple rounded way of checking for 4:3 ipad aspect ratio
-        if (aspectRatio == 1.3f)
+        if (aspectRatio == 1.3f && !LevelController.Instance.AssetManager.battleStyle)
         {
             //Debug.Log("Better add clouds");
             LevelController.Instance.AssetManager.SpawnMap("Clouds");
@@ -81,9 +81,10 @@ public class WaveManager : MonoBehaviour
 
         GameplayCanvas.single.ToggleBattleUi(true);
         GameplayCanvas.single.ToggleCampUi(false);
-        if (GameManager.single.thingsSeenPermanent.Contains("Cutscene-0"))
+        if (LevelController.Instance.AssetManager.battleStyle || GameManager.single.thingsSeenPermanent.Contains("Cutscene-0"))
         {
             LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
+            LevelController.Instance.AssetManager.battleCampCamera.GetComponent<Camera>().enabled = true;
             CallNextWave();
         }
         else

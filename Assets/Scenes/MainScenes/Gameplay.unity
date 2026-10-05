@@ -71587,6 +71587,7 @@ MonoBehaviour:
   - {r: 1, g: 0.8666667, b: 0, a: 1}
   - {r: 1, g: 0, b: 0.03137255, a: 1}
   - {r: 1, g: 0.67058825, b: 0, a: 1}
+  battleStyle: {fileID: 11400000, guid: c08ac5afb08f48ceab9cfd38a07ae1d9, type: 2}
   playerPrefab: {fileID: 2722327831721309731, guid: ff382b3a46de08040b9dcbf365500715,
     type: 3}
   enemyPositions:

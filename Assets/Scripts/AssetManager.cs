@@ -15,6 +15,9 @@ public class AssetManager : MonoBehaviour
 
     [Header("Normal Prefabs")]
     public GameObject playerPrefab;
+    public DarkFairytaleBattleStyle battleStyle;
+    private int nextEnemySlot;
+    private GameObject fairytaleBackdrop;
     public GameObject[] enemyPositions;
     public GameObject popUpText, notifierText;
 
@@ -29,6 +32,8 @@ public class AssetManager : MonoBehaviour
     public Vector3 GetNextPosition(bool isMini = false)
     {
         int enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Count();
+        nextEnemySlot = enemyCount;
+        if (battleStyle) return battleStyle.EnemyPosition(battleCampCamera.GetComponent<Camera>(), enemyCount);
         if (enemyCount >= enemyPositions.Count()) enemyCount = enemyPositions.Count() - 1;
         return enemyPositions[enemyCount].transform.position;
     }
@@ -150,6 +155,11 @@ public class AssetManager : MonoBehaviour
     {
         spawningEnemy = false;
         Enemy nextEnemy = obj.Result.GetComponent<Enemy>();
+        if (battleStyle)
+        {
+            battleStyle.PlaceEnemy(nextEnemy, battleCampCamera.GetComponent<Camera>(), nextEnemySlot);
+            return;
+        }
         bool overrideInBack = false;
 
         if (nextEnemy.ab != null && nextEnemy.ab.enemyLifebar != null && nextEnemy.ab.enemyLifebar.isMiniBoss)
@@ -171,6 +181,13 @@ public class AssetManager : MonoBehaviour
     public bool spawningMap = false;
     public void SpawnMap(string assetKey)
     {
+        if (battleStyle)
+        {
+            if (!fairytaleBackdrop)
+                fairytaleBackdrop = battleStyle.CreateBackdrop(battleCampCamera.GetComponent<Camera>());
+            spawningMap = false;
+            return;
+        }
         spawningMap = true;
         nextMap = GetAssetByKey(AssetType.MAP, assetKey);
         Addressables.InstantiateAsync(nextMap, Vector3.zero, Quaternion.identity).Completed += SpawnMap_Complete;

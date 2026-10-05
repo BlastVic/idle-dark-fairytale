@@ -23,6 +23,16 @@ public class Player : AnimationController
     public Actor_Base ab;
     public GameObject rootPos;
 
+    [Tooltip("Disable for characters with a fixed costume, such as Red Hood. Equipment stats still apply.")]
+    public bool useEquipmentAppearance = true;
+    private Vector3 originalVisualPosition, originalVisualScale;
+
+    private void Awake()
+    {
+        originalVisualPosition = skeletonAnimation.transform.localPosition;
+        originalVisualScale = skeletonAnimation.transform.localScale;
+    }
+
     private void OnEnable()
     {
         ab = GetComponent<Actor_Base>();
@@ -35,7 +45,13 @@ public class Player : AnimationController
 
     public void InitPlayer()
     {
-        SetSkinsAndAttachments(GetAllAttachments());
+        skeletonAnimation.transform.localPosition = originalVisualPosition;
+        skeletonAnimation.transform.localScale = originalVisualScale;
+        var shadow = transform.Find("Battle Contact Shadow");
+        if (shadow) shadow.gameObject.SetActive(false);
+        currentAnimation = "";
+        isAttacking = false;
+        SetSkinsAndAttachments();
 
 
         if (isCampPlayer)
@@ -46,6 +62,9 @@ public class Player : AnimationController
         else
         {
             transform.position = new Vector3(0, .62f, 0);
+            var assets = LevelController.Instance.AssetManager;
+            if (assets.battleStyle)
+                assets.battleStyle.PlacePlayer(this, assets.battleCampCamera.GetComponent<Camera>());
 
             if (SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Tairon_The_Dragon) > 0)
             {
@@ -213,6 +232,7 @@ public class Player : AnimationController
 
     public void SetSkin(string skin)
     {
+        if (!useEquipmentAppearance) return;
         if (base.skeletonAnimation == null) base.Start();
 
         base.skeletonAnimation.skeleton.SetSkin(skin);
@@ -280,10 +300,11 @@ public class Player : AnimationController
     public void SetSkinsAndAttachments()
     {
 
-        SetSkinsAndAttachments(GetAllAttachments());//this is the default behavior if we want to reset the char looks
+        SetSkinsAndAttachments(null);//this is the default behavior if we want to reset the char looks
     }
     public void SetSkinsAndAttachments(SpineAttachmentSet sas = null)
     {
+        if (!useEquipmentAppearance) return;
         //Debug.Log("Setting attachments on player");
         if (skeletonAnimation == null || skeletonAnimation.skeleton == null)
         {
@@ -338,7 +359,11 @@ public class Player : AnimationController
             //sinister stampede
             //SoundManager.Instance.PlayClip("JUMP_SKILL");
 
-            LevelController.Instance.AssetManager.SpawnParticle("AOE_Particle", new Vector3(-3, -5.5f, 0));
+            var assets = LevelController.Instance.AssetManager;
+            var position = assets.battleStyle
+                ? assets.battleStyle.EnemyPosition(assets.battleCampCamera.GetComponent<Camera>(), 0)
+                : new Vector3(-3, -5.5f, 0);
+            assets.SpawnParticle("AOE_Particle", position);
             ProcessDmg_AOE();
         }
 
