@@ -65,7 +65,7 @@ public class TutorialManager : MonoBehaviour
         cool = false;
         Invoke("Cooldown", .5f);
 
-        StatisticsTracker.Instance.LogFlurryEvent("Tutorial-" + key);
+        StatisticsTracker.Instance.LogEvent("Tutorial-" + key);
         GameManager.single.thingsSeenPermanent.Add("Tutorial-" + key);
 
 

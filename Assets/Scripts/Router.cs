@@ -559,7 +559,7 @@ public class Router : MonoBehaviour
         yield return new WaitForSeconds(.5f);
         waitingForBattleCleanup = false;
         gm.SetGameState(GameStateType.DEFEAT);
-        StatisticsTracker.Instance.LogFlurryEvent(WaveManager.single.currentWaveset.levelName.ToUpper() + "-Fail");
+        StatisticsTracker.Instance.LogEvent(WaveManager.single.currentWaveset.levelName.ToUpper() + "-Fail");
         SaveManager.Instance.Save();
 
     }
@@ -578,7 +578,7 @@ public class Router : MonoBehaviour
         if (reached < WaveManager.single.currentWaveset.waves.Length)
         {
             Debug.Log("FIRST TIME DEFEATING THIS MAP");
-            StatisticsTracker.Instance.LogFlurryEvent(WaveManager.single.currentWaveset.levelName + "-Complete");
+            StatisticsTracker.Instance.LogEvent(WaveManager.single.currentWaveset.levelName + "-Complete");
 
         }
 

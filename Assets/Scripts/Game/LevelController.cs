@@ -89,32 +89,32 @@ public class LevelController : MonoSingleton<LevelController>
         switch (levelType)
         {
             case LevelTypeEnum.HP:
-                StatisticsTracker.Instance.LogFlurryEvent("Stats-HP");
+                StatisticsTracker.Instance.LogEvent("Stats-HP");
                 gm.hpLevel++;
                 if (gm.hpLevel >= LevelDataDescriptions.HpLevelDb.Length) gm.hpLevel = LevelDataDescriptions.HpLevelDb.Length;
                 break;
             case LevelTypeEnum.DMG:
-                StatisticsTracker.Instance.LogFlurryEvent("Stats-DMG");
+                StatisticsTracker.Instance.LogEvent("Stats-DMG");
                 gm.dmgLevel++;
                 if (gm.dmgLevel >= LevelDataDescriptions.DmgLevelDb.Length) gm.dmgLevel = LevelDataDescriptions.DmgLevelDb.Length;
                 break;
             case LevelTypeEnum.DEF:
-                StatisticsTracker.Instance.LogFlurryEvent("Stats-DEF");
+                StatisticsTracker.Instance.LogEvent("Stats-DEF");
                 gm.defLevel++;
                 if (gm.defLevel >= LevelDataDescriptions.DefLevelDb.Length) gm.defLevel = LevelDataDescriptions.DefLevelDb.Length;
                 break;
             case LevelTypeEnum.ATK_SPD:
-                StatisticsTracker.Instance.LogFlurryEvent("Stats-ATKSPD");
+                StatisticsTracker.Instance.LogEvent("Stats-ATKSPD");
                 gm.atkSpdLevel++;
                 if (gm.atkSpdLevel >= LevelDataDescriptions.AtkSpdLevelDb.Length) gm.atkSpdLevel = LevelDataDescriptions.AtkSpdLevelDb.Length;
                 break;
             case LevelTypeEnum.CRIT:
-                StatisticsTracker.Instance.LogFlurryEvent("Stats-CRIT");
+                StatisticsTracker.Instance.LogEvent("Stats-CRIT");
                 gm.critLevel++;
                 if (gm.critLevel >= LevelDataDescriptions.CritLevelDb.Length) gm.critLevel = LevelDataDescriptions.CritLevelDb.Length;
                 break;
             case LevelTypeEnum.CRIT_DMG:
-                StatisticsTracker.Instance.LogFlurryEvent("Stats-CRITDMG");
+                StatisticsTracker.Instance.LogEvent("Stats-CRITDMG");
                 gm.critDmgLevel++;
                 if (gm.critDmgLevel >= LevelDataDescriptions.CritDmgLevelDb.Length) gm.critDmgLevel = LevelDataDescriptions.CritDmgLevelDb.Length;
                 break;
