@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using IdleKnightHero.UI;
 using Scripts.Skills;
@@ -71,6 +71,8 @@ public class Actor_Base : MonoBehaviour
     }
     public void Hit(float dmg, bool isCrit = false, float incomingPierce = 0, float critDmg = 150, bool isPet = false, bool isLightning = false)
     {
+        // Covers direct hits, splash, pets and lightning before any damage or feedback.
+        if (!isPlayer && TryGetComponent<DropIn>(out var drop) && drop.IsEntering) return;
 
         if (isPlayer)
         {

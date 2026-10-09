@@ -1,0 +1,31 @@
+{
+  "source": "/Users/vic/Workshop/Spine/monster/mon_7080/mon_7080.json",
+  "sha256": "0c0354fe593865b634a9fe8ca3805563ccdd2566c58d98c1413adbc4d2bf9cf3",
+  "bones": 27,
+  "slots": 15,
+  "original_animations": [
+    "attack_1",
+    "die",
+    "idle",
+    "run",
+    "spawn",
+    "stun",
+    "victory"
+  ],
+  "unchanged": [
+    "bones",
+    "slots",
+    "ik",
+    "default skin vertex weights/UVs (boundary coverage extended; duplicate eye hidden)",
+    "all seven original animation timelines"
+  ],
+  "aliases": {
+    "Idle1": "idle",
+    "Attack1": "attack_1",
+    "Death1": "die"
+  },
+  "authored": [
+    "Hit (0.34s)",
+    "combat events only on aliases and Hit"
+  ]
+}

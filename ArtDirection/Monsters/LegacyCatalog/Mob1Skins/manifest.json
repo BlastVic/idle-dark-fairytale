@@ -1,0 +1,60 @@
+{
+  "revision": "d97a3076032282dad014ede9b5372235377a2f8e",
+  "items": [
+    {
+      "id": "Mob1_Skin1",
+      "category": "Mob",
+      "asset": "Assets/Grfx/Enemies/Slime/skeleton_SkeletonData.asset",
+      "family": "Slime",
+      "skin": "1",
+      "animation": "Idle1",
+      "prefab": "Assets/Prefab/Addressable Prefabs/Enemies/Mob1.prefab",
+      "currentAsset": "Assets/DarkFairytale/Monsters/BlackForestMushroom/BF_Mushroom_Wine/BF_Mushroom_Wine_SkeletonData.asset",
+      "image": "Mob1_Skin1.png"
+    },
+    {
+      "id": "Mob1_Skin2",
+      "category": "Mob",
+      "asset": "Assets/Grfx/Enemies/Slime/skeleton_SkeletonData.asset",
+      "family": "Slime",
+      "skin": "2",
+      "animation": "Idle1",
+      "prefab": "Assets/Prefab/Addressable Prefabs/Enemies/Mob1.prefab",
+      "currentAsset": "Assets/DarkFairytale/Monsters/BlackForestMushroom/BF_Mushroom_Wine/BF_Mushroom_Wine_SkeletonData.asset",
+      "image": "Mob1_Skin2.png"
+    },
+    {
+      "id": "Mob1_Skin3",
+      "category": "Mob",
+      "asset": "Assets/Grfx/Enemies/Slime/skeleton_SkeletonData.asset",
+      "family": "Slime",
+      "skin": "3",
+      "animation": "Idle1",
+      "prefab": "Assets/Prefab/Addressable Prefabs/Enemies/Mob1.prefab",
+      "currentAsset": "Assets/DarkFairytale/Monsters/BlackForestMushroom/BF_Mushroom_Wine/BF_Mushroom_Wine_SkeletonData.asset",
+      "image": "Mob1_Skin3.png"
+    },
+    {
+      "id": "Mob1_Skin4",
+      "category": "Mob",
+      "asset": "Assets/Grfx/Enemies/Slime/skeleton_SkeletonData.asset",
+      "family": "Slime",
+      "skin": "4",
+      "animation": "Idle1",
+      "prefab": "Assets/Prefab/Addressable Prefabs/Enemies/Mob1.prefab",
+      "currentAsset": "Assets/DarkFairytale/Monsters/BlackForestMushroom/BF_Mushroom_Wine/BF_Mushroom_Wine_SkeletonData.asset",
+      "image": "Mob1_Skin4.png"
+    },
+    {
+      "id": "Mob1_Skin5",
+      "category": "Mob",
+      "asset": "Assets/Grfx/Enemies/Slime/skeleton_SkeletonData.asset",
+      "family": "Slime",
+      "skin": "5",
+      "animation": "Idle1",
+      "prefab": "Assets/Prefab/Addressable Prefabs/Enemies/Mob1.prefab",
+      "currentAsset": "Assets/DarkFairytale/Monsters/BlackForestMushroom/BF_Mushroom_Wine/BF_Mushroom_Wine_SkeletonData.asset",
+      "image": "Mob1_Skin5.png"
+    }
+  ]
+}

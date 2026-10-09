@@ -536,6 +536,7 @@ public class Router : MonoBehaviour
 
     public IEnumerator GoToDefeat()
     {
+        if (gc.battleHud) gc.ToggleBattleUi(false);
 
         waitingForBattleCleanup = true;
 
@@ -568,6 +569,7 @@ public class Router : MonoBehaviour
     public bool waitingForBattleCleanup = false;
     public IEnumerator GoToVictory()
     {
+        if (gc.battleHud) gc.ToggleBattleUi(false);
         waitingForBattleCleanup = true;
         gc.ToggleButtonGrid(false);
 

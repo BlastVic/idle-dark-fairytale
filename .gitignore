@@ -63,3 +63,7 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+# Python tooling caches
+__pycache__/
+*.py[cod]
+

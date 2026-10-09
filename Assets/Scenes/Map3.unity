@@ -6266,17 +6266,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skeletonAnimation: {fileID: 1256701131}
   whiteMats:
-  - {fileID: 2100000, guid: 0ccf15c3e5a8f3042aa9d9aa230020f9, type: 2}
-  - {fileID: 2100000, guid: 0ccf15c3e5a8f3042aa9d9aa230020f9, type: 2}
-  - {fileID: 2100000, guid: 0ccf15c3e5a8f3042aa9d9aa230020f9, type: 2}
-  - {fileID: 2100000, guid: 0ccf15c3e5a8f3042aa9d9aa230020f9, type: 2}
-  - {fileID: 2100000, guid: 0ccf15c3e5a8f3042aa9d9aa230020f9, type: 2}
+  - {fileID: 2100000, guid: 90eba58dfff524eecbfcb8556ebe781f, type: 2}
   origMats:
-  - {fileID: 0}
-  - {fileID: 2100000, guid: f75f824d6660a3347b2cb7631a91a714, type: 2}
-  - {fileID: 2100000, guid: afe30045571b4a348adb64be2cdcd07d, type: 2}
-  - {fileID: 2100000, guid: 344ea0e81aea7454e94a1af36137208d, type: 2}
-  - {fileID: 2100000, guid: 9143d27ec069c0243a113daa08380eba, type: 2}
+  - {fileID: 2100000, guid: 20aa165289d384beaacea2a032b86e4e, type: 2}
 --- !u!114 &1256701131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6289,8 +6281,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 93d0b2614ef9e0b4f9215fc758df45ad, type: 2}
-  initialSkinName: 5
+  skeletonDataAsset: {fileID: 11400000, guid: 05ba1d9f3f41f4fe0bf5df224de36ed0, type: 2}
+  initialSkinName: 1
   initialFlipX: 0
   initialFlipY: 0
   separatorSlotNames: []
@@ -6324,16 +6316,21 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a65c8f53e432f62408be95d9f0415267, type: 2}
-  - {fileID: 2100000, guid: c6241ed978e221e459676aa62e06a586, type: 2}
-  - {fileID: 2100000, guid: a65c8f53e432f62408be95d9f0415267, type: 2}
+  - {fileID: 2100000, guid: 20aa165289d384beaacea2a032b86e4e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6351,9 +6348,12 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1833574041
-  m_SortingLayer: 2
+  m_SortingLayer: -2
   m_SortingOrder: -32768
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1256701133
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6369,12 +6369,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256701129}
+  serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.96, y: -1.9000001, z: 0}
-  m_LocalScale: {x: 0.84999996, y: 0.84999996, z: 1}
+  m_LocalScale: {x: -0.84999996, y: 0.84999996, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1265739733
 GameObject:
@@ -22332,12 +22333,12 @@ PrefabInstance:
         type: 3}
       propertyPath: skeletonDataAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 93d0b2614ef9e0b4f9215fc758df45ad,
+      objectReference: {fileID: 11400000, guid: 05ba1d9f3f41f4fe0bf5df224de36ed0,
         type: 2}
     - target: {fileID: 8418898237003190228, guid: bbf64255ca91a334ba72c9f6ff6fe24a,
         type: 3}
       propertyPath: initialSkinName
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbf64255ca91a334ba72c9f6ff6fe24a, type: 3}

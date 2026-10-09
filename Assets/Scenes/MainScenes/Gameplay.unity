@@ -3548,12 +3548,12 @@ MonoBehaviour:
     isBoss: 0
     waves:
     - enemies:
-      - Mob1
+      - BF_Mushroom_Wine
     - enemies:
-      - Mob1
+      - BF_Mushroom_Moss
     - enemies:
-      - Mob1
-      - Mob1
+      - BF_Mushroom_Moon
+      - BF_Mushroom_Wine
     crystalsMin: 1
     crystalsMax: 5
     chestGrade: 0
@@ -24607,6 +24607,29 @@ MonoBehaviour:
     precondition: Blood Fog Forest
     icon: Map1bb
     color: 
+  - levelKey: Black Forest Mushroom Test
+    levelName: Black Forest Mushroom Test
+    mapGraphicKey: Map1
+    isMiniBoss: 0
+    isBoss: 0
+    waves:
+    - enemies:
+      - BF_Mushroom_Wine
+    - enemies:
+      - BF_Mushroom_Moss
+    - enemies:
+      - BF_Mushroom_Moon
+    crystalsMin: 0
+    crystalsMax: 0
+    chestGrade: 0
+    chestSeconds: 10
+    chestItemsGiven: []
+    chestGoldItemsGiven: []
+    chestDiamondItemsGiven: []
+    position:
+    precondition:
+    icon:
+    color:
   highestWavesReached: []
   waveNumber: 0
   currentWaveset:
@@ -39754,13 +39777,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   battleNormalClips:
-  - {fileID: 8300000, guid: d02b6e82879364e6294790d845159081, type: 3}
-  - {fileID: 8300000, guid: d02b6e82879364e6294790d845159081, type: 3}
-  - {fileID: 8300000, guid: d02b6e82879364e6294790d845159081, type: 3}
+  - {fileID: 8300000, guid: 50e48aebf65e40c48da925b0d7a5efb8, type: 3}
   audioClips:
   - {fileID: 8300000, guid: ec6b131b5c287554ca6072ad18814101, type: 3}
-  - {fileID: 8300000, guid: 0102087f9626d664a84f4b4b372ea5df, type: 3}
-  - {fileID: 8300000, guid: b3c8947b631829e47917764661135ba8, type: 3}
+  - {fileID: 8300000, guid: 50e48aebf65e40c48da925b0d7a5efb8, type: 3}
+  - {fileID: 8300000, guid: 50e48aebf65e40c48da925b0d7a5efb8, type: 3}
   originalBattleClip: 1
   backgroundMusicSource: {fileID: 616472910}
 --- !u!1 &621407104
@@ -67820,6 +67841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waveText: {fileID: 2020165056}
+  battleHud: {fileID: 1554366918}
   levelText: {fileID: 455713131}
   fusionLevelText: {fileID: 1234516332}
   fusionPercText: {fileID: 293792025}
@@ -97182,3 +97204,119 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6aa6467613e8746abb74215658e01996, type: 3}
+--- !u!1001 &1554366917
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_RootOrder
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259223537655393679, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_Name
+      value: CursedStorybookBattleHUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5259223537655393679, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7378198111376972375, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+--- !u!114 &1554366918 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8217765215745878864, guid: 56f6855fcd54d42dfac53ef5cc3db467, type: 3}
+  m_PrefabInstance: {fileID: 1554366917}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30758f6d235724d16b8705f8f4c125a2, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::CursedBattleHud

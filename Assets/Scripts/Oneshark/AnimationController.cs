@@ -73,14 +73,13 @@ public class AnimationController : MonoBehaviour
 
     public int GetMaxAttacks()
     {
-        int count = 0;
-        //string[] animations = new string[skeletonAnimation.skeleton.Data.Animations.Count + 1];
-        Spine.ExposedList<Spine.Animation> anim = skeletonAnimation.skeleton.Data.Animations;
-        foreach (Spine.Animation s in anim)
-        {
-            if (s.Name.Contains("attack") || s.Name.Contains("Attack")) count++;
-        }
-        return count + 1;
+        // Enemy.Attack selects an exact AttackN name using an exclusive upper bound.
+        // Retained source clips such as attack_1 must not create a phantom Attack2.
+        var data = skeletonAnimation.Skeleton.Data;
+        int exclusiveUpperBound = 1;
+        while (data.FindAnimation("Attack" + exclusiveUpperBound) != null)
+            exclusiveUpperBound++;
+        return exclusiveUpperBound;
     }
 
     public int GetMaxDeaths()

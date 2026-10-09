@@ -23,6 +23,10 @@ public class GameplayCanvas : MonoBehaviour
     Router r;
 
     public Text waveText;
+    [Header("Prefab-authored battle HUD (optional legacy fallback)")]
+    public CursedBattleHud battleHud;
+    bool battleHudVisible;
+    bool showHpXpLevel = true;
     public Text levelText;
     public Text fusionLevelText;
     public Text fusionPercText;
@@ -262,9 +266,10 @@ public class GameplayCanvas : MonoBehaviour
     public GameObject hpXpLevelUI;
     public void ToggleHpXpLevelUi(bool b)
     {
+        showHpXpLevel = b;
         //foreach (GameObject obj in hpXpLevelUI)
         //{
-        hpXpLevelUI.SetActive(b);
+        hpXpLevelUI.SetActive(b && !(battleHud && battleHudVisible));
 
         if (b)
         {
@@ -276,9 +281,17 @@ public class GameplayCanvas : MonoBehaviour
     public GameObject[] battleRelatedUI;
     public void ToggleBattleUi(bool b)
     {
+        battleHudVisible = b;
         foreach (GameObject obj in battleRelatedUI)
         {
-            obj.SetActive(b);
+            obj.SetActive(b && !battleHud);
+        }
+
+        if (battleHud)
+        {
+            battleHud.gameObject.SetActive(b);
+            hpXpLevelUI.SetActive(showHpXpLevel && !b);
+            if (b) { RefreshHp(); RefreshXp(); RefreshWaveText(); }
         }
 
         if (b)
@@ -370,6 +383,7 @@ public class GameplayCanvas : MonoBehaviour
     public void RefreshHp()
     {
         if (Player.single == null) return;//dont try refresh if there is no player
+        if (battleHud) battleHud.SetHealth(Player.single.ab.currentStat.hpNow, Player.single.ab.currentStat.hpMax, Player.single.ab.currentStat.absorb > 0);
         hpMeter.SetValue(null, Player.single.ab.currentStat.hpNow / Player.single.ab.currentStat.hpMax);
         hpText.text = Utilities.ConvertNumber(Player.single.ab.currentStat.hpNow) + " / " + Utilities.ConvertNumber(Player.single.ab.currentStat.hpMax);
         //SetMarker(Player.single.ab.currentStat.hpNow / Player.single.ab.currentStat.hpMax);
@@ -387,6 +401,7 @@ public class GameplayCanvas : MonoBehaviour
     public void FillHp()
     {
         if (Player.single == null) return;//dont try refresh if there is no player
+        if (battleHud) battleHud.SetHealth(Player.single.ab.currentStat.hpNow, Player.single.ab.currentStat.hpMax, Player.single.ab.currentStat.absorb > 0);
         hpMeter.GetComponent<Image>().fillAmount = 1;
         hpText.text = Player.single.ab.currentStat.hpNow + " / " + Player.single.ab.currentStat.hpMax;
         //SetMarker(Player.single.ab.currentStat.hpNow / Player.single.ab.currentStat.hpMax);
@@ -394,6 +409,7 @@ public class GameplayCanvas : MonoBehaviour
 
     public void RefreshXp()
     {
+        if (battleHud) battleHud.SetExperience(gm.playerLevel, gm.xpNow, gm.xpMax);
         xpMeter.SetValue(null, gm.xpNow / gm.xpMax);
         xpText.text = (int)(gm.xpNow / gm.xpMax * 100) + "%";
         levelText.text = gm.playerLevel.ToString();
@@ -495,7 +511,9 @@ public class GameplayCanvas : MonoBehaviour
 
     public void RefreshWaveText()
     {
+        if (WaveManager.single.currentWaveset == null) return;
         waveText.text = (WaveManager.single.waveNumber + 1) + "/" + WaveManager.single.currentWaveset.waves.Length;
+        if (battleHud) battleHud.SetWave(WaveManager.single.waveNumber + 1, WaveManager.single.currentWaveset.waves.Length);
     }
 
     /*

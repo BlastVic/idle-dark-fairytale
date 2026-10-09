@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Services.Vibrations;
+using Assets.Scripts.Services.Vibrations;
 using IdleKnightHero.UI;
 using Scripts.Skills;
 using Spine.Unity;
@@ -139,7 +139,7 @@ public class Player : AnimationController
         if (!ab.isDying)
         {
             //Debug.Log("Try some lightning");
-            foreach (Actor_Base nextAb in GameManager.single.GetLivingEnemies())
+            foreach (Actor_Base nextAb in GameManager.single.GetLivingEnemies(false))
             {
                 if (nextAb.currentStat.hpNow < (nextAb.currentStat.hpMax / 2))
                 {
@@ -164,6 +164,13 @@ public class Player : AnimationController
     {
         if (isCampPlayer) return;//skip the attack we are not in battle
 
+        if (GameManager.single.GetLivingEnemies(false).Count == 0)
+        {
+            //Debug.Log("No Enemies");
+            StartCoroutine(AttackComplete(.2f));
+            return;
+        }
+
         #region Last But Not Least
         shouldUse3rdAttackBoost = false;
         attackIndexer++;
@@ -177,7 +184,7 @@ public class Player : AnimationController
         #endregion
 
         #region Sinister Stampede Override
-        if (GameManager.single.GetLivingEnemies().Count >= 2)
+        if (GameManager.single.GetLivingEnemies(false).Count >= 2)
         {
             if (Random.Range(0, 1f) <= sinisterStampedeChance)
             {
@@ -190,7 +197,7 @@ public class Player : AnimationController
         #endregion
 
         #region Boss Killer
-        if (GameManager.single.GetAllBosses().Count >= 1)
+        if (GameManager.single.GetAllBosses(false).Count >= 1)
         {
             if (Random.Range(0, 1f) <= bossKillerChance)
             {
@@ -212,12 +219,6 @@ public class Player : AnimationController
         }
         #endregion
 
-        if (GameManager.single.GetLivingEnemies().Count == 0)
-        {
-            //Debug.Log("No Enemies");
-            StartCoroutine(AttackComplete(.2f));
-            return;
-        }
         if (ab.isDying)
         {
             AttackComplete();
@@ -347,10 +348,10 @@ public class Player : AnimationController
         if (animation.Contains("Attack") || animation.Contains("Skill4")/*path cleaner*/)
         {
             SoundManager.Instance.PlayClip("ATTACK1");
-            if (GameManager.single.GetLivingEnemies().Count > 0)
+            if (GameManager.single.GetLivingEnemies(false).Count > 0)
             {
 
-                ProcessDamage(1, GameManager.single.GetLivingEnemies()[0]);
+                ProcessDamage(1, GameManager.single.GetLivingEnemies(false)[0]);
             }
         }
 
@@ -371,8 +372,8 @@ public class Player : AnimationController
         {
             //sinister stampede
             Debug.Log("OnHit Skill 7");
-            if (GameManager.single.GetAllBosses().Count > 0)
-                ProcessDamage(1.5f, GameManager.single.GetAllBosses()[0]);
+            if (GameManager.single.GetAllBosses(false).Count > 0)
+                ProcessDamage(1.5f, GameManager.single.GetAllBosses(false)[0]);
         }
     }
 
@@ -419,7 +420,7 @@ public class Player : AnimationController
         StartCoroutine(CameraEffects.single.Shake(.45f, .2f));
         VibrationsManager.Instance.CallVibe(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
 
-        foreach (Actor_Base nextAb in GameManager.single.GetLivingEnemies())
+        foreach (Actor_Base nextAb in GameManager.single.GetLivingEnemies(false))
         {
             //first alter it by our perc param, then randomize it by 10%
             float dmgRandomized = (ab.currentStat.dmg * perc) * Random.Range(.9f, 1.1f);

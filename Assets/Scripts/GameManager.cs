@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Game.Enum;
 using Assets.Scripts.Services;
@@ -394,7 +394,7 @@ public class GameManager : MonoBehaviour
         gc.RefreshCampUI();
     }
 
-    public List<Actor_Base> GetLivingEnemies()
+    public List<Actor_Base> GetLivingEnemies(bool includeEntering = true)
     {
         List<Actor_Base> actorsFound = new List<Actor_Base>();
         GameObject[] objFound = GameObject.FindGameObjectsWithTag("Enemy");
@@ -403,12 +403,13 @@ public class GameManager : MonoBehaviour
         {
             Actor_Base nextAb = obj.GetComponent<Actor_Base>();
             if (nextAb.isDying) continue;
+            if (!includeEntering && obj.TryGetComponent<DropIn>(out var drop) && drop.IsEntering) continue;
             actorsFound.Add(nextAb);
         }
         return actorsFound;
     }
 
-    public List<Actor_Base> GetAllBosses()
+    public List<Actor_Base> GetAllBosses(bool includeEntering = true)
     {
         List<Actor_Base> actorsFound = new List<Actor_Base>();
         GameObject[] objFound = GameObject.FindGameObjectsWithTag("Enemy");
@@ -417,6 +418,7 @@ public class GameManager : MonoBehaviour
         {
             Actor_Base nextAb = obj.GetComponent<Actor_Base>();
             if (nextAb.isDying) continue;
+            if (!includeEntering && obj.TryGetComponent<DropIn>(out var drop) && drop.IsEntering) continue;
             if (!nextAb.isBoss) continue;
             actorsFound.Add(nextAb);
         }

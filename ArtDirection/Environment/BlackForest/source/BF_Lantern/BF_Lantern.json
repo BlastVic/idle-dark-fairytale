@@ -1,0 +1,298 @@
+{
+  "skeleton": {
+    "hash": "black-forest-atmosphere-v1",
+    "spine": "3.8.75",
+    "images": "./images/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "swing",
+      "parent": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "glow",
+      "bone": "swing",
+      "attachment": "glow",
+      "color": "ffffff38"
+    },
+    {
+      "name": "bracket",
+      "bone": "root",
+      "attachment": "bracket"
+    },
+    {
+      "name": "lantern",
+      "bone": "swing",
+      "attachment": "lantern"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "lantern": {
+          "lantern": {
+            "name": "lantern",
+            "width": 48.09756,
+            "height": 116.0,
+            "y": -58.0
+          }
+        },
+        "bracket": {
+          "bracket": {
+            "name": "bracket",
+            "width": 56.0,
+            "height": 48.3243256,
+            "y": -11.0,
+            "x": -20
+          }
+        },
+        "glow": {
+          "glow": {
+            "name": "glow",
+            "width": 100.0,
+            "height": 93.03905,
+            "y": -83.0
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "Ambient": {
+      "bones": {
+        "swing": {
+          "rotate": [
+            {
+              "time": 0.0,
+              "angle": 0.0,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 1.4,
+              "angle": 6.5,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 2.8,
+              "angle": 0.0,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 4.2,
+              "angle": -6.5,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 5.6,
+              "angle": 0.0,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 7.0,
+              "angle": 5.5,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 8.4,
+              "angle": 0.0,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 9.8,
+              "angle": -5.5,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 11.2,
+              "angle": 0.0,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 12.6,
+              "angle": 6.5,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 14.0,
+              "angle": 0.0,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 15.4,
+              "angle": -6.5,
+              "curve": 0.37,
+              "c2": 0,
+              "c3": 0.63,
+              "c4": 1
+            },
+            {
+              "time": 16.8,
+              "angle": 0.0
+            }
+          ]
+        }
+      },
+      "slots": {
+        "lantern": {
+          "color": [
+            {
+              "time": 0.0,
+              "color": "ffffffff"
+            },
+            {
+              "time": 1.8,
+              "color": "eeeeeeff"
+            },
+            {
+              "time": 3.2,
+              "color": "ffffffff"
+            },
+            {
+              "time": 5.8,
+              "color": "f4f0eaff"
+            },
+            {
+              "time": 6.0,
+              "color": "b9b5afff"
+            },
+            {
+              "time": 6.09,
+              "color": "ffffffff"
+            },
+            {
+              "time": 6.2,
+              "color": "d5cec5ff"
+            },
+            {
+              "time": 6.35,
+              "color": "ffffffff"
+            },
+            {
+              "time": 9.0,
+              "color": "eeebe5ff"
+            },
+            {
+              "time": 11.0,
+              "color": "ffffffff"
+            },
+            {
+              "time": 13.7,
+              "color": "f2eee7ff"
+            },
+            {
+              "time": 13.85,
+              "color": "c3bdb5ff"
+            },
+            {
+              "time": 14.03,
+              "color": "ffffffff"
+            },
+            {
+              "time": 16.8,
+              "color": "ffffffff"
+            }
+          ]
+        },
+        "glow": {
+          "color": [
+            {
+              "time": 0.0,
+              "color": "ffffff65"
+            },
+            {
+              "time": 1.8,
+              "color": "ffffff4d"
+            },
+            {
+              "time": 3.2,
+              "color": "ffffff70"
+            },
+            {
+              "time": 5.8,
+              "color": "ffffff5a"
+            },
+            {
+              "time": 6.0,
+              "color": "ffffff20"
+            },
+            {
+              "time": 6.09,
+              "color": "ffffff73"
+            },
+            {
+              "time": 6.2,
+              "color": "ffffff3d"
+            },
+            {
+              "time": 6.35,
+              "color": "ffffff65"
+            },
+            {
+              "time": 9.0,
+              "color": "ffffff51"
+            },
+            {
+              "time": 11.0,
+              "color": "ffffff6c"
+            },
+            {
+              "time": 13.7,
+              "color": "ffffff58"
+            },
+            {
+              "time": 13.85,
+              "color": "ffffff2b"
+            },
+            {
+              "time": 14.03,
+              "color": "ffffff6e"
+            },
+            {
+              "time": 16.8,
+              "color": "ffffff65"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

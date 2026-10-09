@@ -1,0 +1,22 @@
+Built-in imagegen; transparent_background=true. Generated 2026-10-09.
+
+WINE RED — reference: output/imagegen/mon_7080-black-forest-v1/wine-red.png
+Use case: precise-object-edit. Asset type: PRODUCTION 2D skeletal animation cutout sprite sheet on genuine transparent alpha.
+Reference: wine-red mushroom character. Preserve exact painterly dark fairy tale design, ivory fibrous body, dark face with two amber eyes, wine-red cap with pale closed-eye patches and tiny moss, small mushroom-cap fists and wood feet. Character faces LEFT, mirrored relative to reference.
+Output EXACTLY SIX disconnected complete parts arranged in a strict TWO COLUMN by THREE ROW uniform grid, no outlines around cells, no text or labels, no full assembled character. Each part centered in its cell with ample transparent margin, nothing crosses cell boundaries.
+TOP LEFT: only the complete large tilted mushroom cap including underside gills, no body or eyes below it.
+TOP RIGHT: only the rounded ivory fibrous torso with dark face and two amber eyes, left-facing three-quarter view, complete hidden top painted, NO cap, NO hands, NO feet.
+MIDDLE LEFT: only the front mushroom fist with a short ivory wrist, closed rounded red cap with white spots.
+MIDDLE RIGHT: only the rear mushroom fist with a short ivory wrist.
+BOTTOM LEFT: only one complete short wooden foot and ankle, toes pointing LEFT.
+BOTTOM RIGHT: only the other complete short wooden foot and ankle, toes pointing LEFT.
+All six parts independently isolated on transparency. Full clean shapes with covered joint overlap; no shadows outside parts. Keep the same character identity and colors. Need assembled animation in Unity; these are separated parts, not six monsters. Canvas square, grid exact halves horizontally and thirds vertically.
+
+MOSS GREEN — edit target: wine-red-parts.png
+Use case: precise-object-edit. Recolor this exact transparent six-part production sprite sheet from wine red to moss olive green matching our black forest mushroom. Change ONLY the red pigments of the large cap and the two fist caps to muted olive/moss green, and their gills to dark green-gray. Preserve every part's exact position, dimensions, silhouette, alpha, texture, ivory fibers, closed-eye patches, amber eyes, wood feet and moss. Do NOT rearrange or add anything. Six separated parts, same canvas, genuine transparency.
+
+MOON VIOLET — edit target: wine-red-parts.png
+Use case: precise-object-edit. Recolor this exact transparent six-part production sprite sheet from wine red to muted moon lavender violet matching our black forest mushroom. Change ONLY red pigments of the large cap and the two fist caps to muted gray lavender purple, and their gills to dark violet-gray. Preserve every part's exact position, dimensions, silhouette, alpha, texture, ivory fibers, closed-eye patches, amber eyes, wood feet and moss. Do NOT rearrange or add anything. Six separated parts, same canvas, genuine transparency.
+
+
+v2 repair, 2026-10-09: Keep the cap perspective and make torso and feet face RIGHT to match the approved concept. Keep all six parts independent in the same cells. Rear fist wrist extends LEFT toward the body; front fist wrist extends RIGHT. Transparent background. Derive moss green and moon violet only by recoloring red pigments, preserving geometry and part arrangement. Runtime facing is handled by Unity display transform X=-1.

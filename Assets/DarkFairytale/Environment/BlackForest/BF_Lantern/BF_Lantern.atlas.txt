@@ -1,0 +1,27 @@
+
+BF_Lantern.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+lantern
+  rotate: false
+  xy: 0, 409
+  size: 255, 615
+  orig: 255, 615
+  offset: 0, 0
+  index: -1
+bracket
+  rotate: false
+  xy: 263, 21
+  size: 518, 447
+  orig: 518, 447
+  offset: 0, 0
+  index: -1
+glow
+  rotate: false
+  xy: 263, 476
+  size: 589, 548
+  orig: 589, 548
+  offset: 0, 0
+  index: -1

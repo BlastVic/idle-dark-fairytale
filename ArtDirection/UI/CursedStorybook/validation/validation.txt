@@ -1,0 +1,35 @@
+B3 UGUI prefab / gameplay validation
+PASS: Saved HUD prefab exists
+PASS: Scene HUD retains its prefab connection
+PASS: Serialized UI references are complete
+PASS: Editable centered 9:16 core is assigned
+PASS: Saved enemy HUD prefab has complete bindings
+PASS: all decorative graphics ignore raycasts; Chinese glyphs and prefab scripts verified.
+PASS: Legacy battle HUD is hidden without deleting it
+PASS: Live enemies use the authored health bar prefab
+PASS: Zero HP display
+PASS: Full HP display
+PASS: Absorb/shield color preserved
+PASS: Level and experience binding
+PASS: Wave counter and progress markers
+PASS: Long levels retain exact wave count
+PASS: Game view has requested resolution 9x16
+PASS: 9x16 return button receives raycasts
+PASS: 9x16 preserves 9:16 artwork proportions
+PASS: 9x16 actual Game view 720x1280; all essential UI inside screen.
+PASS: Game view has requested resolution 3x4
+PASS: 3x4 return button receives raycasts
+PASS: 3x4 preserves 9:16 artwork proportions
+PASS: 3x4 actual Game view 768x1024; all essential UI inside screen.
+PASS: Game view has requested resolution 1x2
+PASS: 1x2 return button receives raycasts
+PASS: 1x2 preserves 9:16 artwork proportions
+PASS: 1x2 actual Game view 720x1440; all essential UI inside screen.
+PASS: Simulated top/bottom safe insets respected
+PASS: Battle HUD hides for VICTORY settlement
+PASS: Camp HUD restored after settlement
+PASS: Return button resets when entering battle again
+PASS: Actual return button callback reaches camp and restores HUD
+PASS: Defeat settlement hides battle HUD
+PASS: Camp restored after defeat
+PASS: live test complete, runtime errors=0.

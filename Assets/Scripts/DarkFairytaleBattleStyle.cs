@@ -1,21 +1,27 @@
 using Spine.Unity;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>Presentation only: viewport positions keep the battle clear of the HUD.</summary>
 [CreateAssetMenu(menuName = "Dark Fairytale/Battle Style")]
 public class DarkFairytaleBattleStyle : ScriptableObject
 {
     public Sprite background;
+    public Sprite foreground;
+    public SkeletonDataAsset lanternAtmosphere;
+    public SkeletonDataAsset moonAtmosphere;
     public Sprite contactShadow;
-    public Vector2 playerFeet = new Vector2(.255f, .30f);
-    public Vector2 playerSize = new Vector2(.47f, .28f);
+    [Tooltip("Optional authored UGUI prefab, shared by normal and boss health displays.")]
+    public EnemyLifebar enemyHealthBarPrefab;
+    public Vector2 playerFeet = new Vector2(.23f, .30f);
+    public Vector2 playerSize = new Vector2(.35f, .235f);
     public Vector2[] enemyFeet = {
-        new Vector2(.70f, .365f), new Vector2(.81f, .30f),
-        new Vector2(.78f, .51f), new Vector2(.57f, .46f)
+        new Vector2(.68f, .31f), new Vector2(.48f, .45f),
+        new Vector2(.73f, .54f), new Vector2(.50f, .48f)
     };
     public Vector2[] enemySize = {
-        new Vector2(.35f, .28f), new Vector2(.29f, .20f),
-        new Vector2(.27f, .20f), new Vector2(.23f, .17f)
+        new Vector2(.24f, .185f), new Vector2(.18f, .14f),
+        new Vector2(.205f, .16f), new Vector2(.18f, .14f)
     };
 
     public GameObject CreateBackdrop(Camera camera)
@@ -26,6 +32,8 @@ public class DarkFairytaleBattleStyle : ScriptableObject
         renderer.sprite = background;
         renderer.sortingLayerName = "BG";
         renderer.sortingOrder = -100;
+        if (foreground || lanternAtmosphere || moonAtmosphere)
+            go.AddComponent<BlackForestAtmosphere>().Initialize(this);
         go.GetComponent<DarkFairytaleBackdrop>().Initialize(camera);
         return go;
     }
@@ -51,6 +59,21 @@ public class DarkFairytaleBattleStyle : ScriptableObject
         if (drop) drop.ResetForLayout();
         var bar = enemy.ab.enemyLifebar;
         bool boss = bar && (bar.isBoss || bar.isMiniBoss);
+        if (bar && enemyHealthBarPrefab && bar.name != "CursedStorybookEnemyBar")
+        {
+            var oldBar = bar;
+            // Instantiate an editable prefab, not generated UI. Keep child 0 for Actor_Base.Start.
+            bar = Instantiate(enemyHealthBarPrefab, enemy.transform, false);
+            bar.name = "CursedStorybookEnemyBar";
+            bar.isBoss = oldBar.isBoss;
+            bar.isMiniBoss = oldBar.isMiniBoss;
+            bar.miniBossName.text = boss ? enemy.bossName : "";
+            bar.transform.SetSiblingIndex(0);
+            enemy.ab.enemyLifebar = bar;
+            if (drop) drop.ReplaceLifebar(bar.gameObject);
+            oldBar.gameObject.SetActive(false);
+            Destroy(oldBar.gameObject);
+        }
         var feet = boss ? new Vector2(.72f, .33f) : enemyFeet[index];
         var size = boss ? new Vector2(.40f, .34f) : enemySize[index];
         Fit(enemy.transform, enemy.skeletonAnimation, camera, feet, size);
@@ -58,13 +81,28 @@ public class DarkFairytaleBattleStyle : ScriptableObject
         if (bar)
         {
             bar.GetComponent<Canvas>().worldCamera = camera;
-            bar.transform.position = new Vector3(bounds.center.x, bounds.max.y + .28f, 0);
+            // Ground-level labels occupy each actor's own lane instead of crossing
+            // the silhouette of a character standing farther back.
+            bar.transform.position = boss ? new Vector3(bounds.center.x, bounds.max.y + .28f, 0)
+                : ViewportPoint(camera, new Vector2(feet.x, feet.y - .023f));
             // Existing lifebars have a 250px meter nested under a 1.5x container.
-            float width = Mathf.Min(bounds.size.x, WorldSize(camera).x * .23f);
-            float currentWidth = Mathf.Abs(bar.transform.lossyScale.x) * 375f;
+            float width = Mathf.Min(bounds.size.x * .55f, WorldSize(camera).x * .15f);
+            float currentWidth = Mathf.Abs(bar.transform.lossyScale.x) * (enemyHealthBarPrefab ? 360f : 375f);
             if (currentWidth > .001f) bar.transform.localScale *= width / currentWidth;
+            foreach (var graphic in bar.GetComponentsInChildren<Image>(true))
+            {
+                if (!enemyHealthBarPrefab)
+                    graphic.color = graphic.name == "HP FILL" ? new Color(.62f,.29f,.27f) : new Color(.14f,.15f,.20f);
+                graphic.raycastTarget = false;
+            }
+            bar.hpText.color = new Color(.88f,.84f,.73f);
+            foreach (var outline in bar.GetComponentsInChildren<Outline>(true))
+                outline.effectColor = new Color(.07f,.075f,.105f,.85f);
         }
         SetShadow(enemy.transform, enemy.skeletonAnimation, camera, feet);
+        // The same cool ambient wash as the forest, kept subtle enough to retain
+        // the ivory stalk and warm eyes. Back-row figures recede slightly.
+        enemy.skeletonAnimation.Skeleton.SetColor(index == 0 ? new Color(.92f,.93f,1f) : new Color(.83f,.87f,.96f));
         if (drop) drop.BeginDrop();
     }
 
@@ -101,9 +139,10 @@ public class DarkFairytaleBattleStyle : ScriptableObject
         renderer.sortingLayerName = "BG2";
         renderer.sortingOrder = 0;
         shadow.position = ViewportPoint(camera, feet);
-        float width = skeleton.GetComponent<MeshRenderer>().bounds.size.x * .72f;
+        renderer.color = new Color(.12f,.10f,.16f,.65f);
+        float width = skeleton.GetComponent<MeshRenderer>().bounds.size.x * .50f;
         shadow.localScale = new Vector3(width / contactShadow.bounds.size.x / Mathf.Abs(actor.lossyScale.x),
-            width * .24f / contactShadow.bounds.size.y / Mathf.Abs(actor.lossyScale.y), 1);
+            width * .18f / contactShadow.bounds.size.y / Mathf.Abs(actor.lossyScale.y), 1);
     }
 
     public static Vector2 WorldSize(Camera camera)

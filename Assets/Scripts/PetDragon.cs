@@ -1,4 +1,4 @@
-﻿using IdleKnightHero.UI;
+using IdleKnightHero.UI;
 using Scripts.Skills;
 using Spine.Unity;
 using System.Collections;
@@ -82,10 +82,10 @@ public class PetDragon : AnimationController
         if (animation.Contains("Attack") || animation.Contains("Skill4")/*path cleaner*/)
         {
             SoundManager.Instance.PlayClip("FIRE");
-            if (GameManager.single.GetLivingEnemies().Count > 0)
+            if (GameManager.single.GetLivingEnemies(false).Count > 0)
             {
 
-                ProcessDamage(1, GameManager.single.GetLivingEnemies()[0]);
+                ProcessDamage(1, GameManager.single.GetLivingEnemies(false)[0]);
             }
         }
 

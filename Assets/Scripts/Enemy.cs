@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Services.Vibrations;
 using IdleKnightHero.UI;
@@ -20,6 +20,8 @@ public class Enemy : AnimationController
     public int maxAttacks = 1;
     public int chosenIdle = 1;
 
+    public bool IsEntering => GetComponent<DropIn>() is DropIn drop && drop.IsEntering;
+
     private void OnEnable()
     {
         ab = GetComponent<Actor_Base>();
@@ -31,19 +33,28 @@ public class Enemy : AnimationController
         base.Start();
         maxAttacks = base.GetMaxAttacks();
         chosenIdle = Random.Range(1, base.GetMaxIdles());
-        SetAnimation("Idle1", true, false);//dont let us attack first
+        if (!IsEntering) SetAnimation("Idle1", true, false);
+        else if (!GetComponent<DropIn>().UsesSpawn) base.SetAnimation("Idle1", true, false);
 
         #region Randomize the Skin
         skinIndex = Random.Range(1, maxSkins + 1);
         //Debug.Log("SetSkin From Init:" + skinIndex);
         SetSkin(skinIndex.ToString());
+        if (IsEntering) GetComponent<DropIn>().HoldSpawnPose();
         //base.skeletonAnimation.skeleton.SetSkin(skinIndex.ToString());
         #endregion
     }
 
     Coroutine attackRoutine;
+    public void StopAttacking()
+    {
+        if (attackRoutine != null) StopCoroutine(attackRoutine);
+        attackRoutine = null;
+    }
+
     public void StartAttacking(bool instant = false)
     {
+        if (IsEntering || ab.isDying) return;
         if (attackRoutine != null)
         {
             StopCoroutine(attackRoutine);
@@ -70,7 +81,7 @@ public class Enemy : AnimationController
     public void Attack()
     {
         //Debug.Log("Attack");
-        if (GetComponent<DropIn>().isFalling)
+        if (IsEntering)
         {
             return;
         }
@@ -83,6 +94,7 @@ public class Enemy : AnimationController
     public string currentAnimation = "";
     public override void SetAnimation(string animation, bool isLoop, bool isOnComplete, float speed = 1)
     {
+        if (IsEntering) return;
         if (animation == currentAnimation) return;//dont let anything overwrite identical animation
         if (currentAnimation.Contains("Attack") && animation.Contains("Hit"))
         {
@@ -95,6 +107,7 @@ public class Enemy : AnimationController
 
     public override void AnimationOnHit(string animation)
     {
+        if (IsEntering || ab.isDying) return;
         if (animation.Contains("Attack"))
         {
             SoundManager.Instance.PlayClip(attackAudio, false, false);
@@ -117,6 +130,7 @@ public class Enemy : AnimationController
 
     public override void AnimationComplete(int trackIndex, string animationName)
     {
+        if (IsEntering) return;
 
         if (animationName.Contains("Death"))
         {

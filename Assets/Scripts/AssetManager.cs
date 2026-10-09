@@ -170,7 +170,9 @@ public class AssetManager : MonoBehaviour
         }
         if (IsPositionInback() || overrideInBack)
         {
-            nextEnemy.skeletonAnimation.gameObject.transform.localScale = new Vector3(-.85f, .85f, .85f);
+            var body = nextEnemy.skeletonAnimation.transform;
+            // Preserve the prefab's authored facing when reducing back-row size.
+            body.localScale = new Vector3(Mathf.Sign(body.localScale.x) * .85f, .85f, .85f);
 
         }
     }
