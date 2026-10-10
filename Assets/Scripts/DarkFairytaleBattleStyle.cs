@@ -15,13 +15,14 @@ public class DarkFairytaleBattleStyle : ScriptableObject
     public EnemyLifebar enemyHealthBarPrefab;
     public Vector2 playerFeet = new Vector2(.23f, .30f);
     public Vector2 playerSize = new Vector2(.35f, .235f);
+    [Tooltip("Viewport feet: front center (same depth as player), back left, back right. Shallow triangle, not a queue.")]
     public Vector2[] enemyFeet = {
-        new Vector2(.68f, .31f), new Vector2(.48f, .45f),
-        new Vector2(.73f, .54f), new Vector2(.50f, .48f)
+        new Vector2(.66f, .30f), new Vector2(.53f, .37f),
+        new Vector2(.82f, .38f), new Vector2(.50f, .48f)
     };
     public Vector2[] enemySize = {
-        new Vector2(.24f, .185f), new Vector2(.18f, .14f),
-        new Vector2(.205f, .16f), new Vector2(.18f, .14f)
+        new Vector2(.27f, .19f), new Vector2(.25f, .18f),
+        new Vector2(.25f, .18f), new Vector2(.18f, .14f)
     };
 
     public GameObject CreateBackdrop(Camera camera)

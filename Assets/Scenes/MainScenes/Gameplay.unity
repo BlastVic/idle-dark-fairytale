@@ -3548,12 +3548,12 @@ MonoBehaviour:
     isBoss: 0
     waves:
     - enemies:
-      - BF_Mushroom_Wine
+      - Mob001
     - enemies:
-      - BF_Mushroom_Moss
+      - Mob002
     - enemies:
-      - BF_Mushroom_Moon
-      - BF_Mushroom_Wine
+      - Mob003
+      - Mob001
     crystalsMin: 1
     crystalsMax: 5
     chestGrade: 0
@@ -24614,11 +24614,11 @@ MonoBehaviour:
     isBoss: 0
     waves:
     - enemies:
-      - BF_Mushroom_Wine
+      - Mob001
     - enemies:
-      - BF_Mushroom_Moss
+      - Mob002
     - enemies:
-      - BF_Mushroom_Moon
+      - Mob003
     crystalsMin: 0
     crystalsMax: 0
     chestGrade: 0

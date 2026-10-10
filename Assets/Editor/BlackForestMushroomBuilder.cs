@@ -11,13 +11,15 @@ using UnityEditor.AddressableAssets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>Reskin of the original mon_7080 weighted rig and original animation timelines.</summary>
+/// <summary>Reskins of mon_7080/7081/7082, retaining each source rig and animation timelines.</summary>
 public static class BlackForestMushroomBuilder
 {
     public const string Root = "Assets/DarkFairytale/Monsters/BlackForestMushroom";
     const string Source = "ArtDirection/Monsters/BlackForestMushroom/source";
-    public static readonly string[] Ids = { "BF_Mushroom_Wine", "BF_Mushroom_Moss", "BF_Mushroom_Moon" };
+    public static readonly string[] Ids = { "Mob001", "Mob002", "Mob003" };
     static readonly string[] Sheets = { "wine-red", "moss-green", "moon-violet" };
+    static readonly string[] SourceIds = { "mon_7080", "mon_7081", "mon_7082" };
+    static string SheetPath(int i) => Source + "/original-rig/" + (i == 0 ? Sheets[i] : SourceIds[i] + "/painted") + ".png";
     static readonly string[] Parts = MushroomOriginalSkinSheet.Parts;
     const string Request = "output/monster-animation/build-mushrooms.request";
 
@@ -37,14 +39,12 @@ public static class BlackForestMushroomBuilder
     public static void Build()
     {
         if (EditorApplication.isPlaying) throw new InvalidOperationException("Exit Play mode before rebuilding.");
-        foreach (var palette in Sheets)
-            if (!File.Exists(Source + "/original-rig/" + palette + ".png"))
-                throw new FileNotFoundException("Missing painted original-rig skin: " + palette);
+        for (int i = 0; i < Ids.Length; i++)
+            if (!File.Exists(SheetPath(i))) throw new FileNotFoundException("Missing skin: " + SheetPath(i));
         if (File.Exists(Request)) File.Delete(Request);
         Directory.CreateDirectory(Root);
         Directory.CreateDirectory("output/monster-animation");
         for (int i = 0; i < Ids.Length; i++) BuildOne(i);
-        ReplaceLegacySlimePresentation();
         RegisterEnemies();
         AddTestWave();
         RefreshSharedScene();
@@ -57,7 +57,27 @@ public static class BlackForestMushroomBuilder
         Debug.Log("BLACK_FOREST_MUSHROOM_BUILD_PASSED");
     }
 
-    static void BuildOne(int variant)
+    [MenuItem("Tools/Dark Fairytale/Monsters/Update 7081 and 7082 Skins")]
+    public static void UpdateSeparateSkins()
+    {
+        if (EditorApplication.isPlaying) throw new InvalidOperationException("Exit Play mode first.");
+        for (int i = 1; i < Ids.Length; i++)
+        {
+            if (!File.Exists(SheetPath(i))) throw new FileNotFoundException("Missing painted skin: " + SheetPath(i));
+            if (!File.Exists(Source + "/" + SourceIds[i] + "-rig-template.json"))
+                throw new FileNotFoundException("Run build_rig.py before updating skins.");
+            if (AssetDatabase.LoadAssetAtPath<GameObject>(Root + "/" + Ids[i] + "/" + Ids[i] + ".prefab") == null)
+                throw new InvalidOperationException("Existing prefab missing; use the full build first: " + Ids[i]);
+        }
+        Directory.CreateDirectory("output/monster-animation");
+        for (int i = 1; i < Ids.Length; i++) BuildOne(i, true);
+        // Preserve the independent mushroom prefabs and their stable SkeletonData GUIDs.
+        AssetDatabase.SaveAssets();
+        Validate();
+        File.WriteAllText("output/monster-animation/separate-rigs-build.txt", "PASS: mon_7081 -> Moss, mon_7082 -> Moon; existing gameplay stats preserved.\n");
+    }
+
+    static void BuildOne(int variant, bool preservePrefab = false)
     {
         string id = Ids[variant], dir = Root + "/" + id;
         string export = Path.GetFullPath("../Spine/export/monster/" + id);
@@ -65,16 +85,16 @@ public static class BlackForestMushroomBuilder
         Directory.CreateDirectory(dir);
         Directory.CreateDirectory(export);
         Directory.CreateDirectory(editable + "/images");
-        string sheetPath = Source + "/original-rig/" + Sheets[variant] + ".png";
+        string sheetPath = SheetPath(variant);
         var sheet = new Texture2D(2,2,TextureFormat.RGBA32,false);
         bool reskinned = File.Exists(sheetPath);
         if(reskinned) sheet.LoadImage(File.ReadAllBytes(sheetPath));
         var crops = new List<Texture2D>();
-        var rig = JObject.Parse(File.ReadAllText(Source + "/rig-template.json"));
+        var rig = JObject.Parse(File.ReadAllText(Source + "/" + (variant == 0 ? "rig-template" : SourceIds[variant] + "-rig-template") + ".json"));
         for(int p=0;p<Parts.Length;p++)
         {
             var original = new Texture2D(2,2,TextureFormat.RGBA32,false);
-            original.LoadImage(File.ReadAllBytes("../Spine/monster/mon_7080/images/"+Parts[p]+".png"));
+            original.LoadImage(File.ReadAllBytes("../Spine/monster/"+SourceIds[variant]+"/images/"+Parts[p]+".png"));
             // The complete region canvas is invariant: no alpha cropping, mesh edits or mirroring.
             var crop = original;
             if(reskinned && Parts[p] != "shadow") {
@@ -128,7 +148,8 @@ public static class BlackForestMushroomBuilder
         data.skeletonJSON = AssetDatabase.LoadAssetAtPath<TextAsset>(dir + "/" + id + ".json");
         data.atlasAssets = new AtlasAssetBase[] { atlasAsset }; data.scale = .003f; data.defaultMix = .06f; data.Clear(); EditorUtility.SetDirty(data);
         if (data.GetSkeletonData(false) == null) throw new Exception("Skeleton import failed: " + id);
-        BuildPrefab(dir, id, data, mat, flash, variant);
+        if (!preservePrefab) BuildPrefab(dir, id, data, mat, flash, variant);
+        else AssetDatabase.ImportAsset(dir + "/" + id + ".prefab", ImportAssetOptions.ForceUpdate);
     }
 
     static T GetOrCreate<T>(string path, Func<T> create) where T : UnityEngine.Object
@@ -164,83 +185,6 @@ public static class BlackForestMushroomBuilder
             PrefabUtility.SaveAsPrefabAsset(go, dir + "/" + id + ".prefab");
         }
         finally { PrefabUtility.UnloadPrefabContents(go); }
-    }
-
-    // Keep old keys/GUIDs and gameplay stats so every existing wave/save reference
-    // receives the new presentation without changing its combat balance or drops.
-    static void ReplaceLegacySlimePresentation()
-    {
-        var legacy = new[] { "Mob1", "Mob2", "Mob4" };
-        for (int i = 0; i < legacy.Length; i++)
-        {
-            string path = "Assets/Prefab/Addressable Prefabs/Enemies/" + legacy[i] + ".prefab";
-            var source = AssetDatabase.LoadAssetAtPath<GameObject>(Root + "/" + Ids[i] + "/" + Ids[i] + ".prefab");
-            var go = PrefabUtility.LoadPrefabContents(path);
-            try
-            {
-                go.transform.localScale = Vector3.one;
-                var actor = go.GetComponent<Actor_Base>();
-                actor.enemyLifebar = go.transform.GetChild(0).GetComponent<EnemyLifebar>();
-                var skeleton = go.GetComponentInChildren<SkeletonAnimation>(true);
-                var donor = source.GetComponentInChildren<SkeletonAnimation>(true);
-                foreach (var utility in skeleton.GetComponents<SkeletonUtility>()) UnityEngine.Object.DestroyImmediate(utility);
-                for (int c = skeleton.transform.childCount - 1; c >= 0; c--) UnityEngine.Object.DestroyImmediate(skeleton.transform.GetChild(c).gameObject);
-                skeleton.transform.localPosition = donor.transform.localPosition;
-                skeleton.transform.localRotation = donor.transform.localRotation;
-                skeleton.transform.localScale = donor.transform.localScale;
-                skeleton.skeletonDataAsset = donor.skeletonDataAsset;
-                skeleton.initialSkinName = "1"; skeleton.initialFlipX = false; skeleton.initialFlipY = false;
-                skeleton.Initialize(true); skeleton.AnimationName = "Idle1"; skeleton.loop = true;
-                var enemy = go.GetComponent<Enemy>();
-                enemy.skeletonAnimation = skeleton; enemy.maxSkins = 1; enemy.maxAttacks = 2; enemy.currentAnimation = "";
-                var impact = new GameObject("ImpactPoint"); impact.transform.SetParent(skeleton.transform, false);
-                impact.transform.localPosition = new Vector3(0, 1.7f, 0); enemy.rootPos = impact;
-                var swap = skeleton.GetComponent<MaterialSwapper>(); var donorSwap = donor.GetComponent<MaterialSwapper>();
-                swap.skeletonAnimation = skeleton; swap.origMats = new List<Material>(donorSwap.origMats); swap.whiteMats = donorSwap.whiteMats.ToArray();
-                go.GetComponent<DropIn>().spawnInPlace = true;
-                PrefabUtility.SaveAsPrefabAsset(go, path);
-            }
-            finally { PrefabUtility.UnloadPrefabContents(go); }
-        }
-    }
-
-    [MenuItem("Tools/Dark Fairytale/Monsters/Replace Legacy Scene Slimes")]
-    public static void ReplaceLegacySceneSlimes()
-    {
-        if (EditorApplication.isPlaying) throw new Exception("Exit Play mode first.");
-        string[] oldFolders = { "Slime", "Slime2", "Slime3" };
-        string[] oldGuids = oldFolders.Select(f => AssetDatabase.AssetPathToGUID("Assets/Grfx/Enemies/" + f + "/skeleton_SkeletonData.asset")).ToArray();
-        foreach (string path in Directory.GetFiles("Assets", "*.unity", SearchOption.AllDirectories))
-        {
-            if (!oldGuids.Any(g => File.ReadAllText(path).Contains(g))) continue;
-            var scene = SceneManager.GetSceneByPath(path); bool opened = !scene.isLoaded;
-            if (!opened && scene.isDirty) throw new Exception("Save scene edits first: " + path);
-            if (opened) scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
-            try
-            {
-                foreach (var skeleton in scene.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<SkeletonAnimation>(true)))
-                {
-                    int index = Array.IndexOf(oldGuids, AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(skeleton.skeletonDataAsset)));
-                    if (index < 0) continue;
-                    var donor = AssetDatabase.LoadAssetAtPath<GameObject>(Root + "/" + Ids[index] + "/" + Ids[index] + ".prefab").GetComponentInChildren<SkeletonAnimation>(true);
-                    foreach (var utility in skeleton.GetComponents<SkeletonUtility>()) UnityEngine.Object.DestroyImmediate(utility);
-                    foreach (var bone in skeleton.GetComponentsInChildren<SkeletonUtilityBone>(true)) UnityEngine.Object.DestroyImmediate(bone);
-                    skeleton.skeletonDataAsset = donor.skeletonDataAsset; skeleton.initialSkinName = "1";
-                    skeleton.initialFlipX = false; skeleton.initialFlipY = false;
-                    skeleton.transform.localScale = new Vector3(-Mathf.Abs(skeleton.transform.localScale.x), skeleton.transform.localScale.y, skeleton.transform.localScale.z);
-                    skeleton.Initialize(true); skeleton.AnimationName = "Idle1"; skeleton.loop = true;
-                    var enemy = skeleton.GetComponentInParent<Enemy>();
-                    if (enemy) { enemy.maxSkins = 1; enemy.maxAttacks = 2; enemy.skeletonAnimation = skeleton; }
-                    var drop = skeleton.GetComponentInParent<DropIn>(); if (drop) drop.spawnInPlace = true;
-                    var swap = skeleton.GetComponent<MaterialSwapper>();
-                    if (swap) { var ds = donor.GetComponent<MaterialSwapper>(); swap.skeletonAnimation = skeleton; swap.origMats = new List<Material>(ds.origMats); swap.whiteMats = ds.whiteMats.ToArray(); }
-                    PrefabUtility.RecordPrefabInstancePropertyModifications(skeleton);
-                }
-                EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene);
-            }
-            finally { if (opened) EditorSceneManager.CloseScene(scene, true); }
-        }
-        AssetDatabase.SaveAssets();
     }
 
     static void RegisterEnemies()
@@ -312,8 +256,9 @@ public static class BlackForestMushroomBuilder
     [MenuItem("Tools/Dark Fairytale/Monsters/Validate Black Forest Mushrooms")]
     public static void Validate()
     {
-        var scene = EditorSceneManager.NewPreviewScene();
         var report = new StringBuilder("Black Forest mushroom validation\n");
+        ValidateIdentities(report);
+        var scene = EditorSceneManager.NewPreviewScene();
         try
         {
             for (int i = 0; i < Ids.Length; i++)
@@ -412,6 +357,37 @@ public static class BlackForestMushroomBuilder
         finally { EditorSceneManager.ClosePreviewScene(scene); }
     }
 
+    static void ValidateIdentities(StringBuilder report)
+    {
+        var db = new SerializedObject(AssetDatabase.LoadAssetAtPath<UnityEngine.Object>("Assets/Resources/LevelDataDescriptions.asset"));
+        var entries = db.FindProperty("_enemyDb");
+        var keys = new[] { "Mob1", "Mob2", "Mob4" }.Concat(Ids).ToArray();
+        var originals = new[] { "Slime", "Slime2", "Slime3" };
+        for (int i = 0; i < keys.Length; i++)
+        {
+            string key = keys[i];
+            string path = i < 3 ? "Assets/Prefab/Addressable Prefabs/Enemies/" + key + ".prefab" : Root + "/" + key + "/" + key + ".prefab";
+            string guid = AssetDatabase.AssetPathToGUID(path);
+            int matches = 0;
+            for (int j = 0; j < entries.arraySize; j++)
+            {
+                var entry = entries.GetArrayElementAtIndex(j);
+                if (entry.FindPropertyRelative("key").stringValue != key) continue;
+                matches++;
+                if (entry.FindPropertyRelative("assetRef").FindPropertyRelative("m_AssetGUID").stringValue != guid)
+                    throw new Exception("Wrong enemy DB GUID: " + key);
+            }
+            if (matches != 1 || AddressableAssetSettingsDefaultObject.Settings.FindAssetEntry(guid)?.address != (i < 3 ? path : key))
+                throw new Exception("Missing/duplicate key or wrong address: " + key);
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            var skeleton = prefab.GetComponentInChildren<SkeletonAnimation>(true);
+            string expected = i < 3 ? "Assets/Grfx/Enemies/" + originals[i] + "/skeleton_SkeletonData.asset" : Root + "/" + key + "/" + key + "_SkeletonData.asset";
+            if (AssetDatabase.GetAssetPath(skeleton.skeletonDataAsset) != expected || skeleton.skeletonDataAsset.GetSkeletonData(false) == null)
+                throw new Exception("Wrong or unreadable skeleton: " + key);
+            report.AppendLine(key + ": PASS distinct DB/address key and original/new skeleton: " + expected);
+        }
+    }
+
     static Vector3[] SampleVertices(SkeletonAnimation skeleton,string skin,string animation,float time)
     {
         skeleton.AnimationState.ClearTracks(); skeleton.Skeleton.SetSkin(skin); skeleton.Skeleton.SetToSetupPose();
@@ -453,16 +429,18 @@ public static class BlackForestMushroomBuilder
             for (int a=0;a<names.Length;a++)
             {
                 // Fit the entire motion envelope once, so extended fists and the falling cap stay visible.
-                var probe = actors[0]; probe.SetActive(true);
-                var preview = probe.GetComponentInChildren<SkeletonAnimation>();
                 var envelope = new Bounds(); bool hasBounds=false;
-                foreach(float time in samples[a]) {
-                    preview.AnimationState.ClearTracks(); preview.Skeleton.SetToSetupPose();
-                    preview.AnimationState.SetAnimation(0,names[a],false); preview.Update(time); preview.LateUpdate();
-                    var bounds=preview.GetComponent<MeshRenderer>().bounds;
-                    if(!hasBounds) { envelope=bounds; hasBounds=true; } else envelope.Encapsulate(bounds);
+                foreach (var probe in actors) {
+                    probe.SetActive(true);
+                    var preview = probe.GetComponentInChildren<SkeletonAnimation>();
+                    foreach(float time in samples[a]) {
+                        preview.AnimationState.ClearTracks(); preview.Skeleton.SetToSetupPose();
+                        preview.AnimationState.SetAnimation(0,names[a],false); preview.Update(time); preview.LateUpdate();
+                        var bounds=preview.GetComponent<MeshRenderer>().bounds;
+                        if(!hasBounds) { envelope=bounds; hasBounds=true; } else envelope.Encapsulate(bounds);
+                    }
+                    probe.SetActive(false);
                 }
-                probe.SetActive(false);
                 camera.orthographicSize=Mathf.Max(envelope.extents.y,envelope.extents.x/(w/(float)h))*1.1f;
                 camera.transform.position=new Vector3(envelope.center.x,envelope.center.y,-10);
                 var sheet = new Texture2D(w*8,h*actors.Length,TextureFormat.RGB24,false);

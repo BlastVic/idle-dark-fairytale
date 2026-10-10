@@ -48,9 +48,4 @@ Prefab Mode 中可直接修改 `Core_9x16/ReturnButton`、`WavePlaque` 和 `Play
 
 Unity 6000.6.3f1 实景验证通过：720×1280、768×1024、720×1440；模拟上下安全区；返回按钮射线；生命、护盾、经验、等级、波次；首关完整三波胜利；失败结算；返回营地后再次进入战斗。运行异常为 0。尚未执行手机真机测试。
 
-最终报告与三种比例截图已额外保存到本目录的 `validation/`，随项目保留：
-
-- [9:16 实景](validation/gameplay-9x16.png)
-- [3:4 实景](validation/gameplay-3x4.png)
-- [1:2 实景](validation/gameplay-1x2.png)
-- [验证报告](validation/validation.txt)
+文字[验证报告](validation/validation.txt)随项目保留。三种比例的实景截图仅在本地 `validation/` 或 `output/battle-ui/` 保存，已由 Git 忽略，不随提交上传。

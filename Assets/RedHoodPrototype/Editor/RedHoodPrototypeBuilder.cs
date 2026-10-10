@@ -102,7 +102,7 @@ namespace RedHoodPrototype.Editor {
         }
 
         static void ValidateAndRender(SkeletonAnimation character, Camera camera) {
-            string output = Path.GetFullPath("PreviewOutput");
+            string output = Path.GetFullPath("output/red-hood-prototype");
             Directory.CreateDirectory(output);
             string report = "Reference side-view rig / Spine runtime animation validation\n";
             int hits = 0;

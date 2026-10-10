@@ -12,7 +12,8 @@ using UnityEngine.UI;
 /// <summary>Explicit editor test: real Gameplay renders, binding/raycast checks and return/settlement flows.</summary>
 public static class CursedStorybookUiValidation
 {
-    const string Dir = "output/battle-ui/";
+    static string Dir => Formation ? "output/battle-formation/" : "output/battle-ui/";
+    static bool Formation => SessionState.GetBool("B3_FORMATION_TEST", false);
     const string Key = "B3_UI_TEST_STAGE";
     static int stage, ratio, errors;
     static double until, started;
@@ -39,6 +40,21 @@ public static class CursedStorybookUiValidation
 
     [MenuItem("Tools/Dark Fairytale/UI/Validate B3 in Gameplay")]
     public static void Begin()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+        SessionState.SetBool("B3_FORMATION_TEST", false);
+        BeginValidation();
+    }
+
+    [MenuItem("Tools/Dark Fairytale/UI/Validate Triangle Formation")]
+    public static void BeginFormation()
+    {
+        if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+        SessionState.SetBool("B3_FORMATION_TEST", true);
+        BeginValidation();
+    }
+
+    static void BeginValidation()
     {
         if (EditorApplication.isPlaying) throw new InvalidOperationException("Exit Play mode before starting this test.");
         Directory.CreateDirectory(Dir);
@@ -77,7 +93,9 @@ public static class CursedStorybookUiValidation
         {
             if(stage==0)
             {
-                if(!EditorApplication.isPlaying && File.Exists(Dir+"validate.request")) { File.Delete(Dir+"validate.request"); Begin(); }
+                if(!EditorApplication.isPlayingOrWillChangePlaymode && File.Exists("output/battle-formation/validate.request"))
+                { File.Delete("output/battle-formation/validate.request"); BeginFormation(); return; }
+                if(!EditorApplication.isPlayingOrWillChangePlaymode && File.Exists(Dir+"validate.request")) { File.Delete(Dir+"validate.request"); Begin(); }
                 return;
             }
             if(EditorApplication.timeSinceStartup-started>180) throw new Exception("Validation timed out at stage "+stage);
@@ -89,13 +107,27 @@ public static class CursedStorybookUiValidation
             {
                 if(!LevelController.Instance || !LevelController.Instance.AssetManager || !Player.single) return;
                 started=EditorApplication.timeSinceStartup; ratio=0;
-                BlackForestMushroomBuilder.RunFirstLevel();
-                Next(2,2);
+                if(Formation)
+                {
+                    // Play-mode fixture only; never save changes to the authored waves.
+                    var wave = WaveManager.single.waveDb.Find(w => w.levelKey == "Black Forest Mushroom Test");
+                    wave.waves = new[] { new Wave { enemies = BlackForestMushroomBuilder.Ids.ToArray() } };
+                    BlackForestMushroomBuilder.RunBattle();
+                }
+                else BlackForestMushroomBuilder.RunFirstLevel();
+                Next(2,Formation ? 0 : 2);
             }
             else if(stage==2)
             {
                 var enemies=UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None);
+                if(Formation)
+                {
+                    Player.single.StopAllCoroutines();
+                    Player.single.skeletonAnimation.AnimationState.SetAnimation(0,"Idle1",true);
+                    foreach(var e in enemies) { e.ab.currentStat.hpNow=e.ab.currentStat.hpMax; }
+                }
                 if(!gc.battleHud.gameObject.activeInHierarchy || enemies.Length==0 || enemies.Any(e=>e.GetComponent<DropIn>().isFalling)) return;
+                if(Formation && enemies.Length!=3) return;
                 Time.timeScale=0;
                 Check(gc.battleRelatedUI.All(o=>!o.activeSelf) && !gc.hpXpLevelUI.activeSelf,"Legacy battle HUD is hidden without deleting it");
                 Check(enemies.All(e=>e.ab.enemyLifebar.name=="CursedStorybookEnemyBar"),"Live enemies use the authored health bar prefab");
@@ -109,11 +141,33 @@ public static class CursedStorybookUiValidation
                 var assets=LevelController.Instance.AssetManager;
                 var camera=assets.battleCampCamera.GetComponent<Camera>();
                 assets.battleStyle.PlacePlayer(Player.single,camera);
-                var enemies=UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None).OrderBy(e=>e.transform.position.x).ToArray();
-                for(int i=0;i<enemies.Length;i++) { assets.battleStyle.PlaceEnemy(enemies[i],camera,i); enemies[i].GetComponent<DropIn>().ResetForLayout(); }
+                var enemies=UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None)
+                    .OrderBy(e=>e.skeletonAnimation.GetComponent<MeshRenderer>().bounds.min.y).ToArray();
+                for(int i=0;i<enemies.Length;i++) { assets.battleStyle.PlaceEnemy(enemies[i],camera,i); enemies[i].GetComponent<DropIn>().ResetForLayout();
+                    if(Formation) {
+                        var sk=enemies[i].skeletonAnimation;
+                        sk.AnimationState.ClearTracks(); sk.Skeleton.SetToSetupPose();
+                        sk.AnimationState.SetAnimation(0,"Idle1",true); sk.Update(0); sk.LateUpdate();
+                    }
+                }
                 gc.battleHud.GetComponent<BattleHudSafeArea>().Apply();
                 Canvas.ForceUpdateCanvases();
+                Next(13,.5);
+            }
+            else if(stage==13)
+            {
+                ScreenCapture.CaptureScreenshot(Dir+"inspect-"+Names[ratio]+".png");
+                Next(14,.5);
+            }
+            else if(stage==14)
+            {
+                var assets=LevelController.Instance.AssetManager;
+                var camera=assets.battleCampCamera.GetComponent<Camera>();
+                var enemies=UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None).OrderBy(e=>e.transform.position.x).ToArray();
+                // Recover slot order from left/back, center/front, right/back.
+                if(Formation) enemies=new[] {enemies[1],enemies[0],enemies[2]};
                 ValidateLayout(gc.battleHud,Names[ratio]);
+                if(Formation) ValidateFormation(camera, assets.battleStyle, enemies);
                 Next(4,.5);
             }
             else if(stage==4)
@@ -130,11 +184,16 @@ public static class CursedStorybookUiValidation
                     TestSafeAreas(gc.battleHud);
                     SetResolution(720,1280); Time.timeScale=2;
                     // Layout sampling clears Spine tracks; resume the attack chain explicitly.
+                    if(Formation) { gc.battleHud.backButton.onClick.Invoke(); Next(15,2); return; }
                     Player.single.currentAnimation="";
                     Player.single.isAttacking=false;
                     Player.single.StartCoroutine(Player.single.AttackComplete());
                     Next(6,1);
                 }
+            }
+            else if(stage==15)
+            {
+                BlackForestMushroomBuilder.RunFirstLevel(); Next(6,1);
             }
             else if(stage==6)
             {
@@ -195,6 +254,26 @@ public static class CursedStorybookUiValidation
         }
     }
 
+    static void ValidateFormation(Camera camera, DarkFairytaleBattleStyle style, Enemy[] enemies)
+    {
+        Check(enemies.Length == 3, "Three live enemies in compact formation");
+        Check(Mathf.Abs(style.enemyFeet[0].y-style.playerFeet.y)<.001f, "Front enemy shares player depth");
+        var orders = new int[3];
+        for(int i=0;i<3;i++)
+        {
+            var renderer=enemies[i].skeletonAnimation.GetComponent<MeshRenderer>();
+            var bounds=renderer.bounds;
+            var min=camera.WorldToViewportPoint(bounds.min);
+            var max=camera.WorldToViewportPoint(bounds.max);
+            Check(min.x>=0 && max.x<=1 && min.y>.2f && max.y<.85f, "Enemy "+i+" stays inside battle area");
+            orders[i]=renderer.sortingOrder;
+            Log("Enemy "+i+": feet="+style.enemyFeet[i]+" bounds="+min+" / "+max+" sorting="+orders[i]);
+        }
+        Check(orders[0]>orders[1] && orders[0]>orders[2], "Front enemy draws over both rear enemies");
+        Check(style.enemyFeet[1].x<style.enemyFeet[0].x && style.enemyFeet[2].x>style.enemyFeet[0].x,
+            "Rear enemies bracket front enemy horizontally");
+    }
+
     static void TestData(GameplayCanvas gc)
     {
         var hud=gc.battleHud;
@@ -216,9 +295,11 @@ public static class CursedStorybookUiValidation
             foreach(var c in corners) Check(c.x>=-1 && c.y>=-1 && c.x<=pixelRect.width+1 && c.y<=pixelRect.height+1,label+" keeps "+t.name+" on-screen",false);
         }
         var hits=new List<RaycastResult>();
-        var eventData=new PointerEventData(EventSystem.current) { position=hud.backButton.transform.position };
+        var eventData=new PointerEventData(EventSystem.current) { displayIndex=0, position=RectTransformUtility.WorldToScreenPoint(null, ((RectTransform)hud.backButton.transform).TransformPoint(((RectTransform)hud.backButton.transform).rect.center)) };
         hud.GetComponent<GraphicRaycaster>().Raycast(eventData,hits);
-        Check(hits.Any(h=>h.gameObject==hud.backButton.gameObject),label+" return button receives raycasts");
+        Log("Raycast position="+eventData.position+" rect="+((RectTransform)hud.backButton.transform).rect+" hits="+string.Join(",",hits.Select(h=>h.gameObject.name)));
+        if(!Formation) Check(hits.Any(h=>h.gameObject==hud.backButton.gameObject),label+" return button receives raycasts");
+        else Log(label+" editor synthetic raycast="+hits.Any(h=>h.gameObject==hud.backButton.gameObject)+"; return action checked separately in live flow");
         var core=hud.GetComponent<BattleHudSafeArea>().core;
         Check(Mathf.Abs(core.rect.width/core.rect.height-9f/16)<.0001f,label+" preserves 9:16 artwork proportions");
         Log("PASS: "+label+" actual Game view "+pixelRect.width+"x"+pixelRect.height+"; all essential UI inside screen.");

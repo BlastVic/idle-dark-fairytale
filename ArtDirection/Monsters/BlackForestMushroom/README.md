@@ -1,4 +1,58 @@
-# 当前交付：差异化蘑菇 v9（2026-10-09）
+# 当前交付：独立怪物编号 v11（2026-10-10）
+
+| 配置键 / Prefab | 怪物 | Spine 模板 |
+| --- | --- | --- |
+| Mob001 | 蜡斑菇 | mon_7080 |
+| Mob002 | 木纹菇 | mon_7081 |
+| Mob003 | 梦眼菇 | mon_7082 |
+
+Unity 目录为 `Assets/DarkFairytale/Monsters/BlackForestMushroom/Mob001/` 至 `Mob003/`；可编辑分件在 `source/Mob001/` 至 `Mob003/`；同级 `Spine/export/monster/` 下也使用新编号。原 Prefab、贴图、SkeletonData 的 GUID 保留，资源文件名、Addressables 地址、敌人数据库键和现有蘑菇波次配置同步改名。
+
+原版 `Mob1`、`Mob2`、`Mob4` 已恢复为 Slime、Slime2、Slime3；ItemDrop、Map1、Map2、Map3 中先前被替换的史莱姆也恢复。原版资源仅作参照，后续不得覆盖。通过 Gameplay 中 WaveManager 的波次 enemies 配置选择 `Mob001`、`Mob002`、`Mob003` 使用新怪物，旧关卡的原版键保持有效。注意 `Mob1` 与 `Mob001` 是两个独立键。
+
+构建器已删除覆盖原版 Prefab 和场景史莱姆的入口。动画出场测试只针对新编号；`Validate Black Forest Mushrooms` 同时检查六个新旧资源的数据库、Addressables 与 Spine 来源。旧版报告中的“全游戏替换”和旧键加载蘑菇已废止，以下仅保留历史。
+
+验证：六个新旧资源的数据库、Addressables 和 Spine 来源通过；三只蘑菇原七套动画与十二次战斗动画检查通过；实际 Gameplay 使用新编号完成四次出场，运行错误 0。原版三个 Prefab 与四个场景逐字节匹配替换前版本 d97a307。报告和实景截图仅存本地 `output/monster-animation/identity-migration/` 与 `output/monster-animation/entrance/`。
+
+---
+
+# 历史交付：独立模板蘑菇 v10（2026-10-10）
+
+三只蘑菇现在分别使用对应的原始 Spine 模板：
+
+| 外观 | 来源模板 | 骨骼 | Unity 资源／旧键 |
+| --- | --- | --- | --- |
+| 蜡斑菇 | mon_7080 | 27 | BF_Mushroom_Wine / Mob1（本次未改） |
+| 木纹菇 | mon_7081 | 26 | BF_Mushroom_Moss / Mob2 |
+| 梦眼菇 | mon_7082 | 26 | BF_Mushroom_Moon / Mob4 |
+
+木纹菇、梦眼菇依据各自新概念图与原始 UV 分件参考重新绘制。扁斜木纹帽与圆拱月白帽使用各自的原始网格、权重和动画，不再套用 mon_7080。梦眼菇的下颚追加了一次平滑边缘修正，避免原尖齿遮住细齿笑脸。所有图像由内置 imagegen 绘制；原始分件和修订提示词在 `source/original-rig/separate-rigs-prompts.txt` 及 `mon_7082/jaw-correction-prompt.txt`。
+
+## 可用交付
+
+- Unity 现有两套资源已更新：`Assets/DarkFairytale/Monsters/BlackForestMushroom/BF_Mushroom_Moss/`、`BF_Mushroom_Moon/`。包含 JSON、atlas.txt、PNG、材质、SkeletonData 和可直接使用的 Prefab。
+- 外部同内容导出：项目同级 `Spine/export/monster/BF_Mushroom_Moss/`、`BF_Mushroom_Moon/`。
+- 可编辑分件 PNG 与骨架 JSON：`source/BF_Mushroom_Moss/`、`source/BF_Mushroom_Moon/`。
+- 对应模板的坐标参考、透明绘制源图、源文件校验值：`source/original-rig/mon_7081/`、`mon_7082/`。
+- 本次交付为 Spine 3.8 JSON／图集及 Unity 资源，没有另存新的原生 `.spine` 工程。原始 `.spine` 与原导出未改。
+
+现有 SkeletonData、Prefab 的 GUID 和资源键保持不变，因此既有关卡、场景、Mob2/Mob4 引用直接获得新外观。Prefab 数值、掉落、血条节点和原地 spawn 配置保持原样。本次未重建酒红蘑菇，也未改战斗布局或 UI。
+
+## 重建与验证
+
+1. `python3 ArtDirection/Monsters/BlackForestMushroom/build_rig.py`：为三套来源分别生成骨架模板；原七套动画、骨骼、IK、UV 和权重逐项保持，继续使用已记录的 UV 凹边补面与旧眼睛隐藏策略。
+2. Unity 退出 Play，执行 `Tools > Dark Fairytale > Monsters > Update 7081 and 7082 Skins`。此入口只更新后两套资源，不覆盖现有 Prefab 手工设置。完整三怪初建菜单仍可用，但会重建 Prefab。
+3. `python3 ArtDirection/Monsters/BlackForestMushroom/verify_exports.py`：按每只的来源分别比较，检查 Unity 与外部导出一致。
+4. `Validate Black Forest Mushrooms`：七套原动画的双皮肤变形一致性、战斗别名事件、受击打断、朝向、材质、有限顶点；八类动作抽帧覆盖三种骨架的整体动作范围。
+5. `Test Legacy Slime Replacement (Play mode)`：旧键加载、完整原地 spawn、出场伤害与选敌保护。已通过，运行错误 0。
+
+最终实战回归：9:16（720×1280）、3:4（768×1024）、1:2（720×1440）均完成实际 Unity 渲染及边界检查；三怪同屏、胜利结算、失败结算、返回营地通过，最终完整一轮运行错误为 0。流程测试采用临时玩家生命恢复以确定性覆盖胜利路径，不作为关卡平衡结论。曾有一次测试重复启动报错，之后已完成独立回归。
+
+本次 Unity 实景、动画检查与报告归档于 `output/monster-animation/separate-rigs/`，截图仅保留本地。历史 v9 及以下的“三只共用 mon_7080”描述已被本节替代。
+
+---
+
+# 历史交付：差异化蘑菇 v9（2026-10-09）
 
 以 `concepts/mushroom-trio-redesign-v4-fists.png` 为已选方案：蜡斑菇（酒红粗牙脸／菌瘤拳）、木纹菇（苔绿木脸／木节拳）、梦眼菇（月白面具／孢子壳拳）。内置 imagegen 重绘的三套透明分件位于 `source/original-rig/`，提示词在 `redesign-v4-prompts.txt`，旧图保存在 `before-v4-redesign/`。当前为 Unity JSON／atlas／PNG／Prefab 交付，未制作新的原生 .spine 编辑工程。
 

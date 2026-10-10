@@ -1,0 +1,12 @@
+{
+  "mode": "built-in image_gen localized edits",
+  "unchanged": [
+    "01",
+    "02",
+    "03"
+  ],
+  "prompts": {
+    "scene04": "Precise localized edit of this FOURTH scene. Change ONLY creek course and the formerly wet foreground ground. Keep EXACT cottage, eye moon in sky, trees, midnight colors, character identities poses sizes and TRIANGULAR enemy placement completely unchanged. Creek comes down from far upper-left forest as before, reaches small waterfall at about y38%, then bends sharply LEFT and EXITS LEFT FRAME EDGE around y43%-46% image height (middle of picture). Show that water visibly flows beyond frame to left, not blocked by a rock. ALL WATER BELOW y48% MUST BE REMOVED and replaced with continuous DRY EARTH AND SMALL FLAT STONES matching yard. Specifically replace old river along left beside heroine and entire bottom foreground with solid broad dry ground, no channels, puddles, blue reflections or waterfalls there. Both heroine boots must rest fully inside dry ground, with at least one boot-length of dry earth beyond rear/left boot before any edge vegetation. All combatants on single continuous safe dry clearing occupying lower half. River never enters battle area. Keep old upper stream recognizable; do NOT remove it entirely. Do NOT move or redraw characters or change enemy positions. Retain closed-eye moon OUTDOORS. Keep simplified cartoon painterly dark fairy tale style. No bridge, text or HUD.",
+    "scene05": "Make one tiny localized edit ONLY: REMOVE THE MOON WITH EYELASH/EYE from the small diamond-lattice WINDOW near upper center-right of this cabin interior. Replace that pale moon patch behind glass with plain cool dark-blue night sky and distant tree silhouettes matching the rest of the window. No moon, no eye, no luminous disc visible anywhere in this indoor image. Preserve window frame, lattice, room, fireplace, doorway view, all characters, enemy triangular formation, colors, proportions, lighting, poses and every other element unchanged. Do not redesign scene. Portrait same aspect and composition."
+  }
+}

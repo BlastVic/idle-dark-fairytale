@@ -20,26 +20,9 @@ public static class MushroomEntranceProbe
     const string Report = Folder + "/validation.txt";
     static double started;
     static int errors;
-    static bool legacy;
-    static Waveset originalWave;
-    static int originalWaveIndex;
-
-    [MenuItem("Tools/Dark Fairytale/Monsters/Test Legacy Slime Replacement (Play mode)")]
-    public static void BeginLegacy()
-    {
-        if (!EditorApplication.isPlaying || !WaveManager.single) throw new Exception("Start Gameplay first.");
-        originalWaveIndex = WaveManager.single.waveDb.FindIndex(w => w.levelKey == "Khorasan Ruins I");
-        originalWave = WaveManager.single.waveDb[originalWaveIndex];
-        var temporary = JsonUtility.FromJson<Waveset>(JsonUtility.ToJson(originalWave));
-        temporary.waves = new[] { new Wave { enemies = new[] { "Mob1", "Mob2", "Mob4" } } };
-        WaveManager.single.waveDb[originalWaveIndex] = temporary;
-        Begin(); legacy = true;
-    }
-
     [MenuItem("Tools/Dark Fairytale/Monsters/Test Mushroom Entrance (Play mode)")]
     public static void Begin()
     {
-        legacy = false;
         if(!EditorApplication.isPlaying || !WaveManager.single)throw new Exception("Start Gameplay first.");
         samples.Clear();captured.Clear();errors=0;started=EditorApplication.timeSinceStartup;
         Directory.CreateDirectory(Folder);File.WriteAllText(Report,"Live mushroom entrance regression\n");
@@ -57,11 +40,8 @@ public static class MushroomEntranceProbe
             if(!EditorApplication.isPlaying || EditorApplication.timeSinceStartup-started>120) { Stop("INCOMPLETE: stopped before all four entrances finished");return; }
             foreach(var enemy in UnityEngine.Object.FindObjectsByType<Enemy>(FindObjectsSortMode.None)) {
                 string key = enemy.name.Replace("(Clone)", "");
-                int legacyIndex = Array.IndexOf(new[] { "Mob1", "Mob2", "Mob4" }, key);
-                if(!enemy.name.StartsWith("BF_Mushroom_") && !(legacy && legacyIndex >= 0))continue;
+                if(!BlackForestMushroomBuilder.Ids.Contains(key))continue;
                 var drop=enemy.GetComponent<DropIn>();var skeleton=enemy.GetComponentInChildren<SkeletonAnimation>();
-                if (legacyIndex >= 0 && skeleton.skeletonDataAsset.name != BlackForestMushroomBuilder.Ids[legacyIndex] + "_SkeletonData")
-                    throw new Exception(key + " still loads old slime graphics");
                 var entry=skeleton.AnimationState.GetCurrent(0);
                 if(entry==null || enemy.ab.currentStat==null)continue;
                 if(!samples.TryGetValue(enemy,out var sample)) { sample=new Sample();samples.Add(enemy,sample); }
@@ -91,7 +71,7 @@ public static class MushroomEntranceProbe
                     if(captured.Add("ready"))ScreenCapture.CaptureScreenshot(Folder+"/03-ready.png");
                 }
             }
-            if(samples.Count>=(legacy ? 3 : 4) && samples.Values.All(s=>s.ready))Stop(errors==0?"PASS: " + samples.Count + " complete entrances; stationary spawn; no early attacks, damage, targeting or wave removal; runtime errors=0":"FAIL: runtime errors="+errors);
+            if(samples.Count>=4 && samples.Values.All(s=>s.ready))Stop(errors==0?"PASS: " + samples.Count + " complete entrances; stationary spawn; no early attacks, damage, targeting or wave removal; runtime errors=0":"FAIL: runtime errors="+errors);
         } catch(Exception e) { Stop("FAIL: "+e.Message);Debug.LogException(e); }
     }
     static void AssertProtected(Enemy enemy)
@@ -110,7 +90,5 @@ public static class MushroomEntranceProbe
     static void Stop(string result)
     {
         File.AppendAllText(Report,result+"\n");EditorApplication.update-=Tick;Application.logMessageReceived-=Log;
-        if (legacy && originalWave != null && WaveManager.single) WaveManager.single.waveDb[originalWaveIndex] = originalWave;
-        originalWave = null;
     }
 }

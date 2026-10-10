@@ -1,0 +1,104 @@
+
+Mob002.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+head
+  rotate: false
+  xy: 0, 386
+  size: 714, 638
+  orig: 714, 638
+  offset: 0, 0
+  index: -1
+head_back
+  rotate: false
+  xy: 722, 506
+  size: 654, 518
+  orig: 654, 518
+  offset: 0, 0
+  index: -1
+body_02
+  rotate: false
+  xy: 722, 88
+  size: 404, 410
+  orig: 404, 410
+  offset: 0, 0
+  index: -1
+body_01
+  rotate: false
+  xy: 278, 216
+  size: 310, 162
+  orig: 310, 162
+  offset: 0, 0
+  index: -1
+center
+  rotate: false
+  xy: 0, 146
+  size: 270, 232
+  orig: 270, 232
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 120, 42
+  size: 138, 96
+  orig: 138, 96
+  offset: 0, 0
+  index: -1
+arm_left_01
+  rotate: false
+  xy: 278, 18
+  size: 206, 190
+  orig: 206, 190
+  offset: 0, 0
+  index: -1
+arm_right_01
+  rotate: false
+  xy: 492, 40
+  size: 174, 168
+  orig: 174, 168
+  offset: 0, 0
+  index: -1
+arm_left_02
+  rotate: false
+  xy: 596, 234
+  size: 112, 144
+  orig: 112, 144
+  offset: 0, 0
+  index: -1
+arm_right_02
+  rotate: false
+  xy: 1134, 344
+  size: 148, 154
+  orig: 148, 154
+  offset: 0, 0
+  index: -1
+leg_left
+  rotate: false
+  xy: 0, 0
+  size: 112, 138
+  orig: 112, 138
+  offset: 0, 0
+  index: -1
+leg_right
+  rotate: false
+  xy: 1134, 190
+  size: 106, 146
+  orig: 106, 146
+  offset: 0, 0
+  index: -1
+body_back
+  rotate: false
+  xy: 1248, 196
+  size: 92, 140
+  orig: 92, 140
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 722, 17
+  size: 63, 63
+  orig: 63, 63
+  offset: 0, 0
+  index: -1

@@ -67,3 +67,10 @@ crashlytics-build.properties
 __pycache__/
 *.py[cod]
 
+# Local gameplay screenshots and visual validation captures
+[Ss]creenshots/
+/ArtDirection/**/validation/*.png
+/ArtDirection/**/validation/*.jpg
+/ArtDirection/**/validation/*.jpeg
+/ArtDirection/**/validation/*.webp
+

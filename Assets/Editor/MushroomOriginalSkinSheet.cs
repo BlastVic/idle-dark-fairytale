@@ -9,7 +9,12 @@ public static class MushroomOriginalSkinSheet
 {
     public static readonly string[] Parts = { "head", "head_back", "body_02", "body_01", "center", "eye", "arm_left_01", "arm_right_01", "arm_left_02", "arm_right_02", "leg_left", "leg_right", "body_back", "shadow" };
     public const string Dir = "ArtDirection/Monsters/BlackForestMushroom/source/original-rig";
-    [InitializeOnLoadMethod] static void Prepare() { if (!File.Exists(Dir+"/reference.png")) EditorApplication.delayCall += MakeReference; }
+    [MenuItem("Tools/Dark Fairytale/Monsters/Make Source Skin References")]
+    public static void MakeReferences()
+    {
+        foreach (string id in new[] { "mon_7081", "mon_7082" }) MakeReference(id);
+        Debug.Log("MUSHROOM_SOURCE_REFERENCES_READY");
+    }
     public static RectInt PartRect(int i, Texture2D input)
     {
         float scale = 320f / Mathf.Max(input.width,input.height);
@@ -31,17 +36,19 @@ public static class MushroomOriginalSkinSheet
         }
         return false;
     }
-    static void MakeReference()
+    static void MakeReference(string id)
     {
-        Directory.CreateDirectory(Dir);
+        string folder = Dir + "/" + id;
+        Directory.CreateDirectory(folder);
+        attachments = (JObject)JObject.Parse(File.ReadAllText("../Spine/monster/"+id+"/"+id+".json"))["skins"][0]["attachments"];
         var sheet = new Texture2D(1536,1536,TextureFormat.RGBA32,false);
         sheet.SetPixels(new Color[1536*1536]);
         for(int i=0;i<Parts.Length;i++) {
-            var input= new Texture2D(2,2); input.LoadImage(File.ReadAllBytes("../Spine/monster/mon_7080/images/"+Parts[i]+".png"));
+            var input= new Texture2D(2,2); input.LoadImage(File.ReadAllBytes("../Spine/monster/"+id+"/images/"+Parts[i]+".png"));
             var rect=PartRect(i,input);
             for(int y=0;y<rect.height;y++) for(int x=0;x<rect.width;x++) sheet.SetPixel(rect.x+x,rect.y+y,Inside(Parts[i],(x+.5f)/rect.width,1-(y+.5f)/rect.height) ? input.GetPixelBilinear((x+.5f)/rect.width,(y+.5f)/rect.height) : Color.clear);
             Object.DestroyImmediate(input);
         }
-        sheet.Apply(); File.WriteAllBytes(Dir+"/reference.png",sheet.EncodeToPNG()); Object.DestroyImmediate(sheet);
+        sheet.Apply(); File.WriteAllBytes(folder+"/reference.png",sheet.EncodeToPNG()); Object.DestroyImmediate(sheet);
     }
 }

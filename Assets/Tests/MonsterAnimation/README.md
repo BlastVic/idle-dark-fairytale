@@ -31,5 +31,5 @@ mon_7070 原有 Art 资源保持原路径；旧场景和控制脚本已迁移到
 ## 黑森林三色蘑菇
 
 已将 `Assets/DarkFairytale/Monsters/BlackForestMushroom` 加入统一场景的扫描目录。
-选择 `BF_Mushroom_Wine`、`BF_Mushroom_Moss`、`BF_Mushroom_Moon` 对应的 SkeletonDataAsset 即可预览朝左的四个基础动画；优先播放 `Idle1`。
+选择 `Mob001`、`Mob002`、`Mob003` 对应的 SkeletonDataAsset 即可预览朝左的四个基础动画；优先播放 `Idle1`。
 完整交付、实战入口、重建步骤和源工程限制见[三色蘑菇说明](../../../ArtDirection/Monsters/BlackForestMushroom/README.md)。

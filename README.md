@@ -1,6 +1,11 @@
 # Idle-Knight
 IdleKnight
 
+## 开发进度
+
+- [小红帽游戏开发总清单](DEVELOPMENT.md)：当前阶段、下一步、制作待办、章节进度与验收条件。
+- [故事基线](Docs/Production/StoryBaseline.md)、[悬疑伏笔](Docs/Production/MysteryLedger.md)、[待决问题](Docs/Production/Decisions.md)：区分已确认设定、候选方案和仍需解决的问题。
+
 
 ## 制作规范
 
