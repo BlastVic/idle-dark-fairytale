@@ -1,0 +1,327 @@
+{
+  "Front_Body_01": {
+    "group": "main",
+    "box": [
+      28,
+      24,
+      572,
+      604
+    ],
+    "original_size": [
+      291,
+      310
+    ]
+  },
+  "Front_Eye": {
+    "group": "main",
+    "box": [
+      24,
+      684,
+      146,
+      803
+    ],
+    "original_size": [
+      44,
+      43
+    ]
+  },
+  "Front_Eye_L_01": {
+    "group": "main",
+    "box": [
+      194,
+      683,
+      316,
+      805
+    ],
+    "original_size": [
+      41,
+      41
+    ]
+  },
+  "Front_Eye_L_02": {
+    "group": "main",
+    "box": [
+      364,
+      685,
+      486,
+      802
+    ],
+    "original_size": [
+      49,
+      47
+    ]
+  },
+  "Front_Eye_L_03": {
+    "group": "main",
+    "box": [
+      534,
+      681,
+      656,
+      806
+    ],
+    "original_size": [
+      46,
+      47
+    ]
+  },
+  "Front_Eye_R_01": {
+    "group": "main",
+    "box": [
+      721,
+      676,
+      808,
+      812
+    ],
+    "original_size": [
+      23,
+      36
+    ]
+  },
+  "Front_Eye_R_02": {
+    "group": "main",
+    "box": [
+      890,
+      676,
+      979,
+      812
+    ],
+    "original_size": [
+      25,
+      38
+    ]
+  },
+  "Front_Eye_R_03": {
+    "group": "main",
+    "box": [
+      36,
+      850,
+      134,
+      986
+    ],
+    "original_size": [
+      23,
+      32
+    ]
+  },
+  "Front_EyeLid_L_01": {
+    "group": "main",
+    "box": [
+      194,
+      865,
+      316,
+      970
+    ],
+    "original_size": [
+      36,
+      31
+    ]
+  },
+  "Front_EyeLid_R_01": {
+    "group": "main",
+    "box": [
+      375,
+      850,
+      474,
+      986
+    ],
+    "original_size": [
+      24,
+      33
+    ]
+  },
+  "Front_Head_01": {
+    "group": "main",
+    "box": [
+      624,
+      40,
+      964,
+      376
+    ],
+    "original_size": [
+      166,
+      164
+    ]
+  },
+  "Front_Mouth_L_01": {
+    "group": "main",
+    "box": [
+      536,
+      850,
+      653,
+      986
+    ],
+    "original_size": [
+      43,
+      50
+    ]
+  },
+  "Front_Mouth_R_01": {
+    "group": "main",
+    "box": [
+      727,
+      850,
+      802,
+      986
+    ],
+    "original_size": [
+      33,
+      60
+    ]
+  },
+  "Front_Leg1_L_01": {
+    "group": "legs",
+    "box": [
+      69,
+      22,
+      187,
+      318
+    ],
+    "original_size": [
+      62,
+      156
+    ]
+  },
+  "Front_Leg1_L_02": {
+    "group": "legs",
+    "box": [
+      278,
+      24,
+      490,
+      315
+    ],
+    "original_size": [
+      75,
+      103
+    ]
+  },
+  "Front_Leg1_R_01": {
+    "group": "legs",
+    "box": [
+      561,
+      22,
+      719,
+      318
+    ],
+    "original_size": [
+      80,
+      150
+    ]
+  },
+  "Front_Leg1_R_02": {
+    "group": "legs",
+    "box": [
+      790,
+      108,
+      1002,
+      231
+    ],
+    "original_size": [
+      114,
+      66
+    ]
+  },
+  "Front_Leg2_L_01": {
+    "group": "legs",
+    "box": [
+      52,
+      362,
+      203,
+      658
+    ],
+    "original_size": [
+      70,
+      137
+    ]
+  },
+  "Front_Leg2_L_02": {
+    "group": "legs",
+    "box": [
+      278,
+      405,
+      490,
+      615
+    ],
+    "original_size": [
+      115,
+      114
+    ]
+  },
+  "Front_Leg2_R_01": {
+    "group": "legs",
+    "box": [
+      540,
+      362,
+      739,
+      658
+    ],
+    "original_size": [
+      78,
+      116
+    ]
+  },
+  "Front_Leg2_R_02": {
+    "group": "legs",
+    "box": [
+      790,
+      445,
+      1002,
+      575
+    ],
+    "original_size": [
+      104,
+      64
+    ]
+  },
+  "Front_Leg3_L_01": {
+    "group": "legs",
+    "box": [
+      49,
+      702,
+      206,
+      998
+    ],
+    "original_size": [
+      60,
+      113
+    ]
+  },
+  "Front_Leg3_L_02": {
+    "group": "legs",
+    "box": [
+      278,
+      805,
+      490,
+      894
+    ],
+    "original_size": [
+      133,
+      56
+    ]
+  },
+  "Front_Leg3_R_01": {
+    "group": "legs",
+    "box": [
+      534,
+      758,
+      746,
+      941
+    ],
+    "original_size": [
+      73,
+      63
+    ]
+  },
+  "Front_Leg3_R_02": {
+    "group": "legs",
+    "box": [
+      790,
+      803,
+      1002,
+      897
+    ],
+    "original_size": [
+      88,
+      39
+    ]
+  }
+}
