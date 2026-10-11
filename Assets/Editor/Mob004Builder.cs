@@ -92,7 +92,7 @@ public static class Mob004Builder
             root.name = "Mob004";
             root.transform.localScale = Vector3.one;
             var display = root.GetComponentInChildren<SkeletonAnimation>(true);
-            display.transform.localScale = new Vector3(-1, 1, 1);
+            display.transform.localScale = Vector3.one;
             display.transform.localPosition = Vector3.zero;
             display.skeletonDataAsset = data;
             display.initialSkinName = "1";
@@ -159,7 +159,7 @@ public static class Mob004Builder
         tester.character.skeletonDataAsset = data;
         tester.character.initialSkinName = "1";
         tester.character.AnimationName = "Idle1";
-        tester.character.transform.localScale = new Vector3(-1, 1, 1);
+        tester.character.transform.localScale = Vector3.one;
         EditorUtility.SetDirty(tester);
         EditorUtility.SetDirty(tester.character);
         EditorSceneManager.MarkSceneDirty(scene);
@@ -224,7 +224,7 @@ public static class Mob004Builder
         {
             display = SkeletonAnimation.NewSkeletonAnimationGameObject(data);
             SceneManager.MoveGameObjectToScene(display.gameObject, scene);
-            display.transform.localScale = new Vector3(-1, 1, 1);
+            display.transform.localScale = Vector3.one;
             foreach (string skin in new[] { "default", "1" })
             {
                 display.Skeleton.SetSkin(skin);
