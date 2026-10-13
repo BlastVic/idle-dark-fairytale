@@ -1,0 +1,38 @@
+怪物命名迁移 — 2026-10-12
+
+规则：Mob + 描述性英文名称（PascalCase）；不再分配 Mob00x 数字编号。以下是资源键、Prefab 名称和 Addressables 地址。
+
+Mob001 → MobWaxcap · 蜡斑菇
+Mob002 → MobWoodcap · 木纹菇
+Mob003 → MobDreamcap · 梦眼菇
+Mob004 → MobGloomSpider · 黑森林蜘蛛
+Mob005 → MobRuneWolf · 猩红符文狼
+Mob006 → MobHollowWolf · 空壳瓷狼
+Mob007 → MobRotleafChild · 腐叶祈童
+Mob008 → MobBriarChild · 荆棘莓童
+Mob009 → MobBarkSquirrel · 枯壳啮木鼠
+
+已更新
+- 九只怪物目录、Prefab、JSON/atlas/PNG 文件名、材质/骨架资产名、图集页名、纹理子资源名，完整保留 GUID 与 local file ID。
+- 敌人数据库、Addressables、Gameplay 已有蘑菇波次、MonsterAnimationTest 发现路径、持久化目录与真实缩略图。
+- 制作/验证脚本及类名、可编辑源资源路径、同级 Spine/export/monster 下九个导出目录、当前交付文档。
+- AGENTS.md 与制作手册改用名称规则。原版 Mob1 等资源未修改，无旧数字键兼容别名。
+- 仅给九个目录名称文本和选中栏启用字号自适应；保留既有布局和 Prefab 引用。
+
+验证
+- 九套 PNG 和骨架 JSON 字节不变；Prefab 除名称外完全相同。原骨骼、动画、事件、数值、材质及 Inspector 配置未重建。
+- 101 个修改的 Unity 文本文件引用比对通过；九个 Prefab GUID 保持；项目与外部 JSON/atlas/PNG 一致。
+- 当前 Assets 下无 Mob001–Mob009 残留；旧名只保留在迁移对照、历史验收及本地证据目录链接。
+- Unity 编译成功；运行时逐只从新 Addressables 名称及 EnemyDb 加载，同一 Prefab；检查组件、骨架/四基础动作、图集/材质/纹理、中文名称、真实缩略图、搜索和预览切换。九只全部通过，测试期间 errors=0。
+- 三比例实际截图：每只在 720×1280、768×1024、720×1440 各一张，另有三个怪物库截图，共30张；PNG尺寸逐张校验。实际查看长名称与列表，文字可完整阅读。
+- 重命名不更改战斗逻辑，本轮没有重跑伤害/掉落/波次实战；既有怪物制作验收和原生 .spine 待补状态不因此升级。
+- 导入时旧 Spine 编辑器对部分既有 3.8-from-... 转换版本字符串仍产生解析警告/错误日志；本轮保持原 JSON 版本和数据，未伪改版本。现有 SkeletonData 在实际 Runtime 加载验证全部通过。
+
+证据与复验
+output/monster-name-migration/static-validation.txt
+output/monster-name-migration/validation.txt
+output/monster-name-migration/*.png（本地忽略，不提交Git）
+编辑模式在 output/monster-name-migration/command.request 写入 validate，可在统一场景重复检查新名称加载和三比例预览；先等待编译结束。
+旧输出目录保留到新目录的本地链接，历史验收文本不改写。原始迁移前备份仅在 output/monster-name-migration/backup。
+详细资源路径与 GUID：name-migration-2026-10-12.json。
+未提交 Git。完成后留在 MonsterAnimationTest，MobBarkSquirrel 的 Idle 预览。

@@ -270,7 +270,7 @@ public class GameManager : MonoBehaviour
         #endregion
 
         #region BONUS for XP Booster
-        if (isBoostedXPActive)
+        if (HasActiveXpBoost)
         {
             amount += amount * .33f;
         }
@@ -469,6 +469,7 @@ public class GameManager : MonoBehaviour
     public void SetGameState(GameStateType newState)
     {
         gameState = newState;
+        if (gc.homeUI) gc.homeUI.gameObject.SetActive(newState == GameStateType.CAMP);
         gc.OrderButtonGrid();
         gc.ToggleButtonGrid(true);
         if (gameState == GameStateType.CAMP)
@@ -515,6 +516,10 @@ public class GameManager : MonoBehaviour
     public string xpBoostEndTimeString;
 
     public bool isBoostedXPActive = false;
+    public bool HasActiveXpBoost
+    {
+        get { if (isBoostedXPActive && xpBoostEndTime <= System.DateTime.Now) isBoostedXPActive = false; return isBoostedXPActive; }
+    }
     public void AddXPBoost(string overrideTime = "", bool useOverrideTime = false)
     {
         if (useOverrideTime)

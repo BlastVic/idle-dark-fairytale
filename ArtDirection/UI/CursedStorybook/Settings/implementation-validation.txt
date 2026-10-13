@@ -1,0 +1,69 @@
+设置 UI 实装与验证（2026-10-13）
+
+可编辑 Prefab：Assets/DarkFairytale/UI/Settings/StorybookSettings.prefab
+主界面设置按钮直接打开，返回关闭并释放射线。复用旧纸、荆棘细框、暗红书签与蜡封资源。
+SettingsViewport/SettingsSections 使用 ScrollRect、VerticalLayoutGroup 和 ContentSizeFitter，后续设置可直接增添持久化节点。
+声音：音乐与音效滑条，数值和实际混音同步，沿用原有音量保存键。
+游戏体验：跳过加载动画，默认关闭，PlayerPrefs 即时保存，下次启动生效。加载完成后直接恢复营地主界面，禁用翻书音效，不进行首页纹理捕获；地图剧情播放分支保留。
+运行时代码不创建整套界面；Builder 仅手动菜单或显式 build.request 执行，导入和启动不会重建。
+
+Unity 6000.6.3f1 隔离工程实际 Play Mode 验证，测试专用偏好键，不改玩家存档。
+实际截图位于已忽略的 output/settings-ui：9x16-settings.png、3x4-settings.png、3x4-bottom.png、1x2-settings.png、1x2-safe-area.png，以及 startup-0/1/2.png。
+逐区检查了三种比例下的标题、返回按钮、文本、滑条填充/手柄、选项卡和页脚。3:4 内容滚动后末项可操作，返回/页脚固定；安全区内关键控件完整。
+未提供单独已批准的设置设计稿，本页复用现有游戏资源并按本次请求完成布局。
+
+
+本次修订：按用户反馈复用融合 UI 的独立标题框、左右森林剪影与返回书签。未选中蜡封使用选中印章的同一原稿轮廓，材质清空中心勾选并呈灰色；选中显示原红色勾选印章。两张 Image 的位置、尺寸完全一致。
+跳过开关移除整行 ShelterButtonFeedback 缩放，改为仅印章 ColorTint 按压变暗，避免以左上角为轴缩放带来的漂移。已实测两种状态按压位置不变、按压反馈、禁用恢复、返回射线、三种比例与启动偏好持久化。
+修订实景：output/settings-ui/9x16-settings.png、3x4-bottom.png、1x2-settings.png、toggle-pressed.png、toggle-selected.png。
+
+Settings and three actual startup runs. Isolated project; QA preference key only.
+PASS startup 0 waits for actual home readiness
+PASS startup 0 plays normal book animation
+PASS startup 0 interactive camp restored
+PASS gear opens full-screen settings directly
+PASS new installation defaults to skip disabled
+PASS settings visible scale and opacity
+PASS persistent prefab references resolve
+PASS 9x16 back pointer
+PASS 9x16 last option reachable
+PASS 9x16 page fits viewport
+PASS 3x4 back pointer
+PASS 3x4 last option reachable
+PASS 3x4 page fits viewport
+PASS 1x2 back pointer
+PASS 1x2 last option reachable
+PASS 1x2 page fits viewport
+PASS music fill matches its value
+PASS sound fill matches its value
+PASS music binding updates actual mixer setting
+PASS sound binding updates actual mixer setting
+PASS toggle press keeps seal fixed
+PASS toggle has tint press feedback
+PASS toggle release keeps seal fixed
+PASS disabled toggle uses grey state
+PASS enabled toggle restores artwork
+PASS enable writes persistent preference and check state
+PASS wax states share exact bounds
+PASS selected seal stays fixed when pressed
+PASS close hides page and releases raycast blocking
+PASS home gear clickable after close
+PASS reopen preserves setting
+PASS no runtime UI generation
+PASS safe area back pointer
+PASS phase 0 no runtime errors
+PASS startup 1 waits for actual home readiness
+PASS saved preference skips book motion and render-texture capture
+PASS skip path disables page-turn audio
+PASS startup 1 interactive camp restored
+PASS gear opens full-screen settings directly
+PASS setting survives actual play-mode restart
+PASS turn off is persisted for next startup
+PASS phase 1 no runtime errors
+PASS startup 2 waits for actual home readiness
+PASS startup 2 plays normal book animation
+PASS startup 2 interactive camp restored
+PASS gear opens full-screen settings directly
+PASS disabled preference persists after restart
+PASS phase 2 no runtime errors
+PASS COMPLETE

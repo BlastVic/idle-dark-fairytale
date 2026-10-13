@@ -1,0 +1,20 @@
+庇护所主 UI — V7 开发说明
+
+入口：Assets/DarkFairytale/UI/Shelter/ShelterHome.prefab
+场景：Assets/Scenes/MainScenes/Gameplay.unity，通过 GameplayCanvas.homeUI 引用。
+UGUI 控件均持久化在 Prefab 中：背景、头像、等级、编号、血条、经验条、货币、设置、四个宝箱槽、右侧功能图标、六项属性、收展按钮、继续战斗、五个底部入口，以及详情和设置面板。
+
+手工调整：直接编辑 Prefab 的 Core_9x16 子节点。布局、美术、文字字号、按钮颜色、收展时间和展开/收起高度均可调整。Runtime 不生成整套界面，不覆盖节点布局；屏幕适配仅缩放与居中核心区域，属性收展仅改变属性面板高度和 CanvasGroup。
+创建工具只在明确菜单或 output/home-ui/build.request 请求时执行，已有 Prefab 永不重建。精修请求同样必须显式触发。正常导入和运行不会覆盖手工编辑。
+
+视觉：已移除头像左侧书签装饰，设置有独立点击空间。编号小字置于头像下方；宝箱横排在顶部下方；属性两行三列在场景下方；辅助功能竖排于右侧；庇护所是底部中央入口。
+场景现已拆成空庇护所背景与独立 RedHoodShelter Spine 角色。角色坐姿 Idle 包含呼吸、眨眼、发梢与披风细微运动、三层茶杯热气；角色 Prefab 嵌套于 ShelterIllustration 下。背景目前仍为静态插画。详细编辑说明见 ArtDirection/Characters/RedHoodShelter/IMPLEMENTATION.txt。
+
+状态：Button ColorTint + 按压缩放；禁用按钮不缩放。属性购买重新校验点数、100 级消耗 2 点、LastStatPurchased 限制，成功后立即刷新。收展使用 unscaledDeltaTime，隐藏与动画期间属性内容不拦截射线。详情以 CanvasGroup 淡入并阻挡后方点击。页面跳转期间锁定重复导航，返回时恢复。
+
+功能：沿用原装备、技能、地图、商店、宝箱、经验加成、融合、转生、战斗路由。融合满进度按钮使用原融合升级逻辑。转生未解锁仍可查看说明，但不能进入转生流程。设置连接 SoundManager 音乐/音效音量并保存本地偏好。
+
+编号：subjectNumber 是 Inspector 可配置的显示字段，初值 001；不是已实现的实验体编号存档系统。编号范围、初始值和更替事件仍需按剧情 Q04 确定，当前不自动递增，不冒充死亡次数。
+
+验证：本地 Unity 截图与详细日志存于已忽略 output/home-ui/。不得提交游戏截图。最终验证结论见该目录 validation.txt。
+美术由内置 imagegen 生成：ShelterScene.png、ShelterIcons.png、ShelterPaper.png。文字和功能数值均是独立 UGUI Text，不在这些贴图中。

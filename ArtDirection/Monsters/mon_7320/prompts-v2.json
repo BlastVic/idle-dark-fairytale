@@ -1,0 +1,15 @@
+{
+  "tool": "built-in image_gen; exact model not exposed",
+  "edits": [
+    {
+      "input": "B-character-v1.png",
+      "output": "B-character-v2.png",
+      "prompt": "Precise object removal. Remove ONLY the detached small round floating water pearl above the character's head. Fill that small area with the same plain warm gray background. Preserve the pointed crown of the main body exactly, do not flatten or shorten the body. Preserve every other detail: left-facing sad face, both flipper arms, smoky blue translucent water, internal crescent moon and reed silhouettes, shape, size, position, camera, square canvas and painterly style. No replacement ornament, no floating droplets above head, no text."
+    },
+    {
+      "input": "B-battle-v1.png",
+      "output": "B-battle-v2.png",
+      "prompt": "Precise object removal. Remove ONLY the detached tiny round silver floating water pearl immediately above the blue water monster's pointed head in the lower right of this battle illustration. Inpaint its location with the matching dirt path background. Preserve the pointed crown of the monster's main body, its full size and position, both flippers, face, internal crescent moon reflection, all body details. Preserve absolutely all remaining composition including Red Riding Hood, short cloak, lantern-scythe, cabin, sky moon, stream, ground, lighting and portrait aspect ratio. Do not remove the large moon in the SKY or the crescent INSIDE the body. No replacement dot or ornament above the monster. No text or UI."
+    }
+  ]
+}

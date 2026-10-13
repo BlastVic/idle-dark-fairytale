@@ -33,9 +33,12 @@ public class DarkFairytaleBackdrop : MonoBehaviour
         transform.localScale = new Vector3(scale, scale, 1);
     }
 
-    void OnDestroy()
+    public void ReleaseCameraEffects()
     {
         foreach (var effect in disabledEffects)
             if (effect) effect.enabled = true;
+        disabledEffects.Clear();
     }
+
+    void OnDestroy() { ReleaseCameraEffects(); }
 }

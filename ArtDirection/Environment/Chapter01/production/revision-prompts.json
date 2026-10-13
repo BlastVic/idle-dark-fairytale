@@ -1,0 +1,13 @@
+{
+  "mode": "built-in image_gen",
+  "prompts": [
+    {
+      "id": "RitualGlowLayer",
+      "prompt": "EXACT POSITION transparent alpha extraction from reference scene1. Extract only the DISTANT ORANGE RITUAL FIRE GLOW visible BEHIND the left-center treeline, around x26%-46% y25%-34%. Output full original9:16 canvas, everything except those warm orange glow gaps transparent. Crucially TREES in front are transparent HOLES shaped exactly like reference pine silhouettes, so when laid over the same forest clean plate the fire appears BEHIND trees. No visible bonfire, no logs, no floating flame cluster, no hard horizontal base. Diffuse dull orange smoky glow and a few hidden distant tongues only, fade softly at all outside boundaries. Much less saturated than close-up flame. All other sky road characters lamps foliage fully transparent. Preserve exact location/scale and gentle original painted style. Transparent real alpha, not black canvas."
+    },
+    {
+      "id": "MoonTreeOccluder",
+      "prompt": "Exact-position FOREST OCCLUDER extraction from reference scene4 on full original portrait9:16 TRANSPARENT alpha canvas. Keep ONLY the dark fir tree whose tip overlaps the LOWER LEFT edge of the moon in original, located around x22% y10%-20%, plus its slim connected branches. Preserve exact shape, original screen location/scale. Remove moon completely, all sky, every other tree, cottage, road, water, characters, lamps, entire lower75%: all transparent. This narrow tree sprite will go IN FRONT of a separate animated moon to preserve original partial occlusion. No background rectangle, true alpha, no new tree added or moved. Dark navy cartoon silhouette matching original."
+    }
+  ]
+}

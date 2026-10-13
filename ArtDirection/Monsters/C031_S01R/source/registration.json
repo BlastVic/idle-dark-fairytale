@@ -1,0 +1,32 @@
+{
+  "Front_arm": {
+    "scale": 1.0,
+    "dx": 0.015625,
+    "dy": 0.0,
+    "outside_alpha_fraction": 3.831586898631459e-05
+  },
+  "Front_Body": {
+    "scale": 0.99,
+    "dx": 0.015625,
+    "dy": 0.015625,
+    "outside_alpha_fraction": 0.00034760798458915434
+  },
+  "Front_hat_01": {
+    "scale": 0.96,
+    "dx": 0.03125,
+    "dy": -0.03125,
+    "outside_alpha_fraction": 0.00031508549398116164
+  },
+  "Front_Leg_01": {
+    "scale": 1.0,
+    "dx": 0.0,
+    "dy": 0.0,
+    "outside_alpha_fraction": 8.453305487742518e-05
+  },
+  "Front_Leg_02": {
+    "scale": 1.0,
+    "dx": 0.0,
+    "dy": 0.0,
+    "outside_alpha_fraction": 7.062830797146033e-05
+  }
+}

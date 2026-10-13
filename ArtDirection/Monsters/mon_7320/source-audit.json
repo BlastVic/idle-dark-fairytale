@@ -1,0 +1,47 @@
+{
+  "source_id": "mon_7320",
+  "source_path": "/Users/vic/Workshop/Spine/monster/mon_7320",
+  "version": "3.8.75",
+  "bones": 18,
+  "slots": 14,
+  "skins": [
+    "default"
+  ],
+  "animations": [
+    "attack_1",
+    "die",
+    "idle",
+    "run",
+    "spawn",
+    "stun",
+    "victory"
+  ],
+  "sha256": {
+    "mon_7320_导出.png": "a5770bdeae319da9a98bd726b082c0888cbc74b0a67984cd6139f33a36e08a04",
+    "mon_7320.spine": "0dbbad68e058a76f26b58bbd6619378d972c69f56c9b75372f97f82af24a8240",
+    "mon_7320.atlas": "1f94d8e9316e163e31c1509f8382ce77d59c0cdc0fe31cdb913e354f433dd6ac",
+    "mon_7320.json": "f5dcf6a774c9dfe8c37810547fdf34deb45f2e2d58db34b9a818c2105f860138",
+    "mon_7320.png": "acacf01f36b7bf8f1d26a40bcfc978e0ed17fe08cef6d05fee33fc2de210f1b4",
+    "images/mouth.png": "c849037a46ccea3bdfaebe6e7fa603920622647d7c82aaf7adb627fe759e4160",
+    "images/hand_left_shadow.png": "398d51799c5ac906678f27a2f23f4ca75d004ca50dfe67a372add4592819fc9f",
+    "images/hand_right.png": "b81402b5599d1bb007707b0da9cf99f9f4b5452f74808609ab44992fb0e9f40d",
+    "images/death3.png": "b5e3824e3e3f401dd800035fff86c96c64d24d039582919d44d71e1e8c7f7f97",
+    "images/body.png": "7e678963f0f18311357a4173e10f7248fcca27198932a0f58780cb575d0d617e",
+    "images/death1.png": "fb0c10a5fb21e748bc01a2047d22c7fcf12515325e5721228c9937fda13c2b53",
+    "images/death4.png": "ab0e3319c71d676bbe0b692e121bcf0e686cb94a6c50eaad6222e63255b3856f",
+    "images/top.png": "4cd6d6bc69dc3024428a2b56f47d63f51dceef3a0a58b227835e899596604861",
+    "images/eye.png": "ee208d77e8e7f4a4623db72ef07ee143e35a70b7d4081f784194f49f2e89ebdf",
+    "images/shadow.png": "c551060ee13fe7eeae5f58f1b689e90b6703aeaa7a853d54645f159b40b2b1cc",
+    "images/hand_left.png": "004c162cbf6fb3ae31c02ceb32e09f9062493b4bb4902a3d923638fc092f95ca"
+  },
+  "inspection": "Source composite, atlas, individual attachment definitions and full animation channels. No Unity runtime preview in concept phase.",
+  "structure": "Legless elastic teardrop body; two articulated flippers; separate floating top droplet; eye/mouth meshes; death attachment swaps at 0.1667s; 11 source image files.",
+  "risks": [
+    "Attack center translation x reaches 1226.75 at 0.3333 sec; reserve lunge space.",
+    "Idle squash/stretch and top droplet scale: hard shell unsuitable.",
+    "Stun eye scaleX 0.141; avoid intricate eyeball details.",
+    "die switches to separate death1/3/4 pieces; all must be repainted.",
+    "stun is looping, not a validated short Hit.",
+    "Facing left requires redesigned face perspective plus display flip; mirroring alone does not change perspective."
+  ]
+}

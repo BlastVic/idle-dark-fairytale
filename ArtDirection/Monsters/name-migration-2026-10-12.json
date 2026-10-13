@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-12",
+  "rule": "Mob + descriptive English name (PascalCase)",
+  "monsters": [
+    {
+      "old": "Mob001",
+      "new": "MobWaxcap",
+      "displayName": "蜡斑菇",
+      "prefab": "Assets/DarkFairytale/Monsters/BlackForestMushroom/MobWaxcap/MobWaxcap.prefab",
+      "guid": "9d3cca2ce51594e138f63660a4501407"
+    },
+    {
+      "old": "Mob002",
+      "new": "MobWoodcap",
+      "displayName": "木纹菇",
+      "prefab": "Assets/DarkFairytale/Monsters/BlackForestMushroom/MobWoodcap/MobWoodcap.prefab",
+      "guid": "b76adce60ab5c4a2da034d0fad878894"
+    },
+    {
+      "old": "Mob003",
+      "new": "MobDreamcap",
+      "displayName": "梦眼菇",
+      "prefab": "Assets/DarkFairytale/Monsters/BlackForestMushroom/MobDreamcap/MobDreamcap.prefab",
+      "guid": "447803f4cf03f4e24a04808c66e84f64"
+    },
+    {
+      "old": "Mob004",
+      "new": "MobGloomSpider",
+      "displayName": "黑森林蜘蛛",
+      "prefab": "Assets/DarkFairytale/Monsters/BlackForestSpider/MobGloomSpider/MobGloomSpider.prefab",
+      "guid": "837af218c1114e0181b86173f958041f"
+    },
+    {
+      "old": "Mob005",
+      "new": "MobRuneWolf",
+      "displayName": "猩红符文狼",
+      "prefab": "Assets/DarkFairytale/Monsters/MobRuneWolf/MobRuneWolf.prefab",
+      "guid": "37ba5dfecfa7c4fc2a49ead744e9ea2b"
+    },
+    {
+      "old": "Mob006",
+      "new": "MobHollowWolf",
+      "displayName": "空壳瓷狼",
+      "prefab": "Assets/DarkFairytale/Monsters/MobHollowWolf/MobHollowWolf.prefab",
+      "guid": "6b8a7e771742b482ab14f9fb7dbdc1db"
+    },
+    {
+      "old": "Mob007",
+      "new": "MobRotleafChild",
+      "displayName": "腐叶祈童",
+      "prefab": "Assets/DarkFairytale/Monsters/MobRotleafChild/MobRotleafChild.prefab",
+      "guid": "707a857816f4549cbbc3a89ff67faa5a"
+    },
+    {
+      "old": "Mob008",
+      "new": "MobBriarChild",
+      "displayName": "荆棘莓童",
+      "prefab": "Assets/DarkFairytale/Monsters/MobBriarChild/MobBriarChild.prefab",
+      "guid": "8865c078456a74b26aa6f6374dfff255"
+    },
+    {
+      "old": "Mob009",
+      "new": "MobBarkSquirrel",
+      "displayName": "枯壳啮木鼠",
+      "prefab": "Assets/DarkFairytale/Monsters/MobBarkSquirrel/MobBarkSquirrel.prefab",
+      "guid": "5f565a36561f6403fa24bd7d7c8507a3"
+    }
+  ],
+  "notes": [
+    "Original Mob1 etc remain unchanged.",
+    "Historical acceptance evidence retains its original identifiers and output paths.",
+    "Unity .meta GUIDs are preserved."
+  ]
+}

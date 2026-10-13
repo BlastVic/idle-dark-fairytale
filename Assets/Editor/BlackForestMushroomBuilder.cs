@@ -16,7 +16,7 @@ public static class BlackForestMushroomBuilder
 {
     public const string Root = "Assets/DarkFairytale/Monsters/BlackForestMushroom";
     const string Source = "ArtDirection/Monsters/BlackForestMushroom/source";
-    public static readonly string[] Ids = { "Mob001", "Mob002", "Mob003" };
+    public static readonly string[] Ids = { "MobWaxcap", "MobWoodcap", "MobDreamcap" };
     static readonly string[] Sheets = { "wine-red", "moss-green", "moon-violet" };
     static readonly string[] SourceIds = { "mon_7080", "mon_7081", "mon_7082" };
     static string SheetPath(int i) => Source + "/original-rig/" + (i == 0 ? Sheets[i] : SourceIds[i] + "/painted") + ".png";

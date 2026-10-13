@@ -1,0 +1,111 @@
+{
+  "tool": "built-in image_gen",
+  "model": "Exact model not exposed by tool",
+  "created": "2026-10-12",
+  "characters": [
+    {
+      "id": "A",
+      "name": "腐叶祈童",
+      "prompt": "Use case: stylized-concept. One full-body enemy character concept on plain warm gray paper, square canvas, no words, no panels. Image 1 is ONLY anatomy/proportion reference: giant pointed broad cap with layered underside, tiny rounded body, two small tapered feet and two short flipper-like arms. Preserve these volumes and short-limb articulation. Image 2 is painted dark-fairytale visual style reference only, not a background to reproduce. Crisp ink contours, hand-painted gouache shading, restrained weathered textures, readable at mobile game size. Cute silhouette with unsettling supernatural detail, mild horror. Character is facing SCREEN LEFT in a clear three-quarter combat stance, eyes and mouth clustered toward LEFT edge of body, visible right side plane; never front-facing. Entire cap and both feet visible, no separate props, no additional limbs, no long dangling appendages. Cap about 60% total height and wider than body. A forest leaf reliquary imp. Giant pointed cap made of overlapping dead olive leaves, woody veins and near-black curled rim, very few tiny rusty seed husks embedded flush in the cap. Body pale warm rootwood, plump like a sleepy seedling. Two irregular hollow eye sockets; the tiny mouth is a vertical seed-shaped dark opening, no teeth. Main uncanny motif: a single large closed eyelid naturally formed by leaf veins across the cap, subtle but legible; dark amber sap weeps from one corner. Cute drooping expression and stubby feet. Muted olive, parchment beige, warm amber accents. No mushrooms growing on it, no clothing, no exposed bones, no blood.",
+      "references": [
+        "/Users/vic/Workshop/Spine/monster2/目录/C031_Dummy_G.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "残烛守夜人",
+      "prompt": "Use case: stylized-concept. One full-body enemy character concept on plain warm gray paper, square canvas, no words, no panels. Image 1 is ONLY anatomy/proportion reference: giant pointed broad cap with layered underside, tiny rounded body, two small tapered feet and two short flipper-like arms. Preserve these volumes and short-limb articulation. Image 2 is painted dark-fairytale visual style reference only, not a background to reproduce. Crisp ink contours, hand-painted gouache shading, restrained weathered textures, readable at mobile game size. Cute silhouette with unsettling supernatural detail, mild horror. Character is facing SCREEN LEFT in a clear three-quarter combat stance, eyes and mouth clustered toward LEFT edge of body, visible right side plane; never front-facing. Entire cap and both feet visible, no separate props, no additional limbs, no long dangling appendages. Cap about 60% total height and wider than body. A small wax vigil imp with an enormous pointed bell-shaped cap of ivory beeswax, wax drips fused flush to broad brim, blackened wick-like peak UNLIT. Cap underside is soot-dark layered wax. Rounded body looks like a shy little melted candle doll; two small black dot eyes directed left, small worried mouth, stubby wax arms and feet. Main uncanny motif: a narrow chapel-window-shaped hollow through the cap containing a small faint ember, and compressed half-erased sleeping face impressions in wax around its rim, only three subtle faces. Cute soft round silhouette. Ivory wax, charcoal soot, very restrained old burgundy seal fleck, dim amber core. Not a ceramic mushroom, no leafy cap, no long flowing drips, no floating flames, no tentacles.",
+      "references": [
+        "/Users/vic/Workshop/Spine/monster2/目录/C031_Dummy_G.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png"
+      ]
+    },
+    {
+      "id": "C",
+      "name": "折页噤声客",
+      "prompt": "Use case: stylized-concept. One full-body enemy character concept on plain warm gray paper, square canvas, no words, no panels. Image 1 is ONLY anatomy/proportion reference: giant pointed broad cap with layered underside, tiny rounded body, two small tapered feet and two short flipper-like arms. Preserve these volumes and short-limb articulation. Image 2 is painted dark-fairytale visual style reference only, not a background to reproduce. Crisp ink contours, hand-painted gouache shading, restrained weathered textures, readable at mobile game size. Cute silhouette with unsettling supernatural detail, mild horror. Character is facing SCREEN LEFT in a clear three-quarter combat stance, eyes and mouth clustered toward LEFT edge of body, visible right side plane; never front-facing. Entire cap and both feet visible, no separate props, no additional limbs, no long dangling appendages. Cap about 60% total height and wider than body. A crumpled storybook-paper imp. Enormous pointed broad folded-paper cap like a crooked folded children's storybook hat with stiff accordion page layers beneath its brim. Rounded body wrapped in old paper, tiny folded mitten arms and pointed folded-paper feet. Two asymmetrical ink blots form mournful eyes facing left, little mouth shaped like a missing piece of paper. Main uncanny motif: a sharply defined black keyhole cut through the upper cap, empty impossible depth inside; tiny repeated childlike shadow silhouettes printed along the lower brim like a procession, flat ink marks not extra creatures. Cute shy hunched stance. Yellowed parchment, soot black, faded desaturated indigo shadow planes, one small dull red wax seal on cap. No readable letters, no leaf textures, no wax drips, no extra limbs.",
+      "references": [
+        "/Users/vic/Workshop/Spine/monster2/目录/C031_Dummy_G.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png"
+      ]
+    }
+  ],
+  "revisionA": {
+    "prompt": "Edit this exact character illustration by horizontally mirroring the entire image. The little leaf monster must face SCREEN LEFT instead of right. Preserve ALL artwork, design, colors, cap eye, sap, anatomy, proportions and paper background. No redesign, no additions. Only horizontal mirror.",
+    "reference": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-404a9ce3-22f7-4f95-a33c-85e4db144a35.png"
+  },
+  "battles": [
+    {
+      "id": "A",
+      "name": "腐叶祈童",
+      "prompt": "Use case: compositing. Create a 9:16 vertical dark fairytale battle CONCEPT illustration. Image 1 is the exact approved background and heroine to preserve; image 2 is the exact new enemy to insert. Remove ALL THREE existing mushrooms on the right of image 1, restore the dirt ground behind them. Insert ONLY ONE character from image 2 on the right facing LEFT toward Red Riding Hood. Keep heroine, her pose, outfit and lantern-scythe, moon, cottage, creek, camera, trees and composition from image 1 unchanged. The new enemy's feet are at y=75% canvas, center x=73%, top of pointed cap y=54%, total height 21% canvas, width about 37% canvas, comparable total height to Red Riding Hood. Fully show both feet on the same dry foreground groundline as heroine, natural contact shadow, no overlap with heroine. Preserve the exact materials, silhouette and major supernatural motifs of image 2. Match blue moonlight and subtle warm lantern highlights without making enemy dark or unreadable. No other enemies, no UI, no text, no frame. Same scene scale and framing as image 1.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-5d0d7f1f-2541-4712-a5ad-1d1983329a7b.png"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "残烛守夜人",
+      "prompt": "Use case: compositing. Create a 9:16 vertical dark fairytale battle CONCEPT illustration. Image 1 is the exact approved background and heroine to preserve; image 2 is the exact new enemy to insert. Remove ALL THREE existing mushrooms on the right of image 1, restore the dirt ground behind them. Insert ONLY ONE character from image 2 on the right facing LEFT toward Red Riding Hood. Keep heroine, her pose, outfit and lantern-scythe, moon, cottage, creek, camera, trees and composition from image 1 unchanged. The new enemy's feet are at y=75% canvas, center x=73%, top of pointed cap y=54%, total height 21% canvas, width about 37% canvas, comparable total height to Red Riding Hood. Fully show both feet on the same dry foreground groundline as heroine, natural contact shadow, no overlap with heroine. Preserve the exact materials, silhouette and major supernatural motifs of image 2. Match blue moonlight and subtle warm lantern highlights without making enemy dark or unreadable. No other enemies, no UI, no text, no frame. Same scene scale and framing as image 1.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-229d8247-95ba-47cd-87de-766d2df9dce8.png"
+      ]
+    },
+    {
+      "id": "C",
+      "name": "折页噤声客",
+      "prompt": "Use case: compositing. Create a 9:16 vertical dark fairytale battle CONCEPT illustration. Image 1 is the exact approved background and heroine to preserve; image 2 is the exact new enemy to insert. Remove ALL THREE existing mushrooms on the right of image 1, restore the dirt ground behind them. Insert ONLY ONE character from image 2 on the right facing LEFT toward Red Riding Hood. Keep heroine, her pose, outfit and lantern-scythe, moon, cottage, creek, camera, trees and composition from image 1 unchanged. The new enemy's feet are at y=75% canvas, center x=73%, top of pointed cap y=54%, total height 21% canvas, width about 37% canvas, comparable total height to Red Riding Hood. Fully show both feet on the same dry foreground groundline as heroine, natural contact shadow, no overlap with heroine. Preserve the exact materials, silhouette and major supernatural motifs of image 2. Match blue moonlight and subtle warm lantern highlights without making enemy dark or unreadable. No other enemies, no UI, no text, no frame. Same scene scale and framing as image 1.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-5cd406d4-f65c-4ef6-99af-d2ada5f65aad.png"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "A",
+      "name": "腐叶祈童",
+      "kind": "char",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-5d0d7f1f-2541-4712-a5ad-1d1983329a7b.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/A-character-v1.png"
+    },
+    {
+      "id": "A",
+      "name": "腐叶祈童",
+      "kind": "battle",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-e47f3a82-b609-4a4e-ad1b-bcb6d0391993.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/A-battle-v1.png"
+    },
+    {
+      "id": "B",
+      "name": "残烛守夜人",
+      "kind": "char",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-229d8247-95ba-47cd-87de-766d2df9dce8.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/B-character-v1.png"
+    },
+    {
+      "id": "B",
+      "name": "残烛守夜人",
+      "kind": "battle",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-2f7e9a41-5f75-4369-b3be-278837a5f2d3.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/B-battle-v1.png"
+    },
+    {
+      "id": "C",
+      "name": "折页噤声客",
+      "kind": "char",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-5cd406d4-f65c-4ef6-99af-d2ada5f65aad.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/C-character-v1.png"
+    },
+    {
+      "id": "C",
+      "name": "折页噤声客",
+      "kind": "battle",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-ae6aa68b-77c5-489a-8c12-f32f96e3bd67.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/C-battle-v1.png"
+    }
+  ]
+}

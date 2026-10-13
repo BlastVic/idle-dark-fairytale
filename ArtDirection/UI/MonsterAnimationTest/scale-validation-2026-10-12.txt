@@ -1,0 +1,22 @@
+统一战斗尺寸验收 — 2026-10-12
+
+问题：预览原按选中动画（或四基础动作联合）包围盒独立缩放怪物；不同怪物/动作与真实战斗体量不一致，重置还可能使用当前姿态重新取景。
+
+修改：
+- 删除 fitSelectedAnimation 和相关构建器写入，Play 不再测量包围盒、改变缩放或锚点。
+- 保存完整 Prefab 层级缩放及初始 setup-pose 网格尺寸。以 Gameplay 实际引用的 Player.prefab / MoonlitCastleBattleStyle 计算入场后的尺寸，默认普通怪前排0号位。
+- BattleStyle.DisplayFitScale 抽出原 Fit 中原样公式，实战行为不变；测试场景复用该公式，按当前屏幕比例保持怪物与小红帽的实战相对体量。预览整体映射到 UI 展示区域，屏幕占比不要求与实战 HUD 相同。
+- 定位依据固定 Idle 范围，重播/暂停/换动作/重置不再重新按当前动作居中；骨骼自身的缩放、挤压、位移不变。
+- 缩放滑条同时缩放两个角色，重置回1倍。未修改怪物皮肤、骨架、动画、事件、伤害或波次。
+- 已有 UGUI Prefab 布局和节点不变；在测试场景持久化战斗参考资源，可在 Inspector 编辑。
+
+验收：
+9只新怪物全部新地址/数据库加载通过；125段动画在切换并推进到中间帧后，模型Transform缩放与固定锚点均不变。
+测试对独立非激活Prefab实例调用生产 DarkFairytaleBattleStyle.Fit，与预览中怪物/玩家比例比较，通过；共用缩放和从其他动画重置回1倍通过。
+720×1280、768×1024、720×1440 实际 Unity 截图：每只各3组Idle/Attack，共54张，另3张怪物库，共57张；PNG尺寸逐张校验。已查看蘑菇/狼同分辨率Idle与Attack，以及宽屏松鼠、窄屏祈童，比例稳定、控件可用。
+测试运行 errors=0。未重复进行完整伤害/掉落实战，本轮验证的是预览缩放与生产尺寸算法一致性。
+大幅跃迁、死亡位移会按原动作移动，不再为塞进预览框而自动缩小；需要看完整行程可调小整体缩放。
+
+复验：编辑模式等待编译后，在 output/monster-preview-scale/command.request 写入 validate。
+最终报告及真实截图仅保存在已忽略的 output/monster-preview-scale/；文字摘要可提交。未提交Git。
+Unity结束后留在MonsterAnimationTest，MobBarkSquirrel Idle1，缩放1倍。

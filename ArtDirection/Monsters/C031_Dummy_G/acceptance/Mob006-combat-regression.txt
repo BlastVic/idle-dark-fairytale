@@ -1,0 +1,20 @@
+Mob006 Addressables / live combat event regression
+Temporary high enemy HP preserves one complete attack before controlled hit and kill. Player HP replenished for deterministic testing; not balance validation.
+Mob006 instantiated from DB/Addressables; skin=1, one game attack
+wave=0 Attack1 OnHit
+wave=0 Attack1 OnComplete
+wave=0 Hit OnComplete
+wave=1 Death1 OnComplete
+Mob006 instantiated from DB/Addressables; skin=1, one game attack
+Mob006 instantiated from DB/Addressables; skin=1, one game attack
+wave=1 Attack1 OnHit
+wave=1 Attack1 OnComplete
+wave=1 Hit OnComplete
+wave=1 Hit OnComplete
+wave=1 Hit OnComplete
+wave=1 Attack1 OnHit
+wave=1 Death1 OnComplete
+wave=1 Attack1 OnComplete
+wave=1 Hit OnComplete
+wave=1 Death1 OnComplete
+PASS: 3 Mob006 instances, single/mixed waves; actual player HP loss, attack hit/completion, Hit -> Idle1, Death1 completion/destruction, next wave and victory; runtime errors=0

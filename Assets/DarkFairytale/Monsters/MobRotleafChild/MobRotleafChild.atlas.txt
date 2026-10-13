@@ -1,0 +1,132 @@
+
+MobRotleafChild.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Front_hat_01
+  rotate: false
+  xy: 0, 274
+  size: 950, 750
+  orig: 950, 750
+  offset: 0, 0
+  index: -1
+Front_hat_02
+  rotate: false
+  xy: 0, 158
+  size: 238, 108
+  orig: 238, 108
+  offset: 0, 0
+  index: -1
+Front_Body_01
+  rotate: false
+  xy: 1472, 730
+  size: 380, 294
+  orig: 380, 294
+  offset: 0, 0
+  index: -1
+Front_Body_02
+  rotate: false
+  xy: 958, 710
+  size: 506, 314
+  orig: 506, 314
+  offset: 0, 0
+  index: -1
+Front_arm
+  rotate: false
+  xy: 246, 68
+  size: 112, 198
+  orig: 112, 198
+  offset: 0, 0
+  index: -1
+Front_Leg_01
+  rotate: false
+  xy: 482, 112
+  size: 104, 154
+  orig: 104, 154
+  offset: 0, 0
+  index: -1
+Front_Leg_02
+  rotate: false
+  xy: 366, 86
+  size: 108, 180
+  orig: 108, 180
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 762, 233
+  size: 153, 33
+  orig: 153, 33
+  offset: 0, 0
+  index: -1
+Front_Mouth_01
+  rotate: false
+  xy: 178, 124
+  size: 22, 26
+  orig: 22, 26
+  offset: 0, 0
+  index: -1
+Front_Eye_01
+  rotate: false
+  xy: 594, 108
+  size: 152, 76
+  orig: 152, 76
+  offset: 0, 0
+  index: -1
+Front_Eye_02
+  rotate: false
+  xy: 762, 195
+  size: 158, 30
+  orig: 158, 30
+  offset: 0, 0
+  index: -1
+Front_Eye_03
+  rotate: false
+  xy: 594, 192
+  size: 160, 74
+  orig: 160, 74
+  offset: 0, 0
+  index: -1
+Front_Eye_04
+  rotate: false
+  xy: 594, 30
+  size: 154, 70
+  orig: 154, 70
+  offset: 0, 0
+  index: -1
+Front_Eye_05
+  rotate: false
+  xy: 0, 60
+  size: 170, 90
+  orig: 170, 90
+  offset: 0, 0
+  index: -1
+Front_Eye_06
+  rotate: false
+  xy: 0, 8
+  size: 150, 44
+  orig: 150, 44
+  offset: 0, 0
+  index: -1
+Front_Mouth_02
+  rotate: false
+  xy: 246, 14
+  size: 94, 46
+  orig: 94, 46
+  offset: 0, 0
+  index: -1
+Front_Mouth_03
+  rotate: false
+  xy: 366, 46
+  size: 76, 32
+  orig: 76, 32
+  offset: 0, 0
+  index: -1
+Front_Mouth_05
+  rotate: false
+  xy: 482, 0
+  size: 96, 104
+  orig: 96, 104
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,13 @@
+
+CH1_fall.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+fall
+  rotate: false
+  xy: 0, 92
+  size: 384, 420
+  orig: 384, 420
+  offset: 0, 0
+  index: -1

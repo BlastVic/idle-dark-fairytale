@@ -1,0 +1,47 @@
+PASS Victory and defeat reference the same panel sprite
+PASS Defeat lantern is a separate persisted Image
+PASS Actual drop binds chest image and name: NORMAL
+PASS Actual drop binds chest image and name: GOLD
+PASS Actual drop binds chest image and name: DIAMOND
+PASS Unsupported chest grade cannot show previous reward image
+PASS Missing drop clears previous chest image
+PASS Next node uses available map sequence
+PASS Plain black transition with input blocked: (1080, 1920)
+PASS Transition clears and releases input: (1080, 1920)
+PASS NextNode pointer in safe bounds
+PASS Home pointer in safe bounds
+PASS Currency pointer in safe bounds
+PASS Replay pointer in safe bounds
+PASS Home pointer in safe bounds
+PASS Defeat hides next node
+PASS Plain black transition with input blocked: (768, 1024)
+PASS Transition clears and releases input: (768, 1024)
+PASS NextNode pointer in safe bounds
+PASS Home pointer in safe bounds
+PASS Currency pointer in safe bounds
+PASS Replay pointer in safe bounds
+PASS Home pointer in safe bounds
+PASS Defeat hides next node
+PASS Plain black transition with input blocked: (720, 1440)
+PASS Transition clears and releases input: (720, 1440)
+PASS NextNode pointer in safe bounds
+PASS Home pointer in safe bounds
+PASS Currency pointer in safe bounds
+PASS Replay pointer in safe bounds
+PASS Home pointer in safe bounds
+PASS Defeat hides next node
+PASS Chapter end has no unreleased next node
+PASS Reward granted exactly once
+PASS Claimed reward hides open actions
+PASS Paid opening charges once
+PASS Insufficient currency grants nothing
+PASS Simulated ad completion uses new reward callback
+PASS Repeated ad completion cannot duplicate reward
+PASS Cleanup disables navigation
+PASS Next click locks duplicate input
+PASS Next starts correct battle and closes results
+PASS Real victory route opens prefab
+PASS Victory replay re-enters same node
+PASS Real defeat route opens prefab
+PASS Defeat returns to shelter (state=CAMP, busy=True, cleanup=False)
+DONE

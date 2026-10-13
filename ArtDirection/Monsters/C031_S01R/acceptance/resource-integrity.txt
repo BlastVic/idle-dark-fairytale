@@ -1,0 +1,5 @@
+PASS all original metadata/bones/slots/constraints/default mesh UV/weights and 11 animation timelines unchanged.
+PASS original files and image backups byte-identical to external source.
+PASS linked numeric skin 1 plus four game aliases only.
+PASS 18 painted/source parts packed without scaling (Unity builder asserts dimensions).
+PASS project runtime JSON/atlas/PNG byte-identical to external export; source JSON identical to runtime.

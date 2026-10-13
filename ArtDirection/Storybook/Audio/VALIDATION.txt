@@ -1,0 +1,10 @@
+BookIntroAtmosphere.wav: 5.750s, 44100Hz, 2 channels, PCM 16-bit; sha256=31ebd8a842dfadbf9dcfdc2b5bbc2bd3a81bf7c8bd29ca5b0ff815e6ac2a664a
+BookIntroFoley.wav: 9.800s, 44100Hz, 2 channels, PCM 16-bit; sha256=30e7bfb75e0404c4def8f36ce30a129f8edfab4c18d6f1818cccca13dc7092ab
+PASS: source page events mapped to Spine times; preview peak=0.435781, no clipping.
+PASS ratio=0 playing=True held=False stopped=True musicRestored=True maxObservedDrift=0.145s
+PASS ratio=1 playing=True held=False stopped=True musicRestored=True maxObservedDrift=0.042s
+PASS ratio=2 playing=True held=False stopped=True musicRestored=True maxObservedDrift=0.083s
+
+Unity Editor validation, 9:16 / 3:4 / 1:2: playback, stopping, BGM restoration, existing intro handoff and battle return passed.
+No phone build or device audio audition performed. Loading-pause code is present; these runs did not observe an extended hold.
+Preview is nominal 9.8s offline audio; runtime follows visual elapsed time.

@@ -1,0 +1,46 @@
+{
+  "source": "/Users/vic/Workshop/Spine/monster2/动画/C027_S01D",
+  "source_version": "3.8-from-4.0-from-4.1-from-4.2.43",
+  "changes": [
+    "Added linked skin 1 inheriting default deform",
+    "Added four game animation aliases and events; no changes to original timelines or rig",
+    "Repacked nonrotated straight-alpha atlas from repainted source parts"
+  ],
+  "aliases": {
+    "Idle1": "Idle_Battle_00",
+    "Attack1": "Atk1_00",
+    "Hit": "Hit_00",
+    "Death1": "Death_00"
+  },
+  "events": {
+    "Attack1": [
+      {
+        "time": 0.6333,
+        "name": "OnHit"
+      },
+      {
+        "time": 1.2333,
+        "name": "OnComplete"
+      }
+    ],
+    "Hit": [
+      {
+        "time": 0.5333,
+        "name": "OnComplete"
+      }
+    ],
+    "Death1": [
+      {
+        "time": 1.5333,
+        "name": "OnComplete"
+      }
+    ]
+  },
+  "original_sha256": {
+    "C027_S01D.spine": "bb3d9274914de82d63e118d5a97cddf6a801493314c06f9091bf3486aa49c7c8",
+    "C027_S01D.png": "9aabb3784a0414130722003adf5e7c30183882f587a66129c856139142fbf83e",
+    "C027_S01D_导出.png": "20b999a291b382ac80201b779ad6c268609b6b166ab8f508cffd000ec9e78d2c",
+    "C027_S01D.json": "fcc0532b0e63f9cf53c94e56cff7f53698bba8aed142acaf586e8b884a972217",
+    "C027_S01D.atlas": "093f01be5853cfda9e3751d33c0458dcf637d1b77bda73c73811841f2aa6bab4"
+  }
+}

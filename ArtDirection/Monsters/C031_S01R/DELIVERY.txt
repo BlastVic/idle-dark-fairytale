@@ -1,0 +1,50 @@
+MobBriarChild · 荆棘莓童 — 2026-10-12
+
+选定 A-character-v1.png；源 C031_S01R。独立普通怪键 MobBriarChild。
+黑森林莓果/果髓材质，深红刺籽帽、帽缘藏笑、贴体荆棘与琥珀汁痕。
+汁滴为静态贴图，随原网格运动，本轮没有新增滴落粒子或独立帽口动画。
+
+验收结论
+美术：通过。按生成图实际留白修正不等宽/高的分件裁区，修复首轮帽檐/脚尖裁断及邻格污染；保留真实生成 Alpha。再以 registration.json 的均匀缩放/平移适配原 UV。检查基础动作关键帧及全部原动作图条，未见明显断肢、矩形补丁或帽体裂缝。概念与骨架比例有所适配，表情沿用原切换时序。
+资源/动画：通过。20 骨骼、10 槽、2 IK、18 图片分件；原 11 动作、原 mesh/UV/权重/时间线不改。新增四游戏别名，总 15 动作。default 与 linked 数字皮肤 1，maxSkins=1。60Hz 全动作/两皮肤采样、deform 一致性、事件与攻击打断测试通过。
+预览：通过。MonsterAnimationTest 中持久化卡片、真实缩略图、Prefab 引用、中文名称。9:16、3:4、1:2 实际 Game View 渲染、控件交互与角色可见性通过，errors=0。四基础动作联合范围取景会令 Idle 较小，原因是源攻击有大幅跳跃；可用缩放或 Inspector 的 Fit Selected Animation 查看细节。实际游戏尺度见 combat-wave0.png。
+实战：通过。运行期临时单怪、MobBriarChild/MobWaxcap/MobBriarChild 混编波次，共3个 MobBriarChild，逐实例命中1/完整攻击1/死亡完成1。验证实际玩家掉血、入场不可伤害/攻击/选中但计入存活、攻击打断后 Hit→Idle、经验奖励、空物品掉落、死亡完成后销毁、下一波与胜利。运行异常0。音效检查为命中时 AudioSource 播放状态；非人工听音。测试临时提高怪物HP并补玩家HP，不构成平衡性验收。
+可编辑源工程：部分交付，原生新皮肤 .spine 待补。原 C031_S01R.spine 与原图片已备份；新皮肤 JSON、透明分件、提示词与构建入口齐全。未保存/打开验证新的 MobBriarChild.spine，不能将运行资源通过等同原生编辑工程通过。后续需在可保存的匹配版本 Spine 中导入并核对 JSON/分件，保存新工程。
+
+资源路径
+Assets/DarkFairytale/Monsters/MobBriarChild/MobBriarChild.prefab
+同目录 MobBriarChild.json / MobBriarChild.atlas.txt / MobBriarChild.png / SkeletonData / Atlas / 正常与闪白材质。
+Assets/Resources/LevelDataDescriptions.asset 与 Addressables 注册精确键 MobBriarChild。
+外部导出 ../Spine/export/monster/MobBriarChild/ 与项目 JSON/atlas/PNG 字节一致。
+没有覆盖原版怪物，也没有改正式关卡波次或写测试存档。
+
+动画与事件
+Idle1 ← Idle_Battle_00，1.2s，无事件。
+Attack1 ← Atk1_00，OnHit=0.4667s，OnComplete=1.4333s，各一次。
+Hit ← Hit_00，OnComplete=0.7667s，一次。
+Death1 ← Death_00，OnComplete=1.5333s，一次。
+Attack→Hit/Death 中断后无残留 OnHit。原 Idle_Down_00 是0秒静态姿态，原样保留。
+其他原动作仅在预览可选，没有新增技能触发逻辑。
+原版本标记 3.8-from-4.0-from-4.1-from-4.2.43 未修改；当前 Spine 3.8 Runtime 实际加载测试通过。
+
+Prefab 默认
+显示节点 scale=(-1,1,1)，SkeletonData scale=0.004；血条独立，不翻文字。
+HP6、伤害1、攻击等待2.8s、打断概率35、经验1、无物品掉落；沿用普通怪占位数值，未做平衡调优。
+ATTACK1 / SLIME_DEATH 音效；无源 spawn 动作，采用既有下落入场，spawnInPlace=false。
+Enemy、Actor_Base、DropIn、rootPos、EnemyLifebar、MaterialSwapper 引用齐全，实战实际使用。
+
+制作与复现
+1. python3 ArtDirection/Monsters/C031_S01R/build_rig.py
+2. Unity 编辑模式菜单 Tools/Dark Fairytale/Monsters/MobBriarChild/Build and Register。
+3. Validate and Render；测试场景运行 preview；combat 使用临时 Gameplay 并结束返回 MonsterAnimationTest。
+显式请求文件 output/monster-animation/MobBriarChild/command.request 支持 references/build/validate/preview/combat/setup/play/stop。脚本更新后先等待编译。command-result 只是受理结果，验收以最终报告为准。
+构建保留既有 Prefab 手调、既有 UGUI 布局；没有导入自动重建。
+source/painted-0.png 与 painted-1.png 使用内置 image_gen；确切模型名未暴露。实际提示词/来源见 source/painting-prompts.json。
+2倍源画布、8px打包间距、最大4096、非旋转 straight-alpha 图集。正常与闪白材质启用对应 Straight Alpha Input。打包器检查每分件未缩小。原有 shadow 分件保留。
+source/original/ 保存原工程/导出/图片，source/provenance.json 记录散列。source/registration.json 为均匀配准设置，不改网格。
+python3 ArtDirection/Monsters/C031_S01R/build_rig.py --verify 对比运行资源。
+
+证据
+acceptance/resource-integrity.txt / unity-validation.txt / preview-validation.txt / combat-validation.txt。
+真实 Unity 截图仅在已忽略 output/monster-animation/MobBriarChild/：idle.png、各动作图条及关键帧、preview/ 三比例与四动作帧、combat-wave0.png、combat-wave1.png。
+未提交 Git。

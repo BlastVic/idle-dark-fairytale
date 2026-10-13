@@ -1,0 +1,27 @@
+{
+  "source": "/Users/vic/Workshop/Spine/monster/mon_7040",
+  "version": "3.8.75",
+  "bones": 40,
+  "slots": 15,
+  "ik": 4,
+  "skins": [
+    "default"
+  ],
+  "animations": {
+    "attack_1": 0.7333,
+    "die": 2,
+    "idle": 0.6667,
+    "run": 0.4,
+    "spawn": 0.4667,
+    "stun": 1,
+    "victory": 0.5333
+  },
+  "sha256": {
+    "mon_7040_导出.png": "e28eca9b5ee898ef2135934a6455d56b4f5fa46edd7b087e976630b04418c6af",
+    "mon_7040.json": "68dc3898fc5b29514b7c0ac12c9f95e57576e4645730ff107f1bf2b147cd5d02",
+    "mon_7040.spine": "b3f5d60527053e72c8883d5acc793d003c09ef7b9acd80ccf59df1f62b28f21c",
+    "mon_7040.atlas": "95ec22870b7fc5f1baac929a9cfb1840499f09bdc559e462ee9f947adf3b5f6a",
+    "mon_7040.png": "03f8a54e4a2ae2cad518384ebf6526a2b80e545831c6405a20dd96a1d785786b"
+  },
+  "source_inspection": "Viewed catalog, atlas and head/jaw/tail/neck parts; inspected exported mesh and timelines; native project located, not opened in Spine; no Unity dynamic validation in design phase."
+}

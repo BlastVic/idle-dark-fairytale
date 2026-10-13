@@ -36,6 +36,10 @@ namespace Assets.Scripts.Services
 
         public void Save()
         {
+#if UNITY_EDITOR
+            // Explicit monster integration tests must never persist temporary waves or rewards.
+            if (UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false)) return;
+#endif
             LoggerMethods.Log("--- Saved File ---");
             GameManager gm = GameManager.single;
 

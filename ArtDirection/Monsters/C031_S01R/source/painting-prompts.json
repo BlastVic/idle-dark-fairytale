@@ -1,0 +1,16 @@
+{
+  "tool": "built-in image_gen",
+  "model": "not exposed",
+  "records": [
+    {
+      "prompt": "Use case: style-transfer. Production Spine cutout sprite sheet, true transparent background. Image 1 is exact 3x3 part layout and silhouette reference, image 2 approved character design. Repaint each individual part in image 1 to match image 2's dark fairytale ink and gouache brushwork, cranberry berry skin, pale pink fruit pith, sparse plum thorn scars, tiny amber-black juice accents. Keep all nine cells, exact pose orientation and silhouette proportions within each cell, no complete assembled character, no text, no cell dividers, no background, no cast shadows outside parts. Ignore stray atlas bleed speckles in the source. Do not mirror parts. No eyes or mouth baked onto body; expressions are separate. Maintain generous transparent gutters. Sheet 0: row1 front large red spiky cap with pale thorn seeds and thin crescent kernel-smile in RIGHT brim matching approved cap; rear underside plum crescent rim; plump pale pink body with fine thorn scars and small juice accent, no face. Row2 pale arm, pale front leg, darker rear leg, seamless pale roots. Row3 soft flat oval shadow; small worried mouth line without skin patch; two worried dark brown oval eyes. Cap must retain precisely the asymmetric dome and large spikes from image1.",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-39ccfe5f-69cf-4e55-8ce0-412f0585820b.png",
+      "output": "painted-0.png"
+    },
+    {
+      "prompt": "Use case: style-transfer. Production Spine cutout sprite sheet, true transparent background. Image 1 is exact 3x3 part layout and silhouette reference, image 2 approved character design. Repaint each individual part in image 1 to match image 2's dark fairytale ink and gouache brushwork, cranberry berry skin, pale pink fruit pith, sparse plum thorn scars, tiny amber-black juice accents. Keep all nine cells, exact pose orientation and silhouette proportions within each cell, no complete assembled character, no text, no cell dividers, no background, no cast shadows outside parts. Ignore stray atlas bleed speckles in the source. Do not mirror parts. No eyes or mouth baked onto body; expressions are separate. Maintain generous transparent gutters. Sheet 1 expression parts only: row1 closed eye pair; angry dark eye pair with muted amber centers; startled white-eyed pair. Row2 wide concerned pair, squinting eye pair, small arched mouth line. Row3 open round dark mouth, small worried frown, wider open flattened mouth. Preserve each expression silhouette, spacing, original eye pair perspective and angle. Paint clean organic dark brown ink edges, subtle warm rose interior mouths. NO skin-colored rectangular patches behind facial parts. All are isolated marks on transparency. Preserve different shapes rather than copying one expression.",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-aab29ec7-9b8c-4673-837f-c64fc6fab7dc.png",
+      "output": "painted-1.png"
+    }
+  ]
+}

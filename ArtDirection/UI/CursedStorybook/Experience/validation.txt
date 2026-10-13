@@ -1,0 +1,28 @@
+PASS Entry reaches black before switching page; repeated input guarded
+PASS Entry fade completes and releases transition input blocker
+PASS Experience shortcut opens full page and preserves return state
+PASS Legacy experience package not spawned
+PASS Full screen uses opaque backdrop and fusion header/back layout
+PASS SpendBloodMoon safe and receives pointer
+PASS WatchAdvert safe and receives pointer
+PASS Back safe and receives pointer
+PASS SpendBloodMoon safe and receives pointer
+PASS WatchAdvert safe and receives pointer
+PASS Back safe and receives pointer
+PASS SpendBloodMoon safe and receives pointer
+PASS WatchAdvert safe and receives pointer
+PASS Back safe and receives pointer
+PASS Payment charges 50 and grants 10 minutes; duplicate click blocked
+PASS Renewal adds 10 minutes to remaining duration
+PASS Insufficient balance disables entire payment button
+PASS Insufficient funds cannot buy
+PASS Unavailable editor ad unlocks controls without reward
+PASS Simulated completed ad grants once with no currency charge
+PASS Cancelled ad restores controls without granting time
+PASS Expired boost returns to inactive state and payment recovers
+PASS Return fade deactivates page and releases raycasts
+PASS Stale ad callback cannot reward after closing
+PASS Reopen works
+PASS Active boost gives 33 percent extra XP with page closed
+PASS Expired boost stops granting bonus with page closed
+DONE

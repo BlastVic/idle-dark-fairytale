@@ -146,8 +146,9 @@ public static class CursedStorybookUiBuilder
             var back = Picture("ReturnButton", core, "PaperButton", new Vector2(0,1), new Vector2(145,-103), new Vector2(230,108));
             back.raycastTarget = true;
             hud.backButton = back.gameObject.AddComponent<Button>();
+            back.gameObject.AddComponent<StorybookEquipmentButtonState>().grayscaleShader=Shader.Find("UI/Storybook Disabled");
             var colors = hud.backButton.colors; colors.highlightedColor = new Color(1,.96f,.88f); colors.pressedColor = new Color(.72f,.62f,.53f);
-            colors.disabledColor = new Color(.6f,.6f,.6f,.7f); hud.backButton.colors = colors;
+            colors.disabledColor=colors.normalColor; hud.backButton.colors = colors;
             hud.backButton.targetGraphic = back; hud.backButton.navigation = new Navigation { mode = Navigation.Mode.None };
             Label("Arrow", back.transform, "←", new Vector2(.5f,.5f), new Vector2(-68,0), new Vector2(58,64), 52, Ink);
             Label("Text", back.transform, "返回", new Vector2(.5f,.5f), new Vector2(29,0), new Vector2(122,58), 36, Ink);

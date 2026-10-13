@@ -1,0 +1,79 @@
+{
+  "tool": "built-in image_gen",
+  "model": "not exposed",
+  "selected": "B · 枯壳啮木鼠",
+  "records": [
+    {
+      "variant": "A",
+      "title": "囤食狂栗鼠",
+      "type": "character",
+      "prompt": "Use case: stylized-concept. Single full-body monster concept for a dark fairytale mobile game, hand-painted gouache and expressive dark ink, muted aged paper background, no words, no UI. Image1 is source rig proportions and four-legged pose ONLY, image2 is painterly style ONLY, DO NOT add mushrooms or thorns from image2. Redesign image1 into an unmistakable FRENZIED SQUIRREL, facing LEFT in three-quarter side view. Compact hunched furry quadruped, short rounded rodent muzzle, tiny nose, bulging squirrel cheeks, paired broad chisel incisors instead of wolf fangs, small tufted ears, four complete clawed paws. Very large SINGLE upright bushy plume tail behind on RIGHT, rising above head, gently curved and tapered, no separate curled donut or extra limbs. Keep silhouette ratio tail about half total silhouette height, stout body, overlarge head. Tense crouching lunge-ready posture, deranged alarmed expression but still grotesquely cute, mild uncanny horror, no blood or exposed wounds. Clearly show connections and joints, leave margin around all extremities. Soft warm upperleft light, ground shadow only. Rusty chestnut and warm cream fur, asymmetrically swollen nut-stuffed cheeks with faint acorn-shell contours under fur, two enormous slightly uneven ivory incisors, pinprick reddish amber pupils surrounded by pale sclera, crazed greedy wide stare. A little dark amber acorn sap at mouth corner, rigid bristling dorsal fur and huge unruly chestnut tail. Cheeks visibly look too full, mouth still opens slightly in a feral grin. Fur ruff replaces source metal collar. No held props. The uncanny theme is compulsive hoarding, not gore.",
+      "references": [
+        "/Users/vic/Workshop/Spine/monster/muenu/mon_7040.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_S01R/A-character-v1.png"
+      ],
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-79cc9e1f-cb94-4817-a6fc-afa0b8f7c87f.png",
+      "saved": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/A-character-v1.png"
+    },
+    {
+      "variant": "A",
+      "title": "囤食狂栗鼠",
+      "type": "battle",
+      "prompt": "Use case: compositing. Create 9:16 dark fairytale BATTLE CONCEPT. Image1 is approved exact environment/camera/hero reference. Preserve moon upper left, cottage right, creek and all dry ground, lighting, and the left-side Red Riding Hood with lantern-scythe facing right. Remove ALL three mushroom enemies, replace with exactly ONE frenzied squirrel matching image2, standing at the right frontline facing LEFT toward hero. Preserve image2's face, colors, material, huge single bushy tail and four paws. Same scene framing as image1, no UI, text, borders. Set squirrel body head height around hero waist/chest, including tall tail entire squirrel reaches roughly hero overall height, no bigger; paws on same groundline as hero feet, about 74 percent canvas height. Tail on RIGHT behind squirrel, keep entire tail inside canvas. Clear breathing room between opponents. Integrate hand-painted ink/gouache style, moonlit cool light with warm accents, subtle contact shadow. No extra enemies or companions, no blood. Concept mockup not a screenshot.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/A-character-v1.png"
+      ],
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-580e87a0-d61a-40f1-9e09-d92deda6e44a.png",
+      "saved": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/A-battle-v1.png"
+    },
+    {
+      "variant": "B",
+      "title": "枯壳啮木鼠",
+      "type": "character",
+      "prompt": "Use case: stylized-concept. Single full-body monster concept for a dark fairytale mobile game, hand-painted gouache and expressive dark ink, muted aged paper background, no words, no UI. Image1 is source rig proportions and four-legged pose ONLY, image2 is painterly style ONLY, DO NOT add mushrooms or thorns from image2. Redesign image1 into an unmistakable FRENZIED SQUIRREL, facing LEFT in three-quarter side view. Compact hunched furry quadruped, short rounded rodent muzzle, tiny nose, bulging squirrel cheeks, paired broad chisel incisors instead of wolf fangs, small tufted ears, four complete clawed paws. Very large SINGLE upright bushy plume tail behind on RIGHT, rising above head, gently curved and tapered, no separate curled donut or extra limbs. Keep silhouette ratio tail about half total silhouette height, stout body, overlarge head. Tense crouching lunge-ready posture, deranged alarmed expression but still grotesquely cute, mild uncanny horror, no blood or exposed wounds. Clearly show connections and joints, leave margin around all extremities. Soft warm upperleft light, ground shadow only. Dusty charcoal brown squirrel fur with warm ochre belly; large bushy upright tail has broad overlapping weathered pinecone-like bark scales interspersed with fur tufts, still visibly a squirrel tail. Short muzzle, oversized blunt chipped wooden-looking incisors with growth rings and stressed pale amber eye. Sparse woody patches along hunched back and cheek, thin ochre sap cracks. Expression furious clenched gnawing grimace. No antlers or branches extending limbs. Neck ruff layered fur and bark, no metal collar. The uncanny theme is squirrel gradually becoming the wood it gnaws, no mushrooms.",
+      "references": [
+        "/Users/vic/Workshop/Spine/monster/muenu/mon_7040.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_S01R/A-character-v1.png"
+      ],
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-4416c4c3-a61c-4b46-b796-385f8be21df7.png",
+      "saved": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/B-character-v1.png"
+    },
+    {
+      "variant": "B",
+      "title": "枯壳啮木鼠",
+      "type": "battle",
+      "prompt": "Use case: compositing. Create 9:16 dark fairytale BATTLE CONCEPT. Image1 is approved exact environment/camera/hero reference. Preserve moon upper left, cottage right, creek and all dry ground, lighting, and the left-side Red Riding Hood with lantern-scythe facing right. Remove ALL three mushroom enemies, replace with exactly ONE frenzied squirrel matching image2, standing at the right frontline facing LEFT toward hero. Preserve image2's face, colors, material, huge single bushy tail and four paws. Same scene framing as image1, no UI, text, borders. Set squirrel body head height around hero waist/chest, including tall tail entire squirrel reaches roughly hero overall height, no bigger; paws on same groundline as hero feet, about 74 percent canvas height. Tail on RIGHT behind squirrel, keep entire tail inside canvas. Clear breathing room between opponents. Integrate hand-painted ink/gouache style, moonlit cool light with warm accents, subtle contact shadow. No extra enemies or companions, no blood. Concept mockup not a screenshot.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/B-character-v1.png"
+      ],
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-61141b5a-e0c5-4d15-b92d-a7c31c3883d8.png",
+      "saved": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/B-battle-v1.png"
+    },
+    {
+      "variant": "C",
+      "title": "失眠月绒鼠",
+      "type": "character",
+      "prompt": "Use case: stylized-concept. Single full-body monster concept for a dark fairytale mobile game, hand-painted gouache and expressive dark ink, muted aged paper background, no words, no UI. Image1 is source rig proportions and four-legged pose ONLY, image2 is painterly style ONLY, DO NOT add mushrooms or thorns from image2. Redesign image1 into an unmistakable FRENZIED SQUIRREL, facing LEFT in three-quarter side view. Compact hunched furry quadruped, short rounded rodent muzzle, tiny nose, bulging squirrel cheeks, paired broad chisel incisors instead of wolf fangs, small tufted ears, four complete clawed paws. Very large SINGLE upright bushy plume tail behind on RIGHT, rising above head, gently curved and tapered, no separate curled donut or extra limbs. Keep silhouette ratio tail about half total silhouette height, stout body, overlarge head. Tense crouching lunge-ready posture, deranged alarmed expression but still grotesquely cute, mild uncanny horror, no blood or exposed wounds. Clearly show connections and joints, leave margin around all extremities. Soft warm upperleft light, ground shadow only. Dusty ivory and pale gray plush squirrel fur, soot-violet under-eye circles, huge sleepless unblinking eyes with tiny red pupils, comically tense bared paired ivory incisors, short round cheeks. Tall enormous ragged pale plume tail whose existing fur shading forms ONE offset dark crescent motif, matte fur not actual floating magic. Sparse charcoal fur tips and one dark streak from each eye, flattened small tufted ears. Expression manic sleep-deprived panic, paws spread ready to spring. Fur ruff no metal collar. The uncanny theme is endless wakefulness under the cursed moon, no wounds, no extra eyeballs.",
+      "references": [
+        "/Users/vic/Workshop/Spine/monster/muenu/mon_7040.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_S01R/A-character-v1.png"
+      ],
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-d7be3eec-0e04-44be-a4ce-6df32d97d821.png",
+      "saved": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/C-character-v1.png"
+    },
+    {
+      "variant": "C",
+      "title": "失眠月绒鼠",
+      "type": "battle",
+      "prompt": "Use case: compositing. Create 9:16 dark fairytale BATTLE CONCEPT. Image1 is approved exact environment/camera/hero reference. Preserve moon upper left, cottage right, creek and all dry ground, lighting, and the left-side Red Riding Hood with lantern-scythe facing right. Remove ALL three mushroom enemies, replace with exactly ONE frenzied squirrel matching image2, standing at the right frontline facing LEFT toward hero. Preserve image2's face, colors, material, huge single bushy tail and four paws. Same scene framing as image1, no UI, text, borders. Set squirrel body head height around hero waist/chest, including tall tail entire squirrel reaches roughly hero overall height, no bigger; paws on same groundline as hero feet, about 74 percent canvas height. Tail on RIGHT behind squirrel, keep entire tail inside canvas. Clear breathing room between opponents. Integrate hand-painted ink/gouache style, moonlit cool light with warm accents, subtle contact shadow. No extra enemies or companions, no blood. Concept mockup not a screenshot.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/C-character-v1.png"
+      ],
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-81bdab59-7e1f-4d7e-8e6f-b22e2dd1c695.png",
+      "saved": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/C-battle-v1.png"
+    }
+  ]
+}

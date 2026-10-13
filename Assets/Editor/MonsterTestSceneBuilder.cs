@@ -24,6 +24,7 @@ public static class MonsterTestSceneBuilder
         var tester = FindTester();
         Undo.RecordObject(tester, "Refresh monster catalog");
         tester.RefreshCatalog();
+        MonsterPreviewUiBuilder.RefreshHudCatalog(tester);
         EditorUtility.SetDirty(tester);
         EditorSceneManager.MarkSceneDirty(tester.gameObject.scene);
         Debug.Log("Monster catalog: " + tester.monsters.Length + " assets. Save the scene to retain the list for builds.");

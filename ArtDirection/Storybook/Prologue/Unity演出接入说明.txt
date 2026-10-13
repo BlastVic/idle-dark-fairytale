@@ -1,0 +1,21 @@
+序章游戏演出 — 2026-10-13
+
+启动流程：沿用 CursedBookIntro 原开书动画与镜头。镜头停在中间视距，依次播放六张序章插画；每张先用现有 HiddenInk 材质显影，再播放对应 Lauren 英文纯旁白。该段音轨结束后短暂停留，翻动一张纸页并播放一次单页音效（0.82 秒，书身与镜头不动），再显示下一张。第六张之后同样播放一次翻页音效，然后恢复原来的主界面显影、镜头推进及操作按钮出现流程。
+
+演出资产：Assets/DarkFairytale/UI/StorybookIntro/CursedBookIntro.prefab
+新增组件：CursedBookPrologue。PrologueIllustration、PrologueSubtitle、两个 AudioSource 都是持久化 Prefab 节点，可在 Inspector 调整。每页图片、音轨、字幕与时长参数均序列化。运行时不创建整套 UI。
+
+插画：采用六张已选序章插画，图 6 为最新中等压暗效果图。竖图等比铺满 3:4 书页绘画区域，裁去上下部分边缘以消除左右过宽留白，沿用书页边缘墨绘渐隐效果，不横向拉伸。每页 focalPoint 可在 Inspector 调整取景中心。原图路径和切分边界见 output/prologue-integration/asset-sources.json。
+音轨：使用 output/prologue-film-v2/narration-lauren-en.mp3 的独立 Lauren 英文旁白，暂时移除风、篝火和村民人声。切分点为 0、10、20、33.3、45.1、55.5、71.83 秒，位于原旁白语句间隙；字幕以音频播放时间同步。原旁白未改写。
+翻页：保留启动时的 Open 动画。每段读完后执行 TurnPage，仅 turning_page_7 纸叶变形，其余书身及镜头固定。ProloguePageSurface 让插画顶点跟随 Spine 纸叶，转到背面时淡去画面。单页音效来自 ArtDirection/Storybook/Audio/page-take-2.mp3 的 0.32–1.14 秒片段，不再使用开书时连续八页的混音。
+纸面融合：独立 PrintedInk.mat 使用原书页纹理、低强度纸色与颗粒，扩大不规则颜料边缘过渡。参数可在材质中编辑；原始六张插画不变。
+
+首次观看：正常存档中未记录 Story-Prologue-Read-v1、且未完成 Tutorial-0 的玩家播放。已有教程进度的老存档保留原启动流程。完成六段和最后一次翻页后才通过既有 SaveManager 保存观看标记。中途退出不会记录完成，下次从第一张重新播放。
+编辑器重看：Prefab 的 CursedBookPrologue.previewInEditor 仅在编辑器生效；勾选可预览完整剧情，不保存观看标记。默认关闭。
+
+制作工具：Tools/Dark Fairytale/Storybook/Install Prologue Pages (Explicit)。只在明确调用时建立或绑定节点，不在导入、运行或脚本重载时重建覆盖布局。
+验证工具：在 output/prologue-integration/validate.request 写入请求启动。验证过程中仅修改内存中的新/老玩家标记，并通过现有 MONSTER_QA_DISABLE_SAVE 阻止保存，不清除用户存档。截图与报告留在忽略的 output/prologue-integration。
+
+2026-10-13 最新修订：恢复插画之间的单页视觉动画，保持书身与镜头不动；恢复原始单页音效；只保留纯旁白，环境音待后续统一制作。
+
+2026-10-13 显示尺寸修订：开书到中间视距后，再用 0.6 秒推进到主界面的完整显示尺度（原中间视距为最终尺度的 65%）。六张插画与 LiveHomePage 使用相同页面几何范围及最终镜头缩放。序章结束后在此尺度衔接主界面，不再拉远。三种比例均按主界面逻辑等比适配，窄屏裁切两侧；字幕保留在底部安全区并增加持久化 Shadow 组件。老玩家启动流程不变。

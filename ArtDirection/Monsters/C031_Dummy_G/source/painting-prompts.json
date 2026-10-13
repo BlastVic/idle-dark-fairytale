@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "model": "not exposed",
+  "records": [
+    {
+      "prompt": "Edit image 1, a 3 by 3 grid of Spine sprite parts, into professionally hand-painted dark-fairytale leaf imp textures matching image 2's approved character. TRANSPARENT background and spaces, no labels, no grid lines. Preserve each piece's exact cell, silhouette, size, pose, orientation, and relative internal placement from image 1. Do NOT assemble a character. Image 2 is material/style ONLY; do NOT mirror the source parts. Top left: repaint enormous green cap as overlapping weathered olive-brown dead leaves, charcoal curled rim, ONE closed eyelid formed by veins on central cap with a small amber sap tear. Preserve original cap perspective including visible layered underside. Top middle: cap underside same dark brown leaf layers, preserve crescent silhouette. Top right: rounded belly light warm rootwood, no face. Middle left: upper body/head pale rootwood beige with gentle vertical grain, same scalloped silhouette; completely blank NO eyes NO mouth as separate expression sprites will overlay. Middle center short arm and middle right foot: same pale rootwood material, no black joint caps. Bottom left second foot same material. Bottom center preserve soft ground shadow. Bottom right tiny mouth: dark seed-shaped hollow with thin warm wood rim, same silhouette. Match hand-painted crisp ink contours, restrained texture, not photoreal. Do not add decorations outside original part borders. Empty areas truly alpha transparent.",
+      "reference": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/source/reference-0.png",
+      "design": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/source/../A-character-v1.png",
+      "output": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-480bee76-8b3f-4a50-8953-6f74dc09cd04.png"
+    },
+    {
+      "prompt": "Edit image 1, a 3 by 3 grid of separate expression sprites, to match the hollow rootwood face of image 2. Preserve EXACTLY same layout, silhouettes, eye spacing, orientation and occupied bounds in each cell, transparent background everywhere else. DO NOT draw a full face or body. Each of first SIX cells contains a PAIR of eyes: preserve both eyes, same size ratios and locations. Top left neutral hollow dark brown empty eye sockets; top middle closed narrow eye slits; top right angry slanted hollow eyes, eliminate white cartoon pupils; middle left distressed hollow eyes; middle center surprised hollow eye sockets, eliminate white pupils; middle right squeezed closed eye slits. Draw thin irregular woody edges but no surrounding rectangular skin patch. Last row three separate mouths: left flattened pained dark mouth, middle sideways uneasy dark slit, right open startled dark seed-shaped mouth. All mouths dark hollow wood, remove pink tongues and wet flesh. All parts must remain separated, centered in their own cell as reference, never change cell assignments. Painterly ink-edged dark fairy tale style, no text, labels, border or backdrop. REAL alpha transparency.",
+      "reference": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/source/reference-1.png",
+      "design": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_Dummy_G/source/../A-character-v1.png",
+      "output": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-e149f6cf-7e40-4e81-966a-0db1c44de69f.png"
+    }
+  ]
+}

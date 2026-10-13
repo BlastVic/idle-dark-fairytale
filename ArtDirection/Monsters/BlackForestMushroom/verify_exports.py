@@ -7,7 +7,7 @@ report=[]
 for index,color in enumerate(('Wine','Moss','Moon')):
  source_id = ('mon_7080','mon_7081','mon_7082')[index]
  original=json.loads((ROOT.parent/'Spine/monster'/source_id/(source_id+'.json')).read_text())
- name=('Mob001','Mob002','Mob003')[index]
+ name=('MobWaxcap','MobWoodcap','MobDreamcap')[index]
  internal=ROOT/'Assets/DarkFairytale/Monsters/BlackForestMushroom'/name
  external=ROOT.parent/'Spine/export/monster'/name
  result=json.loads((internal/(name+'.json')).read_text())

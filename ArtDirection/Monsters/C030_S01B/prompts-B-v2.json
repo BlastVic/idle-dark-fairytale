@@ -1,0 +1,19 @@
+{
+  "mode": "built-in image_gen",
+  "model": "not exposed",
+  "selected": "B",
+  "status": "v2 awaiting user confirmation",
+  "character": {
+    "input": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C030_S01B/B-character-v1.png",
+    "prompt": "Use case: precise-object-edit. Refine this exact approved hollow porcelain wolf monster concept. Preserve full body framing, LEFT-facing three-quarter pose, original anatomy, all proportions, face and hollow cheek, grey fur, cracked ivory porcelain, tarnished bronze shoulder armor, slate blue loincloth, tail, single curved porcelain saber, warm grey paper background and hand-painted dark fairytale style. ONLY add two restrained details: (1) a small missing porcelain-and-fur patch on the free claw arm's forearm, exposing two clearly recognizable aged ivory radius/ulna bones inside a dark dry cavity, and a smaller opening on the near shin revealing a single ivory shin bone. These are INTERNAL bone segments, not new spikes or external armor, no raw flesh, no gore, no severed limbs. Keep limb silhouette and joints intact. (2) dark crimson blood smears along the saber's cutting edge and toward its left-facing pointed tip, with a small fresh red bead hanging from that tip and ONE tiny falling drop just beneath it. Blood should read at thumbnail size but leave most blade ivory visible; no blood pools or splashes. This single hanging bead is a concept cue for future Idle dripping VFX, not a trail across the background. No other design changes, no text.",
+    "generated": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-02fbcc56-40ad-4b39-94e7-019e2d7714e8.png"
+  },
+  "battle": {
+    "inputs": [
+      "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C030_S01B/B-battle-v1.png",
+      "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-02fbcc56-40ad-4b39-94e7-019e2d7714e8.png"
+    ],
+    "prompt": "Use case: precise-object-edit / compositing. Image 1 is the existing portrait 9:16 battle concept, image 2 is its updated monster design. Keep image 1's entire background, camera, heroine, lighting, monster location, body size, pose and facing exactly. Update ONLY the wolf on the right to match the two new details in image 2: small dry hollow openings in the free arm forearm and the near shin revealing ivory internal bones, and dark crimson smears on the porcelain saber cutting edge near its left tip, with a small bead and one falling drop. Keep all other existing monster characteristics, including ivory broken porcelain face, grey fur, blue loincloth, tail and single saber. No gore, exposed flesh, blood pools or additional objects. Full monster and heroine remain visible standing on dry ground. Hand-painted dark fairy tale. No text, no UI. Reference image 2's bone openings and blade blood accurately at battle scale; do not alter the background.",
+    "generated": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-e1809374-ba41-4808-8963-2711f92bb2f0.png"
+  }
+}

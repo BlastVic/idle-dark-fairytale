@@ -1,53 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
+/// <summary>Prefab-authored full-screen ink veil. Legacy route API retained without Animator dependencies.</summary>
 public class TransitionCanvas : MonoBehaviour
 {
-    private static TransitionCanvas _instance;
-    public static TransitionCanvas single
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = GameObject.FindObjectOfType<TransitionCanvas>();
-            return _instance;
-        }
-    }
-
-    public Animator anim;
-    public bool isBlack = true;
-    public void ToBlack(string from = "toShow")
-    {
-        //Debug.Log("From:" + from);
-        if (isBlack)
-        {
-            Debug.Log("Double IsBlack call on the Trans Canvas");
-            return;
-        }
-        //Debug.Log("ToBlack");
-        anim.CrossFade("ToBlack", 0);
-        isBlack = true;
-    }
-
-    public void ToClear(string from = "toClear")
-    {
-        //Debug.Log("ToClear From:" + from);
-        if (!isBlack)
-        {
-            Debug.Log("Double ToClear call on the Trans Canvas");
-            return;
-        }
-        //Debug.Log("ToClear");
-        anim.CrossFade("ToClear", 0);
-        isBlack = false;
-    }
-
-    public void ForceClear()
-    {
-        isBlack = true;
-        Debug.Log("Forced Clear");
-        anim.CrossFade("ToClear", 0);
-        isBlack = false;
-    }
+    static TransitionCanvas instance;
+    public static TransitionCanvas single => instance ? instance : (instance=FindFirstObjectByType<TransitionCanvas>());
+    public CanvasGroup group;
+    [Min(.01f)] public float coverDuration=.3f, revealDuration=.4f;
+    public bool isBlack;
+    Coroutine motion;
+    void Awake(){instance=this;group.alpha=isBlack?1:0;group.interactable=false;group.blocksRaycasts=isBlack;}
+    public void ToBlack(string from="toShow"){isBlack=true;Fade(1,coverDuration);}
+    public void ToClear(string from="toClear"){isBlack=false;Fade(0,revealDuration);}
+    public void ForceClear(){isBlack=false;Fade(0,revealDuration);}
+    void Fade(float target,float duration){if(motion!=null)StopCoroutine(motion);group.blocksRaycasts=true;motion=StartCoroutine(Animate(target,duration));}
+    IEnumerator Animate(float target,float duration){float start=group.alpha;float elapsed=0;while(elapsed<duration){elapsed+=Time.unscaledDeltaTime;group.alpha=Mathf.Lerp(start,target,Mathf.SmoothStep(0,1,elapsed/Mathf.Max(.01f,duration)));yield return null;}group.alpha=target;group.blocksRaycasts=target>0;motion=null;}
+    void OnDisable(){if(motion!=null)StopCoroutine(motion);motion=null;if(group){group.alpha=0;group.blocksRaycasts=false;}isBlack=false;}
+    void OnDestroy(){if(instance==this)instance=null;}
 }

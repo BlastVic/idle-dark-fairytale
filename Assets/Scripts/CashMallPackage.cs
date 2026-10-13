@@ -1,158 +1,31 @@
-﻿using System;
 using System.Collections;
+using IdleKnightHero.UI;
 using Assets.Scripts.Services.Purchasing;
 using Assets.Scripts.Services.Purchasing.Purchased;
-using IdleKnightHero.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
+/// <summary>Preserves legacy Addressable key, IAP IDs and currency/save fields.</summary>
 public class CashMallPackage : MonoBehaviour
 {
-    private static CashMallPackage _instance;
-    public static CashMallPackage single
-    {
-        get
-        {
-            if (_instance == null)
-                _instance = GameObject.FindObjectOfType<CashMallPackage>();
-            return _instance;
-        }
-    }
-
-    [SerializeField]
-    private Text buttonTextLable_80;
-    [SerializeField]
-    private Text buttonTextLable_500;
-
-    [SerializeField]
-    private GameObject[] TurnOffForPurchaseConfirmation;
-    [SerializeField]
-    private GameObject TurnOnForPurchaseConfirmation;
-    private void Awake()
-    {
-        PurchaserManager.PurchaseSucceeded += OnPurchaseSucceededHandle;
-        SetTextProduct();
-    }
-
-    private void OnEnable()
-    {
-        if (GameplayCanvas.single.nextIsRanOutOfCherries)
-        {
-            SetExtraText("Whoa you ran out of cherries! Get more!");
-            GameplayCanvas.single.nextIsRanOutOfCherries = false;//reset flag
-        }
-        else
-        {
-            SetExtraText("Do a good deed and feed a starving Game Developer!");
-        }
-        if (GameplayCanvas.single.nextCashMallIsDailyCherries)
-        {
-            DailyCherriesUI();
-            GameplayCanvas.single.nextCashMallIsDailyCherries = false;//reset
-        }
-
-
-    }
-
-    private void OnDestroy()
-    {
-        PurchaserManager.PurchaseSucceeded -= OnPurchaseSucceededHandle;
-    }
-
-    private void SetTextProduct()
-    {
-        String text_80 = buttonTextLable_80.text;
-        String text_500 = buttonTextLable_500.text;
-        if (PurchaserManager.Instance.IsInitialized)
-        {
-            var product_80 = PurchaserManager.StoreController.products.WithID(PurchaserManager.cherries_consumable_80);
-            var product_500 = PurchaserManager.StoreController.products.WithID(PurchaserManager.cherries_consumable_500);
-            buttonTextLable_80.text = String.Format(text_80, product_80.metadata.localizedPriceString);
-            buttonTextLable_500.text = String.Format(text_500, product_500.metadata.localizedPriceString);
-        }
-        else
-        {
-            buttonTextLable_80.text = String.Format(text_80, "$0.99");
-            buttonTextLable_500.text = String.Format(text_500, "$4.99");
-        }
-
-    }
-
-    public void DailyCherriesUI()
-    {
-        StartCoroutine(ShowPurchaseCompleteGraphics(GameManager.single.dailyCherriesAmount)); //use this once purchase is confirmed through IOS and player can see "receive button and Congratulations"
-
-    }
-
-    public void FreeCherriesButton()
-    {
-        SoundManager.Instance.PlayClip("FUSION_REWARD");
-        GameManager.single.premiumCurrency += 100;
-        StartCoroutine(ShowPurchaseCompleteGraphics(100)); //use this once purchase is confirmed through IOS and player can see "receive button and Congratulations"
-    }
-
-    public GameObject[] buttons;//0 tap open, 1 regular pay for, 2 watch vid
-    bool closeClicked = false;
-    public void CloseButton()
-    {
-        if (closeClicked) return;
-        closeClicked = true;
-        Router.single.CallCampFromCashMall();
-    }
-
-    public void SetExtraText(string s)
-    {
-        TurnOffForPurchaseConfirmation[1].GetComponent<Text>().text = s;
-    }
-
-    private IEnumerator ShowPurchaseCompleteGraphics(int amount)
-    {
-        foreach (GameObject obj in TurnOffForPurchaseConfirmation)
-        {
-            obj.SetActive(false);
-        }
-        TurnOnForPurchaseConfirmation.SetActive(true);
-        cherriesLabel.text = amount.ToString();
-        LevelController.Instance.AssetManager.SpawnGeneralObj("CherriesChestDropIn");//drop the cherries chest and open it
-        yield return new WaitForSeconds(2);
-        SoundManager.Instance.PlayClip("CHERRY");
-
-        yield return new WaitForSeconds(2f);
-        CloseButton();
-    }
-
-    [SerializeField]
-    private Text cherriesLabel;
-
-
-
-    public void BuyProduct80()
-    {
-        PurchaserManager.Instance.BuyProductID(PurchaserManager.cherries_consumable_80);
-    }
-
-    public void BuyProduct500()
-    {
-        PurchaserManager.Instance.BuyProductID(PurchaserManager.cherries_consumable_500);
-    }
-
-    private void OnPurchaseSucceededHandle(PurchasedProduct product, String source)
-    {
-        
-        if (product.Id.Equals(PurchaserManager.cherries_consumable_80))
-        {
-            GameManager.single.premiumCurrency += 80;
-            GameplayCanvas.single.RefreshCampUI();
-            StartCoroutine(ShowPurchaseCompleteGraphics(80)); //use this once purchase is confirmed through IOS and player can see "receive button and Congratulations"
-
-        }
-        else if (product.Id.Equals(PurchaserManager.cherries_consumable_500))
-        {
-            GameManager.single.premiumCurrency += 500;
-            GameplayCanvas.single.RefreshCampUI();
-            StartCoroutine(ShowPurchaseCompleteGraphics(500)); //use this once purchase is confirmed through IOS and player can see "receive button and Congratulations"
-        }
-    }
-
-    
+    public static CashMallPackage single => FindFirstObjectByType<CashMallPackage>();
+    public StorybookShopUI view;
+    bool closing;
+    Coroutine completion;
+    void Awake(){PurchaserManager.PurchaseStarted+=Started;PurchaserManager.PurchaseSucceeded+=Succeeded;PurchaserManager.PurchaseFailed+=Failed;PurchaserManager.Initialized+=Initialized;}
+    void Start(){view.HideReward();if(GameplayCanvas.single.nextIsRanOutOfCherries){SetExtraText("血月结晶不足，请补充后继续。");GameplayCanvas.single.nextIsRanOutOfCherries=false;}if(GameplayCanvas.single.nextCashMallIsDailyCherries){GameplayCanvas.single.nextCashMallIsDailyCherries=false;view.FocusDaily();}}
+    void OnDestroy(){PurchaserManager.PurchaseStarted-=Started;PurchaserManager.PurchaseSucceeded-=Succeeded;PurchaserManager.PurchaseFailed-=Failed;PurchaserManager.Initialized-=Initialized;}
+    void Initialized(bool ready){if(view.Busy)return;view.SetBusy(false,ready?"价格以商店显示为准":"商店暂不可用，请稍后重试。");}
+    void Started(string id){if(IsCurrency(id))view.SetBusy(true,"正在等待商店确认…");}
+    void Failed(PurchasedProduct p){if(IsCurrency(p.Id))view.SetBusy(false,"购买未完成，可稍后重试。");}
+    static bool IsCurrency(string id)=>id==PurchaserManager.cherries_consumable_80||id==PurchaserManager.cherries_consumable_500;
+    void Succeeded(PurchasedProduct p,string source){if(!IsCurrency(p.Id))return;int amount=p.Id==PurchaserManager.cherries_consumable_80?80:500;GameManager.single.premiumCurrency+=amount;GameplayCanvas.single.RefreshCampUI();PresentReward(amount);}
+    public void BuyProduct80()=>Buy(PurchaserManager.cherries_consumable_80);
+    public void BuyProduct500()=>Buy(PurchaserManager.cherries_consumable_500);
+    void Buy(string id){if(closing||view.Busy)return;var p=PurchaserManager.StoreController?.products.WithID(id);if(p==null||!p.availableToPurchase){view.SetBusy(false,"商店暂不可用，请稍后重试。");return;}view.SetBusy(true,"正在等待商店确认…");PurchaserManager.Instance.BuyProductID(id);}
+    public void DailyCherriesUI(){if(closing||view.Busy)return;if(StorybookDailyReward.TryClaim())PresentReward(GameManager.single.dailyCherriesAmount);view.Refresh();}
+    public void FreeCherriesButton(){GameManager.single.premiumCurrency+=100;PresentReward(100);}
+    public void SetExtraText(string text)=>view.status.text=text;
+    public void PresentReward(int amount){if(completion!=null)StopCoroutine(completion);completion=StartCoroutine(Complete(amount));}
+    IEnumerator Complete(int amount){view.ShowReward(amount);SoundManager.Instance.PlayClip("CHERRY");yield return new WaitForSecondsRealtime(4);CloseButton();}
+    public void CloseButton(){if(closing)return;closing=true;view.SetLeaving();Router.single.CallCampFromCashMall();}
 }

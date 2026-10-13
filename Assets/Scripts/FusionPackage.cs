@@ -20,6 +20,7 @@ public class FusionPackage : MonoBehaviour
         }
     }
 
+    public StorybookFusionUI view;
     public Animator statueAnim;
 
 
@@ -27,6 +28,7 @@ public class FusionPackage : MonoBehaviour
     private void OnEnable()
     {
         gm = GameManager.single;
+        if (view) { view.Refresh(); return; }
         Refresh();
         ShowBubble();
     }
@@ -93,6 +95,7 @@ public class FusionPackage : MonoBehaviour
     bool isFeeding = false;
     public void Feed()
     {
+        if (view) { view.Activate(); return; }
         if (isFeeding) return;
         isFeeding = true;
         closeButton.SetActive(false);
@@ -125,12 +128,14 @@ public class FusionPackage : MonoBehaviour
 
     public void Close()
     {
+        if (view) { view.Close(); return; }
         if (isFeeding) return;
         Router.single.CallCampFromFusion();
     }
 
     public void CloseFinishFeeding()
     {
+        if (view) { view.Close(); return; }
         if (isFeeding) return;
         Router.single.CallCampFromFusion(true);
     }

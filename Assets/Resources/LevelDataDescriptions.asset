@@ -4783,30 +4783,79 @@ MonoBehaviour:
       m_SubObjectType: 
       m_SubObjectGUID: 
       m_EditorAssetChanged: 0
-  - key: Mob001
+  - key: MobWaxcap
     assetRef:
       m_AssetGUID: 9d3cca2ce51594e138f63660a4501407
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 
       m_EditorAssetChanged: 0
-  - key: Mob002
+  - key: MobWoodcap
     assetRef:
       m_AssetGUID: b76adce60ab5c4a2da034d0fad878894
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 
       m_EditorAssetChanged: 0
-  - key: Mob003
+  - key: MobDreamcap
     assetRef:
       m_AssetGUID: 447803f4cf03f4e24a04808c66e84f64
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 
       m_EditorAssetChanged: 0
-  - key: Mob004
+  - key: MobGloomSpider
     assetRef:
       m_AssetGUID: 837af218c1114e0181b86173f958041f
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - key: MobRuneWolf
+    assetRef:
+      m_AssetGUID: 37ba5dfecfa7c4fc2a49ead744e9ea2b
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - key: MobHollowWolf
+    assetRef:
+      m_AssetGUID: 6b8a7e771742b482ab14f9fb7dbdc1db
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - key: MobRotleafChild
+    assetRef:
+      m_AssetGUID: 707a857816f4549cbbc3a89ff67faa5a
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - key: MobBriarChild
+    assetRef:
+      m_AssetGUID: 8865c078456a74b26aa6f6374dfff255
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - key: MobBarkSquirrel
+    assetRef:
+      m_AssetGUID: 5f565a36561f6403fa24bd7d7c8507a3
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - key: MobDrownedMoon
+    assetRef:
+      m_AssetGUID: 5aeba921afc4d42678cb57c59cdff13d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - key: MobDrownedKing
+    assetRef:
+      m_AssetGUID: 996f8ad233cda461fb8cfacaa49548a6
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 
@@ -5216,13 +5265,6 @@ MonoBehaviour:
   - key: CashMallPackage
     assetRef:
       m_AssetGUID: 0e33a3b07569d470489af69d481d040d
-      m_SubObjectName: 
-      m_SubObjectType: 
-      m_SubObjectGUID: 
-      m_EditorAssetChanged: 0
-  - key: XPBoosterPackage
-    assetRef:
-      m_AssetGUID: bb6601e3f9842470ebfaf7d31e0f7d1e
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 

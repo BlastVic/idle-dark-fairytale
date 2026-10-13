@@ -1,0 +1,34 @@
+Mob004 Unity 3.8 runtime validation
+PASS: original bones, slots, constraints, mesh UV/weights and all ten timelines unchanged.
+PASS: database, Addressables, prefab scripts and normal/flash textures.
+default / Atk1_00: PASS 80 frames; OnHit=0 OnComplete=0
+default / Death_00: PASS 82 frames; OnHit=0 OnComplete=0
+default / GetUp_00: PASS 38 frames; OnHit=0 OnComplete=0
+default / Hit_00: PASS 26 frames; OnHit=0 OnComplete=0
+default / Idle_Battle_00: PASS 82 frames; OnHit=0 OnComplete=0
+default / Idle_Down_00: PASS 2 frames; OnHit=0 OnComplete=0
+default / KnockBack_00: PASS 62 frames; OnHit=0 OnComplete=0
+default / KnockDown_00: PASS 62 frames; OnHit=0 OnComplete=0
+default / Run_Battle_00: PASS 26 frames; OnHit=0 OnComplete=0
+default / Stun_00: PASS 82 frames; OnHit=0 OnComplete=0
+default / Idle1: PASS 82 frames; OnHit=0 OnComplete=0
+default / Attack1: PASS 80 frames; OnHit=1 OnComplete=1
+default / Hit: PASS 26 frames; OnHit=0 OnComplete=1
+default / Death1: PASS 82 frames; OnHit=0 OnComplete=1
+1 / Atk1_00: PASS 80 frames; OnHit=0 OnComplete=0
+1 / Death_00: PASS 82 frames; OnHit=0 OnComplete=0
+1 / GetUp_00: PASS 38 frames; OnHit=0 OnComplete=0
+1 / Hit_00: PASS 26 frames; OnHit=0 OnComplete=0
+1 / Idle_Battle_00: PASS 82 frames; OnHit=0 OnComplete=0
+1 / Idle_Down_00: PASS 2 frames; OnHit=0 OnComplete=0
+1 / KnockBack_00: PASS 62 frames; OnHit=0 OnComplete=0
+1 / KnockDown_00: PASS 62 frames; OnHit=0 OnComplete=0
+1 / Run_Battle_00: PASS 26 frames; OnHit=0 OnComplete=0
+1 / Stun_00: PASS 82 frames; OnHit=0 OnComplete=0
+1 / Idle1: PASS 82 frames; OnHit=0 OnComplete=0
+1 / Attack1: PASS 80 frames; OnHit=1 OnComplete=1
+1 / Hit: PASS 26 frames; OnHit=0 OnComplete=1
+1 / Death1: PASS 82 frames; OnHit=0 OnComplete=1
+PASS: Attack1 -> Hit: no late hit; one completion.
+PASS: Attack1 -> Death1: no late hit; one completion.
+PASS: independent prefab, numeric skin, single Attack1, source schema loaded by actual Runtime, all 14 animations sampled in both skins.

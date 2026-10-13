@@ -1,0 +1,10 @@
+Source: map-v2-top-down.png
+Tool: built-in image_gen
+Output: Assets/DarkFairytale/UI/Map/Art/BlackForest.png
+Generated source: exec-0936988d-417f-419f-a175-e9f112c50c56.png
+
+Use case: precise-object-edit. Produce a CLEAN PRODUCTION BACKGROUND from this exact approved top-down map UI. Preserve the full 941x1672 canvas and PIXEL POSITIONS/SCALE of all central terrain landmarks: winding diagonal river, bridge deck centered around (480,748), red mushroom grove at (100,690), first-chapter cottage roof around (750,460), paths, rocks and forest. Critical: do NOT relocate/resize/redesign these landmarks. Camera remains overhead, no sky/horizon.
+
+REMOVE every UI overlay: entire parchment header y0-150, bottom information card and navigation y1250-1672, all five round node badges, every parchment label, all Chinese words and digits, gold/grey route dots, red locator pin, all decorative frames. Naturally inpaint terrain underneath removed overlays. Fill former top/bottom UI regions with matching continuous overhead black-forest terrain, extending existing river and forest. Keep same overall canvas so we can crop its original central map region accurately.
+
+ALSO remove ONLY the FUTURE CHAPTER TWO VILLAGE at the upper right (cottages and farm plots above about y330), and its label. Fill that area with dense forest and unobtrusive dirt path, hiding future-region content. PRESERVE the FIRST CHAPTER'S riverside cottage at x650-855,y350-560 and its nearby clearing; this is the crucial playable destination. No second house added. Keep bridge at same x/y and same size. Remove illuminated route dots but preserve their dirt footpath. Recover cottage roof where wolf badge was. Include original forest lanterns/environment warm light, no added UI glows. Hand-drawn dark fairytale detailed artwork, same palette and linework, not photoreal. Output opaque background ONLY, absolutely no text, node circles, pins, cards, frames, badges, or UI remnants. Do not crop or reframe.

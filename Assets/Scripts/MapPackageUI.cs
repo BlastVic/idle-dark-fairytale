@@ -20,13 +20,14 @@ public class MapPackageUI : MonoBehaviour
     public bool isDragging = false;
 
     public Camera mapCam;
+    public bool useLegacyTutorial = true;
     Camera origGameplayCam;
     private void OnEnable()
     {
         origGameplayCam = GameplayCanvas.single.GetComponent<Canvas>().worldCamera;
         mapCam.gameObject.SetActive(true);
         GameplayCanvas.single.GetComponent<Canvas>().worldCamera = mapCam;
-        TutorialManager.single.PlayTutorial(1);
+        if(useLegacyTutorial) TutorialManager.single.PlayTutorial(1);
 
     }
     private void OnDisable()

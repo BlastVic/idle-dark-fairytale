@@ -1,0 +1,45 @@
+MobBarkSquirrel · 枯壳啮木鼠 — 2026-10-12
+
+已选 B-character-v1.png，源 mon_7040，独立游戏资源键 MobBarkSquirrel。
+黑森林普通怪；灰褐毛皮、柔韧树皮鳞片与木质门牙，保留发狂扑咬和蓬尾。原生动作张嘴幅度明显大于静态概念，保留其夸张表现；头/下颌轮廓按原网格适配。
+
+验收状态
+美术：通过。内置 image_gen 重绘14分件，包括口内和阴影，保留生成 Alpha。修复首轮头部/下颌/颈毛超出原 UV 的切边，以 registration.json 记录均匀缩放和平移。检查 Idle、攻击蓄力/张嘴/扑咬/收招、Hit峰值、死亡末姿，以及run/spawn/stun/victory图条，未见明显露底或断肢；三比例与真实同屏均已查看。木鳞是柔韧树皮纹理，随三段尾骨变形，没有逐片独立物理。
+资源/动画：通过。40骨骼、15槽、4 IK，原mesh/UV/权重与七段原动画（含victory deform）保持不变；default与数字linked皮肤1，maxSkins=1。原版源散列和所有备份比对通过；14图集区域覆盖全部附件、打包没有缩小；项目与外部导出相同。11动作×2皮肤60Hz采样、deform继承、事件计数与攻击被Hit/Death打断均通过。
+预览：通过。MonsterAnimationTest 已追加独立Prefab、SkeletonData、真实缩略图及中文目录条目。9:16、3:4、1:2实际Game View检查、角色边界与控件交互通过，errors=0。默认四基础动作联合范围取景，保持完整尾巴/突进范围；可缩放看细节。
+实战：通过。临时波次[MobBarkSquirrel]及[MobBarkSquirrel,MobWaxcap,MobBarkSquirrel]，共3实例均完成命中1、攻击完成1、死亡完成1；验证实际玩家HP减少、入场隔离、真实攻击打断→Hit→Idle、经验增长、空物品掉落、死亡2秒完成后销毁、下一波与胜利。运行异常0。音效证据为命中时AudioSource处于播放状态，未做人工听音。测试临时提高怪物HP并补玩家HP，不构成平衡性验收。
+可编辑原生工程：待补。原mon_7040.spine、导出数据和原图片已备份；新JSON、全部分件、提示词和构建代码齐全。没有保存并打开验证新的MobBarkSquirrel.spine，不视为完整原生源工程交付。后续需要在可保存的匹配版本Spine中导入新JSON与分件、检查并保存原生工程。
+
+动画
+源版本3.8.75未修改，在项目Spine 3.8 Runtime实际加载。
+保留：attack_1 .7333s / die 2s / idle .6667s / run .4s / spawn .4667s / stun 1s / victory .5333s。
+新增别名：Idle1←idle，无事件；Attack1←attack_1，OnHit=.3667s（突进闭颌帧）、OnComplete=.7333s；Death1←die，OnComplete=2s。
+补作Hit=.4s：原idle首姿基础上，center/head/mouth01/tail短促后仰，.08s峰值，.4s恢复并触发一次OnComplete。使用原骨骼与权重；不把眩晕循环冒充短受击，不改原动画。
+完整攻击命中/结束各一次；Idle无事件；Hit和Death结束各一次。打断攻击不产生残留命中。
+stun/victory等扩展原动作供预览，不新增游戏技能触发。eye原染黑时间线保留；新头部绘有完整眼部表情，动态实际图条已检查。
+spawn仍保留原淡入曲线，实际下落入场使用现有DropIn：首姿保持可见，落地播放spawn，按自然Complete进入战斗。spawnInPlace=false。
+
+资源和配置
+Assets/DarkFairytale/Monsters/MobBarkSquirrel/MobBarkSquirrel.prefab
+同目录包含JSON、atlas.txt、PNG、SkeletonDataAsset、Atlas及正常/闪白材质。
+数字皮肤1；显示节点scale=(-1,1,1)，SkeletonData scale=.0016；不翻转血条文字。
+默认HP6、伤害1、攻击等待2.8s、打断概率35、经验1、无物品掉落；沿用普通怪初始数值，未做平衡调优。
+音效沿用ATTACK1/SLIME_DEATH。Enemy、Actor_Base、DropIn、血条、rootPos、材质闪白引用完整。
+LevelDataDescriptions.EnemyDb 与 Addressables 注册精确键MobBarkSquirrel，实战通过数据库实际加载。
+外部导出：../Spine/export/monster/MobBarkSquirrel/。
+原版怪物与正式关卡未覆盖；测试只使用运行期临时波次，禁止测试存档写入。没有新增共享战斗逻辑修改。
+
+复现与美术资料
+python3 ArtDirection/Monsters/mon_7040/build_rig.py
+Unity编辑模式菜单 Tools/Dark Fairytale/Monsters/MobBarkSquirrel/Build and Register。
+已有Prefab保留Inspector手调；既有UGUI仅追加目录与刷新MobBarkSquirrel缩略图，不自动重建。
+python3 ArtDirection/Monsters/mon_7040/verify_integrity.py
+命令文件 output/monster-animation/MobBarkSquirrel/command.request 支持 references/build/validate/preview/combat/setup/play/stop；更新脚本后等待编译完成再写请求。command-result仅表示受理，最终以验证报告为准。
+source/painted-0.png、painted-1.png 为内置image_gen输出，确切模型名称未暴露；实际提示词和源路径见source/painting-prompts.json。
+source/images/ 是注册后的透明分件；2倍原画布、保留真实Alpha、8px间隔、最大4096、非旋转straight-alpha打包，正常/闪白材质匹配Straight Alpha Input。均匀配准设置见source/registration.json，原网格未修改。
+source/provenance.json记录散列/别名/新增Hit/版本，source/original/含原生工程与原图。
+
+证据
+acceptance/resource-integrity.txt、unity-validation.txt、preview-validation.txt、combat-validation.txt。
+真实Unity截图仅存已忽略的output/monster-animation/MobBarkSquirrel/：idle.png、各动作图条及关键帧、preview/三比例和四动作帧、combat-wave0.png、combat-wave1.png。
+完成后返回MonsterAnimationTest，选中MobBarkSquirrel播放Idle1。未提交Git。

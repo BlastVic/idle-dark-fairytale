@@ -1,0 +1,10 @@
+转生演出：重返故事起点（2026-10-13）
+6 秒 UGUI 插画演出：黑场渐隐、缓慢推进、独立纸页漂浮、暖光变化，实时标题从“旧页终章”转为“故事，再次开始”。保持原 ProcessRebirth 奖励结算，仅替换表现和完成回调。编号绑定 ShelterHomeUI.subjectNumber。
+主素材：Assets/DarkFairytale/UI/RebirthSequence/Art/ForestThreshold.png
+可编辑演出：Assets/DarkFairytale/UI/RebirthSequence/StorybookRebirthSequence.prefab
+原 Animation Cutscene 子树已从 RebirthPackage 移除；原 dummy 与首镜头停用，不再触发旧 Rebirth 骨骼动画。
+这是插画镜头与 UI 图层动画，人物不是独立 Spine 动画。
+使用内置 image_gen 生成，随后按现有转生 UI 插画做风格修订，没有使用 CLI。
+最终修订提示词：
+Edit image 1 only, keep its vertical composition, stone arch, forest path, small red-hooded traveler with hip-length short ragged cape. CRITICAL change render style to match image 2 central illustration exactly: boldly outlined hand-painted 2D fairytale game, visibly drawn ink contours around every stone, simplified broad painted planes, warm old storybook colors, no photographic microtexture, no realistic 3D material rendering, no depth-of-field blur. Character same charming hand-drawn proportions as reference 2, short cape at hip only. Image 2 is style reference ONLY, do NOT copy its text, numbers, UI, border, long cape. Produce a fullframe standalone illustration without UI or text. Keep calm dawn renewal mood and central path. 9:16 portrait.
+本地验证截图与日志：output/rebirth-sequence/，不提交 Git。

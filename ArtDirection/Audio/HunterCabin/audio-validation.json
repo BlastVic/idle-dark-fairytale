@@ -1,0 +1,27 @@
+{
+  "duration_seconds": 44,
+  "sample_rate": 44100,
+  "peak_dbfs": -23.7463891620349,
+  "rms_dbfs": -58.86535672241452,
+  "boundary_step": 1.889626373898553e-05,
+  "interior_step_p99": 8.755850997058241e-05,
+  "fire_events": [
+    {
+      "time": 7.4,
+      "duration": 0.15997732426303854,
+      "peak": 0.072
+    },
+    {
+      "time": 23.8,
+      "duration": 0.15997732426303854,
+      "peak": 0.056
+    },
+    {
+      "time": 38.2,
+      "duration": 0.15997732426303854,
+      "peak": 0.064
+    }
+  ],
+  "continuous_fire": false,
+  "room_bed_rms_dbfs": -59.016017323241826
+}

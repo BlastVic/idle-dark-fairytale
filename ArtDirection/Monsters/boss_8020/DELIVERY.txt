@@ -1,0 +1,57 @@
+MobDrownedKing · 沉冠溺月王
+2026-10-12 / boss_8020 / A 方案 / 小 BOSS
+
+选定稿：A-character-v1.png；场景概念：A-battle-v2.png。
+同源参照：MobDrownedMoon。保留烟蓝水体、悲伤空眼、腹内虚化闭眼月，采用浸水旧铜王冠，不带顶珠。
+
+Unity 交付
+Assets/DarkFairytale/Monsters/MobDrownedKing/：独立 JSON、PNG、atlas.txt、Atlas、SkeletonData、正常/闪白材质、完整敌人 Prefab。
+数据库与 Addressables 键：MobDrownedKing。已加入 MonsterAnimationTest 的目录、Prefab 和实际模型缩略图。
+Actor_Base.isBoss=true；EnemyLifebar.isMiniBoss=true/isBoss=false，复用持久化可编辑 CursedStorybookEnemyBar。
+制作初始值之后，项目同期平衡配置已更新为HP150、伤害12、间隔2.2秒、打断35%、经验25，Club必掉、Shield概率20%。保留最新Prefab配置，不由构建覆盖；本任务测试不代表平衡性验收。正式关卡的同期修改由其他工作维护，本任务只新增隔离验收波次。
+
+结构与动画
+原生来源 ../Spine/monster/mon_8020/boss_8020.spine，导出版本3.8.75，项目 Runtime3.8。
+原15骨骼、10槽、全部网格/UV/权重/约束/deform及10原动作保持，源文件与分件完整备份于 source/original。
+数字皮肤1为default的linkedmesh，deform继承验证。default仍保留供源验证，游戏仅随机到1。
+Idle1 ← idle，Attack1 ← attack_1，Death1 ← die；Hit在原骨架补作0.4秒中心/身体回弹，不修改源动作。
+Attack1：0.3333秒OnHit一次，0.6667秒OnComplete一次。
+Hit：0.4秒OnComplete一次。Death1：1.6667秒OnComplete一次。Idle1无战斗事件。
+原face_damage是表情切换，未冒充完整Hit。
+冠架与冠沿共用原动画，die中0.8333秒切至原脱落槽，保留整体落冠和淡出。
+
+分件与复现
+source/painted-0.png：内置 image_gen 绘制9分件，真实Alpha；提示词在source/painting-prompt.json，具体模型名未暴露。
+source/painted-1.png：源工具分件页，只使用原阴影。
+source/images：确定性配准后的10分件。主体保留原网格形状，表情不含水色矩形底。
+source/registration.json：统一配准参数。眼/口稀疏附件按画布定位；mouth缩放0.58。
+按生成图实际单元边界裁切，而不是等分图；保留生成Alpha，不强套旧Alpha。
+图集：非旋转、8像素间距、最高4096，主体2倍源画布；验证打包未缩小。
+贴图采用直通Alpha，Spine材质Straight Alpha Input，无MipMap/压缩用于验收。
+构建脚本是显式工具，不导入时自动重建，不覆盖已有Prefab手调。
+1. python3 ArtDirection/Monsters/boss_8020/build_rig.py
+2. Unity菜单 Tools > Dark Fairytale > Monsters > MobDrownedKing > Build and Register
+3. python3 ArtDirection/Monsters/boss_8020/verify_integrity.py
+4. validate/preview/combat 显式测试队列，使用前退出Play并等待编译。
+外部运行导出 ../Spine/export/monster/MobDrownedKing/ 与项目运行三文件字节一致。
+
+尺寸与预览
+共享真实战斗 EnemyDisplaySize，识别 Prefab 的小BOSS标志；不按每个动画重新fit。
+720×1280同前排基准、Idle首帧可见网格测量：总高2.032934倍，身体高1.444484倍，身体宽1.432035倍（相对普通MobDrownedMoon）。
+普通水团的透明顶珠不计入可见高度，但fit仍保持现有战斗公式一致。
+9:16、3:4、1:2检查通过，默认Idle/Attack无裁切，大小/朝向/固定锚点/共同缩放/重置/搜索与引用检查通过。
+报告和实际截图：output/monster-animation/MobDrownedKing/preview/。
+
+验收状态
+资源/原数据：通过。verify_integrity.py覆盖源散列、备份、源结构曲线、图集尺寸/附件覆盖与外部导出。
+动画/事件：通过。14段×2皮肤共28组合，有限顶点、deform一致、事件次数、Attack被Hit/Death打断无遗留命中。
+美术：基础动作及原扩展动作逐张查看实际Unity渲染；水体、铜冠、草衬、眼月可辨；保留原弹性与死亡压缩，不是概念稿逐像素复刻。月面为随身体变形的贴图，不是实时水折射。
+预览：通过。三比例实景已保留。共享小BOSS预览逻辑修改后，普通MobDrownedMoon也完成全动作缩放与三比例回归，errors=0；见preview/ordinary-regression.txt。
+实战：通过。临时单王、王+普通溺月水团混编共2波，2次生成；每实例命中1、攻击完成1、受击完成2、死亡完成1。入场禁止攻击/受伤、真实HP损失、攻击打断回Idle、每次经验+25、必掉Club各1件实际进入背包、死亡销毁、次波与胜利通过，runtime errors=0。20% Shield为概率配置，本轮未掉落，不据此声称统计概率分布已验收。临时高血量与玩家回血仅用于测试，禁止存档写入。报告 output/monster-animation/MobDrownedKing/combat-validation.txt。
+可编辑原生工程：待补新 MobDrownedKing.spine。本机现有Spine Trial不能作为已完成的正式保存/导出依据。原生来源备份、完整分件、JSON和重建脚本齐备；没有伪装JSON扩展名。
+
+已修复
+生成分件第一次按旧等分规则配准产生残片，改为实测单元边界后重建并复核全部动作。
+普通怪模板血条无miniBossName，首次实战报空引用；新怪物已改用项目现有可编辑小BOSS血条，最终回归错误0。
+
+截图仅保存在Git忽略的output目录。本任务不提交Git、不替换原版，不持久修改正式波次或存档。项目同期章节平衡修改保留。

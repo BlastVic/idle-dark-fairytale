@@ -1,0 +1,131 @@
+旧 UI 资源清理 — 2026-10-13
+
+删除 115 个资源及对应 .meta，2 个空目录；资源大小 21.54 MiB。
+删除后全 Assets 扫描：无已删除 GUID 的残留引用。
+已移除旧 XPBoosterPackage 的数据库、Addressables 注册及专属旧路由/广告标签。
+保留仍被引用的旧素材；Map1、Map4 参考场景仍使用旧 LevelUP 动画，未纳入删除。
+原版怪物、共享音效/字体/纹理、新版 UI Prefab 保留。
+
+删除清单：
+Assets/Animations/Black.controller
+Assets/Animations/ButtonsIn.anim
+Assets/Animations/Buttons_Holder.controller
+Assets/Animations/ToBlack.anim
+Assets/Animations/ToClear.anim
+Assets/Animations/Xp Notification.controller
+Assets/Animations/XpBoostAnim.anim
+Assets/Editor/StorybookTransitionCleanup.cs
+Assets/Grfx/Menus/Back1.png
+Assets/Grfx/Menus/Bubble2.png
+Assets/Grfx/Menus/Bubble3.png
+Assets/Grfx/Menus/Buble.png
+Assets/Grfx/Menus/Camp.png
+Assets/Grfx/Menus/Chest/Clickme.anim
+Assets/Grfx/Menus/Chest/Text.controller
+Assets/Grfx/Menus/Crystal/Icon.png
+Assets/Grfx/Menus/Defeat/Defeat.spine
+Assets/Grfx/Menus/Defeat/Drip1.anim
+Assets/Grfx/Menus/Defeat/Drip1.png
+Assets/Grfx/Menus/Defeat/Drip2.png
+Assets/Grfx/Menus/Defeat/Image (2).controller
+Assets/Grfx/Menus/Defeat/tst.png
+Assets/Grfx/Menus/Line.png
+Assets/Grfx/Menus/Lottery.png
+Assets/Grfx/Menus/Menu/Icon1.png
+Assets/Grfx/Menus/Menu/Icon2.png
+Assets/Grfx/Menus/Menu/Icon3.png
+Assets/Grfx/Menus/Menu/Icon4.png
+Assets/Grfx/Menus/Reirth/GameObject.controller
+Assets/Grfx/Menus/Reirth/Rebirth.anim
+Assets/Grfx/Menus/Reirth/skeleton.atlas.txt
+Assets/Grfx/Menus/Reirth/skeleton.json
+Assets/Grfx/Menus/Reirth/skeleton.png
+Assets/Grfx/Menus/Reirth/skeleton_Atlas.asset
+Assets/Grfx/Menus/Reirth/skeleton_Material.mat
+Assets/Grfx/Menus/Reirth/skeleton_SkeletonData.asset
+Assets/Grfx/Menus/Settings.png
+Assets/Grfx/Menus/Skills/3.png
+Assets/Grfx/Menus/Skills/Arrow.png
+Assets/Grfx/Menus/Skills/Arrow1.anim
+Assets/Grfx/Menus/Skills/BgPattern.png
+Assets/Grfx/Menus/Skills/Image (15).controller
+Assets/Grfx/Menus/Skills/Image (16).controller
+Assets/Grfx/Menus/Skills/Line2.png
+Assets/Grfx/Menus/Skills/Locked.png
+Assets/Grfx/Menus/Skills/Obj.anim
+Assets/Grfx/Menus/Skills/Outline.png
+Assets/Grfx/Menus/Skills/SkillPoints Icon.png
+Assets/Grfx/Menus/Squarev2.png
+Assets/Grfx/Menus/Tranistion.png
+Assets/Grfx/Menus/Tutorial/Fairy/skeleton.atlas.txt
+Assets/Grfx/Menus/Tutorial/Fairy/skeleton.json
+Assets/Grfx/Menus/Tutorial/Fairy/skeleton.png
+Assets/Grfx/Menus/Tutorial/Fairy/skeleton_Atlas.asset
+Assets/Grfx/Menus/Tutorial/Fairy/skeleton_Material.mat
+Assets/Grfx/Menus/Tutorial/Fairy/skeleton_SkeletonData.asset
+Assets/Grfx/Menus/UI/BG.png
+Assets/Grfx/Menus/UI/Btn.controller
+Assets/Grfx/Menus/UI/Icon_Cash_Mall.png
+Assets/Grfx/Menus/UI/Icon_Hammer.png
+Assets/Grfx/Menus/UI/Icon_Skills.png
+Assets/Grfx/Menus/UI/Image (39).controller
+Assets/Grfx/Menus/UI/Image (5).controller
+Assets/Grfx/Menus/UI/ItemDrop.anim
+Assets/Grfx/Menus/UI/LaFlame.anim
+Assets/Grfx/Menus/UI/LastBattle.png
+Assets/Grfx/Menus/UI/Obj.png
+Assets/Grfx/Menus/UI/Pattern2.png
+Assets/Grfx/Menus/UI/Pattern4.png
+Assets/Grfx/Menus/UI/Settings.png
+Assets/Grfx/Menus/UI/Square2.png
+Assets/Grfx/Menus/UI/Square3.png
+Assets/Grfx/Menus/UI/Watch.png
+Assets/Grfx/Menus/Victory/Image.controller
+Assets/Grfx/Menus/Victory/Line.png
+Assets/Grfx/Menus/Victory/Victory.anim
+Assets/Grfx/Menus/WorldMap/1Cloud3.png
+Assets/Grfx/Menus/bubble4.png
+Assets/Grfx/Menus/wondering.png
+Assets/Grfx/Menus/x.png
+Assets/Prefab/Addressable Prefabs/XPBoosterPackage.prefab
+Assets/Prefab/NotifierText.prefab
+Assets/Prefab/PopUpText.prefab
+Assets/Scenes/Camp.unity
+Assets/Scenes/CashMall.unity
+Assets/Scenes/Cherries.unity
+Assets/Scenes/CherriesPurchased.unity
+Assets/Scenes/Chest Popup.unity
+Assets/Scenes/Chest Popup1.unity
+Assets/Scenes/Chest.unity
+Assets/Scenes/Chest2.unity
+Assets/Scenes/DailyCherries.unity
+Assets/Scenes/Defeated.unity
+Assets/Scenes/Fusion.unity
+Assets/Scenes/Inventory.unity
+Assets/Scenes/InventoryInProgress.unity
+Assets/Scenes/ItemDrop.unity
+Assets/Scenes/Menu.unity
+Assets/Scenes/NewCamp.unity
+Assets/Scenes/NewWorldMap.unity
+Assets/Scenes/OpenNow.unity
+Assets/Scenes/Rebirth.unity
+Assets/Scenes/RebirthAnimation.unity
+Assets/Scenes/RebirthWarning.unity
+Assets/Scenes/Settings.unity
+Assets/Scenes/Skills.unity
+Assets/Scenes/Ui.unity
+Assets/Scenes/Victory.unity
+Assets/Scenes/WorldMap.unity
+Assets/Scenes/XpBooster.unity
+Assets/Scenes/____CampInProg.unity
+Assets/Scripts/ItemPopUpAnimation.cs
+Assets/Scripts/MainMenuUI.cs
+Assets/Scripts/PopUpText.cs
+Assets/Scripts/XPBoosterPackage.cs
+
+验证结果：
+Unity 6000.6.3f1 重新编译后成功进入 Play Mode。
+LegacyUICleanupValidation：8 项 PASS，DONE；技能、升级、物品提示、胜败及返回。
+StorybookExperienceValidation：三种比例 1080x1920、768x1024、720x1440，购买/续期/过期/广告回调/返回均 PASS，DONE。
+验证日志和实际渲染仅存于忽略目录 output/legacy-cleanup、output/experience-ui。
+广告使用编辑器不可用分支和模拟成功回调，未进行真实广告请求验收。

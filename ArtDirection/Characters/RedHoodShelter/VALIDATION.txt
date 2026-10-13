@@ -1,0 +1,27 @@
+2026-10-12 / Unity 6000.6.3f1 / Spine 3.8
+
+Seated Spine Idle / actual Unity Play Mode
+PASS Home contains persisted Spine actor
+PASS Idle advances automatically in live Play Mode
+PASS Spine 3.8 data loads in actual UI renderer
+PASS Character does not intercept UI input
+PASS Saved prefab starts looping Idle
+PASS 20 independently editable bones
+Steam 0 alpha=0 local first=0.5158321,4.30016 last=0.7078757,4.858218 UV=0.6142578,0
+Steam 1 alpha=0.7764706 local first=0.5276909,4.308707 last=0.7578437,5.060472 UV=0.6142578,0
+Steam 2 alpha=0.7764706 local first=0.4713027,4.332388 last=0.8151929,5.244342 UV=0.6142578,0
+PASS Character mesh loop endpoint continuous
+PASS Weighted mesh visibly animates
+PASS Spine mesh scale matches the UI illustration in pixels
+PASS Boot anchor stable 34
+PASS Boot anchor stable 45
+PASS Closed eyelid attachment appears during blink
+PASS Open eyes restored after blink
+PASS 145 sampled poses: finite mesh, staggered steam never fully disappears
+PASS No unexpected runtime errors
+PASS three ratios + 240 actual Unity animation frames
+
+热气渲染对照：相同姿态开关热气，实际截图差异区域 (392,346)-(439,500)，3384 像素变化超过 3/255，最大变化 177/255。热气确实参与画面渲染。
+视频：720×1280，20 fps，12.0 秒。
+9:16、3:4、1:2 截图与视频均在已忽略 output/home-idle/，没有提交游戏截图。
+未进行手机真机性能测试；编辑器 Play Mode 测试使用项目 QA 禁止存档开关。

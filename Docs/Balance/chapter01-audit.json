@@ -1,0 +1,178 @@
+{
+  "status": "PASS",
+  "original_commit": "b759ee1",
+  "original_formal_nodes": [
+    {
+      "key": "Khorasan Ruins I",
+      "hp": 12.0,
+      "experience": 12.0,
+      "count": 4
+    },
+    {
+      "key": "Khorasan Ruins II",
+      "hp": 69.0,
+      "experience": 27.0,
+      "count": 8
+    },
+    {
+      "key": "Mount Zion",
+      "hp": 366.0,
+      "experience": 68.0,
+      "count": 9
+    },
+    {
+      "key": "The Great Cave Entrance",
+      "hp": 2384.0,
+      "experience": 270.0,
+      "count": 14
+    },
+    {
+      "key": "The Cave of Dry Bones",
+      "hp": 1416.0,
+      "experience": 264.0,
+      "count": 8
+    }
+  ],
+  "chapter01": [
+    {
+      "node": 1,
+      "key": "Khorasan Ruins I",
+      "waves": [
+        [
+          "MobGloomSpider"
+        ],
+        [
+          "MobBarkSquirrel"
+        ],
+        [
+          "MobGloomSpider",
+          "MobGloomSpider"
+        ]
+      ],
+      "count": 4,
+      "hp": 15.0,
+      "experience": 12.0,
+      "peak_raw_dps": 3.33
+    },
+    {
+      "node": 2,
+      "key": "Khorasan Ruins II",
+      "waves": [
+        [
+          "MobBarkSquirrel",
+          "MobBarkSquirrel"
+        ],
+        [
+          "MobBriarChild"
+        ],
+        [
+          "MobWaxcap",
+          "MobBarkSquirrel"
+        ],
+        [
+          "MobBriarChild",
+          "MobWaxcap",
+          "MobGloomSpider"
+        ]
+      ],
+      "count": 8,
+      "hp": 81.0,
+      "experience": 28.0,
+      "peak_raw_dps": 7.5
+    },
+    {
+      "node": 3,
+      "key": "test01",
+      "waves": [
+        [
+          "MobWaxcap",
+          "MobBriarChild"
+        ],
+        [
+          "MobDrownedMoon"
+        ],
+        [
+          "MobWaxcap",
+          "MobDrownedMoon"
+        ],
+        [
+          "MobDrownedMoon",
+          "MobBriarChild",
+          "MobWaxcap"
+        ],
+        [
+          "MobDrownedKing"
+        ]
+      ],
+      "count": 9,
+      "hp": 363.0,
+      "experience": 69.0,
+      "peak_raw_dps": 11.3
+    },
+    {
+      "node": 4,
+      "key": "test02",
+      "waves": [
+        [
+          "MobDrownedMoon",
+          "MobWaxcap"
+        ],
+        [
+          "MobRuneWolf"
+        ],
+        [
+          "MobDrownedMoon",
+          "MobRuneWolf"
+        ],
+        [
+          "MobRuneWolf",
+          "MobDrownedMoon",
+          "MobWaxcap"
+        ]
+      ],
+      "count": 8,
+      "hp": 702.0,
+      "experience": 92.0,
+      "peak_raw_dps": 19.3
+    },
+    {
+      "node": 5,
+      "key": "Mount Zion",
+      "waves": [
+        [
+          "MobRuneWolf"
+        ],
+        [
+          "MobWaxcap",
+          "MobWaxcap",
+          "MobRuneWolf"
+        ],
+        [
+          "MobRuneWolf",
+          "MobRuneWolf"
+        ],
+        [
+          "MobWaxcap",
+          "MobBriarChild",
+          "MobRuneWolf"
+        ],
+        [
+          "MobRuneWolf",
+          "MobRuneWolf"
+        ],
+        [
+          "MobHollowWolf"
+        ]
+      ],
+      "count": 12,
+      "hp": 2304.0,
+      "experience": 206.0,
+      "peak_raw_dps": 21.0
+    }
+  ],
+  "limitations": [
+    "Raw DPS ignores defense, interrupts, entrance time, target selection and player actions.",
+    "Original test01/test02 are excluded from the formal reference curve; they remain the new chapter's node keys.",
+    "Unity smoke validation checks integration with controlled kills, not natural-clear win rates."
+  ]
+}

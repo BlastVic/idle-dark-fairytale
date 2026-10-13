@@ -1,0 +1,53 @@
+{
+  "tool": "built-in image_gen; exact model not exposed",
+  "status": "Unselected A/B/C alternatives; concept art only",
+  "source": [
+    "/Users/vic/Workshop/Spine/monster/muenu/mon_7320.png",
+    "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/references/black-forest-starting-reference.png"
+  ],
+  "background": "ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+  "prompts": [
+    {
+      "id": "A",
+      "name": "泣蜡小灵",
+      "characterPrompt": "Use case: stylized-concept. Single complete enemy character concept for a hand-painted dark fairytale 2D RPG, mildly unsettling but endearing, ornate restrained ink outlines and muted painterly shading matching reference 2. Reference 1 is the exact structural source: legless squishy teardrop/blob, two short soft flipper arms with near arm in front and far arm behind, separate small floating droplet above its pointed crown. Preserve that topology and roughly squat proportions; no feet, legs, fingers, weapons or new appendages. Draw a convincing LEFT-facing three-quarter view with facial features on left-facing volume, not front-facing symmetric. Full body and top droplet, centered same camera and scale, neutral light warm gray background, tiny grounding shadow, no labels or text. Character fills 75 percent of square canvas. Soft materials must visibly support squash, stretch and bursting into soft fragments. A mourning wax spirit. Entire body is soft melted aged ivory candle wax, pale honey-gray shading, subtly uneven dripping skirt merging into the ground with NO rigid candle cylinder. Two drooping wax mitten flippers. Cute downcast little face turned left, two hollow soot-black oval eyes with a thin dark tear each, tiny uncertain mouth. One restrained anomalous mark: a closed-eye embossing on the lower belly, broad and subtle. Detached crown bead is a single dark wax pearl, floating without flame. No fire, no wick, no skull, no blood. Sparse wax rivulets, no dense ornament. Warm ivory silhouette unmistakable.",
+      "characterReferences": [
+        "/Users/vic/Workshop/Spine/monster/muenu/mon_7320.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/references/black-forest-starting-reference.png"
+      ],
+      "battlePrompt": "Use case: compositing. Produce a portrait EXACT 9:16 concept battle illustration. Image1 is the approved node 4 riverside cabin battle background and Red Riding Hood character. Preserve the same background, moon, cabin, stream, dry foreground, camera, character design and layout. Remove ALL THREE existing mushroom monsters. Replace them with ONE monster from image2, the exact ivory soft wax teardrop spirit with dark floating wax bead, hollow tear eyes, two wax flippers and subtle closed-eye belly mark, facing LEFT toward Red Riding Hood. Keep the girl on the left facing right, her short ragged red cloak naturally reaching hip level, same lantern-scythe and costume. Place the enemy centered at x70% with its base at y76%, same ground line as girl's boots; whole enemy including floating bead about 21% of canvas height (ordinary small enemy, not a boss), about 70 percent of girl height. Preserve both complete silhouettes and a small clear gap between them. Same handpainted muted dark fairytale style, cool moonlight with warm lantern highlights. No other enemies, no UI, no text. This is a concept art mockup, not a screenshot. Monster must match image2 exactly in material and face.",
+      "battleReferences": [
+        "ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "A-character-v1.png"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "溺月水团",
+      "characterPrompt": "Use case: stylized-concept. Single complete enemy character concept for a hand-painted dark fairytale 2D RPG, mildly unsettling but endearing, ornate restrained ink outlines and muted painterly shading matching reference 2. Reference 1 is the exact structural source: legless squishy teardrop/blob, two short soft flipper arms with near arm in front and far arm behind, separate small floating droplet above its pointed crown. Preserve that topology and roughly squat proportions; no feet, legs, fingers, weapons or new appendages. Draw a convincing LEFT-facing three-quarter view with facial features on left-facing volume, not front-facing symmetric. Full body and top droplet, centered same camera and scale, neutral light warm gray background, tiny grounding shadow, no labels or text. Character fills 75 percent of square canvas. Soft materials must visibly support squash, stretch and bursting into soft fragments. A drowned moon-water sprite. Entire squat droplet body is softly translucent smoky blue-green river water with a pale pearlescent face and two short water flippers. Cute weary oval eyes and small pursed mouth angled left. An impossible dark crescent moon reflection is suspended deep inside the lower body, with a very small cluster of submerged reed silhouettes near its base; these are painted embedded patterns not independent appendages. The detached top bead is a single cloudy silver bubble with no eye. Broad rippling edges, cold cyan rim light restrained, dark teal interior but readable silhouette. No glass container, no fish, no legs, no external plants, no gore. Mystery comes from trapped moon reflection.",
+      "characterReferences": [
+        "/Users/vic/Workshop/Spine/monster/muenu/mon_7320.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/references/black-forest-starting-reference.png"
+      ],
+      "battlePrompt": "Use case: precise-object-edit. Image1 is the MASTER battle composition. Preserve its exact 9:16 aspect, background, cabin, moon, stream, lighting, camera, ground, Red Riding Hood costume and pose and position. Change ONLY the single monster on the RIGHT to the exact character in Image2, facing LEFT. Keep identical monster bounding size and ground footprint to the replaced monster including detached top bead, base at same ground line, same distance from girl. No additional characters or objects. Harmonize cool moonlight and warm lantern shading without redesigning character. No UI or text. This is a concept illustration, not Unity gameplay. Replace wax spirit with the smoky blue-green water sprite from Image2, including pale watery face, two short flippers, internal moon reflection and reeds, separate cloudy bubble above crown. No wax, no closed-eye belly mark.",
+      "battleReferences": [
+        "A-battle-v1.png",
+        "B-character-v1.png"
+      ]
+    },
+    {
+      "id": "C",
+      "name": "湿页墨灵",
+      "characterPrompt": "Use case: stylized-concept. Single complete enemy character concept for a hand-painted dark fairytale 2D RPG, mildly unsettling but endearing, ornate restrained ink outlines and muted painterly shading matching reference 2. Reference 1 is the exact structural source: legless squishy teardrop/blob, two short soft flipper arms with near arm in front and far arm behind, separate small floating droplet above its pointed crown. Preserve that topology and roughly squat proportions; no feet, legs, fingers, weapons or new appendages. Draw a convincing LEFT-facing three-quarter view with facial features on left-facing volume, not front-facing symmetric. Full body and top droplet, centered same camera and scale, neutral light warm gray background, tiny grounding shadow, no labels or text. Character fills 75 percent of square canvas. Soft materials must visibly support squash, stretch and bursting into soft fragments. A storybook ink-and-paper-pulp sprite. Squat elastic teardrop body made of damp cream paper pulp soaked in blue-black ink; large broad torn page patches embedded flat in the soft body, not rigid folded origami. Two short sagging paper-pulp flipper arms. Sweet timid left-facing expression with two uneven ink oval eyes and tiny comma mouth. Main anomaly: printed imitation story strokes flow down into a large black ink stain like a second shadow within its lower belly; marks are sparse broken strokes, no readable text. Detached top droplet is one black ink bead. Torn soft silhouette in only a few places, warm parchment upper half against blue-black lower half; no book held, no limbs added, no floating pages, no stitches or eyes added.",
+      "characterReferences": [
+        "/Users/vic/Workshop/Spine/monster/muenu/mon_7320.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/references/black-forest-starting-reference.png"
+      ],
+      "battlePrompt": "Use case: precise-object-edit. Image1 is the MASTER battle composition. Preserve its exact 9:16 aspect, background, cabin, moon, stream, lighting, camera, ground, Red Riding Hood costume and pose and position. Change ONLY the single monster on the RIGHT to the exact character in Image2, facing LEFT. Keep identical monster bounding size and ground footprint to the replaced monster including detached top bead, base at same ground line, same distance from girl. No additional characters or objects. Harmonize cool moonlight and warm lantern shading without redesigning character. No UI or text. This is a concept illustration, not Unity gameplay. Replace wax spirit with the exact soaked parchment and blue-black ink sprite from Image2. Preserve its timid little face, pale upper half, two paper pulp flippers, broad ragged embedded page patches, large dark ink lower body and floating black bead. No wax, no moon reflection. Keep light face readable against environment.",
+      "battleReferences": [
+        "A-battle-v1.png",
+        "C-character-v1.png"
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Assets.Scripts.Extentions;
 using Assets.Scripts.Services.Ads.MediationProxy;
 using IdleKnightHero.UI;
@@ -43,15 +43,18 @@ namespace Assets.Scripts.Services.Ads
             }
             switch (_adTag)
             {
+                case "ChestDetail":
+                case "ExperienceModal":
+                case "BattleResult":
                 case "Cameplay":
-                case "XPBoosterPackage":
                     break;
                 default:
                     LoggerMethods.LogError("Unexpected reward tag: " + _adTag);
                     break;
             }
             LoggerMethods.Log("Ad finished :" + _adTag);
-            GameplayCanvas.single.StartVictoryChest();
+            // The authored result UI owns its guarded reward callback.
+            if (_adTag != "ChestDetail" && _adTag != "BattleResult" && _adTag != "ExperienceModal") GameplayCanvas.single.StartVictoryChest();
             AdFinished.SafeInvoke(_adTag);
             _adFinishedCallback.SafeInvoke();
             _adFinishedCallback = null;

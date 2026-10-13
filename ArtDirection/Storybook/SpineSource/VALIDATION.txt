@@ -1,0 +1,76 @@
+Live home page entry / actual Unity render / 3 aspect ratios
+PASS 9x16 startup prefab active
+PASS 9x16 legacy shark disabled
+PASS 9x16 slow readiness holds on blank book instead of entering unfinished home
+PASS 9x16 book page contains scene only, controls hidden
+PASS 9x16 book illustration retains fixed 3:4 composition
+PASS 9x16 stationary reveal framing matches reference page height
+PASS 9x16 complete ink reveal precedes final push
+PASS 9x16 right page stays at screen center before push
+PASS 9x16 real home texture completely visible before handoff
+PASS 9x16 illustration fills viewport without stretching
+PASS 9x16 room scale and position remain fixed during camera push and UI reveal
+PASS 9x16 stationary fully revealed stage observed
+PASS 9x16 handoff completes before timeout
+PASS 9x16 boundary screenshots have equal dimensions
+9x16 seam MAE=0.002403 changed>10/channel=0.915 %
+PASS 9x16 page-to-home seam has no framing jump or black flash
+PASS 9x16 live home restored to overlay
+PASS 9x16 live buttons enabled after handoff
+PASS 9x16 intro hides and releases capture texture
+PASS 9x16 temporary capture layers restored
+PASS 9x16 camp state retained
+PASS 9x16 no unexpected runtime errors
+PASS 9x16 COMPLETE
+PASS 3x4 startup prefab active
+PASS 3x4 legacy shark disabled
+PASS 3x4 book page contains scene only, controls hidden
+PASS 3x4 book illustration retains fixed 3:4 composition
+PASS 3x4 stationary reveal framing matches reference page height
+PASS 3x4 complete ink reveal precedes final push
+PASS 3x4 right page stays at screen center before push
+PASS 3x4 real home texture completely visible before handoff
+PASS 3x4 illustration fills viewport without stretching
+PASS 3x4 room scale and position remain fixed during camera push and UI reveal
+PASS 3x4 stationary fully revealed stage observed
+PASS 3x4 handoff completes before timeout
+PASS 3x4 boundary screenshots have equal dimensions
+3x4 seam MAE=0.010356 changed>10/channel=6.443 %
+PASS 3x4 page-to-home seam has no framing jump or black flash
+PASS 3x4 live home restored to overlay
+PASS 3x4 live buttons enabled after handoff
+PASS 3x4 intro hides and releases capture texture
+PASS 3x4 temporary capture layers restored
+PASS 3x4 camp state retained
+PASS 3x4 no unexpected runtime errors
+PASS 3x4 COMPLETE
+PASS 1x2 startup prefab active
+PASS 1x2 legacy shark disabled
+PASS 1x2 book page contains scene only, controls hidden
+PASS 1x2 book illustration retains fixed 3:4 composition
+PASS 1x2 stationary reveal framing matches reference page height
+PASS 1x2 complete ink reveal precedes final push
+PASS 1x2 right page stays at screen center before push
+PASS 1x2 real home texture completely visible before handoff
+PASS 1x2 illustration fills viewport without stretching
+PASS 1x2 room scale and position remain fixed during camera push and UI reveal
+PASS 1x2 stationary fully revealed stage observed
+PASS 1x2 handoff completes before timeout
+PASS 1x2 boundary screenshots have equal dimensions
+1x2 seam MAE=0.002268 changed>10/channel=0.903 %
+PASS 1x2 page-to-home seam has no framing jump or black flash
+PASS 1x2 live home restored to overlay
+PASS 1x2 live buttons enabled after handoff
+PASS 1x2 intro hides and releases capture texture
+PASS 1x2 temporary capture layers restored
+PASS 1x2 camp state retained
+PASS 1x2 battle button works after seamless entry
+PASS 1x2 battle return retained
+PASS 1x2 no unexpected runtime errors
+PASS 1x2 COMPLETE
+
+Final result: fixed illustration geometry throughout camera push and UI reveal, verified at all three ratios.
+Paper-edge shader visually reviewed in actual Unity render: irregular pigment transparency reveals underlying page grain; no hard rectangular border. Full-screen edge blend removed before handoff.
+Actual captures verified at 720x1280, 768x1024, 720x1440. 106-frame preview sampled at 10 fps.
+Original book animation and ink reveal preserved. UI prefab nodes remain editable. Media local in ignored output/.
+Unity Editor Play Mode validation only; no phone/device build.

@@ -1,0 +1,46 @@
+MobDrownedMoon · 溺月水团 · Unity 制作交付
+2026-10-12
+
+确认稿：B-character-v3.png、B-battle-v3.png。用于水边；取消头顶悬浮珠，腹内采用低对比虚化闭眼圆月。
+源：../Spine/monster/mon_7320，Spine 3.8.75。源原生工程和全部导出/图片备份在 source/original，原素材散列未变。
+资源键：MobDrownedMoon。独立 Prefab/JSON/PNG/Atlas/SkeletonData/正常及闪白材质位于 Assets/DarkFairytale/Monsters/MobDrownedMoon。
+外部运行导出：../Spine/export/monster/MobDrownedMoon。三文件与项目运行资源逐字节一致。
+数据库及 Addressables 已注册；MonsterAnimationTest 含持久化 Prefab 引用、真实缩略图和中英文名称。正式关卡/波次未替换。
+
+制作与可复现入口
+1. python3 ArtDirection/Monsters/mon_7320/build_rig.py
+2. Unity 编辑模式菜单 Tools > Dark Fairytale > Monsters > MobDrownedMoon > Build and Register
+3. python3 ArtDirection/Monsters/mon_7320/verify_integrity.py
+显式队列 output/monster-animation/MobDrownedMoon/command.request：build / validate / preview / combat / setup / stop / play。
+先退出 Play，等待脚本编译完成，再写入 build/preview/combat。command-result.txt 为命令受理结果，最终验收以各验证报告为准。
+preview 转交支持单怪筛选的缩放与三比例验证器。combat 等开书过渡完成后启动临时单怪/混编波次，使用 CH1_Node04 溪畔小屋，禁用测试期间存档写入，结束返回 MonsterAnimationTest。
+
+原数据与动画：通过
+18 骨骼、14 槽，原骨骼/约束/槽/网格/UV/权重及全部7原动画完整保留。
+新增数字 linkedmesh 皮肤 1，deform 继承与 default 比较通过。maxSkins=1。
+Idle1 <- idle (1s)，Attack1 <- attack_1 (0.6667s)，Death1 <- die (1.2333s)。原动作依旧保留。
+Hit 为原骨架上的0.4秒短反冲，使用 idle 首姿与 center/head 曲线；stun 保留为眩晕预览。
+Attack1: OnHit=0.3333s，OnComplete=0.6667s；Death1: OnComplete=1.2333s；Hit: OnComplete=0.4s；Idle1 无事件。
+实际11段动作×2皮肤采样通过，事件计数及 Attack→Hit/Death 打断均通过。
+
+贴图与美术
+9个绘制分件来自内置 image_gen；原 shadow 保留，top 使用全透明 RGBA，11个图集区域无缩小打包。原 top 网格与动画保留，因此各动作不会再显示顶珠。
+source/painted-0.png 为初版九宫格，painted-body-v2.png 仅替换 body，以缩小、移开并柔化月影，避免眼睛遮挡；源提示词和参考见 source/painting-prompts.json / body-repair-prompt.json。
+直通 Alpha，Straight Alpha Input，Linear 项目，关闭贴图压缩/mipmap，8px非旋转打包。透明轮廓及两皮肤检查通过。
+美术功能验收：实际 Unity 检查全动作条带、Idle/Attack/Hit/Death关键帧、三比例同屏与溪畔实战，未见缺块、矩形背景、露底或重新出现顶珠。
+与概念差异：原骨架限制了双鳍与五官的运动/位置，实际更接近原模型的三分之四软体造型；月影为随体变形的贴图，水体深度以手绘表现，不提供真实折射或内部独立空间运动。不宣称逐像素还原概念。
+
+预览：通过
+运行时数据库和 Addressables 指向同一新 Prefab；搜索/目录选择、材质与图片引用、全部11动画固定缩放/锚点、共同缩放/重置通过。
+720×1280、768×1024、720×1440 保存实际 Unity Idle/Attack 截图。默认测试场景背景保留原用户配置。
+证据 output/monster-animation/MobDrownedMoon/preview/validation.txt，最终 errors=0。
+
+真实战斗：通过
+临时单怪和混编共3只 MobDrownedMoon；实际玩家HP损失、每只一次命中和攻击完成、入场受击/攻击隔离、存活与目标名单区分、攻击被打断→Hit→Idle1、经验发放、无物品掉落策略、Death1完成后销毁、下一波及胜利均通过，runtime errors=0。
+第一轮截图被开书/营地覆盖而作废，修复测试启动时机后在溪畔小屋重跑通过，当前 combat-wave0/1 为有效真实战斗截图。
+HP6、伤害1、经验1、攻击间隔2.8s、打断概率35、无物品掉落。测试临时提高敌人HP并补充玩家HP仅用于验证完整动画链，不代表平衡性验收。
+
+可编辑源工程：待补
+原生 mon_7320.spine 已备份；新 MobDrownedMoon.spine 尚未保存/验证。本机检测到 Spine Trial，未将 JSON 改后缀充作工程。新源 JSON、注册后的 PNG 分件、配准设置、构建代码及原生参照齐备，但不标记完整新原生工程交付。
+
+全部 Unity 截图仅保存在忽略的 output/monster-animation/MobDrownedMoon/，未提交 Git。

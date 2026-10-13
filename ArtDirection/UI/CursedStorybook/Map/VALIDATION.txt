@@ -1,0 +1,124 @@
+第一章地图 UI / Unity 实景验收 / 2026-10-12
+
+分辨率：941×1672、768×1024、720×1440。
+人工逐图核对：第一章背景、五个节点、选中标识、标签边框、标题/功能文字、底部导航均可见。
+原稿与实装的已知差异见 IMPLEMENTATION.txt；没有宣称逐像素完全一致。
+截图留在本地 output/map-ui/，不提交 Git。
+
+Actual Gameplay map validation; save persistence disabled
+STAGE 1 ratio=0 node=0
+STAGE 2 ratio=0 node=0
+PASS Exactly five first-chapter nodes
+PASS Correct five existing level keys
+PASS All legacy/future map nodes inactive
+PASS Legacy background and cloud layers hidden
+STAGE 3 ratio=0 node=0
+STAGE 4 ratio=0 node=0
+PASS rendered pointer Node_1-1_暮色林缘 => Node_1-1_暮色林缘
+PASS rendered pointer Node_1-2_蘑菇森林 => Node_1-2_蘑菇森林
+PASS rendered pointer Node_1-3_月下过桥 => Node_1-3_月下过桥
+PASS rendered pointer Node_1-4_溪畔小屋 => Node_1-4_溪畔小屋
+PASS rendered pointer Node_1-5_小屋内部 => Node_1-5_小屋内部
+PASS rendered pointer BackToShelter => BackToShelter
+PASS rendered pointer LocateSelection => LocateSelection
+PASS rendered pointer EnterSelectedNode => EnterSelectedNode
+PASS rendered pointer Nav_装备 => Nav_装备
+PASS rendered pointer Nav_技能 => Nav_技能
+PASS rendered pointer Nav_庇护所 => Nav_庇护所
+PASS rendered pointer Nav_地图 => Nav_地图
+PASS rendered pointer Nav_商店 => Nav_商店
+CAPTURE actual map 9x16
+STAGE 5 ratio=0 node=0
+STAGE 3 ratio=1 node=0
+STAGE 4 ratio=1 node=0
+PASS rendered pointer Node_1-1_暮色林缘 => Node_1-1_暮色林缘
+PASS rendered pointer Node_1-2_蘑菇森林 => Node_1-2_蘑菇森林
+PASS rendered pointer Node_1-3_月下过桥 => Node_1-3_月下过桥
+PASS rendered pointer Node_1-4_溪畔小屋 => Node_1-4_溪畔小屋
+PASS rendered pointer Node_1-5_小屋内部 => Node_1-5_小屋内部
+PASS rendered pointer BackToShelter => BackToShelter
+PASS rendered pointer LocateSelection => LocateSelection
+PASS rendered pointer EnterSelectedNode => EnterSelectedNode
+PASS rendered pointer Nav_装备 => Nav_装备
+PASS rendered pointer Nav_技能 => Nav_技能
+PASS rendered pointer Nav_庇护所 => Nav_庇护所
+PASS rendered pointer Nav_地图 => Nav_地图
+PASS rendered pointer Nav_商店 => Nav_商店
+CAPTURE actual map 3x4
+STAGE 5 ratio=1 node=0
+STAGE 3 ratio=2 node=0
+STAGE 4 ratio=2 node=0
+PASS rendered pointer Node_1-1_暮色林缘 => Node_1-1_暮色林缘
+PASS rendered pointer Node_1-2_蘑菇森林 => Node_1-2_蘑菇森林
+PASS rendered pointer Node_1-3_月下过桥 => Node_1-3_月下过桥
+PASS rendered pointer Node_1-4_溪畔小屋 => Node_1-4_溪畔小屋
+PASS rendered pointer Node_1-5_小屋内部 => Node_1-5_小屋内部
+PASS rendered pointer BackToShelter => BackToShelter
+PASS rendered pointer LocateSelection => LocateSelection
+PASS rendered pointer EnterSelectedNode => EnterSelectedNode
+PASS rendered pointer Nav_装备 => Nav_装备
+PASS rendered pointer Nav_技能 => Nav_技能
+PASS rendered pointer Nav_庇护所 => Nav_庇护所
+PASS rendered pointer Nav_地图 => Nav_地图
+PASS rendered pointer Nav_商店 => Nav_商店
+CAPTURE actual map 1x2
+STAGE 5 ratio=2 node=0
+STAGE 6 ratio=3 node=0
+PASS Locked node disables entry
+PASS Locked entry cannot start battle
+PASS First node available for fresh progress
+PASS Drag cannot select or enter a node
+STAGE 7 ratio=3 node=0
+PASS Locate stops scroll inertia
+PASS All five nodes respect completed prerequisites
+STAGE 8 ratio=3 node=0
+PASS Entry prevents repeated navigation node 0
+STAGE 9 ratio=3 node=0
+PASS Node 1 enters existing battle flow
+PASS Node 1 matches actual chapter environment
+STAGE 10 ratio=3 node=0
+PASS Battle returns to shelter 0
+STAGE 8 ratio=3 node=1
+PASS Entry prevents repeated navigation node 1
+STAGE 9 ratio=3 node=1
+PASS Node 2 enters existing battle flow
+PASS Node 2 matches actual chapter environment
+STAGE 10 ratio=3 node=1
+PASS Battle returns to shelter 1
+STAGE 8 ratio=3 node=2
+PASS Entry prevents repeated navigation node 2
+STAGE 9 ratio=3 node=2
+PASS Node 3 enters existing battle flow
+PASS Node 3 matches actual chapter environment
+STAGE 10 ratio=3 node=2
+PASS Battle returns to shelter 2
+STAGE 8 ratio=3 node=3
+PASS Entry prevents repeated navigation node 3
+STAGE 9 ratio=3 node=3
+PASS Node 4 enters existing battle flow
+PASS Node 4 matches actual chapter environment
+STAGE 10 ratio=3 node=3
+PASS Battle returns to shelter 3
+STAGE 8 ratio=3 node=4
+PASS Entry prevents repeated navigation node 4
+STAGE 9 ratio=3 node=4
+PASS Node 5 enters existing battle flow
+PASS Node 5 matches actual chapter environment
+STAGE 10 ratio=3 node=4
+PASS Battle returns to shelter 4
+STAGE 11 ratio=3 node=5
+STAGE 12 ratio=3 node=5
+PASS Map navigation opens INVENTORY
+STAGE 13 ratio=3 node=5
+STAGE 11 ratio=3 node=5
+STAGE 12 ratio=3 node=5
+PASS Map navigation opens SKILLS
+STAGE 13 ratio=3 node=5
+STAGE 11 ratio=3 node=5
+STAGE 12 ratio=3 node=5
+PASS Map navigation opens CASH_MALL
+STAGE 13 ratio=3 node=5
+STAGE 14 ratio=3 node=5
+STAGE 15 ratio=3 node=5
+PASS Back returns to shelter
+PASS all map checks; unexpected runtime errors=0

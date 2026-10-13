@@ -1,0 +1,19 @@
+庇护所主 UI 验证 — 2026-10-12
+
+环境：Unity 6000.6.3f1，Gameplay 场景，真实 Play Mode。
+结果：完整流程检查通过；最终视觉与交互回归通过；未捕获新增运行时异常。
+
+屏幕：9:16 (720×1280)、3:4 (768×1024)、1:2 (720×1440)。核心区域居中等比缩放；模拟安全区通过。实际 Unity 截图保存在 output/home-ui/，不提交 Git。
+截图：home-9x16.png、home-3x4.png、home-1x2.png、home-collapsed.png、fusion-details.png、settings.png。
+
+交互：按钮按下缩放与释放恢复；零点数禁用；1 点购买；100 级后 2 点购买；LastStatPurchased 限制即时刷新；重复购买不多扣点；收起后不可点击，展开恢复；详情淡入与遮罩；设置音量绑定。
+流程：装备、技能、地图、商店、宝箱、经验加成、融合、转生入口及返回；转生未解锁/解锁；战斗进入和返回；胜利与失败结算及回营地。
+
+补充点击验证：在运行时以 EventSystem.RaycastAll 的首个命中对象为目标，依次分发 PointerDown、PointerUp、PointerClick。设置打开、关闭、属性收起、属性展开全部通过。原始结果 output/home-ui/event-clicks.txt。
+限制：原生编辑器自动化鼠标输入被旧 Input 系统报告为固定坐标，因此不宣称已通过操作系统真实鼠标验收。上述射线及完整指针事件链测试不等同于实体设备触摸测试；本次未执行手机真机测试。
+
+原项目在编辑器无广告服务时会报告 Ad is unavailable when trying to ShowRewardedAd；已单独记录为既有诊断。未执行广告、购买或支付。
+测试期间使用项目已有 MONSTER_QA_DISABLE_SAVE 开关，不写入测试进度。
+完整日志：output/home-ui/flows-validation.txt；最终回归：output/home-ui/validation.txt。
+
+后续更新：休息角色已拆出并接入 Spine Idle，庇护所背景仍为静态插画。动画验证见 ArtDirection/Characters/RedHoodShelter/VALIDATION.txt。编号为 Inspector 可编辑 subjectNumber，初值 001，尚未接入未定的剧情编号存档规则。

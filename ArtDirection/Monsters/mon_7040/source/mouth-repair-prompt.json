@@ -1,0 +1,6 @@
+{
+  "tool": "built-in image_gen",
+  "prompt": "Use case: precise-object-edit. Edit this transparent Spine parts sheet for a dark fairytale bark squirrel. Change ONLY top-middle tongue and top-right inner mouth cavity. Keep all five pieces in their exact cells and silhouette orientation. Top-middle tongue: smooth desaturated dark burgundy tongue, deep black-brown root on LEFT and soft muted reddish tip on RIGHT, subtle broad shading, no fur, no bark, no grain, no wrinkles or lines, no bright highlights. Top-right crescent cavity: nearly black wine-brown recessed inner mouth, very dark center with softly shaded muted maroon lower rim, fully opaque interior including dark center, preserve crescent with notch opening RIGHT. No fur or wood texture anywhere inside mouth. This texture undergoes extreme stretching so use almost uniform low contrast smooth shading, not directional strokes. Other pieces unchanged. Transparent background native alpha, no text, no new parts.",
+  "output": "painted-mouth-v2.png",
+  "registration": "Existing original UV bounds and registration.json. Only mouth01/mouth02 consume the new sheet; all other parts retain original approved sheets."
+}

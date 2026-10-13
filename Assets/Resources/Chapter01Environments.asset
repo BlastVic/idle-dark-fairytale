@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 309dd8b36600c45919211ebbce733faa, type: 3}
+  m_Name: Chapter01Environments
+  m_EditorClassIdentifier: Assembly-CSharp::ChapterEnvironmentCatalog
+  entries:
+  - mapKey: CH1_Node01
+    levelKey: Khorasan Ruins I
+    displayName: "\u66AE\u8272\u6797\u7F18"
+    prefab: {fileID: 1058545392801662021, guid: 7b364a2ba5c0c4896b24e2c8dfc816c1, type: 3}
+  - mapKey: CH1_Node02
+    levelKey: Khorasan Ruins II
+    displayName: "\u8611\u83C7\u68EE\u6797"
+    prefab: {fileID: 1569206716237894568, guid: 7aab7b27e684340dfbeaca6c5c261453, type: 3}
+  - mapKey: CH1_Node03
+    levelKey: test01
+    displayName: "\u6708\u4E0B\u8FC7\u6865"
+    prefab: {fileID: 9197915846811319880, guid: 938bbf4bafe7e44bd8191c91c81e968b, type: 3}
+  - mapKey: CH1_Node04
+    levelKey: test02
+    displayName: "\u6EAA\u7554\u5C0F\u5C4B"
+    prefab: {fileID: 7557504649950494951, guid: 98df2b7a1781a4a16a2b085565d1c808, type: 3}
+  - mapKey: CH1_Node05
+    levelKey: Mount Zion
+    displayName: "\u5C0F\u5C4B\u5185\u90E8"
+    prefab: {fileID: 2875440053224191612, guid: 7602ceadb65004789a7f9ba2f70ec387, type: 3}

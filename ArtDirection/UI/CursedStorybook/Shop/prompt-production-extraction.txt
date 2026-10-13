@@ -1,0 +1,7 @@
+Built-in ImageGen; original approved reference: shop-v2-blood-moon-crystals.png
+Use case: background-extraction. Turn the supplied APPROVED SHOP artwork into a production transparent sprite sheet. Preserve the exact artwork designs, objects, colors, silhouette, view and ink-painted rendering from the reference, do not invent substitute assets. Square 2x2 equal-cell atlas, generous transparent padding separating each cell:
+TOP LEFT: exact old brown leather pouch with jagged blood moon crystals spilling, extracted from first product card.
+TOP RIGHT: exact iron-bound wooden crate with tree emblem and jagged red-black crystals spilling from second product card, no substitute treasure chest.
+BOTTOM LEFT: exact crimson wax seal with white check from success panel, fully isolated.
+BOTTOM RIGHT: exact wide horizontal black-ink forest shop banner from main screen, left twisted tree and lantern, right canopy stall with shelves and crow, center entirely transparent for later editable title. Remove ALL text and ruling lines inside banner. No parchment or rectangular backing anywhere.
+Genuine transparent background for entire atlas and space between objects, no checkerboard baked in. No UI frames, buttons, text, numbers, prices, currency labels, no leaves or cherry remnants among currency. Objects complete and uncropped. Match reference faithfully; artwork extraction for Unity, not a new UI mockup.

@@ -1,0 +1,73 @@
+{
+  "monster_id": "MobRotleafChild",
+  "approved_design": "A-character-v1.png",
+  "painting": "built-in image_gen; exact model identifier not exposed",
+  "painting_prompts": "painting-prompts.json",
+  "native_project_status": "Original C031_Dummy_G.spine preserved; new skin delivered as JSON and part PNGs, no new native .spine saved",
+  "source": "/Users/vic/Workshop/Spine/monster2/动画/C031_Dummy_G",
+  "source_version": "3.8-from-4.0-from-4.1-from-4.2.43",
+  "changes": [
+    "Added linked skin 1 inheriting default deform",
+    "Added four game animation aliases and events; no changes to original timelines or rig",
+    "Repacked nonrotated straight-alpha atlas from repainted source parts"
+  ],
+  "aliases": {
+    "Idle1": "Idle_Battle_00",
+    "Attack1": "Atk1_00",
+    "Hit": "Hit_00",
+    "Death1": "Death_00"
+  },
+  "events": {
+    "Attack1": [
+      {
+        "time": 0.4667,
+        "name": "OnHit"
+      },
+      {
+        "time": 1.4333,
+        "name": "OnComplete"
+      }
+    ],
+    "Hit": [
+      {
+        "time": 0.7667,
+        "name": "OnComplete"
+      }
+    ],
+    "Death1": [
+      {
+        "time": 1.5333,
+        "name": "OnComplete"
+      }
+    ]
+  },
+  "original_sha256": {
+    "C031_Dummy_G.spine": "9779b917117a711845fb01be31a735893d4d58ba9848dfb694fc9e96482fde9b",
+    "C031_Dummy_G.png": "26e3a3c0d79592407870ac38247a4d6d3bb31e6b7ca84182519e2c430f0849c6",
+    "C031_Dummy_G.json": "40fe0351f91f60c66836f207ec98fa7d9b89067e0a88aeea12e9c9fa0d535f81",
+    "C031_Dummy_G_导出.png": "b95f78345961f9d8d746d61878eff5b1d39422ce4e8984d946aa2bfddc3ca80e",
+    "C031_Dummy_G.atlas": "b39cdce83046fcc897d034102b54d610785454a73be9bd5780667b98cf5128fa"
+  },
+  "original_images_sha256": {
+    "Front_hat_01.png": "52b0df8d52330c49d7a90fa5112cda1baa95bbf3cc8d4060c171441e1a41bef5",
+    "Front_hat_02.png": "8eafe2a5b7ba2540ce710e36fa2304d287171bc3daf2b7e2d23101cf57caa928",
+    "Front_Eye_04.png": "a741161ac620977a9a0c7a4f1bb7b60872eaede55ecb5fc5fa5bbb6cf64f6291",
+    "Front_Eye_05.png": "96c9dacb876ce04325cad5fdb453c54ea52c7454e365725d9c726b60f57e0def",
+    "Front_Mouth_05.png": "bdcf57acd9838dbbbe37cd1a58dfc9a2d7e4b355b841a0b7d7e33b85b267de58",
+    "Front_Eye_06.png": "8463fed46624fa1783b183e080b36305f4ad3d9b6ae637df6765c12dcf77698c",
+    "Front_Eye_02.png": "4c2ee2e68cfd7fd87f8b3dc62d3551c2a14f267415a48ddf853882642f89d23d",
+    "Front_Mouth_01.png": "febdf5564e7d9f625dcde96a2275e0fc52f4438ef517b7da83ed03c3a571be35",
+    "Front_Eye_03.png": "62db7d556f75eb22dc9d5e648c9f72427c6c2596b35f02fe59832d709b40f87d",
+    "Front_Eye_01.png": "a5142e0994f2844cfead690a1e46e09e03edb73ed4de2321a09cf8d270702a56",
+    "Front_Mouth_02.png": "9ba0fb5e57b978edcd545258f976a07c86fd7166ad80aa31ef7324df82b8ac7e",
+    "Front_Mouth_03.png": "a65b6ffc07a734ab733d698f5cf5fcbf6c03d18670becc3866b4f692aab647df",
+    "Front_arm.png": "297abd074a6f5d1d9f12c875a20a9c13ba61cd0a74affb679f1117d08f7cd925",
+    "shadow.png": "c834cfdb903127b168116c24a24f0777c729db0db78b3aea03c7ad7368be8317",
+    "Front_Leg_02.png": "fb7be80543aae52c906de6b89a18638e08e9d54dc96129fac1607e45c1ddcd47",
+    "Front_Body_02.png": "4893afb2a84f8a9e8f22df2e5c8ee0d39e5cfbbab6b0649317690a2fa566642d",
+    "Front_Leg_01.png": "5668acecd97b1b1685c8574fb963175855cc9d8db8ee4248f025a8c8ab45e37c",
+    "Front_Body_01.png": "4d1325c776d77a86ff41ee2ecffeab822517a5e386b57821860e088b201db2fa"
+  },
+  "registration": "2x original canvas; UV-visible source alpha bounds; cap inset 5% canvas width and 2.5% height total to avoid original mesh clipping; generated alpha retained",
+  "atlas": "Unity PackTextures; 8 px padding; 4096 maximum; straight alpha; no rotation; verify packed dimensions equal part canvas"
+}

@@ -1,0 +1,19 @@
+Use case: ui-mockup. Revise the supplied Chinese dark fairytale skills UI into a true clearly connected SKILL DEPENDENCY TREE. Keep the exact header, parchment textures, thorn stitched edging, character portrait and five bottom navigation illustrations from the reference. One full screen portrait 9:16, ideally 1080x1920 or larger. This is a visual correction: previous card grid hid dependencies. Make arrowed relationships the most legible feature. No unrelated new gameplay.
+Header title 技能. Slim bar 技能点 3. Main parchment tree takes 15%–73% of screen height; fixed compact detail 74%–89%; bottom original menu 90%–100%, 技能 selected. Replace all grid boxes with a spacious 5-column by 5-row TREE of compact illustrated medallions and readable short Chinese names underneath; empty positions remain empty parchment for routing arrows. Total 15 unique nodes. Do not connect nodes merely because adjacent. Use orthogonal connectors in whitespace with clear arrowheads, NEVER underneath labels or across illustrations. Root at top, progression downward.
+EXACT NODE POSITIONS (row,col; columns 1-5):
+r1c2 生命复苏 1/10 (thorn heart). r1c4 阴影践踏 0/10 (dark hoof).
+r2c1 幸运收割 0/10 (sickle clover). r2c2 天使庇护 1/10 (feather shield). r2c4 恶魔低语 未解锁 (horn skull). r2c5 三连斩 未解锁 (three knives).
+r3c1 幸运之星 未解锁 (star shield). r3c2 双倍馈赠 0/10 (two stars). r3c3 死而复生 0/10 (rising heart, SELECTED with crimson medallion ring). r3c4 第三重击 未解锁 (hammer). r3c5 首领猎手 未解锁 (crowned skull).
+r4c2 战场谋略 未解锁 (crossed pennants). r4c3 幼龙伙伴 未解锁 (baby dragon). r4c4 雷霆裁决 未解锁 (lightning).
+r5c3 地狱吐息 未解锁 (dragon fire).
+15 nodes only. Known level1 nodes in dark ink, available level0 nodes sepia, locked nodes light grey with small lock, selected resurrection crimson.
+EXACT DIRECTED EDGES:
+生命复苏 → 幸运收割 → 幸运之星.
+生命复苏 → 天使庇护 → 双倍馈赠 → 战场谋略.
+阴影践踏 → 三连斩 → 首领猎手.
+阴影践踏 → 恶魔低语 → 第三重击 → 雷霆裁决.
+天使庇护 → 死而复生 AND 恶魔低语 → 死而复生. These two input arrows should terminate at a small junction above selected node labeled 或, NOT imply both required.
+死而复生 → 幼龙伙伴 → 地狱吐息.
+There are also TWO real reverse unlocking dependencies: 死而复生 → 天使庇护 and 死而复生 → 恶魔低语. Show these as thin separate curved RETURN ARROWS in the central empty corridor with upward arrowheads and small label 反向解锁. Do not erase them or pretend this data is a simple acyclic tree. Keep these reverse paths visually subordinate but visible. Angel and devil each require EITHER of their incoming sources. Small 或 badge at their input junctions if needed.
+Selected path 生命复苏 → 天使庇护 → 死而复生 in clear dark crimson, secondary eligible path 生命复苏 → 幸运收割 thin dark ink; locked dependencies grey dashed. Legend within tree lower left: 实线：前置已满足 / 虚线：前置未满足. Small clear rule below skills-point bar: 箭头指向后续技能 · 任一前置达到1级即可解锁.
+Detail fixed panel: matching selected rising heart icon, title 死而复生, 0 → 1. Prominent prerequisite row 天使庇护 Lv.1 ✓   或   恶魔低语 Lv.1 with latter grey and a small lock; small tag 已满足前置. Description 阵亡时有10%概率复活，恢复40%生命. Cost 消耗1技能点, single enabled crimson button 学习. Do not use generic upgrade text for level0. Preserve all bottom navigation labels 装备 / 技能 / 庇护所 / 地图 / 商店 and original art. Focus on clear usable dependency diagram, distinct labels, generous routes, highly readable real Chinese. Not inventory grid, no extra rows of duplicated skills, no decorative thorn vines confused with connectors.

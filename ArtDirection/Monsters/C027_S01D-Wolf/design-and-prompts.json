@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-11",
+  "status": "concept only; pending user review; no Spine runtime assets created or originals replaced",
+  "tool": "built-in image_gen",
+  "source": "/Users/vic/Workshop/Spine/monster2/动画/C027_S01D",
+  "sourceRig": {
+    "bones": 66,
+    "slots": 25,
+    "animations": 10
+  },
+  "design": "四足侧身灰褐狼；炭黑鬃毛、旧骨白口鼻和腿、暗琥珀眼；朝左低伏，保留卷尾；墨线手绘黑暗童话。独立编号待正式接入时分配。",
+  "background": "ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+  "outputs": [
+    "concepts/wolf-design-v1.png",
+    "concepts/node04-wolf-battle-v1.png"
+  ],
+  "prompts": {
+    "design": "Use case: stylized-concept. Create a polished creature design sheet for our dark fairytale 2D game. Reference image 1 is C027_S01D original wolf: preserve recognizable FOUR-LEGGED wolf anatomy, hunched thick shoulder mane, long muzzle, pointed ears, large paws and bushy upward curling tail; NOT humanoid. Reference image 2 is our game's authoritative art style and character rendering. Redesign wolf with clear dark ink contours, restrained painterly gouache shading and broad readable fur clumps matching its illustrated mushrooms and Red Riding Hood, eerie yet charming storybook proportions, not realistic hair, not anime cel shading, not 3D. Ash gray-brown body, soot charcoal mane, aged ivory muzzle throat underside and paws, small muted amber eyes with cunning lowered brow, a crooked toothy grin with a few clear ivory fangs, no blood. Slightly oversized head and paws, compact body. No clothing, armor, jewelry, mushrooms growing on body, extra eyes, magic effects or invented story props. Landscape 3:2 design sheet on plain warm gray parchment. Main full-body LEFT-FACING three-quarter side battle stance occupies left 75 percent, all four paws distinct and grounded, tail on right, ears and tail fully in frame, readable silhouette, ready to lunge toward left. Right column two small clean detail studies: face expression and shoulder fur color grouping, plus 4 small palette swatches. No text or lettering. Keep main design suitable as visual target for later Spine reskin; this is concept art not an atlas. Premium finished illustration with simple strong shapes.",
+    "scene": "Use case: compositing. Edit image 1, the existing portrait 9:16 Node 4 riverside cabin battle concept. Image 2 is the EXACT approved-for-this-composite new wolf appearance reference, use the large left-facing full-body wolf as character identity only, no parchment or details column. Preserve image 1 scene composition, viewpoint, cabin size and position, warm lanterns, closed-eye moon, forest silhouettes, creek leaving left in the middle, dry foreground, and Red Riding Hood character on the left with her exact outfit weapon and pose. Change ONLY the front red mushroom enemy into ONE new gray-brown four-legged wolf matching image 2. Keep the two rear mushroom enemies (green at upper-left of enemy group and pale purple at upper-right), preserving compact triangular battle formation. Wolf occupies front-right battle position, faces LEFT toward the heroine, muzzle aiming toward her, all four paws on continuous DRY ground at the heroine's combat depth. Full wolf silhouette visible including tail within right frame; fit its horizontal length in right half of image, roughly x49%-96% and y64%-78%, head highest point below rear mushrooms' caps, shoulder height around heroine's waist/chest. Do not enlarge into a giant boss. Preserve visual separation from heroine, weapon and background. Wolf should be same ink-outlined painterly storybook rendering as existing characters, ashy gray-brown coat, broad charcoal mane, ivory muzzle chest and legs, sly muted amber eyes, crooked toothy grin, large paws, bushy curled tail; subtle cold moonlight on top and warm lantern accents to fit scene, contact shadows under paws. Preserve both rear mushrooms identifiable, allowing front wolf partial overlap of their lower bodies. Not photorealistic or 3D. No extra characters, no clothes on wolf, no UI, no words, no border, no water in battle area. This is a polished battle composition concept, not a screenshot. Retain original portrait aspect ratio."
+  },
+  "notes": [
+    "战斗效果图为生成的美术概念合成，不是 Unity 实景截图。",
+    "前排狼与后排两只蘑菇仅作画风、尺度和三角站位展示，不代表正式波次配置。",
+    "后续制作保留 C027_S01D 原始资源；需单独完成分件贴图、骨架适配、事件与 Unity 验证。"
+  ]
+}

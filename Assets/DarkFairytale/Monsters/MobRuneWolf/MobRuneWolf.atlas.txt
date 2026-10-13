@@ -1,0 +1,202 @@
+
+MobRuneWolf.png
+size: 4096,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Front_Face
+  rotate: false
+  xy: 0, 172
+  size: 576, 550
+  orig: 576, 550
+  offset: 0, 0
+  index: -1
+Front_Face_02
+  rotate: false
+  xy: 896, 114
+  size: 504, 628
+  orig: 504, 628
+  offset: 0, 0
+  index: -1
+Front_Face_03
+  rotate: false
+  xy: 0, 730
+  size: 576, 550
+  orig: 576, 550
+  offset: 0, 0
+  index: -1
+Front_Neck
+  rotate: false
+  xy: 0, 1288
+  size: 888, 760
+  orig: 888, 760
+  offset: 0, 0
+  index: -1
+Front_Waist
+  rotate: false
+  xy: 896, 750
+  size: 932, 668
+  orig: 932, 668
+  offset: 0, 0
+  index: -1
+Front_Pelvis
+  rotate: false
+  xy: 1940, 1240
+  size: 396, 422
+  orig: 396, 422
+  offset: 0, 0
+  index: -1
+Front_tail
+  rotate: false
+  xy: 896, 1426
+  size: 1036, 622
+  orig: 1036, 622
+  offset: 0, 0
+  index: -1
+Front_Mouth_01
+  rotate: false
+  xy: 2394, 1802
+  size: 452, 246
+  orig: 452, 246
+  offset: 0, 0
+  index: -1
+Front_Mouth_02
+  rotate: false
+  xy: 3406, 1824
+  size: 230, 224
+  orig: 230, 224
+  offset: 0, 0
+  index: -1
+Front_Mouth_03
+  rotate: false
+  xy: 1746, 274
+  size: 178, 468
+  orig: 178, 468
+  offset: 0, 0
+  index: -1
+Front_Ear_L_01
+  rotate: false
+  xy: 584, 40
+  size: 250, 284
+  orig: 250, 284
+  offset: 0, 0
+  index: -1
+Front_Ear_R_01
+  rotate: false
+  xy: 3180, 1810
+  size: 218, 238
+  orig: 218, 238
+  offset: 0, 0
+  index: -1
+Front_Hand_L
+  rotate: false
+  xy: 3644, 1878
+  size: 284, 170
+  orig: 284, 170
+  offset: 0, 0
+  index: -1
+Front_Hand_R
+  rotate: false
+  xy: 2854, 1838
+  size: 318, 210
+  orig: 318, 210
+  offset: 0, 0
+  index: -1
+Front_Foot_L
+  rotate: false
+  xy: 0, 32
+  size: 204, 132
+  orig: 204, 132
+  offset: 0, 0
+  index: -1
+Front_Foot_R
+  rotate: false
+  xy: 212, 42
+  size: 206, 122
+  orig: 206, 122
+  offset: 0, 0
+  index: -1
+Front_Arm_L_01
+  rotate: false
+  xy: 584, 778
+  size: 298, 502
+  orig: 298, 502
+  offset: 0, 0
+  index: -1
+Front_Arm_L_02
+  rotate: false
+  xy: 1940, 1670
+  size: 446, 378
+  orig: 446, 378
+  offset: 0, 0
+  index: -1
+Front_Arm_L_03
+  rotate: false
+  xy: 3936, 1880
+  size: 158, 168
+  orig: 158, 168
+  offset: 0, 0
+  index: -1
+Front_Arm_R_01
+  rotate: false
+  xy: 1940, 324
+  size: 320, 418
+  orig: 320, 418
+  offset: 0, 0
+  index: -1
+Front_Arm_R_02
+  rotate: false
+  xy: 584, 332
+  size: 284, 390
+  orig: 284, 390
+  offset: 0, 0
+  index: -1
+Front_Leg_L_01
+  rotate: false
+  xy: 1940, 66
+  size: 274, 250
+  orig: 274, 250
+  offset: 0, 0
+  index: -1
+Front_Leg_L_02
+  rotate: false
+  xy: 1408, 140
+  size: 330, 602
+  orig: 330, 602
+  offset: 0, 0
+  index: -1
+Front_Leg_L_03
+  rotate: false
+  xy: 2222, 98
+  size: 152, 218
+  orig: 152, 218
+  offset: 0, 0
+  index: -1
+Front_Leg_R_01
+  rotate: false
+  xy: 2394, 1652
+  size: 168, 142
+  orig: 168, 142
+  offset: 0, 0
+  index: -1
+Front_Leg_R_02
+  rotate: false
+  xy: 1940, 750
+  size: 346, 482
+  orig: 346, 482
+  offset: 0, 0
+  index: -1
+Front_Leg_R_03
+  rotate: false
+  xy: 1746, 10
+  size: 180, 256
+  orig: 180, 256
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 896, 61
+  size: 208, 45
+  orig: 208, 45
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,50 @@
+MonsterAnimationTest UGUI live validation
+PASS: Scene references complete
+PASS: Editable HUD prefab connection retained
+PASS: No runtime OnGUI
+PASS: All persisted catalog cards have real portraits, names and buttons
+PASS: Default monster loads
+PASS: Catalog collapsed by default
+PASS: Red Hood stays on Idle1
+PASS: Hide Red Hood
+PASS: Show Red Hood
+PASS: Pause button
+PASS: Monster speed independent of Red Hood
+PASS: Resume button
+PASS: Zoom slider
+PASS: Reset fits the preview
+PASS: Expand catalog
+PASS: Search Chinese name
+PASS: Search case-insensitive ID
+PASS: Empty search result feedback
+PASS: Last monster reachable by scrolling
+PASS: Select Mob001 蜡斑菇
+PASS: Select Mob002 木纹菇
+PASS: Select Mob003 梦眼菇
+PASS: Select Mob005 猩红符文狼
+PASS: Select mon_7070
+PASS: Animation button binds to real track
+PASS: Replay resets track time
+PASS: Loop toggle
+PASS: Automatic animation cycling advances
+PASS: Actual Game View resolution 9x16 (720x1280)
+PASS: 9x16 full actor visible above controls: Mob001_SkeletonData
+PASS: 9x16 full actor visible above controls: Red Hood - Idle Reference
+PASS: 9x16 selector receives pointer raycast in runtime frame
+PASS: 9x16 UI preserves aspect
+PASS: Expanded at 9x16
+PASS: Actual Game View resolution 3x4 (768x1024)
+PASS: 3x4 full actor visible above controls: Mob001_SkeletonData
+PASS: 3x4 full actor visible above controls: Red Hood - Idle Reference
+PASS: 3x4 selector receives pointer raycast in runtime frame
+PASS: 3x4 UI preserves aspect
+PASS: Expanded at 3x4
+PASS: Actual Game View resolution 1x2 (720x1440)
+PASS: 1x2 full actor visible above controls: Mob001_SkeletonData
+PASS: 1x2 full actor visible above controls: Red Hood - Idle Reference
+PASS: 1x2 selector receives pointer raycast in runtime frame
+PASS: 1x2 UI preserves aspect
+PASS: Expanded at 1x2
+PASS: Safe area uses uniform scale
+PASS: Simulated safe-area top and bottom insets respected
+PASS: runtime errors=0, all interactions and ratios validated.

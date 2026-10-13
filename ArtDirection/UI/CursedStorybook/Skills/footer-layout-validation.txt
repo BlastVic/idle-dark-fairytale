@@ -1,0 +1,126 @@
+技能详情底部布局调整 — 2026-10-13
+
+根据用户反馈优化拥挤的底部操作区：消耗文字 25→22，按钮文字 32→26；按钮框线减薄；操作区左右留白 28、底部留白 24，消耗与按钮间隔 16，说明区到操作区间隔 18。详情面板根据内容和固定操作区高度计算总高度，长内容可滚动。布局与文本调整保存于 StorybookSkills.prefab，运行时仅做自适应。
+
+实际 Unity 渲染已检查 941×1672、768×1024、720×1440，验证技能点不足、升级、满级、按钮按下恢复、收展射线和原技能购买逻辑。截图保留于已忽略的 output/skills-footer/。
+
+Skills actual Unity verification; test save persistence disabled
+PASS existing Skills route opens authored prefab
+PASS 15 nodes and all 16 directed dependencies are persisted
+PASS 生命复苏 prerequisites exactly match legacy configuration
+PASS 三连斩 prerequisites exactly match legacy configuration
+PASS 阴影践踏 prerequisites exactly match legacy configuration
+PASS 天使庇护 prerequisites exactly match legacy configuration
+PASS 恶魔低语 prerequisites exactly match legacy configuration
+PASS 死而复生 prerequisites exactly match legacy configuration
+PASS 幸运收割 prerequisites exactly match legacy configuration
+PASS 第三重击 prerequisites exactly match legacy configuration
+PASS 幼龙伙伴 prerequisites exactly match legacy configuration
+PASS 双倍馈赠 prerequisites exactly match legacy configuration
+PASS 雷霆裁决 prerequisites exactly match legacy configuration
+PASS 首领猎手 prerequisites exactly match legacy configuration
+PASS 幸运之星 prerequisites exactly match legacy configuration
+PASS 战场谋略 prerequisites exactly match legacy configuration
+PASS 地狱吐息 prerequisites exactly match legacy configuration
+PASS all serialized component references resolve
+PASS 9x16 Nav_装备 pointer unobstructed
+PASS 9x16 Nav_技能 pointer unobstructed
+PASS 9x16 Nav_庇护所 pointer unobstructed
+PASS 9x16 Nav_地图 pointer unobstructed
+PASS 9x16 Nav_商店 pointer unobstructed
+PASS 9x16 BackToShelter pointer unobstructed
+PASS 9x16 root pointer unobstructed
+PASS 9x16 opening animation has intermediate frame
+PASS 9x16 cost and action have breathing room
+PASS 9x16 action bottom inset and text scale
+PASS 9x16 left node opens right drawer
+PASS 9x16 upgrade pointer unobstructed
+PASS 9x16 close pointer unobstructed
+PASS 9x16 selected stays visible pointer unobstructed
+PASS 9x16 content drawer does not fill tree height
+PASS 9x16 drawer within safe viewport
+PASS 9x16 purchase pressed feedback
+PASS 9x16 purchase restores
+PASS 9x16 hidden drawer does not block rays
+PASS 9x16 right node opens left drawer
+PASS 9x16 shorter content gives shorter drawer
+PASS 9x16 learn pointer unobstructed
+PASS 9x16 right selection visible pointer unobstructed
+PASS 9x16 switching sides closes then reopens
+PASS 9x16 outward swipe dismisses drawer
+PASS 9x16 last row reachable by scrolling
+PASS 3x4 Nav_装备 pointer unobstructed
+PASS 3x4 Nav_技能 pointer unobstructed
+PASS 3x4 Nav_庇护所 pointer unobstructed
+PASS 3x4 Nav_地图 pointer unobstructed
+PASS 3x4 Nav_商店 pointer unobstructed
+PASS 3x4 BackToShelter pointer unobstructed
+PASS 3x4 root pointer unobstructed
+PASS 3x4 opening animation has intermediate frame
+PASS 3x4 cost and action have breathing room
+PASS 3x4 action bottom inset and text scale
+PASS 3x4 left node opens right drawer
+PASS 3x4 upgrade pointer unobstructed
+PASS 3x4 close pointer unobstructed
+PASS 3x4 selected stays visible pointer unobstructed
+PASS 3x4 content drawer does not fill tree height
+PASS 3x4 drawer within safe viewport
+PASS 3x4 purchase pressed feedback
+PASS 3x4 purchase restores
+PASS 3x4 hidden drawer does not block rays
+PASS 3x4 right node opens left drawer
+PASS 3x4 shorter content gives shorter drawer
+PASS 3x4 learn pointer unobstructed
+PASS 3x4 right selection visible pointer unobstructed
+PASS 3x4 switching sides closes then reopens
+PASS 3x4 outward swipe dismisses drawer
+PASS 3x4 last row reachable by scrolling
+PASS 1x2 Nav_装备 pointer unobstructed
+PASS 1x2 Nav_技能 pointer unobstructed
+PASS 1x2 Nav_庇护所 pointer unobstructed
+PASS 1x2 Nav_地图 pointer unobstructed
+PASS 1x2 Nav_商店 pointer unobstructed
+PASS 1x2 BackToShelter pointer unobstructed
+PASS 1x2 root pointer unobstructed
+PASS 1x2 opening animation has intermediate frame
+PASS 1x2 cost and action have breathing room
+PASS 1x2 action bottom inset and text scale
+PASS 1x2 left node opens right drawer
+PASS 1x2 upgrade pointer unobstructed
+PASS 1x2 close pointer unobstructed
+PASS 1x2 selected stays visible pointer unobstructed
+PASS 1x2 content drawer does not fill tree height
+PASS 1x2 drawer within safe viewport
+PASS 1x2 purchase pressed feedback
+PASS 1x2 purchase restores
+PASS 1x2 hidden drawer does not block rays
+PASS 1x2 right node opens left drawer
+PASS 1x2 shorter content gives shorter drawer
+PASS 1x2 learn pointer unobstructed
+PASS 1x2 right selection visible pointer unobstructed
+PASS 1x2 switching sides closes then reopens
+PASS 1x2 outward swipe dismisses drawer
+PASS 1x2 last row reachable by scrolling
+PASS safe-area purchase pointer unobstructed
+PASS safe-area shelter pointer unobstructed
+PASS notch and home indicator respected
+PASS zero points disables upgrade
+PASS disabled purchase cannot spend points
+PASS point replenishment restores button
+PASS purchase increments real skill and spends exactly one point
+PASS 9 to 10 requires two points
+PASS level10 cap and exact two-point spend
+PASS max level cannot buy or preview level11
+PASS angel alone unlocks resurrection without devil
+PASS resurrection purchase immediately unlocks reverse devil and dragon paths
+PASS devil alone also unlocks resurrection
+PASS neither prerequisite keeps resurrection locked
+PASS stale detail cannot bypass prerequisite check
+PASS all four devil effects included
+PASS long-content action pointer unobstructed
+PASS return to shelter preserved
+PASS skills to equipment navigation
+PASS skills to map navigation
+PASS skills to shop navigation
+PASS no unexpected runtime errors
+PASS COMPLETE failures=0 errors=0

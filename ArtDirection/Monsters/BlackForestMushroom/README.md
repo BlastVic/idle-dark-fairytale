@@ -1,14 +1,14 @@
-# 当前交付：独立怪物编号 v11（2026-10-10）
+# 当前交付：独立怪物名称（2026-10-12）
 
 | 配置键 / Prefab | 怪物 | Spine 模板 |
 | --- | --- | --- |
-| Mob001 | 蜡斑菇 | mon_7080 |
-| Mob002 | 木纹菇 | mon_7081 |
-| Mob003 | 梦眼菇 | mon_7082 |
+| MobWaxcap | 蜡斑菇 | mon_7080 |
+| MobWoodcap | 木纹菇 | mon_7081 |
+| MobDreamcap | 梦眼菇 | mon_7082 |
 
-Unity 目录为 `Assets/DarkFairytale/Monsters/BlackForestMushroom/Mob001/` 至 `Mob003/`；可编辑分件在 `source/Mob001/` 至 `Mob003/`；同级 `Spine/export/monster/` 下也使用新编号。原 Prefab、贴图、SkeletonData 的 GUID 保留，资源文件名、Addressables 地址、敌人数据库键和现有蘑菇波次配置同步改名。
+Unity 目录在 `Assets/DarkFairytale/Monsters/BlackForestMushroom/` 下，三个子目录分别为 `MobWaxcap/`、`MobWoodcap/`、`MobDreamcap/`；`source/` 分件和同级 `Spine/export/monster/` 使用相同名称。原 Prefab、贴图、SkeletonData 的 GUID 保留，资源文件名、Addressables 地址、敌人数据库键和现有蘑菇波次配置同步改名。
 
-原版 `Mob1`、`Mob2`、`Mob4` 已恢复为 Slime、Slime2、Slime3；ItemDrop、Map1、Map2、Map3 中先前被替换的史莱姆也恢复。原版资源仅作参照，后续不得覆盖。通过 Gameplay 中 WaveManager 的波次 enemies 配置选择 `Mob001`、`Mob002`、`Mob003` 使用新怪物，旧关卡的原版键保持有效。注意 `Mob1` 与 `Mob001` 是两个独立键。
+原版 `Mob1`、`Mob2`、`Mob4` 已恢复为 Slime、Slime2、Slime3；ItemDrop、Map1、Map2、Map3 中先前被替换的史莱姆也恢复。原版资源仅作参照，后续不得覆盖。通过 Gameplay 中 WaveManager 的波次 enemies 配置选择 `MobWaxcap`、`MobWoodcap`、`MobDreamcap` 使用新怪物，旧关卡的原版键保持有效。注意 `Mob1` 与 `MobWaxcap` 是两个独立键。
 
 构建器已删除覆盖原版 Prefab 和场景史莱姆的入口。动画出场测试只针对新编号；`Validate Black Forest Mushrooms` 同时检查六个新旧资源的数据库、Addressables 与 Spine 来源。旧版报告中的“全游戏替换”和旧键加载蘑菇已废止，以下仅保留历史。
 

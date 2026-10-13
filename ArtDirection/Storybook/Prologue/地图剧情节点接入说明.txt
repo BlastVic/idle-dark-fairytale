@@ -1,0 +1,26 @@
+地图剧情节点 — 2026-10-13
+
+当前第一章地图在 1-1 暮色林缘之前增加「序章 · 逃离祭祀」。图标复用开场诅咒书封面，区别于战斗圆形印章；序章不占 1-1 至 1-5 的战斗编号，不影响波次配置、战斗解锁条件或 lastBattleKey。
+
+交互：与现有地图一致，首次点击选中，点击已选节点或详情「播放剧情」进入。已观看也可再次播放。播放中屏蔽地图点击和重复进入，保留地图选择及滚动位置。播放结束恢复地图，不调用开场进入营地的回调，不预加载主界面，不翻最后一页进入主界面。六页之间保留五次原单页翻动、既有插画显影、独立英文旁白及字幕。
+
+开机新玩家的序章流程保持原有默认行为：六页和最后一次翻页后进入主界面。本次新增的地图分支只改变从地图进入的重播出口。
+
+可编辑资源：
+Assets/DarkFairytale/UI/Map/Chapter01Map.prefab
+- Story_Prologue：持久化 UGUI 节点，书本、标题、进度、定位标志、按钮可在 Inspector 调整。
+- StorybookMapUI.nodes：包括序章和五个战斗节点的顺序。
+- storyPlayerPrefab：指向现有 CursedBookIntro.prefab，复用书页动画、音效和字幕。
+Assets/DarkFairytale/UI/Map/PrologueStory.asset
+- StorySequence：storyKey、displayName、completionKey 和 pages 可编辑。
+- pages 保存插画、旁白、字幕时间与取景参数。完成标记与启动序章相同。
+
+添加后续剧情：复制剧情节点、设置 kind=Story，创建独立 StorySequence 并配置 pages 和唯一 completionKey，将节点加入 nodes 数组，在 Prefab 中安排位置和路线。剧情节点不会进入 WaveManager 战斗加载；页数可以不同于序章的六页。地图目前仅布置序章，不预设后续剧情内容。
+
+制作工具：Tools > Dark Fairytale > UI > Add Prologue Map Node (Explicit)。增量修改现有 Prefab，不重建地图底图、战斗节点和导航。正常导入与运行不执行制作。
+
+验证截图仅保存在 output/story-map/，不提交 Git。功能验证从真实主界面打开地图，三比例各重播两次；验证工具在旁白开始后提前结束音轨以检查页间流程，不替代旁白完整时长的声音验收。序章的完整旁白由既有开局演出验证覆盖。
+
+本次验证结果：720×1280、768×1024、720×1440 三种比例通过；每种比例连续重播两次，确认六页内容、五次页间翻动、播放完成直接回地图、恢复点击与滚动位置、允许再次播放；第一战斗节点进入及返回营地通过。最终 Prefab 的三比例 Unity 实景截图通过检查。旁白完整时长未在本轮重跑。
+
+2026-10-13 镜头修订：地图剧情重播复用初始开书后的 HoldZoom 停留视距（pageHoldViewportFraction=0.65），显示书的封边与纸页装饰，不使用铺满屏幕的主界面近景。新实例先完成 CanvasScaler 和安全区布局再计算缩放。三比例实际截图已检查，六次重播和返回地图、战斗进出验证通过；记录 output/story-map/book-frame-validation.txt。

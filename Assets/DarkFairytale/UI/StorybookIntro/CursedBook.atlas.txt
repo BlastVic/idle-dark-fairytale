@@ -1,0 +1,19 @@
+CursedBook.png
+size: 2048,4096
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+cover
+  rotate: false
+  xy: 0, 2648
+  size: 1086, 1448
+  orig: 1086, 1448
+  offset: 0, 0
+  index: -1
+page
+  rotate: false
+  xy: 0, 1192
+  size: 1086, 1448
+  orig: 1086, 1448
+  offset: 0, 0
+  index: -1

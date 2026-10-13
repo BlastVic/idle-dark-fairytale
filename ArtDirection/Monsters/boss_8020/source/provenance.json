@@ -1,0 +1,63 @@
+{
+  "monster_id": "MobDrownedKing",
+  "approved_design": "A-character-v1.png",
+  "painting": "built-in image_gen; exact model not exposed",
+  "source": "/Users/vic/Workshop/Spine/monster/mon_8020",
+  "source_version": "3.8.75",
+  "native_project_status": "Original native project preserved; new native MobDrownedKing.spine pending",
+  "aliases": {
+    "Idle1": "idle",
+    "Attack1": "attack_1",
+    "Death1": "die"
+  },
+  "events": {
+    "Attack1": [
+      {
+        "time": 0.3333,
+        "name": "OnHit"
+      },
+      {
+        "time": 0.6667,
+        "name": "OnComplete"
+      }
+    ],
+    "Death1": [
+      {
+        "time": 1.6667,
+        "name": "OnComplete"
+      }
+    ],
+    "Hit": [
+      {
+        "time": 0.4,
+        "name": "OnComplete"
+      }
+    ]
+  },
+  "authored_Hit": "0.4s recoil on original center/body from idle first pose; no source curve changes",
+  "original_sha256": {
+    "boss_8020.atlas": "1dc713f1af43002da62556dd0a4a50a26a408363f0075cfb86e6b20af8e0e515",
+    "boss_8020.png": "61f1c91b43026be158d6a4622cd3379e54bc5dc07454b51ca3889f1e97c73de2",
+    "boss_8020.json": "2dcff08c116ff77b5910cb46a2e8788149027af8f6b6c514560c0df22aa6424d",
+    "boss_8020.spine": "ba07cf2b871b30b240e04c709fb432b85dad9230c179632607a98d9fd3a4e7aa",
+    "boss_8020_导出.png": "10ec2b39d347faf2d40a7cbf08b6e639f276414bf16cdec9e82170ac4b8cd1d6"
+  },
+  "original_images_sha256": {
+    "mouth.png": "39ef7023d6033bbe85665977962fae6c6e90ee280806f1987f729676425e5908",
+    "hand_right.png": "dc375169d524f44faed88e51a667ab700b387e73f29175c71a9cc56c5a719c12",
+    "body.png": "14abe4160c69593f58b5e2d8a728e0dd4f293408688ef7f00d7dfd3a68efcda6",
+    "mouth2.png": "9e2e8a0fc21047eae98058afe6f0b6a280235fa7625de356d46f845e899b6a77",
+    "eye.png": "bf1f43abd7fb86c2c4fcb7276ff37ee67caf70ba8377ed17302f3468a3794c9a",
+    "eye2.png": "e6c321bfadecfa080f2f86cb49a462915c47522875519caf1eaad9ab3634fe70",
+    "shadow.png": "b770193b734988ca4d611a3fc3e8dc2369565c7ee70bfa28ca209b361fc1e2cd",
+    "cr2.png": "ed40cee5d9ad68b174b61cc7e7d5f000f52821fe7b1c244f3085b6cd6628ef6f",
+    "hand_left.png": "474e1722a91bb0b227eba54de00307539e97a071a3345bdfb9b8ff832a5175e3",
+    "cr1.png": "2fd26f28c4dc001b5eae73459ae79d2fcb480c14b6d39d363f401a7a2807ef58"
+  },
+  "atlas": "straight alpha, nonrotated, 8px padding, max4096, 2x source canvas; generated alpha retained",
+  "registration": "UV-visible source bounds; x cell boundaries 0/.39/.70/1, y 0/.40/.64/1; expressions use original canvas and registration.json; no UV/weight edits",
+  "approved_changes": [
+    "A: corroded crown, smoky water, hazy closed-eye moon; original rig/curves unchanged"
+  ],
+  "utility_parts": "shadow: original; other nine parts generated with native alpha"
+}

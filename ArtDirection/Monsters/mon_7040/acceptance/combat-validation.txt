@@ -1,0 +1,29 @@
+Mob009 Addressables / live combat event regression
+Temporary high enemy HP preserves one complete attack before controlled hit and kill. Player HP replenished for deterministic testing; not balance validation.
+Mob009 instantiated from DB/Addressables; skin=1, one game attack
+sample=0 phase=1 time=0.4003717 wave=0 Hit OnComplete
+sample=0 phase=1 time=0.4003953 wave=0 Hit OnComplete
+sample=0 phase=1 time=0.3675818 wave=0 Attack1 OnHit
+sample=0 phase=1 time=0.734845 wave=0 Attack1 OnComplete
+sample=0 phase=2 time=0.4029565 wave=0 Hit OnComplete
+sample=0 phase=3 time=0.4019664 wave=0 Hit OnComplete
+PASS actual XP award, empty item drop policy; entrance=True, audio source playing at hit=True
+sample=0 phase=4 time=2.000218 wave=1 Death1 OnComplete
+Mob009 instantiated from DB/Addressables; skin=1, one game attack
+Mob009 instantiated from DB/Addressables; skin=1, one game attack
+sample=1 phase=1 time=0.3672692 wave=1 Attack1 OnHit
+sample=1 phase=1 time=0.7351348 wave=1 Attack1 OnComplete
+sample=1 phase=2 time=0.4013203 wave=1 Hit OnComplete
+sample=1 phase=3 time=0.4013431 wave=1 Hit OnComplete
+PASS actual XP award, empty item drop policy; entrance=True, audio source playing at hit=True
+sample=1 phase=4 time=2.001001 wave=1 Death1 OnComplete
+sample=2 phase=1 time=0.3679344 wave=1 Attack1 OnHit
+sample=2 phase=1 time=0.7338662 wave=1 Attack1 OnComplete
+sample=2 phase=2 time=0.4002086 wave=1 Hit OnComplete
+sample=2 phase=3 time=0.4003049 wave=1 Hit OnComplete
+PASS actual XP award, empty item drop policy; entrance=True, audio source playing at hit=True
+sample=2 phase=4 time=2.000197 wave=1 Death1 OnComplete
+sample 0: hits=1 attacks=1 reactions=4 deaths=1 entry=True
+sample 1: hits=1 attacks=1 reactions=2 deaths=1 entry=True
+sample 2: hits=1 attacks=1 reactions=2 deaths=1 entry=True
+PASS: 3 Mob009 instances, single/mixed waves; actual player HP loss, attack hit/completion, entrance isolation, actual attack interruption -> Hit -> Idle1, XP award, empty item drops, Death1 completion/destruction, next wave and victory; runtime errors=0

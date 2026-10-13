@@ -1,0 +1,73 @@
+{
+  "monster_id": "MobBriarChild",
+  "approved_design": "A-character-v1.png",
+  "painting": "built-in image_gen; exact model identifier not exposed",
+  "painting_prompts": "painting-prompts.json",
+  "native_project_status": "Original C031_S01R.spine preserved; new skin delivered as JSON and part PNGs, no new native .spine saved",
+  "source": "/Users/vic/Workshop/Spine/monster2/动画/C031_S01R",
+  "source_version": "3.8-from-4.0-from-4.1-from-4.2.43",
+  "changes": [
+    "Added linked skin 1 inheriting default deform",
+    "Added four game animation aliases and events; no changes to original timelines or rig",
+    "Repacked nonrotated straight-alpha atlas from repainted source parts"
+  ],
+  "aliases": {
+    "Idle1": "Idle_Battle_00",
+    "Attack1": "Atk1_00",
+    "Hit": "Hit_00",
+    "Death1": "Death_00"
+  },
+  "events": {
+    "Attack1": [
+      {
+        "time": 0.4667,
+        "name": "OnHit"
+      },
+      {
+        "time": 1.4333,
+        "name": "OnComplete"
+      }
+    ],
+    "Hit": [
+      {
+        "time": 0.7667,
+        "name": "OnComplete"
+      }
+    ],
+    "Death1": [
+      {
+        "time": 1.5333,
+        "name": "OnComplete"
+      }
+    ]
+  },
+  "original_sha256": {
+    "C031_S01R.png": "48deba182fe7f5cc6e53eead149a8ef1032cbf095ed6606796901f5e860f903c",
+    "C031_S01R.atlas": "d986df45fd46f69144866d696575dba22814a58d5462a1ba9aac7d9bc59ef1ec",
+    "C031_S01R.json": "74e241fdfaba19e7092c7eb40a68b31a6897040059e542ed7c7c421f719dd44b",
+    "C031_S01R_导出.png": "ba99bdf7264cb12bf830fbf075bd4eefcf30350d15dc0339dbb94a6facb2b6b5",
+    "C031_S01R.spine": "93e748b1d4c7d6fe9cfd11a5ce7b1bd26ad59850d3c12858e7ada8075f616b85"
+  },
+  "original_images_sha256": {
+    "Front_hat_01.png": "4e9fa0885ae3ac0c085481ba8541042b6abe902cb7e88a3953ed3451b23fc00e",
+    "Front_hat_02.png": "d364c5d879c76e14a0188f51913947594696a4ac9b33bb57ffa14ab987804726",
+    "Front_Eye_04.png": "0b85c6a916ef0ab3ffa09245d17cec9867236ffdce095cd958ecd119fb671602",
+    "Front_Eye_05.png": "c7779b2546e9f7065daf1c42aab102fd437c4aaf6d2a34b185c0820ffeeb8bca",
+    "Front_Mouth_04.png": "0df386d6408e29156488e3dbe4e81f53b6e77d1698aaa541ca6df358b0408506",
+    "Front_Mouth_05.png": "af463a42c36273964cdcf355a1c0dafdc6f6cc4b2de4fdcb43dbaeb69dcf42e9",
+    "Front_Eye_06.png": "a252c4a03347dab73508e0ac10b8a2caf4143c53b3f6faeb4e158829ac7c03ea",
+    "Front_Eye_02.png": "5dc4da9dfcb4862d4543254ed51188cb01201089d900f6beeb04cf5790f6ea86",
+    "Front_Mouth_01.png": "2314a90d460fc55f45b655f25f7adcb7414d970053b28a96b79e49c65a88d4d5",
+    "Front_Eye_03.png": "b2c5da0040bfc00284446658c27076b14680964d0bd296adeb3abdaf808845f9",
+    "Front_Eye_01.png": "9543e1519c814b6d2bc00981fe774efebf52b3d91ccc5876cf60f0c2408c5a74",
+    "Front_Mouth_02.png": "6fe027d3cc9c86b87b3624a275b5051c6e33cc19273242805e17c0e35ec05c69",
+    "Front_Mouth_03.png": "11e17389af682658cd587c324860101d515285f40d3d251497044c5ccad5203f",
+    "Front_arm.png": "a284a02bd0e6b49b72da1b19bf817853cd4946b575e085ae087a34fcf5124f37",
+    "shadow.png": "be7f32349317e2114ba545f79c6ca154499b8047c3f79eff1f3b0f46a6797760",
+    "Front_Leg_02.png": "4c410e9cddac098b18e02de6a7691fcc246a3b956880fcc10c7758a6697e9135",
+    "Front_Leg_01.png": "d1b5d49bda64a5567919032a7dbc81782c765684a49368c48ab7bee03ff255ac",
+    "Front_Body.png": "dff9a0d96ef0f6d38a99a81fcdaa77f8fbbc1f986c884871bd3ec17f7e8812dc"
+  },
+  "registration": "2x original canvas; measured uneven generated cell boundaries in MobBriarChildBuilder; UV-visible source alpha bounds; cap inset plus per-part uniform fit in registration.json; generated alpha retained; no mesh or UV edits",
+  "atlas": "Unity PackTextures; 8 px padding; 4096 maximum; straight alpha; no rotation; verify packed dimensions equal part canvas"
+}

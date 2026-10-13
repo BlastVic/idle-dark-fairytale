@@ -1,0 +1,21 @@
+Mob005 Unity validation
+Atk1_00: PASS both skins, finite geometry, identical deformation; duration=1.2333
+Death_00: PASS both skins, finite geometry, identical deformation; duration=1.5333
+GetUp_00: PASS both skins, finite geometry, identical deformation; duration=0.6
+Hit_00: PASS both skins, finite geometry, identical deformation; duration=0.5333
+Idle_Battle_00: PASS both skins, finite geometry, identical deformation; duration=0.8
+Idle_Down_00: PASS both skins, finite geometry, identical deformation; duration=0
+KnockBack_00: PASS both skins, finite geometry, identical deformation; duration=1
+KnockDown_00: PASS both skins, finite geometry, identical deformation; duration=1
+Run_Battle_00: PASS both skins, finite geometry, identical deformation; duration=0.5333
+Stun_00: PASS both skins, finite geometry, identical deformation; duration=1.4667
+Idle1: PASS both skins, finite geometry, identical deformation; duration=0.8
+Attack1: PASS both skins, finite geometry, identical deformation; duration=1.2333
+Hit: PASS both skins, finite geometry, identical deformation; duration=0.5333
+Death1: PASS both skins, finite geometry, identical deformation; duration=1.5333
+Idle1: PASS events OnHit=0, OnComplete=0
+Attack1: PASS events OnHit=1, OnComplete=1
+Hit: PASS events OnHit=0, OnComplete=1
+Death1: PASS events OnHit=0, OnComplete=1
+PASS interrupted attack: 0 hits, 1 completion.
+PASS 66 bones, 25 slots, 14 clips, 28 skin/clip combinations; rendered all clips.

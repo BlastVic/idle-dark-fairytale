@@ -18,6 +18,8 @@ public class AssetManager : MonoBehaviour
     public DarkFairytaleBattleStyle battleStyle;
     private int nextEnemySlot;
     private GameObject fairytaleBackdrop;
+    private string fairytaleMapKey;
+    private ChapterEnvironmentCatalog environmentCatalog;
     public GameObject[] enemyPositions;
     public GameObject popUpText, notifierText;
 
@@ -40,18 +42,14 @@ public class AssetManager : MonoBehaviour
 
     public void SpawnPopUpText(Vector3 pos, bool hitPlayer, float val, bool isCrit, bool isPurple = false, bool isBlue = false)
     {
-        GameObject next = GameObject.Instantiate(popUpText);
-        next.transform.position = pos + new Vector3(Random.Range(-.3f, .3f), Random.Range(-.3f, .3f), 0);
-        next.GetComponent<PopUpText>().SetMe(hitPlayer, isCrit, val);
-        if (isPurple) next.GetComponent<PopUpText>().TurnPurple();
-        if (isBlue) next.GetComponent<PopUpText>().TurnBlue();
-
+        var next = Instantiate(popUpText).GetComponent<StorybookCombatFloat>();
+        next.Present(pos, battleCampCamera.GetComponent<Camera>(), hitPlayer, isCrit, val, isPurple, isBlue);
     }
 
     public void SpawnNotifierText(Vector3 pos)
     {
-        GameObject next = GameObject.Instantiate(notifierText);
-        next.transform.position = pos + new Vector3(Random.Range(-.3f, .3f), Random.Range(-.3f, .3f), 0);
+        var next = Instantiate(notifierText).GetComponent<StorybookCombatFloat>();
+        next.Present(pos, battleCampCamera.GetComponent<Camera>());
     }
 
     bool IsPositionInback()
@@ -185,8 +183,30 @@ public class AssetManager : MonoBehaviour
     {
         if (battleStyle)
         {
-            if (!fairytaleBackdrop)
-                fairytaleBackdrop = battleStyle.CreateBackdrop(battleCampCamera.GetComponent<Camera>());
+            string levelKey = WaveManager.single && WaveManager.single.currentWaveset != null ? WaveManager.single.currentWaveset.levelKey : null;
+            string environmentKey = levelKey + "|" + assetKey;
+            if (!fairytaleBackdrop || fairytaleMapKey != environmentKey)
+            {
+                // Release effects before creating the replacement. Deferred destruction
+                // must not re-enable effects owned by the new backdrop.
+                if (fairytaleBackdrop)
+                {
+                    fairytaleBackdrop.GetComponent<DarkFairytaleBackdrop>().ReleaseCameraEffects();
+                    fairytaleBackdrop.SetActive(false);
+                    Destroy(fairytaleBackdrop);
+                }
+                if (!environmentCatalog)
+                    environmentCatalog = Resources.Load<ChapterEnvironmentCatalog>("Chapter01Environments");
+                var prefab = environmentCatalog ? environmentCatalog.Find(assetKey, levelKey) : null;
+                var camera = battleCampCamera.GetComponent<Camera>();
+                if (prefab)
+                {
+                    fairytaleBackdrop = Instantiate(prefab);
+                    fairytaleBackdrop.GetComponent<DarkFairytaleBackdrop>().Initialize(camera);
+                }
+                else fairytaleBackdrop = battleStyle.CreateBackdrop(camera);
+                fairytaleMapKey = environmentKey;
+            }
             spawningMap = false;
             return;
         }

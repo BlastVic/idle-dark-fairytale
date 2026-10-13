@@ -1,0 +1,63 @@
+{
+  "tool": "built-in image_gen",
+  "model": "Exact model not exposed",
+  "date": "2026-10-12",
+  "prompts": [
+    {
+      "id": "A-character-v1",
+      "prompt": "Use case: stylized-concept. Create one square full-body character concept for a dark fairytale mobile game, detailed painterly gouache and ink, muted colors, neutral warm gray paper background, no text. Image 1 is the EXACT species/style reference MobDrownedMoon; image 2 is the source Spine rig silhouette reference, NOT its bright art style. A king miniboss of the SAME water-drop species. Broad squat legless soft translucent smoky teal watery body, two short flipper arms, mournful hollow oval eyes, tiny mouth, face directed LEFT in gentle 3/4 view, never humanoid. A faint mist-blurred circular moon containing a CLOSED EYELID with downward lashes appears INSIDE the lower right belly, subtle not a sharp logo. No floating head bead. Preserve source king construction: broad water body plus two-part crown sitting on top, no new legs, weapons, tentacles or detached orbiting objects. Full crown and arms visible, simple readable shapes, cute but uncanny, not gruesome. Variant A 'Drowned Crown King': an ancient tarnished bronze crown with three bent arch ribs and a cracked dull moonstone, tilted heavily into the soft head; old waterlogged pale reed-fiber lining replaces royal fur. Very sparse dark algae on the crown. Water body heavier and deeper slate-blue than the normal specimen; solemn small sad face. The strangeness is a forgotten drowned king carrying the reflection of the sleeping moon in his belly. Crown about one third of full height, body broad and regal. Single character only.",
+      "refs": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7320/B-character-v3.png",
+        "/Users/vic/Workshop/Spine/monster/muenu/boss_8020.png"
+      ]
+    },
+    {
+      "id": "B-character-v1",
+      "prompt": "Use case: stylized-concept. Create one square full-body character concept for a dark fairytale mobile game, detailed painterly gouache and ink, muted colors, neutral warm gray paper background, no text. Image 1 is the EXACT species/style reference MobDrownedMoon; image 2 is the source Spine rig silhouette reference, NOT its bright art style. A king miniboss of the SAME water-drop species. Broad squat legless soft translucent smoky teal watery body, two short flipper arms, mournful hollow oval eyes, tiny mouth, face directed LEFT in gentle 3/4 view, never humanoid. A faint mist-blurred circular moon containing a CLOSED EYELID with downward lashes appears INSIDE the lower right belly, subtle not a sharp logo. No floating head bead. Preserve source king construction: broad water body plus two-part crown sitting on top, no new legs, weapons, tentacles or detached orbiting objects. Full crown and arms visible, simple readable shapes, cute but uncanny, not gruesome. Variant B 'Reed Prayer King': a crown woven of drowned willow roots and broken black reeds, three tall hollow arch loops shaped like an abandoned chapel crown, an off-white waterlogged reed-fiber rim, no metal or gemstones. One small pale seed husk at center of crown, NOT an eye. The body's upper water is misty sage-teal and lower third very dark still pond-water, with sparse reeds INSIDE water and a faint eyelid moon reflection. Face weary and gently unhappy. Organic sacred marsh king, simple broad rounded body. Crown remains one compact two-part detachable object fitted to original crown envelope, not a forest growing out of back. Single character only.",
+      "refs": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7320/B-character-v3.png",
+        "/Users/vic/Workshop/Spine/monster/muenu/boss_8020.png"
+      ]
+    },
+    {
+      "id": "C-character-v1",
+      "prompt": "Use case: stylized-concept. Create one square full-body character concept for a dark fairytale mobile game, detailed painterly gouache and ink, muted colors, neutral warm gray paper background, no text. Image 1 is the EXACT species/style reference MobDrownedMoon; image 2 is the source Spine rig silhouette reference, NOT its bright art style. A king miniboss of the SAME water-drop species. Broad squat legless soft translucent smoky teal watery body, two short flipper arms, mournful hollow oval eyes, tiny mouth, face directed LEFT in gentle 3/4 view, never humanoid. A faint mist-blurred circular moon containing a CLOSED EYELID with downward lashes appears INSIDE the lower right belly, subtle not a sharp logo. No floating head bead. Preserve source king construction: broad water body plus two-part crown sitting on top, no new legs, weapons, tentacles or detached orbiting objects. Full crown and arms visible, simple readable shapes, cute but uncanny, not gruesome. Variant C 'Hollow Shell Moon King': a broken chalk-white freshwater mussel shell crown, three thick curved shell prongs forming a hollow royal circlet, dark empty interior, eroded nacre and a few long visible cracks, simple and sculptural not many spikes. A low dark waterweed rim replaces fur. NO gold, gems, reeds or pearls. The broad water body is deep blue-gray smoky water with thin pale nacre-like edges, still recognizably the same species. Two large mournful oval eyes and small sad mouth. One hazy sleeping moon reflected within belly, not sharp. Shell crown is separate and removable and fits same original crown height envelope. Mild uncanny abandoned-shell feeling, adorable heavy round body. Single character only.",
+      "refs": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7320/B-character-v3.png",
+        "/Users/vic/Workshop/Spine/monster/muenu/boss_8020.png"
+      ]
+    },
+    {
+      "id": "A-battle-v1",
+      "prompt": "Use case: compositing. Make a portrait 9:16 dark-fairytale battle CONCEPT illustration. Image 1 is the exact scene to edit: preserve its moon with closed eye and downward lashes, cabin, river, lighting, camera and ink/gouache style. Image 2 is the king to insert, preserve its EXACT design. Image 3 is the ordinary species reference. Composition: red hood on left facing right, KING on right facing left, ONE small ordinary water blob between them slightly to right of center facing left. All touch SAME ground line at 77% image height so their scale comparison is honest. King INCLUDING crown is exactly TWICE ordinary blob full height, and about 1.35x red hood height. King body alone is 1.35x ordinary body height, king total width about 1.65x ordinary width. Keep king at x76%, width39% image, full height29% image; ordinary blob at x47%, width21%, height14.5%; red hood at x20%, height22%. Ensure no overlap hides either face or moon marking. Move/resize existing normal blob to make room for king, do not leave an extra copy. Hero short tattered cape falls to hips, no ground-length cape. Keep original lantern scythe. Both water monsters have blurred subtle closed-eye moon inside belly, no floating head bead. No UI no text no borders. Only foreground characters change; same night riverside cabin scene.",
+      "refs": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7320/B-battle-v3.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/boss_8020/A-character-v1.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7320/B-character-v3.png"
+      ]
+    },
+    {
+      "id": "A-battle-v2",
+      "prompt": "Edit this battle concept precisely. Keep background and red hood unchanged. Fix scale and clipping: reduce the large crowned water king by 12% uniformly with ground contact unchanged, move it LEFT enough that its right flipper is fully inside frame with 35px margin. Increase the ordinary water blob by 25% uniformly, keeping ground line unchanged, and shift slightly left if needed. Keep all faces clear, separate silhouettes, no overlaps, no other changes. The king should be about twice the ordinary blob height including crown. Preserve exact monster designs and hazy closed-eye moons. Output same portrait 9:16.",
+      "refs": [
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-55c60dee-2915-4940-ba7c-372b3d4e220d.png"
+      ]
+    },
+    {
+      "id": "B-battle-v1",
+      "prompt": "Precise compositing edit. Image 1 is the MASTER battle composition. Change ONLY the large crowned king on the right to the reed-crowned king of image 2. Exact same bounding box, crown height, body width, ground contact and left-facing pose. Preserve the reed arches, seed husk, reed-fiber rim, dark lower water and hazy closed-eye moon from image 2. EVERYTHING ELSE unchanged: ordinary small water blob, red hood with short cape, lantern scythe, cabin, trees, sky eyed moon, camera, lighting. Full flippers inside frame. Portrait 9:16 concept image, no text/UI.",
+      "refs": [
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-0195daf9-00d1-4eb2-bc62-962a4db80b13.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/boss_8020/B-character-v1.png"
+      ]
+    },
+    {
+      "id": "C-battle-v1",
+      "prompt": "Precise compositing edit. Image 1 is the MASTER battle composition. Change ONLY the large crowned king on the right to the hollow freshwater-shell crowned king of image 2. Exact same bounding box, crown height, body width, ground contact and left-facing pose. Preserve three large cracked white shell prongs, dark hollow centers, waterweed rim and hazy closed-eye moon from image 2. EVERYTHING ELSE unchanged: ordinary small water blob, red hood with short cape, lantern scythe, cabin, trees, sky eyed moon, camera, lighting. Full flippers inside frame. Portrait 9:16 concept image, no text/UI.",
+      "refs": [
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-0195daf9-00d1-4eb2-bc62-962a4db80b13.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/boss_8020/C-character-v1.png"
+      ]
+    }
+  ]
+}

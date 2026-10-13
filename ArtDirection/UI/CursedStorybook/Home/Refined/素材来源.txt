@@ -1,0 +1,30 @@
+所有新位图由本会话内置 imagegen 编辑/生成。未调用外部图片脚本进行绘制。
+拆图和图集打包由 Unity Editor 显式工具完成。
+参考：已选 home-v7-refined-right-icons.png、旧坐姿角色、无人物场景和实际战斗角色。
+
+Panels.png：以已选主界面为参考，四行等宽的空白纸页/红丝带/导航底板。灰旧纸张、黑金双线、缝边、角部墨绘，透明底，不包含文字、数字和图标。
+源 exec-72704b1e-f644-403c-9ad1-0a5d291408e4.png
+
+Icons.png：4×4 等格透明图标。心脉、交叉剑、盾、速度靴、暴击星、暴伤、融合结、火焰书、羽毛、齿轮、背包、法术书、月下帐篷、地图、钱袋、镰刀。黑墨、旧金与象牙色，与已选绘本风格一致。
+源 exec-0e25fbfc-aa72-415e-8b3e-7a44634cc434.png
+
+Controls.png：2×2 透明控件图。空白圆形纸徽章、空白方形加点按钮、暗红 V 形书签、月亮蜡封。文字由 Unity 组件提供。
+源 exec-0f0df286-6692-417d-8e3e-5da06ff592be.png
+
+RoomUnlit.png：原无人物房间移除火焰和铁栏，保留发光柴堆、壁炉结构及原暖光。
+源 exec-304c2c29-6de3-47a6-8559-4d16a700efbc.png
+RoomTall.png：以上图为基础向下扩展至 1:2，延续安静暗色地板，保持原房间的空间布局和宽度比例。
+源 exec-4c2ad936-f689-47fe-b48b-234e2735c5f8.png
+
+Fireguard.png：独立透明黑铁壁炉栏杆，四根立柱、横栏，保留火光橙色反射。
+源 exec-5a43f60c-5b62-43ff-bce5-9ff3784d0cbc.png
+Flames.png：2×2 透明火苗簇，宽底、较高、左倾、右倾，橙色外焰和淡黄内焰，细腻绘本风格。
+源 exec-e5333401-471d-4916-8b67-6cf768e2d2da.png
+
+RedHoodShortCape.png：原坐姿小红帽作为编辑对象，战斗截图只参考短破边披风长度。删除落地、腿侧和裙下的红色长拖尾，缩短至坐姿臀部/大腿上缘；保留脸部坐标、头发、姿势、双手、铜杯、黑裙、象牙裙边和靴子。透明背景，同尺寸画布，无家具、阴影或蒸汽。
+源 exec-20ab1dc5-a1c2-4747-b9b8-e81cdbfff071.png
+
+RedHoodShortCape.png 后摆长度修正（2026-10-12）：使用内置 imagegen，以上一版为编辑对象。
+Prompt: Use case: precise-object-edit. Edit this exact transparent seated Red Hood game sprite. Single targeted costume correction: extend the hanging BACK section of the red cape so its substantial ragged hem reaches her seated buttocks / seat level, approximately y=735 to 780 on this 1254x1254 canvas. Currently the red cloth behind her left arm stops too high around y=610 and reads as a shoulder cape. Add naturally hanging, softly folded crimson cape fabric behind the waist and left hip, retaining a clear hip-length silhouette. The back hem should finish at the lower buttock/seat, around the same height as the leftmost dark skirt at y=750; do not extend to her calves, ankles, floor or form a train. Keep the scalloped/torn edge and dark red lining. This is a HIP-LENGTH short cloak, not a shoulder-only cape. Preserve precisely the hood, face, eye coordinates, hair, shoulders, arms, hands, copper mug, seated pose, black dress, ivory frills, knees, boots, character scale and all original placement. Only extend the red cloth behind and next to the hip; no changes elsewhere. Maintain the same square 1254x1254 full canvas, true alpha transparency, no furniture, no floor, no shadow, no steam, no text.
+源 exec-0d369423-8795-4d9d-bb32-2bcd875a9a44.png
+前版备份：ArtDirection/Characters/RedHoodShelter/References/RedHoodShoulderCape-v1.png

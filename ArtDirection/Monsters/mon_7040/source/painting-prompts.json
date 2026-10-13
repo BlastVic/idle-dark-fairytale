@@ -1,0 +1,24 @@
+{
+  "tool": "built-in image_gen",
+  "model": "not exposed",
+  "records": [
+    {
+      "prompt": "Use case: style-transfer. Production Spine game sprite PARTS sheet, genuinely TRANSPARENT background. Image1 exact part layout and poses; image2 approved frenzied bark squirrel character MATERIAL and face identity. Hand-painted dark fairytale ink and gouache, gray-brown shaggy fur, ochre cream cheeks, thin flexible bark scales with wood grain, tiny amber sap seams. KEEP each part in the same cell in a THREE by THREE equal grid, parts strictly inside their cells with clear generous transparent gutters. Do NOT assemble character. No labels, gridlines, or environment. Do NOT mirror: source head faces RIGHT despite approved concept facing left. Preserve source joint/root placements and relative silhouettes, modify only art to match squirrel. Ignore stray atlas debris. Nine parts, row-major: (1) UPPER head only, RIGHT facing, short squirrel nose, bulging tan cheek, small tuft ears, frantic pale amber eye with tiny pupil, exactly TWO broad wood-grain upper INCISORS near front muzzle pointing DOWN, remove ALL canine fangs. No lower jaw attached. (2) separate horizontal LOWER jaw with fur chin, small blunt lower incisors at RIGHT tip pointing UP, no wolf fangs. (3) oval neck patch, replace metal spiked collar with layered shaggy fur and flexible bark ruff; center covered tan fur, NO metal or hollow hole. Row2 (4) round torso graybrown fur warm belly no face (5) upright tapered plume tail in source diagonal, bark scales interspersed fur, preserve long narrow source silhouette (6) spiky dorsal tuft, fur and thin bark layers. Row3 (7) bent front left leg with black rodent claws at BOTTOM, (8) far front leg, (9) hind leg with claws at bottom. All legs SAME pose as source, no black caps at top roots. Avoid too-large head expansion outside source silhouette.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/source/reference-0.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/source/../B-character-v1.png"
+      ],
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-e16d7240-ed0b-447c-b5e7-0e9da4fb9dab.png",
+      "output": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/source/painted-0.png"
+    },
+    {
+      "prompt": "Use case: style-transfer. Production Spine game sprite PARTS sheet, genuinely TRANSPARENT background. Image1 exact part layout and poses; image2 approved frenzied bark squirrel character MATERIAL and face identity. Hand-painted dark fairytale ink and gouache, gray-brown shaggy fur, ochre cream cheeks, thin flexible bark scales with wood grain, tiny amber sap seams. KEEP each part in the same cell in a THREE by THREE equal grid, parts strictly inside their cells with clear generous transparent gutters. Do NOT assemble character. No labels, gridlines, or environment. Do NOT mirror: source head faces RIGHT despite approved concept facing left. Preserve source joint/root placements and relative silhouettes, modify only art to match squirrel. Ignore stray atlas debris. Only FIVE pieces, other FOUR cells completely transparent. Row1 left dorsal fur tuft strip with bark flecks; row1 center small tongue/inner lower mouth shape muted dark ochre and dark umber shading, no teeth; row1 right rounded mouth cavity fill deep warm brown, no teeth, no face. Row2 left single warm AMBER eye-fill patch, simple softly shaded opaque amber oval filling most of reference region, no separate pupil or eye outline (head layer supplies eye opening and expression); row2 center soft translucent circular black ground-shadow blob, feathered alpha edges with transparent corners, no debris. Row2 right and entire bottom row EMPTY. Keep exact positions and proportions from source layout. Mouth interior softly shaded flat painted cutouts, not exposed organs.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/source/reference-1.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/source/../B-character-v1.png"
+      ],
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-a656d6b4-e302-4e86-b811-732fbc7605af.png",
+      "output": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/mon_7040/source/painted-1.png"
+    }
+  ]
+}

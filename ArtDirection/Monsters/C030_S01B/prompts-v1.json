@@ -1,0 +1,65 @@
+{
+  "sourceId": "C030_S01B",
+  "status": "awaiting user selection; concept only",
+  "mode": "built-in image_gen",
+  "model": "not exposed by tool",
+  "variants": [
+    {
+      "key": "A",
+      "name": "缄口猎手",
+      "character": "Use case: stylized-concept. Create ONE full body monster concept on a plain warm grey paper background, no text, no panels. Image 1 is original Spine character anatomy constraint, image 2 is visual style reference only. Dark fairytale mobile RPG, hand-painted gouache, subtle ink edges, slightly cute yet unsettling, NOT generic heroic fantasy, not photorealistic. Preserve the original biped wolf-beast anatomy and proportions: hunched broad shoulders, large pointed ears, short muzzle, two jointed arms and claw hands, two digitigrade legs, one bushy tail, one curved short saber in one hand, other hand free, compact belt and split loincloth. NO extra limbs, wings or long trailing cloth. Face LEFT in three-quarter battle stance (mirror reference direction), entire character and blade visible, silhouette separated, restrained eldritch corruption. Do not add background scenery or other characters. Keep details drawable as existing Spine parts. Ash-grey fur and old charcoal leather. His mouth is fastened by THREE large dark red thread stitches, small scarlet eyes watch anxiously; his ivory short curved saber resembles a blunt sewing needle with a tiny eye hole near its base. A dusty wine-red short layered loincloth, an old wax-seal belt buckle with closed-eye imprint. Cute quality from oversized ears and hunched reluctant stance. Main anomaly is sewn-shut smile, not gore. No floating objects or new cords beyond mouth stitches.",
+      "characterInput": [
+        "/Users/vic/Workshop/Spine/monster2/目录/C030_S01B.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png"
+      ],
+      "characterGenerated": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-7c4fb196-7519-4f91-a1d4-4ad434dc4c8f.png",
+      "directionCorrection": null,
+      "battlePrompt": "Use case: compositing. Create a portrait 9:16 dark fairytale mobile game BATTLE CONCEPT PREVIEW, no UI or text. Image 1 is the exact environment and heroine reference. Preserve its riverside cottage, closed-eye moon, lanterns, trees, creek, dry foreground and camera composition. Remove ALL THREE mushroom enemies. Image 2 is the ONE replacement enemy design, preserve its exact colors, face details, clothes and single curved saber. Place this one enemy on the right facing LEFT toward Red Riding Hood on the left. Keep heroine matching image 1, her lantern-scythe, outfit and pose unchanged. Both stand on the SAME dry foreground groundline near 76 percent of image height. Enemy is 1.25 times heroine height including ears, fully visible, separated silhouettes, clear space between weapons, no combat impact. Monster tail points right, never off-canvas. Match hand-painted storybook scene rendering and warm lantern/cool moon lighting. No additional monsters, particles or scenery changes. This is a design mockup, not a screenshot. Character variant: 缄口猎手",
+      "battleInput": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-7c4fb196-7519-4f91-a1d4-4ad434dc4c8f.png"
+      ],
+      "battleGenerated": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-83881ea1-27f1-4574-8139-84cb0b56ecef.png"
+    },
+    {
+      "key": "B",
+      "name": "空壳瓷狼",
+      "character": "Use case: stylized-concept. Create ONE full body monster concept on a plain warm grey paper background, no text, no panels. Image 1 is original Spine character anatomy constraint, image 2 is visual style reference only. Dark fairytale mobile RPG, hand-painted gouache, subtle ink edges, slightly cute yet unsettling, NOT generic heroic fantasy, not photorealistic. Preserve the original biped wolf-beast anatomy and proportions: hunched broad shoulders, large pointed ears, short muzzle, two jointed arms and claw hands, two digitigrade legs, one bushy tail, one curved short saber in one hand, other hand free, compact belt and split loincloth. NO extra limbs, wings or long trailing cloth. Face LEFT in three-quarter battle stance (mirror reference direction), entire character and blade visible, silhouette separated, restrained eldritch corruption. Do not add background scenery or other characters. Keep details drawable as existing Spine parts. A wolf-shaped hollow antique porcelain beast: matte cracked ivory ceramic face and forearms, grey wool-fur torso, tarnished brass little shoulder plate and slate-blue short layered loincloth. Single principal unsettling detail: the muzzle has a missing small porcelain cheek section showing a dark EMPTY hollow interior, no flesh; tiny dull amber eye lights sit deeply inside existing eye positions. Existing toothy mouth still articulated, no full fixed mask hiding all expressions. Curved saber has chipped ceramic blade with dark core, still original single blade silhouette. Slightly awkward toy-like presence, not a shining knight, no new appendages.",
+      "characterInput": [
+        "/Users/vic/Workshop/Spine/monster2/目录/C030_S01B.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png"
+      ],
+      "characterGenerated": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-1c6bdff9-f46c-469c-bafb-b82ece664cb6.png",
+      "directionCorrection": {
+        "input": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-124b31a5-d587-4e6c-951c-c12dca9bd043.png",
+        "prompt": "Precise image edit: horizontally mirror this ENTIRE character design image so the wolf's nose points to the LEFT edge and its tail extends toward the RIGHT. Preserve all anatomy, painting, colors, material, expression, weapon, feet, background and framing exactly; no redesign, no additions, no text. This is a direction correction only."
+      },
+      "battlePrompt": "Use case: compositing. Create a portrait 9:16 dark fairytale mobile game BATTLE CONCEPT PREVIEW, no UI or text. Image 1 is the exact environment and heroine reference. Preserve its riverside cottage, closed-eye moon, lanterns, trees, creek, dry foreground and camera composition. Remove ALL THREE mushroom enemies. Image 2 is the ONE replacement enemy design, preserve its exact colors, face details, clothes and single curved saber. Place this one enemy on the right facing LEFT toward Red Riding Hood on the left. Keep heroine matching image 1, her lantern-scythe, outfit and pose unchanged. Both stand on the SAME dry foreground groundline near 76 percent of image height. Enemy is 1.25 times heroine height including ears, fully visible, separated silhouettes, clear space between weapons, no combat impact. Monster tail points right, never off-canvas. Match hand-painted storybook scene rendering and warm lantern/cool moon lighting. No additional monsters, particles or scenery changes. This is a design mockup, not a screenshot. Character variant: 空壳瓷狼",
+      "battleInput": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-1c6bdff9-f46c-469c-bafb-b82ece664cb6.png"
+      ],
+      "battleGenerated": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-3575dfd6-7b13-45c4-b4e3-b4aac6676981.png"
+    },
+    {
+      "key": "C",
+      "name": "噬梦蛾裘",
+      "character": "Use case: stylized-concept. Create ONE full body monster concept on a plain warm grey paper background, no text, no panels. Image 1 is original Spine character anatomy constraint, image 2 is visual style reference only. Dark fairytale mobile RPG, hand-painted gouache, subtle ink edges, slightly cute yet unsettling, NOT generic heroic fantasy, not photorealistic. Preserve the original biped wolf-beast anatomy and proportions: hunched broad shoulders, large pointed ears, short muzzle, two jointed arms and claw hands, two digitigrade legs, one bushy tail, one curved short saber in one hand, other hand free, compact belt and split loincloth. NO extra limbs, wings or long trailing cloth. Face LEFT in three-quarter battle stance (mirror reference direction), entire character and blade visible, silhouette separated, restrained eldritch corruption. Do not add background scenery or other characters. Keep details drawable as existing Spine parts. A wolf-beast with dusty lilac-grey fluffy fur and tawny moth-scale texture, closed sleepy narrow eyes, a soft pale ruff. Existing small shoulder armor and three loincloth panels become worn matte moth-wing-pattern fabric with two large faded eye spots; these are flat fabric patterns, NOT actual wings or living eyeballs. His existing muzzle has an unnaturally calm small grin and the existing bushy tail tip is dusty purple. Curved saber is dark weathered wood with a pale crescent cutting edge. A dream-corrupted sleepy beast, cozy and eerie, no moth swarm, particles, antennas, extra limbs or flowing cape.",
+      "characterInput": [
+        "/Users/vic/Workshop/Spine/monster2/目录/C030_S01B.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png"
+      ],
+      "characterGenerated": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-7289a997-5758-4c8f-afb5-e6d83835ab81.png",
+      "directionCorrection": {
+        "input": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-07ea11f2-8b0b-4228-9268-a35dabfad33a.png",
+        "prompt": "Precise image edit: horizontally mirror this ENTIRE character design image so the wolf's nose points to the LEFT edge and its tail extends toward the RIGHT. Preserve all anatomy, painting, colors, material, expression, weapon, feet, background and framing exactly; no redesign, no additions, no text. This is a direction correction only."
+      },
+      "battlePrompt": "Use case: compositing. Create a portrait 9:16 dark fairytale mobile game BATTLE CONCEPT PREVIEW, no UI or text. Image 1 is the exact environment and heroine reference. Preserve its riverside cottage, closed-eye moon, lanterns, trees, creek, dry foreground and camera composition. Remove ALL THREE mushroom enemies. Image 2 is the ONE replacement enemy design, preserve its exact colors, face details, clothes and single curved saber. Place this one enemy on the right facing LEFT toward Red Riding Hood on the left. Keep heroine matching image 1, her lantern-scythe, outfit and pose unchanged. Both stand on the SAME dry foreground groundline near 76 percent of image height. Enemy is 1.25 times heroine height including ears, fully visible, separated silhouettes, clear space between weapons, no combat impact. Monster tail points right, never off-canvas. Match hand-painted storybook scene rendering and warm lantern/cool moon lighting. No additional monsters, particles or scenery changes. This is a design mockup, not a screenshot. Character variant: 噬梦蛾裘",
+      "battleInput": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-7289a997-5758-4c8f-afb5-e6d83835ab81.png"
+      ],
+      "battleGenerated": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-12aaa6f3-57b9-4dc6-8e72-5628ae56aa05.png"
+    }
+  ]
+}

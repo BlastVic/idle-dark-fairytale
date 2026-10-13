@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Extentions;
 using Assets.Scripts.Game.Enum;
@@ -25,8 +25,9 @@ public class GameplayCanvas : MonoBehaviour
     public Text waveText;
     [Header("Prefab-authored battle HUD (optional legacy fallback)")]
     public CursedBattleHud battleHud;
-    bool battleHudVisible;
-    bool showHpXpLevel = true;
+    [Header("Editable shelter home prefab")]
+    public ShelterHomeUI homeUI;
+    public StorybookExperienceUI experienceUI;
     public Text levelText;
     public Text fusionLevelText;
     public Text fusionPercText;
@@ -88,23 +89,8 @@ public class GameplayCanvas : MonoBehaviour
 
     public void TryShowDailyCherries(int amount = 10)
     {
-        string dailyCherryString = System.DateTime.Today.Date + "_DAILY_CHERRIES";
-        if (GameManager.single.thingsSeenPermanent.Contains(dailyCherryString))
-        {
-            return;//dont need to see it
-        }
-        if (!GameManager.single.HasSeenThis("Tutorial-" + 4))
-        {
-            //dont allow daily cherries until we are through some tutorials at least
-            return;
-        }
-        nextCashMallIsDailyCherries = true;
+        // Startup reminder scheduling is owned by the persistent StorybookDailyReward component.
 
-        GameManager.single.thingsSeenPermanent.Add(dailyCherryString);
-
-        cherriesDailyText.text = amount.ToString();
-
-        dailyCherriesPop.SetActive(true);
     }
 
     #endregion
@@ -119,6 +105,7 @@ public class GameplayCanvas : MonoBehaviour
     //    Router.single.GoToCampFromLeaveButton();
     //}
     public GameObject xpBoosterNotification;
+    public StorybookExperienceReminder experienceReminder;
     public GameObject[] bottomNavButtons; //camp / Inventory/Skills/Last Battle/World Map/cash mall
     public GameObject campNavButton, skillsNavButton, lastBattleNavButton, invNavButton, mapNavButton, cashMallButton, XpBoostButton;
     public Text xpBoosterTimerText;
@@ -196,43 +183,7 @@ public class GameplayCanvas : MonoBehaviour
 
     void TryShowingXpBoosterNotification()
     {
-        if (GameManager.single.isBoostedXPActive) return;
-        if (GameManager.single.gameState == GameStateType.BATTLE)
-        {
-            return;
-        }
-        if (GameManager.single.gameState == GameStateType.VICTORY)
-        {
-            return;
-        }
-        if (GameManager.single.gameState == GameStateType.DEFEAT)
-        {
-            return;
-        }
-        if (GameManager.single.gameState == GameStateType.CHEST_PACKAGE)
-        {
-            return;
-        }
-        if (GameManager.single.gameState == GameStateType.FUSION)
-        {
-            return;
-        }
-        if (GameManager.single.gameState == GameStateType.REBIRTH)
-        {
-            return;
-        }
-        if (GameManager.single.gameState == GameStateType.CASH_MALL)
-        {
-            return;
-        }
-        if (GameManager.single.gameState == GameStateType.XP_BOOST)
-        {
-            return;
-        }
-
-        xpBoosterNotification.SetActive(true);
-        Debug.Log("Showed the notifier");
-
+        if (experienceReminder) experienceReminder.TryShow();
     }
 
     bool lastBattleButtonCool = true;
@@ -266,22 +217,18 @@ public class GameplayCanvas : MonoBehaviour
     public GameObject hpXpLevelUI;
     public void ToggleHpXpLevelUi(bool b)
     {
-        showHpXpLevel = b;
-        //foreach (GameObject obj in hpXpLevelUI)
-        //{
-        hpXpLevelUI.SetActive(b && !(battleHud && battleHudVisible));
+        // The authored battle/shelter HUDs own these stats in every state, including settlement delays.
+        if (hpXpLevelUI) hpXpLevelUI.SetActive(b && !battleHud && !homeUI);
 
         if (b)
         {
             RefreshHp();
             RefreshXp();
         }
-        //}
     }
     public GameObject[] battleRelatedUI;
     public void ToggleBattleUi(bool b)
     {
-        battleHudVisible = b;
         foreach (GameObject obj in battleRelatedUI)
         {
             obj.SetActive(b && !battleHud);
@@ -290,7 +237,7 @@ public class GameplayCanvas : MonoBehaviour
         if (battleHud)
         {
             battleHud.gameObject.SetActive(b);
-            hpXpLevelUI.SetActive(showHpXpLevel && !b);
+            if (hpXpLevelUI) hpXpLevelUI.SetActive(false);
             if (b) { RefreshHp(); RefreshXp(); RefreshWaveText(); }
         }
 
@@ -346,6 +293,7 @@ public class GameplayCanvas : MonoBehaviour
     public GameObject[] campRelatedUI;
     public void ToggleCampUi(bool b)
     {
+        if (homeUI) homeUI.gameObject.SetActive(b);
 
         foreach (GameObject obj in campRelatedUI)
         {
@@ -494,19 +442,17 @@ public class GameplayCanvas : MonoBehaviour
     //    monetizeBottom.SetActive(b);
     //}
 
-    public GameObject LevelUpParticle;
-    public GameObject LevelUpSpinner;
+    public StorybookLevelUpUI levelUpUI;
 
     public void PlayLevelUp()
     {
-        if (InventoryUI.single != null) return;//dont need to show this stuff if we in the other menu
-
-        LevelUpParticle.SetActive(false);
-        LevelUpParticle.SetActive(true);
-
-        LevelUpSpinner.SetActive(false);
-        LevelUpSpinner.SetActive(true);
-        RefreshCampUI();
+        if (levelUpUI)
+        {
+            levelUpUI.Present(GameManager.single.playerLevel);
+            RefreshXp();
+            RefreshCampUI();
+            return;
+        }
     }
 
     public void RefreshWaveText()
@@ -579,15 +525,23 @@ UnityEngine.iOS.Device.RequestStoreReview();
     }
 
     public GameObject itemPopUp;
+    public StorybookItemToast itemToast;
     public List<Item> itemPopUpQueue;
     public float itemPopUpPadding = 25;
     public void ShowItemPopUp(Item item)
     {
+        if (item == null) return;
 
         if (itemPopUp.activeSelf)
         {
             //Debug.Log("Item Pop Up is Busy");
             itemPopUpQueue.Add(item);
+            return;
+        }
+        if (itemToast)
+        {
+            itemToast.Present(item);
+            SoundManager.Instance.PlayClip("ITEM_DROP");
             return;
         }
         itemPopUp.SetActive(true);
@@ -643,118 +597,13 @@ UnityEngine.iOS.Device.RequestStoreReview();
 
     }
 
-    #region REWARD VIDEO FROM CHEST LOGIC
-    public GameObject chestRewardsAreaObject;
-    public GameObject rewardVideoChestButton;
-    public void ToggleRewardVideoButton(bool b)
-    {
-        times2RewardNotifier.SetActive(false);
-        times3RewardNotifier.SetActive(false);
-
-        chestRewardsAreaObject.SetActive(b);
-        rewardVideoChestButton.SetActive(b);
-    }
-
-    public void RewardVideoFromChestPressed()
-    {
-        AdManager.Instance.ShowRewardedAd("Cameplay", result=> { LoggerMethods.Log("Show video ad to Cameplay: " + result); }, () =>
-        {
-            StartVictoryChest();
-        });
-    }
-
-    #endregion
-
-    #region CURRENCY OPEN CHEST LOGIC
-    public GameObject currencyChestButton;
-    public Text currencyChestAmount;
-    public void ToggleCurrencyChestButton(bool b, int amount)
-    {
-        times2RewardNotifier.SetActive(false);
-        times3RewardNotifier.SetActive(false);
-
-        chestRewardsAreaObject.SetActive(b);
-        currencyChestButton.SetActive(b);
-        currencyChestAmount.text = "$" + amount;
-    }
-
-    public void CurrencyChestButtonPressed()
-    {
-        if (gm.premiumCurrency >= gm.ChestPremiumOpenCost)
-        {
-            gm.premiumCurrency -= gm.ChestPremiumOpenCost;
-            StartVictoryChest();
-        }
-        else
-        {
-            //lead player to cash mall now
-            nextIsRanOutOfCherries = true;
-            Router.single.CashMallButton();
-        }
-
-
-    }
-
     public bool nextIsRanOutOfCherries = false;
 
-    public GameObject textForFullChest, textForOpenNowChest, textForOpenNowHeader, iconForOpenNow;
-
+    // Compatibility for the advertisement service; rewards belong to the new result UI.
     public void StartVictoryChest(bool issueRewards = true)
     {
-        if (issueRewards)
-        {
-            chestRewardsAreaObject.SetActive(false);
-            SoundManager.Instance.PlayClip("CHEST_DROP_CRYSTALS");
-            GameObject[] chestsCrystals = GameObject.FindGameObjectsWithTag("ChestParticle");
-            foreach (GameObject obj in chestsCrystals)
-            {
-                obj.SetActive(true);
-            }
-            StartCoroutine(CrystalCountUp());
-        }
+        if (!issueRewards || !victoryPanel || !victoryPanel.activeInHierarchy) return;
+        var result = victoryPanel.GetComponent<StorybookBattleResultUI>();
+        if (result) result.ClaimReward();
     }
-
-    public GameObject crystalIcon;
-    public Text crystalText;
-    public GameObject times2RewardNotifier, times3RewardNotifier;
-    IEnumerator CrystalCountUp()
-    {
-        //crystals
-        float rewardCrystals = (Random.Range(InventoryManager.single.lastChest.crystalsMin, InventoryManager.single.lastChest.crystalsMax));
-        float rand = Random.Range(0, 100);
-
-        if (rand <= 50)
-        {
-            rewardCrystals *= 3;
-            LevelController.Instance.AssetManager.chestDropInObj.GetComponent<ChestDropInSwapper>().OpenTheChest(3);
-
-            times2RewardNotifier.SetActive(false);
-            times3RewardNotifier.SetActive(true);
-
-        }
-        else
-        {
-            LevelController.Instance.AssetManager.chestDropInObj.GetComponent<ChestDropInSwapper>().OpenTheChest(2);
-
-            rewardCrystals *= 2;
-            times2RewardNotifier.SetActive(true);
-            times3RewardNotifier.SetActive(false);
-        }
-
-        GameManager.single.crystals += (int)rewardCrystals;
-        yield return new WaitForSeconds(1.7f);
-        crystalIcon.SetActive(true);
-
-        GameManager.single.crystals += rewardCrystals;//give it right away, let counter pretend to run adding
-        for (int i = 0; i <= rewardCrystals; i++)
-        {
-            yield return new WaitForSeconds(.01f);
-
-            crystalText.text = "+ " + i;
-
-        }
-
-    }
-    #endregion
-
 }

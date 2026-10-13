@@ -85,7 +85,7 @@ public class Router : MonoBehaviour
         TransitionCanvas.single.ToBlack("GM TO ");
         //GameplayCanvas.single.lastChestClicked = chestChosen;
         yield return new WaitForSeconds(.7f);
-        Destroy(FusionPackage.single.gameObject);
+        if (FusionPackage.single) Destroy(FusionPackage.single.gameObject);
         gc.ToggleCampUi(true);
         gc.ToggleHpXpLevelUi(true);
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
@@ -106,7 +106,7 @@ public class Router : MonoBehaviour
     public void CallRebirthFromCamp()
     {
         if (loadingRebirthFromCamp) return;
-        loadingChestFromCamp = true;
+        loadingRebirthFromCamp = true;
         StartCoroutine(GoToRebirth());
     }
 
@@ -210,7 +210,7 @@ public class Router : MonoBehaviour
         //GameplayCanvas.single.lastChestClicked = chestChosen;
         CameraEffects.single.SetOriginalCameraPosition();
         yield return new WaitForSeconds(.7f);
-        Destroy(CashMallPackage.single.gameObject);
+        if (CashMallPackage.single) Destroy(CashMallPackage.single.gameObject);
 
         if (GameObject.FindGameObjectWithTag("CherryChest"))
         {
@@ -238,39 +238,6 @@ public class Router : MonoBehaviour
 
 
 
-    public void CallCampFromXpBooster()
-    {
-        if (loadingCampFromXpBooster) return;
-        loadingCampFromXpBooster = true;
-        StartCoroutine(GoToCampFromXpBooster());
-    }
-    bool loadingCampFromXpBooster = false;
-    public IEnumerator GoToCampFromXpBooster()
-    {
-        TransitionCanvas.single.ToBlack("GM TO CashMall");
-        //GameplayCanvas.single.lastChestClicked = chestChosen;
-        yield return new WaitForSeconds(.7f);
-        Destroy(XPBoosterPackage.single.gameObject);
-        gc.ToggleCampUi(true);
-        gc.ToggleFusionBarUI(true);
-        gc.ToggleButtonGrid(true);
-        gc.ToggleHpXpLevelUi(true);
-        LevelController.Instance.AssetManager.TurnOnPlayer(true);
-        gc.OrderButtonGrid();
-        LevelController.Instance.AssetManager.HideMapPackage();
-
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
-        gc.skillsPanel.SetActive(false);
-
-        yield return new WaitForSeconds(.3f);
-        TransitionCanvas.single.ToClear("GM TO CHEST");
-        gm.SetGameState(GameStateType.CAMP);
-        gc.OrderButtonGrid();
-        yield return new WaitForSeconds(.5f);
-
-        loadingCampFromXpBooster = false;
-
-    }
     /// <summary>
     /// //
     /// </summary>
@@ -534,8 +501,11 @@ public class Router : MonoBehaviour
     }
 
 
+    [SerializeField, Min(0)] float defeatPresentationDelay = 2.7f;
+
     public IEnumerator GoToDefeat()
     {
+        if (waitingForBattleCleanup) yield break;
         if (gc.battleHud) gc.ToggleBattleUi(false);
 
         waitingForBattleCleanup = true;
@@ -544,18 +514,29 @@ public class Router : MonoBehaviour
         WaveManager.single.SetWaveseReachedByKey(WaveManager.single.currentWaveset.levelKey, WaveManager.single.waveNumber);
         gc.defeatMapName.text = WaveManager.single.currentWaveset.levelName.ToUpper();
         gc.ToggleFusionBarUI(false);
-        gc.ToggleCurrencyChestButton(false, 100);
-        gc.ToggleRewardVideoButton(false);
+        // Death() starts this coroutine before assigning the Spine death track.
+        // Let that assignment finish, then preserve the death performance before covering it.
+        yield return null;
+        float delay = defeatPresentationDelay;
+        foreach (var sound in SoundManager.Instance.clips)
+            if (sound.clipName == "PLAYER_DEATH" && sound.clip)
+                delay = Mathf.Max(delay, sound.clip.length + .25f);
+        var skeleton = Player.single ? Player.single.skeletonAnimation : null;
+        var death = skeleton ? skeleton.AnimationState.GetCurrent(0) : null;
+        if (death != null && death.Animation.Name.Contains("Death"))
+            delay = Mathf.Max(delay, death.Animation.Duration / Mathf.Max(.01f, death.TimeScale * skeleton.timeScale * Time.timeScale) + .25f);
+        yield return new WaitForSecondsRealtime(delay);
         gc.defeatPanel.SetActive(true);
         //gc.ToggleMonetizeBottom(false);
         LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
         //am.SpawnGeneralObj("ChestDropIn");
-        yield return new WaitForSeconds(2.7f);
         gm.EnemyCleanup();
         gm.MapCleanup();
 
-        LevelController.Instance.AssetManager.nextDropInGrade = ChestGrade.TURD;
-        LevelController.Instance.AssetManager.SpawnGeneralObj("ChestDropIn");
+        if (!gc.defeatPanel.GetComponent<StorybookBattleResultUI>()) {
+            LevelController.Instance.AssetManager.nextDropInGrade = ChestGrade.TURD;
+            LevelController.Instance.AssetManager.SpawnGeneralObj("ChestDropIn");
+        }
 
         yield return new WaitForSeconds(.5f);
         waitingForBattleCleanup = false;
@@ -573,9 +554,7 @@ public class Router : MonoBehaviour
         waitingForBattleCleanup = true;
         gc.ToggleButtonGrid(false);
 
-        gc.ToggleCurrencyChestButton(true, gm.ChestPremiumOpenCost);
 
-        gc.ToggleRewardVideoButton(true);
         int reached = WaveManager.single.GetWaveseReachedByKey(WaveManager.single.currentWaveset.levelKey);
         if (reached < WaveManager.single.currentWaveset.waves.Length)
         {
@@ -586,29 +565,7 @@ public class Router : MonoBehaviour
 
         WaveManager.single.SetWaveseReachedByKey(WaveManager.single.currentWaveset.levelKey, WaveManager.single.currentWaveset.waves.Length);
         gc.victoryMapName.text = WaveManager.single.currentWaveset.levelName.ToUpper();
-        gc.crystalIcon.SetActive(false);
-        gc.crystalText.text = "";
         gc.ToggleFusionBarUI(false);
-
-        if (InventoryManager.single.chestsOwned.Count >= 4)
-        {
-            gc.iconForOpenNow.SetActive(false);
-            gc.textForFullChest.SetActive(true);
-            gc.textForOpenNowChest.SetActive(false);
-            gc.textForOpenNowHeader.GetComponent<Text>().text = "Uh Oh...Chests Full";
-
-        }
-        else
-        {
-            gc.iconForOpenNow.SetActive(true);
-
-            gc.textForFullChest.SetActive(false);
-            gc.textForOpenNowChest.SetActive(true);
-            gc.textForOpenNowHeader.SetActive(true);
-            gc.textForOpenNowHeader.GetComponent<Text>().text = "Open Now";
-
-        }
-
 
         //crystals
         float rewardCrystals = Random.Range(newChest.crystalsMin, newChest.crystalsMax);
@@ -623,7 +580,7 @@ public class Router : MonoBehaviour
 
 
         yield return new WaitForSeconds(.3f);
-        LevelController.Instance.AssetManager.SpawnGeneralObj("ChestDropIn");
+        if (!gc.victoryPanel.GetComponent<StorybookBattleResultUI>()) LevelController.Instance.AssetManager.SpawnGeneralObj("ChestDropIn");
         gm.BattleCleanup();
 
         //let it get dark, then clean objects away
@@ -697,6 +654,10 @@ public class Router : MonoBehaviour
         gm.SetGameState(GameStateType.SKILLS);
         gc.OrderButtonGrid();
         gc.RefreshCampUI();
+        if (gc.skillsPanel.GetComponent<StorybookSkillsUI>()) {
+            gc.ToggleButtonGrid(false);
+            gc.ToggleFusionBarUI(false);
+        }
 
     }
 
@@ -717,7 +678,6 @@ public class Router : MonoBehaviour
         yield return new WaitForSeconds(.7f);
         GameplayCanvas.single.victoryPanel.SetActive(false);
         if (ChestPackage.single != null) Destroy(ChestPackage.single.gameObject);
-        if (XPBoosterPackage.single) Destroy(XPBoosterPackage.single.gameObject);
 
         if (dailyCherriesOnly) gc.dailyCherriesPop.SetActive(false);
 
@@ -742,6 +702,7 @@ public class Router : MonoBehaviour
         gm.SetGameState(GameStateType.CASH_MALL);
         gc.OrderButtonGrid();
         gc.RefreshCampUI();
+        gc.ToggleButtonGrid(false);
         TransitionCanvas.single.ToClear("GM goto CashMall");
 
 
@@ -755,38 +716,40 @@ public class Router : MonoBehaviour
         StartCoroutine(GoToXPBooster());
     }
 
+    public bool ExperienceTransitioning { get; private set; }
     public IEnumerator GoToXPBooster()
     {
+        var ui=GameplayCanvas.single.experienceUI;
+        if(ExperienceTransitioning||!ui||ui.gameObject.activeSelf)yield break;
+        ExperienceTransitioning=true;
         SoundManager.Instance.PlayClip("CLICK");
+        TransitionCanvas.single.ToBlack("Enter experience");
+        yield return new WaitForSecondsRealtime(.9f);
+        ui.Show();
+        yield return new WaitForSecondsRealtime(.3f);
+        TransitionCanvas.single.ToClear("Enter experience");
+        yield return new WaitForSecondsRealtime(.6f);
+        ExperienceTransitioning=false;
+        ui.Refresh();
+    }
 
-        TransitionCanvas.single.ToBlack("GM goto xp booster");
-        yield return new WaitForSeconds(.7f);
-        //AssetManager.single.HideCampPackage();
-        //AssetManager.single.HidePlayer();
-
-        CameraEffects.single.SetOriginalCameraPosition();
-
-        LevelController.Instance.AssetManager.HideMapPackage();
-
-        gc.inventoryPanel.SetActive(false);
-        gc.ToggleChestButtonUI(false);
-        gc.ToggleFusionBarUI(false);
-        gc.ToggleBattleUi(false);
-        gc.ToggleCampUi(false);
-        gc.ToggleHpXpLevelUi(false);
-        //gc.skillsPanel.SetActive(true);
-        LevelController.Instance.AssetManager.SpawnGeneralObj("XPBoosterPackage");
-        gc.skillsPanel.SetActive(false);
-
-        LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
-        //CameraEffects.single.SetCameraPosition(0);
-        gm.SetGameState(GameStateType.XP_BOOST);
-        gc.OrderButtonGrid();
-        gc.RefreshCampUI();
-        yield return new WaitForSeconds(.5f);
-
-        TransitionCanvas.single.ToClear("GM goto CashMall");
-
+    public void CloseExperience()
+    {
+        var ui=GameplayCanvas.single.experienceUI;
+        if(ExperienceTransitioning||!ui||!ui.gameObject.activeSelf||ui.Busy)return;
+        ExperienceTransitioning=true;
+        StartCoroutine(ReturnFromExperience(ui));
+    }
+    IEnumerator ReturnFromExperience(StorybookExperienceUI ui)
+    {
+        SoundManager.Instance.PlayClip("CLICK");
+        ui.Refresh();
+        TransitionCanvas.single.ToBlack("Leave experience");
+        yield return new WaitForSecondsRealtime(.7f);
+        ui.gameObject.SetActive(false);
+        TransitionCanvas.single.ToClear("Leave experience");
+        yield return new WaitForSecondsRealtime(.6f);
+        ExperienceTransitioning=false;
     }
 
     #endregion
@@ -816,6 +779,10 @@ public class Router : MonoBehaviour
 
         gm.SetGameState(GameStateType.INVENTORY);
         GameplayCanvas.single.OrderButtonGrid();
+        if (gc.inventoryPanel.GetComponent<StorybookEquipmentUI>()) {
+            gc.ToggleButtonGrid(false);
+            gc.ToggleFusionBarUI(false);
+        }
     }
 
     public void MapButton()

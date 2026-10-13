@@ -1,0 +1,48 @@
+主界面精修 / 2026-10-12
+
+已选参考
+ArtDirection/UI/CursedStorybook/Home/home-v7-refined-right-icons.png
+
+交付入口
+Assets/DarkFairytale/UI/Shelter/ShelterHome.prefab
+- SupportedViewport：允许 1:2 至 3:4 的竖屏区域，超出范围为纯黑。
+- ShelterIllustration：1080×2160 等比场景，角色和壁炉都为其子节点，保持空间关系。
+- Core_9x16：以 1080×1920 为基准，随可用比例增大横向或纵向布局范围。
+- 顶部、宝箱、属性和导航为可编辑九宫格 Image；图标、标签、数字、按钮均为独立节点。
+- 不在运行或导入时重建 Prefab。三个 Builder 仅菜单/显式 request 执行。
+
+屏幕适配
+ShelterResponsiveLayout 只修改已保存节点的变换。
+3:4 横向填满，1:2 纵向填满；区间内无固定 9:16 黑边。
+背景统一缩放，不横向拉伸。人物脚部为取景参照，上方遮挡区域可裁切。
+UI 独立使用 SafeArea 可用区域；宽屏面板延展，字体和图标保持等比。
+默认尺寸、边距、功能按钮位置和场景取景参数可在 Inspector 调整。
+
+角色
+经用户确认，统一为战斗中的短款破边披风。自然垂落的后摆需到臀部附近；本次已将坐姿后摆补到臀部/座面，不能只做成肩部披肩。
+Refined/RedHoodShortCape.png 是新的主界面坐姿源素材。
+战斗服装和既有战斗动画保留。原长款坐姿图保留为制作参照。
+新的角色仍使用 RedHoodIdle/RedHoodShelter.prefab：12 秒 Idle、呼吸、发梢、眨眼、茶杯热气。
+
+壁炉
+Refined/Hearth/Hearth.prefab 是独立 SkeletonGraphic Prefab。
+Spine 3.8 JSON，16 根骨骼：root、6 层火焰、9 颗火星。
+Burn 为 8 秒循环；火苗网格有渐进弯曲和错相缩放，铁栏独立前景层。
+图片不含文字。背景已去除原来的静态火苗与铁栏，保留壁炉暖光和木柴。
+HearthSource/Hearth.json + images 可在 Spine 3.8 导入编辑；不是二进制 .spine 工程。
+
+精修重点
+纸页使用黑金双线、磨旧纸纹、角部墨绘；按钮按下反馈及不可点击状态沿用实际 Button 状态。
+属性加入六种独立图标和行列分隔。宝箱使用四个横向槽位和独立状态条。
+中央庇护所用红色书签，五个菜单共享一个纸页底板。
+右侧融合、经验、转生为独立圆形按钮，点击详情沿用原功能流程。
+取消原顶部红条/月亮装饰；保留真实血量和经验进度。
+实验体编号位于头像下，等级仍为主要身份信息。
+
+字体
+Noto Serif CJK SC Bold，官方 Noto CJK 仓库，沿用同目录 OFL.txt 授权。
+https://raw.githubusercontent.com/notofonts/noto-cjk/main/Serif/OTF/SimplifiedChinese/NotoSerifCJKsc-Bold.otf
+字体行高按实际 Unity 渲染处理，不依赖自动缩小来掩盖错位。
+
+验证文件放在已忽略的 output/home-refined/ 与 output/home-ui/。
+游戏截图和动画录屏不得提交 Git。美术源图、Spine 源数据、贴图和文字报告正常保留。

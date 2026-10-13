@@ -1,0 +1,23 @@
+using System;
+using System.IO;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+[InitializeOnLoad] public static class DeveloperOverlayAuthoring
+{
+ public const string Path="Assets/DarkFairytale/UI/Developer/DeveloperOverlay.prefab",Out="output/developer-overlay/";
+ static Font font;
+ static DeveloperOverlayAuthoring(){EditorApplication.update+=()=>{if(EditorApplication.isCompiling||EditorApplication.isUpdating||EditorApplication.isPlayingOrWillChangePlaymode||!File.Exists(Out+"build.request"))return;File.Delete(Out+"build.request");try{Build();File.WriteAllText(Out+"build.txt","PASS");}catch(Exception e){File.WriteAllText(Out+"build.txt",e.ToString());}};}
+ static RectTransform Node(Transform parent,string name,float x,float y,float w,float h){var r=(RectTransform)new GameObject(name,typeof(RectTransform)).transform;r.SetParent(parent,false);r.gameObject.layer=5;StorybookEquipmentLayout.Box(r,x,y,w,h);return r;}
+ static Image Image(RectTransform r,Color color){var im=r.gameObject.AddComponent<Image>();im.color=color;return im;}
+ static Text Label(Transform p,string text,float x,float y,float w,float h,int size=19){var r=Node(p,"Text",x,y,w,h);var t=r.gameObject.AddComponent<Text>();t.font=font;t.text=text;t.fontSize=size;t.color=new Color(.15f,.10f,.07f);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;return t;}
+ static Button Button(Transform p,string text,float x,float y,float w=208){var r=Node(p,text,x,y,w,48);var im=Image(r,new Color(.73f,.64f,.49f));var b=r.gameObject.AddComponent<Button>();b.targetGraphic=im;b.navigation=new Navigation{mode=Navigation.Mode.None};r.gameObject.AddComponent<ShelterButtonFeedback>();r.gameObject.AddComponent<StorybookEquipmentButtonState>();Label(r,text,3,2,w-6,44,18);return b;}
+ [MenuItem("Tools/Dark Fairytale/UI/Create Developer Overlay (Explicit)")]
+ public static void Build(){Directory.CreateDirectory(System.IO.Path.GetDirectoryName(Path));font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Black.otf");
+ if(!File.Exists(Path)){var root=new GameObject("DeveloperOverlay",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster),typeof(DeveloperOverlayUI));try{var canvas=root.GetComponent<Canvas>();canvas.renderMode=RenderMode.ScreenSpaceOverlay;canvas.sortingOrder=32000;var scaler=root.GetComponent<CanvasScaler>();scaler.uiScaleMode=CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new Vector2(540,960);scaler.matchWidthOrHeight=0;var v=root.GetComponent<DeveloperOverlayUI>();v.panel=Node(root.transform,"FloatingPanel",40,24,460,480);var paper=Image(v.panel,Color.white);paper.sprite=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/DarkFairytale/UI/Chest/Sprites/BlankPaper.asset");
+ var header=Node(v.panel,"DragHeader",0,0,460,52);Image(header,new Color(.30f,.055f,.04f));header.gameObject.AddComponent<DeveloperOverlayDrag>().view=v;var title=Label(header,"开发者 · 拖动移动",8,0,250,52,20);title.color=new Color(.95f,.88f,.73f);v.fold=Button(header,"收起",264,2,100);v.foldLabel=v.fold.GetComponentInChildren<Text>();v.close=Button(header,"关闭",368,2,84);
+ v.body=Node(v.panel,"Body",0,52,460,428).gameObject;v.status=Label(v.body.transform,"",12,4,436,62,18);v.points=Button(v.body.transform,"属性／技能点 +10",14,76);v.stats=Button(v.body.transform,"生命 +2 · 攻击攻速 +1",238,76);v.fusion=Button(v.body.transform,"融合经验 +25%",14,136);v.currency=Button(v.body.transform,"血月结晶 +100",238,136);v.normal=Button(v.body.transform,"正常速度 ×1",14,196);v.fast=Button(v.body.transform,"加速 ×2",238,196);v.unlock=Button(v.body.transform,"解锁地图",14,256);v.kill=Button(v.body.transform,"击杀当前敌人",238,256);v.reset=Button(v.body.transform,"重置存档…",14,316,432);Label(v.body.transform,"收起后可继续操作游戏",14,375,432,32,17);
+ v.confirmation=Node(v.body.transform,"ResetConfirmation",8,68,444,300).gameObject;Image((RectTransform)v.confirmation.transform,new Color(.91f,.85f,.74f));Label(v.confirmation.transform,"确定重置游戏？\n这会删除当前存档。",12,30,420,110,23);v.confirmReset=Button(v.confirmation.transform,"确认重置",12,180,202);v.cancelReset=Button(v.confirmation.transform,"取消",230,180,202);v.confirmation.SetActive(false);PrefabUtility.SaveAsPrefabAsset(root,Path);}finally{UnityEngine.Object.DestroyImmediate(root);}}
+ EditorSceneManager.OpenScene("Assets/Scenes/MainScenes/Gameplay.unity");var debug=UnityEngine.Object.FindFirstObjectByType<DebugMenu>(FindObjectsInactive.Include);debug.overlayPrefab=AssetDatabase.LoadAssetAtPath<GameObject>(Path).GetComponent<DeveloperOverlayUI>();EditorUtility.SetDirty(debug);EditorSceneManager.MarkSceneDirty(debug.gameObject.scene);EditorSceneManager.SaveScene(debug.gameObject.scene);AssetDatabase.SaveAssets();}
+}

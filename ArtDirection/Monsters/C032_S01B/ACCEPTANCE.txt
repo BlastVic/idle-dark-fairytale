@@ -1,0 +1,31 @@
+MobGloomSpider 修复后复验（2026-10-11）
+结论：本轮眼睛、眼睑、口器与腿根的美术问题已修复；资源、动画与测试场景预览复验通过。
+
+修复内容
+1. 旧导出按原始固定矩形切图，再把透明图转 RGB 后套回原 Alpha。生成图中的部件偏移会被截断，空白区域成为不透明黑块。新流程在每个独立单元内查找真实 Alpha 范围，映射回原分件画布位置，保留生成图片的透明通道。
+2. 重新整理完整的石榴红大眼/三颗小眼和口器；清除之前的眼下黑块与口器黑底。
+3. 闭眼/受击表情改用透明底的曲线标记，去掉圆形肤色补丁；覆盖开放眼睛的独立眼睑保留遮挡能力并调整颜色。
+4. 腿段接头弱化黑色闭合描边，仍保持原六腿结构、分节运动和骨白条纹。保留原主体配色、头部和腹部绘制。
+5. JSON 文件逐字节未变：30 骨骼、22 插槽、网格/UV/权重、十套原动作、四个游戏别名及事件均未改。只更新 MobGloomSpider 分件、图集和其测试卡片缩略图；原怪物资源未覆盖。
+
+验证
+- Unity 6000.6.3f1 / 现有 Spine 3.8 Runtime：14 动作 × 两皮肤采样通过，顶点有限，事件计数通过。
+- Attack1 切换 Hit/Death1：无遗留命中事件，完成事件正确。
+- 检查实际渲染的 Idle1（含 0.444 秒闭眼）、Attack1、Hit、Death1 关键帧：完整眼睛、自然闭眼、口器及腿根连接；没有之前的黑底片/矩形眼睑补丁。
+- MonsterAnimationTest 中实际运行：数据库与 Addressables、数字皮肤、朝向、交互及 9:16 / 3:4 / 1:2 比例通过，四基础动作关键帧完整显示，运行错误为 0。
+- source 与 Unity 图集、atlas、JSON 一致；备份保留在 source/MobGloomSpider/before-repair-v2。
+- PNG 图集仍为 1024×1024；局部分件采用二倍像素采样提高小眼和细节精度，未增加最终图集尺寸。
+
+可复现入口
+Tools > Dark Fairytale > Monsters > Repack MobGloomSpider Repaired Parts
+该命令读取 source/MobGloomSpider/repair-v2 的三张透明源图，只在显式调用时提取和打包；不会重做骨架/动画，也不自动覆盖 UI 布局。
+旧 Python 固定框导出已加保护，避免将修复成果覆盖回有问题的版本。
+Validate MobGloomSpider 与 Validate MobGloomSpider In Test Scene 可重复执行。
+完整生成提示词：source/MobGloomSpider/repair-v2/prompts.json 和 blink-prompt.txt；使用内置 image_gen。
+
+范围说明
+本轮完成的是美术修复和预览复验，不把这些结果冒充完整战斗验收。真实伤害、掉落、入场/死亡销毁与波次流程，以及新皮肤原生 .spine 工程仍沿用前次报告中的待办状态。正式战斗体型、占位音效和数值也未在本轮变更。
+
+历史问题记录：acceptance/before-repair-v2.txt。
+当前文本验证：acceptance/runtime-data-validation.txt、preview-validation.txt、repair-integrity.txt。
+真实 Unity 截图仅本地：output/monster-animation/Mob004/；修复前截图在 output/monster-animation/Mob004-before-repair-v2/，均不提交 Git。

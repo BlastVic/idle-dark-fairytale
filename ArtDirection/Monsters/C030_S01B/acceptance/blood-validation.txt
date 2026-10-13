@@ -1,0 +1,11 @@
+Mob006 live Idle blood regression
+PASS Idle emits visible blood
+PASS Skinned blade endpoint available
+PASS Emitter remains near bloody blade tip
+PASS Blood falls downward with mirrored character
+PASS Pause freezes particle motion and emission
+PASS Attack does not emit Idle blood
+PASS Detached blood fades and is pooled
+PASS Returning to Idle resumes emission
+PASS Death clears particles
+PASS all live blood checks

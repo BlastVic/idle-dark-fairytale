@@ -1,0 +1,19 @@
+序章演出验证 — 2026-10-13
+
+通过：9:16（720×1280）、3:4（768×1024）、1:2（720×1440）的真实 Unity Play Mode 运行。
+完整时长测试：六张插画显影后分别播放原 Lauren 音轨；旁白结束才翻单页；最终六次翻页后进入主界面；运行无异常。
+检查：新玩家选择、完成标记、再次启动不重播、主界面输入恢复、进入战斗及返回营地。
+视觉复查：修正 1:2 字幕与书页底部重叠；最终三比例截图中字幕均在书页下方且完整处于屏幕内，插画比例不变。复查为加速音轨结束的布局检查，完整时长证据单独保留。
+实际截图与完整日志：output/prologue-integration/（已忽略，不提交 Git）。
+文件：full-duration-validation.txt 为完整时长测试；validation.txt 为最后一次布局复查。
+测试使用临时内存中的观看标记，保存由现有 QA 开关禁用；未清除用户存档。
+Prefab 中的图片、字幕、AudioSource、时长及页面数组均可编辑。默认 previewInEditor=false；编辑器预览可手动勾选该字段。
+
+2026-10-13 留白与翻页修订复验：三比例六页铺满绘画区，等比 UV 取景无拉伸；逐帧检查书本始终停在 Open 最终姿势，六次换页均仅播放纸张音效。实际截图已检查全部六页主体及三种比例。主界面、战斗和返回均通过。见 output/prologue-integration/fill-and-sound-only-validation.txt。
+
+2026-10-13 单页动画与纯旁白修订：恢复单张纸叶翻动，插画网格跟随纸叶（包含 SkeletonGraphic 的 referencePixelsPerUnit 缩放），书身及镜头固定。使用原始单页 0.82 秒音效，六段音轨改为独立 Lauren 旁白。PrintedInk 材质增加纸纹和柔化颜料边缘。
+实际检查：720×1280、768×1024、720×1440 六页显示、字幕安全区、无拉伸、六次翻页、主界面接续及战斗/返回通过。逐帧截图检查插画随纸叶卷起。最终视觉回归采用加速跳至语音末尾；完整语音播放在前一轮单独运行。
+翻页预览：output/prologue-integration/single-page-revised.mp4（真实 Unity 帧，前后延长定帧，配原单页音效）；最终报告为 printed-single-page-validation.txt。
+老玩家跳过序章的独立补验通过；最终验证报告无 FAIL。
+
+全尺寸显示复验：三种比例六页的世界坐标边界与主界面 LiveHomePage 一致、显示高度等于屏幕高度；字幕安全区、六次翻页、主界面衔接、新老玩家、战斗及返回均通过。实景截图与 full-size-validation.txt 保存在 output/prologue-integration。

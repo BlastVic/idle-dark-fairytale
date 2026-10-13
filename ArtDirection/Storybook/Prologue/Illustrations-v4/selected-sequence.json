@@ -1,0 +1,38 @@
+{
+  "status": "用户确认，目前采用",
+  "confirmed_on": "2026-10-13",
+  "scope": "序章六张插画；未表示音视频或 Unity 集成已完成",
+  "shots": [
+    {
+      "file": "01-awakening.png",
+      "label": "01 森林中醒来",
+      "sha256": "990bc3b75fdd6b818574fc1c04d4a0126e08ee2d28e94ec4ee62d0eb93cb48f8"
+    },
+    {
+      "file": "02-distant-fire.png",
+      "label": "02 远观村庄火光",
+      "sha256": "d06a6c1d37f1e5094545fee7607af6b9c60be440cdeabfa70ee1250befe95efd"
+    },
+    {
+      "file": "03-near-ritual-v2.png",
+      "label": "03 近看祭祀",
+      "sha256": "71812fe478ec49b9bad0e877b50a164d3ecde39821dff82bd054dedaf373c7f1"
+    },
+    {
+      "file": "04-ritual-overhead-v3.png",
+      "label": "04 俯视祭祀广场",
+      "sha256": "488181ed95dff7598b929d2185bf3452a1f95b778fcc668eb68df6022a3a4053"
+    },
+    {
+      "file": "05-fright-v5.png",
+      "label": "05 害怕受惊",
+      "sha256": "896ef087bc6d4670d39a2eca38f8e45205c588fb598f1adf80b54d3f57a48b63"
+    },
+    {
+      "file": "06-escape-half-dark-preview.png",
+      "label": "06 逃向黑森林",
+      "sha256": "74aa7949eaa374851ad271dccdbf572229b8b802ae56520842b8c4de85ac151c"
+    }
+  ],
+  "revision_note": "2026-10-13：序章游戏接入使用最新中等压暗版图 6。"
+}

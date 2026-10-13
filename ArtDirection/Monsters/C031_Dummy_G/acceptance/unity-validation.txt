@@ -1,0 +1,26 @@
+Mob007 Unity validation
+Atk1_00: PASS both skins, finite geometry, identical deformation; duration=1.4333
+Clear_00: PASS both skins, finite geometry, identical deformation; duration=1.2333
+Death_00: PASS both skins, finite geometry, identical deformation; duration=1.5333
+GetUp_00: PASS both skins, finite geometry, identical deformation; duration=0.6
+Hit_00: PASS both skins, finite geometry, identical deformation; duration=0.7667
+Idle_Battle_00: PASS both skins, finite geometry, identical deformation; duration=1.2
+Idle_Down_00: PASS both skins, finite geometry, identical deformation; duration=0
+Idle_Normal_00: PASS both skins, finite geometry, identical deformation; duration=0.8667
+KnockBack_00: PASS both skins, finite geometry, identical deformation; duration=0.8333
+KnockDown_00: PASS both skins, finite geometry, identical deformation; duration=1
+LinkSkill_00: PASS both skins, finite geometry, identical deformation; duration=1.6
+Run_Battle_00: PASS both skins, finite geometry, identical deformation; duration=0.8
+Stun_00: PASS both skins, finite geometry, identical deformation; duration=1.8333
+Walk_Normal_00: PASS both skins, finite geometry, identical deformation; duration=1.0667
+Idle1: PASS both skins, finite geometry, identical deformation; duration=1.2
+Attack1: PASS both skins, finite geometry, identical deformation; duration=1.4333
+Hit: PASS both skins, finite geometry, identical deformation; duration=0.7667
+Death1: PASS both skins, finite geometry, identical deformation; duration=1.5333
+Idle1: PASS events OnHit=0, OnComplete=0
+Attack1: PASS events OnHit=1, OnComplete=1
+Hit: PASS events OnHit=0, OnComplete=1
+Death1: PASS events OnHit=0, OnComplete=1
+PASS interrupted attack: 0 hits, 1 completion.
+PASS attack interrupted by death: 0 hits, 1 completion.
+PASS 20 bones, 11 slots, 18 clips, 36 skin/clip combinations; rendered all clips.

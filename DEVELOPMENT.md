@@ -154,7 +154,7 @@
 
 ## 2026年10月10日战斗站位更新
 
-现有 Gameplay 已采用第一章样张的紧凑三角阵形，前排怪物与主角同纵深。完成三比例实际渲染与胜利、失败、返回营地流程验证，运行错误为 0；五节背景接入仍待制作。[站位实现与验证](ArtDirection/Environment/Chapter01/formation-validation.md)。
+现有 Gameplay 已采用第一章样张的紧凑三角阵形，前排怪物与主角同纵深。完成三比例实际渲染与胜利、失败、返回营地流程验证，运行错误为 0；五节背景已于 2026-10-12 接入，详见下方环境更新。[站位实现与验证](ArtDirection/Environment/Chapter01/formation-validation.md)。
 
 ### 2026-10-10 · Mob5–Mob8 画风改造概念稿
 
@@ -165,3 +165,17 @@
 三只蘑菇改名为 Mob001（蜡斑菇）、Mob002（木纹菇）、Mob003（梦眼菇）；保留资源 GUID，同步 Prefab、Spine 导出、分件源目录、敌人库、Addressables 和现有蘑菇波次。原版 Mob1/Mob2/Mob4 及 ItemDrop/Map1/Map2/Map3 的史莱姆恢复至替换前内容。删除构建器覆盖原版资源的功能，后续通过配置选新怪物。Mob5–Mob8 正面概念稿停止采用，保留为历史参考。
 
 验证：六个独立资源键、骨架来源及蘑菇动画通过；Gameplay 新编号四次出场通过，运行错误 0。原版七个文件逐字节匹配替换前版本。
+
+## 2026-10-12 第一章五节点环境接入
+
+五个正式节点现按顺序加载暮色林缘、蘑菇森林、月下过桥、溪畔小屋和小屋内部。每张拆分前后层，按节点装配路灯、祭祀火光、流水/瀑布、睁眼月亮、烟囱烟雾、窗内狼影及烛火/壁炉的独立 Spine 动画。节点绑定保存在 Chapter01Environments 资源中，背景子物件可直接编辑 Prefab。
+
+已检查五节点加载、三怪战斗构图、返回营地清理与三种比例的实际 Game View 图片；全部 Spine 轨道逐帧检查通过。水流为本轮 Spine 网格形变方案，移动设备性能尚未验收。制作路径和编辑说明见[环境落地档案](ArtDirection/Environment/Chapter01/implementation.md)。
+
+### 2026-10-12 前五个地图节点绑定纠正
+
+前五个实际路线键依次为 Khorasan Ruins I、Khorasan Ruins II、test01、test02、Mount Zion。之前把带 test 名称的两个可见节点跳过，导致后三张背景落在第 5–7 个节点；现修正 Chapter01Environments 与显式构建器的顺序。验证改为调用真实地图 Prefab 中对应 MapNode 的按钮事件，而非直接调用关卡加载。
+
+## 2026-10-12 怪物资源改用名称
+
+九个新怪物统一采用 `Mob+英文名称`（PascalCase），不再分配 Mob00x 编号。旧名对照和资源路径见 `ArtDirection/Monsters/name-migration-2026-10-12.json`。Prefab、贴图、骨架数据的 GUID 保留，数据库、Addressables、已有波次、测试目录及制作工具同步更新；原版 Mob1 等资源不变。以上 2026-10-10 编号记录仅为历史。

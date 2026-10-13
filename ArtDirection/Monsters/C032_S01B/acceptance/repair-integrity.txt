@@ -1,0 +1,8 @@
+Mob004 repair v2 integrity
+PASS Unity/source exact Mob004.json
+PASS Unity/source exact Mob004.atlas.txt
+PASS Unity/source exact Mob004.png
+PASS entire rig JSON unchanged from pre-repair; includes original motions and game events
+PASS original external source SHA256 unchanged
+PASS external export exact Mob004.atlas.txt
+PASS external export exact Mob004.png

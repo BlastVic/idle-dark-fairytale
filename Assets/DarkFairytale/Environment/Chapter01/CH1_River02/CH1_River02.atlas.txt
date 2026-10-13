@@ -1,0 +1,20 @@
+
+CH1_River02.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+water2
+  rotate: false
+  xy: 0, 376
+  size: 941, 1672
+  orig: 941, 1672
+  offset: 0, 0
+  index: -1
+ripple
+  rotate: false
+  xy: 0, 164
+  size: 384, 208
+  orig: 384, 208
+  offset: 0, 0
+  index: -1

@@ -1,0 +1,40 @@
+Hearth.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+flame0
+  rotate: false
+  xy: 1456, 1620
+  size: 569, 428
+  orig: 569, 428
+  offset: 0, 0
+  index: -1
+flame1
+  rotate: false
+  xy: 0, 718
+  size: 385, 616
+  orig: 385, 616
+  offset: 0, 0
+  index: -1
+flame2
+  rotate: false
+  xy: 1002, 1462
+  size: 450, 586
+  orig: 450, 586
+  offset: 0, 0
+  index: -1
+flame3
+  rotate: false
+  xy: 0, 166
+  size: 353, 548
+  orig: 353, 548
+  offset: 0, 0
+  index: -1
+guard
+  rotate: false
+  xy: 0, 1338
+  size: 998, 710
+  orig: 998, 710
+  offset: 0, 0
+  index: -1

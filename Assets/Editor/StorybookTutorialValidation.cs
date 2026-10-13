@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
+[InitializeOnLoad] public static class StorybookTutorialValidation{
+ const string Out="output/tutorial-ui/";static bool running;static double started;
+ static StorybookTutorialValidation(){EditorApplication.update+=Tick;EditorApplication.playModeStateChanged+=s=>{if(s==PlayModeStateChange.EnteredEditMode&&SessionState.GetBool("TUTORIAL_QA",false)){SessionState.SetBool("TUTORIAL_QA",false);SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",false);running=false;}};}
+ static void Tick(){if(EditorApplication.isCompiling||EditorApplication.isUpdating)return;if(!EditorApplication.isPlayingOrWillChangePlaymode&&File.Exists(Out+"validate.request")){File.Delete(Out+"validate.request");File.WriteAllText(Out+"validation.txt","");SessionState.SetBool("TUTORIAL_QA",true);SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",true);started=EditorApplication.timeSinceStartup;EditorApplication.isPlaying=true;}if(EditorApplication.isPlaying&&SessionState.GetBool("TUTORIAL_QA",false)&&!running&&GameManager.single&&GameplayCanvas.single){running=true;started=EditorApplication.timeSinceStartup;GameManager.single.StartCoroutine(Run());}if(running&&EditorApplication.timeSinceStartup-started>240){Check(false,"timeout");EditorApplication.isPlaying=false;}}
+ static void Check(bool ok,string message){File.AppendAllText(Out+"validation.txt",(ok?"PASS ":"FAIL ")+message+"\n");}
+ static void Shot(string name){var t=ScreenCapture.CaptureScreenshotAsTexture();File.WriteAllBytes(Out+name+".png",t.EncodeToPNG());Object.Destroy(t);}
+ static IEnumerator Run(){
+ var intro=Object.FindFirstObjectByType<CursedBookIntro>(FindObjectsInactive.Include);while(intro&&intro.gameObject.activeSelf)yield return null;yield return new WaitForSecondsRealtime(1);
+ var gm=GameManager.single;var gc=GameplayCanvas.single;var manager=TutorialManager.single;manager.automatic=false;manager.view.Hide();gc.CancelInvoke("TryShowingXpBoosterNotification");gc.xpBoosterNotification.SetActive(false);gc.dailyCherriesPop.SetActive(false);
+ gm.thingsSeenPermanent.RemoveAll(s=>s.StartsWith("Tutorial-"));
+ Check(manager.view.steps.Length==9,"All nine existing tutorials have authored text");Check(manager.tutorials.All(t=>!t.activeSelf)&&!manager.overlay.activeSelf&&!manager.tutorialCharacter.activeSelf,"Legacy tutorial objects disabled");
+ foreach(var size in new[]{new Vector2Int(1080,1920),new Vector2Int(768,1024),new Vector2Int(720,1440)}){
+ StorybookEquipmentValidation.Resolution(size.x,size.y);manager.PlayTutorial(0);yield return new WaitForSecondsRealtime(1);var v=manager.view;Check(v.Visible,"Guide displayed "+size);if(!v.Visible)continue;
+ Check(!v.CardRect.Overlaps(v.TargetRect),"Card does not cover target "+size);Check(((RectTransform)v.transform).rect.Contains(v.CardRect.min)&&((RectTransform)v.transform).rect.Contains(v.CardRect.max),"Card in viewport "+size);
+ var hits=new List<RaycastResult>();var b=v.Target;EventSystem.current.RaycastAll(new PointerEventData(EventSystem.current){position=RectTransformUtility.WorldToScreenPoint(null,b.transform.TransformPoint(((RectTransform)b.transform).rect.center))},hits);Check(hits.Count>0&&hits[0].gameObject.GetComponentInParent<Button>()==b,"Spotlight passes input to actual target "+size);
+ yield return new WaitForEndOfFrame();Shot("guide-"+size.x+"x"+size.y);manager.ClosePopUp();Check(gm.HasSeenThis("Tutorial-0")&&!v.Visible&&!v.presentation.blocksRaycasts,"Dismiss records progress and releases raycasts");gm.thingsSeenPermanent.Remove("Tutorial-0");}
+ StorybookEquipmentValidation.Resolution(1080,1920);manager.PlayTutorial(0);yield return new WaitForSecondsRealtime(1);manager.view.Target.onClick.Invoke();yield return new WaitForSecondsRealtime(2);Check(gm.HasSeenThis("Tutorial-0"),"Actual map navigation completes first guide");manager.PlayTutorial(1);yield return new WaitForSecondsRealtime(1);Check(manager.view.Visible&&manager.ActiveKey==1,"Map guide binds new map node");yield return new WaitForEndOfFrame();Shot("map-guide");manager.ClosePopUp();
+ Check(!gm.HasSeenThis("Tutorial-2"),"Unavailable step not prematurely consumed");
+ // Navigate back through the actual shared menu.
+ Object.FindFirstObjectByType<StorybookMapUI>().navigationButtons[2].onClick.Invoke();yield return new WaitForSecondsRealtime(2);
+ gm.statPoints=3;gc.RefreshCampUI();manager.PlayTutorial(2);yield return new WaitForSecondsRealtime(1);Check(manager.view.Visible&&manager.ActiveKey==2,"Health point guide binds expanded panel");if(manager.view.Visible){yield return new WaitForEndOfFrame();Shot("health-guide");int points=gm.statPoints;manager.view.Target.onClick.Invoke();Check(gm.statPoints<points&&gm.HasSeenThis("Tutorial-2"),"Actual health purchase completes guide");}
+ manager.PlayTutorial(3);yield return new WaitForSecondsRealtime(1);Check(manager.view.Visible&&manager.ActiveKey==3,"Inventory entrance guide");if(manager.view.Visible)manager.view.Target.onClick.Invoke();yield return new WaitForSecondsRealtime(2);
+ var equipment=Object.FindFirstObjectByType<StorybookEquipmentUI>();Check(equipment,"Equipment page opened");if(equipment){
+ var im=InventoryManager.single;var template=equipment.Equipped(ItemType.WEAPON)??im.weaponsOwned.FirstOrDefault();if(template!=null){var item=Utilities.DeepClone(template);item.uniqueId=887701;item.isLocked=false;im.weaponsOwned.Add(item);equipment.SetCategory(ItemType.WEAPON);equipment.Select(item);manager.PlayTutorial(4);yield return new WaitForSecondsRealtime(1);Check(manager.view.Visible&&manager.ActiveKey==4,"Equip guide binds actual equip button");if(manager.view.Visible){yield return new WaitForEndOfFrame();Shot("equip-guide");manager.view.Target.onClick.Invoke();Check(im.weaponEq.uniqueId==item.uniqueId&&gm.HasSeenThis("Tutorial-4"),"Equip action completes guide");}
+ var spare=Utilities.DeepClone(template);spare.uniqueId=887702;spare.isLocked=false;im.weaponsOwned.Add(spare);equipment.Rebuild();equipment.Select(spare);manager.PlayTutorial(5);yield return new WaitForSecondsRealtime(1);Check(manager.view.Visible&&manager.ActiveKey==5,"Decompose guide binds button");if(manager.view.Visible){manager.view.Target.onClick.Invoke();Check(equipment.modal.activeSelf&&im.weaponsOwned.Contains(spare)&&gm.HasSeenThis("Tutorial-5"),"Decompose retains confirmation; guide never destroys equipment");equipment.modalCancel.onClick.Invoke();}}
+ equipment.navigationButtons[2].onClick.Invoke();yield return new WaitForSecondsRealtime(2);}
+ manager.PlayTutorial(6);yield return new WaitForSecondsRealtime(2);Check(manager.view.Visible&&manager.ActiveKey==6,"Owned chest guide");if(manager.view.Visible){yield return new WaitForEndOfFrame();Shot("chest-guide");manager.ClosePopUp();}
+ gm.fxpNow=gm.fxpMax;gc.RefreshCampUI();manager.PlayTutorial(7);yield return new WaitForSecondsRealtime(1);Check(manager.view.Visible&&manager.ActiveKey==7,"Fusion entrance guide");if(manager.view.Visible)manager.view.Target.onClick.Invoke();yield return new WaitForSecondsRealtime(3);Check(manager.view.Visible&&manager.view.Target.GetComponentInParent<StorybookFusionUI>(),"Fusion guide follows page change");if(manager.view.Visible){yield return new WaitForEndOfFrame();Shot("fusion-guide");manager.ClosePopUp();}var fusion=Object.FindFirstObjectByType<StorybookFusionUI>();if(fusion)fusion.back.onClick.Invoke();yield return new WaitForSecondsRealtime(3);
+ manager.PlayTutorial(8);yield return new WaitForSecondsRealtime(1);Check(manager.view.Visible&&manager.ActiveKey==8,"Explicit shop guide");if(manager.view.Visible){manager.ClosePopUp();Check(gm.HasSeenThis("Tutorial-8"),"Shop guide can dismiss without purchase");}
+ File.AppendAllText(Out+"validation.txt","DONE\n");EditorApplication.isPlaying=false;
+ }
+}

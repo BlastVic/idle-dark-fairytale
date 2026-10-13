@@ -1,0 +1,4 @@
+Tool: built-in image_gen
+Status: preview only; visual approximation of halfway darkening, not numerical pixel interpolation.
+Source: exec-ba125561-ce69-4f32-b470-1cb6ef82e121.png
+Apply a visible moderate darkening color grade to this exact image. Reduce midtone luminance across the forest, blue distant tunnel, ground path and character by approximately 30 percent (multiply midtones by about 0.70). Keep the small lantern flame highlights bright. This is a lighting-only edit: no drawing changes whatsoever. The blue forest tunnel should become deep dim navy-charcoal yet remain readable, not pitch black. The red-cloaked running girl's back should remain discernible with warm edges but slightly dimmer. Keep all trees, rocks, clothes, posture, lantern and composition identical. Preserve texture detail under the darker grading. The result must be plainly darker than this input but not extremely dark; use a medium-dark exposure. Single portrait image, no text.

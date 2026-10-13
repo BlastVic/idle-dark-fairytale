@@ -1,0 +1,7 @@
+{
+  "tool": "built-in image_gen",
+  "input": "painted-0.png",
+  "output": "painted-body-v2.png",
+  "usage": "Only body consumes this sheet; other parts retain painted-0",
+  "prompt": "Precise texture-sheet edit. Preserve the exact transparent 3x3 nine-part sheet, all cells, alpha silhouettes and every part unchanged except the internal moon and reeds painted within the TOP LEFT body sprite. The moon is currently too bright, sharp and too close to face overlay. Make this moon 30 percent smaller and move it left and slightly downward within the body, centered at 24 percent of body width and 66 percent body height from top. Full round moon with closed eye/lashes must become VERY HAZY, blurred diffuse submerged low contrast blue-gray, much closer to surrounding teal water in brightness. Soften lashes heavily, no crisp black logo or bright ivory disk. Make reeds below it smaller and faint too. Preserve body outline, overall water shading, highlights, bubbles and all other eight pieces pixel layout unchanged. No face on body, no new parts, true transparent background."
+}

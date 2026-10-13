@@ -1,0 +1,347 @@
+[
+  {
+    "part": "Front_Eye",
+    "sourceBounds": [
+      31,
+      331,
+      145,
+      141
+    ],
+    "targetBounds": [
+      0,
+      0,
+      44,
+      43
+    ]
+  },
+  {
+    "part": "Front_Eye_L_01",
+    "sourceBounds": [
+      239,
+      328,
+      147,
+      147
+    ],
+    "targetBounds": [
+      0,
+      0,
+      41,
+      41
+    ]
+  },
+  {
+    "part": "Front_Eye_L_02",
+    "sourceBounds": [
+      444,
+      335,
+      147,
+      143
+    ],
+    "targetBounds": [
+      1,
+      1,
+      48,
+      46
+    ]
+  },
+  {
+    "part": "Front_Eye_L_03",
+    "sourceBounds": [
+      654,
+      329,
+      149,
+      149
+    ],
+    "targetBounds": [
+      1,
+      1,
+      45,
+      46
+    ]
+  },
+  {
+    "part": "Front_Eye_R_01",
+    "sourceBounds": [
+      883,
+      323,
+      108,
+      158
+    ],
+    "targetBounds": [
+      0,
+      0,
+      23,
+      36
+    ]
+  },
+  {
+    "part": "Front_Eye_R_02",
+    "sourceBounds": [
+      1090,
+      323,
+      111,
+      160
+    ],
+    "targetBounds": [
+      1,
+      1,
+      24,
+      37
+    ]
+  },
+  {
+    "part": "Front_Eye_R_03",
+    "sourceBounds": [
+      45,
+      119,
+      113,
+      151
+    ],
+    "targetBounds": [
+      0,
+      1,
+      22,
+      31
+    ]
+  },
+  {
+    "part": "Front_EyeLid_L_01",
+    "sourceBounds": [
+      238,
+      130,
+      152,
+      126
+    ],
+    "targetBounds": [
+      1,
+      0,
+      35,
+      30
+    ]
+  },
+  {
+    "part": "Front_EyeLid_R_01",
+    "sourceBounds": [
+      460,
+      114,
+      119,
+      156
+    ],
+    "targetBounds": [
+      1,
+      0,
+      23,
+      32
+    ]
+  },
+  {
+    "part": "Front_Mouth_L_01",
+    "sourceBounds": [
+      656,
+      113,
+      149,
+      156
+    ],
+    "targetBounds": [
+      1,
+      1,
+      42,
+      48
+    ]
+  },
+  {
+    "part": "Front_Mouth_R_01",
+    "sourceBounds": [
+      890,
+      112,
+      93,
+      159
+    ],
+    "targetBounds": [
+      0,
+      0,
+      32,
+      60
+    ]
+  },
+  {
+    "part": "Front_Leg1_L_01",
+    "sourceBounds": [
+      69,
+      886,
+      142,
+      339
+    ],
+    "targetBounds": [
+      0,
+      0,
+      62,
+      155
+    ]
+  },
+  {
+    "part": "Front_Leg1_L_02",
+    "sourceBounds": [
+      314,
+      893,
+      224,
+      331
+    ],
+    "targetBounds": [
+      0,
+      0,
+      75,
+      103
+    ]
+  },
+  {
+    "part": "Front_Leg1_R_01",
+    "sourceBounds": [
+      675,
+      883,
+      185,
+      339
+    ],
+    "targetBounds": [
+      0,
+      0,
+      80,
+      149
+    ]
+  },
+  {
+    "part": "Front_Leg1_R_02",
+    "sourceBounds": [
+      960,
+      976,
+      257,
+      147
+    ],
+    "targetBounds": [
+      0,
+      0,
+      114,
+      66
+    ]
+  },
+  {
+    "part": "Front_Leg2_L_01",
+    "sourceBounds": [
+      59,
+      478,
+      175,
+      333
+    ],
+    "targetBounds": [
+      0,
+      0,
+      70,
+      136
+    ]
+  },
+  {
+    "part": "Front_Leg2_L_02",
+    "sourceBounds": [
+      338,
+      521,
+      250,
+      245
+    ],
+    "targetBounds": [
+      0,
+      0,
+      114,
+      114
+    ]
+  },
+  {
+    "part": "Front_Leg2_R_01",
+    "sourceBounds": [
+      651,
+      469,
+      236,
+      345
+    ],
+    "targetBounds": [
+      0,
+      0,
+      77,
+      115
+    ]
+  },
+  {
+    "part": "Front_Leg2_R_02",
+    "sourceBounds": [
+      961,
+      565,
+      265,
+      154
+    ],
+    "targetBounds": [
+      0,
+      0,
+      104,
+      64
+    ]
+  },
+  {
+    "part": "Front_Leg3_L_01",
+    "sourceBounds": [
+      49,
+      71,
+      184,
+      345
+    ],
+    "targetBounds": [
+      0,
+      0,
+      59,
+      113
+    ]
+  },
+  {
+    "part": "Front_Leg3_L_02",
+    "sourceBounds": [
+      332,
+      192,
+      257,
+      110
+    ],
+    "targetBounds": [
+      0,
+      0,
+      133,
+      56
+    ]
+  },
+  {
+    "part": "Front_Leg3_R_01",
+    "sourceBounds": [
+      649,
+      137,
+      243,
+      205
+    ],
+    "targetBounds": [
+      0,
+      0,
+      73,
+      62
+    ]
+  },
+  {
+    "part": "Front_Leg3_R_02",
+    "sourceBounds": [
+      965,
+      192,
+      264,
+      107
+    ],
+    "targetBounds": [
+      0,
+      0,
+      88,
+      39
+    ]
+  }
+]

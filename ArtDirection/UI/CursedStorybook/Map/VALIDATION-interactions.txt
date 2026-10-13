@@ -1,0 +1,264 @@
+地图交互更新验收 / 2026-10-12
+
+实际 Gameplay 测试：9:16、3:4、1:2；标签居中和未解锁隐藏；重复点击进入；拖动和锁定拦截；卡片动画开始与复位；五个节点战斗返回；地图纵向位置跨返回恢复；装备、技能、商店导航。
+测试关闭正式存档写入，截图和详细日志仅保留 output/map-ui/。
+18:50 已补齐徽章裁切修正后的三种比例实际 Unity 截图并逐图核对。纸页残边已去除，标签居中，未解锁名称与波次隐藏。3:4 初始地图坐标微调到 400，兼顾顶端徽章与底端波次。截图与按钮射线检查通过，测试结束后恢复原来的 MonsterAnimationTest 场景。
+
+Actual Gameplay map validation; save persistence disabled
+STAGE 1 ratio=0 node=0
+STAGE 2 ratio=0 node=0
+PASS Exactly five first-chapter nodes
+PASS Correct five existing level keys
+PASS All legacy/future map nodes inactive
+PASS Legacy background and cloud layers hidden
+STAGE 3 ratio=0 node=0
+PASS Centered label Khorasan Ruins I
+PASS Locked labels hidden 0
+PASS Centered label Khorasan Ruins II
+PASS Locked labels hidden 1
+PASS Centered label test01
+PASS Locked labels hidden 2
+PASS Centered label test02
+PASS Locked labels hidden 3
+PASS Centered label Mount Zion
+PASS Locked labels hidden 4
+STAGE 4 ratio=0 node=0
+PASS rendered pointer Node_1-1_暮色林缘 => Node_1-1_暮色林缘
+PASS rendered pointer Node_1-2_蘑菇森林 => Node_1-2_蘑菇森林
+PASS rendered pointer Node_1-3_月下过桥 => Node_1-3_月下过桥
+PASS rendered pointer Node_1-4_溪畔小屋 => Node_1-4_溪畔小屋
+PASS rendered pointer Node_1-5_小屋内部 => Node_1-5_小屋内部
+PASS rendered pointer BackToShelter => BackToShelter
+PASS rendered pointer LocateSelection => LocateSelection
+PASS rendered pointer EnterSelectedNode => EnterSelectedNode
+PASS rendered pointer Nav_装备 => Nav_装备
+PASS rendered pointer Nav_技能 => Nav_技能
+PASS rendered pointer Nav_庇护所 => Nav_庇护所
+PASS rendered pointer Nav_地图 => Nav_地图
+PASS rendered pointer Nav_商店 => Nav_商店
+CAPTURE actual map 9x16
+STAGE 5 ratio=0 node=0
+STAGE 3 ratio=1 node=0
+PASS Centered label Khorasan Ruins I
+PASS Locked labels hidden 0
+PASS Centered label Khorasan Ruins II
+PASS Locked labels hidden 1
+PASS Centered label test01
+PASS Locked labels hidden 2
+PASS Centered label test02
+PASS Locked labels hidden 3
+PASS Centered label Mount Zion
+PASS Locked labels hidden 4
+STAGE 4 ratio=1 node=0
+PASS rendered pointer Node_1-1_暮色林缘 => Node_1-1_暮色林缘
+PASS rendered pointer Node_1-2_蘑菇森林 => Node_1-2_蘑菇森林
+PASS rendered pointer Node_1-3_月下过桥 => Node_1-3_月下过桥
+PASS rendered pointer Node_1-4_溪畔小屋 => Node_1-4_溪畔小屋
+PASS rendered pointer Node_1-5_小屋内部 => Node_1-5_小屋内部
+PASS rendered pointer BackToShelter => BackToShelter
+PASS rendered pointer LocateSelection => LocateSelection
+PASS rendered pointer EnterSelectedNode => EnterSelectedNode
+PASS rendered pointer Nav_装备 => Nav_装备
+PASS rendered pointer Nav_技能 => Nav_技能
+PASS rendered pointer Nav_庇护所 => Nav_庇护所
+PASS rendered pointer Nav_地图 => Nav_地图
+PASS rendered pointer Nav_商店 => Nav_商店
+CAPTURE actual map 3x4
+STAGE 5 ratio=1 node=0
+STAGE 3 ratio=2 node=0
+PASS Centered label Khorasan Ruins I
+PASS Locked labels hidden 0
+PASS Centered label Khorasan Ruins II
+PASS Locked labels hidden 1
+PASS Centered label test01
+PASS Locked labels hidden 2
+PASS Centered label test02
+PASS Locked labels hidden 3
+PASS Centered label Mount Zion
+PASS Locked labels hidden 4
+STAGE 4 ratio=2 node=0
+PASS rendered pointer Node_1-1_暮色林缘 => Node_1-1_暮色林缘
+PASS rendered pointer Node_1-2_蘑菇森林 => Node_1-2_蘑菇森林
+PASS rendered pointer Node_1-3_月下过桥 => Node_1-3_月下过桥
+PASS rendered pointer Node_1-4_溪畔小屋 => Node_1-4_溪畔小屋
+PASS rendered pointer Node_1-5_小屋内部 => Node_1-5_小屋内部
+PASS rendered pointer BackToShelter => BackToShelter
+PASS rendered pointer LocateSelection => LocateSelection
+PASS rendered pointer EnterSelectedNode => EnterSelectedNode
+PASS rendered pointer Nav_装备 => Nav_装备
+PASS rendered pointer Nav_技能 => Nav_技能
+PASS rendered pointer Nav_庇护所 => Nav_庇护所
+PASS rendered pointer Nav_地图 => Nav_地图
+PASS rendered pointer Nav_商店 => Nav_商店
+CAPTURE actual map 1x2
+STAGE 5 ratio=2 node=0
+STAGE 6 ratio=3 node=0
+PASS Locked node disables entry
+PASS Locked repeat click cannot start battle
+PASS First node available for fresh progress
+PASS Drag cannot select or enter a node
+STAGE 7 ratio=3 node=0
+PASS Locate stops scroll inertia
+PASS All five nodes respect completed prerequisites
+STAGE 8 ratio=3 node=0
+PASS First click selects different node 0
+PASS Card entrance animation starts 0
+PASS Second click enters and prevents repeated navigation 0
+STAGE 9 ratio=3 node=0
+PASS Node 1 enters existing battle flow
+PASS Node 1 matches actual chapter environment
+STAGE 10 ratio=3 node=0
+PASS Battle returns to shelter 0
+STAGE 8 ratio=3 node=1
+PASS Scroll position restored after battle 1
+PASS First click selects different node 1
+PASS Card entrance animation starts 1
+PASS Second click enters and prevents repeated navigation 1
+STAGE 9 ratio=3 node=1
+PASS Node 2 enters existing battle flow
+PASS Node 2 matches actual chapter environment
+STAGE 10 ratio=3 node=1
+PASS Battle returns to shelter 1
+STAGE 8 ratio=3 node=2
+PASS Scroll position restored after battle 2
+PASS First click selects different node 2
+PASS Card entrance animation starts 2
+PASS Second click enters and prevents repeated navigation 2
+STAGE 9 ratio=3 node=2
+PASS Node 3 enters existing battle flow
+PASS Node 3 matches actual chapter environment
+STAGE 10 ratio=3 node=2
+PASS Battle returns to shelter 2
+STAGE 8 ratio=3 node=3
+PASS Scroll position restored after battle 3
+PASS First click selects different node 3
+PASS Card entrance animation starts 3
+PASS Second click enters and prevents repeated navigation 3
+STAGE 9 ratio=3 node=3
+PASS Node 4 enters existing battle flow
+PASS Node 4 matches actual chapter environment
+STAGE 10 ratio=3 node=3
+PASS Battle returns to shelter 3
+STAGE 8 ratio=3 node=4
+PASS Scroll position restored after battle 4
+PASS First click selects different node 4
+PASS Card entrance animation starts 4
+PASS Second click enters and prevents repeated navigation 4
+STAGE 9 ratio=3 node=4
+PASS Node 5 enters existing battle flow
+PASS Node 5 matches actual chapter environment
+STAGE 10 ratio=3 node=4
+PASS Battle returns to shelter 4
+STAGE 11 ratio=3 node=5
+PASS Map position survives reopen 0
+PASS Card animation restores settled state
+STAGE 12 ratio=3 node=5
+PASS Map navigation opens INVENTORY
+STAGE 13 ratio=3 node=5
+STAGE 11 ratio=3 node=5
+PASS Map position survives reopen 1
+PASS Card animation restores settled state
+STAGE 12 ratio=3 node=5
+PASS Map navigation opens SKILLS
+STAGE 13 ratio=3 node=5
+STAGE 11 ratio=3 node=5
+PASS Map position survives reopen 2
+PASS Card animation restores settled state
+STAGE 12 ratio=3 node=5
+PASS Map navigation opens CASH_MALL
+STAGE 13 ratio=3 node=5
+STAGE 14 ratio=3 node=5
+STAGE 15 ratio=3 node=5
+PASS Back returns to shelter
+PASS all map checks; unexpected runtime errors=0
+
+最终实景截图复查
+Actual Gameplay map validation; save persistence disabled
+STAGE 1 ratio=0 node=0
+STAGE 2 ratio=0 node=0
+PASS Exactly five first-chapter nodes
+PASS Correct five existing level keys
+PASS All legacy/future map nodes inactive
+PASS Legacy background and cloud layers hidden
+STAGE 3 ratio=0 node=0
+PASS Centered label Khorasan Ruins I
+PASS Locked labels hidden 0
+PASS Centered label Khorasan Ruins II
+PASS Locked labels hidden 1
+PASS Centered label test01
+PASS Locked labels hidden 2
+PASS Centered label test02
+PASS Locked labels hidden 3
+PASS Centered label Mount Zion
+PASS Locked labels hidden 4
+STAGE 4 ratio=0 node=0
+PASS rendered pointer Node_1-1_暮色林缘 => Node_1-1_暮色林缘
+PASS rendered pointer Node_1-2_蘑菇森林 => Node_1-2_蘑菇森林
+PASS rendered pointer Node_1-3_月下过桥 => Node_1-3_月下过桥
+PASS rendered pointer Node_1-4_溪畔小屋 => Node_1-4_溪畔小屋
+PASS rendered pointer Node_1-5_小屋内部 => Node_1-5_小屋内部
+PASS rendered pointer BackToShelter => BackToShelter
+PASS rendered pointer LocateSelection => LocateSelection
+PASS rendered pointer EnterSelectedNode => EnterSelectedNode
+PASS rendered pointer Nav_装备 => Nav_装备
+PASS rendered pointer Nav_技能 => Nav_技能
+PASS rendered pointer Nav_庇护所 => Nav_庇护所
+PASS rendered pointer Nav_地图 => Nav_地图
+PASS rendered pointer Nav_商店 => Nav_商店
+CAPTURE actual map 9x16
+STAGE 5 ratio=0 node=0
+STAGE 3 ratio=1 node=0
+PASS Centered label Khorasan Ruins I
+PASS Locked labels hidden 0
+PASS Centered label Khorasan Ruins II
+PASS Locked labels hidden 1
+PASS Centered label test01
+PASS Locked labels hidden 2
+PASS Centered label test02
+PASS Locked labels hidden 3
+PASS Centered label Mount Zion
+PASS Locked labels hidden 4
+STAGE 4 ratio=1 node=0
+PASS rendered pointer Node_1-1_暮色林缘 => Node_1-1_暮色林缘
+PASS rendered pointer Node_1-2_蘑菇森林 => Node_1-2_蘑菇森林
+PASS rendered pointer Node_1-3_月下过桥 => Node_1-3_月下过桥
+PASS rendered pointer Node_1-4_溪畔小屋 => Node_1-4_溪畔小屋
+PASS rendered pointer Node_1-5_小屋内部 => Node_1-5_小屋内部
+PASS rendered pointer BackToShelter => BackToShelter
+PASS rendered pointer LocateSelection => LocateSelection
+PASS rendered pointer EnterSelectedNode => EnterSelectedNode
+PASS rendered pointer Nav_装备 => Nav_装备
+PASS rendered pointer Nav_技能 => Nav_技能
+PASS rendered pointer Nav_庇护所 => Nav_庇护所
+PASS rendered pointer Nav_地图 => Nav_地图
+PASS rendered pointer Nav_商店 => Nav_商店
+CAPTURE actual map 3x4
+STAGE 5 ratio=1 node=0
+STAGE 3 ratio=2 node=0
+PASS Centered label Khorasan Ruins I
+PASS Locked labels hidden 0
+PASS Centered label Khorasan Ruins II
+PASS Locked labels hidden 1
+PASS Centered label test01
+PASS Locked labels hidden 2
+PASS Centered label test02
+PASS Locked labels hidden 3
+PASS Centered label Mount Zion
+PASS Locked labels hidden 4
+STAGE 4 ratio=2 node=0
+PASS rendered pointer Node_1-1_暮色林缘 => Node_1-1_暮色林缘
+PASS rendered pointer Node_1-2_蘑菇森林 => Node_1-2_蘑菇森林
+PASS rendered pointer Node_1-3_月下过桥 => Node_1-3_月下过桥
+PASS rendered pointer Node_1-4_溪畔小屋 => Node_1-4_溪畔小屋
+PASS rendered pointer Node_1-5_小屋内部 => Node_1-5_小屋内部
+PASS rendered pointer BackToShelter => BackToShelter
+PASS rendered pointer LocateSelection => LocateSelection
+PASS rendered pointer EnterSelectedNode => EnterSelectedNode
+PASS rendered pointer Nav_装备 => Nav_装备
+PASS rendered pointer Nav_技能 => Nav_技能
+PASS rendered pointer Nav_庇护所 => Nav_庇护所
+PASS rendered pointer Nav_地图 => Nav_地图
+PASS rendered pointer Nav_商店 => Nav_商店
+CAPTURE actual map 1x2
+STAGE 5 ratio=2 node=0
+PASS capture / five nodes / three ratios

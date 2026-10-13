@@ -1,0 +1,50 @@
+2026-10-12 当前地图前五节点绑定修正
+
+Five node live Gameplay / Addressables / environment binding / aspect validation
+Actual first five route keys: Khorasan Ruins I -> Khorasan Ruins II -> test01 -> test02 -> Mount Zion
+CLICK actual MapNode button: Khorasan Ruins I
+PASS Khorasan Ruins I -> Environment(Clone); 3 live enemies, one map
+CAPTURE requested node=1 720x1280; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1280
+CAPTURE requested node=1 768x1024; editor Screen=642x1156
+PASS actual Gameplay PNG 768x1024
+CAPTURE requested node=1 720x1440; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1440
+PASS node=1 return to camp destroys environment
+CLICK actual MapNode button: Khorasan Ruins II
+PASS Khorasan Ruins II -> Environment(Clone); 3 live enemies, one map
+CAPTURE requested node=2 720x1280; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1280
+CAPTURE requested node=2 768x1024; editor Screen=642x1156
+PASS actual Gameplay PNG 768x1024
+CAPTURE requested node=2 720x1440; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1440
+PASS node=2 return to camp destroys environment
+CLICK actual MapNode button: test01
+PASS test01 -> Environment(Clone); 3 live enemies, one map
+CAPTURE requested node=3 720x1280; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1280
+CAPTURE requested node=3 768x1024; editor Screen=642x1156
+PASS actual Gameplay PNG 768x1024
+CAPTURE requested node=3 720x1440; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1440
+PASS node=3 return to camp destroys environment
+CLICK actual MapNode button: test02
+PASS test02 -> Environment(Clone); 3 live enemies, one map
+CAPTURE requested node=4 720x1280; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1280
+CAPTURE requested node=4 768x1024; editor Screen=642x1156
+PASS actual Gameplay PNG 768x1024
+CAPTURE requested node=4 720x1440; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1440
+PASS node=4 return to camp destroys environment
+CLICK actual MapNode button: Mount Zion
+PASS Mount Zion -> Environment(Clone); 3 live enemies, one map
+CAPTURE requested node=5 720x1280; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1280
+CAPTURE requested node=5 768x1024; editor Screen=642x1156
+PASS actual Gameplay PNG 768x1024
+CAPTURE requested node=5 720x1440; editor Screen=642x1156
+PASS actual Gameplay PNG 720x1440
+PASS node=5 return to camp destroys environment
+PASS: five node transitions, 15 actual Gameplay captures, errors=0

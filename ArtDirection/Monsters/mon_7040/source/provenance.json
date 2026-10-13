@@ -1,0 +1,73 @@
+{
+  "monster_id": "MobBarkSquirrel",
+  "approved_design": "B-character-v1.png",
+  "painting": "built-in image_gen; exact model not exposed",
+  "source": "/Users/vic/Workshop/Spine/monster/mon_7040",
+  "source_version": "3.8.75",
+  "native_project_status": "Original native project preserved; new native MobBarkSquirrel.spine pending",
+  "aliases": {
+    "Idle1": "idle",
+    "Attack1": "attack_1",
+    "Death1": "die"
+  },
+  "events": {
+    "Attack1": [
+      {
+        "time": 0.3667,
+        "name": "OnHit"
+      },
+      {
+        "time": 0.7333,
+        "name": "OnComplete"
+      }
+    ],
+    "Death1": [
+      {
+        "time": 2,
+        "name": "OnComplete"
+      }
+    ],
+    "Hit": [
+      {
+        "time": 0.4,
+        "name": "OnComplete"
+      }
+    ]
+  },
+  "authored_Hit": "0.4s recoil on original center/head/jaw/tail from idle first pose; no source curve changes",
+  "original_sha256": {
+    "mon_7040_导出.png": "e28eca9b5ee898ef2135934a6455d56b4f5fa46edd7b087e976630b04418c6af",
+    "mon_7040.json": "68dc3898fc5b29514b7c0ac12c9f95e57576e4645730ff107f1bf2b147cd5d02",
+    "mon_7040.spine": "b3f5d60527053e72c8883d5acc793d003c09ef7b9acd80ccf59df1f62b28f21c",
+    "mon_7040.atlas": "95ec22870b7fc5f1baac929a9cfb1840499f09bdc559e462ee9f947adf3b5f6a",
+    "mon_7040.png": "03f8a54e4a2ae2cad518384ebf6526a2b80e545831c6405a20dd96a1d785786b"
+  },
+  "original_images_sha256": {
+    "mouth01.png": "6149f891070496b99312de3a3d0222ed232778ec30d2e0d5a48f71104bb25a46",
+    "mouth02.png": "d2a959eaa921564d2c0f291b16df55d30a8197dcbacb404d01c92dbbd7042f45",
+    "hair03.png": "7e903c07bd16df85cbebe7cc86ee2f1ade0409c732f28012d0ab1d4da9109c44",
+    "hair02.png": "4c5cd957723b8537aa66d418747ddaf1b17ef8f284d89669391b1bb6d5255078",
+    "head_01.png": "f173e377cd737af16b98ee38c1da7119a7dd8bea0354fdccec3104ca04414221",
+    "body.png": "452dc055e3f3fa15fc0e7874c3e080ab62da17e91b630cbaeb195fbf9d09302e",
+    "head_02.png": "76265d5b2a226207f0b4a82140d085d8547ec4e24ab8e70a0c5ee1a38570a00f",
+    "leg_back_left.png": "f4493cecc06599157dce938600aa3289567f4d76a108005c40fe4d52fbc59d69",
+    "eye.png": "ef71ae2e7a585d2d513c4619cde31f055b59b0f4b5d02f67d011fc5d69d01795",
+    "tail.png": "2d553d0de599e83ac3843854bc6dfd512b4ccc19a00f1c29ab23fc3c11a902c0",
+    "leg_front_right.png": "538964651c5badd759f241d50bd8a74c2fa6d41c4b2174922244a548c8ae002d",
+    "neck.png": "9f5961d0b1961aaf10b17023585567c4f3e674fa6a8799ab57b13d58ed8a7aac",
+    "shadow.png": "424e96c26e787a592608ffee70eda4ff2857544dce2a8b5aeae5f623e327acd6",
+    "leg_front_left.png": "378a40ee6b75487e488fe92467cf6fd21ee5aad993777f39049013cd139c4a4e"
+  },
+  "atlas": "straight alpha, nonrotated, 8px padding, max4096, 2x source canvas; generated alpha retained",
+  "registration": "UV-visible source bounds; measured cell borders and uniform registration.json transforms; no UV/weight edits",
+  "mouth_repair_2026_10_12": {
+    "sheet": "painted-mouth-v2.png",
+    "prompt": "mouth-repair-prompt.json",
+    "parts": [
+      "mouth01",
+      "mouth02"
+    ],
+    "reason": "Bark-like directional grain stretched visibly in open-jaw animation; repainted low-contrast dark burgundy mouth and tongue.",
+    "unchanged": "Other 12 part PNG hashes and entire rig JSON byte-identical to pre-repair."
+  }
+}

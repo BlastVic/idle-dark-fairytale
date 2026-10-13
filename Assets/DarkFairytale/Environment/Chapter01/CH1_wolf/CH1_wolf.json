@@ -1,0 +1,134 @@
+{
+  "skeleton": {
+    "hash": "chapter01-environment-v1",
+    "spine": "3.8.75",
+    "images": "./images/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "motion",
+      "parent": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "windowClip",
+      "bone": "root",
+      "attachment": "windowClip"
+    },
+    {
+      "name": "wolf",
+      "bone": "motion",
+      "attachment": "wolf"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "windowClip": {
+          "windowClip": {
+            "type": "clipping",
+            "end": "wolf",
+            "vertexCount": 5,
+            "vertices": [
+              -23,
+              -26,
+              23,
+              -26,
+              23,
+              22,
+              0,
+              45,
+              -23,
+              22
+            ]
+          }
+        },
+        "wolf": {
+          "wolf": {
+            "name": "wolf",
+            "path": "wolf",
+            "width": 43.0,
+            "height": 61.0,
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "Ambient": {
+      "bones": {
+        "motion": {
+          "translate": [
+            {
+              "time": 0.0,
+              "x": -48.0,
+              "y": 0.0
+            },
+            {
+              "time": 7.0,
+              "x": -48.0,
+              "y": 0.0
+            },
+            {
+              "time": 7.6,
+              "x": 0.0,
+              "y": 0.0
+            },
+            {
+              "time": 8.1,
+              "x": 8.0,
+              "y": 1.0
+            },
+            {
+              "time": 8.8,
+              "x": 49.0,
+              "y": 0.0
+            },
+            {
+              "time": 18.0,
+              "x": 49.0,
+              "y": 0.0
+            }
+          ]
+        }
+      },
+      "slots": {
+        "wolf": {
+          "color": [
+            {
+              "time": 0.0,
+              "color": "15101800"
+            },
+            {
+              "time": 7.0,
+              "color": "15101800"
+            },
+            {
+              "time": 7.35,
+              "color": "15101880"
+            },
+            {
+              "time": 8.1,
+              "color": "15101899"
+            },
+            {
+              "time": 8.8,
+              "color": "15101800"
+            },
+            {
+              "time": 18.0,
+              "color": "15101800"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

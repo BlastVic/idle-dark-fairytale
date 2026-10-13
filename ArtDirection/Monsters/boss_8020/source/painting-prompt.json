@@ -1,0 +1,9 @@
+{
+  "tool": "built-in image_gen",
+  "model": "not exposed",
+  "prompt": "Create a TRANSPARENT 1536x1536 3x3 Spine texture-part sheet, exactly 9 separated cells, using image 1 for each part's location, angle and silhouette and image 2 for approved painted art. Source image 1 contains corrupted cyan streaks and neighboring fragments: remove these entirely; draw clean parts. Leave wide transparent gutters, no labels/grid/shadows/background. Row 1: (1) ONLY plain faceless legless water-drop BODY, no crown/arms/eyes/mouth, smoky blue-green brushwork, a very faint small blurry closed-eyelid full moon at source body's LOWER LEFT (will mirror in game), moon 20% body width, faint ripples; (2) detached near flipper, match diagonal original shape, no hard dark seam at shoulder; (3) detached far flipper same. Row 2: (4) TWO mournful hollow oval eyes as one paired attachment, near eye LEFT lower/larger, far eye RIGHT upper/smaller, at exact source spacing/tilt, only eye lines and tear drops on transparency, NO skin-colored patches; (5) one tiny sad inverted V mouth, thin dark line only on transparency; (6) closed-eye alternative PAIR, two angled shallow eyelid lines same spacing/tilt as paired open eyes, on transparency, NO skin. Row 3: (7) tarnished bronze tall arch CROWN FRAME with cracked gray moonstone and sparse algae matching concept, same tilt/envelope as source, hollow negative spaces, NO lower fur rim; (8) separate curved diagonal pale soaked REED FIBER crown rim matching original rim silhouette, no crown frame; (9) small dark blue open oval mouth on transparency. Preserve all nine discrete parts. Outline style and painterly detail EXACTLY match image2. Do not assemble character. Real alpha background.",
+  "refs": [
+    "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/boss_8020/source/reference-0.png",
+    "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/boss_8020/A-character-v1.png"
+  ]
+}

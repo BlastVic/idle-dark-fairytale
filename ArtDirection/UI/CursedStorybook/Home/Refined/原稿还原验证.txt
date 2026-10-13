@@ -1,0 +1,39 @@
+原稿还原验证 / 2026-10-12 / Unity 6000.6.3f1
+
+实际渲染
+同展示数据截图：941×1672、768×1024、720×1440，来自 Gameplay 实际 Play Mode。
+逐区查看了顶部状态、宝箱、功能圆钮、属性、主按钮和导航；修复了第一轮截图中发现的字体过粗、纸纹接缝、图标裁切、描边拉伸、隐藏图标与蜡封尾带图层问题。
+生命图标在同尺寸截图的深色轮廓边界与原稿一致：[49,1114]—[97,1160]。
+属性标题文字顶部/底部与原稿同为 y=1043/1080；生命数值同为 y=1128/1145。
+这只是几何校准证据，不是整图 100% 一致的证明；字体轮廓、抗锯齿与纸纹拼接仍有差异。
+
+交互回归
+属性点不足禁用、有效加点、连续点击防重复消费、最近购买禁用、等级100购买门槛通过。
+收展后可见性与射线阻挡、按下缩放与松开恢复、详情与设置控制通过。
+装备、技能、地图、经验、商店、宝箱、融合、转生、战斗入口及返回通过。
+胜利/失败结算与返回通过；unexpected runtime errors=0。
+编辑器既有广告服务不可用诊断单独列出。
+三种比例的实际渲染帧中，全部主界面按钮第一射线命中目标正确。
+支持区间0.5—0.75的区域计算、超出区间黑边计算、背景统一缩放通过。
+
+动画复验
+角色和壁炉均使用持久化嵌套 Prefab 中的 SkeletonGraphic。
+角色20骨骼、12秒Idle；火焰16骨骼、8秒Burn；自动播放、眨眼、首尾连续、固定脚底通过。
+145个角色姿态与161个火焰姿态有限顶点检查通过，三层热气没有同时消失。
+三种比例兜帽低于宝箱栏，靴子高于属性栏。
+最终240帧实际Unity渲染完成；20fps、12秒动画预览保存于 output/home-refined/shelter-refined-preview.mp4。
+
+本地证据（全部位于已忽略 output/，不提交 Git）
+output/home-fidelity/reference-match-9x16.png
+output/home-fidelity/reference-match-3x4.png
+output/home-fidelity/reference-match-1x2.png
+output/home-fidelity/comparison.html （用户可本地打开的分区/透明叠图/差异模式页面；本轮工具验证使用直接截图查看与像素测量）
+output/home-fidelity/capture-log.txt
+output/home-fidelity/interaction-validation.txt
+output/home-refined/validation.txt
+output/home-refined/home-idle-9x16.png （真实玩家数据显示）
+output/home-refined/home-idle-3x4.png
+output/home-refined/home-idle-1x2.png
+
+交付仍为可手工编辑的 ShelterHome.prefab，未提交 Git；Gameplay场景保持原137行增量，无整场景重写。
+没有手机真机性能测试；不宣称视觉逐像素100%一致。

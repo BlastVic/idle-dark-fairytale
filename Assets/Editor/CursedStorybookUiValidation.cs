@@ -208,7 +208,7 @@ public static class CursedStorybookUiValidation
             else if(stage==7)
             {
                 if(gm.gameState!=GameStateType.CAMP) return;
-                Check(!gc.battleHud.gameObject.activeSelf && gc.hpXpLevelUI.activeSelf,"Camp HUD restored after settlement");
+                Check(!gc.battleHud.gameObject.activeSelf && !gc.hpXpLevelUI.activeSelf,"Legacy HUD stays hidden after settlement");
                 BlackForestMushroomBuilder.RunFirstLevel(); Next(8,3);
             }
             else if(stage==8)
@@ -220,7 +220,7 @@ public static class CursedStorybookUiValidation
             else if(stage==9)
             {
                 if(gm.gameState!=GameStateType.CAMP) return;
-                Check(!gc.battleHud.gameObject.activeSelf && gc.hpXpLevelUI.activeSelf,"Actual return button callback reaches camp and restores HUD");
+                Check(!gc.battleHud.gameObject.activeSelf && !gc.hpXpLevelUI.activeSelf,"Actual return button reaches camp without restoring legacy HUD");
                 ScreenCapture.CaptureScreenshot(Dir+"return-to-camp.png");
                 BlackForestMushroomBuilder.RunFirstLevel(); Next(10,3);
             }
@@ -240,7 +240,7 @@ public static class CursedStorybookUiValidation
             else if(stage==12)
             {
                 if(gm.gameState!=GameStateType.CAMP) return;
-                Check(!gc.battleHud.gameObject.activeSelf && gc.hpXpLevelUI.activeSelf,"Camp restored after defeat");
+                Check(!gc.battleHud.gameObject.activeSelf && !gc.hpXpLevelUI.activeSelf,"Camp restored after defeat without legacy HUD");
                 Time.timeScale=1;
                 Log(errors==0?"PASS: live test complete, runtime errors=0.":"FAIL: runtime errors="+errors);
                 RestoreGameView(); stage=0; SessionState.SetInt(Key,0); EditorApplication.isPlaying=false;

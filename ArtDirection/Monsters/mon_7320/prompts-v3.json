@@ -1,0 +1,17 @@
+{
+  "tool": "built-in image_gen; exact model not exposed",
+  "reference": "ArtDirection/references/black-forest-starting-reference.png",
+  "character": {
+    "input": "B-character-v2.png",
+    "output": "B-character-v3.png",
+    "prompt": "Precise-object-edit. Image1 is the character to edit; Image2 provides ONLY the canonical moon symbol in its sky: a full round moon with a single closed eyelid and downward pointed lashes. Replace the crescent moon INSIDE the water sprite belly in image1 with a hazy full round moon bearing that same closed-eye/lashes motif. Make this an indistinct submerged reflection, extremely soft edges, desaturated pale blue-silver, low contrast, eye mark blurred dark teal not hard black. Layer translucent water ripples across it so it feels deep inside water, not a sharp printed emblem or solid eyeball. Retain subtle recognition of the eyelid motif. Keep moon in same belly location and similar footprint; preserve reeds. Preserve ALL other parts of image1: face, arms, pointed crown, no floating bead, silhouette, watercolor texture, gray backdrop, framing. No other edits, no text."
+  },
+  "battle": {
+    "inputs": [
+      "B-battle-v2.png",
+      "B-character-v3.png"
+    ],
+    "output": "B-battle-v3.png",
+    "prompt": "Precise-object-edit. Image1 is the battle illustration to edit. Change ONLY the crescent moon INSIDE the lower-right water creature's belly into the same hazy round moon with closed eyelid and downward lashes shown inside the creature in image2. Match image2's soft blurred submerged low-contrast pale blue-silver moon and blurred dark teal eyelid; water ripples partly obscure its edges, not a crisp logo. Keep same small belly location and footprint, reeds remain. Preserve everything else in image1 including character face and body, absence of floating head bead, girl and weapon, full background, sky moon, cottage, creek, lighting, framing and portrait aspect. Do NOT blur the whole character or scene. No text."
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "skeleton": {
+    "hash": "chapter01-environment-v1",
+    "spine": "3.8.75",
+    "images": "./images/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "motion",
+      "parent": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "fall",
+      "bone": "motion",
+      "attachment": "fall"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "fall": {
+          "fall": {
+            "name": "fall",
+            "path": "fall",
+            "width": 86.0,
+            "height": 180.0,
+            "x": 0.0,
+            "y": 90.0
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "Ambient": {
+      "bones": {
+        "motion": {
+          "translate": [
+            {
+              "time": 0.0,
+              "x": 0.0,
+              "y": 18.0
+            },
+            {
+              "time": 1.2,
+              "x": 2.0,
+              "y": -18.0
+            },
+            {
+              "time": 1.25,
+              "x": 0.0,
+              "y": 18.0
+            },
+            {
+              "time": 2.5,
+              "x": 0.0,
+              "y": 18.0
+            }
+          ]
+        }
+      },
+      "slots": {
+        "fall": {
+          "color": [
+            {
+              "time": 0.0,
+              "color": "8da8d800"
+            },
+            {
+              "time": 0.3,
+              "color": "8da8d84f"
+            },
+            {
+              "time": 1.0,
+              "color": "8da8d84f"
+            },
+            {
+              "time": 1.2,
+              "color": "8da8d800"
+            },
+            {
+              "time": 2.5,
+              "color": "8da8d800"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

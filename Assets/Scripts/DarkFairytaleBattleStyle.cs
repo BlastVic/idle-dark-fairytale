@@ -76,7 +76,7 @@ public class DarkFairytaleBattleStyle : ScriptableObject
             Destroy(oldBar.gameObject);
         }
         var feet = boss ? new Vector2(.72f, .33f) : enemyFeet[index];
-        var size = boss ? new Vector2(.40f, .34f) : enemySize[index];
+        var size = EnemyDisplaySize(index, boss) * Mathf.Max(.1f, enemy.displaySizeMultiplier);
         Fit(enemy.transform, enemy.skeletonAnimation, camera, feet, size);
         var bounds = enemy.skeletonAnimation.GetComponent<MeshRenderer>().bounds;
         if (bar)
@@ -107,6 +107,11 @@ public class DarkFairytaleBattleStyle : ScriptableObject
         if (drop) drop.BeginDrop();
     }
 
+    public Vector2 EnemyDisplaySize(int index, bool boss)
+    {
+        return boss ? new Vector2(.40f, .34f) : enemySize[Mathf.Clamp(index, 0, enemySize.Length - 1)];
+    }
+
     static void Fit(Transform actor, SkeletonAnimation skeleton, Camera camera, Vector2 feet, Vector2 size)
     {
         skeleton.Initialize(false);
@@ -117,13 +122,19 @@ public class DarkFairytaleBattleStyle : ScriptableObject
         var renderer = skeleton.GetComponent<MeshRenderer>();
         var bounds = renderer.bounds;
         var screen = WorldSize(camera);
-        float scale = Mathf.Min(screen.x * size.x / Mathf.Max(.01f, bounds.size.x),
-            screen.y * size.y / Mathf.Max(.01f, bounds.size.y));
+        float scale = DisplayFitScale(bounds.size, screen, size);
         skeleton.transform.localScale *= scale;
         bounds = renderer.bounds;
         actor.position += ViewportPoint(camera, feet) - new Vector3(bounds.center.x, bounds.min.y, 0);
         renderer.sortingLayerName = "Character";
         renderer.sortingOrder = Mathf.RoundToInt((1f - feet.y) * 100);
+    }
+
+    // Shared by battle placement and the animation workbench. Always use setup-pose bounds.
+    public static float DisplayFitScale(Vector3 boundsSize, Vector2 screen, Vector2 size)
+    {
+        return Mathf.Min(screen.x * size.x / Mathf.Max(.01f, boundsSize.x),
+            screen.y * size.y / Mathf.Max(.01f, boundsSize.y));
     }
 
     void SetShadow(Transform actor, SkeletonAnimation skeleton, Camera camera, Vector2 feet)

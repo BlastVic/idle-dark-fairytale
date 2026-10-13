@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06d59cd1d690449aa4ba282ae95a040, type: 3}
+  m_Name: PrologueStory
+  m_EditorClassIdentifier: Assembly-CSharp::StorySequence
+  storyKey: Prologue
+  displayName: "\u5E8F\u7AE0 \xB7 \u9003\u79BB\u796D\u7940"
+  completionKey: Story-Prologue-Read-v1
+  pages:
+  - title: 01-awakening.png
+    illustration: {fileID: 2800000, guid: 254575e3f81c043ed90764b99fd70e61, type: 3}
+    focalPoint: {x: 0.5, y: 0.5}
+    narrationAndAmbience: {fileID: 8300000, guid: 3330bbed9336243e9afb6d11edf45118, type: 3}
+    captions:
+    - start: 0
+      end: 4.41
+      text: 'She woke beneath the trees,
+
+        with cold earth beneath her hands.'
+    - start: 5.27
+      end: 6.97
+      text: She could not remember her name.
+    - start: 7.59
+      end: 9.51
+      text: Or how she had come to this place.
+  - title: 02-distant-fire.png
+    illustration: {fileID: 2800000, guid: f9970e0dcc00e42f5871833fe755b6b9, type: 3}
+    focalPoint: {x: 0.5, y: 0.5}
+    narrationAndAmbience: {fileID: 8300000, guid: bc1142d5ee07745b1baa1ff171b6844a, type: 3}
+    captions:
+    - start: 0.44
+      end: 3.49
+      text: 'Beyond the branches,
+
+        a village glowed in the dark.'
+    - start: 4.25
+      end: 7.06
+      text: Firelight. Rooftops. People.
+    - start: 7.87
+      end: 9.37
+      text: Perhaps someone there could help.
+  - title: 03-near-ritual-v2.png
+    illustration: {fileID: 2800000, guid: 577b179450fb84ce6940f7ce3197899c, type: 3}
+    focalPoint: {x: 0.5, y: 0.5}
+    narrationAndAmbience: {fileID: 8300000, guid: 2c4e6fd91b44246849e056448ca9d5d9, type: 3}
+    captions:
+    - start: 0.39
+      end: 1.49
+      text: She crept closer.
+    - start: 2.35
+      end: 5.34
+      text: 'The villagers stood in a circle
+
+        around a wooden post.'
+    - start: 5.95
+      end: 7.09
+      text: Their heads were bowed.
+    - start: 7.7
+      end: 10.05
+      text: Their voices rose and fell together.
+    - start: 10.86
+      end: 12.76
+      text: No one moved to put out the fire.
+  - title: 04-ritual-overhead-v3.png
+    illustration: {fileID: 2800000, guid: df2032042ae684bc4aab4e296ff0abcd, type: 3}
+    focalPoint: {x: 0.5, y: 0.5}
+    narrationAndAmbience: {fileID: 8300000, guid: db651ba83137b4e3e935ef12181fe607, type: 3}
+    captions:
+    - start: 0.33
+      end: 1.98
+      text: Then the flames shifted.
+    - start: 2.65
+      end: 4.65
+      text: There was a girl tied to the post.
+    - start: 5.2
+      end: 6.28
+      text: Her face was hidden.
+    - start: 6.96
+      end: 9.75
+      text: 'But above the smoke,
+
+        the stranger could see a hood...'
+    - start: 10.33
+      end: 11.44
+      text: red as her own.
+  - title: 05-fright-v5.png
+    illustration: {fileID: 2800000, guid: f4fd969fc89264c0faaffc1f3cfbdec0, type: 3}
+    focalPoint: {x: 0.5, y: 0.5}
+    narrationAndAmbience: {fileID: 8300000, guid: 5b976c0f11be44b049f21dd45413a6ee, type: 3}
+    captions:
+    - start: 0.46
+      end: 1.36
+      text: She stepped back.
+    - start: 1.91
+      end: 3.74
+      text: A twig snapped beneath her heel.
+    - start: 4.5
+      end: 7.47
+      text: 'At the edge of the circle,
+
+        a villager began to turn.'
+    - start: 8.12
+      end: 10.06
+      text: She did not wait to see his face.
+  - title: 06-escape-half-dark-preview.png
+    illustration: {fileID: 2800000, guid: 8c6e28a6b625e4b159084cc269659ec4, type: 3}
+    focalPoint: {x: 0.5, y: 0.5}
+    narrationAndAmbience: {fileID: 8300000, guid: bb7209ae494ab49d39481e26183969f4, type: 3}
+    captions:
+    - start: 0.08
+      end: 0.82
+      text: She ran.
+    - start: 1.34
+      end: 4.5
+      text: 'Past the last pale fence.
+
+        Through the thorns.'
+    - start: 4.84
+      end: 6.34
+      text: Into the black forest.
+    - start: 6.97
+      end: 8.94
+      text: Behind her, the voices faded.
+    - start: 9.47
+      end: 13
+      text: 'She kept running, until she could
+
+        hear only her own breath.'

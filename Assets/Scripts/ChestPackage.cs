@@ -1,179 +1,73 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+using System;
+using System.Collections;
+using System.Linq;
+using Assets.Scripts.Services.Ads;
 using IdleKnightHero.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
+/// <summary>Owns a single chest transaction; the authored view only displays its state.</summary>
 public class ChestPackage : MonoBehaviour
 {
-    private static ChestPackage _instance;
-
-    public static ChestPackage single
+    static ChestPackage instance;
+    public static ChestPackage single => instance ? instance : (instance=FindFirstObjectByType<ChestPackage>());
+    public StorybookChestUI view;
+    public int cherryCost=2;
+    public Chest CurrentChest {get;private set;}
+    public bool Opening {get;private set;}
+    public bool AwaitingAd {get;private set;}
+    public bool Leaving {get;private set;}
+    public int RewardAmount {get;private set;}
+    public DateTime UnlockAt {get;private set;}
+    public bool Ready => CurrentChest!=null&&DateTime.Now>=UnlockAt;
+    public bool Owned => CurrentChest!=null&&InventoryManager.single&&InventoryManager.single.chestsOwned.Any(c=>c.uniqueKey==CurrentChest.uniqueKey);
+    public bool CanAct => CurrentChest!=null&&Owned&&!Opening&&!AwaitingAd&&!Leaving;
+    void Awake(){instance=this;}
+    void OnEnable(){AdManager.AdNotFinished+=AdCancelled;}
+    void OnDisable(){AdManager.AdNotFinished-=AdCancelled;}
+    void OnDestroy(){if(instance==this)instance=null;}
+    public void SetMe(Chest chest)
     {
-        get
-        {
-            //If _instance is null then we find it from the scene 
-            if (_instance == null)
-                _instance = GameObject.FindObjectOfType<ChestPackage>();
-            return _instance;
-        }
+        if(Opening||AwaitingAd||Leaving)return;
+        CurrentChest=chest;
+        UnlockAt=DateTime.MaxValue;
+        if(chest!=null&&long.TryParse(chest.rewardTime,out var binary))
+            try{UnlockAt=DateTime.FromBinary(binary);}catch(ArgumentException){}
+        view.Bind(this);
     }
-
-    private void OnEnable()
-    {
-        crystalIcon.SetActive(false);
-        crystalText.text = "";
-    }
-
-    private void Update()
-    {
-        if (timerText.text == "Ready!")
-        {
-            //this means we are ready
-            buttons[0].SetActive(true);
-            buttons[1].SetActive(false);
-            buttons[2].SetActive(false);
-        }
-        else
-        {
-            buttons[0].SetActive(false);
-        }
-    }
-
-    public Text mapName;
-    public Text timerText;
-    public Text chestGradeText;
-    public Timer myTimer;
-    Chest myChest;
-    public void SetMe(Chest _chest)
-    {
-        myChest = _chest;
-        mapName.text = myChest.chestMapName;
-        chestGradeText.text = myChest.chestGrade + " CHEST";
-        //add timer
-        myTimer = gameObject.AddComponent<Timer>();
-        myTimer.notReadyColor = Color.black;
-
-        //string back to a long
-        long restoreDateLong = System.Convert.ToInt64(myChest.rewardTime);
-        //long to date
-        System.DateTime restoreDate = System.DateTime.FromBinary(restoreDateLong);
-
-        myTimer.InitializeTimerByDT(restoreDate, timerText, Color.black);
-    }
-
-    public void WatchVidButton()
-    {
-        Debug.Log("Play a video!");
-        GetChest(); //this will be a callback
-    }
-
-    public GameObject waitForChestSilhouette;
-    void GetChest()
-    {
-        foreach (GameObject obj in buttons)
-        {
-            obj.SetActive(false);
-        }
-        myTimer.enabled = false;
-        timerText.text = "";
-        waitForChestSilhouette.SetActive(false);
-        ChestAnimateIn();
-        InventoryManager.single.RemoveChest(myChest);
-    }
-
-    public int cherryCost = 2;
-    public GameObject closeButton;
+    public void TapOpen(){if(CanAct&&Ready)Claim();}
     public void PayCherriesButton()
     {
-
-        if (GameManager.single.premiumCurrency < cherryCost)
-        {
-            GameplayCanvas.single.nextIsRanOutOfCherries = true;
-            Router.single.CashMallButton();
-            //cant afford
-            return;
-        }
-        closeButton.SetActive(false);
-        GameManager.single.premiumCurrency -= 2;
-        SoundManager.Instance.PlayClip("STAT_BUY");
-
-
-        Debug.Log("Pay cherries ");
-        GetChest(); //this will be a callback
+        if(!CanAct||Ready)return;
+        if(GameManager.single.premiumCurrency<cherryCost){view.Notice("血月结晶不足");return;}
+        GameManager.single.premiumCurrency-=cherryCost;
+        SoundManager.Instance.PlayClip("STAT_BUY");Claim();
     }
-
-    public void TapOpen()
+    public void WatchVidButton()
     {
-        Debug.Log("Tap Open");
-        closeButton.SetActive(false);
-        GetChest(); //this will be a callback
+        if(!CanAct||Ready)return;
+        AwaitingAd=true;view.Refresh();
+        AdManager.Instance.ShowRewardedAd("ChestDetail",available=>{
+            if(!this||!AwaitingAd)return;
+            if(!available){AwaitingAd=false;view.Notice("广告暂不可用，请稍后重试");view.Refresh();}
+        },()=>{
+            if(!this||!isActiveAndEnabled||!AwaitingAd)return;
+            AwaitingAd=false;if(CanAct)Claim();
+        });
     }
-
-
-    public GameObject[] chestGraphics;
-    void ChestAnimateIn()
+    void AdCancelled(string tag){if(tag!="ChestDetail"||!AwaitingAd)return;AwaitingAd=false;view.Notice("广告未完成，宝箱尚未开启");view.Refresh();}
+    void Claim()
     {
+        if(!CanAct)return;
+        Opening=true;
+        InventoryManager.single.RemoveChest(CurrentChest);
+        float minimum=Mathf.Max(0,CurrentChest.crystalsMin),maximum=Mathf.Max(minimum,CurrentChest.crystalsMax);
+        RewardAmount=Mathf.FloorToInt(UnityEngine.Random.Range(minimum,maximum));
+        // Commit once; the displayed count-up is presentation only.
+        GameManager.single.crystals+=RewardAmount;
         SoundManager.Instance.PlayClip("CHEST_DROP_CRYSTALS");
-        switch (myChest.chestGrade)
-        {
-            case ChestGrade.NORMAL:
-                chestGraphics[0].SetActive(true);
-                break;
-            case ChestGrade.GOLD:
-                chestGraphics[1].SetActive(true);
-                break;
-            case ChestGrade.DIAMOND:
-                chestGraphics[2].SetActive(true);
-                break;
-        }
-        StartCoroutine(CrystalCountUp());
-        Invoke("CloseButtonWithRewards", 3f);
+        view.Refresh();StartCoroutine(Complete());
     }
-
-    public GameObject crystalIcon;
-    public Text crystalText;
-    IEnumerator CrystalCountUp()
-    {
-        //crystals
-        float rewardCrystals = Random.Range(GameplayCanvas.single.lastChestClicked.crystalsMin, GameplayCanvas.single.lastChestClicked.crystalsMax);
-        //if (GameplayCanvas.single.lastChestClicked.chestGrade == ChestGrade.GOLD)
-        //{
-        //    rewardCrystals *= 3;
-        //}
-        //if (GameplayCanvas.single.lastChestClicked.chestGrade == ChestGrade.GOLD)
-        //{
-        //    rewardCrystals *= 10;
-        //}
-        GameManager.single.crystals += (int)rewardCrystals;
-        yield return new WaitForSeconds(1.7f);
-        crystalIcon.SetActive(true);
-
-        GameManager.single.crystals += rewardCrystals;//give it right away, let counter pretend to run adding
-        for (int i = 0; i <= rewardCrystals; i++)
-        {
-            yield return new WaitForSeconds(.01f);
-
-            crystalText.text = "+ " + i;
-
-        }
-
-    }
-
-
-    public GameObject[] buttons;//0 tap open, 1 regular pay for, 2 watch vid
-    bool closeClicked = false;
-    public void CloseButton()
-    {
-        if (closeClicked) return;
-        closeClicked = true;
-        Router.single.CallCampFromChest(false);
-    }
-
-    public void CloseButtonWithRewards()
-    {
-        if (closeClicked) return;
-        closeClicked = true;
-        Router.single.CallCampFromChest(true);
-    }
+    IEnumerator Complete(){yield return new WaitForSecondsRealtime(3);CloseButtonWithRewards();}
+    public void CloseButton(){if(Opening||AwaitingAd||Leaving)return;Leaving=true;view.Refresh();Router.single.CallCampFromChest(false);}
+    public void CloseButtonWithRewards(){if(!Opening||Leaving)return;Leaving=true;view.Refresh();Router.single.CallCampFromChest(true);}
 }

@@ -1,0 +1,83 @@
+每日补给实施与验证（2026-10-13）
+已选基准：daily-reminder-concept-v2.png，关闭按钮左上角。
+
+交付：Assets/DarkFairytale/UI/DailyReward/StorybookDailyReminder.prefab；Gameplay 场景绑定；CashMallPackage.prefab 顶部新增每日补给卡片。
+所有布局、奖励图片、文本和按钮为持久化 UGUI 节点。编辑工具仅显式执行，不随导入或运行重建。
+图像处理：内置 imagegen 从已选稿去除文案，并生成移除结晶与按钮后的底板；Unity Sprite 分片复用原稿结晶和按钮。没有以其他设计替代。
+
+行为：首次进入主界面 2 秒后，未领取则提醒，每次启动一次。设置、新手引导等阻挡期间延后。关闭不修改领取记录。提醒跳转商店并定位每日补给，必须点击免费领取才发奖。每日记录使用本地日期 yyyy-MM-dd，随余额一起写入已有存档；旧 DAILY_CHERRIES 标记只代表已提醒，不作为已领取迁移。当前场景奖励配置 25，界面动态读取，未修改数值配置。
+
+实际 Unity PlayMode 验证在独立验证副本进行，禁止写入用户存档。
+941×1672（9:16 设计分辨率）、768×1024、720×1440 均保留实际渲染。另有安全区、按下、已领取、奖励反馈截图。
+领取状态重启用重新创建启动调度器并保留存档数据模拟；持久化字段已检查 SaveManager 的写入及读取代码。没有覆盖用户真实存档进行重启测试。
+同分辨率奖励10的比较截图：output/daily-reward/reminder-design-comparison.png；运行截图使用实际奖励25。比较结论：沿用原稿边框、晶体、按钮位置与整体比例，文本为真实字体组件；字形与纹理修补存在细微差异，当前主界面背景和角色状态与概念稿不同，不宣称像素级100%一致。
+全部游戏截图仅在被忽略的 output/daily-reward/。
+
+PASS Persistent reminder prefab installed
+PASS No popup before 2 seconds
+PASS First home 2 seconds shows despite legacy reminder marker
+PASS Reward digits and close glyph rendered (941, 1672)
+PASS Reminder open raycast (941, 1672)
+PASS Reminder close raycast (941, 1672)
+PASS Reward digits and close glyph rendered (768, 1024)
+PASS Reminder open raycast (768, 1024)
+PASS Reminder close raycast (768, 1024)
+PASS Reward digits and close glyph rendered (720, 1440)
+PASS Reminder open raycast (720, 1440)
+PASS Reminder close raycast (720, 1440)
+PASS Safe area close hit
+PASS Safe area open hit
+PASS Dismiss preserves claim eligibility and releases input
+PASS No repeated reminder in same launch
+PASS Direct shop entry offers unclaimed daily reward
+PASS Shop claim raycast (941, 1672)
+PASS Shop claim raycast (768, 1024)
+PASS Shop claim raycast (720, 1440)
+PASS Claim awards configured amount exactly once
+PASS Claimed button disabled and reward shown
+PASS Independent duplicate claim guard
+PASS Reward returns to home
+PASS Simulated restart claimed day suppresses reminder
+PASS Reopening shop keeps claimed status
+PASS Whole claim button greyscale
+PASS Next day claim button restores normal appearance
+PASS Previous day claim does not block today
+PASS Reminder guides to shop without granting reward
+PASS Waits behind settings
+PASS Pending startup reminder appears when home unobstructed
+DONE
+
+用户批准变更（2026-10-13）：左上角蜡封关闭改为共用暗红返回书签，直接复用 Fusion/Sprites/BackRibbon.asset 与 InkCutout.mat，与设置、融合一致；操作仍只关闭提醒。旧蜡封和丝带节点移除，保留原按钮绑定。三种比例截图已更新。
+PASS Persistent reminder prefab installed
+PASS No popup before 2 seconds
+PASS First home 2 seconds shows despite legacy reminder marker
+PASS Reward digits and shared back bookmark (941, 1672)
+PASS Reminder open raycast (941, 1672)
+PASS Reminder close raycast (941, 1672)
+PASS Reward digits and shared back bookmark (768, 1024)
+PASS Reminder open raycast (768, 1024)
+PASS Reminder close raycast (768, 1024)
+PASS Reward digits and shared back bookmark (720, 1440)
+PASS Reminder open raycast (720, 1440)
+PASS Reminder close raycast (720, 1440)
+PASS Safe area close hit
+PASS Safe area open hit
+PASS Dismiss preserves claim eligibility and releases input
+PASS No repeated reminder in same launch
+PASS Direct shop entry offers unclaimed daily reward
+PASS Shop claim raycast (941, 1672)
+PASS Shop claim raycast (768, 1024)
+PASS Shop claim raycast (720, 1440)
+PASS Claim awards configured amount exactly once
+PASS Claimed button disabled and reward shown
+PASS Independent duplicate claim guard
+PASS Reward returns to home
+PASS Simulated restart claimed day suppresses reminder
+PASS Reopening shop keeps claimed status
+PASS Whole claim button greyscale
+PASS Next day claim button restores normal appearance
+PASS Previous day claim does not block today
+PASS Reminder guides to shop without granting reward
+PASS Waits behind settings
+PASS Pending startup reminder appears when home unobstructed
+DONE

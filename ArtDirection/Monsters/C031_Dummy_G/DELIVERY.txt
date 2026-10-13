@@ -1,0 +1,74 @@
+MobRotleafChild · 腐叶祈童 — 交付与验收
+日期：2026-10-12
+选定设计：A-character-v1.png（用户已确认）
+源资源：C031_Dummy_G；版本字符串 3.8-from-4.0-from-4.1-from-4.2.43。
+运行验证：Unity 6000.6.3f1，项目现有 Spine 3.8 Runtime，Linear 色彩空间。
+没有通过修改版本字符串伪造兼容；使用提供的已转换数据，实际 Runtime 加载、全动作采样和真实战斗通过。
+
+资源
+Assets/DarkFairytale/Monsters/MobRotleafChild/MobRotleafChild.prefab
+同目录 MobRotleafChild.json / MobRotleafChild.atlas.txt / MobRotleafChild.png / SkeletonData / Atlas / 正常与闪白材质。
+数据库、Addressables 注册键：MobRotleafChild。数字皮肤 1，maxSkins=1。
+原版怪物资源保留，正式关卡和 Gameplay 场景文件未修改。临时战斗波次仅在 Play 模式构造。
+外部导出：../Spine/export/monster/MobRotleafChild/，与 Unity 中 PNG/JSON/atlas 逐字节相同。
+
+美术：通过（当前适配版）
+采用已选叶帽、叶脉闭眼、琥珀树液、浅根木身体和短肢体。
+18 张独立分件；保留帽前后层与 6 种眼、4 种嘴；生成原图及真实提示词在 source/。
+按原 UV 可见 Alpha 范围配准到 2x 原画布，帽盖略内缩避免原网格裁边。尝试过逐行轮廓配准会引起横向纹理断层，已撤回，最终采用统一缩放配准。
+真实 Unity 查看了待机、攻击、受击、死亡、倒地、起身、跑、走、眩晕、胜利与 LinkSkill 帧条；未见裂缝、矩形黑底或遗留表情。
+帽上的闭眼和树液为静态绘制，没有添加睁眼或滴液特效。
+适配保留原有短身与动作，轮廓细节与概念整图存在正常分件差异。
+
+资源 / 动画：通过
+原 20 bones、11 slots、2 IK、默认皮肤网格、UV、权重、原动画/deform 数据不变。
+原 14 动作完整保留，新增 4 别名：
+Idle1 = Idle_Battle_00，无战斗事件。
+Attack1 = Atk1_00，OnHit 0.4667s，OnComplete 1.4333s。
+Hit = Hit_00，OnComplete 0.7667s。
+Death1 = Death_00，OnComplete 1.5333s。
+别名外无事件修改，无补作简化动作。
+皮肤 1 使用 linkedmesh 继承 default；两皮肤 18 动作共 36 组合逐帧采样无非有限顶点，关键帧网格结果一致。
+完整攻击一次命中、一次完成；Hit/Death 各一次完成；Attack→Hit/Death 提前打断无残留 OnHit。
+透明度：straight alpha，正常材质 _StraightAlphaInput；全部图集页与分件打包尺寸核验通过，未自动缩小。
+
+预览：通过
+MonsterAnimationTest 可选择 MobRotleafChild，有实际模型缩略图、中文名称和全部动画按钮。
+实际 720x1280、768x1024、720x1440 渲染及 UGUI 交互检查通过。
+默认按四个基础动作联合范围取景；原跳跃轨迹大，Idle 会比实战体量显得小。缩放可查看细节；Inspector 的 Fit Selected Animation 可按当前动作取景。
+本轮未重建整套 UI，保留已有 UGUI Prefab、布局和手调。所有实景截图仅在忽略的 output/ 目录。
+
+实战：通过
+临时单怪及混编共 3 次 MobRotleafChild，从实际 EnemyDb/Addressables 加载。
+检查入场不受伤、不攻击、不进入可选目标列表但计入存活；结束入场后实际造成玩家 HP 损失。
+实际 Attack→Hit 打断与 Hit→Idle、死亡经验增加、空道具掉落策略、Death1 完成后销毁、下一波和最终胜利通过，运行错误 0。
+攻击时 AudioSource 正在播放，音效引用沿用既有 ATTACK1/SLIME_DEATH；未做人工听感评审。
+测试临时提高怪物 HP、恢复玩家 HP、提高打断概率并设置经验上限；不代表平衡性通过，正式属性未据此调整。
+MobHollowWolf 既有单怪/混编 3 次回归也通过，运行错误 0。
+
+实战中发现并修复的通用逻辑
+Assets/Scripts/Enemy.cs：
+1. 立即攻击直接执行，不再通过同步结束的协程覆盖下一次攻击句柄；StopAttacking 能取消待执行攻击。
+2. 波次完成等待同场其他怪物的死亡动画结束，避免提前胜利清理尚未完成 Death1 的怪物。
+失败过程未被当作通过；最终报告记录修复后的运行结果。
+
+可编辑源工程：待补
+原 C031_Dummy_G.spine 保留，source/original/ 另有备份；源散列在 source/provenance.json。
+已交付新分件、可读 JSON、提示词、配准与导出工具；尚未保存并验证包含新皮肤的原生 MobRotleafChild.spine，不能称为原生工程完整交付。
+后续需在可保存的 Spine 编辑器中导入新 JSON/图片并另存工程，再验证导出一致性。未把 JSON 改扩展名冒充 .spine。
+
+复现
+1. 项目根目录运行 python3 ArtDirection/Monsters/C031_Dummy_G/build_rig.py。
+2. Unity 等待脚本编译完成，显式菜单 Tools > Dark Fairytale > Monsters > MobRotleafChild > Build and Register。
+3. 数据不变验证：python3 ArtDirection/Monsters/C031_Dummy_G/build_rig.py --verify。
+4. MobRotleafChild 菜单 Validate and Render；预览与临时实战入口见 Assets/Tests/MonsterAnimation/README.md。
+已有 Prefab 不重建，正式关卡不更改。未提交 Git。
+
+证据
+acceptance/resource-integrity.txt
+acceptance/unity-validation.txt
+acceptance/preview-validation.txt
+acceptance/combat-validation.txt
+acceptance/Mob006-combat-regression.txt
+本地图片：output/monster-animation/MobRotleafChild/idle.png、基础动作关键帧、preview/ 三比例与控件检查、combat-wave0.png 和 combat-wave1.png。
+

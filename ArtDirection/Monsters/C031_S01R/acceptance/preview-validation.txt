@@ -1,0 +1,121 @@
+MonsterAnimationTest UGUI live validation
+PASS: Scene references complete
+PASS: Editable HUD prefab connection retained
+PASS: No runtime OnGUI
+PASS: All persisted catalog cards have real portraits, names and buttons
+PASS: Default monster loads
+PASS: Catalog collapsed by default
+PASS: Red Hood stays on Idle1
+PASS: Hide Red Hood
+PASS: Show Red Hood
+PASS: Pause button
+PASS: Monster speed independent of Red Hood
+PASS: Resume button
+PASS: Zoom slider
+PASS: Reset fits the preview
+PASS: Expand catalog
+PASS: Search Chinese name
+PASS: Search case-insensitive ID
+PASS: Empty search result feedback
+PASS: Last monster reachable by scrolling
+PASS: Select Mob001 蜡斑菇
+PASS: Select Mob002 木纹菇
+PASS: Select Mob003 梦眼菇
+PASS: Select Mob005 猩红符文狼
+PASS: Select mon_7070
+PASS: Select Mob004
+PASS: Select Mob006
+PASS: Select Mob007 腐叶祈童
+PASS: Select Mob008 荆棘莓童
+PASS: Animation button binds to real track
+PASS: Replay resets track time
+PASS: Loop toggle
+PASS: Runtime database / Addressables resolves target prefab
+PASS: Prefab faces the left-side player
+PASS: Automatic animation cycling advances
+PASS: Actual Game View resolution 9x16 (720x1280)
+PASS: 9x16 full actor visible above controls: Mob008_SkeletonData
+PASS: 9x16 full actor visible above controls: Red Hood - Idle Reference
+PASS: 9x16 selector receives pointer raycast in runtime frame
+PASS: 9x16 UI preserves aspect
+PASS: Expanded at 9x16
+PASS: Actual Game View resolution 3x4 (768x1024)
+PASS: 3x4 full actor visible above controls: Mob008_SkeletonData
+PASS: 3x4 full actor visible above controls: Red Hood - Idle Reference
+PASS: 3x4 selector receives pointer raycast in runtime frame
+PASS: 3x4 UI preserves aspect
+PASS: Expanded at 3x4
+PASS: Actual Game View resolution 1x2 (720x1440)
+PASS: 1x2 full actor visible above controls: Mob008_SkeletonData
+PASS: 1x2 full actor visible above controls: Red Hood - Idle Reference
+PASS: 1x2 selector receives pointer raycast in runtime frame
+PASS: 1x2 UI preserves aspect
+PASS: Expanded at 1x2
+PASS: Safe area uses uniform scale
+PASS: Simulated safe-area top and bottom insets respected
+PASS: Idle1 keyframe 0 full actor visible above controls: Mob008_SkeletonData
+PASS: Idle1 keyframe 0 full actor visible above controls: Red Hood - Idle Reference
+PASS: Idle1 keyframe 0 selector receives pointer raycast in runtime frame
+PASS: Idle1 keyframe 0 UI preserves aspect
+PASS: Idle1 keyframe 1 full actor visible above controls: Mob008_SkeletonData
+PASS: Idle1 keyframe 1 full actor visible above controls: Red Hood - Idle Reference
+PASS: Idle1 keyframe 1 selector receives pointer raycast in runtime frame
+PASS: Idle1 keyframe 1 UI preserves aspect
+PASS: Idle1 keyframe 2 full actor visible above controls: Mob008_SkeletonData
+PASS: Idle1 keyframe 2 full actor visible above controls: Red Hood - Idle Reference
+PASS: Idle1 keyframe 2 selector receives pointer raycast in runtime frame
+PASS: Idle1 keyframe 2 UI preserves aspect
+PASS: Idle1 keyframe 3 full actor visible above controls: Mob008_SkeletonData
+PASS: Idle1 keyframe 3 full actor visible above controls: Red Hood - Idle Reference
+PASS: Idle1 keyframe 3 selector receives pointer raycast in runtime frame
+PASS: Idle1 keyframe 3 UI preserves aspect
+PASS: Attack1 keyframe 0 full actor visible above controls: Mob008_SkeletonData
+PASS: Attack1 keyframe 0 full actor visible above controls: Red Hood - Idle Reference
+PASS: Attack1 keyframe 0 selector receives pointer raycast in runtime frame
+PASS: Attack1 keyframe 0 UI preserves aspect
+PASS: Attack1 keyframe 1 full actor visible above controls: Mob008_SkeletonData
+PASS: Attack1 keyframe 1 full actor visible above controls: Red Hood - Idle Reference
+PASS: Attack1 keyframe 1 selector receives pointer raycast in runtime frame
+PASS: Attack1 keyframe 1 UI preserves aspect
+PASS: Attack1 keyframe 2 full actor visible above controls: Mob008_SkeletonData
+PASS: Attack1 keyframe 2 full actor visible above controls: Red Hood - Idle Reference
+PASS: Attack1 keyframe 2 selector receives pointer raycast in runtime frame
+PASS: Attack1 keyframe 2 UI preserves aspect
+PASS: Attack1 keyframe 3 full actor visible above controls: Mob008_SkeletonData
+PASS: Attack1 keyframe 3 full actor visible above controls: Red Hood - Idle Reference
+PASS: Attack1 keyframe 3 selector receives pointer raycast in runtime frame
+PASS: Attack1 keyframe 3 UI preserves aspect
+PASS: Hit keyframe 0 full actor visible above controls: Mob008_SkeletonData
+PASS: Hit keyframe 0 full actor visible above controls: Red Hood - Idle Reference
+PASS: Hit keyframe 0 selector receives pointer raycast in runtime frame
+PASS: Hit keyframe 0 UI preserves aspect
+PASS: Hit keyframe 1 full actor visible above controls: Mob008_SkeletonData
+PASS: Hit keyframe 1 full actor visible above controls: Red Hood - Idle Reference
+PASS: Hit keyframe 1 selector receives pointer raycast in runtime frame
+PASS: Hit keyframe 1 UI preserves aspect
+PASS: Hit keyframe 2 full actor visible above controls: Mob008_SkeletonData
+PASS: Hit keyframe 2 full actor visible above controls: Red Hood - Idle Reference
+PASS: Hit keyframe 2 selector receives pointer raycast in runtime frame
+PASS: Hit keyframe 2 UI preserves aspect
+PASS: Hit keyframe 3 full actor visible above controls: Mob008_SkeletonData
+PASS: Hit keyframe 3 full actor visible above controls: Red Hood - Idle Reference
+PASS: Hit keyframe 3 selector receives pointer raycast in runtime frame
+PASS: Hit keyframe 3 UI preserves aspect
+PASS: Death1 keyframe 0 full actor visible above controls: Mob008_SkeletonData
+PASS: Death1 keyframe 0 full actor visible above controls: Red Hood - Idle Reference
+PASS: Death1 keyframe 0 selector receives pointer raycast in runtime frame
+PASS: Death1 keyframe 0 UI preserves aspect
+PASS: Death1 keyframe 1 full actor visible above controls: Mob008_SkeletonData
+PASS: Death1 keyframe 1 full actor visible above controls: Red Hood - Idle Reference
+PASS: Death1 keyframe 1 selector receives pointer raycast in runtime frame
+PASS: Death1 keyframe 1 UI preserves aspect
+PASS: Death1 keyframe 2 full actor visible above controls: Mob008_SkeletonData
+PASS: Death1 keyframe 2 full actor visible above controls: Red Hood - Idle Reference
+PASS: Death1 keyframe 2 selector receives pointer raycast in runtime frame
+PASS: Death1 keyframe 2 UI preserves aspect
+PASS: Death1 keyframe 3 full actor visible above controls: Mob008_SkeletonData
+PASS: Death1 keyframe 3 full actor visible above controls: Red Hood - Idle Reference
+PASS: Death1 keyframe 3 selector receives pointer raycast in runtime frame
+PASS: Death1 keyframe 3 UI preserves aspect
+PASS: Preview uses prefab numeric skin 1
+PASS: runtime errors=0, all interactions, ratios and target pose screenshots complete.

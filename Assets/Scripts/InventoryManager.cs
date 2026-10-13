@@ -618,6 +618,8 @@ public class Item
     public string m_ItemBasicTitle;
     public string m_ItemFinalTitle;//with all the adjective + grade stuff
     public int uniqueId;
+    // Optional in existing saves; false preserves the original inventory behavior.
+    public bool isLocked;
     [Range(0, 1f)]
     public float m_ChanceDrop;
     public string m_IconName;

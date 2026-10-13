@@ -1,0 +1,7 @@
+Precisely correct only dependency connectors in this existing skill tree mockup. Preserve all 15 node positions, names, levels, illustrations, entire frame, header, detail panel and bottom navigation. Do not redraw or invent edges.
+1. The top-left elbow between 生命复苏 and 幸运收割 must have ONLY ONE arrowhead pointing DOWN into 幸运收割. REMOVE the right-pointing arrowhead entering 生命复苏. That end is the source, not a target. Keep this connector solid black.
+2. Correct prerequisite status of EXACTLY these 8 existing connectors to GREY DASHED lines and grey arrowheads, because their source nodes have level0 or are locked: 幸运收割→幸运之星; 阴影践踏→恶魔低语; 三连斩→首领猎手; 恶魔低语→第三重击; 第三重击→雷霆裁决; 双倍馈赠→战场谋略; 死而复生→幼龙伙伴; 幼龙伙伴→地狱吐息.
+3. Keep solid crimson only 生命复苏→天使庇护, 天使庇护→双倍馈赠, 天使庇护→the 或 junction→死而复生. Keep 阴影践踏→三连斩 grey dashed. Keep 恶魔低语→或 junction grey dashed. Keep the two curved 反向解锁 arrows from 死而复生 up to 天使庇护 and 恶魔低语 grey dashed.
+Make dashed lines unambiguously segmented with visible gaps, and avoid overlaps with labels. No changes to anything else.
+
+Final local correction, built-in imagegen: Remove only the right-pointing triangular arrowhead immediately left of the top 生命复苏 heart. Keep the horizontal connector and its downward arrowhead entering 幸运收割. Preserve all other content.

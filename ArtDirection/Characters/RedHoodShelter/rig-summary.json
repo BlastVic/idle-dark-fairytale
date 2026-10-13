@@ -1,0 +1,13 @@
+{
+  "bones": 20,
+  "body_vertices": 4225,
+  "body_triangles": 8192,
+  "duration": 12,
+  "animation": "Idle",
+  "pinned": [
+    "feet",
+    "pelvis",
+    "grounded cloak"
+  ],
+  "source_size": 1254
+}

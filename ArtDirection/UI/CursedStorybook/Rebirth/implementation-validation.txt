@@ -1,0 +1,71 @@
+转生 UI 实装验证 — 2026-10-13
+
+用户最终选择：恢复第一版 rebirth-concept-v1.png，撤回左右同层按钮的 v2；大转生按钮在上，继续冒险文本按钮在下。
+交付：Assets/Prefab/Addressable Prefabs/RebirthPackage.prefab，保留原 Addressables GUID、原转生动画和返回流程。新界面位于 StorybookRebirth/Core_9x16。旧 Canvas 停用保留参照。
+所有文本、奖励数值、按钮、图标与页面面板为持久化 UGUI 节点；无运行时创建布局。Builder 仅由明确菜单/请求执行，导入和运行不重建。
+美术：ApprovedRebirth 是 v1 原稿；森林与人物插画、返回书签、图标和蜡封从原稿取材。内置 image_gen 清除文字及可拆控件，生成 BlankLabels 与 BasePlate，保留版式后分切节点。文字全部替换为 NotoSerifCJKsc-Black Text 组件。
+功能：收益实时绑定现有配置与公式（含已有累计加成、升级预览）；未达条件与满转生拦截；二次确认；确认取消无数据更改；重置/奖励执行一次；原动画结束返回营地，并恢复宝箱导航状态。血月结晶保留。
+适配：以 941x1672 为核心页面等比缩放，3:4 两侧与1:2上下留深色边，尊重安全区；没有横向拉伸主稿。
+
+视觉检查：同分辨率 941x1672、同数据（首次转生 Lv.60，累计加成0）逐区对照 v1 与 output/rebirth-ui/9x16-ready.png。
+标题框、森林插画、状态栏、收益表格、重置面板与上下按钮层级遵循 v1；原稿图标与插画均被复用。数字基线与表格标签对齐已调整，蓝水晶顶部完整。
+差异说明：AI 字形已替换成项目真实字体，部分字形宽度、字重和基线略有差异；清字后的局部纸纹存在细微修补差异，不宣称逐像素100%还原。二次确认沿用原流程，新绘制为同风格纸页框，主稿没有该弹层。
+
+验证环境：Unity 6000.6.3f1，独立副本实际 Play Mode，禁用玩家存档写入。截图仅保存在已忽略的 output/rebirth-ui/。
+三种比例、模拟安全区、实际射线点击、按压恢复、整体灰化/恢复、两位数转生次数、大额奖励、默认/升级/累计数据、取消返回、确认结算、重复点击、动画与返回均通过。
+
+Actual Unity rebirth UI validation; isolated project; player save writes disabled.
+PASS home entry resolves rebuilt addressable prefab
+PASS persistent prefab has no missing scripts
+PASS one active event system
+PASS first rebirth rewards match config
+PASS next level comparison matches formulas
+PASS 9x16 back clickable
+PASS 9x16 rebirth clickable
+PASS 9x16 continue adventure clickable
+PASS 9x16 page within viewport
+PASS 9x16 confirm clickable
+PASS 9x16 cancel clickable
+PASS opening confirmation does not reset progress
+PASS cancel closes confirmation
+PASS 3x4 back clickable
+PASS 3x4 rebirth clickable
+PASS 3x4 continue adventure clickable
+PASS 3x4 page within viewport
+PASS 3x4 confirm clickable
+PASS 3x4 cancel clickable
+PASS opening confirmation does not reset progress
+PASS cancel closes confirmation
+PASS 1x2 back clickable
+PASS 1x2 rebirth clickable
+PASS 1x2 continue adventure clickable
+PASS 1x2 page within viewport
+PASS 1x2 confirm clickable
+PASS 1x2 cancel clickable
+PASS opening confirmation does not reset progress
+PASS cancel closes confirmation
+PASS safe area back clickable
+PASS safe area bottom clickable
+PASS primary press feedback
+PASS primary release restores
+PASS under level disables rebirth
+PASS whole primary button and text grey
+PASS under level cannot confirm or transact
+PASS enabled artwork restored
+PASS two-digit rebirth number fits a single line
+PASS max rebirth guarded without array overflow
+PASS carryover and overlevel rewards
+PASS continue adventure returns without reset
+PASS home clickable after return
+PASS header back returns without orphan UI
+PASS reopen uses saved nodes without runtime construction
+PASS confirmed rebirth runs once and resets level
+PASS actual rebirth grants configured rewards once
+PASS premium currency retained
+PASS fusion equipment and wave reset preserved
+PASS original rebirth cutscene preserved
+PASS rebirth animation completes and returns home
+PASS home interactive after rebirth
+PASS rebirth return clears chest navigation latch
+PASS no unexpected runtime errors
+PASS COMPLETE failures=0 errors=0

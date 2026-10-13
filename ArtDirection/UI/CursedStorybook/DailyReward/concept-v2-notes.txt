@@ -1,0 +1,7 @@
+每日领取提醒概念 v2，2026-10-13
+用户指定变更：关闭按钮统一位于弹窗左上角，与其他 UI 保持一致。
+保留蜡封关闭样式及原有内容。当前仅更新效果图，尚未实施到游戏。
+生成方式：内置 imagegen，基于 daily-reminder-concept-v1.png 编辑。
+
+Final prompt:
+Use case: precise-object-edit. Edit target: supplied daily reward UI mockup. Make ONLY this layout correction: move the existing red wax-seal X close button and its short red bookmark ribbon from the TOP RIGHT corner of the foreground parchment popup to the TOP LEFT corner of that same popup, mirrored POSITION only, preserving the exact icon appearance, scale, colors and X symbol. Restore the old top-right spot with the uninterrupted parchment / thorn border and backdrop. Keep adequate space between new top-left close button and forest/header; no overlap with title text. Preserve all other composition, text, reward crystal illustration, button, background, dimensions and styling unchanged. Title remains 每日补给, description 为下一段旅途，备好补给, reward 血月结晶 ×10, button 前往领取, footer 每日可领取一次. Do not add another close button. Exactly one close button at upper LEFT of popup.

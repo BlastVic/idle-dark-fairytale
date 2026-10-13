@@ -1,0 +1,16 @@
+{
+  "tool": "built-in image_gen",
+  "edits": [
+    {
+      "n": "03-near-ritual-v2",
+      "src": "03-near-ritual.png",
+      "p": "Edit this portrait game illustration. Preserve exact dimensions, 2D ink-painted dark fairy tale style, heroine design and over-shoulder framing on left. Move entire ritual bonfire, captive and surrounding crowd considerably FARTHER from heroine, about twice the current distance, with an intervening stretch of dark empty woodland path and brush; crowd smaller, background village at corresponding distance. Most important: put thick opaque rolling gray smoke DIRECTLY IN FRONT of captive from head to feet. Only a faint, broken, low-contrast humanoid silhouette and muted reddish suggestion of pointed hood should be perceptible THROUGH smoke. No readable face, hair, costume, ropes or anatomy of captive. Viewer can only vaguely suspect resemblance to heroine, not confirm. Fire glow visible below smoke, not a clean outlined red hood above it. Preserve foreground heroine identity and clothing, foliage, atmosphere; no gore, text, UI."
+    },
+    {
+      "n": "05-fright-v2",
+      "src": "05-fright.png",
+      "p": "Edit this portrait game illustration. Preserve exact dimensions, ink-painted 2D fairytale game style and close-up of frightened blonde red-eyed red-hood heroine, short torn cape. Correct hiding geometry: heroine is hiding on CAMERA SIDE of a large trunk with HER BACK against it. Tree trunk must be BEHIND her head/back/left shoulder, in a deeper image layer than her body, between her and distant ritual; NOT a foreground vertical tree covering her front, face, hands or chest. Remove original foreground left tree that her hand grips. Face, chest and both hands completely unobstructed, no trunk in front of her. One hand grasps cape at collar, other hand close to chest; head turned a little to look around side of trunk toward distant ritual. Keep fear expression. Push village bonfire and villagers about twice farther away, much smaller and subdued in far right background, separated by dark woodland ground. Dense opaque gray smoke covers entire captive head-to-feet: only an indistinct broken human silhouette and faint red hood-shaped stain visible, no identifiable face/hair/clothes/rope detail. Fire below smoke. Readable foreground heroine, atmospheric distant ritual. No new monsters, text or UI."
+    }
+  ],
+  "shot05Correction": "Precise localized edit ONLY distant ritual region at right background. Preserve every aspect of foreground frightened blonde heroine, face, hands, costume, tree BEHIND her, forest, frame and painted style. The image currently has a giant floating human apparition in smoke: REMOVE that giant apparition completely. Replace with ONE tiny indistinct bound person against the central wooden stake immediately above bonfire. Captive actual head-to-foot size should match a background villager's head-to-foot height (about 65 pixels on this 1672 pixel high image), NOT a towering figure. It is elevated on pyre, not floating. Dense layered gray smoke overlaps almost ALL its body and head: only a few disconnected dull red hood and dark torso patches suggest a human outline, NO face, hair, hands, dress details, no sharply outlined hood. Remaining tall smoke column is ONLY smoke, with no human or face shape. Keep bonfire distant, villagers unchanged. No other edits."
+}

@@ -1,0 +1,52 @@
+MobHollowWolf — 空壳瓷狼 / Unity 交付
+采用设计：B-character-v2.png（用户确认）。C030_S01B 原骨架；局部露骨、灰蓝腰裙、破瓷脸、血刃与 Idle 滴血。
+
+资源
+Assets/DarkFairytale/Monsters/MobHollowWolf/：Prefab、JSON、atlas.txt、PNG、SkeletonData、Atlas、普通/闪白材质及滴血材质。
+资源键与 Addressables 地址：MobHollowWolf，已在 LevelDataDescriptions.EnemyDb 注册。
+原版资源、MobWaxcap–MobRuneWolf 与正式关卡敌人列表未替换。本轮实战使用运行期临时单怪和混编波次。
+
+保留与新增
+62 骨骼、41 槽、4 IK、原网格/UV/权重、默认皮肤及16套原动画保持原样；自动数据比对。
+新增 linked skin 1，继承 default deform。maxSkins=1；默认方向在显示节点 x=-1 翻转。
+新增游戏别名：
+Idle1 <- Idle_Battle_00，2s，无战斗事件。
+Attack1 <- Atk1_00，1s，原动作急速挥刀段 0.2667s 放置 OnHit，1s OnComplete。
+Hit <- Hit_00，0.6667s，末尾 OnComplete。
+Death1 <- Death_00，1.3667s，末尾 OnComplete。
+其他原动作保留供预览；当前战斗仅调用以上四别名。
+
+皮肤与复现
+三张透明绘制源图：source/painted-0..2.png；原坐标参考 source/reference-0..2.png；45分件 source/images/。
+绘画使用内置 image_gen，实际提示词 source/painting-prompts.json；图像提取、配准、采样与图集打包由显式 Unity 工具完成。
+按生成图实际 Alpha 包围盒配准到原 UV 有效范围内的原分件画布，保留生成 Alpha，不转 RGB 后套旧遮罩。
+4096×2048 图集，直通 Alpha，配套 Straight Alpha Input 材质。图集为预览无压缩设置；发布设备压缩/内存预算需单独评估。
+python3 ArtDirection/Monsters/C030_S01B/build_rig.py 生成源 JSON。
+python3 ArtDirection/Monsters/C030_S01B/build_rig.py --verify 比较 Unity JSON 与原始数据。
+Unity 菜单 Tools > Dark Fairytale > Monsters > MobHollowWolf > Build and Register：显式重打包、注册并验证；已有 Prefab 不重建覆盖。
+Make Paint References 只导出绘制坐标参考；Validate and Render 采样全动作并输出实际关键帧。
+外部运行副本：项目同级 Spine/export/monster/MobHollowWolf/。
+
+滴血
+MonsterIdleBlood 组件附于显示对象，可在 Inspector 调整材质、颜色、间隔、大小、寿命和刀刃 UV 定位点。
+默认每2.2秒一滴，寿命0.65秒；只在 Idle1/Idle_Battle_00 生成。根据原加权网格的刀尖顶点计算世界坐标，不新增/改写 Spine 动画轨道。
+血滴使用最多4个复用对象，独立向世界下方下落、渐隐；暂停冻结、攻击停止发射、恢复Idle继续、入场和死亡清理。
+MonsterAnimationTest 从对应 Prefab 复制效果配置，能够实际观看滴血；战斗中使用同一组件。
+
+测试与范围
+Unity 当前项目 Runtime 实际加载成功；原源文件及原动画数据保持不变。
+20动作 × default/1 两皮肤：有限顶点、linkedmesh 变形一致、事件计数通过；Attack→Hit 和 Attack→Death 两种打断无残留命中。
+滴血专项：实际生成、骨骼跟随、镜像后向下落、暂停冻结、攻击停发、淡出回收、返回Idle恢复、死亡清理均通过；blood-detail.png 是 Unity 相机实际渲染近景。
+MonsterAnimationTest：运行时数据库/Addressables、四基础动作关键帧、控件交互、9:16/3:4/1:2 已验证；截图和日志仅在 output/monster-animation/MobHollowWolf/。
+原死亡动画有较大横向移动，预览新增 fitSelectedAnimation，默认按当前完整动作范围取景；关闭可恢复四基础动作固定联合范围。正式战斗比例不受此预览选项影响。
+实战使用3个实例，覆盖单怪/混编两波；实际玩家HP减少、攻击命中/完成、受击回Idle、死亡完成/销毁、下一波与胜利通过，错误0。
+测试临时提高敌人HP、补充玩家HP并关闭玩家格挡，属于集成测试，不代表平衡性。测试开启编辑器临时禁止存档标记，退出Play清除，未写入测试奖励。
+怪物数值/音效暂沿用模板；经验1、空物品掉落策略不代表最终玩法平衡。未新增专属音效。
+
+可编辑源工程状态
+原始 C030_S01B.spine 保留在源素材目录。当前交付包含可重现的 JSON、分件及打包工具；尚未另存包含新皮肤与别名事件的原生 .spine 工程，此项未通过，不能把本轮描述为完整原生工程交付。Unity 运行资源和测试可用。
+
+本地自动化
+output/monster-animation/MobHollowWolf/command.request 显式写入 build、validate、preview、combat、play、blood、stop 或 setup，可调用对应工具；等待 command-result.txt 更新后再提交下一请求。不会无请求自动重建。
+preview 使用统一场景，应先打开该场景并退出Play。combat 临时打开 Gameplay，完成后返回 MonsterAnimationTest。blood 需在统一场景Play中运行。
+验收文本副本见 acceptance/；游戏截图不提交Git。

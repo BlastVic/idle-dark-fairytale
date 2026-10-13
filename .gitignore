@@ -74,3 +74,7 @@ __pycache__/
 /ArtDirection/**/validation/*.jpeg
 /ArtDirection/**/validation/*.webp
 
+
+# Local crash dumps and one-off working scripts
+/mono_crash.*
+/work/

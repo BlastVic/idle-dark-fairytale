@@ -1,0 +1,66 @@
+{
+  "skeleton": {
+    "hash": "chapter01-environment-v1",
+    "spine": "3.8.75",
+    "images": "./images/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "ritual",
+      "bone": "root",
+      "attachment": "ritual"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "ritual": {
+          "ritual": {
+            "name": "ritual",
+            "path": "ritual",
+            "width": 1000.0,
+            "height": 1776.83313,
+            "x": 0.0,
+            "y": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "Ambient": {
+      "slots": {
+        "ritual": {
+          "color": [
+            {
+              "time": 0.0,
+              "color": "ffffffb0"
+            },
+            {
+              "time": 0.4,
+              "color": "ffd5aa8a"
+            },
+            {
+              "time": 0.7,
+              "color": "ffffffc0"
+            },
+            {
+              "time": 1.15,
+              "color": "ffe5bf9b"
+            },
+            {
+              "time": 1.6,
+              "color": "ffffffb0"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

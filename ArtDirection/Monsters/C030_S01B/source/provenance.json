@@ -1,0 +1,51 @@
+{
+  "source": "/Users/vic/Workshop/Spine/monster2/动画/C030_S01B",
+  "source_version": "3.8-from-4.0-from-4.1-from-4.2.43",
+  "changes": [
+    "Added linked skin 1 inheriting default deform",
+    "Added four game animation aliases and events; no changes to original timelines or rig",
+    "Repacked nonrotated straight-alpha atlas from repainted source parts"
+  ],
+  "aliases": {
+    "Idle1": "Idle_Battle_00",
+    "Attack1": "Atk1_00",
+    "Hit": "Hit_00",
+    "Death1": "Death_00"
+  },
+  "events": {
+    "Attack1": [
+      {
+        "time": 0.2667,
+        "name": "OnHit"
+      },
+      {
+        "time": 1.0,
+        "name": "OnComplete"
+      }
+    ],
+    "Hit": [
+      {
+        "time": 0.6667,
+        "name": "OnComplete"
+      }
+    ],
+    "Death1": [
+      {
+        "time": 1.3667,
+        "name": "OnComplete"
+      }
+    ]
+  },
+  "original_sha256": {
+    "C030_S01B.atlas": "5375a7604434195adb9962b91ae04d618fe3f8db424dd3c69faa8777a014425f",
+    "C030_S01B.png": "84eef96a19e19b8af2158bd0a1ddedcbd4809079f8f7d700d48d4e9b5e547eb7",
+    "C030_S01B_导出.png": "c86bf5e182c05bbcdde9f18ff2fec0eabfee7f3a4a2bccd5cd61d248bc35b957",
+    "C030_S01B.json": "c8fb655b746a2770a4eae694527f02d3b836f3584403501e22861fffb628f41a",
+    "C030_S01B.spine": "e04854de149fabf94c4acfefc938301a2e13db5a32d7fddcce3455ae5cbc0403"
+  },
+  "approved_design": "B-character-v2.png",
+  "monster_id": "MobHollowWolf",
+  "painting": "built-in image_gen; exact model identifier not exposed",
+  "painting_prompts": "painting-prompts.json",
+  "native_project_status": "Original C030_S01B.spine preserved; new skin maintained as JSON and part PNGs; no new native .spine project exported."
+}

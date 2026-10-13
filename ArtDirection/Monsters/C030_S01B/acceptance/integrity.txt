@@ -1,0 +1,6 @@
+PASS original source file hashes unchanged
+PASS Unity and external export identical: Mob006.json
+PASS Unity and external export identical: Mob006.atlas.txt
+PASS Unity and external export identical: Mob006.png
+PASS source and Unity JSON identical
+PASS 45 atlas parts retain full exported canvas sizes

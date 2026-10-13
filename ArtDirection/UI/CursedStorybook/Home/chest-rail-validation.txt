@@ -1,0 +1,80 @@
+主界面宝箱栏收展 — 2026-10-13
+
+交付：ShelterHome.prefab 内持久化 ChestRailSlot、ChestSlots、CollapseRail、ChestShortcut，Inspector 可编辑。显式制作工具不会在导入或运行时重建。复用现有纸面、边框与宝箱素材。
+
+交互：右侧收起按钮使整条宝箱栏向右滑出（0.30 秒），再让宝箱入口从右滑入（0.22 秒）；展开顺序相反。宝箱入口沿用现有功能按钮尺寸、X 对齐和等距步长。动画中屏蔽宝箱输入，隐藏节点不拦截射线；导航中断会落到稳定状态。离开并返回主界面保留当前收展状态，不写入存档。
+
+验证：Unity 6000.6.3f1 隔离项目实际渲染；941×1672、768×1024、720×1440；检查收展顺序、重复点击、隐藏射线、按钮间距、切换分辨率、按下及恢复、融合和宝箱详情返回。未改动原功能按钮绑定与宝箱领取逻辑。
+实际截图仅保留在已忽略的 output/chest-rail/。逐图检查纸面、边框、文字、按钮间隔与边缘裁切。
+
+Chest rail Unity validation; isolated project, no save writes.
+PASS scene inherits persisted chest rail component
+PASS no missing scripts
+PASS 9x16 expanded rail fits screen
+PASS 9x16 collapse hit target
+PASS transition locks chest clicks and ignores repeated requests
+PASS rail exits before shortcut appears
+PASS animation completes
+PASS 9x16 collapsed state releases hidden rail rays
+PASS 9x16 shortcut has identical vertical button spacing
+PASS 9x16 shortcut alignment and size match side buttons
+PASS 9x16 shortcut fits screen
+PASS 9x16 shortcut receives click
+PASS 9x16 hidden chest strip cannot intercept input
+PASS 9x16 existing side button Function_融合
+PASS 9x16 existing side button Function_经验
+PASS 9x16 existing side button Function_转生
+PASS reverse starts with shortcut leaving before rail returns
+PASS animation completes
+PASS 9x16 expanded state restores rail input only
+PASS 9x16 collapse control receives click
+PASS 3x4 expanded rail fits screen
+PASS 3x4 collapse hit target
+PASS transition locks chest clicks and ignores repeated requests
+PASS rail exits before shortcut appears
+PASS animation completes
+PASS 3x4 collapsed state releases hidden rail rays
+PASS 3x4 shortcut has identical vertical button spacing
+PASS 3x4 shortcut alignment and size match side buttons
+PASS 3x4 shortcut fits screen
+PASS 3x4 shortcut receives click
+PASS 3x4 hidden chest strip cannot intercept input
+PASS 3x4 existing side button Function_融合
+PASS 3x4 existing side button Function_经验
+PASS 3x4 existing side button Function_转生
+PASS reverse starts with shortcut leaving before rail returns
+PASS animation completes
+PASS 3x4 expanded state restores rail input only
+PASS 3x4 collapse control receives click
+PASS 1x2 expanded rail fits screen
+PASS 1x2 collapse hit target
+PASS transition locks chest clicks and ignores repeated requests
+PASS rail exits before shortcut appears
+PASS animation completes
+PASS 1x2 collapsed state releases hidden rail rays
+PASS 1x2 shortcut has identical vertical button spacing
+PASS 1x2 shortcut alignment and size match side buttons
+PASS 1x2 shortcut fits screen
+PASS 1x2 shortcut receives click
+PASS 1x2 hidden chest strip cannot intercept input
+PASS 1x2 existing side button Function_融合
+PASS 1x2 existing side button Function_经验
+PASS 1x2 existing side button Function_转生
+PASS reverse starts with shortcut leaving before rail returns
+PASS animation completes
+PASS 1x2 expanded state restores rail input only
+PASS 1x2 collapse control receives click
+PASS animation completes
+PASS resize during animation ends inside screen
+PASS resized shortcut remains clickable
+PASS shortcut pressed state
+PASS shortcut release restores scale
+PASS side fusion navigation preserved when rail collapsed
+PASS collapsed choice survives leaving and returning home
+PASS interrupted reverse settles safely on re-enable
+PASS original chest slot raycast after expansion
+PASS original chest details still open
+PASS chest details return restores expanded strip
+PASS no runtime UI node generation
+PASS no unexpected runtime errors
+PASS COMPLETE failures=0 errors=0

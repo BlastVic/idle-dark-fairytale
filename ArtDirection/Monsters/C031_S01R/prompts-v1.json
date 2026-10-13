@@ -1,0 +1,106 @@
+{
+  "tool": "built-in image_gen",
+  "exact_model": "not exposed",
+  "characters": [
+    {
+      "id": "A",
+      "name": "荆棘莓童",
+      "prompt": "Use case: stylized-concept. Create ONE complete full-body dark-fairytale enemy concept on plain warm gray paper, square composition with generous margins. Image 1 is exact structural reference only: low domed wide mushroom cap with 6-8 short conical projections, cap approximately 60% of total height, one plump pear-shaped body, TWO short arms and TWO short feet. Do not reuse the pointed wizard hat of other characters. Image 2 is hand-painted game style reference only. Ink contours, painterly gouache shading and restrained material texture, mild horror with a cute readable silhouette. Three-quarter SIDE combat view facing SCREEN LEFT: face on the left side of body, near eye near left silhouette, other eye smaller, right body flank visible. Do not face the viewer or right. All limbs and cap visible, no text, no panels, no detached props, no extra arms. Main silhouette should be rig-friendly and mobile-readable. An overripe cursed forest berry imp. Giant squat domed cap made of deep dusty cranberry fruit skin, several thick pale dried thorn-seeds embedded like the original conical spikes. Cap has one dark crescent split near its lower rim, with seed-like ivory kernels inside suggesting a hidden smile, but no actual eyeballs or human teeth on the cap. Small plump body pale rose-beige soft pith, two worried dark seed eyes and tiny uneven mouth, short mitten arms and tapered feet. Cute soft squashed body. Sparse charcoal vine scars and one sticky amber-black juice bead make it uncanny. Clearly berry skin with shallow uneven dimples, NOT a strawberry costume, not pointy wizard hat, no floating vines.",
+      "references": [
+        "/Users/vic/Workshop/Spine/monster2/目录/C031_S01R.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "丧钟孢灵",
+      "prompt": "Use case: stylized-concept. Create ONE complete full-body dark-fairytale enemy concept on plain warm gray paper, square composition with generous margins. Image 1 is exact structural reference only: low domed wide mushroom cap with 6-8 short conical projections, cap approximately 60% of total height, one plump pear-shaped body, TWO short arms and TWO short feet. Do not reuse the pointed wizard hat of other characters. Image 2 is hand-painted game style reference only. Ink contours, painterly gouache shading and restrained material texture, mild horror with a cute readable silhouette. Three-quarter SIDE combat view facing SCREEN LEFT: face on the left side of body, near eye near left silhouette, other eye smaller, right body flank visible. Do not face the viewer or right. All limbs and cap visible, no text, no panels, no detached props, no extra arms. Main silhouette should be rig-friendly and mobile-readable. A haunted little bell imp. Huge low-domed old bronze bell as its cap, wide rolled rim and several short blunt conical forged studs matching the reference cap spikes. Verdigris in creases, warm aged bronze high points. One narrow jagged bell crack leaks a very faint cold blue light. Underneath the heavy bell rim is a tiny plump soot-gray felt-like body, worried pale dot eyes facing left and a tiny dark mouth. The bell underside shows a short dark clapper behind the face, painted inset not dangling far. Rounded stubby arms and two short tapered feet. Cute hesitant hunch under oversized bell. Restrained bronze, charcoal and dull turquoise; no teeth, no leaf cap, no red fruit, no detached chains, no extra limbs, no halo.",
+      "references": [
+        "/Users/vic/Workshop/Spine/monster2/目录/C031_S01R.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png"
+      ]
+    },
+    {
+      "id": "C",
+      "name": "眠牙菌子",
+      "prompt": "Use case: stylized-concept. Create ONE complete full-body dark-fairytale enemy concept on plain warm gray paper, square composition with generous margins. Image 1 is exact structural reference only: low domed wide mushroom cap with 6-8 short conical projections, cap approximately 60% of total height, one plump pear-shaped body, TWO short arms and TWO short feet. Do not reuse the pointed wizard hat of other characters. Image 2 is hand-painted game style reference only. Ink contours, painterly gouache shading and restrained material texture, mild horror with a cute readable silhouette. Three-quarter SIDE combat view facing SCREEN LEFT: face on the left side of body, near eye near left silhouette, other eye smaller, right body flank visible. Do not face the viewer or right. All limbs and cap visible, no text, no panels, no detached props, no extra arms. Main silhouette should be rig-friendly and mobile-readable. A sleepy milk-tooth mushroom imp. Huge broad LOW rounded dome cap of dusty ivory suede-like fungus, studded with a handful of smooth large worn baby-teeth-shaped cones instead of horns, like the existing cap spikes. Main uncanny motif: a sleepy curved closed lip-like crease across the cap, with only two tiny tooth tips visible at one corner; no extra eyes. Cap underside soft deep plum pleats. Plump muted mauve mushroom stem body, two drooping near-black eyes turned left and a shy tiny mouth, short soft mitten arms and two tapered feet. Cute drowsy body language. Ivory, faded violet, warm bone accents; very subtle bruised gray-violet cap edge, not open wounds. No gore, no blood, no skulls, no dense tooth rows, no wizard tip, no candle, no leaf texture.",
+      "references": [
+        "/Users/vic/Workshop/Spine/monster2/目录/C031_S01R.png",
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png"
+      ]
+    }
+  ],
+  "battles": [
+    {
+      "id": "A",
+      "name": "荆棘莓童",
+      "prompt": "Use case: compositing. Produce a 9:16 vertical dark fairytale battle concept. Image 1 is the approved scene to preserve, image 2 is the exact enemy design. Remove ALL THREE old mushroom enemies from image 1 and restore the ground. Insert exactly ONE full character from image 2 on the right, facing LEFT toward Red Riding Hood. Keep the heroine, her red cloak, lantern-scythe, pose and size, cabin, moon, creek, trees and camera composition unchanged. Place enemy center at 73% canvas width, feet at 75% height, top of cap including spikes at 54% height; target total enemy height 21% canvas and width 35% canvas, comparable to the heroine. All feet on dry same foreground groundline, natural contact shadow. Preserve exact cap material and uncanny motifs of image 2, short arms and feet, no extra limbs, no redesign, do not mirror to face right. Match scene's painted ink-contour style, soft cool moonlight with restrained warm lantern highlights. Do not make enemy too dark. No UI, no text, no additional characters or enemy group. This is a concept composite.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-c7d0e319-3e61-41fa-b286-75350b60c8bc.png"
+      ]
+    },
+    {
+      "id": "B",
+      "name": "丧钟孢灵",
+      "prompt": "Use case: compositing. Produce a 9:16 vertical dark fairytale battle concept. Image 1 is the approved scene to preserve, image 2 is the exact enemy design. Remove ALL THREE old mushroom enemies from image 1 and restore the ground. Insert exactly ONE full character from image 2 on the right, facing LEFT toward Red Riding Hood. Keep the heroine, her red cloak, lantern-scythe, pose and size, cabin, moon, creek, trees and camera composition unchanged. Place enemy center at 73% canvas width, feet at 75% height, top of cap including spikes at 54% height; target total enemy height 21% canvas and width 35% canvas, comparable to the heroine. All feet on dry same foreground groundline, natural contact shadow. Preserve exact cap material and uncanny motifs of image 2, short arms and feet, no extra limbs, no redesign, do not mirror to face right. Match scene's painted ink-contour style, soft cool moonlight with restrained warm lantern highlights. Do not make enemy too dark. No UI, no text, no additional characters or enemy group. This is a concept composite.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-3652e6b6-7788-43be-8a79-851dbbf78d4f.png"
+      ]
+    },
+    {
+      "id": "C",
+      "name": "眠牙菌子",
+      "prompt": "Use case: compositing. Produce a 9:16 vertical dark fairytale battle concept. Image 1 is the approved scene to preserve, image 2 is the exact enemy design. Remove ALL THREE old mushroom enemies from image 1 and restore the ground. Insert exactly ONE full character from image 2 on the right, facing LEFT toward Red Riding Hood. Keep the heroine, her red cloak, lantern-scythe, pose and size, cabin, moon, creek, trees and camera composition unchanged. Place enemy center at 73% canvas width, feet at 75% height, top of cap including spikes at 54% height; target total enemy height 21% canvas and width 35% canvas, comparable to the heroine. All feet on dry same foreground groundline, natural contact shadow. Preserve exact cap material and uncanny motifs of image 2, short arms and feet, no extra limbs, no redesign, do not mirror to face right. Match scene's painted ink-contour style, soft cool moonlight with restrained warm lantern highlights. Do not make enemy too dark. No UI, no text, no additional characters or enemy group. This is a concept composite.",
+      "references": [
+        "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Environment/Chapter01/04-riverside-cabin.png",
+        "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-83666dbd-b777-4452-82e6-d0ec2b0007f3.png"
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "id": "A",
+      "name": "荆棘莓童",
+      "kind": "char",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-c7d0e319-3e61-41fa-b286-75350b60c8bc.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_S01R/A-character-v1.png"
+    },
+    {
+      "id": "A",
+      "name": "荆棘莓童",
+      "kind": "battle",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-0893a7d9-abed-48ea-835c-f97579fba2c7.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_S01R/A-battle-v1.png"
+    },
+    {
+      "id": "B",
+      "name": "丧钟孢灵",
+      "kind": "char",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-3652e6b6-7788-43be-8a79-851dbbf78d4f.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_S01R/B-character-v1.png"
+    },
+    {
+      "id": "B",
+      "name": "丧钟孢灵",
+      "kind": "battle",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-b24883aa-a542-4f20-95bd-b4467128e95e.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_S01R/B-battle-v1.png"
+    },
+    {
+      "id": "C",
+      "name": "眠牙菌子",
+      "kind": "char",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-83666dbd-b777-4452-82e6-d0ec2b0007f3.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_S01R/C-character-v1.png"
+    },
+    {
+      "id": "C",
+      "name": "眠牙菌子",
+      "kind": "battle",
+      "source": "/Users/vic/.codex/generated_images/01a124a1-ab5b-7960-8cb3-f4a51bb86248/exec-33ad65e3-eeaf-4f67-b1d4-188b75667ab6.png",
+      "destination": "/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Monsters/C031_S01R/C-battle-v1.png"
+    }
+  ]
+}

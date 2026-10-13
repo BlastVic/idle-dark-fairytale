@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Scripts.Level;
 using UnityEngine;
@@ -19,6 +19,12 @@ public class RebirthPackage : MonoBehaviour
         }
     }
 
+    public StorybookRebirthUI view;
+    public bool Busy => rebirthPressed || leaving;
+    bool leaving;
+    public bool CanRebirth => !Busy && LevelController.Instance && LevelController.Instance.IsNextRebirthReady();
+
+    public StorybookRebirthSequence sequence;
     public GameObject cutsceneObj;
     public Dummy dummy;
     public Text oneLiner;
@@ -40,6 +46,7 @@ public class RebirthPackage : MonoBehaviour
 
     void Refresh()
     {
+        if(view){view.Bind(this);return;}
         //funny text
 
         //get the level info
@@ -89,7 +96,7 @@ public class RebirthPackage : MonoBehaviour
 
     void LateDummyIdle()
     {
-        dummy.IdleAnimationStart();
+        if(dummy){dummy.SetSkinsAndAttachments();dummy.IdleAnimationStart();}
 
     }
 
@@ -100,6 +107,9 @@ public class RebirthPackage : MonoBehaviour
 
     public void CloseButton()
     {
+        if(Busy)return;
+        leaving=true;
+        if(view)view.Refresh();
         closeButton.SetActive(false);
         Router.single.loadingChestFromCamp = false;//for some reason this is getting flagged
 
@@ -109,23 +119,23 @@ public class RebirthPackage : MonoBehaviour
     bool rebirthPressed = false;
     public void RebirthButton()
     {
-        if (rebirthPressed) return;
+        if (!CanRebirth || !AreYouSurePanel.activeSelf) return;
         ToggleAreYouSure(false);
         rebirthPressed = true;
         closeButton.SetActive(false);
         rebirthButton.SetActive(false);
         LevelController.Instance.ProcessRebirth();
-        dummy.RebirthAnimationStart();
-        Invoke("TurnOffFirstCam", 1);
-        cutsceneObj.SetActive(true);
-        rebirthCanvas.gameObject.SetActive(false);
-        Invoke("CloseButton", 8);
+        rebirthCanvas.SetActive(false);
+        sequence.Play(ReturnAfterRebirth);
 
     }
+
+    void ReturnAfterRebirth(){if(leaving)return;leaving=true;Router.single.loadingChestFromCamp=false;Router.single.CallCampFromRebirth();}
 
     public GameObject AreYouSurePanel;
     public void ToggleAreYouSure(bool b)
     {
+        if(Busy || (b && !CanRebirth))return;
         AreYouSurePanel.SetActive(b);
     }
 

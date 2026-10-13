@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Enemy : AnimationController
 {
+    [Min(.1f), Tooltip("Uniform visual size relative to the battle slot. Shared with MonsterAnimationTest.")]
+    public float displaySizeMultiplier = 1f;
     public int maxSkins = 3;
     public float expGiven = 1;
     public float waitBetweenAttacks = 2;
@@ -59,7 +61,11 @@ public class Enemy : AnimationController
         {
             StopCoroutine(attackRoutine);
         }
-        attackRoutine = StartCoroutine(WaitAndAttack(instant));
+        // An immediate coroutine completes synchronously and can overwrite the
+        // next attack's handle, leaving StopAttacking unable to cancel it.
+        attackRoutine = null;
+        if (instant) Attack();
+        else attackRoutine = StartCoroutine(WaitAndAttack(false));
     }
 
     IEnumerator WaitAndAttack(bool instant)
@@ -174,9 +180,18 @@ public class Enemy : AnimationController
         }
     }
 
+    bool deathAnimationFinished;
     void DestroyMe()
     {
-        if (GameManager.single.GetLivingEnemies().Count == 0)
+        deathAnimationFinished = true;
+        bool anotherDeathPlaying = false;
+        foreach (var dying in GameObject.FindGameObjectsWithTag("DyingEnemy"))
+        {
+            var other = dying.GetComponent<Enemy>();
+            if (other && !other.deathAnimationFinished) { anotherDeathPlaying = true; break; }
+        }
+        // A simultaneous death must finish before victory cleans up the battlefield.
+        if (!anotherDeathPlaying && GameManager.single.GetLivingEnemies().Count == 0)
         {
             WaveManager.single.WaveComplete();
         }

@@ -1,0 +1,4 @@
+Tool: built-in image_gen. Reference: experience-v1-modal-states.png.
+Pass 1: Extract ONLY ONE blank parchment popup panel from LEFT screen, preserve thin thorn/antique gold outline and aged cream paper. Remove title, X, divider, book, benefit, timer, buttons, icons and all text. Transparent outside. Output Paper.png after tight crop.
+Pass 2: Extract three isolated sprites vertically stacked: ivory ad button without text/icon; crimson payment button without text/icon; empty dark duration bar without amber fill. Transparent gaps and outside contours. Preserve reference artwork. Output cropped IvoryButton.png, RedButton.png, DurationTrack.png.
+BookIdle.png / BookActive.png are deterministic original design crops, no redraw.

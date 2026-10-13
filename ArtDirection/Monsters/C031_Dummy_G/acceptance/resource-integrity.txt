@@ -1,0 +1,5 @@
+PASS source file and part hashes unchanged
+PASS 18 parts packed without resizing
+PASS runtime and external exports identical
+PASS 20 bones, 11 slots, 2 IK, all original mesh/UV/weights/deform and 14 source timelines unchanged
+PASS added linked numeric skin 1 and 4 game aliases; original default retained

@@ -1,0 +1,31 @@
+融合 UI 落地与验证
+
+已替换 Assets/Prefab/Addressable Prefabs/FusionPackage.prefab。
+原 Addressables key FusionPackage 和 GUID 0de4298cd9d9d46998f26727620d36d4 保留。
+布局、插画、标题、文本、按钮、填充进度条及八个奖励槽均为持久化 UGUI 节点，可在 Inspector 调整。运行时只绑定数据、交互和安全区适配，不创建整套 UI，也不在导入或运行时重建 Prefab。编辑工具只有菜单或明确 build.request 才执行。
+
+视觉来源
+采用用户已确认的 fusion-v3-hidden-ruin.png。两种遗迹状态、蓝水晶、属性图标、经验图标与蜡封直接切自原稿；背景与无字边框/按钮采用内置 ImageGen 对该稿去字的生产纹理 FusionBlankLabels.png。未换成另一套遗迹插画。
+生产贴图：Assets/DarkFairytale/UI/Fusion/Art/ApprovedFusion.png、FusionBlankLabels.png。
+去字提示词：ArtDirection/UI/CursedStorybook/Fusion/prompt-production-clean.txt，模式：内置 ImageGen 编辑。
+字体为项目 NotoSerifCJKsc-Black；所有功能文字、数值、概率均使用真实 Text。
+用户批准的差异：满进度蜡封缩为 31×32 设计单位，与操作按钮间保留 16 单位的布局间隙。
+其他实现差异：采用真实字体度量，部分字形、字重和基线与生成稿略有不同；纸纹采用连续镜像采样，细框按 UGUI 九宫格与去纸材质呈现；填充条端部轮廓与原稿略有区别。三种比例以完整居中的 9:16 纸页等比适配，3:4 两侧、1:2 上下有留边。未声称逐像素完全还原。
+
+功能
+页面文案为「庇护所 · 残存遗迹」「注入水晶」，不暴露古神或祭拜设定。
+消费普通 gm.crystals，与血月结晶余额分离。先补满当前融合进度，再明确点击提升等级；提升调用原 FusionLevelUpEvent，保留等级奖励、装备概率、经验、溢出进度和存档字段。提升后返回庇护所，沿用原有奖励通知。
+消费前后检查余额；动画期间禁用行动与返回、阻止重复点击。动画完成才同时提交余额和进度，保存一次。缺口有小数时按整枚水晶向上取整，避免正缺口变成零价格；不额外增加进度。
+真实配置控制奖励预览：属性点、技能点、经验、必得或概率装备。八个固定槽覆盖当前配置的最大七项（最多四件装备加三种成长奖励），多项时仅滚动奖励区。达到配置末端后禁用提升，避免越界。
+主界面点击融合功能按钮直接进入融合 UI，不再显示中间详情提示框；沿用 Navigate 的重复点击保护，满进度也进入融合页后再确认升级。
+原 FusionPackage 脚本保留旧场景序列化字段和兼容方法；新的 Addressable 使用新 view 分支，不播放旧神像对白和动画。
+
+验证
+在独立 Unity 6000.6.3f1 副本中真实运行，禁止测试写入玩家存档。
+最后结果：PASS COMPLETE failures=0 errors=0。共 54 条 PASS（包含最终汇总）。
+包括：9:16 / 3:4 / 1:2 页面边界、按钮射线、安全区、蜡封间距；余额不足、恰好足够、重复点击、按下/恢复、整按钮灰化与恢复；补满不自动升级、升级一次发奖、不扣血月结晶、小数缺口、概率单行显示、奖励滚动、满级保护；原 Addressable 路由、返回无残留遮挡、庇护所入口、战斗进入和返回。
+截图 16 张与原始日志仅保留于已忽略的 output/fusion-ui/。reference-size-fusion.png 与 reference-size-ready.png 使用接近原稿单页尺寸 595×1056 和相同 Lv.6、180/310 或 310/310、1280 或 1150 水晶做逐区对照。
+最终资源与验证副本按文件内容核对，89 个文件一致；Prefab/材质/Sprite 的非内置 GUID 引用全部存在。
+没有提交游戏截图，也未提交 Git。
+
+直接进入修订：主界面实际融合按钮点击后不显示 modal，直接打开新融合 UI；返回庇护所及战斗进入/返回复验通过，完整结果见 output/fusion-ui/direct-entry-validation.txt（0 failures / 0 errors）。旧庇护所验证中弹窗动画改用转生详情覆盖。

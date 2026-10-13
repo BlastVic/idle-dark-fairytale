@@ -1,0 +1,75 @@
+宝箱详情 UI 实装 — 2026-10-13
+
+替换 Assets/Prefab/Addressable Prefabs/ChestPackage.prefab，保留原 GUID 与 ChestPackage 地址键；主界面宝箱仍通过原 Router/AssetManager 入口。40 个持久化 UGUI 节点，标题、来源、余额、倒计时、消耗、按钮均为真实文本。菜单工具仅显式执行，不会在导入或运行时重建。
+
+美术：直接引用已选稿 ApprovedChest.png 的宝箱、晶石、手套、红书签、蜡封和边框，清字图只提供空白底图。保留原稿像素，用可编辑材质轮廓去除背景，未以新宝箱替换。原两栏概念图的单栏偏长，按居中 540×960 核心区域重新分配垂直布局，宝箱与图标按等比显示；边框使用九宫格。与概念稿的留白、字号、纹理拼接及轮廓边缘有适配差异，不宣称逐像素还原。三个品质绑定各自标题，目前共同使用获批的宝箱造型。
+
+状态：等待时显示实时时间戳倒计时、2 血月结晶开启、观看广告开启；到期后切换透光宝箱、蜡封与免费开启。开启时播放水晶计数，随后沿原路径回营地并处理装备掉落。重复点击、广告中断与页面返回受交易状态保护。
+
+逻辑修复：原 CrystalCountUp 两次增加水晶，现只在领取事务提交一次；付费使用配置费用而非硬编码 2。广告按钮接入 AdManager 完成回调，取消或不可用不消费宝箱。当前工程 EditorAdMediationProxy 始终返回不可用，未接入真实广告 SDK；QA 用隔离模拟器覆盖成功、取消和重复完成回调。
+
+验证：Unity 6000.6.3f1，941×1672、768×1024、720×1440、安全区；已逐图检查宝箱轮廓、高光、按钮框线、中文文字和按钮留白。三种比例截图和日志仅保留于忽略目录 output/chest-ui/。保存关闭的隔离项目中测试，未写玩家存档。
+
+Actual Unity chest detail validation; isolated project; save persistence disabled.
+PASS home chest click opens replacement prefab
+PASS no missing scripts
+PASS 9x16 authored page within screen
+PASS 9x16 Back fits
+PASS 9x16 Back pointer
+PASS 9x16 PayBloodMoon fits
+PASS 9x16 PayBloodMoon pointer
+PASS 9x16 WatchAdvertisement fits
+PASS 9x16 WatchAdvertisement pointer
+PASS 9x16 waiting action visibility
+PASS 9x16 press feedback
+PASS 9x16 release restores
+PASS 9x16 ready action visibility
+PASS 9x16 free pointer
+PASS 3x4 authored page within screen
+PASS 3x4 Back fits
+PASS 3x4 Back pointer
+PASS 3x4 PayBloodMoon fits
+PASS 3x4 PayBloodMoon pointer
+PASS 3x4 WatchAdvertisement fits
+PASS 3x4 WatchAdvertisement pointer
+PASS 3x4 waiting action visibility
+PASS 3x4 press feedback
+PASS 3x4 release restores
+PASS 3x4 ready action visibility
+PASS 3x4 free pointer
+PASS 1x2 authored page within screen
+PASS 1x2 Back fits
+PASS 1x2 Back pointer
+PASS 1x2 PayBloodMoon fits
+PASS 1x2 PayBloodMoon pointer
+PASS 1x2 WatchAdvertisement fits
+PASS 1x2 WatchAdvertisement pointer
+PASS 1x2 waiting action visibility
+PASS 1x2 press feedback
+PASS 1x2 release restores
+PASS 1x2 ready action visibility
+PASS 1x2 free pointer
+PASS safe area preserved
+PASS timer expires into ready automatically
+PASS early free and unaffordable pay cannot consume or grant
+PASS only unaffordable action disabled
+PASS balance replenishment restores action
+PASS unavailable advertisement restores controls without reward
+PASS grade label GOLD
+PASS grade label DIAMOND
+PASS no runtime generated UI nodes
+PASS back returns home without orphan overlay
+PASS back preserves unopened chest
+PASS home chest click opens replacement prefab
+PASS paid transaction charges configured amount and grants once
+PASS back cannot interrupt reward transaction
+PASS paid reward returns home and count-up never grants twice
+PASS home chest click opens replacement prefab
+PASS free transaction grants once without premium cost
+PASS home chest click opens replacement prefab
+PASS advertisement pending locks duplicate actions
+PASS cancelled advertisement grants nothing and recovers
+PASS completed advertisement grants exactly once without premium cost
+PASS advertisement reward returns home
+PASS no unexpected runtime errors
+PASS COMPLETE failures=0 errors=0

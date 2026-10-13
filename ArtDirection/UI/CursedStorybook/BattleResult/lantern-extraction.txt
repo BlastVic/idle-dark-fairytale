@@ -1,0 +1,4 @@
+Tool: built-in image_gen, background-extraction.
+Input: source/ResultPanelsDynamicChest.png
+Prompt: Extract ONLY the fallen lantern illustration from the RIGHT parchment panel as a transparent PNG sprite. Preserve the exact existing lantern, fallen leaves, circular thorn arch, warm tiny light, and shaded ground cluster. Remove ALL parchment, panel border, horizontal dividers, bookmark, left panel and empty margins. Do not redesign or add anything. Tight landscape framing of the entire illustration, truly transparent background with soft natural shadow edges. Source illustration spans approximately x810..1210 y495..775. Output only this illustration.
+Output: Assets/DarkFairytale/UI/BattleResult/DefeatLantern.png

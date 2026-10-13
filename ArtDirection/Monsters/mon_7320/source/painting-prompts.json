@@ -1,0 +1,10 @@
+{
+  "tool": "built-in image_gen; exact model not exposed",
+  "prompt": "Production Spine texture sheet edit. Image1 is exact 3x3 layout of nine separate sprite parts. Image2 is approved water monster design (style reference ONLY). Repaint each of nine parts in place, keep same shape, orientation, proportions and cell. True transparent background and clean natural alpha, no colored rectangles/artifacts from source. Row1: body only WITHOUT face or arms; large flipper; small flipper. Row2: two separate oval eyes together in same left cell, larger eye lower LEFT and smaller eye upper RIGHT exactly as source; tiny curved sad mouth in middle cell on transparent background with NO backing patch; soft blue-gray semi-transparent flipper contact shadow in right cell. Row3: three rounded soft water fragments for death, keep source shapes. Material smoky desaturated blue-green water, painterly dark-fairytale style matching reference2, pale soft highlights, ink outline. BODY ONLY: place a blurry low-contrast full round moon with closed eyelid and downward lashes within LOWER LEFT side of body (opposite concept reference because source faces RIGHT); submerged reeds below moon, diffuse ripples and a few bubbles. Keep RIGHT side of body clear for separate face overlays. Do not draw face/arms into body. Flippers and fragments match body water palette. Eyes dark teal-black hollow ovals with watery pale centers and small tear streaks, no opaque blue rectangular background. Mouth dark thin curved frown. Nine isolated cells, no labels, no floating crown bead, do not add character portraits. Preserve original positions so source joints and meshes can be reused.",
+  "references": [
+    "reference-0.png",
+    "../B-character-v3.png"
+  ],
+  "output": "painted-0.png",
+  "utilityPage": "painted-1.png copies original reference only; top cleared to transparent, original shadow retained."
+}

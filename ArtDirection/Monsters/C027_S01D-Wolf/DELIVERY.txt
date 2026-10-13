@@ -1,0 +1,57 @@
+MobRuneWolf — 猩红符文狼 / Unity 交付
+2026-10-11
+
+采用：wolf-design-v3-scarlet-runes.png。猩红眼、爪背暗红符文、近侧后腿腐烂旧伤。
+原骨架对应 C027_S01D，图形比例服从原骨架和原网格。未修改原版敌人或覆盖原始 Spine 文件。
+
+运行目录：Assets/DarkFairytale/Monsters/MobRuneWolf/
+内容：MobRuneWolf.prefab、MobRuneWolf.json、MobRuneWolf.atlas.txt、MobRuneWolf.png、材质、闪白材质、Atlas、SkeletonData。
+配置键和 Addressables 地址：MobRuneWolf。LevelDataDescriptions.EnemyDb 已注册；正式关卡敌人列表可填写此键。
+未替换当前正式关卡配置。已加入 Assets/Tests/MonsterAnimation/MonsterAnimationTest.unity 的目录和 Prefab 列表。
+
+预览步骤：
+1. Unity 菜单 Tools > Dark Fairytale > Monsters > Open Test Scene。
+2. 点击 Play，在怪物列表选择 MobRuneWolf_SkeletonData（也可搜索 MobRuneWolf）。
+3. 使用动画列表逐个播放、暂停或自动轮播。预览器使用 Prefab 的朝向缩放。
+实战步骤：打开 Gameplay，点击 Play，等待初始化后执行
+Tools > Dark Fairytale > Monsters > MobRuneWolf > Run Combat Test (Play mode)。
+该工具添加运行期临时单狼和狼/蘑菇混编两波，退出 Play 即丢弃，不修改正式关卡。
+实战验证临时提高狼生命、补满玩家生命，以观察完整攻击、受击和死亡；不能作为平衡性结论。
+
+骨骼和动作：
+原 66 骨骼、25 槽位、IK、transform constraints、附件网格、UV、权重、原始 10 套动画和变形时间线原样保留。
+原动画仍可从预览列表直接播放。未只修改版本字符串；所用原导出本身标记为 3.8-from-4.0-from-4.1-from-4.2.43，已用项目实际 Runtime 加载采样。
+数字皮肤 1 使用 linkedmesh，继承 default 网格及变形；原 default 附件数据不变。
+仅增加以下游戏别名和自定义事件：
+  Idle1   <- Idle_Battle_00  0.8000s，无战斗事件
+  Attack1 <- Atk1_00         1.2333s，OnHit 0.6333s（扑咬前伸落下阶段），OnComplete 1.2333s
+  Hit     <- Hit_00          0.5333s，OnComplete 0.5333s
+  Death1  <- Death_00        1.5333s，OnComplete 1.5333s
+没有补做新骨骼动作。其他 6 个原动作可预览，当前战斗流程不主动调用。
+
+Prefab：
+单皮肤 maxSkins=1；仅一个游戏攻击 Attack1（GetMaxAttacks 的排他上界=2）。
+原图朝右，在 SkeletonAnimation 显示节点 x=-1 翻转朝左，未改骨架坐标或动画曲线。
+保留子节点 0 血条 / 子节点 1 显示对象；配置独立 ImpactPoint。
+使用普通下落入场（此狼没有 spawn 动画），不复用蘑菇生长动画。
+初始沿用低级测试怪数据：HP 6、伤害 1、经验 1、攻击间隔 2.8s、无物品掉落，音效沿用模板通用键；后续由玩法配置调整。
+
+贴图与复现：
+分件使用内置 image_gen 按原 UV 有效区重绘，生产提示词在 source/painting-prompts.json。
+source/reference-0/1.png 为原分件坐标参考，painted-0/1.png 为最终绘制源；images/ 为实际分件。
+脚本只做原网格遮罩参考、分件裁切、缩放采样和图集打包；不生成替代绘画。
+Atlas 改用项目支持的 3.8 非旋转布局、完整画布 region，直通 Alpha；材质开启 Straight Alpha Input。
+编辑器显式工具 MobRuneWolf > Build and Register 重打包；已有 Prefab 不重建，保留 Inspector 手调内容。
+先执行 python3 ArtDirection/Monsters/C027_S01D-Wolf/build_rig.py 可复现 JSON；加 --verify 可比对已交付资源与原骨架。
+外部同内容导出：项目同级 Spine/export/monster/MobRuneWolf/。
+可编辑交付为 JSON 和分件图片。原生 .spine 仍保留在原始 C027_S01D 目录，本次没有另存包含新别名/事件的原生 .spine 工程；需要 Spine 中继续制作时导入 source/MobRuneWolf.json 并指向 source/images。
+
+验证报告：output/monster-animation/MobRuneWolf/（截图仅本地，不提交）。
+原始数据完整性由 build_rig.py 验证；原源文件散列在 source/provenance.json。
+Unity Validate and Render 采样所有 14 动作 × 2 皮肤，核对有限顶点、linked skin 变形一致、自定义事件次数及攻击打断。
+
+本轮验证结果：
+- 原骨架、网格和十套原动画数据逐项比较通过；原始来源文件散列未改变。
+- Unity 全十四动作、两套皮肤采样及事件/打断检查通过；已在统一测试场景实际选择 MobRuneWolf 并播放。
+- 实战回归通过：三个 MobRuneWolf 实例覆盖单怪及混合波次，验证攻击单次命中/完成、Hit 返回 Idle1、Death1 完成与对象销毁、下一波及胜利；运行错误为 0。测试临时提高怪物血量并补充玩家血量，仅验证集成，不代表数值平衡。
+- 运行图集 4096×2048，直通 Alpha。Unity 与外部三件导出逐字节一致。

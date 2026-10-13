@@ -1,0 +1,37 @@
+C031_Dummy_G · 三方向概念设计 v1
+日期：2026-10-12
+状态：用户已选择 A 腐叶祈童，生产编号 MobRotleafChild；B/C 保留为未选概念。运行资源验收见 DELIVERY.txt。
+交付：A/B/C-character-v1.png，A/B/C-battle-v1.png，overview-v1.html，prompts-v1.json。
+战斗图均为 AI 概念合成，不是 Unity 实景或动画验收。使用内置 image_gen；具体模型未暴露。
+
+源资源
+/Users/vic/Workshop/Spine/monster2/目录/C031_Dummy_G.png
+/Users/vic/Workshop/Spine/monster2/动画/C031_Dummy_G/C031_Dummy_G.spine
+同目录 JSON / atlas / PNG / images。原生工程已定位，结构依据导出 JSON；本轮未在 Spine 编辑器或 Unity 运行原生工程。
+背景：ArtDirection/Environment/Chapter01/04-riverside-cabin.png
+风格依据：AGENTS.md、ArtDirection/monster-production-manual.md、fairytale-monster-design/references/project-context.md。
+
+A · 腐叶祈童｜枯橄榄叶帽、浅木色身体；叶脉闭眼渗出琥珀树液。短脚与困倦表情保留可爱感，污染表现为焦边和空洞。森林融合度最高。
+
+B · 残烛守夜人｜象牙蜡壳、炭黑帽底、少量暗红蜡封；帽上封住的人脸与微亮烛龛形成异常。圆眼和软蜡轮廓保持稚拙感，夜景最清楚。
+
+C · 折页噤声客｜旧纸、淡靛阴影和暗红蜡封；帽上不见底的锁孔与剪纸队列形成异常。小纸手脚保持可爱感，墨渍与缺页表现污染。最贴近诅咒童话的书页意象。
+
+骨架依据
+20 bones / 11 slots / 2 IK / 1 default skin。
+19 slot-attachment 条目，含复用手臂；6 种眼、4 种口，主体/帽/手脚使用网格。
+14 原动画：Atk1_00, Clear_00, Death_00, GetUp_00, Hit_00, Idle_Battle_00, Idle_Down_00, Idle_Normal_00, KnockBack_00, KnockDown_00, LinkSkill_00, Run_Battle_00, Stun_00, Walk_Normal_00。
+攻击 1.4333s；死亡 1.5333s；战斗待机 1.2s。
+攻击 Come01 平移关键帧 x=-140.98..386.9、y=-22.72..257.99（局部时间线数值，不是世界包围盒）；存在明显跃动及帽摆。
+Clear/Death/KnockBack 有 drawOrder 切换。死亡前脚会移到更前层，眼口也有排序变化。
+Front_hat_02 是后帽层，主帽在脸前；不得把帽底、嘴和身体烘成一整块而丢失遮挡。
+
+适配计划与风险
+共通：保留大帽、两段短身、短手脚，未增加长肢体。可尝试复用全部 14 段动作，但概念图不证明最终适配通过。需按每个原始 UV 有效区制作分件、全部眼口切换、帽底接缝与运动极值逐帧验收。
+原图偏正面三分之四，设计将脸向左侧集中；A 初稿朝右，已镜像修正，镜像仅校正朝向，不能据此声称原骨架已经完成转身。B/C 的侧向程度较浅，制作时应检查眼口在攻击旋转下是否仍朝向主角。
+A：叶帽最接近原大帽拓扑。叶脉闭眼与树液默认画在帽皮肤；独立睁眼或滴落需追加动画/特效，原骨架无此能力。
+B：封脸默认静态压印。烛龛默认彩绘深度，不承诺真正开洞或光照；若需要火苗跳动应单独做可控视觉层。蜡滴不可长到跨越原网格边界。
+C：锁孔默认画成黑色深腔，避免透明穿孔露出原后帽层；纸队列为静态印花。薄硬纸的折叠视觉和原软帽变形可能冲突，重点看攻击帽摆。蜡封不要跨帽分件接缝。
+概念画面检查：角色完整、短手脚、左向三分之四、无新增肢体；三张战斗图均移除原三只敌人，使用同一节点背景、小红帽、近似镜头与落脚位置。生成图体量存在小幅差异，最终尺度由 Unity 测试场景统一。无 UI、无文字遮挡，主角与敌人分离。
+建议：优先 C（辨识度与书页主题），偏重夜景清晰度选 B；A 适合更自然的森林敌人。
+

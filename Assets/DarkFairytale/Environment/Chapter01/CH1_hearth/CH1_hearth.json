@@ -1,0 +1,136 @@
+{
+  "skeleton": {
+    "hash": "chapter01-environment-v1",
+    "spine": "3.8.75",
+    "images": "./images/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "motion",
+      "parent": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "hearth",
+      "bone": "motion",
+      "attachment": "hearth"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "hearth": {
+          "hearth": {
+            "name": "hearth",
+            "path": "hearth",
+            "width": 155.0,
+            "height": 165.0,
+            "x": 0.0,
+            "y": 82.5
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "Ambient": {
+      "bones": {
+        "motion": {
+          "scale": [
+            {
+              "time": 0.0,
+              "x": 1.0,
+              "y": 1.0
+            },
+            {
+              "time": 0.23,
+              "x": 0.96,
+              "y": 1.08
+            },
+            {
+              "time": 0.51,
+              "x": 1.04,
+              "y": 0.91
+            },
+            {
+              "time": 0.82,
+              "x": 0.97,
+              "y": 1.12
+            },
+            {
+              "time": 1.15,
+              "x": 1.03,
+              "y": 0.96
+            },
+            {
+              "time": 1.6,
+              "x": 1.0,
+              "y": 1.0
+            }
+          ],
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 0
+            },
+            {
+              "time": 0.53,
+              "angle": -2
+            },
+            {
+              "time": 1.04,
+              "angle": 2
+            },
+            {
+              "time": 1.6,
+              "angle": 0
+            }
+          ]
+        }
+      },
+      "slots": {
+        "hearth": {
+          "color": [
+            {
+              "time": 0.0,
+              "color": "ffffffff"
+            },
+            {
+              "time": 0.17,
+              "color": "ffe6c0b8"
+            },
+            {
+              "time": 0.31,
+              "color": "ffffffff"
+            },
+            {
+              "time": 0.55,
+              "color": "ffe2bddd"
+            },
+            {
+              "time": 0.82,
+              "color": "ffffffff"
+            },
+            {
+              "time": 1.11,
+              "color": "ffdeb3af"
+            },
+            {
+              "time": 1.26,
+              "color": "fff2dbef"
+            },
+            {
+              "time": 1.6,
+              "color": "ffffffff"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

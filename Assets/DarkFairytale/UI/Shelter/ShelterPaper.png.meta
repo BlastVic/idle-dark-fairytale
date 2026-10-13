@@ -1,0 +1,717 @@
+fileFormatVersion: 2
+guid: 44e57d6fc80e0420ca861ea14ab48ca9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8588450841547543081
+    second: ShelterPaper_0
+  - first:
+      213: -4688509515847469577
+    second: ShelterPaper_1
+  - first:
+      213: 1104163427372800957
+    second: ShelterPaper_2
+  - first:
+      213: -1779047881831538276
+    second: ShelterPaper_3
+  - first:
+      213: 1083605342543421393
+    second: ShelterPaper_4
+  - first:
+      213: 4565550809095286665
+    second: ShelterPaper_5
+  - first:
+      213: -5404134683226341049
+    second: ShelterPaper_6
+  - first:
+      213: 5584903297105290375
+    second: ShelterPaper_7
+  - first:
+      213: 8151163217124202977
+    second: ShelterPaper_8
+  - first:
+      213: -8702696240997096417
+    second: ShelterPaper_9
+  - first:
+      213: -623285453113379823
+    second: ShelterPaper_10
+  - first:
+      213: -795603093604477352
+    second: ShelterPaper_11
+  - first:
+      213: -2126648058621225628
+    second: ShelterPaper_12
+  - first:
+      213: -5918597149423324676
+    second: ShelterPaper_13
+  - first:
+      213: 6557154760049795741
+    second: ShelterPaper_14
+  - first:
+      213: -858926568093864026
+    second: ShelterPaper_15
+  - first:
+      213: -4987116732784451328
+    second: ShelterPaper_16
+  - first:
+      213: 6461047715108785505
+    second: ShelterPaper_17
+  - first:
+      213: 4556291175826184469
+    second: ShelterPaper_18
+  - first:
+      213: -5708348143293962356
+    second: ShelterPaper_19
+  - first:
+      213: 2280690164129875720
+    second: ShelterPaper_20
+  - first:
+      213: -110663861084019650
+    second: ShelterPaper_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ShelterPaper_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 343
+        width: 775
+        height: 639
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 922985d698e403770800000000000000
+      internalID: 8588450841547543081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_1
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 447
+        width: 739
+        height: 569
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f57fd5af611feeb0800000000000000
+      internalID: -4688509515847469577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_2
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 913
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbb988e79c6c25f00800000000000000
+      internalID: 1104163427372800957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_3
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 894
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c912505906d8f47e0800000000000000
+      internalID: -1779047881831538276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_4
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 623
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1df140f515db90f00800000000000000
+      internalID: 1083605342543421393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_5
+      rect:
+        serializedVersion: 2
+        x: 1302
+        y: 565
+        width: 7
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98f2f1485481c5f30800000000000000
+      internalID: 4565550809095286665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_6
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 561
+        width: 19
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7410def4328a005b0800000000000000
+      internalID: -5404134683226341049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_7
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 560
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7846ed865ff818d40800000000000000
+      internalID: 5584903297105290375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_8
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 541
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e91bee52cfbe1170800000000000000
+      internalID: 8151163217124202977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_9
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 539
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f14ad3fa0efc93780800000000000000
+      internalID: -8702696240997096417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_10
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 537
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1143285ce25a957f0800000000000000
+      internalID: -623285453113379823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_11
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 543
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 856d08f933375f4f0800000000000000
+      internalID: -795603093604477352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_12
+      rect:
+        serializedVersion: 2
+        x: 1216
+        y: 513
+        width: 33
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4659b9fabd0ac72e0800000000000000
+      internalID: -2126648058621225628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_13
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 525
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf1bbfb204becdda0800000000000000
+      internalID: -5918597149423324676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_14
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 531
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d92a7025381bffa50800000000000000
+      internalID: 6557154760049795741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_15
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 519
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6afae9c46da7414f0800000000000000
+      internalID: -858926568093864026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_16
+      rect:
+        serializedVersion: 2
+        x: 1402
+        y: 514
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001e9f021c33acab0800000000000000
+      internalID: -4987116732784451328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_17
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 511
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16d88ef2aa04aa950800000000000000
+      internalID: 6461047715108785505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 37
+        width: 765
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519dd542fa23b3f30800000000000000
+      internalID: 4556291175826184469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_19
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 495
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c87e3b89b9fd7c0b0800000000000000
+      internalID: -5708348143293962356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_20
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 439
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80740b3ee93a6af10800000000000000
+      internalID: 2280690164129875720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShelterPaper_21
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 0
+        width: 679
+        height: 409
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e342d9efdc7d67ef0800000000000000
+      internalID: -110663861084019650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ShelterPaper_0: 8588450841547543081
+      ShelterPaper_1: -4688509515847469577
+      ShelterPaper_10: -623285453113379823
+      ShelterPaper_11: -795603093604477352
+      ShelterPaper_12: -2126648058621225628
+      ShelterPaper_13: -5918597149423324676
+      ShelterPaper_14: 6557154760049795741
+      ShelterPaper_15: -858926568093864026
+      ShelterPaper_16: -4987116732784451328
+      ShelterPaper_17: 6461047715108785505
+      ShelterPaper_18: 4556291175826184469
+      ShelterPaper_19: -5708348143293962356
+      ShelterPaper_2: 1104163427372800957
+      ShelterPaper_20: 2280690164129875720
+      ShelterPaper_21: -110663861084019650
+      ShelterPaper_3: -1779047881831538276
+      ShelterPaper_4: 1083605342543421393
+      ShelterPaper_5: 4565550809095286665
+      ShelterPaper_6: -5404134683226341049
+      ShelterPaper_7: 5584903297105290375
+      ShelterPaper_8: 8151163217124202977
+      ShelterPaper_9: -8702696240997096417
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,19 @@
+Mob009 Unity validation
+attack_1: PASS both skins, finite geometry, identical deformation; duration=0.7333
+die: PASS both skins, finite geometry, identical deformation; duration=2
+idle: PASS both skins, finite geometry, identical deformation; duration=0.6667
+run: PASS both skins, finite geometry, identical deformation; duration=0.4
+spawn: PASS both skins, finite geometry, identical deformation; duration=0.4667
+stun: PASS both skins, finite geometry, identical deformation; duration=1
+victory: PASS both skins, finite geometry, identical deformation; duration=0.5333
+Idle1: PASS both skins, finite geometry, identical deformation; duration=0.6667
+Attack1: PASS both skins, finite geometry, identical deformation; duration=0.7333
+Death1: PASS both skins, finite geometry, identical deformation; duration=2
+Hit: PASS both skins, finite geometry, identical deformation; duration=0.4
+Idle1: PASS events OnHit=0, OnComplete=0
+Attack1: PASS events OnHit=1, OnComplete=1
+Hit: PASS events OnHit=0, OnComplete=1
+Death1: PASS events OnHit=0, OnComplete=1
+PASS interrupted attack: 0 hits, 1 completion.
+PASS attack interrupted by death: 0 hits, 1 completion.
+PASS 40 bones, 15 slots, 11 clips, 22 skin/clip combinations; rendered all clips.
