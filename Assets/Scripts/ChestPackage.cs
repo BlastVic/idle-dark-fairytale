@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Linq;
+using System.Collections.Generic;
+using Assets.Scripts.Services;
 using Assets.Scripts.Services.Ads;
 using IdleKnightHero.UI;
 using UnityEngine;
@@ -16,6 +18,7 @@ public class ChestPackage : MonoBehaviour
     public bool Opening {get;private set;}
     public bool AwaitingAd {get;private set;}
     public bool Leaving {get;private set;}
+    public List<Item> RewardItems {get;} = new List<Item>();
     public int RewardAmount {get;private set;}
     public DateTime UnlockAt {get;private set;}
     public bool Ready => CurrentChest!=null&&DateTime.Now>=UnlockAt;
@@ -62,12 +65,26 @@ public class ChestPackage : MonoBehaviour
         InventoryManager.single.RemoveChest(CurrentChest);
         float minimum=Mathf.Max(0,CurrentChest.crystalsMin),maximum=Mathf.Max(minimum,CurrentChest.crystalsMax);
         RewardAmount=Mathf.FloorToInt(UnityEngine.Random.Range(minimum,maximum));
-        // Commit once; the displayed count-up is presentation only.
+        // Commit once; the opening and reward reveals are presentation only.
         GameManager.single.crystals+=RewardAmount;
-        SoundManager.Instance.PlayClip("CHEST_DROP_CRYSTALS");
-        view.Refresh();StartCoroutine(Complete());
+        var pool=CurrentChest.chestGrade==ChestGrade.DIAMOND?CurrentChest.possibleDiamondRewards:
+            CurrentChest.chestGrade==ChestGrade.GOLD?CurrentChest.possibleGoldRewards:CurrentChest.possibleRewards;
+        RewardItems.Clear();
+        if(pool!=null)foreach(var candidate in pool){
+            if(UnityEngine.Random.Range(0f,1f)>candidate.m_ChanceDrop)continue;
+            var item=InventoryManager.single.CreateItemStats(candidate);
+            item.m_ItemFinalTitle=InventoryManager.single.GetRandomName(item);
+            item.uniqueId=UnityEngine.Random.Range(0,999999);
+            InventoryManager.single.AddItem(item);RewardItems.Add(item);
+        }
+        // Commit removal, payment and all rewards together before the presentation begins.
+        SaveManager.Instance.Save();
+#if UNITY_EDITOR
+        if(!UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE",false))
+#endif
+            UnityEngine.PlayerPrefs.Save();
+        view.Refresh();view.opening.Play();
     }
-    IEnumerator Complete(){yield return new WaitForSecondsRealtime(3);CloseButtonWithRewards();}
     public void CloseButton(){if(Opening||AwaitingAd||Leaving)return;Leaving=true;view.Refresh();Router.single.CallCampFromChest(false);}
-    public void CloseButtonWithRewards(){if(!Opening||Leaving)return;Leaving=true;view.Refresh();Router.single.CallCampFromChest(true);}
+    public void CloseButtonWithRewards(){if(!Opening||Leaving||!view.opening.Finished)return;Leaving=true;view.Refresh();Router.single.CallCampFromChest(false);}
 }

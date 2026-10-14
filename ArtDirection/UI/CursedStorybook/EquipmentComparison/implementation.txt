@@ -1,0 +1,12 @@
+Approved equipment comparison redesign
+
+References: approved-five-stats.png and approved-one-stat.png (user-approved concept images).
+Prefab: Assets/DarkFairytale/UI/Equipment/StorybookEquipment.prefab.
+
+Quality and title occupy one single line, with bounded font fitting and ellipsis for long titles.
+Equipment artwork is dynamically bound to the current/target item sprites behind stat rows. The translucent parchment veil and image are separate editable prefab nodes. Existing game equipment assets and frame/button assets are reused; no generated text or icons are baked into the runtime UI.
+ReplacementDivider is a persistent UGUI graphic: the continuous vertical contour has a right-facing notch. Thickness, notch size, offset and colors are Inspector-editable. It stretches with panel height without stretching a raster texture.
+The comparison uses 303 reference units for five rows and a minimum of 214 for one row, preserving the action column. Spare vertical space centers the attribute rows. Primary stat uses bold, secondary stats use normal dark text. Red/green delta conventions remain unchanged.
+
+Unity validation images: output/equipment-layered-comparison/; six full-screen captures, 1 and 5 stat fixtures at 1080x1920, 768x1024, 720x1440. Test fixtures do not save to player account.
+Visual implementation follows the approved arrangement. Runtime uses the actual inventory club sprite (simpler than the concept rendering) and the project's existing font/frame/button artwork; long titles may elide at narrow widths, so this is not a claim of pixel-identical concept reproduction.

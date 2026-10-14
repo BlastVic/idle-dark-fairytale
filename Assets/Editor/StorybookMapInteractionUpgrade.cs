@@ -42,8 +42,8 @@ public static class StorybookMapInteractionUpgrade
         foreach(var n in ui.nodes){
             if(!n.customSeal){n.seal.sprite=ui.completedSeal;n.seal.material=ui.completedMaterial;}
             var label=(RectTransform)n.label.transform.parent;var seal=n.seal.rectTransform;
-            float center=seal.anchoredPosition.x+seal.rect.width*.5f;
-            label.anchoredPosition=new Vector2(center-label.rect.width*.5f,seal.anchoredPosition.y-seal.rect.height-4);
+            float center=seal.anchoredPosition.x+seal.rect.width*(.5f-seal.pivot.x);
+            label.anchoredPosition=new Vector2(center-label.rect.width*.5f,seal.anchoredPosition.y-seal.rect.height*(1-seal.pivot.y)-4);
             n.labelRoot=label.gameObject;
             n.progress.rectTransform.anchoredPosition=new Vector2(center-n.progress.rectTransform.rect.width*.5f,label.anchoredPosition.y-label.rect.height-3);
         }

@@ -51,7 +51,6 @@ public sealed class CursedBookIntro : MonoBehaviour
     Vector3 rigStartScale;
     Color captionColor, versionColor;
     bool restoring;
-    bool fullPageReading;
 
     void Awake()
     {
@@ -128,14 +127,7 @@ public sealed class CursedBookIntro : MonoBehaviour
         // A slow load holds on the opened book. Never push into a blank/unready home page.
         while (!HomeReady) yield return null;
         if (prologue && prologue.ShouldPlay()) {
-            float from = HoldZoom();
-            fullPageReading = true;
-            float readingPush = 0;
-            while (readingPush < .6f) {
-                readingPush = Mathf.Min(.6f, readingPush + Mathf.Min(.05f, Time.unscaledDeltaTime));
-                ApplyCamera(Mathf.Lerp(from, TargetZoom(), Mathf.SmoothStep(0, 1, readingPush / .6f)));
-                yield return null;
-            }
+            // Read at the opened-book distance; enter the scene only after the home ink reveal.
             yield return prologue.Play();
         }
         float time = 0;
@@ -199,7 +191,7 @@ public sealed class CursedBookIntro : MonoBehaviour
         status.text="正在加载…";version.text="v"+Application.version;
         yield return null;
         while(!GameManager.single||!LevelController.Instance||!LevelController.Instance.AssetManager||
-              !LevelController.Instance.AssetManager.campPackageObj||!GameplayCanvas.single||!GameplayCanvas.single.homeUI)
+              !LevelController.Instance.AssetManager.IsShelterReady||!GameplayCanvas.single||!GameplayCanvas.single.homeUI)
             yield return null;
         foreach(var obj in completion.objectsToTurnOnAfter)if(obj)obj.SetActive(true);
         var gc=GameplayCanvas.single;gc.gameObject.SetActive(true);gc.homeUI.gameObject.SetActive(true);gc.homeUI.Refresh();
@@ -221,7 +213,7 @@ public sealed class CursedBookIntro : MonoBehaviour
         GetComponent<CursedBookIntroLayout>()?.Apply();
         Canvas.ForceUpdateCanvases();
         // Reuse the opening book hold framing so its paper and cover borders remain visible.
-        rigStartScale=cameraRig.localScale;fullPageReading=false;
+        rigStartScale=cameraRig.localScale;
         book.Initialize(false);book.AnimationState.ClearTracks();
         var open=book.AnimationState.SetAnimation(0,animationName,false);
         open.TrackTime=open.Animation.Duration;book.Update(0);ApplyCamera(HoldZoom());
@@ -236,7 +228,7 @@ public sealed class CursedBookIntro : MonoBehaviour
         // Let GameManager/SaveManager initialize first, then render the original saved home prefab.
         yield return null;
         while (!GameManager.single || !LevelController.Instance ||
-               !LevelController.Instance.AssetManager || !LevelController.Instance.AssetManager.campPackageObj ||
+               !LevelController.Instance.AssetManager || !LevelController.Instance.AssetManager.IsShelterReady ||
                !GameplayCanvas.single || !GameplayCanvas.single.homeUI)
             yield return null;
         foreach (var obj in completion.objectsToTurnOnAfter) if (obj) obj.SetActive(true);
@@ -296,7 +288,13 @@ public sealed class CursedBookIntro : MonoBehaviour
         var r = homePage.rectTransform;
         r.sizeDelta = new Vector2(r.sizeDelta.y * .75f, r.sizeDelta.y);
     }
-    float HoldZoom() => fullPageReading ? TargetZoom() : Mathf.Max(1, TargetZoom() * pageHoldViewportFraction);
+    float HoldZoom()
+    {
+        // Preserve the original 9:16 reading view, including the right cover edge, on taller phones.
+        var viewport = ((RectTransform)transform).rect;
+        float widthFit = Mathf.Min(1, viewport.width / viewport.height / (9f / 16f));
+        return Mathf.Max(1, TargetZoom() * pageHoldViewportFraction * widthFit);
+    }
     float TargetZoom()
     {
         var core = (RectTransform)cameraRig.parent;

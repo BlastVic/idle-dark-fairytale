@@ -1,0 +1,26 @@
+2026-10-14 头像实验体编号
+
+编号为累计玩家死亡次数 + 1，至少三位补零，初始 001；超过 999 正常显示 1000。在 Actor_Base 玩家死亡入口计数，isDying 防止同一次死亡重复计数；敌人死亡不计数。技能复活仍算发生过一次死亡。
+存档字段 playerDeathCount，旧存档缺失字段为 0。死亡立即保存并刷盘；转生沿用累计值，只有删除存档开启新档才重置。所有相关 UI 从 GameManager.SubjectNumber 读取，保留原 UGUI 文本节点和布局。
+
+实际 Unity 验证使用独立存档键，正式玩家存档逐字节未变；两次真实战斗死亡与重复回调、实际转生、退出/重进 Play 后读取、三比例截图已验证。商店及转生画面的字段绑定已静态核对，本轮未单独运行这两个画面的完整交互。截图仅保存 output/subject-number/。
+
+PASS Old save without death count starts at zero
+PASS Initial portrait number 001
+PASS Battle loaded
+PASS Player death counted once despite duplicate call
+PASS Death persisted immediately
+PASS Battle loaded
+PASS Player death counted once despite duplicate call
+PASS Death persisted immediately
+PASS Home number at (720, 1280)
+PASS Home number at (768, 1024)
+PASS Home number at (720, 1440)
+PASS Equipment shares death number
+PASS Skills shares death number
+PASS Number grows beyond three digits
+PASS Real rebirth preserves lifetime death count
+PASS Rebirth save retains number
+PASS Death count survives Play restart and rebirth save
+PASS Real save unchanged
+DONE

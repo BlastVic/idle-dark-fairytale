@@ -1,0 +1,377 @@
+{
+  "skeleton": {
+    "spine": "3.8.75",
+    "images": "./",
+    "hash": "chest-opening-v1"
+  },
+  "bones": [
+    {
+      "name": "root"
+    },
+    {
+      "name": "chest",
+      "parent": "root"
+    },
+    {
+      "name": "lid",
+      "parent": "chest"
+    }
+  ],
+  "slots": [
+    {
+      "name": "open",
+      "bone": "lid"
+    },
+    {
+      "name": "body",
+      "bone": "chest",
+      "attachment": "body"
+    },
+    {
+      "name": "closed",
+      "bone": "lid",
+      "attachment": "closed"
+    }
+  ],
+  "skins": [
+    {
+      "name": "bronze",
+      "attachments": {
+        "body": {
+          "body": {
+            "name": "bronze_body",
+            "width": 340,
+            "height": 195.35911602209944,
+            "y": -30
+          }
+        },
+        "closed": {
+          "closed": {
+            "name": "bronze_closed",
+            "width": 340,
+            "height": 151.6094986807388,
+            "y": 68
+          }
+        },
+        "open": {
+          "open": {
+            "name": "bronze_open",
+            "width": 340,
+            "height": 267.00564971751413,
+            "y": 143
+          }
+        }
+      }
+    },
+    {
+      "name": "gold",
+      "attachments": {
+        "body": {
+          "body": {
+            "name": "gold_body",
+            "width": 340,
+            "height": 199.11602209944752,
+            "y": -30
+          }
+        },
+        "closed": {
+          "closed": {
+            "name": "gold_closed",
+            "width": 340,
+            "height": 153.49081364829397,
+            "y": 68
+          }
+        },
+        "open": {
+          "open": {
+            "name": "gold_open",
+            "width": 340,
+            "height": 275.6497175141243,
+            "y": 143
+          }
+        }
+      }
+    },
+    {
+      "name": "diamond",
+      "attachments": {
+        "body": {
+          "body": {
+            "name": "diamond_body",
+            "width": 340,
+            "height": 197.78393351800554,
+            "y": -30
+          }
+        },
+        "closed": {
+          "closed": {
+            "name": "diamond_closed",
+            "width": 340,
+            "height": 156.2402088772846,
+            "y": 68
+          }
+        },
+        "open": {
+          "open": {
+            "name": "diamond_open",
+            "width": 340,
+            "height": 271.0422535211268,
+            "y": 143
+          }
+        }
+      }
+    }
+  ],
+  "events": {
+    "burst": {}
+  },
+  "animations": {
+    "idle": {
+      "bones": {
+        "chest": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 0
+            },
+            {
+              "time": 2,
+              "angle": 0
+            }
+          ]
+        }
+      }
+    },
+    "open": {
+      "bones": {
+        "chest": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 0
+            },
+            {
+              "time": 0.4,
+              "angle": 0
+            },
+            {
+              "time": 0.56,
+              "angle": -2
+            },
+            {
+              "time": 0.7,
+              "angle": 2
+            },
+            {
+              "time": 0.81,
+              "angle": -3
+            },
+            {
+              "time": 0.91,
+              "angle": 3.5
+            },
+            {
+              "time": 1,
+              "angle": -4
+            },
+            {
+              "time": 1.08,
+              "angle": 4
+            },
+            {
+              "time": 1.14,
+              "angle": 0
+            },
+            {
+              "time": 1.25,
+              "angle": 0
+            },
+            {
+              "time": 1.31,
+              "angle": -3
+            },
+            {
+              "time": 1.42,
+              "angle": 2
+            },
+            {
+              "time": 1.58,
+              "angle": 0
+            },
+            {
+              "time": 1.8,
+              "angle": 0
+            }
+          ],
+          "translate": [
+            {
+              "time": 0,
+              "x": 0,
+              "y": 0
+            },
+            {
+              "time": 1.14,
+              "x": 0,
+              "y": -5
+            },
+            {
+              "time": 1.25,
+              "x": 0,
+              "y": -5
+            },
+            {
+              "time": 1.33,
+              "x": 0,
+              "y": 11
+            },
+            {
+              "time": 1.48,
+              "x": 0,
+              "y": -3
+            },
+            {
+              "time": 1.7,
+              "x": 0,
+              "y": 0
+            }
+          ],
+          "scale": [
+            {
+              "time": 0,
+              "x": 1,
+              "y": 1
+            },
+            {
+              "time": 1.14,
+              "x": 1.02,
+              "y": 0.97
+            },
+            {
+              "time": 1.25,
+              "x": 1.02,
+              "y": 0.97
+            },
+            {
+              "time": 1.34,
+              "x": 0.99,
+              "y": 1.03
+            },
+            {
+              "time": 1.6,
+              "x": 1,
+              "y": 1
+            }
+          ]
+        },
+        "lid": {
+          "scale": [
+            {
+              "time": 0,
+              "x": 1,
+              "y": 1
+            },
+            {
+              "time": 1.24,
+              "x": 1,
+              "y": 0.93
+            },
+            {
+              "time": 1.25,
+              "x": 1,
+              "y": 0.22
+            },
+            {
+              "time": 1.36,
+              "x": 1,
+              "y": 1.12
+            },
+            {
+              "time": 1.47,
+              "x": 1,
+              "y": 0.95
+            },
+            {
+              "time": 1.65,
+              "x": 1,
+              "y": 1
+            }
+          ],
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 0
+            },
+            {
+              "time": 1.25,
+              "angle": 0
+            },
+            {
+              "time": 1.36,
+              "angle": -6
+            },
+            {
+              "time": 1.5,
+              "angle": 2
+            },
+            {
+              "time": 1.7,
+              "angle": 0
+            }
+          ]
+        }
+      },
+      "slots": {
+        "closed": {
+          "attachment": [
+            {
+              "time": 0,
+              "name": "closed"
+            },
+            {
+              "time": 1.25,
+              "name": null
+            }
+          ]
+        },
+        "open": {
+          "attachment": [
+            {
+              "time": 0,
+              "name": null
+            },
+            {
+              "time": 1.25,
+              "name": "open"
+            }
+          ]
+        }
+      },
+      "events": [
+        {
+          "time": 1.25,
+          "name": "burst"
+        }
+      ]
+    },
+    "opened": {
+      "slots": {
+        "closed": {
+          "attachment": [
+            {
+              "time": 0,
+              "name": null
+            }
+          ]
+        },
+        "open": {
+          "attachment": [
+            {
+              "time": 0,
+              "name": "open"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -26,7 +26,7 @@ public class IntroScript : MonoBehaviour
 
     public void AnimationNearlyComplete()
     {
-        if (LevelController.Instance.AssetManager.campPackageObj == null)
+        if (!LevelController.Instance.AssetManager.IsShelterReady)
             GameManager.single.StartCoroutine("WaitForCamp");
 
 

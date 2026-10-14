@@ -136,7 +136,7 @@ public class RebirthPackage : MonoBehaviour
     public void ToggleAreYouSure(bool b)
     {
         if(Busy || (b && !CanRebirth))return;
-        AreYouSurePanel.SetActive(b);
+        if(b)StorybookPopupMotion.Show(AreYouSurePanel);else StorybookPopupMotion.Hide(AreYouSurePanel);
     }
 
     void TurnOffFirstCam()

@@ -900,7 +900,7 @@ MonoBehaviour:
   progress: {fileID: 8972605652874314436}
   cost: {fileID: 8877132916814136701}
   actionCaption: {fileID: 5087676118260742143}
-  hint: {fileID: 6904690927585493702}
+  hint: {fileID: 0}
   rewardHint: {fileID: 2830322064325263584}
   action: {fileID: 5350902374595135718}
   back: {fileID: 4321545693146284458}
@@ -2798,6 +2798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &6522294535795545465
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4734,6 +4735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &777907007583213898
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4954,7 +4956,6 @@ RectTransform:
   - {fileID: 9104602711750011424}
   - {fileID: 9078760061386377544}
   - {fileID: 5541656730836846115}
-  - {fileID: 6145065273767010661}
   - {fileID: 7117187953640170640}
   m_Father: {fileID: 7092763948931112030}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5506,7 +5507,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 120, y: -322}
+  m_AnchoredPosition: {x: 120, y: -319}
   m_SizeDelta: {x: 293, y: 34}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &655048610251395870
@@ -5604,6 +5605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &3702986341040434432
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6171,85 +6173,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &8508114518043647077
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6145065273767010661}
-  - component: {fileID: 2099796199698573489}
-  - component: {fileID: 6904690927585493702}
-  m_Layer: 5
-  m_Name: Hint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6145065273767010661
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8508114518043647077}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4640645659178279433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 16, y: -292}
-  m_SizeDelta: {x: 501, y: 28}
-  m_Pivot: {x: 0, y: 1}
---- !u!222 &2099796199698573489
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8508114518043647077}
-  m_CullTransparentMesh: 1
---- !u!114 &6904690927585493702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8508114518043647077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Text
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.065, g: 0.052, b: 0.038, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 0224f00f4c40b4055a447ab78bff7114, type: 3}
-    m_FontSize: 19
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: "\u6D88\u8017\u6C34\u6676\uFF0C\u8865\u6EE1\u878D\u5408\u8FDB\u5EA6"
 --- !u!1 &8733273827321521163
 GameObject:
   m_ObjectHideFlags: 0

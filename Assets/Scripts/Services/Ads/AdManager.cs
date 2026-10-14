@@ -45,6 +45,7 @@ namespace Assets.Scripts.Services.Ads
             {
                 case "ChestDetail":
                 case "ExperienceModal":
+                case "DailySupply":
                 case "BattleResult":
                 case "Cameplay":
                     break;
@@ -54,7 +55,7 @@ namespace Assets.Scripts.Services.Ads
             }
             LoggerMethods.Log("Ad finished :" + _adTag);
             // The authored result UI owns its guarded reward callback.
-            if (_adTag != "ChestDetail" && _adTag != "BattleResult" && _adTag != "ExperienceModal") GameplayCanvas.single.StartVictoryChest();
+            if (_adTag != "ChestDetail" && _adTag != "BattleResult" && _adTag != "ExperienceModal" && _adTag != "DailySupply") GameplayCanvas.single.StartVictoryChest();
             AdFinished.SafeInvoke(_adTag);
             _adFinishedCallback.SafeInvoke();
             _adFinishedCallback = null;

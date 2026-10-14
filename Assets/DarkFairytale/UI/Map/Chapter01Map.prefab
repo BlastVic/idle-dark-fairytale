@@ -34,9 +34,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: -4}
+  m_AnchoredPosition: {x: 95, y: -48}
   m_SizeDelta: {x: 88, y: 88}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2440266463204372660
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1108,7 +1108,7 @@ MonoBehaviour:
   supported: {fileID: 3226088850960304492}
   core: {fileID: 2481672932859477101}
   header: {fileID: 3109612706522002835}
-  detail: {fileID: 9074412708044980020}
+  detail: {fileID: 7286284553039131394}
   navigation: {fileID: 266945183728703051}
   viewport: {fileID: 4045929263614340423}
   content: {fileID: 5730712803461926608}
@@ -1396,9 +1396,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: -4}
+  m_AnchoredPosition: {x: 95, y: -48}
   m_SizeDelta: {x: 88, y: 88}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5967159826021182466
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2951,9 +2951,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: -4}
+  m_AnchoredPosition: {x: 95, y: -48}
   m_SizeDelta: {x: 88, y: 88}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6149755577195990809
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3421,7 +3421,7 @@ RectTransform:
   m_Children:
   - {fileID: 4045929263614340423}
   - {fileID: 3109612706522002835}
-  - {fileID: 9074412708044980020}
+  - {fileID: 7286284553039131394}
   - {fileID: 266945183728703051}
   m_Father: {fileID: 3226088850960304492}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3763,6 +3763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &6353341701345656241
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -4133,9 +4134,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: -4}
+  m_AnchoredPosition: {x: 95, y: -48}
   m_SizeDelta: {x: 88, y: 88}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8773232772934226974
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4686,6 +4687,57 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &3933805664160568697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7286284553039131394}
+  - component: {fileID: 6861016396546712205}
+  m_Layer: 5
+  m_Name: DetailSlideViewport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7286284553039131394
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3933805664160568697}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 9074412708044980020}
+  m_Father: {fileID: 2481672932859477101}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 8, y: -1458}
+  m_SizeDelta: {x: 925, y: 184}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &6861016396546712205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3933805664160568697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3312d7739989d2b4e91e6319e9a96d76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RectMask2D
+  m_Padding: {x: 0, y: 0, z: 0, w: 0}
+  m_Softness: {x: 0, y: 0}
 --- !u!1 &3975770169193765061
 GameObject:
   m_ObjectHideFlags: 0
@@ -5672,7 +5724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6b8fb143a21414594bde872f295070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
-  pressedScale: 0.96
+  pressedScale: 0.9
+  animationTarget: {fileID: 7468217227192658912}
 --- !u!114 &4974256673809785704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6232,9 +6285,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: -4}
+  m_AnchoredPosition: {x: 95, y: -59}
   m_SizeDelta: {x: 88, y: 110}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6987498308555027948
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7072,7 +7125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6b8fb143a21414594bde872f295070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
-  pressedScale: 0.96
+  pressedScale: 0.9
+  animationTarget: {fileID: 3752748035426836013}
 --- !u!114 &4111467235000485722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7288,7 +7342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6b8fb143a21414594bde872f295070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
-  pressedScale: 0.96
+  pressedScale: 0.9
+  animationTarget: {fileID: 3424890118226295913}
 --- !u!114 &4722952011777420810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8326,7 +8381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6b8fb143a21414594bde872f295070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
-  pressedScale: 0.96
+  pressedScale: 0.9
+  animationTarget: {fileID: 5743335967004049923}
 --- !u!114 &5479800072068993669
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9049,6 +9105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &2475371755596911891
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10212,7 +10269,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6b8fb143a21414594bde872f295070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
-  pressedScale: 0.96
+  pressedScale: 0.9
+  animationTarget: {fileID: 7104250535931249039}
 --- !u!114 &7297550279784998498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10716,6 +10774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &5462281111327398087
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -10882,7 +10941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f6b8fb143a21414594bde872f295070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
-  pressedScale: 0.96
+  pressedScale: 0.9
+  animationTarget: {fileID: 3745193287926923467}
 --- !u!114 &7694454735258060448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11035,6 +11095,7 @@ GameObject:
   - component: {fileID: 8226078337050923926}
   - component: {fileID: 9026203134662288750}
   - component: {fileID: 7841208886031726269}
+  - component: {fileID: 3417677361925319103}
   m_Layer: 5
   m_Name: SelectedNodeCard
   m_TagString: Untagged
@@ -11056,13 +11117,13 @@ RectTransform:
   m_Children:
   - {fileID: 2034980033489002035}
   - {fileID: 3869918499846472970}
-  m_Father: {fileID: 2481672932859477101}
+  m_Father: {fileID: 7286284553039131394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 8, y: -1458}
-  m_SizeDelta: {x: 925, y: 184}
-  m_Pivot: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8226078337050923926
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11113,10 +11174,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d744019477a344fd8fa64577b861f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StorybookMapCardMotion
-  content: {fileID: 3869918499846472970}
-  group: {fileID: 1040104866539617827}
-  duration: 0.24
-  riseDistance: 18
+  content: {fileID: 9074412708044980020}
+  group: {fileID: 3417677361925319103}
+  duration: 0.42
+  riseDistance: 208
+  fullCardRise: 1
+--- !u!225 &3417677361925319103
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8427325425163713289}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8440704174072734450
 GameObject:
   m_ObjectHideFlags: 0
@@ -11230,9 +11304,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51, y: -4}
+  m_AnchoredPosition: {x: 95, y: -48}
   m_SizeDelta: {x: 88, y: 88}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1367878415765391576
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11746,6 +11820,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 616249595988999940, guid: 11debcb902c7b4ec9bfaabb6207d3392, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 0224f00f4c40b4055a447ab78bff7114, type: 3}
+    - target: {fileID: 616249595988999940, guid: 11debcb902c7b4ec9bfaabb6207d3392, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 33
       objectReference: {fileID: 0}
@@ -11861,6 +11939,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0.98
       objectReference: {fileID: 0}
+    - target: {fileID: 3068689472133961225, guid: 11debcb902c7b4ec9bfaabb6207d3392, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: dbe0bf1078d0041d9be2105afdf04819, type: 3}
     - target: {fileID: 3068689472133961225, guid: 11debcb902c7b4ec9bfaabb6207d3392, type: 3}
       propertyPath: m_FontData.m_MaxSize
       value: 42

@@ -1,0 +1,34 @@
+战斗经验与升级反馈更新
+经验数值60号黑体宋字，淡金墨边；升级40号暗红标题、48号等级，旧纸荆棘框与蜡封。
+动画：0.28秒弹出回落，蜡封0.1秒后落印；经验1.65秒、升级2.5秒，停留后上飘淡出。
+全部元素为HUD持久化Prefab节点，无输入阻挡。经验合并、连续升级奖励合并逻辑保留。
+Unity实测9:16、3:4、1:2；截图仅保留output/battle-feedback。
+PASS Authored battle HUD route
+PASS Equal length HP XP (1080, 1920)
+PASS Only learned status skills visible (1080, 1920)
+PASS Status icons do not intercept input (1080, 1920)
+PASS Actual XP amount above portrait (1080, 1920)
+PASS XP rises (1080, 1920)
+PASS XP fades (1080, 1920)
+PASS Level up uses portrait feedback (1080, 1920)
+PASS Equal length HP XP (768, 1024)
+PASS Only learned status skills visible (768, 1024)
+PASS Status icons do not intercept input (768, 1024)
+PASS Actual XP amount above portrait (768, 1024)
+PASS XP rises (768, 1024)
+PASS XP fades (768, 1024)
+PASS Level up uses portrait feedback (768, 1024)
+PASS Equal length HP XP (720, 1440)
+PASS Only learned status skills visible (720, 1440)
+PASS Status icons do not intercept input (720, 1440)
+PASS Actual XP amount above portrait (720, 1440)
+PASS XP rises (720, 1440)
+PASS XP fades (720, 1440)
+PASS Level up uses portrait feedback (720, 1440)
+PASS Radial remainder clears clockwise from twelve
+PASS Cooldown follows actual player timer
+PASS Return restores home and clears portrait feedback
+PASS Victory hides HUD and opens results
+PASS Defeat hides HUD and opens results
+PASS Results return to camp
+DONE

@@ -11,7 +11,8 @@ public static class ShopMapNavigationValidation
     const string Out = "output/shop-map-navigation/";
     const string Key = "SHOP_MAP_NAVIGATION_QA";
     static bool running;
-    static int failures, errors;
+    static int failures, errors, cameraGaps;
+    static bool monitorCameras;
     static double deadline;
     static ShopMapNavigationValidation()
     {
@@ -29,6 +30,7 @@ public static class ShopMapNavigationValidation
         if (EditorApplication.isCompiling || EditorApplication.isUpdating) return;
         if (!EditorApplication.isPlayingOrWillChangePlaymode && File.Exists(Out + "validate.request")) {
             File.Delete(Out + "validate.request");
+            UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
             File.WriteAllText(Out + "validation.txt", "Shop -> map route regression; persistence disabled.\n");
             SessionState.SetBool(Key, true);
             SessionState.SetBool("MONSTER_QA_DISABLE_SAVE", true);
@@ -58,18 +60,21 @@ public static class ShopMapNavigationValidation
     }
     static IEnumerator OpenShop()
     {
-        // Isolate navigation from this Editor's unavailable Unity IAP store factory.
-        var gc = GameplayCanvas.single;
-        var assets = LevelController.Instance.AssetManager;
-        assets.HideMapPackage(); gc.inventoryPanel.SetActive(false); gc.skillsPanel.SetActive(false);
-        gc.ToggleCampUi(false); gc.ToggleBattleUi(false); gc.ToggleHpXpLevelUi(false);
-        gc.ToggleChestButtonUI(false); gc.ToggleFusionBarUI(false);
-        assets.SpawnGeneralObj("CashMallPackage");
-        GameManager.single.SetGameState(GameStateType.CASH_MALL); gc.ToggleButtonGrid(false);
+        Router.single.CashMallButton();
         float end = Time.realtimeSinceStartup + 15;
         while ((!CashMallPackage.single || GameManager.single.gameState != GameStateType.CASH_MALL) && Time.realtimeSinceStartup < end) yield return null;
         yield return new WaitForSecondsRealtime(.6f);
         Check(CashMallPackage.single, "shop opens");
+    }
+    static IEnumerator MonitorCameras()
+    {
+        while (monitorCameras) {
+            yield return new WaitForEndOfFrame();
+            bool rendering = false;
+            foreach (var camera in Camera.allCameras)
+                rendering |= camera.isActiveAndEnabled && camera.targetDisplay == 0 && camera.targetTexture == null;
+            if (!rendering) cameraGaps++;
+        }
     }
     static IEnumerator Run()
     {
@@ -78,6 +83,8 @@ public static class ShopMapNavigationValidation
         var intro = Object.FindFirstObjectByType<CursedBookIntro>();
         while (intro && intro.gameObject.activeSelf) yield return null;
         TutorialManager.single.automatic = false; TutorialManager.single.view.Hide();
+        Check(!GameObject.Find("MenuPackageCam"), "Retired menu camera removed from loaded scene");
+        cameraGaps=0; monitorCameras=true; gm.StartCoroutine(MonitorCameras());
         for (int i = 0; i < 20; i++) if (!gm.HasSeenThis("Tutorial-" + i)) gm.thingsSeenPermanent.Add("Tutorial-" + i);
         gc.CancelInvoke("TryShowingXpBoosterNotification"); gc.dailyCherriesPop.SetActive(false);
         foreach (var size in new[] { new Vector2Int(720,1280), new Vector2Int(768,1024), new Vector2Int(720,1440) }) {
@@ -104,6 +111,13 @@ public static class ShopMapNavigationValidation
             yield return new WaitForEndOfFrame();
             var shot = ScreenCapture.CaptureScreenshotAsTexture();
             File.WriteAllBytes(Out + size.x + "x" + size.y + "-map.png", shot.EncodeToPNG()); Object.Destroy(shot);
+            yield return OpenShop();
+            Check(gm.gameState == GameStateType.CASH_MALL, "map to shop reaches shop");
+            yield return new WaitForEndOfFrame();
+            var shopShot = ScreenCapture.CaptureScreenshotAsTexture();
+            File.WriteAllBytes(Out + size.x + "x" + size.y + "-shop.png", shopShot.EncodeToPNG()); Object.Destroy(shopShot);
+            CashMallPackage.single.view.navigation[3].onClick.Invoke();
+            yield return new WaitForSecondsRealtime(2);
             Router.single.CampButton(); yield return new WaitForSecondsRealtime(2);
             Check(gm.gameState == GameStateType.CAMP && gc.homeUI.gameObject.activeInHierarchy, "map return to camp preserved");
         }
@@ -115,6 +129,8 @@ public static class ShopMapNavigationValidation
     }
     static void Finish()
     {
+        monitorCameras=false;
+        Check(cameraGaps==0,"Every rendered transition frame has a display camera; gaps="+cameraGaps);
         File.AppendAllText(Out + "validation.txt", (failures == 0 && errors == 0 ? "PASS" : "FAIL") + " COMPLETE failures=" + failures + " errors=" + errors + "\n");
         Application.logMessageReceived -= Error;
         EditorApplication.isPlaying = false;

@@ -480,7 +480,7 @@ public static class BlackForestMushroomBuilder
     {
         if (!EditorApplication.isPlaying || WaveManager.single == null) throw new Exception("Open Gameplay, enter Play mode and wait for initialization first.");
         var assets = LevelController.Instance.AssetManager;
-        assets.HideCampPackage(); assets.HideMapPackage();
+         assets.HideMapPackage();
         GameplayCanvas.single.ToggleButtonGrid(false); GameplayCanvas.single.ToggleFusionBarUI(false);
         GameplayCanvas.single.victoryPanel.SetActive(false); GameplayCanvas.single.defeatPanel.SetActive(false);
         MushroomBattleProbe.Begin();

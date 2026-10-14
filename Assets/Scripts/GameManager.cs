@@ -26,8 +26,19 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Data")]
     public int playerLevel = 1;
+    // Lifetime progress: deliberately independent of level and rebirth resets.
+    public int playerDeathCount;
+    public string SubjectNumber => ((long)Mathf.Max(0, playerDeathCount) + 1).ToString("D3");
+
+    public void RecordPlayerDeath()
+    {
+        if (playerDeathCount < int.MaxValue) playerDeathCount = Mathf.Max(0, playerDeathCount) + 1;
+        SaveManager.Instance.SaveDeathProgress();
+    }
+
     public int rebirthLevel = 0;
     public int fusionLevel;
+    public LevelTypeEnum lastStatPurchased = LevelTypeEnum.NONE;
     public int hpLevel;
     public int dmgLevel;
     public int defLevel;
@@ -83,7 +94,7 @@ public class GameManager : MonoBehaviour
         //am.battleCampCamera.SetActive(true);
 
         //Invoke("LateCampTest", 5);
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
 
         //gc.RefreshFusion();
         //  TransitionCanvas.single.ToClear("GameManager-After spawnplayer");
@@ -99,7 +110,7 @@ public class GameManager : MonoBehaviour
     {
         TransitionCanvas.single.ToBlack("Intro");
 
-        while (LevelController.Instance.AssetManager.campPackageObj == null) yield return null;
+        while (!LevelController.Instance.AssetManager.IsShelterReady) yield return null;
 
         TransitionCanvas.single.ForceClear();
     }
@@ -277,6 +288,7 @@ public class GameManager : MonoBehaviour
         #endregion
 
 
+        if(gc&&gc.battleHud&&gc.battleHud.isActiveAndEnabled&&gc.battleHud.statusDetails)gc.battleHud.statusDetails.Experience(amount);
         xpNow += amount;
         if (xpNow >= xpMax)
         {
@@ -297,11 +309,21 @@ public class GameManager : MonoBehaviour
         //if (InventoryUI.single != null) InventoryUI.single.RefreshFusion();
     }
 
-    void LevelUpEvent()
+    public void DebugAddTenLevels()
     {
+        for (int i = 0; i < 10; i++) LevelUpEvent(false);
         SoundManager.Instance.PlayClip("LEVEL_UP", false, true);
+        gc.PlayLevelUp();
+        gc.RefreshXp();
+        gc.RefreshCampUI();
+        SaveManager.Instance.Save();
+    }
+
+    void LevelUpEvent(bool present = true)
+    {
+        if (present) SoundManager.Instance.PlayClip("LEVEL_UP", false, true);
         xpNow = 0;
-        if (playerLevel <= LevelDataDescriptions.ExpLevelDb.Length - 1)
+        if (playerLevel < LevelDataDescriptions.ExpLevelDb.Length - 1)
         {
             xpMax = LevelDataDescriptions.ExpLevelDb[playerLevel + 1];
         }
@@ -313,8 +335,11 @@ public class GameManager : MonoBehaviour
         statPoints++;
 
         if (Utilities.IsDivisible(playerLevel, 5)) skillPoints++;
-        gc.PlayLevelUp();
-        SaveManager.Instance.Save();
+        if (present)
+        {
+            gc.PlayLevelUp();
+            SaveManager.Instance.Save();
+        }
 
     }
 

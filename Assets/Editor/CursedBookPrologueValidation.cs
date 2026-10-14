@@ -18,6 +18,8 @@ public static class CursedBookPrologueValidation
         EditorApplication.update += Tick;
         EditorApplication.playModeStateChanged += state => {
             if (state != PlayModeStateChange.EnteredEditMode || !SessionState.GetBool("PROLOGUE_QA", false)) return;
+            if (SessionState.GetBool("PROLOGUE_QA_LOCKED",false)) { EditorApplication.UnlockReloadAssemblies(); SessionState.SetBool("PROLOGUE_QA_LOCKED",false); }
+            SessionState.SetInt("SETTINGS_QA_SKIP",SessionState.GetInt("PROLOGUE_QA_OLD_SKIP",-1));
             running = false;
             SessionState.SetInt("PROLOGUE_QA_INDEX", SessionState.GetInt("PROLOGUE_QA_INDEX",0)+1);
             EditorApplication.delayCall += Begin;
@@ -47,13 +49,16 @@ public static class CursedBookPrologueValidation
         int i=SessionState.GetInt("PROLOGUE_QA_INDEX",0);
         if (i>=4) { SessionState.SetBool("PROLOGUE_QA",false); SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",false); File.AppendAllText(Dir+"validation.txt","ALL RUNS FINISHED\n"); return; }
         var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
-        if (scene.path!="Assets/Scenes/MainScenes/Gameplay.unity") {
+        if (scene.path!="Assets/Scenes/Gameplay.unity") {
             if(scene.isDirty) { File.AppendAllText(Dir+"validation.txt","BLOCKED: current scene has unsaved changes\n");SessionState.SetBool("PROLOGUE_QA",false);SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",false);return; }
-            EditorSceneManager.OpenScene("Assets/Scenes/MainScenes/Gameplay.unity");
+            EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
         }
         var method=typeof(CursedBookIntroValidation).GetMethod("Resolution",BindingFlags.NonPublic|BindingFlags.Static);
         method.Invoke(null,new object[]{new[]{720,768,720,720}[i],new[]{1280,1024,1440,1280}[i]});
         SessionState.SetBool("PROLOGUE_QA_FORCE",false);
+        SessionState.SetInt("PROLOGUE_QA_OLD_SKIP",SessionState.GetInt("SETTINGS_QA_SKIP",-1));
+        SessionState.SetInt("SETTINGS_QA_SKIP",0);
+        EditorApplication.LockReloadAssemblies(); SessionState.SetBool("PROLOGUE_QA_LOCKED",true);
         EditorApplication.isPlaying=true;
     }
     static void Log(string s) { File.AppendAllText(Dir+"validation.txt",s+"\n"); }
@@ -102,7 +107,7 @@ public static class CursedBookPrologueValidation
                         float sampledAspect=(float)p.pages[page].illustration.width*crop.width/(p.pages[page].illustration.height*crop.height);
                         Check(Mathf.Abs(sampledAspect-rect.width/rect.height)<.002f,ratio+" image not stretched");
                         Vector3[] corners=new Vector3[4];p.illustration.rectTransform.GetWorldCorners(corners);
-                        Check(Mathf.Abs((corners[1].y-corners[0].y)-Screen.height)<2,ratio+" illustration matches full-height home presentation");
+                        Check(Mathf.Abs((corners[1].y-corners[0].y)-Mathf.Min(Screen.height,Screen.width*16f/9f)*intro.pageHoldViewportFraction)<2,ratio+" prologue retains opened-book reading distance");
                         Vector3[] homeCorners=new Vector3[4];intro.homePage.rectTransform.GetWorldCorners(homeCorners);
                         Check(Enumerable.Range(0,4).All(c=>Vector3.Distance(corners[c],homeCorners[c])<1),ratio+" illustration and home page have identical bounds");
                         p.subtitle.rectTransform.GetWorldCorners(corners);

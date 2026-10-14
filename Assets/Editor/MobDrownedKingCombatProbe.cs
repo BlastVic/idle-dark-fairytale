@@ -27,7 +27,7 @@ public static class MobDrownedKingCombatProbe
         test.levelKey=Key;test.levelName=Key;test.waves=new[]{new Wave{enemies=new[]{"MobDrownedKing"}},new Wave{enemies=new[]{"MobDrownedKing","MobDrownedMoon"}}};
         wm.waveDb.RemoveAll(w=>w.levelKey==Key);wm.waveDb.Add(test);
         Application.logMessageReceived+=Log;EditorApplication.update+=Tick;
-        var assets=LevelController.Instance.AssetManager;assets.HideCampPackage();assets.HideMapPackage();
+        var assets=LevelController.Instance.AssetManager;assets.HideMapPackage();
         if(GameplayCanvas.single.homeUI)GameplayCanvas.single.homeUI.gameObject.SetActive(false);
         GameplayCanvas.single.ToggleButtonGrid(false);GameplayCanvas.single.ToggleFusionBarUI(false);
         GameplayCanvas.single.victoryPanel.SetActive(false);GameplayCanvas.single.defeatPanel.SetActive(false);

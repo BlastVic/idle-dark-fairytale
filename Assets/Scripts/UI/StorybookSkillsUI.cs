@@ -79,6 +79,7 @@ public sealed class StorybookSkillsUI : MonoBehaviour
         var skills=SkillsController.Instance;int hash=GameManager.single.skillPoints;
         foreach(var n in nodes)hash=unchecked(hash*31+skills.GetSkillLevel(n.key));
         playerLevel.text="Lv. "+GameManager.single.playerLevel;
+        if(subjectNumber)subjectNumber.text="No. "+GameManager.single.SubjectNumber;
         points.text="技能点  <color=#83180F>"+GameManager.single.skillPoints+"</color>";
         if(hash==signature)return;signature=hash;
         foreach(var n in nodes){int value=skills.GetSkillLevel(n.key);bool unlocked=n.IsUnlocked(skills);
@@ -163,7 +164,7 @@ public sealed class StorybookSkillsUI : MonoBehaviour
             if(Selected.effectLabels.Length==1){currentValues.text="当前    "+Number(Values(value)[0]*100)+"%";nextValues.text="升级后  "+Number(Values(value+1)[0]*100)+"%";}
             else {currentValues.text="当前\n"+EffectValues(value);nextValues.text="升级后\n"+EffectValues(value+1);}
         }
-        if(max)currentOnlyText.text="已达到最高等级";else if(value==0)currentOnlyText.text="学习后\n"+EffectValues(1);
+        if(max)currentOnlyText.text="当前效果\n"+EffectValues(10);else if(value==0)currentOnlyText.text="学习后\n"+EffectValues(1);
         prerequisites.text=PrerequisiteText();cost.text=max?"无需继续消耗":"消耗 <color=#861A12>"+Cost+"</color> 技能点";
         bool eligible=!max&&Selected.IsUnlocked(SkillsController.Instance)&&GameManager.single.skillPoints>=Cost;
         purchase.interactable=eligible;purchaseSurface.sprite=eligible?crimson:paper;

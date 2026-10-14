@@ -31,6 +31,7 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
     public StorybookFusionReminder fusionReminder;
     public void OpenFusion()=>Navigate(()=>Router.single.CallFusionFromEquipment());
     public Text[] statValues;
+    public StorybookAttributePanel sharedAttributes;
     public CanvasGroup attributeBody;
     public RectTransform foldArrow, comparisonContent;
     public ComparisonRow[] comparisonRows;
@@ -42,7 +43,7 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
     public Button[] optionButtons;
     public Text[] optionCaptions;
     public bool attributesExpanded;
-    public string subjectNumber="001";
+    public string subjectNumber => GameManager.single ? GameManager.single.SubjectNumber : "001";
     public float foldDuration=.22f;
     public ItemType Category {get;private set;}=ItemType.WEAPON;
     public Item Selected {get;private set;}
@@ -67,6 +68,8 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
     float authoredDetailHeight, authoredViewportHeight;
     Vector2 equipPosition, decomposePosition;
     public bool sideActions;
+    public bool layeredComparison;
+    public float minimumComparisonHeight=214;
     RectTransform[] detailDividers;
     Vector2[] dividerSizes;
 
@@ -109,7 +112,7 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
         ApplyFold(attributesExpanded?1:0);
         if(GameManager.single&&InventoryManager.single){GameManager.single.CalcPlayer();Rebuild(true);initialized=true;}
     }
-    void OnDisable(){Remember();StopAllCoroutines();folding=null;IsNavigating=false;BatchMode=false;batch.Clear();}
+    void OnDisable(){StorybookPopupMotion.Hide(modal,true);StorybookPopupMotion.Hide(options,true);Remember();StopAllCoroutines();folding=null;IsNavigating=false;BatchMode=false;batch.Clear();}
     void Update()
     {
         if(!GameManager.single||!InventoryManager.single)return;
@@ -226,9 +229,12 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
             modeButton.GetComponentInChildren<Text>().color=active?new Color(.98f,.94f,.84f):Color.black;
         }
         for(int i=0;i<items.Count;i++)cells[i].Bind(this,items[i],items[i]==eq,items[i]==Selected,batch.Contains(items[i].uniqueId));
-        selectedName.text=Selected?.m_ItemFinalTitle??"请选择装备";equippedName.text=eq?.m_ItemFinalTitle??"未装备";
+        selectedName.text=Selected==null?"请选择装备":(layeredComparison?GradeName(Selected.itemGrade)+" · ":"")+Selected.m_ItemFinalTitle;
+        equippedName.text=eq==null?"未装备":(layeredComparison?GradeName(eq.itemGrade)+" · ":"")+eq.m_ItemFinalTitle;
+        selectedName.GetComponent<EquipmentSingleLineName>()?.SetTitle(selectedName.text);
+        equippedName.GetComponent<EquipmentSingleLineName>()?.SetTitle(equippedName.text);
         grade.text=Selected==null?"":GradeName(Selected.itemGrade);equippedGrade.text=eq==null?"":GradeName(eq.itemGrade);
-        title.text=Selected==null?"装备详情":selectedName.text+" · "+grade.text;
+        title.text=Selected==null?"装备详情":Selected.m_ItemFinalTitle+" · "+grade.text;
         selectedIcon.sprite=Selected==null?null:InventoryManager.single.GetSpriteIcon(Selected.m_IconName);selectedIcon.enabled=selectedIcon.sprite;
         equippedIcon.sprite=eq==null?null:InventoryManager.single.GetSpriteIcon(eq.m_IconName);equippedIcon.enabled=equippedIcon.sprite;
         bool canEquip=Selected!=null&&Selected!=eq&&Owned(Category).Contains(Selected);
@@ -247,7 +253,14 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
             var r=comparisonRows[index];r.root.gameObject.SetActive(true);StorybookEquipmentLayout.Box(r.root,0,row*37,comparisonScroll.viewport.rect.width,37);
             if(layout.responsiveContents){r.root.anchorMax=new Vector2(1,1);r.root.sizeDelta=new Vector2(0,37);}
             row++;
-            r.current.text=Value(a[index],index);r.selected.text=Value(b[index],index);float delta=b[index]-a[index];
+            if(layeredComparison){
+                var weight=index==primary?FontStyle.Bold:FontStyle.Normal;
+                r.current.fontStyle=r.selected.fontStyle=weight;
+                foreach(var label in r.root.GetComponentsInChildren<Text>(true))if(label.name.StartsWith("Label"))label.fontStyle=weight;
+            }
+            SetComparisonColumnVisible(r,0,a[index]!=0);
+            SetComparisonColumnVisible(r,1,b[index]!=0);
+            r.current.text=a[index]==0?"":Value(a[index],index);r.selected.text=b[index]==0?"":Value(b[index],index);float delta=b[index]-a[index];
             bool changed=Mathf.Abs(delta)>=.0001f;
             r.delta.text=!changed?"—":(delta>0?"+":"")+Value(delta,index);
             r.delta.color=!changed?Color.black:delta>0?new Color(.62f,.08f,.055f):new Color(.10f,.34f,.16f);
@@ -263,14 +276,26 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
         if(detailDividers==null)CacheDetailGeometry();
         // Collapse unused comparison rows while preserving the authored button/border padding.
         float height=Mathf.Min(authoredViewportHeight,Mathf.Max(sideActions?2:1,row)*37);
+        if(layeredComparison)height=Mathf.Max(height,authoredViewportHeight-authoredDetailHeight+minimumComparisonHeight);
         float reduction=authoredViewportHeight-height;
+        if(layeredComparison){
+            float rowOffset=Mathf.Max(0,(height-row*37)*.5f);
+            foreach(var entry in comparisonRows)if(entry.root.gameObject.activeSelf)entry.root.anchoredPosition+=Vector2.down*rowOffset;
+        }
         comparisonScroll.viewport.sizeDelta=new Vector2(comparisonScroll.viewport.sizeDelta.x,height);
         if(!sideActions){
             ((RectTransform)equip.transform).anchoredPosition=equipPosition+Vector2.up*reduction;
             ((RectTransform)decompose.transform).anchoredPosition=decomposePosition+Vector2.up*reduction;
         }
-        for(int i=0;i<detailDividers.Length;i++)detailDividers[i].sizeDelta=dividerSizes[i]-Vector2.up*reduction;
+        for(int i=0;i<detailDividers.Length;i++)detailDividers[i].sizeDelta=dividerSizes[i]-Vector2.up*(dividerSizes[i].y>100?reduction:0);
         layout.detailHeight=authoredDetailHeight-reduction;layout.Apply();
+    }
+    static void SetComparisonColumnVisible(ComparisonRow row,int column,bool visible)
+    {
+        row.root.Find("StatIcon"+column)?.gameObject.SetActive(visible);
+        row.root.Find("Label"+column)?.gameObject.SetActive(visible);
+        var rules=row.root.Cast<Transform>().Where(t=>t.name=="InkRule").OrderBy(t=>((RectTransform)t).anchorMin.x).ToArray();
+        if(column<rules.Length)rules[column].gameObject.SetActive(visible);
     }
     public void EquipSelected()
     {
@@ -294,24 +319,27 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
         confirmed=()=>{
             float gain=0;foreach(var item in targets){if(!Owned(item.m_ItemType).Contains(item)||item.isLocked)continue;gain+=item.fusionExp;InventoryManager.single.RemoveItem(item);}
             if(gain>0){GameManager.single.IncFusion(gain);if(fusionReminder)fusionReminder.Notify(gain);}BatchMode=false;batch.Clear();Rebuild();
-        };modal.SetActive(true);
+        };StorybookPopupMotion.Show(modal);
     }
     public void SetSort(int mode){Remember();sortModes[Category]=Mathf.Clamp(mode,0,2);Rebuild(true);}
     public void SetFilter(int mode){Remember();filterModes[Category]=Mathf.Clamp(mode,0,2);Rebuild(true);}
     void OpenOptions(bool sorting)
     {
-        if(IsNavigating||HasOverlay||BatchMode)return;options.SetActive(true);optionsTitle.text=sorting?"装备排序":"装备筛选";
+        if(IsNavigating||HasOverlay||BatchMode)return;StorybookPopupMotion.Show(options);optionsTitle.text=sorting?"装备排序":"装备筛选";
         string[] labels=sorting?new[]{"获得顺序","主属性从高到低","品质从高到低","取消"}:new[]{"全部装备","仅未装备","仅未锁定","取消"};
         for(int i=0;i<4;i++){int n=i;optionCaptions[i].text=labels[i];optionButtons[i].onClick.RemoveAllListeners();optionButtons[i].onClick.AddListener(()=>{CloseOverlays();if(n<3){if(sorting)SetSort(n);else SetFilter(n);}});}
     }
-    public void CloseOverlays(){if(modal)modal.SetActive(false);if(options)options.SetActive(false);confirmed=null;}
+    public void CloseOverlays(){if(modal)StorybookPopupMotion.Hide(modal);if(options)StorybookPopupMotion.Hide(options);confirmed=null;}
     public void RefreshStats()
     {
         var gm=GameManager.single;if(!gm||gm.currentPlayerStat==null)return;
-        level.text="Lv. "+gm.playerLevel;number.text="No. "+(GameplayCanvas.single&&GameplayCanvas.single.homeUI?GameplayCanvas.single.homeUI.subjectNumber:subjectNumber);
+        level.text="Lv. "+gm.playerLevel;number.text="No. "+gm.SubjectNumber;
+        if(sharedAttributes)sharedAttributes.RefreshValues(!IsNavigating,CanBuy);
+        else {
         points.text="可用点数 <color=#761E20><size=39>"+gm.statPoints+"</size></color>";
         var s=gm.currentPlayerStat;float[] v={s.hpMax,s.dmg,s.def,s.atkSpd,s.crit,s.critDmg};
         for(int i=0;i<6;i++){statValues[i].text=Utilities.ConvertNumber(v[i])+(i>=3?"%":"");statButtons[i].interactable=!IsNavigating&&CanBuy(i);}
+        }
         if(fusionFill)fusionFill.fillAmount=gm.fxpMax>0?Mathf.Clamp01(gm.fxpNow/gm.fxpMax):0;
         if(fusionText&&fusionFill)fusionText.text=Mathf.FloorToInt(fusionFill.fillAmount*100)+"%";
         skillBadge.text=gm.skillPoints.ToString();skillBadge.transform.parent.gameObject.SetActive(gm.skillPoints>0);
@@ -324,7 +352,7 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
     public void BuyStat(int i){if(IsNavigating||HasOverlay||!attributesExpanded||!CanBuy(i))return;GameManager.single.statPoints-=LevelController.Instance.GetStatLevel(statTypes[i])>=100?2:1;LevelController.Instance.IncStat(statTypes[i]);SoundManager.Instance.PlayClip("STAT_BUY");RefreshStats();}
     public void ToggleAttributes(){if(IsNavigating||HasOverlay)return;attributesExpanded=!attributesExpanded;if(folding!=null)StopCoroutine(folding);folding=StartCoroutine(Fold());}
     IEnumerator Fold(){float start=layout.expansion,end=attributesExpanded?1:0;attributeBody.blocksRaycasts=attributeBody.interactable=false;for(float t=0;t<foldDuration;t+=Time.unscaledDeltaTime){ApplyFold(Mathf.Lerp(start,end,Mathf.SmoothStep(0,1,t/foldDuration)),false);yield return null;}ApplyFold(end);folding=null;}
-    void ApplyFold(float value,bool settled=true){layout.expansion=value;layout.Apply();attributeBody.alpha=value;attributeBody.gameObject.SetActive(value>0);attributeBody.blocksRaycasts=attributeBody.interactable=settled&&value>=.999f;foldArrow.localEulerAngles=new Vector3(0,0,180*value);}
+    void ApplyFold(float value,bool settled=true){layout.expansion=value;layout.Apply();if(sharedAttributes){sharedAttributes.SetFold(value,settled);return;}attributeBody.alpha=value;attributeBody.gameObject.SetActive(value>0);attributeBody.blocksRaycasts=attributeBody.interactable=settled&&value>=.999f;foldArrow.localEulerAngles=new Vector3(0,0,180*value);}
     void Navigate(Action action){if(IsNavigating||HasOverlay)return;IsNavigating=true;Remember();action();}
     public static string GradeName(ItemGrade grade){string[] names={"普通","精良","稀有","史诗","传说",""};return names[Mathf.Clamp((int)grade,0,5)];}
     public static Color GradeColor(ItemGrade g){Color[] colors={new Color(.55f,.57f,.56f),new Color(.3f,.48f,.25f),new Color(.16f,.37f,.57f),new Color(.48f,.25f,.57f),new Color(.7f,.47f,.13f)};return colors[Mathf.Clamp((int)g,0,4)];}

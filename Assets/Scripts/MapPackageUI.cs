@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,11 +22,14 @@ public class MapPackageUI : MonoBehaviour
     public Camera mapCam;
     public bool useLegacyTutorial = true;
     Camera origGameplayCam;
+    Canvas legacyCanvas;
     private void OnEnable()
     {
-        origGameplayCam = GameplayCanvas.single.GetComponent<Canvas>().worldCamera;
+        // New UI pages own their canvases; the gameplay controller may have none.
+        legacyCanvas = GameplayCanvas.single.GetComponent<Canvas>();
+        if(legacyCanvas)origGameplayCam = legacyCanvas.worldCamera;
         mapCam.gameObject.SetActive(true);
-        GameplayCanvas.single.GetComponent<Canvas>().worldCamera = mapCam;
+        if(legacyCanvas)legacyCanvas.worldCamera = mapCam;
         if(useLegacyTutorial) TutorialManager.single.PlayTutorial(1);
 
     }
@@ -34,7 +37,7 @@ public class MapPackageUI : MonoBehaviour
     {
         mapCam.gameObject.SetActive(false);
 
-        GameplayCanvas.single.GetComponent<Canvas>().worldCamera = origGameplayCam;
+        if(legacyCanvas)legacyCanvas.worldCamera = origGameplayCam;
     }
 
     public void BackButton()

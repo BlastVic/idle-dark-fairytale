@@ -4,7 +4,7 @@ using Assets.Scripts.Game.Enum;
 using Assets.Scripts.Services;
 using UnityEngine;
 
-/// <summary>Daily claims persist with the same save as the currency. Reminder dismissal is session-only.</summary>
+/// <summary>Daily claims persist with the same save as the currency. Reminder dismissal persists for the current calendar day.</summary>
 public sealed class StorybookDailyReward : MonoBehaviour
 {
     public StorybookDailyReminder reminder;
@@ -13,12 +13,16 @@ public sealed class StorybookDailyReward : MonoBehaviour
     float readySince=-1;
     public static string ClaimKey(DateTime date)=>"DailyBloodMoon.Claimed."+date.ToString("yyyy-MM-dd",CultureInfo.InvariantCulture);
     public static bool ClaimedToday=>GameManager.single&&GameManager.single.thingsSeenPermanent.Contains(ClaimKey(DateTime.Today));
-    public static bool TryClaim()
+    public static string DismissKey(DateTime date)=>"DailyBloodMoon.Dismissed."+date.ToString("yyyy-MM-dd",CultureInfo.InvariantCulture);
+    public static bool DismissedToday=>GameManager.single&&GameManager.single.thingsSeenPermanent.Contains(DismissKey(DateTime.Today));
+    public static void DismissToday(){var gm=GameManager.single;if(!gm||DismissedToday)return;gm.thingsSeenPermanent.Add(DismissKey(DateTime.Today));SaveManager.Instance.Save();}
+    DateTime reminderDay=DateTime.Today;
+    public static bool TryClaim(int multiplier=1)
     {
-        var gm=GameManager.single;if(!gm||ClaimedToday)return false;
+        var gm=GameManager.single;if(!gm||ClaimedToday||(multiplier!=1&&multiplier!=2))return false;
         // Legacy _DAILY_CHERRIES means shown, never claimed: deliberately do not migrate it.
         gm.thingsSeenPermanent.Add(ClaimKey(DateTime.Today));
-        gm.premiumCurrency+=gm.dailyCherriesAmount;
+        gm.premiumCurrency+=gm.dailyCherriesAmount*multiplier;
         SaveManager.Instance.Save();
         GameplayCanvas.single.RefreshCampUI();
         return true;
@@ -43,13 +47,14 @@ public sealed class StorybookDailyReward : MonoBehaviour
     }
     void Update()
     {
+        if(reminderDay!=DateTime.Today){reminderDay=DateTime.Today;ReminderHandled=false;readySince=-1;}
         if(TutorialManager.single && TutorialManager.single.BlocksDailyReminder)
         {
             DeferForTutorial();
             return;
         }
         if(ReminderHandled)return;
-        if(ClaimedToday){ReminderHandled=true;return;}
+        if(ClaimedToday||DismissedToday){ReminderHandled=true;return;}
         if(!CanPresent()){readySince=-1;return;}
         if(readySince<0)readySince=Time.unscaledTime;
         if(Time.unscaledTime-readySince<delaySeconds)return;

@@ -102,7 +102,7 @@ public sealed class StorybookMapUI : MonoBehaviour
     public void SelectNode(int index)
     {
         if(IsNavigating||IsDragging||Time.unscaledTime<suppressClickUntil||index<0||index>=nodes.Length)return;
-        bool changed=selectedIndex!=index;selectedIndex=index;Refresh();if(changed&&detailMotion)detailMotion.Play();SoundManager.Instance.PlayClip("CLICK");
+        selectedIndex=index;Refresh();if(detailMotion)detailMotion.Play();SoundManager.Instance.PlayClip("CLICK");
     }
     public void BeginDrag(){IsDragging=true;}
     public void EndDrag(){IsDragging=false;suppressClickUntil=Time.unscaledTime+.15f;}

@@ -117,7 +117,7 @@ public static class Chapter01GameplayProbe
     static void StartNode(){
         var gc=GameplayCanvas.single;gc.victoryPanel.SetActive(false);gc.defeatPanel.SetActive(false);gc.dailyCherriesPop.SetActive(false);
         var assets=LevelController.Instance.AssetManager;
-        assets.HideCampPackage();assets.HidePlayer();gc.ToggleBattleUi(false);gc.ToggleCampUi(false);
+        assets.HidePlayer();gc.ToggleBattleUi(false);gc.ToggleCampUi(false);
         assets.TurnOnMapPackage();GameManager.single.SetGameState(Assets.Scripts.Game.Enum.GameStateType.MAP);
         Next(7,1.5);
     }

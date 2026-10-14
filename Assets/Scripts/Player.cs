@@ -123,8 +123,13 @@ public class Player : AnimationController
     public float pathCleanerChance;
     public float bossKillerChance;
 
+    float regenNext, lightningNext, lightningInterval;
+    public float RegenRemaining => Mathf.Clamp01((regenNext-Time.time)/2f);
+    public float LightningRemaining => lightningInterval>0?Mathf.Clamp01((lightningNext-Time.time)/lightningInterval):0;
+
     IEnumerator RegenLoop()
     {
+        regenNext=Time.time+2;
         yield return new WaitForSeconds(2);
         if (!ab.isDying)
         {
@@ -135,7 +140,8 @@ public class Player : AnimationController
 
     IEnumerator LightningLoop()
     {
-        yield return new WaitForSeconds(Random.Range(1, 3.0f));
+        lightningInterval=Random.Range(1,3f);lightningNext=Time.time+lightningInterval;
+        yield return new WaitForSeconds(lightningInterval);
         if (!ab.isDying)
         {
             //Debug.Log("Try some lightning");

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Assets.Scripts.Extentions;
 using UnityEngine;
+using Scripts.Level;
 
 namespace Assets.Scripts.Services
 {
@@ -9,6 +10,18 @@ namespace Assets.Scripts.Services
     {
         private const String saveFileName = "savedata_v3";
         private const String saveLastBattle = "savedata_lastbattle";
+
+        // Editor validation uses a separate preference key; production always uses savedata_v3.
+        static string SaveKey {
+            get {
+#if UNITY_EDITOR
+                return UnityEditor.SessionState.GetString("STAT_ALLOCATION_QA_SAVE_KEY", saveFileName);
+#else
+                return saveFileName;
+#endif
+            }
+        }
+        static string LastBattleKey => SaveKey == saveFileName ? saveLastBattle : SaveKey + "_lastbattle";
 
         [SerializeField]
         public UserData _userData;
@@ -76,6 +89,7 @@ namespace Assets.Scripts.Services
             _userData.hasArmor = im.hasArmor;
 
             _userData.playerLevel = gm.playerLevel;
+            _userData.playerDeathCount = gm.playerDeathCount;
             _userData.rebirthLevel = gm.rebirthLevel;
             _userData.fusionLevel = gm.fusionLevel;
             _userData.hpLevel = gm.hpLevel;
@@ -84,6 +98,7 @@ namespace Assets.Scripts.Services
             _userData.atkSpdLevel = gm.atkSpdLevel;
             _userData.critLevel = gm.critLevel;
             _userData.critDmgLevel = gm.critDmgLevel;
+            _userData.LastAllocatedStat = gm.lastStatPurchased;
 
             //skills level
             _userData.regenLevel = SkillsController.Instance.regenLevel;
@@ -122,6 +137,24 @@ namespace Assets.Scripts.Services
             _data = JsonUtility.ToJson(_userData);
             _dataLastBattle = gm.lastBattleKey;
             CreateJSON();
+        }
+
+        public void SaveDeathProgress()
+        {
+#if UNITY_EDITOR
+            if (UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false)) return;
+#endif
+            Save();
+            PlayerPrefs.Save(); // Persist before the death presentation can be interrupted.
+        }
+
+        public void SaveStatAllocation()
+        {
+#if UNITY_EDITOR
+            if (UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false)) return;
+#endif
+            Save();
+            PlayerPrefs.Save(); // Allocation and its repeat restriction survive immediate shutdown.
         }
 
         public void Load()
@@ -172,6 +205,7 @@ namespace Assets.Scripts.Services
 
             //stat levels
             gm.playerLevel = _userData.playerLevel;
+            gm.playerDeathCount = Mathf.Max(0, _userData.playerDeathCount);
             gm.rebirthLevel = _userData.rebirthLevel;
             gm.fusionLevel = _userData.fusionLevel;
             gm.hpLevel = _userData.hpLevel;
@@ -180,6 +214,7 @@ namespace Assets.Scripts.Services
             gm.atkSpdLevel = _userData.atkSpdLevel;
             gm.critLevel = _userData.critLevel;
             gm.critDmgLevel = _userData.critDmgLevel;
+            gm.lastStatPurchased = _userData.LastAllocatedStat;
 
             //skill levels
             SkillsController.Instance.regenLevel = _userData.regenLevel;
@@ -226,10 +261,11 @@ namespace Assets.Scripts.Services
 
         public void DeleteData()
         {
-            PlayerPrefs.DeleteKey(saveFileName);
+            PlayerPrefs.DeleteKey(SaveKey);
             GameManager gm = GameManager.single;
 
             gm.playerLevel = 1;
+            gm.playerDeathCount = 0;
             gm.rebirthLevel = 0;
 
             ResetFusionAndXp();
@@ -283,6 +319,7 @@ namespace Assets.Scripts.Services
             gm.defLevel = 0;
             gm.dmgLevel = 0;
             gm.hpLevel = 0;
+            gm.lastStatPurchased = LevelTypeEnum.NONE;
         }
 
         /* The following metods came from the referenced URL */
@@ -295,8 +332,8 @@ namespace Assets.Scripts.Services
 
         void CreateJSON()
         {
-            PlayerPrefs.SetString(saveFileName, _data);
-            PlayerPrefs.SetString(saveLastBattle, _dataLastBattle);
+            PlayerPrefs.SetString(SaveKey, _data);
+            PlayerPrefs.SetString(LastBattleKey, _dataLastBattle);
             LoggerMethods.Log("saved to prefs");
         }
 
@@ -304,9 +341,9 @@ namespace Assets.Scripts.Services
         void LoadJSON()
         {
             string _info = "";
-            if (PlayerPrefs.HasKey(saveFileName))
+            if (PlayerPrefs.HasKey(SaveKey))
             {
-                _info = PlayerPrefs.GetString(saveFileName);
+                _info = PlayerPrefs.GetString(SaveKey);
 
                 _userData = JsonUtility.FromJson<UserData>(_info);
 
@@ -319,9 +356,9 @@ namespace Assets.Scripts.Services
                 EventManager.single.CallLoadComplete();
             }
 
-            if (PlayerPrefs.HasKey(saveLastBattle))
+            if (PlayerPrefs.HasKey(LastBattleKey))
             {
-                _dataLastBattle = PlayerPrefs.GetString(saveLastBattle);
+                _dataLastBattle = PlayerPrefs.GetString(LastBattleKey);
             }
         }
 
@@ -360,6 +397,7 @@ namespace Assets.Scripts.Services
         public bool hasAcc = false;
 
         public int playerLevel = 1;
+        public int playerDeathCount; // Missing in older saves means No. 001.
         public int rebirthLevel = 0;
         public int fusionLevel;
         public int hpLevel;
@@ -368,6 +406,13 @@ namespace Assets.Scripts.Services
         public int atkSpdLevel;
         public int critLevel;
         public int critDmgLevel;
+        // Zero is deliberately NONE for old JSON saves that have no allocation history.
+        // IDs 1..6 map to HP, DMG, DEF, ATK_SPD, CRIT, CRIT_DMG.
+        public int lastAllocatedStatId;
+        public LevelTypeEnum LastAllocatedStat {
+            get => lastAllocatedStatId >= 1 && lastAllocatedStatId <= 6 ? (LevelTypeEnum)(lastAllocatedStatId - 1) : LevelTypeEnum.NONE;
+            set => lastAllocatedStatId = value >= LevelTypeEnum.HP && value <= LevelTypeEnum.CRIT_DMG ? (int)value + 1 : 0;
+        }
         public int regenLevel = 0;
         public int pathCleanerLevel = 0;
         public int sinisterStampedeLevel = 0;

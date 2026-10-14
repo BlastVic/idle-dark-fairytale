@@ -1,0 +1,116 @@
+{
+  "skeleton": {
+    "spine": "3.8.99",
+    "hash": "forest-redhood",
+    "images": "images/"
+  },
+  "bones": [
+    {
+      "name": "root"
+    }
+  ],
+  "slots": [
+    {
+      "name": "body",
+      "bone": "root",
+      "attachment": "body"
+    },
+    {
+      "name": "eyes",
+      "bone": "root",
+      "attachment": "eyes",
+      "color": "ffffff00"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "body": {
+          "body": {
+            "path": "body",
+            "width": 974.0,
+            "height": 1240.0,
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "eyes": {
+          "eyes": {
+            "path": "eyes",
+            "width": 168.0,
+            "height": 111.0,
+            "x": 348.0,
+            "y": 392.5
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "Idle": {
+      "slots": {
+        "eyes": {
+          "color": [
+            {
+              "time": 0.0,
+              "color": "ffffff00"
+            },
+            {
+              "time": 2.11,
+              "color": "ffffff00"
+            },
+            {
+              "time": 2.16,
+              "color": "ffffffff"
+            },
+            {
+              "time": 2.23,
+              "color": "ffffffff"
+            },
+            {
+              "time": 2.31,
+              "color": "ffffff00"
+            },
+            {
+              "time": 5.6,
+              "color": "ffffff00"
+            },
+            {
+              "time": 5.66,
+              "color": "ffffffff"
+            },
+            {
+              "time": 5.73,
+              "color": "ffffffff"
+            },
+            {
+              "time": 5.82,
+              "color": "ffffff00"
+            },
+            {
+              "time": 6.0,
+              "color": "ffffff00"
+            },
+            {
+              "time": 6.06,
+              "color": "ffffffff"
+            },
+            {
+              "time": 6.12,
+              "color": "ffffffff"
+            },
+            {
+              "time": 6.2,
+              "color": "ffffff00"
+            },
+            {
+              "time": 10.9,
+              "color": "ffffff00"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

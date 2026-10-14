@@ -1,0 +1,27 @@
+Rebirth entry fix — 2026-10-14
+
+Cause: entering rebirth disables the camp camera; the overlay Canvas had no active camera, so Unity Game View showed No cameras rendering.
+Fix: persistent PresentationCamera in RebirthPackage clears black with cullingMask 0. Router waits for package before revealing UI. Eligible home button opens page directly. Locked condition explanation and final rebirth confirmation remain.
+Concurrent confirmation popup animation changes preserved.
+Actual Unity renders: output/rebirth-entry/rebirth-{1080x1920,768x1024,720x1440}.png (ignored, local only).
+
+PASS Locked condition still explains requirement
+PASS Ready button bypasses home prompt (1080, 1920)
+PASS Rebirth UI opens directly (1080, 1920)
+PASS Display 1 has active camera (1080, 1920)
+PASS Presentation camera renders no world objects (1080, 1920)
+PASS Entry does not execute rebirth or open confirmation (1080, 1920)
+PASS Continue adventure restores home and camera (1080, 1920)
+PASS Ready button bypasses home prompt (768, 1024)
+PASS Rebirth UI opens directly (768, 1024)
+PASS Display 1 has active camera (768, 1024)
+PASS Presentation camera renders no world objects (768, 1024)
+PASS Entry does not execute rebirth or open confirmation (768, 1024)
+PASS Continue adventure restores home and camera (768, 1024)
+PASS Ready button bypasses home prompt (720, 1440)
+PASS Rebirth UI opens directly (720, 1440)
+PASS Display 1 has active camera (720, 1440)
+PASS Presentation camera renders no world objects (720, 1440)
+PASS Entry does not execute rebirth or open confirmation (720, 1440)
+PASS Continue adventure restores home and camera (720, 1440)
+DONE

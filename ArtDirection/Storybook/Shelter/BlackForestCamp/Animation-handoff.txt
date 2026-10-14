@@ -1,0 +1,23 @@
+黑森林初始庇护所 / 2026-10-14
+
+设计基准：BlackForestCamp-v5.png（本轮选择的第 2 幅）。保留紧张蹲伏动作、短款破边斗篷与中央石圈火堆。拆分时生成了透明角色及火堆素材，并为 3:4 扩展森林两侧；非原稿逐像素复刻。
+
+交付：Assets/DarkFairytale/UI/Shelter/BlackForestCamp/BlackForestCamp.prefab
+其 ForestRedHood、ForestCampfire 为独立持久化 Spine SkeletonGraphic Prefab。可在 Inspector 调整位置、尺寸；运行时只负责章节选择、适配与动画播放。
+ForestRedHood Idle：10.9 秒，三次短眨眼，其中一次双眨。仅眼部贴片变化。
+ForestCampfire BurnA/B/C：3.2、4.4、5.6 秒，三层网格火焰有不同摆动、伸缩和透明度节奏；石圈木柴保持稳定。SpineCampfireRandom 随机选择下一段，排除刚播放的段，0.18 秒过渡。
+SpineSource/ForestRedHood 和 SpineSource/ForestCampfire 中为可导入 Spine 3.8 的 JSON 和原始分层图片；交付不含原生 .spine 工程文件。
+
+进度：ShelterHome 的 ShelterChapterBackdrop 读取现有 Mount Zion 最后一波完成记录。未通关显示森林，完成后显示原猎人小屋。仅到达最终波不解锁。原序章六张插画不变，序章结束后进入森林庇护所。
+
+制作工具：内置 image_gen 编辑模式。提示词组摘要：
+1. 从 v5 中移除人物和石圈篝火，补齐树根与地面，保持构图、光照和黑森林画风。
+2. 提取同一小红帽为透明背景，保留紧张蹲姿、服饰、神态和短斗篷。
+3. 对角色素材仅闭合双眼，其余保持原位，透明背景。
+4. 提取石圈、木柴与余烬，去掉火焰，透明背景。
+5. 生成三个独立且风格统一的燃烧火苗，横向排列，透明背景。
+6. 对空森林底图仅横向扩展到 3:4，中央原构图保持，补足左右暗色树根和植被，不添加人物或火堆。
+各拆层 PNG 已保存在 Unity 交付目录。动画网格、关键帧、图集使用项目编辑器工具制作。
+
+编辑器工具只响应显式菜单或 output/black-forest-camp/build.request；不在导入或运行时自动覆盖 Prefab。宽屏迁移由 wide-framing-v1.txt 标记，后续制作保留手工布局。
+验证工具：BlackForestCampValidation；结果和 Unity 截图仅放 ignored output/black-forest-camp，测试禁止保存玩家进度。

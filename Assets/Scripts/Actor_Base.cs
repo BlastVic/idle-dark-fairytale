@@ -197,6 +197,8 @@ public class Actor_Base : MonoBehaviour
         if (isDying) return;
         if (isPlayer)
         {
+            isDying = true; // Lock before effects/callbacks so one death is counted once.
+            GameManager.single.RecordPlayerDeath();
             Player.single.StopAllCoroutines();
             SoundManager.Instance.PlayClip("PLAYER_DEATH", false, false);
             if (PetDragon.single != null) PetDragon.single.FlyOff();

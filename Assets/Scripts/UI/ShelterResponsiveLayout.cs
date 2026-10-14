@@ -21,6 +21,10 @@ public sealed class ShelterResponsiveLayout : MonoBehaviour
     [System.NonSerialized] public Vector2 introCompositionSize;
     bool storyFramingLocked;
     float storyScalePerHeight, storyOffsetPerHeight;
+    public void SelectScene(RectTransform scene, Vector2 size, float focalBottom) {
+        room=scene;roomSize=size;feetInArtwork=focalBottom;
+        storyFramingLocked=false;Apply();
+    }
     public void LockStoryFraming() {
         float h=viewport.rect.height;
         storyScalePerHeight=room.localScale.x/h;

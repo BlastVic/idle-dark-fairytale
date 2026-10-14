@@ -1,0 +1,17 @@
+旧营地动态资源清理
+
+原因：GameManager.Start 和 Router 仍实例化 Addressables CampPackage，内含 DesertBg (5) 等旧营地背景。
+处理：删除加载/隐藏入口、GeneralObjects 数据库和 Addressables 注册；开场等待新版 ShelterHome 绑定就绪。
+当前场景缺失 GameplayCanvas 控制节点：恢复其新版 Prefab 绑定，命名 GameplayUIController，仅保留逻辑组件和 Transform，不恢复旧 Canvas、Raycaster 或视觉节点。
+删除资源（含对应 meta）：
+Assets/Grfx/Map/Anim.controller
+Assets/Prefab/Addressable Prefabs/CampPackage.prefab
+Assets/Grfx/Map/Golem.png
+Assets/Grfx/Map/Hills.png
+Assets/Grfx/Map/Camp1.jpg
+Assets/Grfx/Map/Pressme.anim
+
+仍被其他地图引用的共享背景以及 Spine 制作参照保留。
+验证：启动运行无 CampPackage/DesertBg 对象；装备、技能、经验加成、胜败返回全部 PASS，无已删除 GUID 引用。
+实际 Unity 截图覆盖 1080x1920、768x1024、720x1440，保存在 output/legacy-camp-cleanup。
+本地备份 before.zip、Gameplay-before-controller-repair.unity。测试期间禁用存档写入。

@@ -255,7 +255,7 @@ public static class Chapter01BalanceTools
         var gc = GameplayCanvas.single;
         gc.victoryPanel.SetActive(false); gc.defeatPanel.SetActive(false); gc.dailyCherriesPop.SetActive(false);
         var assets = LevelController.Instance.AssetManager;
-        assets.HideCampPackage(); assets.HideMapPackage();
+         assets.HideMapPackage();
         if (gc.homeUI) gc.homeUI.gameObject.SetActive(false);
         gc.ToggleButtonGrid(false); gc.ToggleFusionBarUI(false);
         WaveManager.single.CallStartLevel(smoke.nodes[node].key);

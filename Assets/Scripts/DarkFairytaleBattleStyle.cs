@@ -87,7 +87,7 @@ public class DarkFairytaleBattleStyle : ScriptableObject
             bar.transform.position = boss ? new Vector3(bounds.center.x, bounds.max.y + .28f, 0)
                 : ViewportPoint(camera, new Vector2(feet.x, feet.y - .023f));
             // Existing lifebars have a 250px meter nested under a 1.5x container.
-            float width = Mathf.Min(bounds.size.x * .55f, WorldSize(camera).x * .15f);
+            float width = enemyHealthBarPrefab ? WorldSize(camera).x * (boss ? .30f : .23f) : Mathf.Min(bounds.size.x * .55f, WorldSize(camera).x * .15f);
             float currentWidth = Mathf.Abs(bar.transform.lossyScale.x) * (enemyHealthBarPrefab ? 360f : 375f);
             if (currentWidth > .001f) bar.transform.localScale *= width / currentWidth;
             foreach (var graphic in bar.GetComponentsInChildren<Image>(true))

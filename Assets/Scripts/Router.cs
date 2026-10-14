@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts.Game.Enum;
 using Assets.Scripts.Services;
@@ -61,7 +61,7 @@ public class Router : MonoBehaviour
 
         gc.skillsPanel.SetActive(false);
 
-        LevelController.Instance.AssetManager.HideCampPackage();
+
         LevelController.Instance.AssetManager.HidePlayer();
         LevelController.Instance.AssetManager.HideMapPackage();
 
@@ -107,7 +107,7 @@ public class Router : MonoBehaviour
         gc.ToggleCampUi(true);
         gc.ToggleHpXpLevelUi(true);
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         gc.ToggleFusionBarUI(true);
         LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
 
@@ -137,11 +137,12 @@ public class Router : MonoBehaviour
         gc.ToggleCampUi(false);
         LevelController.Instance.AssetManager.battleCampCamera.SetActive(false);
 
-        LevelController.Instance.AssetManager.HideCampPackage();
+
         LevelController.Instance.AssetManager.HidePlayer();
         gc.ToggleFusionBarUI(false);
         gc.ToggleButtonGrid(false);
         LevelController.Instance.AssetManager.SpawnGeneralObj("RebirthPackage");
+        while(RebirthPackage.single==null)yield return null;
         TransitionCanvas.single.ToClear("GM TO reb");
         loadingRebirthFromCamp = false;
         gm.SetGameState(GameStateType.REBIRTH);
@@ -171,7 +172,7 @@ public class Router : MonoBehaviour
         gc.ToggleHpXpLevelUi(true);
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
         gc.OrderButtonGrid();
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         yield return new WaitForSeconds(.3f);
         TransitionCanvas.single.ToClear("GM TO C");
         gm.SetGameState(GameStateType.CAMP);
@@ -198,7 +199,7 @@ public class Router : MonoBehaviour
 
         yield return new WaitForSeconds(.7f);
         gc.ToggleCampUi(false);
-        LevelController.Instance.AssetManager.HideCampPackage();
+
         LevelController.Instance.AssetManager.HidePlayer();
         gc.ToggleFusionBarUI(false);
         gc.ToggleButtonGrid(false);
@@ -242,7 +243,7 @@ public class Router : MonoBehaviour
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
         gc.OrderButtonGrid();
         LevelController.Instance.AssetManager.HideMapPackage();
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         gc.skillsPanel.SetActive(false);
 
         yield return new WaitForSeconds(.3f);
@@ -281,7 +282,7 @@ public class Router : MonoBehaviour
         gc.ToggleHpXpLevelUi(true);
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
         gc.OrderButtonGrid();
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         yield return new WaitForSeconds(.3f);
         TransitionCanvas.single.ToClear("GM TO CHEST");
         gm.SetGameState(GameStateType.CAMP);
@@ -339,7 +340,7 @@ public class Router : MonoBehaviour
         gc.skillsPanel.SetActive(false);
         CameraEffects.single.SetOriginalCameraPosition();
         gc.inventoryPanel.SetActive(false);
-        LevelController.Instance.AssetManager.HideCampPackage();
+
         LevelController.Instance.AssetManager.HidePlayer();
         gc.victoryPanel.SetActive(false);
         gc.defeatPanel.SetActive(false);
@@ -369,7 +370,7 @@ public class Router : MonoBehaviour
         gc.ToggleCampUi(true);
         gc.ToggleHpXpLevelUi(true);
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         gc.skillsPanel.SetActive(false);
         TransitionCanvas.single.ToClear("GM goto menu");
         loadingCampFromSkills = false;
@@ -388,7 +389,6 @@ public class Router : MonoBehaviour
     //    gc.ToggleCampUi(false);
     //    gc.ToggleHpXpLevelUi(false);
     //    am.battleCampCamera.SetActive(false);
-    //    AssetManager.single.HideCampPackage();
     //    AssetManager.single.HidePlayer();
     //    TransitionCanvas.single.ToClear("GM goto menu");
     //}
@@ -405,7 +405,7 @@ public class Router : MonoBehaviour
         gc.ToggleCampUi(true);
         gc.ToggleHpXpLevelUi(true);
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
         TransitionCanvas.single.ToClear("GM goto menu");
 
@@ -421,7 +421,7 @@ public class Router : MonoBehaviour
 
         gc.victoryPanel.SetActive(false);
         gc.defeatPanel.SetActive(false);
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         gc.ToggleBattleUi(false);
         gc.ToggleCampUi(true);
 
@@ -454,7 +454,7 @@ public class Router : MonoBehaviour
         gm.BattleCleanup();
         gc.victoryPanel.SetActive(false);
         gc.defeatPanel.SetActive(false);
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         gc.ToggleBattleUi(false);
         gc.ToggleCampUi(true);
 
@@ -469,7 +469,7 @@ public class Router : MonoBehaviour
         TransitionCanvas.single.ToBlack("GM goto camp from map");
         yield return new WaitForSeconds(.7f);
         LevelController.Instance.AssetManager.HideMapPackage();
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         gc.ToggleBattleUi(false);
         gc.ToggleCampUi(true);
         gc.ToggleHpXpLevelUi(true);
@@ -484,7 +484,7 @@ public class Router : MonoBehaviour
     {
         TransitionCanvas.single.ToBlack("GM goto camp from menu");
         yield return new WaitForSeconds(.7f);
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1);
+
         gc.ToggleBattleUi(false);
         gc.ToggleCampUi(true);
         gc.ToggleHpXpLevelUi(true);
@@ -509,12 +509,20 @@ public class Router : MonoBehaviour
         gc.ToggleBattleUi(false);
         gc.ToggleCampUi(false);
         gc.ToggleHpXpLevelUi(false);
-        LevelController.Instance.AssetManager.battleCampCamera.SetActive(false);
-        LevelController.Instance.AssetManager.HideCampPackage();
+        // Keep the source camera rendering until the asynchronously loaded map is ready.
+        LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
+
         LevelController.Instance.AssetManager.HidePlayer();
         gc.skillsPanel.SetActive(false);
 
         LevelController.Instance.AssetManager.TurnOnMapPackage();
+        while (!LevelController.Instance.AssetManager.mapPackageObj ||
+               !LevelController.Instance.AssetManager.mapPackageObj.activeInHierarchy ||
+               !MapPackageUI.single || !MapPackageUI.single.mapCam.isActiveAndEnabled)
+            yield return null;
+        // Allow the destination Canvas and camera to render under the opaque veil first.
+        yield return new WaitForEndOfFrame();
+        LevelController.Instance.AssetManager.battleCampCamera.SetActive(false);
         TransitionCanvas.single.ToClear("GM goto map");
         gm.SetGameState(GameStateType.MAP);
         gc.OrderButtonGrid();
@@ -694,7 +702,10 @@ public class Router : MonoBehaviour
     public IEnumerator GoToCashMall(bool dailyCherriesOnly = false)
     {
         TransitionCanvas.single.ToBlack("GM goto CashMall");
-        Assets.Scripts.Services.Purchasing.PurchaserManager.Instance.InitializePurchasing();
+        // Store services may be unavailable (for example in the Editor or offline).
+        // Currency purchases can remain disabled without blocking the shop's navigation.
+        try { Assets.Scripts.Services.Purchasing.PurchaserManager.Instance.InitializePurchasing(); }
+        catch (System.Exception exception) { Debug.LogWarning("Shop billing unavailable: " + exception.Message); }
         yield return new WaitForSeconds(.7f);
         GameplayCanvas.single.victoryPanel.SetActive(false);
         if (ChestPackage.single != null) Destroy(ChestPackage.single.gameObject);
@@ -703,6 +714,8 @@ public class Router : MonoBehaviour
 
         CameraEffects.single.SetOriginalCameraPosition();
 
+        // Acquire the destination camera before disabling the map camera.
+        LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
         LevelController.Instance.AssetManager.HideMapPackage();
 
         gc.inventoryPanel.SetActive(false);
@@ -713,7 +726,8 @@ public class Router : MonoBehaviour
         gc.ToggleHpXpLevelUi(false);
         //gc.skillsPanel.SetActive(true);
         LevelController.Instance.AssetManager.SpawnGeneralObj("CashMallPackage");
-        yield return new WaitForSeconds(.2f);
+        while (!CashMallPackage.single || !CashMallPackage.single.view) yield return null;
+        yield return new WaitForEndOfFrame();
 
         gc.skillsPanel.SetActive(false);
 
@@ -791,7 +805,7 @@ public class Router : MonoBehaviour
         gc.ToggleHpXpLevelUi(false);
         gc.inventoryPanel.SetActive(true);
         if (LevelController.Instance.AssetManager.mapPackageObj != null) LevelController.Instance.AssetManager.mapPackageObj.SetActive(false);
-        LevelController.Instance.AssetManager.TurnOnCampPackage(1.4f);
+
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
         LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
         CameraEffects.single.SetCameraPosition(0);

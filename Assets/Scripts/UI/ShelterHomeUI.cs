@@ -26,6 +26,7 @@ public sealed class ShelterHomeUI : MonoBehaviour
     public GameObject[] chestEmptyFrames;
     public GameObject rebirthLock;
     public RectTransform attributePanel;
+    public StorybookAttributePanel sharedAttributes;
     public CanvasGroup attributeBody;
     public Text collapseText;
     public RectTransform collapseArrow;
@@ -40,12 +41,12 @@ public sealed class ShelterHomeUI : MonoBehaviour
     public Text musicValue, soundValue;
     public bool attributesExpanded = true;
     [Tooltip("Shown until the narrative numbering rules are implemented. Editable, not a death counter.")]
-    public string subjectNumber = "001";
+    public string subjectNumber => GameManager.single ? GameManager.single.SubjectNumber : "001";
     readonly LevelTypeEnum[] types = { LevelTypeEnum.HP, LevelTypeEnum.DMG, LevelTypeEnum.DEF, LevelTypeEnum.ATK_SPD, LevelTypeEnum.CRIT, LevelTypeEnum.CRIT_DMG };
     int selectedFunction = -1;
     bool navigating;
     float refreshAt;
-    Coroutine fold, popup;
+    Coroutine fold;
     public bool IsNavigating => navigating;
 
     void Awake()
@@ -86,7 +87,7 @@ public sealed class ShelterHomeUI : MonoBehaviour
         if(settingsUI)settingsUI.Close();
         ApplyFold(attributesExpanded ? 1 : 0);
     }
-    void OnDisable() { StopAllCoroutines(); fold=null; popup=null; navigating=false; }
+    void OnDisable() { StopAllCoroutines(); fold=null; navigating=false; }
     void Update()
     {
         if (Time.unscaledTime < refreshAt) return;
@@ -106,12 +107,11 @@ public sealed class ShelterHomeUI : MonoBehaviour
         xpFill.fillAmount=gm.xpMax>0 ? Mathf.Clamp01(gm.xpNow/gm.xpMax):0;
         xpText.text=Mathf.FloorToInt(xpFill.fillAmount*100)+"%";
         crystalsText.text=Utilities.ConvertNumber(gm.crystals); cherriesText.text=Utilities.ConvertNumber(gm.premiumCurrency);
-        pointsText.text="可用属性点  <color=#761E20><size=52>"+gm.statPoints+"</size></color>";
-        float[] values={stat.hpMax,stat.dmg,stat.def,stat.atkSpd,stat.crit,stat.critDmg};
-        for(int i=0;i<6;i++) {
-            statValues[i].text=Utilities.ConvertNumber(values[i])+(i>=3?"%":"");
-            statButtons[i].interactable=!navigating && CanBuy(i);
-            statButtons[i].GetComponentInChildren<Text>().color=statButtons[i].interactable?Color.black:new Color(.4f,.37f,.33f);
+        if(sharedAttributes)sharedAttributes.RefreshValues(!navigating,CanBuy);
+        else {
+            pointsText.text="可用属性点  "+gm.statPoints;
+            float[] values={stat.hpMax,stat.dmg,stat.def,stat.atkSpd,stat.crit,stat.critDmg};
+            for(int i=0;i<6;i++){statValues[i].text=Utilities.ConvertNumber(values[i])+(i>=3?"%":"");statButtons[i].interactable=!navigating&&CanBuy(i);}
         }
         skillBadge.gameObject.SetActive(true);skillBadge.transform.parent.gameObject.SetActive(gm.skillPoints>0); skillBadge.text=gm.skillPoints.ToString();
         rebirthLock.SetActive(!LevelController.Instance.IsNextRebirthReady());
@@ -152,7 +152,7 @@ public sealed class ShelterHomeUI : MonoBehaviour
     }
     public void BuyStat(int index)
     {
-        if(navigating || index<0 || index>=6 || !CanBuy(index)) return;
+        if(navigating || !attributesExpanded || fold!=null || index<0 || index>=6 || !CanBuy(index)) return;
         GameManager.single.statPoints-=LevelController.Instance.GetStatLevel(types[index])>=100?2:1;
         LevelController.Instance.IncStat(types[index]);
         SoundManager.Instance.PlayClip("STAT_BUY"); Refresh();
@@ -178,16 +178,17 @@ public sealed class ShelterHomeUI : MonoBehaviour
         float start=Mathf.InverseLerp(collapsedHeight,expandedHeight,attributePanel.sizeDelta.y);
         float end=attributesExpanded?1:0;
         attributeBody.blocksRaycasts=false; attributeBody.interactable=false;
-        for(float t=0;t<foldDuration;t+=Time.unscaledDeltaTime) { ApplyFold(Mathf.Lerp(start,end,Mathf.SmoothStep(0,1,t/foldDuration))); yield return null; }
+        for(float t=0;t<foldDuration;t+=Time.unscaledDeltaTime) { ApplyFold(Mathf.Lerp(start,end,Mathf.SmoothStep(0,1,t/foldDuration)),false); yield return null; }
         ApplyFold(end); fold=null;
     }
-    void ApplyFold(float amount)
+    void ApplyFold(float amount,bool settled=true)
     {
         if(!attributePanel) return;
         attributePanel.sizeDelta=new Vector2(attributePanel.sizeDelta.x,Mathf.Lerp(collapsedHeight,expandedHeight,amount));
+        if(sharedAttributes){sharedAttributes.SetFold(amount,settled);return;}
         attributeBody.alpha=amount;
         attributeBody.blocksRaycasts=attributeBody.interactable=amount>.99f;
-        collapseText.text=attributesExpanded?"▾":"▴";
+        if(collapseText)collapseText.text=attributesExpanded?"▾":"▴";
         if(collapseArrow)collapseArrow.localEulerAngles=new Vector3(0,0,attributesExpanded?0:180);
     }
     public void OpenFunction(int index)
@@ -195,6 +196,7 @@ public sealed class ShelterHomeUI : MonoBehaviour
         if(index==1){if(!navigating)Router.single.XPBoosterButton();return;}
         if(navigating) return;
         if(index==0) { CloseModal(); Navigate(()=>Router.single.CallFusionFromCamp()); return; }
+        if(index==2 && LevelController.Instance.IsNextRebirthReady()) { CloseModal(); Navigate(()=>Router.single.CallRebirthFromCamp()); return; }
         selectedFunction=index; audioControls.SetActive(false); modalAction.gameObject.SetActive(true);
         RefreshFunction(); ShowModal();
     }
@@ -236,7 +238,7 @@ public sealed class ShelterHomeUI : MonoBehaviour
     void SetMusic(float value) { SoundManager.Instance.musicLevel=value; StoreAudio("Shelter.Music",value); SoundManager.Instance.SetLevels(); UpdateAudioLabels(); }
     void SetSound(float value) { SoundManager.Instance.soundLevel=value; StoreAudio("Shelter.Sound",value); SoundManager.Instance.SetLevels(); UpdateAudioLabels(); }
     void UpdateAudioLabels() { musicValue.text=Mathf.RoundToInt(musicSlider.value*100)+"%"; soundValue.text=Mathf.RoundToInt(soundSlider.value*100)+"%"; }
-    void ShowModal() { modal.SetActive(true); if(popup!=null)StopCoroutine(popup); popup=StartCoroutine(FadeModal()); }
-    IEnumerator FadeModal() { modalGroup.alpha=0; for(float t=0;t<.16f;t+=Time.unscaledDeltaTime) { modalGroup.alpha=t/.16f; yield return null; } modalGroup.alpha=1; popup=null; }
-    public void CloseModal() { if(popup!=null)StopCoroutine(popup); popup=null; modal.SetActive(false); }
+    void ShowModal() { StorybookPopupMotion.Show(modal); }
+    public void CloseModal() { StorybookPopupMotion.Hide(modal); }
+
 }

@@ -1,0 +1,32 @@
+地图交互调整，2026-10-14
+节点按下只缩放 seal 图标到90%，标签、波次和定位标记保持原位；释放、移出和停用时恢复。
+详情从内容淡入改为完整卡片滑入：持久化 DetailSlideViewport 裁剪节点，背景、边框与内容一起从下方抬升。0.42 秒三次缓出，移动距离为卡片实际高度+24。快速重新选择会重新开始，运动中暂时禁用详情点击，完成恢复。
+现有已选解锁节点再次点击进入关卡的流程保留。
+复用已有素材，未生成新美术。布局和裁剪节点均保存到 Chapter01Map.prefab，运行时仅处理动画。
+同时兼容无 Canvas 的 GameplayUIController，地图页面仍使用自己的 Canvas，消除旧镜头切换访问错误。
+实际 Unity 渲染保存于 output/map-motion/：1080x1920、768x1024、720x1440，含按下、中间帧与完成状态。基线图标位置保持不变，修正 pivot 后未移动标签；底部详情最终位置保持原布局。
+
+PASS Map entered
+PASS Label and root remain still (1080, 1920)
+PASS Only icon scales (1080, 1920)
+PASS Icon restores (1080, 1920)
+PASS Whole card starts below clipped edge without fade (1080, 1920)
+PASS Card rises visibly (1080, 1920)
+PASS Rapid reselection restarts rise (1080, 1920)
+PASS Card settles with input restored (1080, 1920)
+PASS Label and root remain still (768, 1024)
+PASS Only icon scales (768, 1024)
+PASS Icon restores (768, 1024)
+PASS Whole card starts below clipped edge without fade (768, 1024)
+PASS Card rises visibly (768, 1024)
+PASS Rapid reselection restarts rise (768, 1024)
+PASS Card settles with input restored (768, 1024)
+PASS Label and root remain still (720, 1440)
+PASS Only icon scales (720, 1440)
+PASS Icon restores (720, 1440)
+PASS Whole card starts below clipped edge without fade (720, 1440)
+PASS Card rises visibly (720, 1440)
+PASS Rapid reselection restarts rise (720, 1440)
+PASS Card settles with input restored (720, 1440)
+PASS Leaving during motion resets position
+DONE

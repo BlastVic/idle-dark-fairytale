@@ -28,14 +28,13 @@ public sealed class StorybookTutorialUI : MonoBehaviour
     public void Show(int key,Button target,Action done,Action cancel,Action lost,string title=null,string text=null,string hint=null){
         Detach();Target=target;completed=done;dismissed=cancel;lostTarget=lost;
         var step=steps[key];heading.text=title??step.title;body.text=text??step.body;cue.text=hint??step.cue;
-        gameObject.SetActive(true);opened=Time.unscaledTime;presentation.alpha=0;presentation.blocksRaycasts=true;presentation.interactable=true;
+        StorybookPopupMotion.Show(gameObject);opened=Time.unscaledTime;
         targetListener=()=>{if(Time.unscaledTime-opened>=.2f)completed?.Invoke();};Target.onClick.AddListener(targetListener);
-        Place();StopAllCoroutines();StartCoroutine(FadeIn());
+        Place();
     }
-    IEnumerator FadeIn(){for(float t=0;t<fadeDuration;t+=Time.unscaledDeltaTime){presentation.alpha=Mathf.Clamp01(t/fadeDuration);yield return null;}presentation.alpha=1;}
-    void LateUpdate(){if(!Target||!Target.gameObject.activeInHierarchy){lostTarget?.Invoke();return;}Place();glow.alpha=.78f+.22f*Mathf.Sin((Time.unscaledTime-opened)*3);}
+    void LateUpdate(){var motion=GetComponent<StorybookPopupMotion>();if(motion&&motion.Closing)return;if(!Target||!Target.gameObject.activeInHierarchy){lostTarget?.Invoke();return;}Place();glow.alpha=.78f+.22f*Mathf.Sin((Time.unscaledTime-opened)*3);}
     void Update(){if(Input.GetKeyDown(KeyCode.Escape)&&Time.unscaledTime-opened>.25f)dismissed?.Invoke();}
-    public void Hide(){Detach();StopAllCoroutines();presentation.alpha=0;presentation.blocksRaycasts=false;presentation.interactable=false;gameObject.SetActive(false);}
+    public void Hide(){Detach();StorybookPopupMotion.Hide(gameObject);}
     void Detach(){if(Target&&targetListener!=null)Target.onClick.RemoveListener(targetListener);targetListener=null;Target=null;}
     void OnDisable(){Detach();if(presentation){presentation.blocksRaycasts=false;presentation.interactable=false;}}
     public void Place(){

@@ -1,0 +1,19 @@
+ForestRedHood.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 0, 808
+  size: 974, 1240
+  orig: 974, 1240
+  offset: 0, 0
+  index: -1
+eyes
+  rotate: false
+  xy: 0, 693
+  size: 168, 111
+  orig: 168, 111
+  offset: 0, 0
+  index: -1

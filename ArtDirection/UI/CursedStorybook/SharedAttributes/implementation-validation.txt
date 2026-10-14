@@ -1,0 +1,62 @@
+共用角色属性面板，2026-10-14
+用户要求：主界面的属性布局与装备 UI 一致，以装备页现有面板制作共用 Prefab。
+
+共用资产：Assets/DarkFairytale/UI/Shared/StorybookAttributePanel.prefab
+引用方：ShelterHome.prefab、StorybookEquipment.prefab，均为保持连接的嵌套 Prefab 实例。
+原装备面板直接提取，沿用背景、边框、图标、字体、标题、六个属性格、加点和收展箭头，无新增替代美术。主界面使用统一缩放及原页面定位；宽屏扩展列间空间，不横向拉伸图标和文字。
+运行时代码仅更新数据、折叠状态及必要适配，不创建 UI。共用数据呈现保证点数、数字格式和加点状态一致。保留两处原有属性成本和连续加点限制。
+折叠动画期间与隐藏后关闭属性区域射线，展开后恢复；主界面增加折叠期间加点防护。
+
+Unity 实景：1080x1920、768x1024、720x1440，两页相同角色数据（属性点6）逐区检查标题、格线、图标、文字和按钮；页面保留各自密度适配，绝对字号随整个面板等比变化。
+折叠和禁用截图均在被忽略的 output/shared-attributes/，不提交 Git。最终运行无编译错误或运行异常；49 项检查通过，临时存档写入已禁用。
+
+PASS Home binds shared prefab
+PASS Home (1080, 1920) has six shared cells
+PASS Home (1080, 1920) all seven buttons visible and raycast correctly
+PASS Home (1080, 1920) all attribute values render
+PASS Home (1080, 1920) uniformly scaled contents
+PASS Battle button unobstructed (1080, 1920)
+PASS Home fold animation blocks stat clicks
+PASS Home collapsed releases rays (1080, 1920)
+PASS Equipment (1080, 1920) has six shared cells
+PASS Equipment (1080, 1920) all seven buttons visible and raycast correctly
+PASS Equipment (1080, 1920) all attribute values render
+PASS Equipment (1080, 1920) uniformly scaled contents
+PASS Same values in both hosts (1080, 1920)
+PASS Same typography and button art (1080, 1920)
+PASS Equipment collapsed releases rays (1080, 1920)
+PASS Home (768, 1024) has six shared cells
+PASS Home (768, 1024) all seven buttons visible and raycast correctly
+PASS Home (768, 1024) all attribute values render
+PASS Home (768, 1024) uniformly scaled contents
+PASS Battle button unobstructed (768, 1024)
+PASS Home fold animation blocks stat clicks
+PASS Home collapsed releases rays (768, 1024)
+PASS Equipment (768, 1024) has six shared cells
+PASS Equipment (768, 1024) all seven buttons visible and raycast correctly
+PASS Equipment (768, 1024) all attribute values render
+PASS Equipment (768, 1024) uniformly scaled contents
+PASS Same values in both hosts (768, 1024)
+PASS Same typography and button art (768, 1024)
+PASS Equipment collapsed releases rays (768, 1024)
+PASS Home (720, 1440) has six shared cells
+PASS Home (720, 1440) all seven buttons visible and raycast correctly
+PASS Home (720, 1440) all attribute values render
+PASS Home (720, 1440) uniformly scaled contents
+PASS Battle button unobstructed (720, 1440)
+PASS Home fold animation blocks stat clicks
+PASS Home collapsed releases rays (720, 1440)
+PASS Equipment (720, 1440) has six shared cells
+PASS Equipment (720, 1440) all seven buttons visible and raycast correctly
+PASS Equipment (720, 1440) all attribute values render
+PASS Equipment (720, 1440) uniformly scaled contents
+PASS Same values in both hosts (720, 1440)
+PASS Same typography and button art (720, 1440)
+PASS Equipment collapsed releases rays (720, 1440)
+PASS Home last point updates cost level and buttons immediately
+PASS Home disabled buttons entirely greyscale
+PASS Home restores available stat buttons
+PASS Equipment last point updates immediately
+PASS Equipment disabled buttons entirely greyscale
+PASS Returning home refreshes points and values
+DONE

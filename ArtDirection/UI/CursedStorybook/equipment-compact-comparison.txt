@@ -1,0 +1,7 @@
+Equipment comparison compact header
+User-approved change: icon and equipment name share one row, icon aligned left; single-line titles; right-pointing arrow integrated into current/target divider.
+Persistent authoring: StorybookEquipment.prefab, two EquipmentSingleLineName components, ReplaceDirection graphic and segmented InkRule nodes.
+Icons: 38 x 38, aspect preserved. Name: 20–16 pt, single line, ellipsis for overflow. Original item name remains in data.
+Five-row panel: 377 -> 325 reference units. Minimum two-row panel: 214 units. Row height remains 37; full stat comparison and centered delta groups retained.
+Validation: 1080x1920, 768x1024, 720x1440; long Chinese title, English equipped name, five stats, minimum height. Save disabled for fixtures.
+Actual Unity renders and validation log: output/equipment-compact-comparison/ (ignored, local only).

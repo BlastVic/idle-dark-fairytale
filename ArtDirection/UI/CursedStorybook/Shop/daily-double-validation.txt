@@ -1,0 +1,18 @@
+Shop daily double reward — 2026-10-14
+Persistent prefab buttons: free claim and watch video for double. Shared StorybookDailyReward claim/save prevents duplicate rewards across reminder and shop. Existing art reused.
+Tested real Unity renders at 1080x1920, 768x1024, 720x1440 in ignored output/shop-daily-double/.
+Ad callback validation uses an injected editor test proxy. Production currently uses EditorAdMediationProxy, which always reports unavailable; real ad playback requires SDK integration.
+
+PASS Both choices available (1080, 1920)
+PASS Both choices available (768, 1024)
+PASS Both choices available (720, 1440)
+PASS Unavailable retains free claim
+PASS Pending guards duplicate click and navigation
+PASS Cancellation retains eligibility
+PASS Midnight stale callback requires retry
+PASS Success grants double
+PASS Duplicate and shared claim guard
+PASS Both choices disabled after claim
+PASS Reopen preserves claim
+PASS Free grants base and excludes double
+DONE

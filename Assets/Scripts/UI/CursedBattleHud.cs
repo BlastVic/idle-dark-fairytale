@@ -6,6 +6,7 @@ public sealed class CursedBattleHud : MonoBehaviour
 {
     public Text waveText, levelText, hpText, xpText;
     public Image hpFill, xpFill;
+    public BattleStatusDetails statusDetails;
     public Button backButton;
     public GameObject progressRow;
     public Image[] waveMarkers;

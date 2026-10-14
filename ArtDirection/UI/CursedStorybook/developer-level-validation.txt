@@ -1,0 +1,28 @@
+2026-10-14 开发者调试等级 +10
+
+可编辑 DeveloperOverlay.prefab 的首个操作按钮为“等级 +10”。复用逐级升级规则，增加 10 属性点及跨越每 5 级的技能点；清空当前等级经验并更新下级经验需求，汇总播放一次升级提示并保存。修正经验表最后一个索引升级时的越界条件。现有调试按钮顺序后移，面板尺寸保持不变。
+
+实际 Unity 验证；存档写入已禁用。截图仅位于 output/developer-overlay/。
+PASS Panel within screen (1080, 1920)
+PASS Collapse removes body (1080, 1920)
+PASS Collapsed overlay does not block game (1080, 1920)
+PASS Panel within screen (768, 1024)
+PASS Collapse removes body (768, 1024)
+PASS Collapsed overlay does not block game (768, 1024)
+PASS Panel within screen (720, 1440)
+PASS Collapse removes body (720, 1440)
+PASS Collapsed overlay does not block game (720, 1440)
+PASS Levels +10 uses normal point rewards
+PASS Experience and displayed level refreshed
+PASS Level button is first at top left
+PASS Level increase handles XP table boundary
+PASS Grant points
+PASS Double speed and disabled state
+PASS Restore speed without chest lookup
+PASS Reset requires confirmation
+PASS Reset cancellation
+PASS Close hides overlay
+PASS Settings entry opens floating overlay
+PASS Drag clamps at safe screen edge
+PASS Overlay persists above map navigation
+DONE

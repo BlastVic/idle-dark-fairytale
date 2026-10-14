@@ -1,0 +1,33 @@
+ForestCampfire.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+base
+  rotate: false
+  xy: 0, 1400
+  size: 1376, 648
+  orig: 1376, 648
+  offset: 0, 0
+  index: -1
+flame0
+  rotate: false
+  xy: 0, 188
+  size: 262, 644
+  orig: 262, 644
+  offset: 0, 0
+  index: -1
+flame1
+  rotate: false
+  xy: 0, 836
+  size: 401, 560
+  orig: 401, 560
+  offset: 0, 0
+  index: -1
+flame2
+  rotate: false
+  xy: 1380, 1419
+  size: 430, 629
+  orig: 430, 629
+  offset: 0, 0
+  index: -1

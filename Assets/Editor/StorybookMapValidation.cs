@@ -84,7 +84,7 @@ public static class StorybookMapValidation
             ui.scroll.StopMovement();ui.scroll.content.anchoredPosition=new Vector2(0,260*ui.scroll.content.localScale.y);
             ui.SelectNode((node+1)%5);ui.nodes[node].button.onClick.Invoke();
             Check(ui.selectedIndex==node&&!ui.IsNavigating,"First click selects different node "+node);
-            Check(ui.detailMotion.group.alpha<.99f&&ui.detailMotion.content.anchoredPosition.y<0,"Card entrance animation starts "+node);
+            Check((ui.detailMotion.fullCardRise?ui.detailMotion.group.alpha==1:ui.detailMotion.group.alpha<.99f)&&ui.detailMotion.content.anchoredPosition.y<0,"Card entrance animation starts "+node);
             ui.nodes[node].button.onClick.Invoke();Check(ui.IsNavigating,"Second click enters and prevents repeated navigation "+node);ui.EnterSelected();Next(9,2);return;}
         if(stage==9){
             if(gm.gameState!=GameStateType.BATTLE||WaveManager.single.currentWaveset.levelKey!=StorybookMapBuilder.Keys[node]||GameObject.FindGameObjectsWithTag("MapGraphics").Length!=1)return;

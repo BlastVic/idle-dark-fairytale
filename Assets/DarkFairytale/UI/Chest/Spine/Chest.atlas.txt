@@ -1,0 +1,68 @@
+ChestParts.png
+size: 1254,1254
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bronze_body
+  rotate: false
+  xy: 41,199
+  size: 362,208
+  orig: 362,208
+  offset: 0,0
+  index: -1
+bronze_closed
+  rotate: false
+  xy: 439,183
+  size: 379,169
+  orig: 379,169
+  offset: 0,0
+  index: -1
+bronze_open
+  rotate: false
+  xy: 852,74
+  size: 354,278
+  orig: 354,278
+  offset: 0,0
+  index: -1
+gold_body
+  rotate: false
+  xy: 40,576
+  size: 362,212
+  orig: 362,212
+  offset: 0,0
+  index: -1
+gold_closed
+  rotate: false
+  xy: 439,562
+  size: 381,172
+  orig: 381,172
+  offset: 0,0
+  index: -1
+gold_open
+  rotate: false
+  xy: 852,454
+  size: 354,287
+  orig: 354,287
+  offset: 0,0
+  index: -1
+diamond_body
+  rotate: false
+  xy: 41,958
+  size: 361,210
+  orig: 361,210
+  offset: 0,0
+  index: -1
+diamond_closed
+  rotate: false
+  xy: 437,944
+  size: 383,176
+  orig: 383,176
+  offset: 0,0
+  index: -1
+diamond_open
+  rotate: false
+  xy: 853,836
+  size: 355,283
+  orig: 355,283
+  offset: 0,0
+  index: -1

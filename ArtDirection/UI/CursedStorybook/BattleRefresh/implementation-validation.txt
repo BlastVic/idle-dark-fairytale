@@ -1,0 +1,36 @@
+战斗 UI 制作验证 — 2026-10-14
+
+交付：持久化 BattleHUD 与 EnemyBar Prefab，原技能 Sprite/材质引用，新增径向冷却覆盖层，无可点击技能按钮。生命/经验等长，生命数值放大，底部紧凑布局。经验实际增量与升级信息在头像上方上浮淡出，连续经验合并、消息按序显示，退出战斗清空。
+真实计时：生命恢复 2 秒周期、雷霆随机检查周期；天使、恶魔、幼龙为已学习状态指示，无虚构冷却。
+图像：从确认稿制作空白底板及独立透明标题/血槽；技能直接复用 CleanSkill 资源。尚存视觉差异：透明标题与血槽边缘细节/金色亮度与概念稿不完全一致，等级文字使用真实文本、没有概念图的烘焙描边。未宣称像素级还原。
+验证截图：output/battle-refresh/（本地忽略，不提交）；9:16、3:4、1:2；玩家12/14、经验0%、怪物1/3，使用本地森林测试关卡，背景与概念图不同。
+
+PASS Authored battle HUD route
+PASS Equal length HP XP (1080, 1920)
+PASS Only learned status skills visible (1080, 1920)
+PASS Status icons do not intercept input (1080, 1920)
+PASS Actual XP amount above portrait (1080, 1920)
+PASS XP rises (1080, 1920)
+PASS XP fades (1080, 1920)
+PASS Level up uses portrait feedback (1080, 1920)
+PASS Equal length HP XP (768, 1024)
+PASS Only learned status skills visible (768, 1024)
+PASS Status icons do not intercept input (768, 1024)
+PASS Actual XP amount above portrait (768, 1024)
+PASS XP rises (768, 1024)
+PASS XP fades (768, 1024)
+PASS Level up uses portrait feedback (768, 1024)
+PASS Equal length HP XP (720, 1440)
+PASS Only learned status skills visible (720, 1440)
+PASS Status icons do not intercept input (720, 1440)
+PASS Actual XP amount above portrait (720, 1440)
+PASS XP rises (720, 1440)
+PASS XP fades (720, 1440)
+PASS Level up uses portrait feedback (720, 1440)
+PASS Radial remainder clears clockwise from twelve
+PASS Cooldown follows actual player timer
+PASS Return restores home and clears portrait feedback
+PASS Victory hides HUD and opens results
+PASS Defeat hides HUD and opens results
+PASS Results return to camp
+DONE

@@ -23,7 +23,6 @@ namespace Assets.Scripts.Services.Purchasing
         public static IExtensionProvider StoreExtensionProvider { get; private set; } // The store-specific Purchasing subsystems.
 
         private String _inAppSource;
-        private LevelTypeEnum _lastStatPurchased = LevelTypeEnum.NONE;
         protected override void Awake()
         {
             base.Awake();
@@ -61,12 +60,12 @@ namespace Assets.Scripts.Services.Purchasing
 
         public Boolean LastStatPurchased(LevelTypeEnum levelType)
         {
-            return _lastStatPurchased.Equals(levelType);
+            return GameManager.single != null && GameManager.single.lastStatPurchased == levelType;
         }
 
         public void SetLastStatPurchased(LevelTypeEnum levelType)
         {
-            _lastStatPurchased = levelType;
+            if (GameManager.single != null) GameManager.single.lastStatPurchased = levelType;
         }
 
         private void SetupPurchaseProcess(String productId, String source)

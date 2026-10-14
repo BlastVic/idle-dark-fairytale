@@ -25,7 +25,7 @@ public static class MobRuneWolfCombatProbe
         test.levelKey=Key;test.levelName=Key;test.waves=new[]{new Wave{enemies=new[]{"MobRuneWolf"}},new Wave{enemies=new[]{"MobRuneWolf","MobWaxcap","MobRuneWolf"}}};
         wm.waveDb.RemoveAll(w=>w.levelKey==Key);wm.waveDb.Add(test);
         Application.logMessageReceived+=Log;EditorApplication.update+=Tick;
-        var assets=LevelController.Instance.AssetManager;assets.HideCampPackage();assets.HideMapPackage();
+        var assets=LevelController.Instance.AssetManager;assets.HideMapPackage();
         GameplayCanvas.single.ToggleButtonGrid(false);GameplayCanvas.single.ToggleFusionBarUI(false);
         GameplayCanvas.single.victoryPanel.SetActive(false);GameplayCanvas.single.defeatPanel.SetActive(false);
         GameplayCanvas.single.dailyCherriesPop.SetActive(false);

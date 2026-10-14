@@ -26,9 +26,9 @@ public class AssetManager : MonoBehaviour
     [Header("Load Once Object Refs")]
     public GameObject rebirthPackageObj;
     public GameObject mapPackageObj;
-    public GameObject campPackageObj;
+    public bool IsShelterReady => GameplayCanvas.single && GameplayCanvas.single.homeUI;
     public GameObject fusionPackageObj;
-    public GameObject battleCampCamera, menuCamera;
+    public GameObject battleCampCamera;
     public GameObject playerObj;
 
     public Vector3 GetNextPosition(bool isMini = false)
@@ -48,6 +48,9 @@ public class AssetManager : MonoBehaviour
 
     public void SpawnNotifierText(Vector3 pos)
     {
+        // Battle HUD displays the actual XP gain above the portrait, including bonuses.
+        var hud=GameplayCanvas.single?GameplayCanvas.single.battleHud:null;
+        if(hud&&hud.isActiveAndEnabled&&hud.statusDetails)return;
         var next = Instantiate(notifierText).GetComponent<StorybookCombatFloat>();
         next.Present(pos, battleCampCamera.GetComponent<Camera>());
     }
@@ -85,28 +88,12 @@ public class AssetManager : MonoBehaviour
         }
     }
 
-    public void TurnOnCampPackage(float targScale)
-    {
-        if (campPackageObj == null)
-        {
-            SpawnGeneralObj("CampPackage");
-        }
-        else
-        {
-            campPackageObj.SetActive(true);
-            campPackageObj.transform.localScale = new Vector3(targScale, targScale, targScale);
-        }
-    }
 
     public void HideMapPackage()
     {
         if (mapPackageObj != null) mapPackageObj.SetActive(false);
     }
 
-    public void HideCampPackage()
-    {
-        if (campPackageObj != null) campPackageObj.SetActive(false);
-    }
 
     public void HidePlayer()
     {
@@ -248,10 +235,6 @@ public class AssetManager : MonoBehaviour
         if (lastGeneralAsset == "RebirthPackage") rebirthPackageObj = obj.Result;
 
         if (lastGeneralAsset == "MapPackage") mapPackageObj = obj.Result;
-        if (lastGeneralAsset == "CampPackage")
-        {
-            campPackageObj = obj.Result;
-        }
         if (lastGeneralAsset == "ChestDropIn")
         {
             chestDropInObj = obj.Result;

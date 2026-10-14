@@ -130,6 +130,7 @@ public class LevelController : MonoSingleton<LevelController>
         {
             InventoryUI.single.RefreshStats();
         }
+        SaveManager.Instance.SaveStatAllocation();
         GameplayCanvas.single.RefreshCampUI();
     }
 

@@ -455,6 +455,7 @@ public class GameplayCanvas : MonoBehaviour
 
     public void PlayLevelUp()
     {
+        if(battleHud&&battleHud.isActiveAndEnabled&&battleHud.statusDetails){battleHud.statusDetails.Level(GameManager.single.playerLevel);RefreshXp();RefreshCampUI();return;}
         if (levelUpUI)
         {
             levelUpUI.Present(GameManager.single.playerLevel);
