@@ -11,7 +11,9 @@ public sealed class StorybookSkillNode : MonoBehaviour
     public string[] effectLabels;
     public Button button;
     public Image icon;
+    public Image availableBackground;
     public Text caption, level;
+    public Text availableSymbol;
     public GameObject selected, locked, available;
     public RectTransform Rect => (RectTransform)transform;
     public bool IsUnlocked(SkillsController skills) =>

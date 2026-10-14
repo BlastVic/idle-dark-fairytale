@@ -18,8 +18,13 @@ public sealed class StorybookSkillsUI : MonoBehaviour
     public Button[] navigation;
     public Text playerLevel, subjectNumber, points, title, level, description, prerequisites, cost, purchaseCaption;
     public Text currentValues, nextValues;
+    public Text currentHeading, nextHeading;
     public GameObject comparison, currentOnly;
     public Text currentOnlyText;
+    public GameObject[] prerequisiteRows;
+    public Image[] prerequisiteIcons;
+    public Text[] prerequisiteLabels;
+    public Sprite prerequisiteMet, prerequisiteUnmet;
     public Image detailIcon, purchaseSurface;
     public Sprite paper, crimson;
     public RectTransform drawer, drawerBody, footer, overlay;
@@ -76,7 +81,7 @@ public sealed class StorybookSkillsUI : MonoBehaviour
     public void Refresh()
     {
         if(!initialized||!GameManager.single)return;
-        var skills=SkillsController.Instance;int hash=GameManager.single.skillPoints;
+        var skills=SkillsController.Instance;int hash=unchecked(GameManager.single.skillPoints*31+(IsNavigating?1:0));
         foreach(var n in nodes)hash=unchecked(hash*31+skills.GetSkillLevel(n.key));
         playerLevel.text="Lv. "+GameManager.single.playerLevel;
         if(subjectNumber)subjectNumber.text="No. "+GameManager.single.SubjectNumber;
@@ -84,8 +89,10 @@ public sealed class StorybookSkillsUI : MonoBehaviour
         if(hash==signature)return;signature=hash;
         foreach(var n in nodes){int value=skills.GetSkillLevel(n.key);bool unlocked=n.IsUnlocked(skills);
             n.button.interactable=unlocked&&!IsNavigating;n.level.text=!unlocked?"未解锁":value>=10?"10 / 10 · 满级":"Lv. "+value+" / 10";
-            n.icon.color=unlocked?Color.white:new Color(.62f,.60f,.57f,.88f);
-            n.locked.SetActive(!unlocked);n.available.SetActive(unlocked&&value<10&&GameManager.single.skillPoints>=(value==9?2:1));
+            n.icon.color=unlocked?Color.white:new Color(.57f,.55f,.51f,.65f);
+            n.locked.SetActive(!unlocked);n.available.SetActive(unlocked&&!IsNavigating&&value<10&&GameManager.single.skillPoints>=(value==9?2:1));
+            if(n.availableBackground)n.availableBackground.gameObject.SetActive(n.available.activeSelf);
+            if(n.availableSymbol)n.availableSymbol.text=value==0?"+":"↑";
         }
         foreach(var link in links)link.Refresh(skills);
         if(Selected&&DrawerOpen)BindDetails();
@@ -106,7 +113,7 @@ public sealed class StorybookSkillsUI : MonoBehaviour
     void Show(StorybookSkillNode node,bool side)
     {
         Selected=node;DrawerOnRight=side;DrawerOpen=true;
-        var closeRect=(RectTransform)close.transform;closeRect.anchorMin=closeRect.anchorMax=new Vector2(side?1:0,1);closeRect.anchoredPosition=new Vector2(side?-52:8,-8);
+        // Close button placement is authored in the prefab; preserve Inspector adjustments.
         drawer.gameObject.SetActive(true);drawerGroup.alpha=1;drawerGroup.blocksRaycasts=true;drawerGroup.interactable=false;
         foreach(var n in nodes)n.selected.SetActive(n==Selected);
         detailScroll.verticalNormalizedPosition=1;BindDetails();PositionDrawer();
@@ -135,41 +142,47 @@ public sealed class StorybookSkillsUI : MonoBehaviour
     }
     string Number(float value)=>value.ToString("0.##",CultureInfo.InvariantCulture);
     float[] Values(int wanted)=>SkillsController.Instance.GetSkillValues(wanted,Selected.key);
-    string Description(int wanted)
-    {
-        var values=Values(wanted);string s=Selected.descriptionTemplate;
-        for(int i=0;i<values.Length;i++){bool percent=!(Selected.key==SkillsTypeEnum.Devil_On_My_Shoulder && i>=2);s=s.Replace("{"+i+"}",Number(values[i]*(percent?100:1)));}return s;
-    }
-    string EffectValues(int wanted)
+    string EffectValues(int wanted, bool target=false)
     {
         var values=Values(wanted);
-        return string.Join("\n",Selected.effectLabels.Select((label,i)=>label+"  "+Number(values[i]*((Selected.key==SkillsTypeEnum.Devil_On_My_Shoulder&&i>=2)?1:100))+"%"));
+        return string.Join("\n",Selected.effectLabels.Select((label,i)=>{
+            string number=Number(values[i]*((Selected.key==SkillsTypeEnum.Devil_On_My_Shoulder&&i>=2)?1:100))+"%";
+            return label+"  "+(target?"<color=#8F2018>"+number+"</color>":number);
+        }));
     }
-    string PrerequisiteText()
+    void BindPrerequisites()
     {
-        if(Selected.prerequisite==SkillsTypeEnum.NONE&&Selected.alternatePrerequisite==SkillsTypeEnum.NONE)return "无前置要求";
-        Func<SkillsTypeEnum,string> line=key=>{var n=nodes.First(x=>x.key==key);bool ok=SkillsController.Instance.GetSkillLevel(key)>0;return (ok?"<color=#325B32>✓ ":"<color=#665F55>○ ")+n.displayName+" ≥1级</color>";};
-        string text=line(Selected.prerequisite);
-        if(Selected.alternatePrerequisite!=SkillsTypeEnum.NONE)text+="\n或 "+line(Selected.alternatePrerequisite);
-        return text;
+        var keys=new[]{Selected.prerequisite,Selected.alternatePrerequisite};
+        bool any=keys.Any(k=>k!=SkillsTypeEnum.NONE);
+        prerequisites.transform.parent.gameObject.SetActive(any);
+        prerequisites.text=any?"<b>解锁条件"+(keys.All(k=>k!=SkillsTypeEnum.NONE)?" · 满足任一项":"")+"</b>":"无前置要求";
+        for(int i=0;i<prerequisiteRows.Length;i++){
+            var key=keys[i];bool show=key!=SkillsTypeEnum.NONE;prerequisiteRows[i].SetActive(show);if(!show)continue;
+            bool met=SkillsController.Instance.GetSkillLevel(key)>0;
+            prerequisiteIcons[i].sprite=met?prerequisiteMet:prerequisiteUnmet;
+            prerequisiteLabels[i].text=nodes.First(n=>n.key==key).displayName+" ≥1级";
+            prerequisiteLabels[i].color=new Color(.075f,.055f,.035f);
+        }
     }
     void BindDetails()
     {
         int value=SkillLevel(Selected);bool max=value>=10;
-        title.text=Selected.displayName;level.text=max?"Lv. 10 · 满级":"Lv. "+value+" → <color=#8F2018>"+(value+1)+"</color>";
+        title.text=Selected.displayName;
         detailIcon.sprite=Selected.icon.sprite;detailIcon.material=Selected.icon.material;
-        description.text=Description(max?10:value==0?1:value);
-        comparison.SetActive(value>0&&!max);currentOnly.SetActive(max||(value==0&&(Selected.key==SkillsTypeEnum.Regen||Selected.key==SkillsTypeEnum.Angel_On_My_Shoulder||Selected.key==SkillsTypeEnum.Devil_On_My_Shoulder)));
-        if(value>0&&!max){
-            if(Selected.effectLabels.Length==1){currentValues.text="当前    "+Number(Values(value)[0]*100)+"%";nextValues.text="升级后  "+Number(Values(value+1)[0]*100)+"%";}
-            else {currentValues.text="当前\n"+EffectValues(value);nextValues.text="升级后\n"+EffectValues(value+1);}
-        }
-        if(max)currentOnlyText.text="当前效果\n"+EffectValues(10);else if(value==0)currentOnlyText.text="学习后\n"+EffectValues(1);
-        prerequisites.text=PrerequisiteText();cost.text=max?"无需继续消耗":"消耗 <color=#861A12>"+Cost+"</color> 技能点";
+        description.text=Selected.descriptionTemplate;
+        comparison.SetActive(true);currentOnly.SetActive(max);
+        currentValues.transform.parent.gameObject.SetActive(value>0);
+        nextValues.transform.parent.gameObject.SetActive(!max);
+        currentHeading.text="当前技能等级   Lv. "+value;
+        nextHeading.text="目标技能等级   <color=#8F2018>Lv. "+(value+1)+"</color>";
+        currentValues.text=value>0?EffectValues(value):"";
+        nextValues.text=max?"":EffectValues(value+1,true);
+        if(max)currentOnlyText.text="已达到最高等级";
+        BindPrerequisites();cost.text=max?"无需继续消耗":"技能点消耗   <color=#861A12>"+Cost+" 点</color>";
         bool eligible=!max&&Selected.IsUnlocked(SkillsController.Instance)&&GameManager.single.skillPoints>=Cost;
-        purchase.interactable=eligible;purchaseSurface.sprite=eligible?crimson:paper;
+        purchase.interactable=eligible;purchaseSurface.sprite=crimson;
         purchaseCaption.text=max?"已满级":!eligible?"技能点不足":value==0?"学 习":"升 级";
-        purchaseCaption.color=eligible?new Color(.98f,.94f,.82f):new Color(.25f,.22f,.18f);
+        purchaseCaption.color=new Color(.98f,.94f,.82f);
         LayoutDrawer();
     }
     public void LayoutDrawer()
@@ -184,10 +197,10 @@ public sealed class StorybookSkillsUI : MonoBehaviour
         float wanted=LayoutUtility.GetPreferredHeight(drawerBody);
         float footerHeight=footer.rect.height;
         float bottomReserved=footerHeight+footerInset.y+bodyFooterGap;
-        float chromeHeight=62+bottomReserved;
+        float chromeHeight=76+bottomReserved;
         float height=Mathf.Min(wanted+chromeHeight,overlay.rect.height-edgeInset*2);
         drawer.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,height);
-        detailScroll.viewport.offsetMin=new Vector2(18,bottomReserved);detailScroll.viewport.offsetMax=new Vector2(-18,-62);
+        detailScroll.viewport.offsetMin=new Vector2(24,bottomReserved);detailScroll.viewport.offsetMax=new Vector2(-24,-76);
         drawerBody.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,wanted);
         detailScroll.vertical=wanted>height-chromeHeight;
         StorybookEquipmentLayout.Box(footer,footerInset.x,height-footerHeight-footerInset.y,width-footerInset.x*2,footerHeight);
