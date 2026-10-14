@@ -70,30 +70,34 @@ public static class StorybookSkillsBuilder
             var sharedNav=StorybookNavigationAuthoring.Instantiate(layout.core,root,1);
             layout.navigation=(RectTransform)sharedNav.transform;layout.navigationContent=null;ui.navigation=sharedNav.buttons;
             layout.points=Panel(layout.core,"SkillPoints",925,102);layout.pointsContent=Node(layout.points,"Contents");Box(layout.pointsContent,0,0,925,102);
-            var book=UnityEngine.Object.Instantiate(ui.navigation[1].transform.Find("Icon"),layout.pointsContent);book.name="SkillBook";Box((RectTransform)book,262,6,81,76);
-            ui.points=Text(layout.pointsContent,"Points","技能点 3",365,1,310,60,38);
-            Text(layout.pointsContent,"UnlockRule","箭头指向后续技能 · 任一前置达到1级即可解锁",80,65,765,29,22);
+            var book=UnityEngine.Object.Instantiate(ui.navigation[1].transform.Find("Icon"),layout.pointsContent);book.name="SkillBook";Box((RectTransform)book,262,13,81,76);
+            ui.points=Text(layout.pointsContent,"Points","技能点 3",365,21,310,60,38);
+            Text(layout.pointsContent,"UnlockRule","箭头指向后续技能 · 任一前置达到1级即可解锁",80,65,765,29,22).gameObject.SetActive(false);
             layout.tree=Panel(layout.core,"SkillTree",925,1200);
             ui.treeScroll=Scroll(layout.tree,"TreeViewport",out var content);layout.treeScroll=ui.treeScroll;
             var background=ui.treeScroll.viewport.Find("DragSurface").gameObject.AddComponent<StorybookSkillsGesture>();background.owner=ui;background.vertical=ui.treeScroll;background.background=true;
-            for(int row=1;row<5;row++)Line(content,"RowDivider",new Vector2(20,row*208-16),new Vector2(882,row*208-16),new Color(.22f,.18f,.13f,.13f),1);
-            var pathRoot=Node(content,"DependencyPaths");Box(pathRoot,0,0,901,1160);
+            content.sizeDelta=new Vector2(0,1400);
+            for(int row=1;row<5;row++)Line(content,"RowDivider",new Vector2(20,row*268-46),new Vector2(882,row*268-46),new Color(.22f,.18f,.13f,.13f),1);
+            var pathRoot=Node(content,"DependencyPaths");Box(pathRoot,0,0,901,1400);
             string[] names={"","生命复苏","三连斩","阴影践踏","天使庇护","恶魔低语","死而复生","幸运收割","第三重击","幼龙伙伴","双倍馈赠","雷霆裁决","首领猎手","幸运之星","战场谋略","地狱吐息"};
-            string[] desc={"","每2秒恢复生命。","{0}%概率发动快速三连击。","{0}%概率触发范围攻击。\n敌人多于1名时生效。","提升生命与防御。","提升攻击与攻速，\n增加暴击与暴伤。","阵亡时有{0}%概率复活，恢复40%生命。","击败敌人时，有{0}%概率恢复20%生命。","每第三次攻击额外造成{0}%伤害。","幼龙伙伴间歇造成{0}%攻击伤害。","击败敌人时，有{0}%概率获得双倍经验。","生命低于50%的敌人受到雷击，造成{0}%攻击伤害。","对首领有{0}%概率发动六连击，造成150%伤害。","受到暴击时，有{0}%概率获得10%生命吸收。","面对多个敌人时，伤害增加{0}%。","幼龙有{0}%概率发动二连或三连攻击。"};
+            string[] desc={"","每2秒恢复生命。","{0}%概率发动快速三连击。","{0}%概率触发范围攻击。\n敌人多于1名时生效。","提升生命与防御。","提升攻击与攻速，\n增加暴击与暴伤。","阵亡时有{0}%概率复活。\n复活后恢复40%生命。","击败敌人时，有{0}%概率恢复20%生命。","每第三次攻击额外造成{0}%伤害。","幼龙伙伴间歇造成{0}%攻击伤害。","击败敌人时，有{0}%概率获得双倍经验。","生命低于50%的敌人受到雷击，造成{0}%攻击伤害。","对首领有{0}%概率发动六连击，造成150%伤害。","受到暴击时，有{0}%概率获得10%生命吸收。","面对多个敌人时，伤害增加{0}%。","幼龙有{0}%概率发动二连或三连攻击。"};
             string[][] effect={null,new[]{"恢复生命"},new[]{"触发概率"},new[]{"触发概率"},new[]{"生命","防御"},new[]{"攻击","攻速","暴击","暴伤"},new[]{"复活概率"},new[]{"触发概率"},new[]{"额外伤害"},new[]{"攻击伤害"},new[]{"触发概率"},new[]{"攻击伤害"},new[]{"触发概率"},new[]{"触发概率"},new[]{"额外伤害"},new[]{"触发概率"}};
             Vector2[] positions={default,new Vector2(284,78),new Vector2(798,286),new Vector2(630,78),new Vector2(284,286),new Vector2(630,286),new Vector2(457,494),new Vector2(116,286),new Vector2(630,494),new Vector2(457,702),new Vector2(284,494),new Vector2(630,702),new Vector2(798,494),new Vector2(116,494),new Vector2(284,702),new Vector2(457,910)};
             Rect[] crops={default,new Rect(241,272,132,101),new Rect(752,438,132,106),new Rect(578,270,128,106),new Rect(246,438,137,105),new Rect(576,438,132,105),new Rect(403,625,148,109),new Rect(83,438,132,106),new Rect(576,628,132,106),new Rect(409,818,138,110),new Rect(246,628,137,105),new Rect(576,818,132,112),new Rect(752,628,132,106),new Rect(83,628,132,105),new Rect(247,818,135,112),new Rect(408,991,140,106)};
             var lockSprite=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/DarkFairytale/UI/Equipment/Sprites/LockGlyph.asset");var ink=AssetDatabase.LoadAssetAtPath<Material>("Assets/DarkFairytale/UI/Shelter/Reference/ReferenceInk.mat");
             ui.nodes=new StorybookSkillNode[15];
             for(int i=1;i<=15;i++){
-                var r=Node(content,"Skill_"+((SkillsTypeEnum)i));var pos=positions[i];Box(r,pos.x-76,pos.y-62,152,175);
+                var r=Node(content,"Skill_"+((SkillsTypeEnum)i));var pos=positions[i];int row=Mathf.RoundToInt((pos.y-78)/208);Box(r,pos.x-76,pos.y-62+row*60,152,175);
                 var n=r.gameObject.AddComponent<StorybookSkillNode>();n.key=(SkillsTypeEnum)i;n.prerequisite=(SkillsTypeEnum)prerequisites[i].x;n.alternatePrerequisite=(SkillsTypeEnum)prerequisites[i].y;n.displayName=names[i];n.descriptionTemplate=desc[i];n.effectLabels=effect[i];ui.nodes[i-1]=n;
                 var hit=r.gameObject.AddComponent<Image>();hit.color=new Color(1,1,1,.001f);n.button=r.gameObject.AddComponent<Button>();n.button.targetGraphic=hit;n.button.navigation=new Navigation{mode=Navigation.Mode.None};r.gameObject.AddComponent<ShelterButtonFeedback>();r.gameObject.AddComponent<StorybookEquipmentButtonState>().grayscaleShader=Shader.Find("UI/Storybook Disabled");
                 var crop=crops[i];var sprite=Slice("CleanSkill"+i,crop.x,crop.y,crop.width,crop.height);n.icon=Pic(r,"ApprovedIllustration",sprite,7,2,138,120);n.icon.material=CleanIcon(i,sprite);n.icon.preserveAspect=true;
                 var sel=Node(r,"SelectedCrimsonRing");Box(sel,5,0,142,124);var mark=sel.gameObject.AddComponent<StorybookSkillMark>();mark.ring=true;mark.color=new Color(.62f,.035f,.025f);mark.raycastTarget=false;n.selected=sel.gameObject;n.selected.SetActive(false);
                 n.caption=Text(r,"Name",names[i],-6,125,164,32,25);n.level=Text(r,"Level","Lv. 0 / 10",-6,156,164,26,21);
                 var lk=Pic(r,"Lock",lockSprite,124,93,24,31);lk.material=ink;n.locked=lk.gameObject;
-                n.available=Text(r,"CanUpgrade","↑",128,94,24,30,25).gameObject;n.available.GetComponent<Text>().color=new Color(.52f,.08f,.06f);
+                var available=Node(r,"AvailableState");Box(available,0,0,152,175);n.available=available.gameObject;
+                var bookmark=Node(available,"ActionBookmark");Box(bookmark,120,0,30,48);
+                var bookmarkMark=bookmark.gameObject.AddComponent<StorybookSkillMark>();bookmarkMark.bookmark=true;bookmarkMark.color=new Color(.494f,.098f,.082f);bookmarkMark.raycastTarget=false;
+                n.availableSymbol=Text(available,"CanUpgrade","+",120,1,30,38,27);n.availableSymbol.color=new Color(.98f,.925f,.82f);
             }
             var allLinks=new List<StorybookSkillLink>();
             foreach(var n in ui.nodes)foreach(var k in new[]{n.prerequisite,n.alternatePrerequisite})if(k!=SkillsTypeEnum.NONE){var from=ui.nodes[(int)k-1];var a=positions[(int)k];var b=positions[(int)n.key];Vector2[] route;
@@ -102,12 +106,13 @@ public static class StorybookSkillsBuilder
                 else if((int)n.key==6){float lane=(int)k==4?412:502;route=new[]{new Vector2(a.x+((int)k==4?66:-66),a.y),new Vector2(lane,a.y),new Vector2(lane,b.y-93),new Vector2(b.x,b.y-93),new Vector2(b.x,b.y-69)};}
                 else if(Mathf.Abs(a.x-b.x)>1)route=new[]{new Vector2(a.x+(b.x<a.x?-66:66),a.y),new Vector2(b.x,a.y),new Vector2(b.x,b.y-68)};
                 else route=new[]{new Vector2(a.x,a.y+118),new Vector2(b.x,b.y-68)};
+                for(int r=0;r<route.Length;r++)route[r].y=SpacedTreeY(route[r].y);
                 allLinks.Add(BuildLink(pathRoot,from,n,route));
             }
             ui.links=allLinks.ToArray();
-            foreach(var pos in new[]{new Vector2(457,396),new Vector2(376,338),new Vector2(545,338)}){var t=Text(pathRoot,"AnyPrerequisite","或",pos.x-13,pos.y-13,26,26,20);t.color=new Color(.5f,.075f,.045f);}
-            for(int i=0;i<5;i++){Text(content,"Row_"+(i+1),(i+1).ToString(),4,45+i*208,28,44,26);}
-            Text(content,"Legend","实线：前置已满足     虚线：前置未满足",28,1090,850,40,22);
+            foreach(var pos in new[]{new Vector2(457,396),new Vector2(376,338),new Vector2(545,338)}){var t=Text(pathRoot,"AnyPrerequisite","或",pos.x-13,SpacedTreeY(pos.y-13),26,26,20);t.color=new Color(.5f,.075f,.045f);}
+            for(int i=0;i<5;i++){Text(content,"Row_"+(i+1),(i+1).ToString(),4,45+i*268,28,44,26);}
+            Text(content,"Legend","实线：前置已满足     虚线：前置未满足",28,1330,850,40,22);
             ui.overlay=Node(layout.tree,"DetailsOverlay");Full(ui.overlay,12,12,12,12);ui.overlay.gameObject.AddComponent<RectMask2D>();
             BuildDrawer(ui);
             layout.Apply();PrefabUtility.SaveAsPrefabAsset(root.gameObject,Path);
@@ -119,10 +124,17 @@ public static class StorybookSkillsBuilder
         existing.gameObject.SetActive(false);gc.skillsPanel=existing.gameObject;EditorUtility.SetDirty(gc);PrefabUtility.RecordPrefabInstancePropertyModifications(gc);
         EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
     }
+    // Insert space between rows without stretching the icons or their attachment offsets.
+    static float SpacedTreeY(float y)
+    {
+        float result=y;
+        for(int row=0;row<4;row++)result+=60*Mathf.Clamp01((y-(198+208*row))/26);
+        return result;
+    }
     static StorybookSkillLink BuildLink(Transform parent,StorybookSkillNode from,StorybookSkillNode to,Vector2[] points)
     {
-        var r=Node(parent,from.key+"_to_"+to.key);Box(r,0,0,901,1160);var link=r.gameObject.AddComponent<StorybookSkillLink>();link.source=from;link.target=to;
-        var solid=Node(r,"SatisfiedSolid");Box(solid,0,0,901,1160);var dashed=Node(r,"UnmetDashed");Box(dashed,0,0,901,1160);link.solid=solid.gameObject;link.dashed=dashed.gameObject;
+        var r=Node(parent,from.key+"_to_"+to.key);Box(r,0,0,901,1400);var link=r.gameObject.AddComponent<StorybookSkillLink>();link.source=from;link.target=to;
+        var solid=Node(r,"SatisfiedSolid");Box(solid,0,0,901,1400);var dashed=Node(r,"UnmetDashed");Box(dashed,0,0,901,1400);link.solid=solid.gameObject;link.dashed=dashed.gameObject;
         for(int i=1;i<points.Length;i++){var a=points[i-1];var b=points[i];Line(solid,"Segment"+i,a,b,link.satisfied,2.7f);float length=(b-a).magnitude;for(float d=0;d<length;d+=14)Line(dashed,"Dash",Vector2.Lerp(a,b,d/length),Vector2.Lerp(a,b,Mathf.Min(d+8,length)/length),link.unmet,2);}
         var end=points[points.Length-1];var v=(end-points[points.Length-2]).normalized;
         var ar=Node(r,"Arrowhead");Box(ar,end.x,end.y,16,14);ar.pivot=new Vector2(1,.5f);ar.localRotation=Quaternion.Euler(0,0,-Mathf.Atan2(v.y,v.x)*Mathf.Rad2Deg);
@@ -134,20 +146,21 @@ public static class StorybookSkillsBuilder
         ui.drawer=Panel(ui.overlay,"ContentHeightDrawer",392,650);var surface=ui.drawer.GetComponent<Image>();surface.raycastTarget=true;
         ui.drawerGroup=ui.drawer.gameObject.AddComponent<CanvasGroup>();
         ui.title=Text(ui.drawer,"SkillName","生命复苏",50,8,292,51,32);ui.title.rectTransform.anchorMax=Vector2.one;ui.title.rectTransform.anchorMin=new Vector2(0,1);ui.title.rectTransform.sizeDelta=new Vector2(-100,51);
-        ui.close=Button(ui.drawer,"Close","×",340,8,44,44,true);var close=(RectTransform)ui.close.transform;close.anchorMin=close.anchorMax=new Vector2(1,1);close.anchoredPosition=new Vector2(-52,-8);ui.close.GetComponentInChildren<Text>().fontSize=30;ui.close.GetComponentInChildren<Text>().alignment=TextAnchor.MiddleCenter;ui.close.GetComponentInChildren<Text>().text="";
+        ui.close=Button(ui.drawer,"Close","×",340,8,44,44,true);var close=(RectTransform)ui.close.transform;close.anchorMin=close.anchorMax=new Vector2(1,1);close.anchoredPosition3D=new Vector3(-70,-16,0);ui.close.GetComponentInChildren<Text>().fontSize=30;ui.close.GetComponentInChildren<Text>().alignment=TextAnchor.MiddleCenter;ui.close.GetComponentInChildren<Text>().text="";
         Line(ui.close.transform,"CrossA",new Vector2(12,12),new Vector2(32,32),new Color(.98f,.94f,.82f),3);
         Line(ui.close.transform,"CrossB",new Vector2(12,32),new Vector2(32,12),new Color(.98f,.94f,.82f),3);
         ui.detailScroll=Scroll(ui.drawer,"DetailViewport",out var body);ui.drawerBody=body;
-        var layout=body.gameObject.AddComponent<VerticalLayoutGroup>();layout.padding=new RectOffset(8,8,4,4);layout.spacing=12;layout.childControlWidth=true;layout.childForceExpandWidth=true;layout.childControlHeight=true;layout.childForceExpandHeight=false;
-        var head=Node(body,"IconAndLevel");head.gameObject.AddComponent<LayoutElement>().preferredHeight=96;
-        ui.detailIcon=Pic(head,"SkillIllustration",null,0,0,96,96);ui.detailIcon.preserveAspect=true;
-        ui.level=Text(head,"Level","Lv. 1 → 2",102,18,216,60,28);ui.level.rectTransform.anchorMax=new Vector2(1,1);ui.level.rectTransform.sizeDelta=new Vector2(-102,60);
-        ui.description=FlowText(body,"Description","每2秒恢复生命。",25);
+        var layout=body.gameObject.AddComponent<VerticalLayoutGroup>();layout.padding=new RectOffset(4,4,6,8);layout.spacing=18;layout.childControlWidth=true;layout.childForceExpandWidth=true;layout.childControlHeight=true;layout.childForceExpandHeight=false;
+        var head=Node(body,"IconAndLevel");head.gameObject.AddComponent<LayoutElement>().preferredHeight=78;
+        ui.detailIcon=Pic(head,"SkillIllustration",null,0,3,72,72);ui.detailIcon.preserveAspect=true;
+        ui.level=Text(head,"Level","Lv. 1 → 2",92,9,226,60,26);ui.level.alignment=TextAnchor.MiddleLeft;ui.level.rectTransform.anchorMax=new Vector2(1,1);ui.level.rectTransform.sizeDelta=new Vector2(-92,60);
+        ui.description=FlowText(body,"Description","每2秒恢复生命。",22);ui.description.font=regular;ui.description.lineSpacing=1.25f;
         var compare=Node(body,"CurrentAndNext");ui.comparison=compare.gameObject;
         var comp=compare.gameObject.AddComponent<VerticalLayoutGroup>();comp.childControlWidth=true;comp.childControlHeight=true;comp.childForceExpandHeight=false;comp.spacing=7;
-        ui.currentValues=FlowText(compare,"Current","当前\n恢复生命 2%",24);ui.nextValues=FlowText(compare,"Next","升级后\n恢复生命 2.4%",24);ui.nextValues.color=new Color(.18f,.34f,.18f);
-        ui.currentOnlyText=FlowText(body,"MaxLevel","已达到最高等级",24);ui.currentOnly=ui.currentOnlyText.gameObject;
-        ui.prerequisites=FlowText(body,"Prerequisites","无前置要求",23);
+        ui.currentValues=FlowText(compare,"Current","当前\n恢复生命 2%",22);ui.currentValues.font=regular;ui.nextValues=FlowText(compare,"Next","升级后\n恢复生命 2.4%",22);ui.nextValues.font=regular;ui.nextValues.color=new Color(.18f,.34f,.18f);
+        ui.currentOnlyText=FlowText(body,"MaxLevel","已达到最高等级",22);ui.currentOnlyText.font=regular;ui.currentOnly=ui.currentOnlyText.gameObject;
+        ui.prerequisites=FlowText(body,"Prerequisites","无前置要求",20);ui.prerequisites.font=regular;ui.prerequisites.lineSpacing=1.35f;
+        StorybookPrerequisiteAuthoring.Build(ui,body,regular);
         ui.footer=Node(ui.drawer,"FixedActionFooter");Box(ui.footer,28,514,336,112);
         ui.cost=Text(ui.footer,"Cost","消耗 1 技能点",0,0,336,30,22);ui.cost.rectTransform.anchorMax=new Vector2(1,1);ui.cost.rectTransform.sizeDelta=new Vector2(0,30);
         ui.purchase=Button(ui.footer,"Purchase","升 级",0,46,336,60,true);var pr=(RectTransform)ui.purchase.transform;pr.anchorMax=new Vector2(1,1);pr.sizeDelta=new Vector2(0,60);
@@ -155,6 +168,7 @@ public static class StorybookSkillsBuilder
         ui.purchase.transform.Find("ButtonBorder").GetComponent<Image>().pixelsPerUnitMultiplier=1.4f;
         var gesture=ui.drawer.gameObject.AddComponent<StorybookSkillsGesture>();gesture.owner=ui;gesture.vertical=ui.detailScroll;
         var bodyGesture=ui.detailScroll.viewport.Find("DragSurface").gameObject.AddComponent<StorybookSkillsGesture>();bodyGesture.owner=ui;bodyGesture.vertical=ui.detailScroll;
+        StorybookSkillDetailsAuthoring.Configure(ui);
         ui.drawerGroup.alpha=0;ui.drawerGroup.blocksRaycasts=false;ui.drawerGroup.interactable=false;ui.drawer.gameObject.SetActive(false);
     }
 }
