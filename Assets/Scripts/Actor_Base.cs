@@ -274,15 +274,7 @@ public class Actor_Base : MonoBehaviour
             //Debug.Log("Player.single.ab.current.absorb:" + Player.single.ab.currentStat.absorb);
 
             GameplayCanvas.single.RefreshHp();
-            if (Player.single.ab.currentStat.absorb > 0)
-            {
-                //turn life purple
-                GameplayCanvas.single.hpMeter.GetComponent<Image>().color = GameplayCanvas.single.cPurple;
-            }
-            else
-            {
-                GameplayCanvas.single.hpMeter.GetComponent<Image>().color = GameplayCanvas.single.cRed;
-            }
+
         }
         else
         {

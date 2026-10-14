@@ -2151,6 +2151,8 @@ MonoBehaviour:
   core: {fileID: 3357212935507843244}
   referenceSize: {x: 1080, y: 1920}
   respectSafeArea: 1
+  bottomPanel: {fileID: 699175783787635942}
+  bottomInset: 50
 --- !u!1 &5407937682317723847
 GameObject:
   m_ObjectHideFlags: 0

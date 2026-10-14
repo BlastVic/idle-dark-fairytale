@@ -41,6 +41,7 @@ public sealed class StorybookSkillsLayout : MonoBehaviour
         // Artwork is uniformly scaled only. A shorter screen scrolls the tree instead of squeezing it.
         float density=Mathf.Clamp(h/1672f,.85f,1);
         Place(header,headerContent,0,headerHeight,density);
+        StorybookEquipmentLayout.FitHeaderContent(header,headerContent,density);
         Place(points,pointsContent,headerHeight*density+gap,pointsHeight,density);
         var sharedNav=navigation.GetComponent<StorybookNavigation>();
         float navSpace=sharedNav?sharedNav.ReservedHeight(core):navigationHeight*density;

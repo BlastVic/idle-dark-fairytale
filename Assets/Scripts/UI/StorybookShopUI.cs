@@ -46,8 +46,19 @@ public sealed class StorybookShopUI : MonoBehaviour
     public void SetBusy(bool value,string message){Busy=value;status.text=message;Refresh();}
     public void ShowReward(int amount){Busy=true;rewardAmount.text="血月结晶 <color=#83180F>+"+amount+"</color>";reward.SetActive(true);rewardGroup.blocksRaycasts=true;rewardGroup.interactable=true;Refresh();}
     public void HideReward(){reward.SetActive(false);rewardGroup.blocksRaycasts=false;rewardGroup.interactable=false;Busy=false;Refresh();}
-    public void Navigate(int destination){if(Busy||leaving)return;leaving=true;Router.single.StartCoroutine(ReturnThenNavigate(destination));}
-    IEnumerator ReturnThenNavigate(int destination){CashMallPackage.single.CloseButton();if(destination==2)yield break;float end=Time.unscaledTime+8;while(GameManager.single.gameState!=GameStateType.CAMP&&Time.unscaledTime<end)yield return null;yield return new WaitForSecondsRealtime(.6f);if(destination==0)Router.single.InventoryButton();else if(destination==1)Router.single.SkillsButton();else if(destination==3)Router.single.MapButton();}
+    public void Navigate(int destination)
+    {
+        if(Busy||leaving)return;
+        leaving=true;
+        Refresh();
+        if(destination==3)
+        {
+            Router.single.MapButton();
+            return;
+        }
+        Router.single.StartCoroutine(ReturnThenNavigate(destination));
+    }
+    IEnumerator ReturnThenNavigate(int destination){CashMallPackage.single.CloseButton();if(destination==2)yield break;float end=Time.unscaledTime+8;while(GameManager.single.gameState!=GameStateType.CAMP&&Time.unscaledTime<end)yield return null;yield return new WaitForSecondsRealtime(.6f);if(destination==0)Router.single.InventoryButton();else if(destination==1)Router.single.SkillsButton();}
     // Navigation continuation lives on Router because this Addressable is destroyed on leaving.
     public void SetLeaving()=>leaving=true;
 }

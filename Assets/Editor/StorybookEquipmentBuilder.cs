@@ -59,6 +59,13 @@ public static class StorybookEquipmentBuilder
             Txt(l.headerContent,"Title","装 备",323,30,260,92,51);
             Pic(l.headerContent,"Portrait",Slice("Portrait",662,38,108,109),651,25,108,109);
             ui.level=Txt(l.headerContent,"PlayerLevel","Lv. 20",770,46,144,58,40);ui.number=Txt(l.headerContent,"SubjectNumber","No. 017",770,101,144,32,22);
+            foreach(var name in new[]{"Portrait","PlayerLevel","SubjectNumber"}){
+                var r=(RectTransform)l.headerContent.Find(name);var pos=r.anchoredPosition;
+                r.anchorMin=r.anchorMax=new Vector2(1,1);r.anchoredPosition=new Vector2(pos.x-925,pos.y);
+            }
+            var headerTitle=(RectTransform)l.headerContent.Find("Title");
+            headerTitle.anchorMin=headerTitle.anchorMax=new Vector2(.5f,1);headerTitle.pivot=new Vector2(.5f,1);headerTitle.anchoredPosition=new Vector2(0,-30);
+
             l.categories=Panel(l.core,"Categories",140,frame);l.categoryContent=Content(l.categories,"Contents",140);
             ui.categoryButtons=new Button[5];ui.categoryIcons=new Image[5];ui.categoryBackgrounds=new Image[5];ui.categoryBadges=new GameObject[5];
             string[] cats={"武器","头盔","盾牌","护甲","饰品"};Rect[] catRects={new Rect(91,179,71,56),new Rect(271,175,60,71),new Rect(441,177,61,69),new Rect(615,175,70,70),new Rect(790,174,69,72)};
@@ -80,10 +87,10 @@ public static class StorybookEquipmentBuilder
             foreach(var b in new[]{ui.sortButton,ui.filterButton,ui.batchButton})b.transform.Find("OriginalButtonBorder").GetComponent<Image>().sprite=Slice("ToolbarButtonFrame",426,334,149,51,new Vector4(5,5,5,5));
             ui.columnButtons=new Button[3];
             for(int n=0;n<3;n++){
-                int columns=n+3;var b=Button(l.toolbar,"Columns"+columns,"",43+n*77,91,70,42,false,20);ui.columnButtons[n]=b;
+                int columns=n+3;var b=Button(l.toolbar,"Columns"+columns,"",43+n*50,91,42,42,false,20);ui.columnButtons[n]=b;
                 b.transform.Find("OriginalButtonBorder").GetComponent<Image>().sprite=Slice("ToolbarButtonFrame",426,334,149,51,new Vector4(5,5,5,5));
-                float w=(48-(columns-1)*3)/(float)columns;
-                for(int row=0;row<2;row++)for(int col=0;col<columns;col++){var mark=Pic(b.transform,"GridGlyph"+row+"_"+col,null,11+col*(w+3),9+row*14,w,10);mark.color=Color.black;}
+                float w=(26-(columns-1)*2)/(float)columns;
+                for(int row=0;row<2;row++)for(int col=0;col<columns;col++){var mark=Pic(b.transform,"GridGlyph"+row+"_"+col,null,8+col*(w+2),10+row*12,w,10);mark.color=Color.black;}
             }
             ui.compactModeButton=Button(l.toolbar,"CompactMode","精简",647,91,116,42,false,23);
             ui.detailedModeButton=Button(l.toolbar,"DetailedMode","详细",764,91,116,42,false,23);

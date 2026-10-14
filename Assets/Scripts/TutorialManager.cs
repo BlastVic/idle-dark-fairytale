@@ -21,6 +21,18 @@ public class TutorialManager : MonoBehaviour
     void Awake(){instance=this;foreach(var t in tutorials)if(t)t.SetActive(false);if(tutorialCharacter)tutorialCharacter.SetActive(false);if(overlay)overlay.SetActive(false);if(view)view.Hide();}
     public void PlayTutorial(int key){if(key>=0&&key<9)requested.Add(key);}
     bool Seen(int key)=>GameManager.single.HasSeenThis("Tutorial-"+key);
+    // Steps 0–7 are the onboarding chain. Step 8 is an explicitly requested shop hint.
+    public bool BlocksDailyReminder
+    {
+        get
+        {
+            if (!GameManager.single || (view && view.Visible)) return true;
+            if (ActiveKey >= 0 && !Seen(ActiveKey)) return true;
+            for (int key = 0; key < 8; key++) if (!Seen(key)) return true;
+            return requested.Any(key => !Seen(key));
+        }
+    }
+
     bool Blocked(){
         if(FindFirstObjectByType<CursedBookIntro>())return true;
         var transition=TransitionCanvas.single;
@@ -37,6 +49,7 @@ public class TutorialManager : MonoBehaviour
             if(ActiveKey!=key)phase=0;
             var target=Resolve(key,out string title,out string text,out string hint);
             if(!target||!target.gameObject.activeInHierarchy||!target.IsInteractable())continue;
+            GameplayCanvas.single.GetComponent<StorybookDailyReward>()?.DeferForTutorial();
             ActiveKey=key;view.Show(key,target,Advance,ClosePopUp,LoseTarget,title,text,hint);break;
         }
     }

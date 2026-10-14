@@ -474,7 +474,7 @@ public class GameManager : MonoBehaviour
         gc.ToggleButtonGrid(true);
         if (gameState == GameStateType.CAMP)
         {
-            GameplayCanvas.single.XpBoostButton.GetComponent<Button>().interactable = true;
+            if(GameplayCanvas.single.XpBoostButton) GameplayCanvas.single.XpBoostButton.GetComponent<Button>().interactable = true;
         }
         if (gameState == GameStateType.BATTLE)
         {
@@ -511,7 +511,7 @@ public class GameManager : MonoBehaviour
     }
 
     #region XP BOOSTER
-    Timer xpBoostTimer;
+
     public System.DateTime xpBoostEndTime, xpBoostStartedTime;
     public string xpBoostEndTimeString;
 
@@ -542,33 +542,9 @@ public class GameManager : MonoBehaviour
         }
 
         isBoostedXPActive = true;
-        //string back to a long
-        if (xpBoostTimer == null)
-        {
-            xpBoostTimer = GameplayCanvas.single.xpBoosterTimerText.gameObject.AddComponent<Timer>();
-        }
-        else
-        {
-
-            //xpBoostTimer.enabled = false;
-            //xpBoostTimer.enabled = true;//= GameplayCanvas.single.xpBoosterTimerText.gameObject.AddComponent<Timer>();
-
-        }
-
-        //long restoreDateLong = System.Convert.ToInt64(xpBoostEndTimeString);
-        ////long to date
-        //System.DateTime restoreDate = System.DateTime.FromBinary(restoreDateLong);
-
-
-        xpBoostTimer.initEachEnable = true;//we want this so we can close/open and it will refresh itself
-        xpBoostTimer.emptyisCustom = true;
-        xpBoostTimer.customEmptyString = "No Active Boost";
+        // The boost lifetime is data, independent of an obsolete UI Text/Timer component.
         xpBoostStartedTime = System.DateTime.Now;
-
         xpBoostEndTimeString = xpBoostEndTime.ToBinary().ToString();
-
-        //string rewardTimeString = rewardTime.ToBinary().ToString();
-        xpBoostTimer.InitializeTimerByDT(xpBoostEndTime, GameplayCanvas.single.xpBoosterTimerText, Color.yellow);
 
     }
 

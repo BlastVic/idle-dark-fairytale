@@ -10,7 +10,7 @@ public sealed class StorybookDailyReward : MonoBehaviour
     public StorybookDailyReminder reminder;
     public float delaySeconds=2;
     public bool ReminderHandled {get;private set;}
-    float firstHomeAt=-1;
+    float readySince=-1;
     public static string ClaimKey(DateTime date)=>"DailyBloodMoon.Claimed."+date.ToString("yyyy-MM-dd",CultureInfo.InvariantCulture);
     public static bool ClaimedToday=>GameManager.single&&GameManager.single.thingsSeenPermanent.Contains(ClaimKey(DateTime.Today));
     public static bool TryClaim()
@@ -32,15 +32,27 @@ public sealed class StorybookDailyReward : MonoBehaviour
     {
         if(!HomeVisible())return false;
         var gc=GameplayCanvas.single;var home=gc.homeUI;
-        return !home.modal.activeSelf&&!(home.settingsUI&&home.settingsUI.IsOpen)&&!(gc.experienceUI&&gc.experienceUI.gameObject.activeSelf)&&!(gc.levelUpUI&&gc.levelUpUI.Presenting)&&!(gc.itemToast&&gc.itemToast.Presenting)&&!(TutorialManager.single&&TutorialManager.single.view&&TutorialManager.single.view.Visible);
+        return !home.modal.activeSelf&&!(home.settingsUI&&home.settingsUI.IsOpen)&&!(gc.experienceUI&&gc.experienceUI.gameObject.activeSelf)&&!(gc.levelUpUI&&gc.levelUpUI.Presenting)&&!(gc.itemToast&&gc.itemToast.Presenting)&&!(TutorialManager.single&&TutorialManager.single.BlocksDailyReminder);
+    }
+    public void DeferForTutorial()
+    {
+        readySince=-1;
+        if (!reminder || !reminder.gameObject.activeSelf) return;
+        reminder.Hide();
+        ReminderHandled=false;
     }
     void Update()
     {
+        if(TutorialManager.single && TutorialManager.single.BlocksDailyReminder)
+        {
+            DeferForTutorial();
+            return;
+        }
         if(ReminderHandled)return;
-        if(firstHomeAt<0){if(!HomeVisible())return;firstHomeAt=Time.unscaledTime;}
-        if(Time.unscaledTime-firstHomeAt<delaySeconds)return;
         if(ClaimedToday){ReminderHandled=true;return;}
-        if(!CanPresent())return;
+        if(!CanPresent()){readySince=-1;return;}
+        if(readySince<0)readySince=Time.unscaledTime;
+        if(Time.unscaledTime-readySince<delaySeconds)return;
         ReminderHandled=true;
         var gc=GameplayCanvas.single;if(gc.experienceReminder)gc.experienceReminder.Hide();
         reminder.Show();

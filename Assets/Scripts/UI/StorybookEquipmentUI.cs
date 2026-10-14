@@ -28,6 +28,8 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
     public GameObject[] categoryBadges;
     public Text level, number, count, title, selectedName, equippedName, grade, equippedGrade, equipCaption, decomposeCaption, batchCaption, sortCaption, filterCaption, lockCaption, points, fusionText, skillBadge, emptyText, rebirthText;
     public Image selectedIcon, equippedIcon, fusionFill;
+    public StorybookFusionReminder fusionReminder;
+    public void OpenFusion()=>Navigate(()=>Router.single.CallFusionFromEquipment());
     public Text[] statValues;
     public CanvasGroup attributeBody;
     public RectTransform foldArrow, comparisonContent;
@@ -48,7 +50,7 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
     public bool IsNavigating {get;private set;}
     public IReadOnlyList<Item> VisibleItems=>items;
     public IReadOnlyList<StorybookEquipmentCell> Cells=>cells;
-    [Serializable] public class ComparisonRow {public RectTransform root;public Text label,current,selected,delta;public Image icon;}
+    [Serializable] public class ComparisonRow {public RectTransform root;public Text label,current,selected,delta;public Image icon;public EquipmentDeltaArrow deltaArrow;}
     readonly ItemType[] types={ItemType.WEAPON,ItemType.HELMET,ItemType.SHIELD,ItemType.ARMOR,ItemType.ACCESSORY};
     readonly LevelTypeEnum[] statTypes={LevelTypeEnum.HP,LevelTypeEnum.DMG,LevelTypeEnum.DEF,LevelTypeEnum.ATK_SPD,LevelTypeEnum.CRIT,LevelTypeEnum.CRIT_DMG};
     readonly List<Item> items=new List<Item>();
@@ -64,6 +66,7 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
     float refreshAt;
     float authoredDetailHeight, authoredViewportHeight;
     Vector2 equipPosition, decomposePosition;
+    public bool sideActions;
     RectTransform[] detailDividers;
     Vector2[] dividerSizes;
 
@@ -154,18 +157,27 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
         if(Selected==null)Selected=items.FirstOrDefault(i=>i!=eq)??items.FirstOrDefault();
         while(cells.Count<items.Count)cells.Add(Instantiate(cellPrefab,grid.transform));
         for(int i=0;i<cells.Count;i++)cells[i].gameObject.SetActive(i<items.Count);
-        int lines=items.Count==0?3:Mathf.Max(3,items.Max(i=>StatIndices(i).Count()));
-        grid.constraintCount=Columns;
-        float width=(839-grid.spacing.x*(Columns-1))/Columns;
-        grid.cellSize=new Vector2(width,(detailedMode?218+(lines-3)*28:218)*width/157.4f);
-        int rows=Mathf.CeilToInt(items.Count/(float)grid.constraintCount);
-        gridScroll.content.sizeDelta=new Vector2(gridScroll.content.sizeDelta.x,Mathf.Max(0,rows*grid.cellSize.y+Mathf.Max(0,rows-1)*grid.spacing.y));
+        gridStatLines=items.Count==0?3:Mathf.Max(3,items.Max(i=>StatIndices(i).Count()));
+        ResizeGrid(true);
         count.text="背包  "+(Owned(Category).Count+(eq!=null?1:0))+"件";
         emptyText.gameObject.SetActive(items.Count==0);emptyText.text=FilterMode==0?"暂无此类装备":"没有符合筛选条件的装备";
         sortCaption.text=SortMode==0?"排序":SortMode==1?"主属性 ↓":"品质 ↓";
         filterCaption.text=FilterMode==0?"筛选":FilterMode==1?"未装备":"未锁定";
         RefreshSelection();RefreshStats();layout.Apply();Canvas.ForceUpdateCanvases();
         if(restore){gridScroll.StopMovement();float y=positions.TryGetValue(Category,out float p)?p:0;SetScroll(y);}
+    }
+    int gridStatLines=3;
+    float lastGridWidth=-1;
+    void LateUpdate(){if(initialized){layout.Apply(false);ResizeGrid();}}
+    void ResizeGrid(bool force=false)
+    {
+        float available=layout.gridViewport.rect.width;
+        if(available<=0||(!force&&Mathf.Abs(available-lastGridWidth)<.01f))return;
+        lastGridWidth=available;grid.constraintCount=Columns;
+        float width=(available-grid.spacing.x*(Columns-1))/Columns;
+        grid.cellSize=new Vector2(width,(detailedMode?218+(gridStatLines-3)*28:218)*width/157.4f);
+        int rows=Mathf.CeilToInt(items.Count/(float)Columns);
+        gridScroll.content.sizeDelta=new Vector2(gridScroll.content.sizeDelta.x,Mathf.Max(0,rows*grid.cellSize.y+Mathf.Max(0,rows-1)*grid.spacing.y));
     }
     public void SetColumns(int columns)
     {
@@ -232,20 +244,31 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
         var order=new[]{primary,4,3,0,1,2,5,6,7,8}.Distinct();
         foreach(int index in order){
             if(a[index]==0&&b[index]==0)continue;
-            var r=comparisonRows[index];r.root.gameObject.SetActive(true);StorybookEquipmentLayout.Box(r.root,0,row*37,850,37);row++;
+            var r=comparisonRows[index];r.root.gameObject.SetActive(true);StorybookEquipmentLayout.Box(r.root,0,row*37,comparisonScroll.viewport.rect.width,37);
+            if(layout.responsiveContents){r.root.anchorMax=new Vector2(1,1);r.root.sizeDelta=new Vector2(0,37);}
+            row++;
             r.current.text=Value(a[index],index);r.selected.text=Value(b[index],index);float delta=b[index]-a[index];
-            r.delta.text=Mathf.Abs(delta)<.0001f?"—":(delta>0?"↑ +":"↓ ")+Value(delta,index);
-            r.delta.color=Mathf.Abs(delta)<.0001f?Color.black:delta>0?new Color(.2f,.38f,.16f):new Color(.56f,.09f,.07f);
+            bool changed=Mathf.Abs(delta)>=.0001f;
+            r.delta.text=!changed?"—":(delta>0?"+":"")+Value(delta,index);
+            r.delta.color=!changed?Color.black:delta>0?new Color(.62f,.08f,.055f):new Color(.10f,.34f,.16f);
+            if(r.deltaArrow){
+                r.deltaArrow.gameObject.SetActive(changed);
+                r.deltaArrow.color=r.delta.color;
+                r.deltaArrow.rectTransform.localRotation=Quaternion.Euler(0,0,delta>0?0:180);
+            }
         }
         for(int i=0;i<9;i++)if(a[i]==0&&b[i]==0)comparisonRows[i].root.gameObject.SetActive(false);
-        comparisonContent.sizeDelta=new Vector2(850,row*37);comparisonScroll.verticalNormalizedPosition=1;
+        comparisonContent.sizeDelta=new Vector2(layout.responsiveContents?0:comparisonScroll.viewport.rect.width,row*37);
+        if(layout.responsiveContents)comparisonContent.anchorMax=new Vector2(1,1);comparisonScroll.verticalNormalizedPosition=1;
         if(detailDividers==null)CacheDetailGeometry();
         // Collapse unused comparison rows while preserving the authored button/border padding.
-        float height=Mathf.Min(authoredViewportHeight,Mathf.Max(1,row)*37);
+        float height=Mathf.Min(authoredViewportHeight,Mathf.Max(sideActions?2:1,row)*37);
         float reduction=authoredViewportHeight-height;
         comparisonScroll.viewport.sizeDelta=new Vector2(comparisonScroll.viewport.sizeDelta.x,height);
-        ((RectTransform)equip.transform).anchoredPosition=equipPosition+Vector2.up*reduction;
-        ((RectTransform)decompose.transform).anchoredPosition=decomposePosition+Vector2.up*reduction;
+        if(!sideActions){
+            ((RectTransform)equip.transform).anchoredPosition=equipPosition+Vector2.up*reduction;
+            ((RectTransform)decompose.transform).anchoredPosition=decomposePosition+Vector2.up*reduction;
+        }
         for(int i=0;i<detailDividers.Length;i++)detailDividers[i].sizeDelta=dividerSizes[i]-Vector2.up*reduction;
         layout.detailHeight=authoredDetailHeight-reduction;layout.Apply();
     }
@@ -270,7 +293,7 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
         modalTitle.text="确认分解";modalMessage.text="分解 "+targets.Length+" 件装备\n获得 "+Utilities.ConvertNumber(experience)+" 融合经验\n已装备及锁定装备不会被分解";
         confirmed=()=>{
             float gain=0;foreach(var item in targets){if(!Owned(item.m_ItemType).Contains(item)||item.isLocked)continue;gain+=item.fusionExp;InventoryManager.single.RemoveItem(item);}
-            if(gain>0)GameManager.single.IncFusion(gain);BatchMode=false;batch.Clear();Rebuild();
+            if(gain>0){GameManager.single.IncFusion(gain);if(fusionReminder)fusionReminder.Notify(gain);}BatchMode=false;batch.Clear();Rebuild();
         };modal.SetActive(true);
     }
     public void SetSort(int mode){Remember();sortModes[Category]=Mathf.Clamp(mode,0,2);Rebuild(true);}
@@ -289,7 +312,8 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
         points.text="可用点数 <color=#761E20><size=39>"+gm.statPoints+"</size></color>";
         var s=gm.currentPlayerStat;float[] v={s.hpMax,s.dmg,s.def,s.atkSpd,s.crit,s.critDmg};
         for(int i=0;i<6;i++){statValues[i].text=Utilities.ConvertNumber(v[i])+(i>=3?"%":"");statButtons[i].interactable=!IsNavigating&&CanBuy(i);}
-        fusionFill.fillAmount=gm.fxpMax>0?Mathf.Clamp01(gm.fxpNow/gm.fxpMax):0;fusionText.text=Mathf.FloorToInt(fusionFill.fillAmount*100)+"%";
+        if(fusionFill)fusionFill.fillAmount=gm.fxpMax>0?Mathf.Clamp01(gm.fxpNow/gm.fxpMax):0;
+        if(fusionText&&fusionFill)fusionText.text=Mathf.FloorToInt(fusionFill.fillAmount*100)+"%";
         skillBadge.text=gm.skillPoints.ToString();skillBadge.transform.parent.gameObject.SetActive(gm.skillPoints>0);
         rebirthText.gameObject.SetActive(gm.rebirthLevel>0);rebirthText.text="转生 "+gm.rebirthLevel;
         var im=InventoryManager.single;bool[] flags={im.weaponFlag,im.helmetFlag,im.shieldFlag,im.armorFlag,im.accFlag};

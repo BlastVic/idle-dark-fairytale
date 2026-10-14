@@ -50,11 +50,11 @@ public class GameplayCanvas : MonoBehaviour
     public GameObject slidingLifebarStuff;
     public void SetLifebarUp()
     {
-        slidingLifebarStuff.GetComponent<RectTransform>().anchoredPosition = upPosition;
+        if(slidingLifebarStuff) slidingLifebarStuff.GetComponent<RectTransform>().anchoredPosition = upPosition;
     }
     public void SetLifebarDown()
     {
-        slidingLifebarStuff.GetComponent<RectTransform>().anchoredPosition = downPosition;
+        if(slidingLifebarStuff) slidingLifebarStuff.GetComponent<RectTransform>().anchoredPosition = downPosition;
     }
 
     public Text hpText;
@@ -112,10 +112,11 @@ public class GameplayCanvas : MonoBehaviour
     public GameObject buttonGridParent;
     public void ToggleButtonGrid(bool b)
     {
-        buttonGridParent.SetActive(b);
+        if(buttonGridParent) buttonGridParent.SetActive(b);
     }
     public void OrderButtonGrid()
     {
+        if(!buttonGridParent)return;
         GameManager gm = GameManager.single;
 
         //Set the natural order first, any re-ordering is done later
@@ -231,7 +232,7 @@ public class GameplayCanvas : MonoBehaviour
     {
         foreach (GameObject obj in battleRelatedUI)
         {
-            obj.SetActive(b && !battleHud);
+            if(obj) obj.SetActive(b && !battleHud);
         }
 
         if (battleHud)
@@ -256,6 +257,7 @@ public class GameplayCanvas : MonoBehaviour
 
     public void ToggleChestButtonUI(bool b)
     {
+        if(!chestParentCg)return;
         if (b)
         {
             chestParentCg.alpha = 1;
@@ -275,6 +277,7 @@ public class GameplayCanvas : MonoBehaviour
 
     public void ToggleFusionBarUI(bool b)
     {
+        if(!fusionBarCg)return;
         if (b)
         {
             fusionBarCg.alpha = 1;
@@ -297,7 +300,7 @@ public class GameplayCanvas : MonoBehaviour
 
         foreach (GameObject obj in campRelatedUI)
         {
-            obj.SetActive(b);
+            if(obj) obj.SetActive(b);
         }
 
         if (b)
@@ -310,10 +313,10 @@ public class GameplayCanvas : MonoBehaviour
             replayButtonCool = true;
             RefreshCampUI();
 
-            if (fusionButtonObj.activeSelf) TutorialManager.single.PlayTutorial(7);
+            if (gm.fxpMax>0 && gm.fxpNow>=gm.fxpMax) TutorialManager.single.PlayTutorial(7);
 
 
-            if (chestContainer.transform.childCount > 0)
+            if (InventoryManager.single.chestsOwned.Count > 0)
             {
                 TutorialManager.single.PlayTutorial(6);
             }
@@ -332,6 +335,7 @@ public class GameplayCanvas : MonoBehaviour
     {
         if (Player.single == null) return;//dont try refresh if there is no player
         if (battleHud) battleHud.SetHealth(Player.single.ab.currentStat.hpNow, Player.single.ab.currentStat.hpMax, Player.single.ab.currentStat.absorb > 0);
+        if(!hpMeter||!hpText)return;
         hpMeter.SetValue(null, Player.single.ab.currentStat.hpNow / Player.single.ab.currentStat.hpMax);
         hpText.text = Utilities.ConvertNumber(Player.single.ab.currentStat.hpNow) + " / " + Utilities.ConvertNumber(Player.single.ab.currentStat.hpMax);
         //SetMarker(Player.single.ab.currentStat.hpNow / Player.single.ab.currentStat.hpMax);
@@ -350,6 +354,7 @@ public class GameplayCanvas : MonoBehaviour
     {
         if (Player.single == null) return;//dont try refresh if there is no player
         if (battleHud) battleHud.SetHealth(Player.single.ab.currentStat.hpNow, Player.single.ab.currentStat.hpMax, Player.single.ab.currentStat.absorb > 0);
+        if(!hpMeter||!hpText)return;
         hpMeter.GetComponent<Image>().fillAmount = 1;
         hpText.text = Player.single.ab.currentStat.hpNow + " / " + Player.single.ab.currentStat.hpMax;
         //SetMarker(Player.single.ab.currentStat.hpNow / Player.single.ab.currentStat.hpMax);
@@ -358,6 +363,7 @@ public class GameplayCanvas : MonoBehaviour
     public void RefreshXp()
     {
         if (battleHud) battleHud.SetExperience(gm.playerLevel, gm.xpNow, gm.xpMax);
+        if(!xpMeter||!xpText||!levelText)return;
         xpMeter.SetValue(null, gm.xpNow / gm.xpMax);
         xpText.text = (int)(gm.xpNow / gm.xpMax * 100) + "%";
         levelText.text = gm.playerLevel.ToString();
@@ -367,6 +373,7 @@ public class GameplayCanvas : MonoBehaviour
     public GameObject chestPrefab;
     public void RefreshChests()
     {
+        if(!chestContainer||!chestPrefab)return;
         ClearChests();
         foreach (Chest c in InventoryManager.single.chestsOwned)
         {
@@ -386,6 +393,7 @@ public class GameplayCanvas : MonoBehaviour
 
     public void RefreshNotifiers()
     {
+        if(notifiers==null||notifiers.Length<2||!notifiers[0]||!notifiers[1])return;
         if (GameManager.single.skillPoints > 0)
         {
             notifiers[0].SetActive(true);
@@ -409,6 +417,7 @@ public class GameplayCanvas : MonoBehaviour
 
     public void RefreshFusion()
     {
+        if(!fusionPercText||!fusionMeter||!fusionLevelText)return;
         float fusionPerc = (GameManager.single.fxpNow / GameManager.single.fxpMax) * 100;
         fusionPercText.text = Utilities.ConvertNumber(fusionPerc) + "%";
         if (fusionPerc >= 100) fusionPercText.text = "Maxed!";
@@ -458,7 +467,7 @@ public class GameplayCanvas : MonoBehaviour
     public void RefreshWaveText()
     {
         if (WaveManager.single.currentWaveset == null) return;
-        waveText.text = (WaveManager.single.waveNumber + 1) + "/" + WaveManager.single.currentWaveset.waves.Length;
+        if(waveText) waveText.text = (WaveManager.single.waveNumber + 1) + "/" + WaveManager.single.currentWaveset.waves.Length;
         if (battleHud) battleHud.SetWave(WaveManager.single.waveNumber + 1, WaveManager.single.currentWaveset.waves.Length);
     }
 
@@ -489,13 +498,13 @@ public class GameplayCanvas : MonoBehaviour
     {
         EventManager.single.CallUIRefresh("RebirthButton");
         GameManager.single.CalcPlayer();//first get player up to speed! then update the numbers
-        statPoints.text = gm.statPoints.ToString();
-        dmgBox.RefreshMe();
-        atkSpdBox.RefreshMe();
-        defBox.RefreshMe();
-        critBox.RefreshMe();
-        critDmgBox.RefreshMe();
-        hpBox.RefreshMe();
+        if(statPoints) statPoints.text = gm.statPoints.ToString();
+        if(dmgBox) dmgBox.RefreshMe();
+        if(atkSpdBox) atkSpdBox.RefreshMe();
+        if(defBox) defBox.RefreshMe();
+        if(critBox) critBox.RefreshMe();
+        if(critDmgBox) critDmgBox.RefreshMe();
+        if(hpBox) hpBox.RefreshMe();
         RefreshFusion();
         RefreshNotifiers();
         RefreshChests();
@@ -520,8 +529,8 @@ UnityEngine.iOS.Device.RequestStoreReview();
     public Text crystalsText;
     void RefreshCrystals()
     {
-        crystalsText.text = Utilities.ConvertNumber(gm.crystals);
-        premiumCurrencyText.text = Utilities.ConvertNumber(gm.premiumCurrency);
+        if(crystalsText) crystalsText.text = Utilities.ConvertNumber(gm.crystals);
+        if(premiumCurrencyText) premiumCurrencyText.text = Utilities.ConvertNumber(gm.premiumCurrency);
     }
 
     public GameObject itemPopUp;
@@ -579,12 +588,12 @@ UnityEngine.iOS.Device.RequestStoreReview();
     public GameObject fusionButtonObj, fusionBoostButtonObj, fusionBoostGrayObj;
     public void ToggleFusionBoostButton(bool b)
     {
-        fusionBoostButtonObj.SetActive(b);
-        fusionBoostGrayObj.SetActive(!b);
+        if(fusionBoostButtonObj) fusionBoostButtonObj.SetActive(b);
+        if(fusionBoostGrayObj) fusionBoostGrayObj.SetActive(!b);
     }
     public void ToggleFusionButton(bool b)
     {
-        fusionButtonObj.SetActive(b);
+        if(fusionButtonObj) fusionButtonObj.SetActive(b);
     }
     public void FusionButton()
     {

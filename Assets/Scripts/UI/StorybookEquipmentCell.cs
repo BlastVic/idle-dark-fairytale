@@ -26,11 +26,11 @@ public sealed class StorybookEquipmentCell : MonoBehaviour
         var pose=ui.detailedMode?detailedIconPose:compactIconPose;
         icon.rectTransform.anchoredPosition=pose.anchoredPosition;icon.rectTransform.sizeDelta=pose.sizeDelta;
         var indices=StorybookEquipmentUI.StatIndices(item).ToArray();var values=StorybookEquipmentUI.Values(item);
-        detailLabels.text=string.Join("\n",indices.Select((v,n)=>n==0?"<b>"+StorybookEquipmentUI.StatNames[v]+"</b>":StorybookEquipmentUI.StatNames[v]));
-        detailValues.text=string.Join("\n",indices.Select((v,n)=>n==0?"<b>"+StorybookEquipmentUI.Value(values[v],v)+"</b>":StorybookEquipmentUI.Value(values[v],v)));
+        detailLabels.text=string.Join("\n",indices.Select((v,n)=>n==0?"<b><color=#302014>"+StorybookEquipmentUI.StatNames[v]+"</color></b>":StorybookEquipmentUI.StatNames[v]));
+        detailValues.text=string.Join("\n",indices.Select((v,n)=>n==0?"<b><color=#302014>"+StorybookEquipmentUI.Value(values[v],v)+"</color></b>":StorybookEquipmentUI.Value(values[v],v)));
         selectedFrame.gameObject.SetActive(selected);
         stateRibbon.SetActive(equipped||selected);state.text=equipped?"已装备":"选中";
-        stateRibbon.GetComponent<Image>().color=equipped?new Color(.38f,.35f,.29f):new Color(.5f,.07f,.065f);
+        stateRibbon.GetComponent<Image>().color=equipped?new Color(.32f,.25f,.15f):new Color(.5f,.07f,.065f);
         lockIcon.SetActive(item.isLocked);multiMark.SetActive(multi);
         button.interactable=!ui.IsNavigating&&(!ui.BatchMode||(!equipped&&!item.isLocked));
     }

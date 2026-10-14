@@ -8,6 +8,8 @@ public sealed class BattleHudSafeArea : MonoBehaviour
     public RectTransform core;
     public Vector2 referenceSize = new Vector2(1080, 1920);
     public bool respectSafeArea = true;
+    public RectTransform bottomPanel;
+    [Min(0)] public float bottomInset = 50;
     Rect lastSafe;
     Vector2 lastSize;
 
@@ -26,6 +28,14 @@ public sealed class BattleHudSafeArea : MonoBehaviour
         lastSize = size; lastSafe = safe;
         Rect normalized = NormalizedSafeArea(safe, new Vector2(Screen.width, Screen.height));
         FitCore(core, size, normalized, referenceSize);
+        if (bottomPanel)
+        {
+            // Keep the original artwork scale, but dock to the actual safe-area bottom.
+            float extraHeight = size.y * normalized.height / core.localScale.y - referenceSize.y;
+            var position = bottomPanel.anchoredPosition;
+            position.y = bottomInset + bottomPanel.rect.height * bottomPanel.pivot.y - extraHeight * .5f;
+            bottomPanel.anchoredPosition = position;
+        }
     }
 
     public static Rect NormalizedSafeArea(Rect safe, Vector2 screen)

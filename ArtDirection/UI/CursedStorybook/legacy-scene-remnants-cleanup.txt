@@ -1,0 +1,90 @@
+旧 UI 场景残留与资源清理 — 2026-10-14
+
+删除 Gameplay 场景内 11 个旧 UI 根节点，共 431 个节点：旧血条/经验条、TopBar、Camp UI、Bottom Nav、Inventory Panel、TutorialBubblesParent、DailyCherriesPop、Wave Label、Wave Text、BackButton_Battle、XR CUTOUT。
+保留 GameplayCanvas 控制器及新版 UI Prefab 绑定；旧对象引用清零。
+删除 81 个专属旧资源及对应 .meta，约 6.07 MiB。全 Assets GUID 反向引用扫描：无已删除 GUID 残留。仍有其他场景或新版使用的共享贴图、装备图标、字体、音效及原版怪物资源保留。
+解除旧血条写入、旧营地/导航/宝箱列表刷新依赖；引导触发改读实际融合进度和宝箱数据；经验加成用结束时间管理，不挂旧文本 Timer。
+验证与本地恢复备份：output/legacy-scene-cleanup/（已忽略，不提交 Git）。
+
+删除资源：
+Assets/Animations/ShakeMe.anim
+Assets/Animations/Text (1).controller
+Assets/Animations/Tutorial Bubble.controller
+Assets/Animations/TutorialIn.anim
+Assets/Animations/TutorialOut.anim
+Assets/Grfx/Menus/ATK SPD.png
+Assets/Grfx/Menus/ATK.png
+Assets/Grfx/Menus/BackkArrow.png
+Assets/Grfx/Menus/Crit.png
+Assets/Grfx/Menus/Crystal.psd
+Assets/Grfx/Menus/DEF.png
+Assets/Grfx/Menus/FuseAnime/1080_0000_Layer-10.png
+Assets/Grfx/Menus/FuseAnime/1080_0001_Layer-9.png
+Assets/Grfx/Menus/FuseAnime/1080_0002_Layer-8.png
+Assets/Grfx/Menus/FuseAnime/1080_0003_Layer-7.png
+Assets/Grfx/Menus/FuseAnime/1080_0004_Layer-6.png
+Assets/Grfx/Menus/FuseAnime/1080_0005_Layer-5.png
+Assets/Grfx/Menus/FuseAnime/1080_0006_Layer-4.png
+Assets/Grfx/Menus/FuseAnime/1080_0007_Layer-3.png
+Assets/Grfx/Menus/FuseAnime/1080_0008_Layer-2.png
+Assets/Grfx/Menus/FuseAnime/1080_0009_Layer-1.png
+Assets/Grfx/Menus/FuseAnime/Fuse.anim
+Assets/Grfx/Menus/FuseAnime/Image.controller
+Assets/Grfx/Menus/HP.png
+Assets/Grfx/Menus/Level1.png
+Assets/Grfx/Menus/Menu.png
+Assets/Grfx/Menus/Menu2.png
+Assets/Grfx/Menus/Menu4.png
+Assets/Grfx/Menus/Obj.png
+Assets/Grfx/Menus/Obj1.png
+Assets/Grfx/Menus/Plus.png
+Assets/Grfx/Menus/Square10.png
+Assets/Grfx/Menus/Square9.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/Fairy.anim
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/Image.controller
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_00.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_01.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_02.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_03.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_04.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_05.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_06.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_07.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_08.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_09.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_10.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_11.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_12.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_13.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_14.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_15.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_16.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_17.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_18.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_19.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_20.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_21.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_22.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_23.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_24.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_25.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_26.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_27.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_28.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_29.png
+Assets/Grfx/Menus/Tutorial/Fairy/Frames/skeleton-Idle1_30.png
+Assets/Grfx/Menus/UI/Arrow.png
+Assets/Grfx/Menus/UI/Circle.png
+Assets/Grfx/Menus/UI/Hp1.png
+Assets/Grfx/Menus/UI/Square.png
+Assets/Grfx/Menus/UI/Square5.png
+Assets/Grfx/Menus/UI/Tooltip (1).controller
+Assets/Grfx/Menus/UI/Tooltip.controller
+Assets/Grfx/Menus/UI/Tooltip1.anim
+Assets/Grfx/Menus/UI/Tooltip2.anim
+Assets/Grfx/Menus/UI/Wings.png
+Assets/Grfx/Menus/UI/Xp1.png
+Assets/Grfx/Menus/bubble5.png
+Assets/Prefab/ChestButton.prefab
+Assets/Prefab/ItemForSlidingMenu.prefab
+Assets/Prefab/ItemSpacer.prefab

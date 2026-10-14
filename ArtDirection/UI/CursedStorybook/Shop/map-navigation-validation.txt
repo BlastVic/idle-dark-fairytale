@@ -1,0 +1,36 @@
+2026-10-14 商店直接前往地图修复
+
+原因：StorybookShopUI 原先先执行 CloseButton 返回营地，再等待后打开地图。
+修复：地图按钮直接调用 Router.MapButton；GoToMap 在遮罩覆盖后销毁商店。保持商店返回营地行为及购买中/离开中导航锁定。未修改 Prefab 布局。
+
+验证范围：Unity 实际运行，720×1280、768×1024、720×1440；逐帧检查 CAMP 状态和 homeUI 激活，重复点击，商店清理、遮罩射线释放、地图返回营地、商店返回营地。截图位于本地 output/shop-map-navigation/，不提交。
+限制：编辑器正常商店入口出现既有 StoreException（Store Factory not present），本轮导航测试通过 Addressables 加载正式 CashMallPackage 建立商店初始状态，之后执行正式按钮和路由。未验证内购初始化或实际购买。测试期间关闭存档写入。
+
+Shop -> map route regression; persistence disabled.
+PASS shop opens
+PASS purchase busy blocks map navigation
+PASS navigation locks immediately
+PASS (720, 1280) no intermediate camp state or home activation across 1519 frames
+PASS (720, 1280) reaches map
+PASS shop destroyed without leftover UI
+PASS transition releases input
+PASS map return to camp preserved
+PASS shop opens
+PASS purchase busy blocks map navigation
+PASS navigation locks immediately
+PASS (768, 1024) no intermediate camp state or home activation across 1480 frames
+PASS (768, 1024) reaches map
+PASS shop destroyed without leftover UI
+PASS transition releases input
+PASS map return to camp preserved
+PASS shop opens
+PASS purchase busy blocks map navigation
+PASS navigation locks immediately
+PASS (720, 1440) no intermediate camp state or home activation across 1524 frames
+PASS (720, 1440) reaches map
+PASS shop destroyed without leftover UI
+PASS transition releases input
+PASS map return to camp preserved
+PASS shop opens
+PASS shop back still returns to camp
+PASS COMPLETE failures=0 errors=0

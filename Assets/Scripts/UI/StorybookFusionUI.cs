@@ -49,6 +49,8 @@ public sealed class StorybookFusionUI : MonoBehaviour
     {
         var gm = GameManager.single;
         if (!gm) return;
+        var returnCaption = returnToShelter.GetComponentInChildren<Text>(true);
+        if (returnCaption) returnCaption.text = Router.single && Router.single.FusionReturnsToEquipment ? "返回装备" : "返回庇护所";
         lastBalance = gm.crystals; lastProgress = gm.fxpNow; lastMax = gm.fxpMax;
         balance.text = "持有水晶  <color=#194E73>" + gm.crystals.ToString("N0") + "</color>";
         level.text = "融合等级   Lv." + gm.fusionLevel + (CanUpgrade ? " → Lv." + (gm.fusionLevel+1) : " · 已达上限");

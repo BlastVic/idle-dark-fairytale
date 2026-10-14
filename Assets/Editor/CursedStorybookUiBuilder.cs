@@ -171,6 +171,7 @@ public static class CursedStorybookUiBuilder
             }
 
             var panel = Picture("PlayerStatus", core, "Parchment", new Vector2(.5f,0), new Vector2(0,194), new Vector2(1016,288), true);
+            root.GetComponent<BattleHudSafeArea>().bottomPanel = panel.rectTransform;
             panel.pixelsPerUnitMultiplier = 1.45f;
             Picture("Portrait", panel.transform, "Portrait", Vector2.zero, new Vector2(124,170), new Vector2(178,223));
             var levelPaper = Picture("LevelPaper", panel.transform, "PaperButton", Vector2.zero, new Vector2(123,52), new Vector2(184,72));

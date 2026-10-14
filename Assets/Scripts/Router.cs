@@ -32,9 +32,18 @@ public class Router : MonoBehaviour
     }
 
     bool loadingFusionFromCamp = false;
+    public bool FusionReturnsToEquipment { get; private set; }
+    public void CallFusionFromEquipment()
+    {
+        if (loadingFusionFromCamp || loadingCampFromFusion) return;
+        FusionReturnsToEquipment = true;
+        loadingFusionFromCamp = true;
+        StartCoroutine(GoToFusion());
+    }
     public void CallFusionFromCamp()
     {
-        if (loadingFusionFromCamp) return;
+        if (loadingFusionFromCamp || loadingCampFromFusion) return;
+        FusionReturnsToEquipment = false;
         loadingFusionFromCamp = true;
         StartCoroutine(GoToFusion());
     }
@@ -86,6 +95,15 @@ public class Router : MonoBehaviour
         //GameplayCanvas.single.lastChestClicked = chestChosen;
         yield return new WaitForSeconds(.7f);
         if (FusionPackage.single) Destroy(FusionPackage.single.gameObject);
+        if (FusionReturnsToEquipment)
+        {
+            FusionReturnsToEquipment = false;
+            if (finishFeeding) gm.IncFusion(1);
+            yield return GoToInventory();
+            yield return new WaitForSeconds(.5f);
+            loadingCampFromFusion = false;
+            yield break;
+        }
         gc.ToggleCampUi(true);
         gc.ToggleHpXpLevelUi(true);
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
@@ -482,6 +500,8 @@ public class Router : MonoBehaviour
     {
         TransitionCanvas.single.ToBlack("GM goto map");
         yield return new WaitForSeconds(.7f);
+        // Shop navigation goes straight to the map; never reveal or activate camp in between.
+        if (CashMallPackage.single) Destroy(CashMallPackage.single.gameObject);
         CameraEffects.single.SetOriginalCameraPosition();
         gc.inventoryPanel.SetActive(false);
         gc.RefreshNotifiers();
