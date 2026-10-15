@@ -23,6 +23,7 @@ public sealed class StorybookChestOpening : MonoBehaviour
     public bool Finished {get;private set;}
     readonly List<ChestRewardRow> rows=new List<ChestRewardRow>();
     ChestPackage owner;
+    int activeFlights;
     public void Bind(ChestPackage value)
     {
         owner=value;Finished=false;chestBone=null;sparkAge=0;
@@ -103,14 +104,33 @@ public sealed class StorybookChestOpening : MonoBehaviour
             SoundManager.Instance.PlayClip(i==0?"STAT_BUY":"ITEM_DROP");
             float t=0;while(t<.4f){t+=Time.unscaledDeltaTime;float k=Mathf.Clamp01(t/.4f);featured.rectTransform.anchoredPosition=new Vector2(0,-295+85*Mathf.Sin(k*Mathf.PI*.5f));featured.rectTransform.localScale=Vector3.one*Mathf.Lerp(.3f,1,k);SetAlpha(featured,k);yield return null;}
             yield return new WaitForSecondsRealtime(item!=null&&(int)item.itemGrade>=3?.75f:.4f);
-            Vector3 from=featured.transform.position,to=row.icon.transform.position;
-            t=0;while(t<.3f){t+=Time.unscaledDeltaTime;float k=Mathf.Clamp01(t/.3f);featured.transform.position=Vector3.Lerp(from,to,k);SetAlpha(featuredName,1-k);featured.rectTransform.localScale=Vector3.one*(1-.6f*k);SetAlpha(featured,1-k);row.group.alpha=k;yield return null;}
-            row.group.alpha=1;rewardsScroll.verticalNormalizedPosition=0;
+            // Let the next reveal begin while this authored icon copy flies to its row.
+            var flying=Instantiate(featured,featured.transform.parent);
+            flying.name="FlyingReward";
+            flying.transform.position=featured.transform.position;
+            activeFlights++;
+            StartCoroutine(LandReward(flying,row));
         }
         featured.gameObject.SetActive(false);featuredName.text="";
+        while(activeFlights>0)yield return null;
         progress.text="战利品已全部获得";rewardsScroll.verticalNormalizedPosition=1;
         Finished=true;collect.gameObject.SetActive(true);collect.interactable=true;
         SetAlpha(rays,0);SetAlpha(glow,.48f);
         owner.view.Refresh();
     }
+    IEnumerator LandReward(Image flying,ChestRewardRow row)
+    {
+        Vector3 from=flying.transform.position;
+        float t=0;
+        while(t<.3f){
+            t+=Time.unscaledDeltaTime;float k=Mathf.Clamp01(t/.3f);
+            // A later reward can scroll the list; follow the live destination.
+            flying.transform.position=Vector3.Lerp(from,row.icon.transform.position,k);
+            flying.rectTransform.localScale=Vector3.one*(1-.6f*k);
+            SetAlpha(flying,1-k);row.group.alpha=k;
+            yield return null;
+        }
+        row.group.alpha=1;flying.gameObject.SetActive(false);Destroy(flying.gameObject);activeFlights--;
+    }
+
 }

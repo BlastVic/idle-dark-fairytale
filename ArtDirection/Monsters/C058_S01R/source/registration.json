@@ -1,0 +1,674 @@
+{
+  "Dodge": {
+    "page": 0,
+    "cell": 0,
+    "sourceAlpha": [
+      109,
+      184,
+      263,
+      338
+    ],
+    "targetAlpha2x": [
+      54,
+      58,
+      236,
+      240
+    ]
+  },
+  "Front_Arm_L_01": {
+    "page": 0,
+    "cell": 1,
+    "sourceAlpha": [
+      109,
+      160,
+      321,
+      354
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      354,
+      314
+    ]
+  },
+  "Front_Arm_L_02": {
+    "page": 0,
+    "cell": 2,
+    "sourceAlpha": [
+      197,
+      170,
+      312,
+      353
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      180,
+      306
+    ]
+  },
+  "Front_Arm_R_01": {
+    "page": 0,
+    "cell": 3,
+    "sourceAlpha": [
+      99,
+      157,
+      314,
+      316
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      354,
+      264
+    ]
+  },
+  "Front_Arm_R_02": {
+    "page": 0,
+    "cell": 4,
+    "sourceAlpha": [
+      110,
+      150,
+      337,
+      329
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      364,
+      286
+    ]
+  },
+  "Front_Eye_02": {
+    "page": 0,
+    "cell": 5,
+    "sourceAlpha": [
+      174,
+      185,
+      331,
+      275
+    ],
+    "targetAlpha2x": [
+      10,
+      8,
+      192,
+      154
+    ]
+  },
+  "Front_Eye_03": {
+    "page": 0,
+    "cell": 6,
+    "sourceAlpha": [
+      137,
+      148,
+      284,
+      239
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      208,
+      152
+    ]
+  },
+  "Front_Eye_Glance": {
+    "page": 0,
+    "cell": 7,
+    "sourceAlpha": [
+      168,
+      174,
+      274,
+      224
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      162,
+      86
+    ]
+  },
+  "Front_Eyelid": {
+    "page": 0,
+    "cell": 8,
+    "sourceAlpha": [
+      191,
+      129,
+      332,
+      271
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      228,
+      222
+    ]
+  },
+  "Front_Foot_L": {
+    "page": 1,
+    "cell": 0,
+    "sourceAlpha": [
+      123,
+      162,
+      281,
+      254
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      200,
+      108
+    ]
+  },
+  "Front_Foot_R": {
+    "page": 1,
+    "cell": 1,
+    "sourceAlpha": [
+      152,
+      159,
+      308,
+      258
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      194,
+      116
+    ]
+  },
+  "Front_Hand_L": {
+    "page": 1,
+    "cell": 2,
+    "sourceAlpha": [
+      123,
+      151,
+      316,
+      269
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      252,
+      130
+    ]
+  },
+  "Front_Hand_R": {
+    "page": 1,
+    "cell": 3,
+    "sourceAlpha": [
+      112,
+      200,
+      307,
+      306
+    ],
+    "targetAlpha2x": [
+      10,
+      8,
+      294,
+      156
+    ]
+  },
+  "Front_Leg_L_01": {
+    "page": 1,
+    "cell": 4,
+    "sourceAlpha": [
+      127,
+      68,
+      302,
+      337
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      246,
+      380
+    ]
+  },
+  "Front_Leg_L_02": {
+    "page": 1,
+    "cell": 5,
+    "sourceAlpha": [
+      163,
+      189,
+      309,
+      281
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      212,
+      136
+    ]
+  },
+  "Front_Leg_L_03": {
+    "page": 1,
+    "cell": 6,
+    "sourceAlpha": [
+      157,
+      146,
+      257,
+      305
+    ],
+    "targetAlpha2x": [
+      10,
+      8,
+      158,
+      258
+    ]
+  },
+  "Front_Leg_R_01": {
+    "page": 1,
+    "cell": 7,
+    "sourceAlpha": [
+      132,
+      96,
+      307,
+      343
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      286,
+      410
+    ]
+  },
+  "Front_Leg_R_02": {
+    "page": 1,
+    "cell": 8,
+    "sourceAlpha": [
+      146,
+      188,
+      301,
+      274
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      250,
+      136
+    ]
+  },
+  "Front_Leg_R_03": {
+    "page": 2,
+    "cell": 0,
+    "sourceAlpha": [
+      164,
+      155,
+      248,
+      266
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      186,
+      264
+    ]
+  },
+  "Front_Maxilla": {
+    "page": 2,
+    "cell": 1,
+    "sourceAlpha": [
+      95,
+      137,
+      314,
+      286
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      440,
+      362
+    ]
+  },
+  "Front_Maxilla_02": {
+    "page": 2,
+    "cell": 2,
+    "sourceAlpha": [
+      117,
+      151,
+      341,
+      284
+    ],
+    "targetAlpha2x": [
+      10,
+      78,
+      502,
+      384
+    ]
+  },
+  "Front_Mouth_01": {
+    "page": 2,
+    "cell": 3,
+    "sourceAlpha": [
+      121,
+      161,
+      300,
+      259
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      390,
+      210
+    ]
+  },
+  "Front_Mouth_02": {
+    "page": 2,
+    "cell": 4,
+    "sourceAlpha": [
+      139,
+      139,
+      295,
+      279
+    ],
+    "targetAlpha2x": [
+      12,
+      8,
+      322,
+      324
+    ]
+  },
+  "Front_Neck_01": {
+    "page": 2,
+    "cell": 5,
+    "sourceAlpha": [
+      125,
+      102,
+      329,
+      349
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      442,
+      514
+    ]
+  },
+  "Front_Neck_02": {
+    "page": 2,
+    "cell": 6,
+    "sourceAlpha": [
+      116,
+      87,
+      279,
+      330
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      366,
+      594
+    ]
+  },
+  "Front_Palate": {
+    "page": 2,
+    "cell": 7,
+    "sourceAlpha": [
+      144,
+      167,
+      281,
+      253
+    ],
+    "targetAlpha2x": [
+      8,
+      10,
+      268,
+      184
+    ]
+  },
+  "Front_Pelvis": {
+    "page": 2,
+    "cell": 8,
+    "sourceAlpha": [
+      54,
+      29,
+      382,
+      384
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      756,
+      896
+    ]
+  },
+  "Front_Sclera": {
+    "page": 3,
+    "cell": 0,
+    "sourceAlpha": [
+      170,
+      179,
+      244,
+      240
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      180,
+      140
+    ]
+  },
+  "Front_Tail": {
+    "page": 3,
+    "cell": 1,
+    "sourceAlpha": [
+      30,
+      134,
+      389,
+      287
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      1482,
+      626
+    ]
+  },
+  "Front_Waist": {
+    "page": 3,
+    "cell": 2,
+    "sourceAlpha": [
+      32,
+      49,
+      386,
+      372
+    ],
+    "targetAlpha2x": [
+      8,
+      10,
+      862,
+      788
+    ]
+  },
+  "Front_pupil": {
+    "page": 3,
+    "cell": 3,
+    "sourceAlpha": [
+      197,
+      187,
+      219,
+      230
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      48,
+      80
+    ]
+  },
+  "Head_Horn_L": {
+    "page": 3,
+    "cell": 4,
+    "sourceAlpha": [
+      191,
+      156,
+      234,
+      260
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      96,
+      250
+    ]
+  },
+  "Head_Hron_R": {
+    "page": 3,
+    "cell": 5,
+    "sourceAlpha": [
+      161,
+      163,
+      260,
+      256
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      228,
+      216
+    ]
+  },
+  "Horn_01_01": {
+    "page": 3,
+    "cell": 6,
+    "sourceAlpha": [
+      157,
+      177,
+      262,
+      243
+    ],
+    "targetAlpha2x": [
+      10,
+      8,
+      248,
+      138
+    ]
+  },
+  "Horn_02_01": {
+    "page": 3,
+    "cell": 7,
+    "sourceAlpha": [
+      176,
+      174,
+      243,
+      249
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      148,
+      158
+    ]
+  },
+  "Horn_02_02": {
+    "page": 3,
+    "cell": 8,
+    "sourceAlpha": [
+      191,
+      185,
+      225,
+      232
+    ],
+    "targetAlpha2x": [
+      10,
+      8,
+      80,
+      110
+    ]
+  },
+  "Horn_03_01": {
+    "page": 4,
+    "cell": 0,
+    "sourceAlpha": [
+      152,
+      126,
+      223,
+      279
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      82,
+      170
+    ]
+  },
+  "Horn_03_02": {
+    "page": 4,
+    "cell": 1,
+    "sourceAlpha": [
+      193,
+      173,
+      243,
+      273
+    ],
+    "targetAlpha2x": [
+      8,
+      116,
+      70,
+      222
+    ]
+  },
+  "Mouth_Oral_01": {
+    "page": 4,
+    "cell": 2,
+    "sourceAlpha": [
+      132,
+      156,
+      339,
+      282
+    ],
+    "targetAlpha2x": [
+      22,
+      12,
+      268,
+      160
+    ]
+  },
+  "Mouth_Oral_02": {
+    "page": 4,
+    "cell": 3,
+    "sourceAlpha": [
+      93,
+      112,
+      306,
+      345
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      296,
+      334
+    ]
+  },
+  "Normal": {
+    "page": 4,
+    "cell": 4,
+    "sourceAlpha": [
+      135,
+      152,
+      287,
+      300
+    ],
+    "targetAlpha2x": [
+      66,
+      66,
+      190,
+      190
+    ]
+  },
+  "front_cheek": {
+    "page": 4,
+    "cell": 5,
+    "sourceAlpha": [
+      163,
+      161,
+      321,
+      279
+    ],
+    "targetAlpha2x": [
+      8,
+      8,
+      228,
+      192
+    ]
+  }
+}

@@ -1,0 +1,34 @@
+MobBookSpineDragon Unity validation
+Atk1_00: PASS both skins, finite geometry, identical deformation; duration=1.5
+Atk_E_00: PASS both skins, finite geometry, identical deformation; duration=2.4667
+Clear_00: PASS both skins, finite geometry, identical deformation; duration=2.7333
+Death_00: PASS both skins, finite geometry, identical deformation; duration=2.1667
+GetUp_00: PASS both skins, finite geometry, identical deformation; duration=0.5667
+Hit_00: PASS both skins, finite geometry, identical deformation; duration=0.5333
+Idle_Battle_00: PASS both skins, finite geometry, identical deformation; duration=0.6667
+Idle_Down_00: PASS both skins, finite geometry, identical deformation; duration=0
+Idle_Normal_00: PASS both skins, finite geometry, identical deformation; duration=1
+KnockBack_00: PASS both skins, finite geometry, identical deformation; duration=1
+KnockDown_00: PASS both skins, finite geometry, identical deformation; duration=1
+LinkSkill_00: PASS both skins, finite geometry, identical deformation; duration=3.2
+Run_Battle_00: PASS both skins, finite geometry, identical deformation; duration=0.6
+Stun_00: PASS both skins, finite geometry, identical deformation; duration=1
+Walk_Normal_00: PASS both skins, finite geometry, identical deformation; duration=1
+Idle1: PASS both skins, finite geometry, identical deformation; duration=0.6667
+CampIdle: PASS both skins, finite geometry, identical deformation; duration=0
+Attack1: PASS both skins, finite geometry, identical deformation; duration=1.5
+Attack2: PASS both skins, finite geometry, identical deformation; duration=2.4667
+Attack3: PASS both skins, finite geometry, identical deformation; duration=3.2
+Hit: PASS both skins, finite geometry, identical deformation; duration=0.5333
+Death1: PASS both skins, finite geometry, identical deformation; duration=2.1667
+Exit: PASS both skins, finite geometry, identical deformation; duration=0.6
+Idle1: PASS events OnHit=0, OnComplete=0
+Attack1: PASS events OnHit=1, OnComplete=1
+Attack2: PASS events OnHit=1, OnComplete=1
+Attack3: PASS events OnHit=1, OnComplete=1
+Hit: PASS events OnHit=0, OnComplete=1
+Death1: PASS events OnHit=0, OnComplete=1
+Exit: PASS events OnHit=0, OnComplete=1
+PASS interrupted attack: 0 hits, 1 completion.
+PASS attack interrupted by death: 0 hits, 1 completion.
+PASS 78 bones, 51 slots, 24 clips, 48 skin/clip combinations; rendered all clips.

@@ -8,6 +8,10 @@ Shader "DarkFairytale/UI/HiddenInk"
         _PaperBlend ("Printed pigment", Range(0,1)) = 0
         _EdgeWidth ("Pigment feather width", Range(0.02,0.2)) = .06
         _Reveal ("Ink reveal", Range(0,1)) = 0
+        _SketchMode ("Opening sketch", Float) = 0
+        _SketchAspect ("Sketch aspect fit", Float) = 1
+        _PortraitReveal ("Portrait reveal", Range(0,1)) = 0
+        _ForestReveal ("Forest reveal", Range(0,1)) = 0
         _PaperEdge ("Paper pigment edge", Range(0,1)) = 1
         _Feather ("Wet edge softness", Range(0.01,0.15)) = 0.055
         _InkColor ("Developing ink", Color) = (0.25,0.19,0.14,1)
@@ -28,6 +32,7 @@ Shader "DarkFairytale/UI/HiddenInk"
             sampler2D _MainTex, _PaperTex;
             float _PaperBlend, _EdgeWidth;
             float _Reveal, _Feather, _PaperEdge;
+            float _SketchMode, _SketchAspect, _PortraitReveal, _ForestReveal;
             float4 _SourceUV;
             fixed4 _InkColor;
             v2f vert(appdata v) { v2f o; o.vertex=UnityObjectToClipPos(v.vertex); o.uv=v.uv; o.color=v.color; return o; }
@@ -40,6 +45,25 @@ Shader "DarkFairytale/UI/HiddenInk"
             {
                 if (any(i.uv < 0) || any(i.uv > 1)) discard;
                 fixed4 source=tex2D(_MainTex,i.uv*_SourceUV.zw+_SourceUV.xy)*i.color;
+                if(_SketchMode>.5){
+                    // Print only graphite onto the existing leaf, removing the source's beige paper.
+                    float2 uv=float2((i.uv.x-.5)*_SketchAspect+.5,i.uv.y);
+                    if(any(uv<0)||any(uv>1))return 0;
+                    float3 sketch=tex2D(_MainTex,uv).rgb;
+                    #ifndef UNITY_COLORSPACE_GAMMA
+                    sketch=LinearToGammaSpace(sketch);
+                    #endif
+                    float luminance=dot(sketch,float3(.299,.587,.114));
+                    float pigment=saturate((.84-luminance)/.70);
+                    float edgeDistance=min(min(uv.x,1-uv.x),min(uv.y,1-uv.y));
+                    pigment*=smoothstep(0,.065,edgeDistance);
+                    float reveal=uv.y>.59?_PortraitReveal:_ForestReveal;
+                    float grainReveal=noise(uv*28)*.3+noise(uv*71)*.12;
+                    float mask=smoothstep(grainReveal,grainReveal+.5,reveal);
+                    source.rgb=float3(.025,.019,.013);
+                    source.a*=pigment*mask;
+                    return source;
+                }
                 // The pigment thins into the real paper below, with stationary irregular fibers.
                 float2 edgeUV=i.uv*float2(.75,1);
                 float edge=min(min(edgeUV.x,.75-edgeUV.x),min(edgeUV.y,1-edgeUV.y));

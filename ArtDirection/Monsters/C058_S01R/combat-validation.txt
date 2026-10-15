@@ -1,0 +1,24 @@
+Book Spine combat; isolated runtime, no save writes
+PASS unlearned skill spawns no companion
+PASS actual PetDragon general DB spawn uses new independent prefab
+PASS exactly one companion
+PASS original skill damage coefficient
+PASS actual target HP decreases from Attack1
+PASS attack audio playing
+PASS Attack1 exactly one live hit/completion
+PASS completion returns Idle1
+PASS actual target HP decreases from Attack2
+PASS attack audio playing
+PASS Attack2 exactly one live hit/completion
+PASS completion returns Idle1
+PASS actual target HP decreases from Attack3
+PASS attack audio playing
+PASS Attack3 exactly one live hit/completion
+PASS completion returns Idle1
+PASS 100% Breath Of Hell selects native special attack
+PASS wave transition preserves one companion
+PASS two isolated waves reach victory
+PASS victory return cleans up battle companion
+PASS actual player defeat starts ground Exit during attack
+PASS ground Exit destroys companion
+PASS live skill spawn / damage / specials / waves / victory / defeat / cleanup; errors=0

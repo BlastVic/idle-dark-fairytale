@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &2442945892771226979
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -464,7 +465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 139, y: -492}
+  m_AnchoredPosition: {x: 124.999985, y: -395.5}
   m_SizeDelta: {x: 416, y: 277}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6770879687514851882
@@ -642,6 +643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &1091631465438043985
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -702,7 +704,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -14.000018, y: 96.5}
   m_SizeDelta: {x: 665, y: 1182}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4214795836827503666
@@ -777,7 +779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 140, y: -339}
+  m_AnchoredPosition: {x: 125.999985, y: -242.5}
   m_SizeDelta: {x: 410, y: 86}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7559261144900756592
@@ -1034,6 +1036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &7217806020845389493
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1094,7 +1097,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 138, y: -815}
+  m_AnchoredPosition: {x: 123.999985, y: -718.5}
   m_SizeDelta: {x: 410, y: 32}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8216003234855795383
@@ -1173,7 +1176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -14.000018, y: 96.5}
   m_SizeDelta: {x: 665, y: 1182}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &4440715220864838440
@@ -1364,7 +1367,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -302}
+  m_AnchoredPosition: {x: 135.99998, y: -205.5}
   m_SizeDelta: {x: 390, y: 40}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1465694871748539070
@@ -1443,7 +1446,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -14.000018, y: 96.5}
   m_SizeDelta: {x: 665, y: 1182}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &5597694175934102702
@@ -1583,6 +1586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &3353099463151125831
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1746,6 +1750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &1222605483092351723
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1885,7 +1890,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 137, y: -768}
+  m_AnchoredPosition: {x: 122.999985, y: -671.5}
   m_SizeDelta: {x: 410, y: 44}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &8165465073567296370
@@ -2067,6 +2072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &1663632851406039533
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2285,7 +2291,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -422}
+  m_AnchoredPosition: {x: 135.99998, y: -325.5}
   m_SizeDelta: {x: 390, y: 37}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7472425326030813400
@@ -2468,6 +2474,8 @@ MonoBehaviour:
   core: {fileID: 6754735077395495938}
   referenceSize: {x: 665, y: 1182}
   respectSafeArea: 1
+  bottomPanel: {fileID: 0}
+  bottomInset: 50
 --- !u!114 &6291990440936243520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2638,6 +2646,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &4835389858233216094
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2778,6 +2787,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -14.000018, y: 96.5}
   m_SizeDelta: {x: 665, y: 1182}
   m_Pivot: {x: 0, y: 1}

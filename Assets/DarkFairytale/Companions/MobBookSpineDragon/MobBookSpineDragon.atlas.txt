@@ -1,0 +1,321 @@
+
+MobBookSpineDragon.png
+size: 4096,4096
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Dodge
+  rotate: false
+  xy: 8, 8
+  size: 280, 292
+  orig: 280, 292
+  offset: 0, 0
+  index: -1
+Front_Arm_L_01
+  rotate: false
+  xy: 296, 8
+  size: 362, 322
+  orig: 362, 322
+  offset: 0, 0
+  index: -1
+Front_Arm_L_02
+  rotate: false
+  xy: 666, 8
+  size: 188, 314
+  orig: 188, 314
+  offset: 0, 0
+  index: -1
+Front_Arm_R_01
+  rotate: false
+  xy: 862, 8
+  size: 362, 272
+  orig: 362, 272
+  offset: 0, 0
+  index: -1
+Front_Arm_R_02
+  rotate: false
+  xy: 1232, 8
+  size: 372, 294
+  orig: 372, 294
+  offset: 0, 0
+  index: -1
+Front_Eye_02
+  rotate: false
+  xy: 1612, 8
+  size: 200, 162
+  orig: 200, 162
+  offset: 0, 0
+  index: -1
+Front_Eye_03
+  rotate: false
+  xy: 1820, 8
+  size: 220, 162
+  orig: 220, 162
+  offset: 0, 0
+  index: -1
+Front_Eye_Glance
+  rotate: false
+  xy: 2048, 8
+  size: 172, 94
+  orig: 172, 94
+  offset: 0, 0
+  index: -1
+Front_Eye_Highlight
+  rotate: false
+  xy: 2228, 8
+  size: 44, 28
+  orig: 44, 28
+  offset: 0, 0
+  index: -1
+Front_Eyelid
+  rotate: false
+  xy: 2280, 8
+  size: 236, 234
+  orig: 236, 234
+  offset: 0, 0
+  index: -1
+Front_Foot_L
+  rotate: false
+  xy: 2524, 8
+  size: 210, 116
+  orig: 210, 116
+  offset: 0, 0
+  index: -1
+Front_Foot_R
+  rotate: false
+  xy: 2742, 8
+  size: 202, 124
+  orig: 202, 124
+  offset: 0, 0
+  index: -1
+Front_Hand_L
+  rotate: false
+  xy: 2952, 8
+  size: 260, 138
+  orig: 260, 138
+  offset: 0, 0
+  index: -1
+Front_Hand_R
+  rotate: false
+  xy: 3220, 8
+  size: 302, 164
+  orig: 302, 164
+  offset: 0, 0
+  index: -1
+Front_Leg_L_01
+  rotate: false
+  xy: 3530, 8
+  size: 254, 388
+  orig: 254, 388
+  offset: 0, 0
+  index: -1
+Front_Leg_L_02
+  rotate: false
+  xy: 3792, 8
+  size: 220, 144
+  orig: 220, 144
+  offset: 0, 0
+  index: -1
+Front_Leg_L_03
+  rotate: false
+  xy: 8, 404
+  size: 166, 266
+  orig: 166, 266
+  offset: 0, 0
+  index: -1
+Front_Leg_R_01
+  rotate: false
+  xy: 182, 404
+  size: 294, 418
+  orig: 294, 418
+  offset: 0, 0
+  index: -1
+Front_Leg_R_02
+  rotate: false
+  xy: 484, 404
+  size: 258, 144
+  orig: 258, 144
+  offset: 0, 0
+  index: -1
+Front_Leg_R_03
+  rotate: false
+  xy: 750, 404
+  size: 194, 272
+  orig: 194, 272
+  offset: 0, 0
+  index: -1
+Front_Maxilla
+  rotate: false
+  xy: 952, 404
+  size: 448, 370
+  orig: 448, 370
+  offset: 0, 0
+  index: -1
+Front_Maxilla_02
+  rotate: false
+  xy: 1408, 404
+  size: 512, 410
+  orig: 512, 410
+  offset: 0, 0
+  index: -1
+Front_Mouth_01
+  rotate: false
+  xy: 1928, 404
+  size: 398, 218
+  orig: 398, 218
+  offset: 0, 0
+  index: -1
+Front_Mouth_02
+  rotate: false
+  xy: 2334, 404
+  size: 330, 332
+  orig: 330, 332
+  offset: 0, 0
+  index: -1
+Front_Neck_01
+  rotate: false
+  xy: 2672, 404
+  size: 450, 524
+  orig: 450, 524
+  offset: 0, 0
+  index: -1
+Front_Neck_02
+  rotate: false
+  xy: 3130, 404
+  size: 374, 602
+  orig: 374, 602
+  offset: 0, 0
+  index: -1
+Front_Palate
+  rotate: false
+  xy: 3512, 404
+  size: 278, 194
+  orig: 278, 194
+  offset: 0, 0
+  index: -1
+Front_Pelvis
+  rotate: false
+  xy: 8, 1014
+  size: 764, 904
+  orig: 764, 904
+  offset: 0, 0
+  index: -1
+Front_Sclera
+  rotate: false
+  xy: 780, 1014
+  size: 190, 148
+  orig: 190, 148
+  offset: 0, 0
+  index: -1
+Front_Tail
+  rotate: false
+  xy: 978, 1014
+  size: 1492, 634
+  orig: 1492, 634
+  offset: 0, 0
+  index: -1
+Front_Waist
+  rotate: false
+  xy: 2478, 1014
+  size: 870, 798
+  orig: 870, 798
+  offset: 0, 0
+  index: -1
+Front_Waist_Glow
+  rotate: false
+  xy: 3356, 1014
+  size: 254, 202
+  orig: 254, 202
+  offset: 0, 0
+  index: -1
+Front_pupil
+  rotate: false
+  xy: 3618, 1014
+  size: 56, 88
+  orig: 56, 88
+  offset: 0, 0
+  index: -1
+Head_Horn_L
+  rotate: false
+  xy: 3682, 1014
+  size: 104, 258
+  orig: 104, 258
+  offset: 0, 0
+  index: -1
+Head_Hron_R
+  rotate: false
+  xy: 3794, 1014
+  size: 236, 224
+  orig: 236, 224
+  offset: 0, 0
+  index: -1
+Horn_01_01
+  rotate: false
+  xy: 8, 1926
+  size: 256, 148
+  orig: 256, 148
+  offset: 0, 0
+  index: -1
+Horn_02_01
+  rotate: false
+  xy: 272, 1926
+  size: 156, 168
+  orig: 156, 168
+  offset: 0, 0
+  index: -1
+Horn_02_02
+  rotate: false
+  xy: 436, 1926
+  size: 88, 118
+  orig: 88, 118
+  offset: 0, 0
+  index: -1
+Horn_03_01
+  rotate: false
+  xy: 532, 1926
+  size: 90, 178
+  orig: 90, 178
+  offset: 0, 0
+  index: -1
+Horn_03_02
+  rotate: false
+  xy: 630, 1926
+  size: 78, 232
+  orig: 78, 232
+  offset: 0, 0
+  index: -1
+Mouth_Oral_01
+  rotate: false
+  xy: 716, 1926
+  size: 276, 168
+  orig: 276, 168
+  offset: 0, 0
+  index: -1
+Mouth_Oral_02
+  rotate: false
+  xy: 1000, 1926
+  size: 304, 342
+  orig: 304, 342
+  offset: 0, 0
+  index: -1
+Normal
+  rotate: false
+  xy: 1312, 1926
+  size: 254, 252
+  orig: 254, 252
+  offset: 0, 0
+  index: -1
+front_cheek
+  rotate: false
+  xy: 1574, 1926
+  size: 236, 200
+  orig: 236, 200
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 1818, 1926
+  size: 500, 108
+  orig: 500, 108
+  offset: 0, 0
+  index: -1

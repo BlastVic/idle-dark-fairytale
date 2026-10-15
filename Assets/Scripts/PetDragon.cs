@@ -18,8 +18,10 @@ public class PetDragon : AnimationController
         }
     }
 
+    BookSpineCompanion groundCompanion;
     public void FlyOff()
     {
+        if (groundCompanion) { StopAllCoroutines(); isAttacking=false; groundCompanion.Exit(); return; }
         SetAnimation("Exit", false, false, 1);
     }
 
@@ -28,6 +30,7 @@ public class PetDragon : AnimationController
     private void Start()
     {
         base.Start();
+        groundCompanion=GetComponent<BookSpineCompanion>();
         breathOfHellChance = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Breath_Of_Hell), SkillsTypeEnum.Breath_Of_Hell)[0];
 
         myDmg = Player.single.ab.currentStat.dmg * SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Tairon_The_Dragon), SkillsTypeEnum.Tairon_The_Dragon)[0];
@@ -39,6 +42,12 @@ public class PetDragon : AnimationController
 
     void Attack()
     {
+        if (groundCompanion) {
+            if (groundCompanion.Exiting || !Player.single || Player.single.ab.isDying) return;
+            if (GameManager.single.GetLivingEnemies(false).Count == 0) {
+                SetAnimation("Idle1",true,true); StartCoroutine(AttackComplete()); return;
+            }
+        }
         #region Breath Of Hell
 
         if (Random.Range(0, 1f) <= breathOfHellChance)
@@ -69,7 +78,8 @@ public class PetDragon : AnimationController
     public string currentAnimation = "";
     public override void SetAnimation(string animation, bool isLoop, bool isOnComplete, float speed = 1)
     {
-        if (Player.single.ab.isDying) return;
+        if (groundCompanion && groundCompanion.Exiting) return;
+        if (!Player.single || Player.single.ab.isDying) return;
         if (isAttacking) return;//dont let anything happen until attack finishes
         if (animation == currentAnimation) return;//dont let anything overwrite identical animation
 
@@ -79,13 +89,17 @@ public class PetDragon : AnimationController
 
     public override void AnimationOnHit(string animation)
     {
+        if (groundCompanion && (groundCompanion.Exiting || !Player.single || Player.single.ab.isDying)) return;
         if (animation.Contains("Attack") || animation.Contains("Skill4")/*path cleaner*/)
         {
-            SoundManager.Instance.PlayClip("FIRE");
+            SoundManager.Instance.PlayClip(groundCompanion && animation == "Attack2" ? "ATTACK1" : "FIRE");
             if (GameManager.single.GetLivingEnemies(false).Count > 0)
             {
 
-                ProcessDamage(1, GameManager.single.GetLivingEnemies(false)[0]);
+                var target = GameManager.single.GetLivingEnemies(false)[0];
+                var effects = GetComponent<BookSpinePetEffects>();
+                if (effects) effects.Hit(animation, target);
+                ProcessDamage(1, target);
             }
         }
 
@@ -101,7 +115,7 @@ public class PetDragon : AnimationController
 
         bool isCrit = false;
 
-        targetAb.Hit(dmgRandomized, isCrit, 0, 150, true);
+        targetAb.Hit(dmgRandomized, isCrit, 0, 150, true, suppressDefaultHitVfx: GetComponent<BookSpinePetEffects>() != null);
 
     }
 
@@ -114,6 +128,7 @@ public class PetDragon : AnimationController
 
     public override void AnimationComplete(int trackIndex, string animationName)
     {
+        if (groundCompanion && groundCompanion.Exiting) return;
 
 
         if (animationName.Contains("Attack") || animationName.Contains("Skill"))

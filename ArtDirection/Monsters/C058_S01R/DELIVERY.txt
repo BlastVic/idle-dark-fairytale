@@ -1,0 +1,24 @@
+MobBookSpineDragon · 旧书脊龙伙伴 — 2026-10-14 验收
+
+选择：C。用途：小红帽伙伴，替换 Tairon The Dragon 的召唤模型。
+已通过 General DB 的 PetDragon 键绑定新独立 Prefab；技能名、等级、存档键、伤害系数不变。原 Pet_Dragon.prefab SHA256 与制作前一致，原 Spine 数据保留。
+
+资源/动画：通过。78骨骼、51插槽、45贴图分件，保留15原动画及约束，9新增别名，共24动作；default/1两皮肤共48组合运行时加载与采样通过，linkedmesh deform继承通过。Attack1/2/3一次OnHit和一次OnComplete；Hit/Death/Exit事件、攻击打断检查通过。
+美术：通过制作方实际Unity检查。旧书页鳞片、书脊背鳍和暖褐纸色沿用C；按原分件重新绘制配准，并非整张概念图直接贴骨架。Idle、三种攻击、Hit、Death极值检查未见明显孔洞或错层。落地位置与透视战斗相机尺寸已修正。
+预览：通过24动作固定比例及9:16、3:4、1:2。MonsterAnimationTest已注册伙伴资源和真实缩略图，使用Prefab的伙伴尺寸。
+实战：通过，errors=0。未学习不生成、已学习只生成一只；实际技能伤害系数检查；三种攻击真实扣血和音效、事件次数、Idle回归；Breath Of Hell选择原生Attack2/3；两波敌人、胜利回营清理、攻击中战败地面奔跑退场并销毁。测试临时提高血量，不代表数值平衡验收；正式波次和存档未修改。
+原生可编辑工程：待补新皮肤.spine。提供原始.spine备份、45新分件、绘画提示词、配准和打包脚本、Unity可加载JSON/atlas/PNG；不把JSON伪装为.spine。
+
+运行资源：Assets/DarkFairytale/Companions/MobBookSpineDragon/
+复现：BUILD.txt；build_rig.py；Assets/Editor/BookSpineDragonBuilder.cs。
+实战验收：Assets/Editor/BookSpineDragonAcceptance.cs。测试采用当前Gameplay路径，结束返回MonsterAnimationTest。
+本地证据（已忽略，不提交）：output/monster-animation/MobBookSpineDragon/ 下 unity-validation.txt、preview-validation.txt、combat-validation.txt、各动作Unity渲染和三个比例实战截图。
+本目录附最终验证文本备份；截图仅存output。未执行Git提交。
+
+2026-10-14 用户站位预览调整：按截图红框，将宠物尺寸设为原先75%，viewportSize=(0.255,0.1275)，viewportFeet=(0.28,0.40)。显示于小红帽肩侧离地位置，后层尾部允许被斗篷遮挡；此轮不改骨架动作、不添加飞行动画。Inspector可继续手调。layout命令使用小屋内部临时战斗验证三个比例，截图为output/monster-animation/MobBookSpineDragon/layout-*.png。
+
+2026-10-14 第二次站位调整（覆盖上一轮75%方案）：读取用户当前Play手调快照，宠物Spine显示节点为(1,1,1)，小红帽保留当前(.23,.30)站位和(.35,.235)尺寸；宠物viewportFeet=(.22,.38)、viewportSize=(.54,.17)，响应式缩放改由独立根节点承担。敌方四站位X统一+0.05，Y不变，新X=.71/.58/.87/.55。原版资源未覆盖。
+血条修复：DarkFairytaleBattleStyle绑定血条与所属身体，EnemyLifebar在LateUpdate同步Character层与body.sortingOrder+1。项目IsoSpriteSorting每帧重排身体，因此不能只在生成时赋值；同步后后排血条低于前排身体，保留近处血条可读性。
+验收：小屋内两蘑菇+狼混编，9:16、3:4、1:2实际Unity截图均检查；三种比例均断言血条同层且在所属身体之上、远排血条低于近排身体、宠物显示节点单位缩放；errors=0。截图output/monster-animation/MobBookSpineDragon/layout-*.png；此次未修改战斗伤害和存档。
+
+2026-10-14 宠物三招Spine特效已接入，独立资源和验收见PetEffects/DELIVERY.txt。采用原动画+材质风格化，保留原技能伤害；实战与循环预览通过。

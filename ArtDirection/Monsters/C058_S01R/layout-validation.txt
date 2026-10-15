@@ -1,0 +1,24 @@
+Book Spine layout; isolated runtime, no save writes
+PASS unlearned skill spawns no companion
+PASS actual PetDragon general DB spawn uses new independent prefab
+PASS exactly one companion
+PASS original skill damage coefficient
+PASS bar follows owner depth MobRuneWolf(Clone) bar=Character:-32766 body=Character:-32767
+PASS rear bar below nearer body
+PASS bar follows owner depth MobWaxcap(Clone) bar=Character:-32764 body=Character:-32765
+PASS rear bar below nearer body
+PASS bar follows owner depth MobWaxcap(Clone) bar=Character:-32762 body=Character:-32763
+PASS pet display node remains unit scale
+PASS bar follows owner depth MobRuneWolf(Clone) bar=Character:-32766 body=Character:-32767
+PASS rear bar below nearer body
+PASS bar follows owner depth MobWaxcap(Clone) bar=Character:-32764 body=Character:-32765
+PASS rear bar below nearer body
+PASS bar follows owner depth MobWaxcap(Clone) bar=Character:-32762 body=Character:-32763
+PASS pet display node remains unit scale
+PASS bar follows owner depth MobRuneWolf(Clone) bar=Character:-32766 body=Character:-32767
+PASS rear bar below nearer body
+PASS bar follows owner depth MobWaxcap(Clone) bar=Character:-32764 body=Character:-32765
+PASS rear bar below nearer body
+PASS bar follows owner depth MobWaxcap(Clone) bar=Character:-32762 body=Character:-32763
+PASS pet display node remains unit scale
+PASS layout three aspect ratios; errors=0

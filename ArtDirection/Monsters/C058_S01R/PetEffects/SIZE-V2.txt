@@ -1,0 +1,27 @@
+宠物特效尺寸调整 V2
+
+参照：原 Hit_Particle（Assets/Prefab/Addressable Prefabs/Particles/Hit Particles.prefab），在 Gameplay 同一测试敌人位置播放并截图，对照其可见命中范围。原资源不修改。
+
+正式宠物 Prefab 的核心屏宽占比：
+EmberBolt 0.075 -> 0.18（2.4 倍；包含拖尾的完整动画范围）
+EmberImpact 0.12 -> 0.36（3 倍）
+ClawArc 0.16 -> 0.32（2 倍）
+AshDust 0.13 -> 0.26（2 倍）
+EmberBreath 0.22 -> 0.42（约 1.91 倍）
+
+Attack1 从向目标直线运动改为先上升再落向目标的二次曲线，火球朝向沿切线旋转。原 OnHit 0.6333 秒和伤害保持不变，飞行窗口仍为 0.26 秒。
+命中爆炸以 0.65 倍速展开，持续约 0.77 秒。
+爪击以 0.7 倍速播放、扬尘 0.75 倍速；修复跳帧起点被 timeScale 再次缩放的问题。
+Attack3 的爆炸跳过空白前摇，从 0.34 秒开始、0.85 倍速播放，持续约 0.78 秒。保留五火球组合；本轮没有将其重画为连续吐息。
+
+仅调整 Unity 表现和独立宠物 Prefab，未修改原始 Spine 动画、攻击事件、伤害、原版资源及正式关卡配置。
+单体特效测试场景的宽度滑条为观察用，不代表此处正式战斗尺寸。MonsterAnimationTest 会复制正式宠物 Prefab 的尺寸参数。
+
+实际战斗截图和采样帧：output/pet-effects-v2/
+原受击参照：reference-enemy-hit.png
+功能回归：output/monster-animation/MobBookSpineDragon/effects-validation.txt
+三比例截图：同目录 effects-720x1280.png / effects-768x1024.png / effects-720x1440.png
+
+实战回归通过：三种攻击各一次伤害与完成事件，回到 Idle，技能派生攻击、两波胜利、失败退场、所有特效清理通过。已查看三种屏幕比例的实际命中图。实景采样帧另汇成 Attack1/2/3-review.gif，作为快速对比，不代替原始实时录像。
+
+预览目标位置向内收至视口 x=0.84，给放大的命中特效保留右侧空间；实际战斗仍取真实敌人中心。

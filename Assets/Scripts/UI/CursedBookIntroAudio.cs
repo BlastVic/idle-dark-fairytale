@@ -23,6 +23,10 @@ public sealed class CursedBookIntroAudio : MonoBehaviour
             music = MusicManager.Instance.backgroundMusicSource;
             wasMuted = music.mute; music.mute = true; ownsMute = true;
         }
+        if (!intro.StartupSelected) return;
+        if (intro.SilentStartup) {
+            foley.Stop(); atmosphere.Stop(); Holding = true; return;
+        }
         float level = SoundManager.Instance ? SoundManager.Instance.getSFXVolume() : 1;
         if (intro.prologue && intro.prologue.IsPlaying) {
             // Page segments carry their own forest/fire ambience and single-page foley.

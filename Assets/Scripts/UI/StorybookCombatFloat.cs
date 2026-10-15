@@ -9,7 +9,7 @@ public sealed class StorybookCombatFloat : MonoBehaviour
     public CanvasGroup group;
     public bool experience;
     public float duration=.95f,rise=72,normalSize=38,criticalSize=52;
-    public Color normal=new Color(.96f,.91f,.78f),playerDamage=new Color(1,.36f,.30f),critical=new Color(1,.77f,.35f),pet=new Color(.80f,.57f,1),lightning=new Color(.48f,.83f,1);
+    public Color normal=new Color(.96f,.91f,.78f),playerDamage=new Color(1,.36f,.30f),critical=new Color(1,.77f,.35f),pet=new Color32(232,90,79,255),lightning=new Color(.48f,.83f,1);
     Camera sourceCamera;Vector3 world;float elapsed;bool configured;Vector2 drift;
     public void Present(Vector3 position,Camera camera,bool hitPlayer=false,bool crit=false,float amount=0,bool purple=false,bool blue=false)
     {

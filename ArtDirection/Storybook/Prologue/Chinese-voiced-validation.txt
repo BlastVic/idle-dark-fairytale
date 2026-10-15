@@ -1,0 +1,44 @@
+Chinese voiced prologue
+PASS page 1 settles at least 0.8 seconds before narration
+PASS page 2 settles at least 0.8 seconds before narration
+PASS page 3 settles at least 0.8 seconds before narration
+PASS page 4 settles at least 0.8 seconds before narration
+PASS page 5 settles at least 0.8 seconds before narration
+PASS page 6 settles at least 0.8 seconds before narration
+PASS opening uses only bottom captions
+PASS closed cover with no exposed turning leaf
+PASS camera advances while cover stays closed
+PASS cover finishes just before portrait reveal
+PASS camera stationary at target before cover opens
+PASS explicit 0.3 second hold between camera and cover
+PASS cover opens without foley
+PASS camera speed is 70 percent with unchanged endpoint
+PASS cover opens at the scheduled cue
+PASS portrait appears alone before forest cue
+PASS forest revealed after portrait on existing paper
+PASS illustration stays opaque on moving leaf 0
+PASS page 1 audio/image alignment
+PASS 9x16 captions in viewport
+PASS 3x4 captions in viewport
+PASS 1x2 captions in viewport
+PASS illustration stays opaque on moving leaf 1
+PASS page 2 audio/image alignment
+PASS illustration stays opaque on moving leaf 2
+PASS page 3 audio/image alignment
+PASS illustration stays opaque on moving leaf 3
+PASS page 4 audio/image alignment
+PASS illustration stays opaque on moving leaf 4
+PASS page 5 audio/image alignment
+PASS illustration stays opaque on moving leaf 5
+PASS page 6 audio/image alignment
+PASS new ending captions match wolf narration
+PASS full narration and six illustrations complete
+PASS seven single-page turns including sketch and final transition
+PASS no old opening soundtrack overlaps
+PASS home input restored
+PASS no runtime errors
+PASS map accessible after prologue
+PASS map replay uses voiced prologue
+PASS replay also begins closed with bottom captions
+PASS replay returns control to map
+FINISHED

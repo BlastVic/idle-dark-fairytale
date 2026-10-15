@@ -18,6 +18,7 @@ public class MonsterAnimationTest : MonoBehaviour
     public Bounds CombatSetupBounds { get; private set; }
     public Vector3 CombatDisplayScale { get; private set; } = Vector3.one;
     public bool CombatIsBoss { get; private set; }
+    public Vector2? CompanionDisplaySize { get; private set; }
     public float CombatSizeMultiplier { get; private set; } = 1f;
     [Range(.1f, 2f)] public float speed = 1;
     public string[] AnimationNames { get; private set; } = new string[0];
@@ -42,7 +43,9 @@ public class MonsterAnimationTest : MonoBehaviour
         if (folders.Count > 0)
             foreach (var guid in UnityEditor.AssetDatabase.FindAssets("t:SkeletonDataAsset", folders.ToArray()))
             {
-                var data = UnityEditor.AssetDatabase.LoadAssetAtPath<SkeletonDataAsset>(UnityEditor.AssetDatabase.GUIDToAssetPath(guid));
+                var path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
+                if (path.Contains("/Companions/") && path.Contains("/Effects/")) continue;
+                var data = UnityEditor.AssetDatabase.LoadAssetAtPath<SkeletonDataAsset>(path);
                 if (data && !found.Contains(data)) found.Add(data);
             }
 #endif
@@ -66,6 +69,7 @@ public class MonsterAnimationTest : MonoBehaviour
         CombatDisplayScale = Vector3.one;
         CombatIsBoss = false;
         CombatSizeMultiplier = 1f;
+        CompanionDisplaySize = null;
         AnimationNames = new string[0]; SelectedAnimation = 0; elapsed = 0; Error = null;
         if (character) { character.gameObject.SetActive(false); Destroy(character.gameObject); }
         try
@@ -81,6 +85,8 @@ public class MonsterAnimationTest : MonoBehaviour
                 if (display && display.skeletonDataAsset == data) { CombatDisplayScale = display.transform.lossyScale;
                     var lifebar = prefab.GetComponentInChildren<EnemyLifebar>(true);
                     CombatIsBoss = lifebar && (lifebar.isBoss || lifebar.isMiniBoss);
+                    var companion = prefab.GetComponent<BookSpineCompanion>();
+                    if(companion) CompanionDisplaySize = companion.viewportSize;
                     var enemy = prefab.GetComponent<Enemy>();
                     CombatSizeMultiplier = enemy ? Mathf.Max(.1f, enemy.displaySizeMultiplier) : 1f;
                     character.transform.localScale = CombatDisplayScale;
@@ -89,6 +95,8 @@ public class MonsterAnimationTest : MonoBehaviour
                         character.Skeleton.SetSkin(display.initialSkinName);
                         character.Skeleton.SetSlotsToSetupPose();
                     }
+                    var petEffects = prefab.GetComponent<BookSpinePetEffects>();
+                    if (petEffects) {var fx=character.gameObject.AddComponent<BookSpinePetEffects>();fx.previewCamera=previewCamera;fx.CopyFrom(petEffects, character);}
                     var blood = display.GetComponent<MonsterIdleBlood>();
                     if (blood) { var previewBlood = character.gameObject.AddComponent<MonsterIdleBlood>(); previewBlood.skeleton = character; previewBlood.CopySettingsFrom(blood); }
                     break; }

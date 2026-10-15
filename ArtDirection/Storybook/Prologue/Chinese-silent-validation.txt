@@ -1,0 +1,186 @@
+Prologue actual Unity play-mode validation
+PASS 9x16 new/returning selection
+PASS 9x16 first-page opening without eight turns
+PASS 9x16 actual capture resolution
+PASS 9x16 page 1 selected texture
+PASS 9x16 illustration fills page width
+PASS 9x16 image not stretched
+PASS 9x16 prologue retains opened-book reading distance
+PASS 9x16 illustration and home page have identical bounds
+PASS 9x16 subtitle within viewport
+PASS 9x16 one paper leaf turns with camera fixed
+PASS 9x16 illustration follows paper after speech ends
+PASS 9x16 actual capture resolution
+PASS 9x16 page 2 selected texture
+PASS 9x16 illustration fills page width
+PASS 9x16 image not stretched
+PASS 9x16 prologue retains opened-book reading distance
+PASS 9x16 illustration and home page have identical bounds
+PASS 9x16 subtitle within viewport
+PASS 9x16 actual capture resolution
+PASS 9x16 page 3 selected texture
+PASS 9x16 illustration fills page width
+PASS 9x16 image not stretched
+PASS 9x16 prologue retains opened-book reading distance
+PASS 9x16 illustration and home page have identical bounds
+PASS 9x16 subtitle within viewport
+PASS 9x16 actual capture resolution
+PASS 9x16 page 4 selected texture
+PASS 9x16 illustration fills page width
+PASS 9x16 image not stretched
+PASS 9x16 prologue retains opened-book reading distance
+PASS 9x16 illustration and home page have identical bounds
+PASS 9x16 subtitle within viewport
+PASS 9x16 actual capture resolution
+PASS 9x16 page 5 selected texture
+PASS 9x16 illustration fills page width
+PASS 9x16 image not stretched
+PASS 9x16 prologue retains opened-book reading distance
+PASS 9x16 illustration and home page have identical bounds
+PASS 9x16 subtitle within viewport
+PASS 9x16 actual capture resolution
+PASS 9x16 page 6 selected texture
+PASS 9x16 illustration fills page width
+PASS 9x16 image not stretched
+PASS 9x16 prologue retains opened-book reading distance
+PASS 9x16 illustration and home page have identical bounds
+PASS 9x16 subtitle within viewport
+PASS 9x16 startup completes
+PASS 9x16 opening captions and silent story
+PASS 9x16 all six pages narrated
+PASS 9x16 six single-leaf transitions including final turn
+PASS 9x16 stationary reveal then narration; home hidden until final turn
+PASS 9x16 completion recorded in save model
+PASS 9x16 completed prologue will not replay
+PASS 9x16 intro releases input
+PASS 9x16 home buttons restored
+PASS 9x16 camp entered
+PASS 9x16 no runtime errors
+9x16 COMPLETE
+PASS 3x4 new/returning selection
+PASS 3x4 first-page opening without eight turns
+PASS 3x4 actual capture resolution
+PASS 3x4 page 1 selected texture
+PASS 3x4 illustration fills page width
+PASS 3x4 image not stretched
+PASS 3x4 prologue retains opened-book reading distance
+PASS 3x4 illustration and home page have identical bounds
+PASS 3x4 subtitle within viewport
+PASS 3x4 one paper leaf turns with camera fixed
+PASS 3x4 illustration follows paper after speech ends
+PASS 3x4 actual capture resolution
+PASS 3x4 page 2 selected texture
+PASS 3x4 illustration fills page width
+PASS 3x4 image not stretched
+PASS 3x4 prologue retains opened-book reading distance
+PASS 3x4 illustration and home page have identical bounds
+PASS 3x4 subtitle within viewport
+PASS 3x4 actual capture resolution
+PASS 3x4 page 3 selected texture
+PASS 3x4 illustration fills page width
+PASS 3x4 image not stretched
+PASS 3x4 prologue retains opened-book reading distance
+PASS 3x4 illustration and home page have identical bounds
+PASS 3x4 subtitle within viewport
+PASS 3x4 actual capture resolution
+PASS 3x4 page 4 selected texture
+PASS 3x4 illustration fills page width
+PASS 3x4 image not stretched
+PASS 3x4 prologue retains opened-book reading distance
+PASS 3x4 illustration and home page have identical bounds
+PASS 3x4 subtitle within viewport
+PASS 3x4 actual capture resolution
+PASS 3x4 page 5 selected texture
+PASS 3x4 illustration fills page width
+PASS 3x4 image not stretched
+PASS 3x4 prologue retains opened-book reading distance
+PASS 3x4 illustration and home page have identical bounds
+PASS 3x4 subtitle within viewport
+PASS 3x4 actual capture resolution
+PASS 3x4 page 6 selected texture
+PASS 3x4 illustration fills page width
+PASS 3x4 image not stretched
+PASS 3x4 prologue retains opened-book reading distance
+PASS 3x4 illustration and home page have identical bounds
+PASS 3x4 subtitle within viewport
+PASS 3x4 startup completes
+PASS 3x4 opening captions and silent story
+PASS 3x4 all six pages narrated
+PASS 3x4 six single-leaf transitions including final turn
+PASS 3x4 stationary reveal then narration; home hidden until final turn
+PASS 3x4 completion recorded in save model
+PASS 3x4 completed prologue will not replay
+PASS 3x4 intro releases input
+PASS 3x4 home buttons restored
+PASS 3x4 camp entered
+PASS 3x4 no runtime errors
+3x4 COMPLETE
+PASS 1x2 new/returning selection
+PASS 1x2 first-page opening without eight turns
+PASS 1x2 actual capture resolution
+PASS 1x2 page 1 selected texture
+PASS 1x2 illustration fills page width
+PASS 1x2 image not stretched
+PASS 1x2 prologue retains opened-book reading distance
+PASS 1x2 illustration and home page have identical bounds
+PASS 1x2 subtitle within viewport
+PASS 1x2 one paper leaf turns with camera fixed
+PASS 1x2 illustration follows paper after speech ends
+PASS 1x2 actual capture resolution
+PASS 1x2 page 2 selected texture
+PASS 1x2 illustration fills page width
+PASS 1x2 image not stretched
+PASS 1x2 prologue retains opened-book reading distance
+PASS 1x2 illustration and home page have identical bounds
+PASS 1x2 subtitle within viewport
+PASS 1x2 actual capture resolution
+PASS 1x2 page 3 selected texture
+PASS 1x2 illustration fills page width
+PASS 1x2 image not stretched
+PASS 1x2 prologue retains opened-book reading distance
+PASS 1x2 illustration and home page have identical bounds
+PASS 1x2 subtitle within viewport
+PASS 1x2 actual capture resolution
+PASS 1x2 page 4 selected texture
+PASS 1x2 illustration fills page width
+PASS 1x2 image not stretched
+PASS 1x2 prologue retains opened-book reading distance
+PASS 1x2 illustration and home page have identical bounds
+PASS 1x2 subtitle within viewport
+PASS 1x2 actual capture resolution
+PASS 1x2 page 5 selected texture
+PASS 1x2 illustration fills page width
+PASS 1x2 image not stretched
+PASS 1x2 prologue retains opened-book reading distance
+PASS 1x2 illustration and home page have identical bounds
+PASS 1x2 subtitle within viewport
+PASS 1x2 actual capture resolution
+PASS 1x2 page 6 selected texture
+PASS 1x2 illustration fills page width
+PASS 1x2 image not stretched
+PASS 1x2 prologue retains opened-book reading distance
+PASS 1x2 illustration and home page have identical bounds
+PASS 1x2 subtitle within viewport
+PASS 1x2 startup completes
+PASS 1x2 opening captions and silent story
+PASS 1x2 all six pages narrated
+PASS 1x2 six single-leaf transitions including final turn
+PASS 1x2 stationary reveal then narration; home hidden until final turn
+PASS 1x2 completion recorded in save model
+PASS 1x2 completed prologue will not replay
+PASS 1x2 intro releases input
+PASS 1x2 home buttons restored
+PASS 1x2 camp entered
+PASS 1x2 battle entry works
+PASS 1x2 return to camp works
+PASS 1x2 no runtime errors
+1x2 COMPLETE
+PASS returning new/returning selection
+PASS returning startup completes
+PASS returning returning player bypasses six pages
+PASS returning intro releases input
+PASS returning home buttons restored
+PASS returning camp entered
+PASS returning no runtime errors
+returning COMPLETE
+ALL RUNS FINISHED

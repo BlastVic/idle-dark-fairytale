@@ -7,6 +7,7 @@ public sealed class StorybookEquipmentCell : MonoBehaviour
     public Button button;
     public Image icon, quality, selectedFrame;
     public Image cardBackground;
+    [Range(0,1)] public float detailedArtworkAlpha=.7f;
     public Color normalBackground=Color.white, selectedBackground=new Color(1f,.76f,.66f,1f);
     public GameObject stateRibbon, lockIcon, multiMark;
     public Text primary, state, detailLabels, detailValues;
@@ -25,7 +26,8 @@ public sealed class StorybookEquipmentCell : MonoBehaviour
         quality.color=StorybookEquipmentUI.GradeColor(item.itemGrade);
         primary.text=StorybookEquipmentUI.PrimaryText(item);
         primary.gameObject.SetActive(!ui.detailedMode);detailedBody.SetActive(ui.detailedMode);
-        var pose=ui.detailedMode?detailedIconPose:compactIconPose;
+        var pose=compactIconPose;
+        icon.color=new Color(1,1,1,ui.detailedMode?detailedArtworkAlpha:1);
         icon.rectTransform.anchoredPosition=pose.anchoredPosition;icon.rectTransform.sizeDelta=pose.sizeDelta;
         var indices=StorybookEquipmentUI.StatIndices(item).ToArray();var values=StorybookEquipmentUI.Values(item);
         detailLabels.text=string.Join("\n",indices.Select((v,n)=>n==0?"<b>"+StorybookEquipmentUI.StatNames[v]+"</b>":StorybookEquipmentUI.StatNames[v]));

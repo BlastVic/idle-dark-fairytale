@@ -1,0 +1,11 @@
+中文序章环境混音试验
+旁白：已选 Serena 情感节奏版 prologue-zh-performance-v2.mp3。
+英文环境素材复用：output/prologue-film-v2/sfx 的风、人群低语、篝火，原制作记录见该目录 production-notes.txt。独立源文件已复制到 source 以便复现。
+新增村民：ElevenLabs eleven_v4，DJ ALLEN（lcRaSg5QsH61bfHjo8qM），四条独立演绎，生成记录见 villager-generations.json。
+提示：[angry] [shouting] [rough voice] 烧死魔女！[short pause] 献给神！
+按旁白时间对齐数据删除原 90.42–93.16 秒的女声口号，插入 5.4 秒的祭祀空间：男声为主，另三条独立表演延迟 130/270/400 毫秒，分别分布左右；加入短反射。
+旁白内容其余部分保留，整体加 2 秒引入、3 秒余韵。
+森林从开场进入；低语在树林深处听到人声时由远而近；广场增添更清晰、宽阔的人群层；火声保持低于旁白，削弱低频轰鸣。逃离后人群与火声消退，结束留下森林与安静。
+混音长约 2分17秒，输出 44.1 kHz 立体声。主文件在本目录；祭祀短试听与 WAV 在 output/prologue-zh-soundscape。
+验证：无削波；女旁白在替换段完全静音；村民喊声结束在下一句旁白之前。具体见 mix-validation.json。
+本轮是声音设计试听，尚未修改 Unity 序章、字幕或镜头时间。工具返回的词时间仅用于剪辑定位，不代表已人工听审所有发音及接缝。

@@ -1,0 +1,25 @@
+旧书脊龙宠物攻击特效
+
+源与接入
+EmberBolt = kongmingdeng_attack_dd（火球）
+EmberImpact = kongmingdeng_attack_baodian（爆点）
+ClawArc = xiaopangmao_atk_tx_1（弧形爪击）
+AshDust = xuchu_skill_tx_2（落地烟尘）
+EmberBreath = S_S_zhouyu_skill_1（扩散焰团，非原生横向射线）
+
+五套原骨架/插槽/动画JSON、六张原图集、原生.spine及原分件均备份在source。sources.json记录哈希。导入脚本仅复制，不覆盖原Spine目录。
+本轮无需逐帧重绘：使用独立Book Ember Spine材质将原红/蓝/黄映射为木炭、旧金和羊皮纸色；烟尘另用低饱和灰褐。像素和动画曲线保持不变，没有声称AI重绘。颜色和透明度可在材质Inspector调整。
+
+运行效果
+Attack1：命中前0.26秒发射小火球，沿路径抵达目标；原OnHit时产生小爆点。
+Attack2：原OnHit时产生短弧爪痕与目标脚下烟尘。跳过原动画前置等待，避免特效比伤害滞后。
+Attack3：命中前0.42秒形成五段余烬火流，原OnHit时切为目标处扩散焰团。保持单次命中，未改成持续/群体伤害。
+嘴部由Front_Mouth_02骨骼跟随；Prefab mouthOffset和各width可编辑。特效按战斗核心宽度缩放，不改变宠物和怪物的既有站位。
+效果组件只负责表现；PetDragon是唯一伤害来源。新宠物有自定义命中特效时跳过旧白色Hit_Particle，其他调用默认保留。攻击被打断/退出/销毁时清理发射中的效果，已命中短尾效按自身寿命结束。
+
+复现
+1. python3 ArtDirection/Monsters/C058_S01R/PetEffects/import_sources.py
+2. Unity编译后，编辑模式向output/monster-animation/MobBookSpineDragon/command.request写入effects-build。
+3. 写入effects执行实际Gameplay隔离验收；写入preview检查测试场景。
+新增特效Prefab和材质独立保存。构建器保留已有特效Prefab几何设置，只增量绑定宠物组件引用，不重建宠物或UI。
+本地渲染与战斗截图：output/pet-effects，以及output/monster-animation/MobBookSpineDragon/effects-*.png；禁止提交截图。

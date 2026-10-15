@@ -1,0 +1,28 @@
+Book Spine preview; isolated runtime, no save writes
+PASS catalog entry
+PASS fixed scale Idle1
+PASS fixed scale Attack1
+PASS fixed scale Hit
+PASS fixed scale Death1
+PASS fixed scale Atk1_00
+PASS fixed scale Atk_E_00
+PASS fixed scale Clear_00
+PASS fixed scale Death_00
+PASS fixed scale GetUp_00
+PASS fixed scale Hit_00
+PASS fixed scale Idle_Battle_00
+PASS fixed scale Idle_Down_00
+PASS fixed scale Idle_Normal_00
+PASS fixed scale KnockBack_00
+PASS fixed scale KnockDown_00
+PASS fixed scale LinkSkill_00
+PASS fixed scale Run_Battle_00
+PASS fixed scale Stun_00
+PASS fixed scale Walk_Normal_00
+PASS fixed scale CampIdle
+PASS fixed scale Attack2
+PASS fixed scale Attack3
+PASS fixed scale Exit
+PASS two preview loops each launch and impact once: launches=2 hits=2 track=3.107271
+PASS quarter-speed projectile survives until impact, track=0.9004999
+PASS preview 24 clips / three aspect ratios / repeated effect loops / slow projectile; errors=0

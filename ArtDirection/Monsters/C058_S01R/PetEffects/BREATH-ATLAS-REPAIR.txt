@@ -1,0 +1,6 @@
+EmberBreath 第二图集修复
+
+问题：原 S_S_zhouyu_skill_12.png 内容与 .atlas 中的七个分件矩形不一致。例如 skill_huoyan_kuosan01_07 的矩形涵盖多个不相关图块，导致后半段出现矩形边界和被截断的火焰。第一图集正常。
+修复：从同系列 S_S_zhouyu_skill_beaten_1 的 images/effect 获取名称、原始尺寸、裁边尺寸及偏移一致的七个完整分件，按原第二页 atlas 坐标无缩放重新打包。
+原 Spine 目录、原始 source 备份与动画均不修改。恢复分件与散列清单存于 repaired-breath-source/；repair_breath_atlas.py 可复现，import_sources.py 已接入修复步骤。调色 shader 保持原样。
+已复核 Unity 离屏渲染的 0.1/0.3/0.5/0.7/0.9 秒帧，原 0.7/0.9 秒方框错图消失。

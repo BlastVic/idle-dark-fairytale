@@ -11,6 +11,27 @@ public class EnemyLifebar : MonoBehaviour
     public Text hpText;
     public MeterMover hpMeter;
     Actor_Base ab;
+    Canvas depthCanvas;
+    Renderer depthOwner;
+
+    public void BindDepth(Renderer owner)
+    {
+        depthOwner = owner;
+        depthCanvas = GetComponent<Canvas>();
+        RefreshDepth();
+    }
+
+    void LateUpdate() { RefreshDepth(); }
+
+    void RefreshDepth()
+    {
+        if (!depthOwner || !depthCanvas) return;
+        // Reapply after spawn/hide reactivation and follow any owner sorting changes.
+        depthCanvas.overrideSorting = true;
+        depthCanvas.sortingLayerID = depthOwner.sortingLayerID;
+        depthCanvas.sortingOrder = depthOwner.sortingOrder + 1;
+    }
+
     private void OnEnable()
     {
         ab = GetComponentInParent<Actor_Base>();

@@ -117,12 +117,23 @@ public sealed class MonsterPreviewStage : MonoBehaviour
         var screen = new Vector2(previewCamera.aspect, 1);
         var fittedPlayer = BattleScale(playerScale, playerSetupBounds, screen, battleStyle ? battleStyle.playerSize : Vector2.one);
         var enemySize = battleStyle ? battleStyle.EnemyDisplaySize(battleEnemySlot, tester && tester.CombatIsBoss) : Vector2.one;
+        if(tester && tester.CompanionDisplaySize.HasValue) enemySize=tester.CompanionDisplaySize.Value;
         enemySize *= tester ? tester.CombatSizeMultiplier : 1f;
         var fittedMonster = BattleScale(monsterScale, tester ? tester.CombatSetupBounds : monsterBounds, screen, enemySize);
         float units = Mathf.Min((pb.x-pa.x)/Mathf.Max(.01f,playerBounds.size.x*Mathf.Abs(fittedPlayer.x)),
             (pb.y-pa.y)/Mathf.Max(.01f,playerBounds.size.y*Mathf.Abs(fittedPlayer.y))) * (tester ? tester.Zoom : 1);
         if (redHood && playerBounds.size.sqrMagnitude > 0) Place(redHood,playerBounds,fittedPlayer,hud.playerSlot,units);
-        if (tester && tester.character && measured) Place(tester.character,monsterBounds,fittedMonster,hud.monsterSlot,units);
+        if (tester && tester.character && measured) {
+            Place(tester.character,monsterBounds,fittedMonster,hud.monsterSlot,units);
+            if(tester.CompanionDisplaySize.HasValue && redHood){
+                // Allies share the left side; reserve the right side for pet attack effects.
+                var actor=tester.character.transform;var scale=actor.lossyScale;
+                float center=previewCamera.ViewportToWorldPoint(new Vector3(.20f,.5f,20)).x;
+                float feet=redHood.GetComponent<MeshRenderer>().bounds.min.y+height*.07f;
+                actor.position=new Vector3(center-monsterBounds.center.x*scale.x,feet-monsterBounds.min.y*scale.y,0);
+                tester.character.GetComponent<MeshRenderer>().sortingOrder=redHood.GetComponent<MeshRenderer>().sortingOrder-1;
+            }
+        }
     }
     Vector3 BattleScale(Vector3 scale, Bounds setup, Vector2 screen, Vector2 size)
     {

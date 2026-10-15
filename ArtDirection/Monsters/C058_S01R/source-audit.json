@@ -1,0 +1,35 @@
+{
+  "source": "/Users/vic/Workshop/Spine/monster2/动画/C058_S01R/C058_S01R.json",
+  "spine": {
+    "hash": "MSO6fMc7Dws",
+    "spine": "3.8-from-4.0-from-4.1-from-4.2.43",
+    "x": -958.6,
+    "y": -59.49,
+    "width": 1465.85,
+    "height": 795.28,
+    "images": "./images/",
+    "audio": "D:/spine/C/C058_S01R_(Desertlizard)"
+  },
+  "bones": 78,
+  "slots": 51,
+  "animations": [
+    "Atk1_00",
+    "Atk_E_00",
+    "Clear_00",
+    "Death_00",
+    "GetUp_00",
+    "Hit_00",
+    "Idle_Battle_00",
+    "Idle_Down_00",
+    "Idle_Normal_00",
+    "KnockBack_00",
+    "KnockDown_00",
+    "LinkSkill_00",
+    "Run_Battle_00",
+    "Stun_00",
+    "Walk_Normal_00"
+  ],
+  "events": {},
+  "native_project_exists": true,
+  "status": "Static source audit; no new Unity import or runtime verification in concept phase."
+}

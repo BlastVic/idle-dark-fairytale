@@ -142,12 +142,12 @@ public sealed class StorybookSkillsUI : MonoBehaviour
     }
     string Number(float value)=>value.ToString("0.##",CultureInfo.InvariantCulture);
     float[] Values(int wanted)=>SkillsController.Instance.GetSkillValues(wanted,Selected.key);
-    string EffectValues(int wanted, bool target=false)
+    string EffectValues(int wanted)
     {
         var values=Values(wanted);
         return string.Join("\n",Selected.effectLabels.Select((label,i)=>{
             string number=Number(values[i]*((Selected.key==SkillsTypeEnum.Devil_On_My_Shoulder&&i>=2)?1:100))+"%";
-            return label+"  "+(target?"<color=#8F2018>"+number+"</color>":number);
+            return label+"  "+"<color=#8F2018>"+number+"</color>";
         }));
     }
     void BindPrerequisites()
@@ -176,7 +176,7 @@ public sealed class StorybookSkillsUI : MonoBehaviour
         currentHeading.text="当前技能等级   Lv. "+value;
         nextHeading.text="目标技能等级   <color=#8F2018>Lv. "+(value+1)+"</color>";
         currentValues.text=value>0?EffectValues(value):"";
-        nextValues.text=max?"":EffectValues(value+1,true);
+        nextValues.text=max?"":EffectValues(value+1);
         if(max)currentOnlyText.text="已达到最高等级";
         BindPrerequisites();cost.text=max?"无需继续消耗":"技能点消耗   <color=#861A12>"+Cost+" 点</color>";
         bool eligible=!max&&Selected.IsUnlocked(SkillsController.Instance)&&GameManager.single.skillPoints>=Cost;

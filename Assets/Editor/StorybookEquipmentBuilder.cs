@@ -205,9 +205,9 @@ public static class StorybookEquipmentBuilder
             ui.selectedFrame=Pic(visual,"SelectedFrame",Slice("SelectedCellFrame",264,406,199,175,new Vector4(6,6,6,6)),0,0,200,172);Full(ui.selectedFrame.rectTransform);ui.selectedFrame.type=Image.Type.Sliced;ui.selectedFrame.fillCenter=false;
             ui.icon=Pic(visual,"ItemArtwork",null,29,32,100,70);ui.icon.preserveAspect=true;
             ui.compactIconPose=Node(visual,"CompactIconPose");Box(ui.compactIconPose,19,41,120,131);
-            ui.detailedIconPose=Node(visual,"DetailedIconPose");Box(ui.detailedIconPose,29,32,100,70);
+            ui.detailedIconPose=Node(visual,"DetailedIconPose");Box(ui.detailedIconPose,19,41,120,131);
             var overlay=Pic(visual,"DetailedAttributes",null,4,108,149.4f,106);overlay.color=new Color(0,0,0,.82f);ui.detailedBody=overlay.gameObject;
-            overlay.rectTransform.anchorMin=Vector2.zero;overlay.rectTransform.anchorMax=Vector2.one;overlay.rectTransform.offsetMin=new Vector2(4,4);overlay.rectTransform.offsetMax=new Vector2(-4,-108);
+            overlay.rectTransform.anchorMin=Vector2.zero;overlay.rectTransform.anchorMax=Vector2.one;overlay.rectTransform.offsetMin=new Vector2(4,4);overlay.rectTransform.offsetMax=new Vector2(-4,-40);
             ui.detailLabels=Txt(overlay.transform,"Labels","攻击\n暴击\n攻速",9,3,64,100,19,new Color(.98f,.94f,.84f));
             ui.detailValues=Txt(overlay.transform,"Values","17\n6%\n100%",70,3,70,100,19,new Color(.98f,.94f,.84f));
             foreach(var t in new[]{ui.detailLabels,ui.detailValues}){t.alignment=t==ui.detailLabels?TextAnchor.UpperLeft:TextAnchor.UpperRight;t.font=regular;t.lineSpacing=.95f;Full(t.rectTransform,t==ui.detailLabels?9:70,3,t==ui.detailLabels?76:8,3);}

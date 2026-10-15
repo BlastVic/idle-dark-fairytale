@@ -142,3 +142,17 @@ Idle1、Attack1、Hit、Death1 和扩展动画共享同一个角色缩放及固�
 制作入口：`python3 ArtDirection/Monsters/boss_8020/build_rig.py`，然后 Unity 菜单 `MobDrownedKing > Build and Register`。请求目录为 `output/monster-animation/MobDrownedKing/`，`command.request` 支持 `references/build/configure/validate/preview/combat/setup/play/stop`；等待编译和命令完成，再发下一条。`configure` 只补缺失的小 BOSS 血条引用。
 
 单怪三比例：编辑模式写入 `validate MobDrownedKing` 至 `output/monster-preview-scale/command.request`。`combat` 使用临时溪畔单王及王+普通水团波次，禁用存档，结束返回本场景。新原生 .spine 待补；运行资源与源分件齐备，详见 `ArtDirection/Monsters/boss_8020/DELIVERY.txt`。
+
+## MobBookSpineDragon 旧书脊龙 · 伙伴
+
+C058_S01R 方案 C，用于 Tairon The Dragon 技能。独立资源在 `Assets/DarkFairytale/Companions/MobBookSpineDragon`，通过 General DB 的 PetDragon 键切换，原飞龙 Prefab 保留。怪物库可搜索英文名或“旧书脊龙”。
+
+保留 15 原动作，增加 9 个游戏别名；Attack1/2/3 沿用原生攻击，事件驱动原技能伤害，死亡时转为地面奔跑退场。测试器读取伙伴 Prefab 的 viewportSize，所有动作固定比例。
+
+编辑模式向 `output/monster-animation/MobBookSpineDragon/command.request` 写入 `preview` 或 `combat` 运行验收；后者使用 Gameplay 临时两波敌人，隔离属性并禁止存档，结束自动回到 MonsterAnimationTest。截图只保留在 output。构建、限制与结果见 `ArtDirection/Monsters/C058_S01R/BUILD.txt` 和 `DELIVERY.txt`。
+
+### 旧书脊龙攻击特效
+
+选择旧书脊龙后，Attack1显示余烬火球，Attack2显示爪痕和烟尘，Attack3显示火流与扩散焰团；原始源动作不带游戏触发。预览时宠物与小红帽共用左侧，右侧保留特效空间，预览不造成伤害。循环播放会重复触发，换怪物会清理效果。正式战斗由原OnHit事件处理一次伤害。
+
+独立资源：`Assets/DarkFairytale/Companions/MobBookSpineDragon/Effects`。显式制作命令`effects-build`，实战回归`effects`，文档`ArtDirection/Monsters/C058_S01R/PetEffects/BUILD.txt`。

@@ -12,7 +12,7 @@ using UnityEngine.UI;
 [InitializeOnLoad]
 public static class CursedBookPrologueValidation
 {
-    public const string Dir = "output/prologue-integration/";
+    public const string Dir = "output/prologue-cn/";
     static bool running;
     static CursedBookPrologueValidation() {
         EditorApplication.update += Tick;
@@ -55,7 +55,7 @@ public static class CursedBookPrologueValidation
         }
         var method=typeof(CursedBookIntroValidation).GetMethod("Resolution",BindingFlags.NonPublic|BindingFlags.Static);
         method.Invoke(null,new object[]{new[]{720,768,720,720}[i],new[]{1280,1024,1440,1280}[i]});
-        SessionState.SetBool("PROLOGUE_QA_FORCE",false);
+        SessionState.SetBool("PROLOGUE_QA_FORCE",i<3);
         SessionState.SetInt("PROLOGUE_QA_OLD_SKIP",SessionState.GetInt("SETTINGS_QA_SKIP",-1));
         SessionState.SetInt("SETTINGS_QA_SKIP",0);
         EditorApplication.LockReloadAssemblies(); SessionState.SetBool("PROLOGUE_QA_LOCKED",true);
@@ -79,14 +79,25 @@ public static class CursedBookPrologueValidation
         typeof(CursedBookIntroValidation).GetMethod("Resolution",BindingFlags.NonPublic|BindingFlags.Static).Invoke(null,new object[]{new[]{720,768,720,720}[index],new[]{1280,1024,1440,1280}[index]});
         var p=intro.prologue; p.previewInEditor=false;
         Check(p.ShouldPlay()==(index<3),ratio+" new/returning selection");
+        if(index>0 && index<3) {
+            p.openingDuration=2.5f;p.openingCaptions=new[]{new CursedBookPrologue.Caption{start=0,end=2.5f,text=p.openingCaptions[0].text}};
+            foreach(var page in p.pages){page.silentDuration=2.5f;page.captions=new[]{new CursedBookPrologue.Caption{start=0,end=2.5f,text=page.captions[0].text}};}
+        }
         Vector3 lockedScale=Vector3.zero; Vector2 lockedPosition=Vector2.zero;
         bool[] read=new bool[6]; bool turnShot=false,homeShot=false,gate=true,stationary=true,speechAfterInk=true;
-        float deadline=Time.realtimeSinceStartup+180;
+        float deadline=Time.realtimeSinceStartup+300;
+        bool openingShot=false; bool silent=true; float nextFrame=0; int frame=0;
+        if(index==0){Directory.CreateDirectory(Dir+"frames");File.WriteAllText(Dir+"frame-times.txt", "");}
         int errors=0; int turnFrame=0;
         Application.LogCallback callback=(m,s,t)=>{if(t==LogType.Exception || (t==LogType.Error&&!m.Contains("Ad is unavailable"))) {errors++;Log("ERROR "+m);} };
         Application.logMessageReceived+=callback;
         while(!intro.Finished && Time.realtimeSinceStartup<deadline) {
             yield return new WaitForEndOfFrame();
+            if(index==0 && Time.realtimeSinceStartup>=nextFrame){
+                var capture=ScreenCapture.CaptureScreenshotAsTexture();string name="frame-"+(frame++).ToString("0000")+".jpg";
+                File.WriteAllBytes(Dir+"frames/"+name,capture.EncodeToJPG(85));UnityEngine.Object.Destroy(capture);
+                File.AppendAllText(Dir+"frame-times.txt",name+" "+Time.realtimeSinceStartup.ToString(System.Globalization.CultureInfo.InvariantCulture)+"\n");nextFrame=Time.realtimeSinceStartup+.25f;
+            }
             if(p.IsPlaying) {
                 if(lockedScale==Vector3.zero) {lockedScale=intro.cameraRig.localScale;lockedPosition=intro.cameraRig.anchoredPosition;}
                 // Hide unrelated first-use tutorial after exercising the real new-player selection.
@@ -94,10 +105,12 @@ public static class CursedBookPrologueValidation
                 gate &= intro.ControlsProgress==0 && intro.homePage.color.a==0 && intro.group.blocksRaycasts;
                 stationary &= intro.PushProgress==0;
                 stationary &= Vector3.Distance(intro.cameraRig.localScale,lockedScale)<.001f && Vector2.Distance(intro.cameraRig.anchoredPosition,lockedPosition)<.01f;
-                if(p.Reading) {
+                silent &= !p.narration.isPlaying && !p.pageFoley.isPlaying;
+                if(p.Opening && !openingShot && p.PageReadTime>1){SessionState.SetBool("PROLOGUE_QA_FORCE",false);p.ShouldPlay();openingShot=true;Shot(ratio+"-opening");Check(intro.book.AnimationState.GetCurrent(0).Animation.Name=="OpenFirstPage",ratio+" first-page opening without eight turns");}
+                if(p.Reading && !p.Opening) {
                     speechAfterInk &= p.InkProgress>=.999f;
                     int page=p.PageIndex;
-                    if(!read[page] && p.narration.time>1) {
+                    if(!read[page] && p.PageReadTime>1) {
                         Check(Screen.width==new[]{720,768,720,720}[index] && Screen.height==new[]{1280,1024,1440,1280}[index],ratio+" actual capture resolution");
                         read[page]=true; Shot(ratio+"-page-"+(page+1));
                         Check(p.illustration.texture==p.pages[page].illustration,ratio+" page "+(page+1)+" selected texture");
@@ -112,7 +125,7 @@ public static class CursedBookPrologueValidation
                         Check(Enumerable.Range(0,4).All(c=>Vector3.Distance(corners[c],homeCorners[c])<1),ratio+" illustration and home page have identical bounds");
                         p.subtitle.rectTransform.GetWorldCorners(corners);
                         Check(corners.All(c=>c.x>=-1&&c.x<=Screen.width+1&&c.y>=-1&&c.y<=Screen.height+1),ratio+" subtitle within viewport");
-                        if(SessionState.GetBool("PROLOGUE_QA_VISUAL",false)) p.narration.time=p.narration.clip.length-.05f;
+                        if(SessionState.GetBool("PROLOGUE_QA_VISUAL",false) && !p.silentPreview) p.narration.time=p.narration.clip.length-.05f;
                     }
                 }
                 if(index==0 && p.TurningPage && p.PageIndex==0) {
@@ -129,6 +142,7 @@ public static class CursedBookPrologueValidation
         }
         Check(intro.Finished,ratio+" startup completes");
         if(index<3) {
+            Check(openingShot&&silent,ratio+" opening captions and silent story");
             Check(read.All(x=>x),ratio+" all six pages narrated");
             Check(p.Completed && p.TurnsCompleted==6,ratio+" six single-leaf transitions including final turn");
             Check(gate&&stationary&&speechAfterInk,ratio+" stationary reveal then narration; home hidden until final turn");

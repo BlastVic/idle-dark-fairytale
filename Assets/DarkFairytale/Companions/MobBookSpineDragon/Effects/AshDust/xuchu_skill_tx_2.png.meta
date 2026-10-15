@@ -1,0 +1,899 @@
+fileFormatVersion: 2
+guid: b81a13de8ea284bdba536f2265dbbd1f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7250590562423287728
+    second: xuchu_skill_tx_2_0
+  - first:
+      213: 1486286775527396543
+    second: xuchu_skill_tx_2_1
+  - first:
+      213: 976364877450061836
+    second: xuchu_skill_tx_2_2
+  - first:
+      213: -1138413801676883699
+    second: xuchu_skill_tx_2_3
+  - first:
+      213: -6066955065085070598
+    second: xuchu_skill_tx_2_4
+  - first:
+      213: 1964663619467583219
+    second: xuchu_skill_tx_2_5
+  - first:
+      213: -3680247762233767092
+    second: xuchu_skill_tx_2_6
+  - first:
+      213: -777685241907221508
+    second: xuchu_skill_tx_2_7
+  - first:
+      213: -1921443683087893653
+    second: xuchu_skill_tx_2_8
+  - first:
+      213: -4839911686073390807
+    second: xuchu_skill_tx_2_9
+  - first:
+      213: 1532943314795590240
+    second: xuchu_skill_tx_2_10
+  - first:
+      213: 5158713159386510573
+    second: xuchu_skill_tx_2_11
+  - first:
+      213: -4407406802587215037
+    second: xuchu_skill_tx_2_12
+  - first:
+      213: -37393577788502408
+    second: xuchu_skill_tx_2_13
+  - first:
+      213: -7011576534200581095
+    second: xuchu_skill_tx_2_14
+  - first:
+      213: 4759177057078627729
+    second: xuchu_skill_tx_2_15
+  - first:
+      213: 8022174156738525594
+    second: xuchu_skill_tx_2_16
+  - first:
+      213: 7014641712576368680
+    second: xuchu_skill_tx_2_17
+  - first:
+      213: 7661332737975217405
+    second: xuchu_skill_tx_2_18
+  - first:
+      213: -4027270172181203216
+    second: xuchu_skill_tx_2_19
+  - first:
+      213: 5689583407462833210
+    second: xuchu_skill_tx_2_20
+  - first:
+      213: 904114865904247162
+    second: xuchu_skill_tx_2_21
+  - first:
+      213: -1658301873282258938
+    second: xuchu_skill_tx_2_22
+  - first:
+      213: -6734496401147619073
+    second: xuchu_skill_tx_2_23
+  - first:
+      213: 5308568171560228335
+    second: xuchu_skill_tx_2_24
+  - first:
+      213: 3448737445320507565
+    second: xuchu_skill_tx_2_25
+  - first:
+      213: 3357108752869284669
+    second: xuchu_skill_tx_2_26
+  - first:
+      213: -4516787579704823523
+    second: xuchu_skill_tx_2_27
+  - first:
+      213: 8293731439287150336
+    second: xuchu_skill_tx_2_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 414
+        width: 28
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050d5fa7c4ab06b90800000000000000
+      internalID: -7250590562423287728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 480
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb4dba992f950a410800000000000000
+      internalID: 1486286775527396543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 423
+        width: 50
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c08249bdeaebc8d00800000000000000
+      internalID: 976364877450061836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_3
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 269
+        width: 96
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09b5afcdaa8330f0800000000000000
+      internalID: -1138413801676883699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 474
+        width: 151
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af2f85d2388ddcba0800000000000000
+      internalID: -6066955065085070598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_5
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 437
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fe9f751723e34b10800000000000000
+      internalID: 1964663619467583219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_6
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 452
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4b41a6b8222decc0800000000000000
+      internalID: -3680247762233767092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_7
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 433
+        width: 7
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfb6e01946b1535f0800000000000000
+      internalID: -777685241907221508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 291
+        width: 67
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6bb0a58629a555e0800000000000000
+      internalID: -1921443683087893653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_9
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 291
+        width: 67
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9296557e6fd25dcb0800000000000000
+      internalID: -4839911686073390807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_10
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 349
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 062733ba2db164510800000000000000
+      internalID: 1532943314795590240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_11
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 269
+        width: 74
+        height: 176
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de4bd53594e679740800000000000000
+      internalID: 5158713159386510573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_12
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 0
+        width: 81
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34b162f4ddeb5d2c0800000000000000
+      internalID: -4407406802587215037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_13
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 269
+        width: 60
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e09073db62b7ff0800000000000000
+      internalID: -37393577788502408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_14
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 0
+        width: 61
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91482838a40e1be90800000000000000
+      internalID: -7011576534200581095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_15
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 185
+        width: 17
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19d4c56715efb0240800000000000000
+      internalID: 4759177057078627729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_16
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 211
+        width: 169
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a99f7ba64ec745f60800000000000000
+      internalID: 8022174156738525594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_17
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 203
+        width: 29
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82090c0f873095160800000000000000
+      internalID: 7014641712576368680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_18
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 156
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc6511a885825a60800000000000000
+      internalID: 7661332737975217405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_19
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 161
+        width: 26
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f6fc94ad134c18c0800000000000000
+      internalID: -4027270172181203216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_20
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 144
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c57c1e6f575fe40800000000000000
+      internalID: 5689583407462833210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_21
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 158
+        width: 36
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a716f5a2eaf0c8c00800000000000000
+      internalID: 904114865904247162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_22
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 128
+        width: 48
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60865a87b378cf8e0800000000000000
+      internalID: -1658301873282258938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_23
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 0
+        width: 72
+        height: 204
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff8137c34334a82a0800000000000000
+      internalID: -6734496401147619073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_24
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 130
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe5dac340a2dba940800000000000000
+      internalID: 5308568171560228335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_25
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 139
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da0caef2f606cdf20800000000000000
+      internalID: 3448737445320507565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_26
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 113
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3bd02fbf98d69e20800000000000000
+      internalID: 3357108752869284669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_27
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 67
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d113cc190a52151c0800000000000000
+      internalID: -4516787579704823523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xuchu_skill_tx_2_28
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 0
+        width: 74
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 007233d4dc0491370800000000000000
+      internalID: 8293731439287150336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      xuchu_skill_tx_2_0: -7250590562423287728
+      xuchu_skill_tx_2_1: 1486286775527396543
+      xuchu_skill_tx_2_10: 1532943314795590240
+      xuchu_skill_tx_2_11: 5158713159386510573
+      xuchu_skill_tx_2_12: -4407406802587215037
+      xuchu_skill_tx_2_13: -37393577788502408
+      xuchu_skill_tx_2_14: -7011576534200581095
+      xuchu_skill_tx_2_15: 4759177057078627729
+      xuchu_skill_tx_2_16: 8022174156738525594
+      xuchu_skill_tx_2_17: 7014641712576368680
+      xuchu_skill_tx_2_18: 7661332737975217405
+      xuchu_skill_tx_2_19: -4027270172181203216
+      xuchu_skill_tx_2_2: 976364877450061836
+      xuchu_skill_tx_2_20: 5689583407462833210
+      xuchu_skill_tx_2_21: 904114865904247162
+      xuchu_skill_tx_2_22: -1658301873282258938
+      xuchu_skill_tx_2_23: -6734496401147619073
+      xuchu_skill_tx_2_24: 5308568171560228335
+      xuchu_skill_tx_2_25: 3448737445320507565
+      xuchu_skill_tx_2_26: 3357108752869284669
+      xuchu_skill_tx_2_27: -4516787579704823523
+      xuchu_skill_tx_2_28: 8293731439287150336
+      xuchu_skill_tx_2_3: -1138413801676883699
+      xuchu_skill_tx_2_4: -6066955065085070598
+      xuchu_skill_tx_2_5: 1964663619467583219
+      xuchu_skill_tx_2_6: -3680247762233767092
+      xuchu_skill_tx_2_7: -777685241907221508
+      xuchu_skill_tx_2_8: -1921443683087893653
+      xuchu_skill_tx_2_9: -4839911686073390807
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

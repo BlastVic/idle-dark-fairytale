@@ -63,14 +63,17 @@ public static class ChestOpeningValidation
             Check(im.GetTotalItemCount()==before+rewardCount&&gm.crystals==money+120&&!owner.Owned,"rewards committed exactly once at open");
             int frame=0;float nextFrame=0;
             if(index==0){Directory.CreateDirectory(Out+"frames");File.WriteAllText(Out+"frames/times.txt","");}
-            float time=0;bool charge=false,burst=false;while(!opening.Finished&&time<15){
+            float time=0;bool charge=false,burst=false,overlap=false;while(!opening.Finished&&time<15){
                 time+=Time.unscaledDeltaTime;yield return new WaitForEndOfFrame();
+                overlap |= opening.featured.gameObject.activeSelf && opening.featured.transform.parent.GetComponentsInChildren<UnityEngine.UI.Image>().Any(img=>img.name=="FlyingReward");
                 fixedTransform &= opening.skeleton.rectTransform.localScale==fixedScale && opening.skeleton.rectTransform.anchoredPosition==fixedPosition;
                 if(index==0&&time>=nextFrame){Shot("frames/"+frame.ToString("D4"));File.AppendAllText(Out+"frames/times.txt",frame+" "+time.ToString(System.Globalization.CultureInfo.InvariantCulture)+"\n");frame++;nextFrame=time+.05f;}
                 if(!charge&&time>=.95f){charge=true;Shot(sz.x+"x"+sz.y+"-charge");}
                 if(!burst&&time>=1.4f){burst=true;Shot(sz.x+"x"+sz.y+"-burst");}
                 yield return null;
             }
+            if(rewardCount>0)Check(overlap,"next reward reveal overlaps previous reward landing");
+            Check(!opening.featured.transform.parent.GetComponentsInChildren<UnityEngine.UI.Image>().Any(img=>img.name=="FlyingReward"),"all reward flights finish before collect");
             Check(fixedTransform,"chest size and position stay fixed throughout opening");
             Check(opening.Finished&&opening.collect.gameObject.activeInHierarchy,"all rewards displayed before collect");
             Check(opening.rewardsScroll.content.GetComponentsInChildren<ChestRewardRow>().Length==rewardCount+1,"crystals and equipment retained in reward list");

@@ -69,7 +69,7 @@ public class Actor_Base : MonoBehaviour
         if (currentStat.absorb > 0) return;//dont bother clamping if we have absrob we're allowed to go over max
         if (currentStat.hpNow > currentStat.hpMax) currentStat.hpNow = currentStat.hpMax;
     }
-    public void Hit(float dmg, bool isCrit = false, float incomingPierce = 0, float critDmg = 150, bool isPet = false, bool isLightning = false)
+    public void Hit(float dmg, bool isCrit = false, float incomingPierce = 0, float critDmg = 150, bool isPet = false, bool isLightning = false, bool suppressDefaultHitVfx = false)
     {
         // Covers direct hits, splash, pets and lightning before any damage or feedback.
         if (!isPlayer && TryGetComponent<DropIn>(out var drop) && drop.IsEntering) return;
@@ -133,7 +133,8 @@ public class Actor_Base : MonoBehaviour
         }
         else //we are an enemy
         {
-            LevelController.Instance.AssetManager.SpawnParticle("Hit_Particle", enemy.rootPos.transform.position);
+            if (!suppressDefaultHitVfx)
+                LevelController.Instance.AssetManager.SpawnParticle("Hit_Particle", enemy.rootPos.transform.position);
 
             #region INTERRUPT CHANCE
             if (enemy.currentAnimation.Contains("Attack"))

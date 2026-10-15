@@ -61,7 +61,8 @@ public static class StorybookSkillDetailsAuthoring
         var next=Section(ui.comparison.transform,"TargetSection");
         ui.nextHeading=Heading(next,"TargetHeading","目标技能等级   <color=#8F2018>Lv. 3</color>",bold);
         ui.nextValues.transform.SetParent(next,false);ui.nextValues.transform.SetSiblingIndex(1);ui.nextValues.color=Ink;ui.nextValues.lineSpacing=1.2f;Divider(next);
-        ui.currentValues.text="触发概率  7.5%";ui.nextValues.text="触发概率  <color=#8F2018>9%</color>";
+        foreach(var text in new[]{ui.description,ui.currentValues,ui.nextValues,ui.currentOnlyText}){text.font=bold;text.color=Ink;text.supportRichText=true;}
+        ui.currentValues.text="触发概率  <color=#8F2018>7.5%</color>";ui.nextValues.text="触发概率  <color=#8F2018>9%</color>";
         ui.currentOnlyText.color=Ink;ui.currentOnly.transform.SetSiblingIndex(2);
         ui.cost.color=Ink;ui.cost.alignment=TextAnchor.MiddleLeft;ui.cost.text="技能点消耗   <color=#861A12>1 点</color>";
     }

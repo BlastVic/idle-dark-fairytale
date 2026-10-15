@@ -1,0 +1,42 @@
+Book Spine effects; isolated runtime, no save writes
+PASS unlearned skill spawns no companion
+PASS actual PetDragon general DB spawn uses new independent prefab
+PASS exactly one companion
+PASS original skill damage coefficient
+PASS new companion has effects controller
+PASS actual target HP decreases from Attack1
+PASS attack audio playing
+PASS Attack1 launches once
+PASS Attack1 impact once without extra damage callbacks
+PASS Attack1 exactly one live hit/completion
+PASS completion returns Idle1
+PASS new companion has effects controller
+PASS actual target HP decreases from Attack2
+PASS attack audio playing
+PASS Attack2 launches once
+PASS Attack2 impact once without extra damage callbacks
+PASS Attack2 exactly one live hit/completion
+PASS completion returns Idle1
+PASS new companion has effects controller
+Attack3 emitted=1 animationTime=1.302
+Attack3 emitted=2 animationTime=1.563
+Attack3 emitted=3 animationTime=1.825
+Attack3 emitted=4 animationTime=2.137
+Attack3 emitted=5 animationTime=2.397
+PASS actual target HP decreases from Attack3
+PASS attack audio playing
+PASS Attack3 emits all five staggered shots
+PASS Attack3 launches once
+PASS Attack3 impact once without extra damage callbacks
+PASS Attack3 exactly one live hit/completion
+PASS completion returns Idle1
+PASS 100% Breath Of Hell selects native special attack
+PASS wave transition preserves one companion
+PASS two isolated waves reach victory
+PASS victory leaves no effects
+PASS victory return cleans up battle companion
+PASS projectile exists before death interruption
+PASS actual player defeat starts ground Exit during attack
+PASS death interruption leaves no effects
+PASS ground Exit destroys companion
+PASS live skill spawn / damage / specials / waves / victory / defeat / cleanup; errors=0

@@ -25,6 +25,8 @@ public sealed class CursedBookIntro : MonoBehaviour
     public float ControlsProgress { get; private set; }
     public string animationName = "Open";
     public bool Finished { get; private set; }
+    public bool StartupSelected { get; private set; }
+    public bool SilentStartup { get; private set; }
     public bool SkippedStartup { get; private set; }
     public bool AnimationFinished { get; private set; }
     public bool HomeReady { get; private set; }
@@ -72,7 +74,11 @@ public sealed class CursedBookIntro : MonoBehaviour
     IEnumerator Start()
     {
         if (mapStory) { yield return PlayMapStory(); yield break; }
-        if (StorybookPreferences.SkipLoadingAnimation) { yield return EnterHomeDirectly(); yield break; }
+        // SaveManager.Start must load the seen flags before choosing the first-time path.
+        yield return null;
+        bool playPrologue = prologue && prologue.ShouldPlay();
+        SilentStartup = playPrologue && (prologue.silentPreview || prologue.HasVoicedTimeline); StartupSelected = true;
+        if (StorybookPreferences.SkipLoadingAnimation && !playPrologue) { yield return EnterHomeDirectly(); yield break; }
         Finished = AnimationFinished = HomeReady = false;
         group.alpha = 1; group.blocksRaycasts = true;
         homePage.color = new Color(1, 1, 1, 0);
@@ -90,7 +96,8 @@ public sealed class CursedBookIntro : MonoBehaviour
         }
         StartCoroutine(PreloadHome());
         book.Initialize(false);
-        var animation = book.IsValid ? book.Skeleton.Data.FindAnimation(animationName) : null;
+        string openingName = playPrologue ? "OpenFirstPage" : animationName;
+        var animation = book.IsValid ? book.Skeleton.Data.FindAnimation(openingName) : null;
         if (animation == null)
         {
             Debug.LogError("Cursed book intro: missing Spine Open animation.", this);
@@ -105,8 +112,12 @@ public sealed class CursedBookIntro : MonoBehaviour
         var track = book.AnimationState.GetCurrent(0);
         if (track == null || track.Animation != animation) {
             book.AnimationState.ClearTracks();
-            track = book.AnimationState.SetAnimation(0, animationName, false);
+            track = book.AnimationState.SetAnimation(0, openingName, false);
         }
+        if(playPrologue && prologue.HasVoicedTimeline){
+            while(!HomeReady)yield return null;
+            SetLabels(0);yield return prologue.Play();AnimationFinished=true;
+        }else{
         Elapsed = 0;
         while (Elapsed < animation.Duration)
         {
@@ -129,6 +140,7 @@ public sealed class CursedBookIntro : MonoBehaviour
         if (prologue && prologue.ShouldPlay()) {
             // Read at the opened-book distance; enter the scene only after the home ink reveal.
             yield return prologue.Play();
+        }
         }
         float time = 0;
         float revealAndHold = revealDuration + revealedHoldDuration;
@@ -178,6 +190,19 @@ public sealed class CursedBookIntro : MonoBehaviour
         Complete();
     }
 
+    public void SampleNarrativeOpening(float progress, float cameraProgress)
+    {
+        var track=book.AnimationState.GetCurrent(0);
+        if(track==null || track.Animation.Name!="OpenFirstPage"){
+            book.AnimationState.ClearTracks();track=book.AnimationState.SetAnimation(0,"OpenFirstPage",false);track.MixDuration=0;
+        }
+        // The authored first second is a closed-cover hold; the timeline owns that pause now.
+        track.TrackTime=progress<=0 ? 0 : Mathf.Lerp(1,track.Animation.Duration,Mathf.Clamp01(progress));book.Update(0);
+        Elapsed=track.TrackTime;PushProgress=0;
+        ApplyCamera(Mathf.Lerp(1,HoldZoom(),Mathf.SmoothStep(0,1,cameraProgress)));
+        SetLabels(0);
+    }
+
     IEnumerator EnterHomeDirectly()
     {
         SkippedStartup=true;
@@ -218,6 +243,7 @@ public sealed class CursedBookIntro : MonoBehaviour
         var open=book.AnimationState.SetAnimation(0,animationName,false);
         open.TrackTime=open.Animation.Duration;book.Update(0);ApplyCamera(HoldZoom());
         prologue.pages=mapStory.pages;
+        if(mapStory.completionKey != CursedBookPrologue.SeenKey)prologue.silentPreview=false;
         yield return prologue.Play(false,mapStory.completionKey);
         // Replays never preload/reveal the home UI or invoke legacy intro completion.
         Finished=true;group.blocksRaycasts=false;

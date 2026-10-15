@@ -1,0 +1,5 @@
+Attack3 随机扇形弹道
+保留五颗火球、原动画和一次命中伤害。固定同一个口部起点；各弹共享实时目标落点。
+每轮采样独立的有界轨迹偏移及飞行进度指数，沿端点偏移为零的二次曲线散开并汇聚。朝向跟随曲线切线。使用独立 System.Random，不消耗战斗 Unity 随机序列。
+Inspector barrageSpread 默认 0.18，预览同步复制此配置。
+实景截图位于本地 output/pet-ground-dust-v2/；慢放 output/pet-barrage-v1/Attack3-slow.gif（170ms/采样帧）。

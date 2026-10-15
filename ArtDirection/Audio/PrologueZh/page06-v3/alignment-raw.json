@@ -1,0 +1,227 @@
+{
+  "text": "[softly] [low voice] [steady delivery] 离开村庄后，她跑了起来。\n[gradually quicker] [restrained] 树枝扯住斗篷，荆棘划过小腿，她都没有停下。\n[slowing down] 直到身后的人声渐渐远去，[short pause] 耳边只剩下自己的喘息。\n[pause] [quiet unease] [measured pace] 前面，是更深的森林，她隐约听到了狼的嚎叫，[short pause] 危险的感觉席卷了全身。\n[pause] [low voice] 黑暗里，还有什么在等着她。\n[pause] [restrained tension] 她猛地停住脚步，攥紧了斗篷，[pause] [softly] 然后，[short pause] [slowing down] 继续往黑暗里走去。",
+  "words": [
+    {
+      "text": "[softly]",
+      "type": "word",
+      "start": 0,
+      "end": 0.067
+    },
+    {
+      "text": "[low",
+      "type": "word",
+      "start": 0.08,
+      "end": 0.107
+    },
+    {
+      "text": "voice]",
+      "type": "word",
+      "start": 0.12,
+      "end": 0.147
+    },
+    {
+      "text": "[steady",
+      "type": "word",
+      "start": 0.16,
+      "end": 0.187
+    },
+    {
+      "text": "delivery]",
+      "type": "word",
+      "start": 0.2,
+      "end": 0.227
+    },
+    {
+      "text": "离开村庄后，她跑了起来。",
+      "type": "word",
+      "start": 0.24,
+      "end": 2.64
+    },
+    {
+      "text": "[gradually",
+      "type": "word",
+      "start": 2.96,
+      "end": 2.997
+    },
+    {
+      "text": "quicker]",
+      "type": "word",
+      "start": 3.009,
+      "end": 3.046
+    },
+    {
+      "text": "[restrained]",
+      "type": "word",
+      "start": 3.058,
+      "end": 3.108
+    },
+    {
+      "text": "树枝扯住斗篷，荆棘划过小腿，她都没有停下。",
+      "type": "word",
+      "start": 3.12,
+      "end": 7.28
+    },
+    {
+      "text": "[slowing",
+      "type": "word",
+      "start": 7.6,
+      "end": 7.634
+    },
+    {
+      "text": "down]",
+      "type": "word",
+      "start": 7.646,
+      "end": 7.669
+    },
+    {
+      "text": "直到身后的人声渐渐远去，[short",
+      "type": "word",
+      "start": 7.68,
+      "end": 10.48
+    },
+    {
+      "text": "pause]",
+      "type": "word",
+      "start": 10.52,
+      "end": 10.8
+    },
+    {
+      "text": "耳边只剩下自己的喘息。",
+      "type": "word",
+      "start": 11.04,
+      "end": 13.12
+    },
+    {
+      "text": "[pause]",
+      "type": "word",
+      "start": 13.6,
+      "end": 13.615
+    },
+    {
+      "text": "[quiet",
+      "type": "word",
+      "start": 13.62,
+      "end": 13.63
+    },
+    {
+      "text": "unease]",
+      "type": "word",
+      "start": 13.635,
+      "end": 13.65
+    },
+    {
+      "text": "[measured",
+      "type": "word",
+      "start": 13.655,
+      "end": 13.671
+    },
+    {
+      "text": "pace]",
+      "type": "word",
+      "start": 13.676,
+      "end": 13.948
+    },
+    {
+      "text": "前面，是更深的森林，她隐约听到了狼的嚎叫，[short",
+      "type": "word",
+      "start": 14.214,
+      "end": 18.241
+    },
+    {
+      "text": "pause]",
+      "type": "word",
+      "start": 18.481,
+      "end": 18.761
+    },
+    {
+      "text": "危险的感觉席卷了全身。",
+      "type": "word",
+      "start": 18.801,
+      "end": 21.161
+    },
+    {
+      "text": "[pause]",
+      "type": "word",
+      "start": 21.601,
+      "end": 21.649
+    },
+    {
+      "text": "[low",
+      "type": "word",
+      "start": 21.665,
+      "end": 21.697
+    },
+    {
+      "text": "voice]",
+      "type": "word",
+      "start": 21.713,
+      "end": 21.745
+    },
+    {
+      "text": "黑暗里，还有什么在等着她。",
+      "type": "word",
+      "start": 21.761,
+      "end": 24.401
+    },
+    {
+      "text": "[pause]",
+      "type": "word",
+      "start": 24.881,
+      "end": 24.921
+    },
+    {
+      "text": "[restrained",
+      "type": "word",
+      "start": 24.934,
+      "end": 24.974
+    },
+    {
+      "text": "tension]",
+      "type": "word",
+      "start": 24.988,
+      "end": 25.028
+    },
+    {
+      "text": "她猛地停住脚步，攥紧了斗篷，[pause]",
+      "type": "word",
+      "start": 25.041,
+      "end": 28.241
+    },
+    {
+      "text": "[softly]",
+      "type": "word",
+      "start": 28.401,
+      "end": 28.668
+    },
+    {
+      "text": "然后，[short",
+      "type": "word",
+      "start": 28.774,
+      "end": 29.041
+    },
+    {
+      "text": "pause]",
+      "type": "word",
+      "start": 29.241,
+      "end": 29.452
+    },
+    {
+      "text": "[slowing",
+      "type": "word",
+      "start": 29.464,
+      "end": 29.498
+    },
+    {
+      "text": "down]",
+      "type": "word",
+      "start": 29.51,
+      "end": 29.681
+    },
+    {
+      "text": "继续往黑暗里走去。",
+      "type": "word",
+      "start": 29.841,
+      "end": 31.281
+    }
+  ]
+}

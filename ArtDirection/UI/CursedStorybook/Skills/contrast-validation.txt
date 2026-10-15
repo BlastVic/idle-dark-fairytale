@@ -1,0 +1,22 @@
+技能详情可读性修正：正文、当前效果、目标效果、满级说明使用深墨色与 Bold 字重；当前与目标数值统一 #8F2018 暗红。修改持久化 Prefab 和显式制作工具，不重建布局。
+三比例实际 Unity 截图位于本地 output/skill-contrast。
+PASS Upgrade 9 to 10 preserves effect and disables purchase
+PASS Max regen value visible (1080, 1920)
+PASS Max regen value visible (768, 1024)
+PASS Max regen value visible (720, 1440)
+PASS Max effect labels Regen
+PASS Max effect labels Path_Cleaner
+PASS Max effect labels Sinister_Stampede
+PASS Max effect labels Angel_On_My_Shoulder
+PASS Max effect labels Devil_On_My_Shoulder
+PASS Max effect labels Ressurrection
+PASS Max effect labels Lucky_Bastard
+PASS Max effect labels Last_But_Not_Least
+PASS Max effect labels Tairon_The_Dragon
+PASS Max effect labels Twice_The_Fun
+PASS Max effect labels Lightning_Demi_God
+PASS Max effect labels Boss_Killer
+PASS Max effect labels My_Lucky_Stars
+PASS Max effect labels Battlefield_Tactician
+PASS Max effect labels Breath_Of_Hell
+DONE

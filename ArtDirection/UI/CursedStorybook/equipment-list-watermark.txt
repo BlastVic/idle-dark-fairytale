@@ -1,0 +1,116 @@
+装备列表详细模式：保留精简模式装备图的尺寸与位置，图层位于属性文字下；不透明度35%，可在EquipmentCell Prefab调整。属性区上移至品质标记下方，不再为缩小图标预留独立上半区；精简模式恢复100%不透明度。
+Unity实景检查9:16、3:4、1:2，五属性卡片完整显示，模式切换恢复正常。截图仅存本地output/equipment-watermark。
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Detailed artwork retains normal pose
+PASS Translucent artwork behind stats
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+PASS Compact mode restores opacity
+DONE
+
+2026-10-15 用户要求提高装备辨识度：
+详细列表装备不透明度从 35% 提高为 70%。
+比较面板装备不透明度从 65% 提高为 85%，其上纸色遮罩从 45% 降为 20%。
+布局、原装备贴图与文本保持不变。本次实景截图验证等待 Unity 开场演出验证结束，尚未完成，不引用旧截图作为本次结果。

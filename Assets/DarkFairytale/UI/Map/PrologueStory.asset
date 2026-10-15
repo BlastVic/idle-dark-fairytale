@@ -16,122 +16,129 @@ MonoBehaviour:
   displayName: "\u5E8F\u7AE0 \xB7 \u9003\u79BB\u796D\u7940"
   completionKey: Story-Prologue-Read-v1
   pages:
-  - title: 01-awakening.png
+  - title: "\u5728\u68EE\u6797\u4E2D\u9192\u6765"
     illustration: {fileID: 2800000, guid: 254575e3f81c043ed90764b99fd70e61, type: 3}
     focalPoint: {x: 0.5, y: 0.5}
     narrationAndAmbience: {fileID: 8300000, guid: 3330bbed9336243e9afb6d11edf45118, type: 3}
     captions:
-    - start: 0
-      end: 4.41
-      text: 'She woke beneath the trees,
-
-        with cold earth beneath her hands.'
-    - start: 5.27
-      end: 6.97
-      text: She could not remember her name.
-    - start: 7.59
-      end: 9.51
-      text: Or how she had come to this place.
-  - title: 02-distant-fire.png
+    - start: 0.3
+      end: 4.63
+      text: "\u5979\u9192\u6765\u65F6\uFF0C\u8EAB\u4E0B\u7684\u6CE5\u571F\u53C8\u6E7F\u53C8\u51B7\u3002"
+    - start: 4.98
+      end: 9.09
+      text: "\u5979\u4E0D\u8BB0\u5F97\u81EA\u5DF1\u4E3A\u4EC0\u4E48\u4F1A\u5728\u8FD9\u91CC\u3002"
+    - start: 9.44
+      end: 13.55
+      text: "\u4E5F\u4E0D\u8BB0\u5F97\uFF0C\u81EA\u5DF1\u539F\u672C\u8981\u53BB\u54EA\u91CC\u3002"
+    - start: 13.9
+      end: 18.68
+      text: "\u5979\u6525\u7D27\u8EAB\u4E0A\u7684\u7EA2\u6597\u7BF7\uFF0C\u6162\u6162\u7AD9\u4E86\u8D77\u6765\u3002"
+    - start: 19.03
+      end: 22.92
+      text: "\u6811\u6797\u6DF1\u5904\uFF0C\u4F3C\u4E4E\u6709\u4EBA\u5728\u8BF4\u8BDD\u3002"
+    silentDuration: 23.77
+  - title: "\u8FDC\u89C2\u6751\u5E84\u706B\u5149"
     illustration: {fileID: 2800000, guid: f9970e0dcc00e42f5871833fe755b6b9, type: 3}
     focalPoint: {x: 0.5, y: 0.5}
     narrationAndAmbience: {fileID: 8300000, guid: bc1142d5ee07745b1baa1ff171b6844a, type: 3}
     captions:
-    - start: 0.44
-      end: 3.49
-      text: 'Beyond the branches,
-
-        a village glowed in the dark.'
-    - start: 4.25
-      end: 7.06
-      text: Firelight. Rooftops. People.
-    - start: 7.87
-      end: 9.37
-      text: Perhaps someone there could help.
-  - title: 03-near-ritual-v2.png
+    - start: 0.3
+      end: 4.86
+      text: "\u987A\u7740\u58F0\u97F3\uFF0C\u5979\u770B\u89C1\u4E86\u6811\u5F71\u95F4\u7684\u706F\u706B\u3002"
+    - start: 5.21
+      end: 11.77
+      text: "\u90A3\u91CC\u6709\u4E00\u5EA7\u6751\u5E84\u3002\u5C4B\u820D\u56F4\u7740\u5E7F\u573A\uFF0C\n\u5E7F\u573A\u4E2D\u592E\u71C3\u7740\u4E00\u5806\u706B\u3002"
+    - start: 12.12
+      end: 15.22
+      text: "\u6709\u4EBA\uFF0C\u5C31\u80FD\u95EE\u8DEF\u3002"
+    - start: 15.57
+      end: 19.68
+      text: "\u60F3\u5230\u8FD9\u91CC\uFF0C\u5979\u671D\u90A3\u7247\u706B\u5149\u8D70\u53BB\u3002"
+    silentDuration: 20.53
+  - title: "\u9760\u8FD1\u796D\u7940"
     illustration: {fileID: 2800000, guid: 577b179450fb84ce6940f7ce3197899c, type: 3}
     focalPoint: {x: 0.5, y: 0.5}
     narrationAndAmbience: {fileID: 8300000, guid: 2c4e6fd91b44246849e056448ca9d5d9, type: 3}
     captions:
-    - start: 0.39
-      end: 1.49
-      text: She crept closer.
-    - start: 2.35
-      end: 5.34
-      text: 'The villagers stood in a circle
-
-        around a wooden post.'
-    - start: 5.95
-      end: 7.09
-      text: Their heads were bowed.
-    - start: 7.7
-      end: 10.05
-      text: Their voices rose and fell together.
-    - start: 10.86
-      end: 12.76
-      text: No one moved to put out the fire.
-  - title: 04-ritual-overhead-v3.png
+    - start: 0.3
+      end: 3.97
+      text: "\u53EF\u8D70\u8FD1\u4EE5\u540E\uFF0C\u5979\u6162\u4E86\u4E0B\u6765\u3002"
+    - start: 4.32
+      end: 9.99
+      text: "\u6751\u6C11\u4EEC\u56F4\u5728\u706B\u5806\u65C1\uFF0C\n\u5634\u91CC\u5462\u5583\u7740\u542B\u7CCA\u4E0D\u6E05\u7684\u8BDD\u3002"
+    - start: 10.34
+      end: 17.56
+      text: "\u5979\u542C\u4E0D\u6E05\u4ED6\u4EEC\u5728\u8BF4\u4EC0\u4E48\uFF0C\n\u53EA\u89C9\u5F97\u90A3\u4E9B\u58F0\u97F3\u8D8A\u6765\u8D8A\u6025\uFF0C\u8D8A\u6765\u8D8A\u54CD\u3002"
+    - start: 17.91
+      end: 23.8
+      text: "\u6D53\u70DF\u7FFB\u6D8C\uFF0C\u706B\u5806\u4E0A\u65B9\uFF0C\n\u9690\u7EA6\u9732\u51FA\u4E86\u4E00\u4E2A\u4EBA\u7684\u8F6E\u5ED3\u3002"
+    silentDuration: 24.65
+  - title: "\u796D\u7940\u5E7F\u573A"
     illustration: {fileID: 2800000, guid: df2032042ae684bc4aab4e296ff0abcd, type: 3}
     focalPoint: {x: 0.5, y: 0.5}
     narrationAndAmbience: {fileID: 8300000, guid: db651ba83137b4e3e935ef12181fe607, type: 3}
     captions:
-    - start: 0.33
-      end: 1.98
-      text: Then the flames shifted.
-    - start: 2.65
-      end: 4.65
-      text: There was a girl tied to the post.
-    - start: 5.2
-      end: 6.28
-      text: Her face was hidden.
-    - start: 6.96
-      end: 9.75
-      text: 'But above the smoke,
-
-        the stranger could see a hood...'
-    - start: 10.33
-      end: 11.44
-      text: red as her own.
-  - title: 05-fright-v5.png
+    - start: 0.3
+      end: 6.41
+      text: "\u90A3\u4E2A\u4EBA\u88AB\u7262\u7262\u7ED1\u5728\u6728\u67B6\u4E0A\uFF0C\n\u706B\u7130\u6B63\u6CBF\u7740\u8863\u6446\u5F80\u4E0A\u722C\u3002"
+    - start: 6.76
+      end: 11.98
+      text: "\u6D53\u70DF\u6563\u5F00\u7684\u4E00\u77AC\u95F4\uFF0C\u5973\u5B69\u77A5\u89C1\u4E86\u90A3\u8EAB\u88C5\u675F\u3002"
+    - start: 12.33
+      end: 17.11
+      text: "\u4F3C\u4E4E\u6709\u4E9B\u719F\u6089\uFF0C\u5374\u8F6C\u773C\u53C8\u88AB\u70DF\u706B\u906E\u4F4F\u3002"
+    - start: 17.46
+      end: 22.24
+      text: "\u6709\u4EBA\u8DEA\u62DC\uFF0C\u6709\u4EBA\u72C2\u7B11\uFF0C\u6709\u4EBA\u9AD8\u58F0\u5492\u9A82\u3002"
+    - start: 22.59
+      end: 26.26
+      text: "\u8FD9\u4E00\u6B21\uFF0C\u5979\u7EC8\u4E8E\u542C\u6E05\u4E86\u2014\u2014"
+    - start: 26.61
+      end: 30.05
+      text: "\u201C\u70E7\u6B7B\u9B54\u5973\uFF01\u732E\u7ED9\u795E\uFF01\u201D"
+    silentDuration: 30.9
+  - title: "\u8EB2\u5728\u6811\u540E"
     illustration: {fileID: 2800000, guid: f4fd969fc89264c0faaffc1f3cfbdec0, type: 3}
     focalPoint: {x: 0.5, y: 0.5}
     narrationAndAmbience: {fileID: 8300000, guid: 5b976c0f11be44b049f21dd45413a6ee, type: 3}
     captions:
-    - start: 0.46
-      end: 1.36
-      text: She stepped back.
-    - start: 1.91
-      end: 3.74
-      text: A twig snapped beneath her heel.
-    - start: 4.5
-      end: 7.47
-      text: 'At the edge of the circle,
-
-        a villager began to turn.'
-    - start: 8.12
-      end: 10.06
-      text: She did not wait to see his face.
-  - title: 06-escape-half-dark-preview.png
+    - start: 0.3
+      end: 4.19
+      text: "\u5973\u5B69\u7F29\u56DE\u6811\u540E\uFF0C\u6B7B\u6B7B\u6342\u4F4F\u5634\u3002"
+    - start: 4.54
+      end: 9.54
+      text: "\u5979\u4E0D\u6562\u518D\u770B\uFF0C\u90A3\u4E00\u5E55\u5374\u600E\u4E48\u4E5F\u6325\u4E4B\u4E0D\u53BB\u3002"
+    - start: 9.89
+      end: 12.99
+      text: "\u8FD9\u4E9B\u6751\u6C11\uFF0C\u75AF\u4E86\u3002"
+    - start: 13.34
+      end: 17.9
+      text: "\u5979\u4F4E\u4E0B\u5934\uFF0C\u628A\u515C\u5E3D\u62C9\u5F97\u66F4\u7D27\u4E86\u4E00\u4E9B\u3002"
+    - start: 18.25
+      end: 23.47
+      text: "\u7136\u540E\uFF0C\u4E00\u6B65\u4E00\u6B65\uFF0C\u9000\u8FDB\u706B\u5149\u7167\u4E0D\u5230\u7684\u5730\u65B9\u3002"
+    silentDuration: 24.32
+  - title: "\u9003\u5411\u9ED1\u68EE\u6797"
     illustration: {fileID: 2800000, guid: 8c6e28a6b625e4b159084cc269659ec4, type: 3}
     focalPoint: {x: 0.5, y: 0.5}
     narrationAndAmbience: {fileID: 8300000, guid: bb7209ae494ab49d39481e26183969f4, type: 3}
     captions:
-    - start: 0.08
-      end: 0.82
-      text: She ran.
-    - start: 1.34
-      end: 4.5
-      text: 'Past the last pale fence.
-
-        Through the thorns.'
-    - start: 4.84
-      end: 6.34
-      text: Into the black forest.
-    - start: 6.97
-      end: 8.94
-      text: Behind her, the voices faded.
-    - start: 9.47
-      end: 13
-      text: 'She kept running, until she could
-
-        hear only her own breath.'
+    - start: 0.3
+      end: 3.97
+      text: "\u79BB\u5F00\u6751\u5E84\u540E\uFF0C\u5979\u8DD1\u4E86\u8D77\u6765\u3002"
+    - start: 4.32
+      end: 9.99
+      text: "\u6811\u679D\u626F\u4F4F\u6597\u7BF7\uFF0C\u8346\u68D8\u5212\u8FC7\u5C0F\u817F\uFF0C\u5979\u90FD\u6CA1\u6709\u505C\u4E0B\u3002"
+    - start: 10.34
+      end: 16.45
+      text: "\u76F4\u5230\u8EAB\u540E\u7684\u4EBA\u58F0\u6E10\u6E10\u8FDC\u53BB\uFF0C\n\u8033\u8FB9\u53EA\u5269\u4E0B\u81EA\u5DF1\u7684\u5598\u606F\u3002"
+    - start: 16.8
+      end: 20.02
+      text: "\u524D\u9762\uFF0C\u662F\u66F4\u6DF1\u7684\u68EE\u6797\u3002"
+    - start: 20.37
+      end: 24.26
+      text: "\u5979\u505C\u4E86\u4E00\u4F1A\u513F\uFF0C\u56DE\u5934\u671B\u4E86\u671B\u3002"
+    - start: 24.61
+      end: 28.05
+      text: "\u7136\u540E\uFF0C\u7EE7\u7EED\u5F80\u9ED1\u6697\u91CC\u8D70\u3002"
+    silentDuration: 28.9

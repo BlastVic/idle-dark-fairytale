@@ -60,7 +60,7 @@ public sealed class StorybookFusionUI : MonoBehaviour
         readySeal.SetActive(ready && valid); costCrystal.SetActive(!ready && valid);
         cost.text = !valid ? "已完成当前融合成长" : ready ? "进度已满 · 可以提升" : "补满消耗 <color=#194E73>" + Cost + "</color> 水晶";
         actionCaption.text = Busy ? "融合中…" : !valid ? "已达上限" : ready ? "提升融合等级" : "注入水晶";
-        hint.text = Busy ? "水晶正在融入遗迹…" : !valid ? "返回庇护所继续探索" : ready ? "提升后领取本次奖励" : gm.crystals < Cost ? "水晶不足，还需 " + Mathf.CeilToInt(Cost-gm.crystals) + " 水晶" : "消耗水晶，补满融合进度";
+        if (hint) hint.text = Busy ? "水晶正在融入遗迹…" : !valid ? "返回庇护所继续探索" : ready ? "提升后领取本次奖励" : gm.crystals < Cost ? "水晶不足，还需 " + Mathf.CeilToInt(Cost-gm.crystals) + " 水晶" : "消耗水晶，补满融合进度";
         action.interactable = !Busy && !Leaving && valid && (ready || gm.crystals >= Cost);
         back.interactable = returnToShelter.interactable = !Busy && !Leaving;
         ruin.sprite = ready ? chargedRuin : dormantRuin;
@@ -149,7 +149,7 @@ public sealed class StorybookFusionUI : MonoBehaviour
         GameManager.single.FusionLevelUpEvent();
         GameplayCanvas.single.RefreshFusion();
         SaveManager.Instance.Save();
-        hint.text = "已提升至融合 Lv." + GameManager.single.fusionLevel;
+        if (hint) hint.text = "已提升至融合 Lv." + GameManager.single.fusionLevel;
         actionCaption.text = "提升完成";
         yield return new WaitForSecondsRealtime(.6f);
         Busy = false;

@@ -1,0 +1,37 @@
+通用战斗特效重绘 / 2026-10-15
+
+依据：故事和剧本聊天；Docs/Production/StoryBaseline.md；现有黑森林战斗场景及 B3 诅咒童话 UI。
+视觉：手绘墨痕、暗红蜡封、旧纸骨白、黑荆棘、灰绿草叶、冷白裂隙。异常保持克制，不添加邪神眼球等剧情揭示符号。
+
+7 张 RGBA 原始贴图：Assets/DarkFairytale/Effects/Common/Textures/
+Hit：暗红墨迹与三道骨白斩痕。
+Shield：破损护盾与荆棘环。
+AOE：横向荆棘裂环。
+Heal：灰绿药草与骨白芽。
+Res：残破纸质蛾翼。
+Lightning：冷白、蓝灰分叉裂隙。
+Absorb：暗红蜡封与荆棘结。
+内置 image_gen 制作；完整提示词见同目录 prompts.txt。无 Python 重绘或透明背景抠图。PNG 保留原始 alpha；Unity 以最大 1024 无压缩导入。
+
+正式接线：保留 7 个原 Addressables Prefab 的路径和 GUID、ParticleDb 资源键。仅更换独立材质/贴图及配套粒子表现参数；旧 Assets/Grfx/Particles 的共用材质和图片未修改。新材质使用 CursedParticle.shader 的标准 alpha 混合，保留纸纹和暗色，不使用旧式加法过曝。
+
+配套调整：关闭旧分帧采样以适配新单张贴图；统一颜色为贴图原色；调整尺寸、局部偏移、运动范围、缩放和淡出；治疗/吸收保留上浮粒子形式；命中/格挡/范围攻击为短促脉冲，复活为展开式缩放淡出。粒子是可编辑的持久化 Prefab。游戏技能触发代码、概率、数值与调用位置未改。本次不是保留旧粒子逐帧轨迹的换色方案。
+
+测试场景：Assets/Tests/SpineEffects/SpineEffectsTest.unity
+沿用原 5 个书脊龙特效并追加 7 个通用粒子，共 12 个。
+选择、重播、暂停/继续、1/30 步进、循环、时间轴、尺寸、速度和背景切换均支持两类资源。
+通用粒子使用固定随机种子从零采样，暂停及拖动不积累状态；关闭预览实例的销毁计时器，不修改正式 Prefab 销毁机制。
+测试尺寸用于观察，不代表正式战斗尺寸。Bounds 按整个播放过程中的可见粒子位置与尺寸测量，不使用保守的 Renderer AABB。
+UGUI 均保存在 SpineEffectsTestRig.prefab，使用居中 720 宽核心与安全区适配。所有编辑器更新只响应显式菜单/请求，不自动覆盖手工修改。
+
+验证入口：
+Tools > Dark Fairytale > Effects > Open Test Scene
+Tools > Dark Fairytale > Effects > Apply Cursed Common Textures (Explicit) 为重绘接线工具；会显式重设上述粒子参数，不应用于保留后续手工参数调整的日常预览。
+output/spine-effects-test/command.request 写 validate：12 项交互和三比例验证。
+output/common-effects/battle.request：正式 Gameplay + Addressables 的 7 项 x 3 比例实际渲染。该验证屏蔽存档写入，按原调用位置显式生成效果，不代表技能概率覆盖测试。
+所有游戏截图仅在忽略目录 output/ 中。
+
+实景修正：格挡和雷电通过 Renderer pivot 校正画面位置；AOE 清除旧贴图 pivot，荆棘环回到地面。仅改变 Prefab 绘制位置，不改战斗调用锚点。测试背景更新为 Chapter01Environments 的第一节点正式背景。
+层级：CursedBattleParticleLayer 仅在运行时绑定绘制层，跟随对应角色（治疗/护盾/复活使用玩家；攻击类取最近敌人）的 sorting layer/order，并使用轻微 sorting fudge 前置；目标自身血条保持高一层。独立测试没有角色时使用 Prefab 默认层级。该组件不修改伤害或触发逻辑。
+
+验收：12 项特效预览交互与 9:16 / 3:4 / 1:2 布局通过；7 项正式 Addressables 特效 x 3 比例通过，零运行错误。见 preview-validation.txt 和 battle-validation.txt。实景截图位于 output/spine-effects-test 和 output/common-effects。

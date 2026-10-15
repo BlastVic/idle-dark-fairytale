@@ -148,6 +148,21 @@ animation={'bones':{'book':{
 data={'skeleton':{'hash':'cursed-book-open-v3','spine':'3.8.99','width':1000,'height':720,'images':'./images/'},'bones':bones,'slots':slots,
       'skins':[{'name':'default','attachments':attachments}],
       'events':{'book_opened':{}},'animations':{'Open':animation}}
+# First-time story opens its cover directly onto the first readable leaf.
+import copy
+first=copy.deepcopy(animation)
+first.pop('events',None)
+for name,timeline in first['slots'].items():
+    if name.startswith('turning_page_'):
+        timeline['color']=[{'time':0,'color':'ffffff00'},{'time':1.85,'color':'ffffff00'},{'time':2.3,'color':'dfdcd4ff'}]
+for name,timeline in first['deform']['default'].items():
+    if name.startswith('turning_page_'):
+        for attachment,keys in timeline.items():
+            timeline[attachment]=[dict(keys[-1],time=0)]
+for timeline in first['bones'].values():
+    for keys in timeline.values():
+        for key in keys:key['time']=min(key.get('time',0),2.65)
+data['animations']['OpenFirstPage']=first
 text=json.dumps(data,separators=(',',':'))
 (HERE/'CursedBook.json').write_text(text)
 (OUT/'CursedBook.json').write_text(text)

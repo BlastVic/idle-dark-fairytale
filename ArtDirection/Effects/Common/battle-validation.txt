@@ -1,0 +1,60 @@
+Common FX live Gameplay; no save writes. Explicit VFX invocation, not skill-probability testing.
+PASS Addressables Hit_Particle
+PASS new texture/material Hit_Particle
+PASS new texture/material Hit_Particle
+PASS Addressables Shield_Particle
+PASS new texture/material Shield_Particle
+PASS new texture/material Shield_Particle
+PASS Addressables AOE_Particle
+PASS new texture/material AOE_Particle
+PASS new texture/material AOE_Particle
+PASS new texture/material AOE_Particle
+PASS Addressables Heal_Particle
+PASS new texture/material Heal_Particle
+PASS Addressables Res_Particle
+PASS new texture/material Res_Particle
+PASS new texture/material Res_Particle
+PASS Addressables Lightning_Particle
+PASS new texture/material Lightning_Particle
+PASS Addressables Absorb_Particle
+PASS new texture/material Absorb_Particle
+PASS Addressables Hit_Particle
+PASS new texture/material Hit_Particle
+PASS new texture/material Hit_Particle
+PASS Addressables Shield_Particle
+PASS new texture/material Shield_Particle
+PASS new texture/material Shield_Particle
+PASS Addressables AOE_Particle
+PASS new texture/material AOE_Particle
+PASS new texture/material AOE_Particle
+PASS new texture/material AOE_Particle
+PASS Addressables Heal_Particle
+PASS new texture/material Heal_Particle
+PASS Addressables Res_Particle
+PASS new texture/material Res_Particle
+PASS new texture/material Res_Particle
+PASS Addressables Lightning_Particle
+PASS new texture/material Lightning_Particle
+PASS Addressables Absorb_Particle
+PASS new texture/material Absorb_Particle
+PASS Addressables Hit_Particle
+PASS new texture/material Hit_Particle
+PASS new texture/material Hit_Particle
+PASS Addressables Shield_Particle
+PASS new texture/material Shield_Particle
+PASS new texture/material Shield_Particle
+PASS Addressables AOE_Particle
+PASS new texture/material AOE_Particle
+PASS new texture/material AOE_Particle
+PASS new texture/material AOE_Particle
+PASS Addressables Heal_Particle
+PASS new texture/material Heal_Particle
+PASS Addressables Res_Particle
+PASS new texture/material Res_Particle
+PASS new texture/material Res_Particle
+PASS Addressables Lightning_Particle
+PASS new texture/material Lightning_Particle
+PASS Addressables Absorb_Particle
+PASS new texture/material Absorb_Particle
+PASS zero runtime errors
+COMPLETE: 7 effects x 3 aspect ratios, production Addressables and original trigger positions.

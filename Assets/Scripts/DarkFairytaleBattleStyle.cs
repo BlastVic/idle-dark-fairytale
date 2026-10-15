@@ -17,8 +17,8 @@ public class DarkFairytaleBattleStyle : ScriptableObject
     public Vector2 playerSize = new Vector2(.35f, .235f);
     [Tooltip("Viewport feet: front center (same depth as player), back left, back right. Shallow triangle, not a queue.")]
     public Vector2[] enemyFeet = {
-        new Vector2(.66f, .30f), new Vector2(.53f, .37f),
-        new Vector2(.82f, .38f), new Vector2(.50f, .48f)
+        new Vector2(.71f, .30f), new Vector2(.58f, .37f),
+        new Vector2(.87f, .38f), new Vector2(.55f, .48f)
     };
     public Vector2[] enemySize = {
         new Vector2(.27f, .19f), new Vector2(.25f, .18f),
@@ -81,7 +81,10 @@ public class DarkFairytaleBattleStyle : ScriptableObject
         var bounds = enemy.skeletonAnimation.GetComponent<MeshRenderer>().bounds;
         if (bar)
         {
-            bar.GetComponent<Canvas>().worldCamera = camera;
+            var barCanvas = bar.GetComponent<Canvas>();
+            var bodyRenderer = enemy.skeletonAnimation.GetComponent<MeshRenderer>();
+            barCanvas.worldCamera = camera;
+            bar.BindDepth(bodyRenderer);
             // Ground-level labels occupy each actor's own lane instead of crossing
             // the silhouette of a character standing farther back.
             bar.transform.position = boss ? new Vector3(bounds.center.x, bounds.max.y + .28f, 0)

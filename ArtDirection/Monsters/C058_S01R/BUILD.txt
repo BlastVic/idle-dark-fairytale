@@ -1,0 +1,27 @@
+MobBookSpineDragon · 旧书脊龙伙伴
+已选 C-character-v1.png，用户授权替换 Tairon The Dragon；没有对应吐息动作时沿用原生攻击。
+
+重建顺序（项目根目录）
+1. 使用含 Pillow 的 Python 运行 ArtDirection/Monsters/C058_S01R/build_rig.py。
+2. Unity 编译后，编辑模式执行 Tools/Dark Fairytale/Companions/Build Book Spine Dragon。
+3. 显式请求 output/monster-animation/MobBookSpineDragon/command.request，写入 bind，将 General DB 的 PetDragon 指向独立 MobBookSpineDragon Prefab。
+构建不会覆盖已有 Prefab 的 Inspector 调整。原 Pet_Dragon.prefab 和原皮肤始终保留。
+可用命令：build、bind、validate、preview、combat、setup、play、stop。
+命令受理成功不代表验收完成，检查对应最终报告。
+
+源：source/original-rig/C058_S01R.spine、JSON、45原分件。
+原始转换格式：3.8-from-4.0-from-4.1-from-4.2.43；实际已由现有Spine Runtime加载验证，并非只改版本字符串。
+保留78骨骼、51插槽、原约束/网格/UV/权重/15原动画，新增linked skin 1与9别名。
+Idle1=Idle_Battle_00；CampIdle=Idle_Down_00；Attack1=Atk1_00；Attack2=Atk_E_00；Attack3=LinkSkill_00；Hit=Hit_00；Death1=Death_00；Exit=Run_Battle_00。
+攻击命中时间见selection.json，完整动作结束各有OnComplete；新伙伴实际用地面跑步退场，Exit循环由组件控制销毁。
+吐息技能继续选择Attack2/Attack3，自身原动作替代飞龙吐息；新伙伴使用已有ATTACK1声音。原技能等级、伤害系数与随机伤害逻辑保留。
+角色没有Enemy/Actor_Base/血条/掉落，不注册EnemyDb。
+
+美术：source/painted-0..4.png为内置image_gen绘制，painting-prompts.json记录提示词，模型型号未暴露。
+脚本按生成透明区域配准到原UV可见范围，以2倍原画布重采样，保留生成Alpha，不使用黑底覆盖。
+45分件打包4096直通Alpha图集，Spine材质StraightAlphaInput开启；原中性高光/阴影保留，腰部原红色发光层透明。
+源分件和可复现JSON导出齐备；尚无新皮肤原生.spine，只有原始.spine备份，原生新工程待补。
+
+测试：仅编辑器临时波次与临时属性，禁止存档。所有Unity截图在ignored output/下。
+独立静态验证输出unity-validation.txt；实际预览preview-validation.txt；技能实战combat-validation.txt。
+当前营地Prefab/场景不引用旧ToggleSleepingDragon组件，本次不新增营地伙伴UI功能。
