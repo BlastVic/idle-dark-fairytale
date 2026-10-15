@@ -23072,6 +23072,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e1096fb222a64d46afd4054dd71da4d6, type: 3}
   - {fileID: 8300000, guid: 50e48aebf65e40c48da925b0d7a5efb8, type: 3}
   - {fileID: 8300000, guid: 50e48aebf65e40c48da925b0d7a5efb8, type: 3}
+  forestShelterAmbience: {fileID: 8300000, guid: e6426666adcc4ca58e7139719fa95c2e, type: 3}
   originalBattleClip: 1
   backgroundMusicSource: {fileID: 616472910}
 --- !u!1 &625832183
@@ -24914,6 +24915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86ceca3dfb7a4a77a6239078d97969d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chapter01EndingPrefab: {fileID: 1235490630820550513, guid: 8cdfde985376d4effbb37d6a2df02fb8, type: 3}
   loadingChestFromCamp: 0
   defeatPresentationDelay: 2.7
   newChest:

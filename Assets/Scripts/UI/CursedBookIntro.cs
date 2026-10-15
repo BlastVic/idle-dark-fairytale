@@ -8,6 +8,10 @@ using UnityEngine.UI;
 public sealed class CursedBookIntro : MonoBehaviour
 {
     [System.NonSerialized] public StorySequence mapStory;
+    public StorySequence chapterEnding;
+    public const string ChapterEndingSeenKey = "Story-Chapter01-Ending-Read-v1";
+    AudioSource endingMusic;
+    bool endingMusicWasMuted, ownsEndingMute;
     public SkeletonGraphic book;
     public CanvasGroup group;
     public IntroScript completion;
@@ -73,6 +77,7 @@ public sealed class CursedBookIntro : MonoBehaviour
 
     IEnumerator Start()
     {
+        if (chapterEnding) { yield return PlayChapterEnding(); yield break; }
         if (mapStory) { yield return PlayMapStory(); yield break; }
         // SaveManager.Start must load the seen flags before choosing the first-time path.
         yield return null;
@@ -226,6 +231,115 @@ public sealed class CursedBookIntro : MonoBehaviour
         Complete();
     }
 
+    [System.NonSerialized] public bool returnToMapAfterEnding;
+
+    IEnumerator PlayChapterEnding()
+    {
+        if (!prologue || chapterEnding.pages == null || chapterEnding.pages.Length != 5) {
+            Debug.LogError("Chapter ending requires four illustrated pages and a final home narration.", this);
+            HomeReady = Finished = true; group.alpha = 0; group.blocksRaycasts = false; yield break;
+        }
+        var startupAudio = GetComponent<CursedBookIntroAudio>();
+        if (startupAudio) startupAudio.enabled = false;
+        endingMusic = IdleKnightHero.UI.MusicManager.Instance ? IdleKnightHero.UI.MusicManager.Instance.backgroundMusicSource : null;
+        if (endingMusic) { endingMusicWasMuted = endingMusic.mute; endingMusic.mute = true; ownsEndingMute = true; }
+        group.alpha = 1; group.blocksRaycasts = true;
+        status.text = version.text = ""; homePage.color = Color.clear;
+        // A dedicated saved prefab supplies four illustrated pages and one live-home narration.
+        yield return null;
+        GetComponent<CursedBookIntroLayout>().Apply(); Canvas.ForceUpdateCanvases();
+        FitPageAspect(); rigStartScale = cameraRig.localScale;
+        book.Initialize(false); book.AnimationState.ClearTracks();
+        var opened = book.AnimationState.SetAnimation(0, "OpenFirstPage", false);
+        opened.MixDuration = 0; opened.TrackTime = opened.Animation.Duration; book.Update(0);
+        ApplyCamera(HoldZoom()); AnimationFinished = true;
+        if (homePage.material && homePage.material.HasProperty("_Reveal")) {
+            revealMaterial = new Material(homePage.material); homePage.material = revealMaterial;
+            revealMaterial.SetFloat("_Reveal", 0); revealMaterial.SetFloat("_PaperEdge", 1);
+        }
+        yield return PreloadHome();
+        while (TransitionCanvas.single && TransitionCanvas.single.group.alpha > .01f) yield return null;
+        yield return new WaitForSecondsRealtime(.65f);
+        prologue.pages = new CursedBookPrologue.Page[4];
+        System.Array.Copy(chapterEnding.pages, prologue.pages, 4);
+        prologue.silentPreview = false; prologue.fullNarration = null;
+        yield return prologue.Play(true, null);
+        float homePaperBlend = revealMaterial ? revealMaterial.GetFloat("_PaperBlend") : 0;
+        float t = 0;
+        homePage.color = Color.white;
+        while (t < revealDuration) {
+            t = Mathf.Min(revealDuration, t + Mathf.Min(.05f, Time.unscaledDeltaTime));
+            RevealProgress = Mathf.SmoothStep(0, 1, t / revealDuration);
+            if (revealMaterial) revealMaterial.SetFloat("_Reveal", RevealProgress);
+            ApplyCamera(HoldZoom()); yield return null;
+        }
+        yield return new WaitForSecondsRealtime(.8f);
+        yield return prologue.ReadHomePage(chapterEnding.pages[4]);
+        yield return new WaitForSecondsRealtime(.4f);
+        if(returnToMapAfterEnding) {
+            RestoreHome();
+            GameplayCanvas.single.homeUI.gameObject.SetActive(false);
+            Finished=true;group.blocksRaycasts=false;
+            prologue.StopAmbience(); RestoreEndingMusic();yield break;
+        }
+        t = 0;
+        while (t < enterPageDuration) {
+            t = Mathf.Min(enterPageDuration, t + Mathf.Min(.05f, Time.unscaledDeltaTime));
+            PushProgress = Mathf.SmoothStep(0, 1, t / enterPageDuration);
+            if (prologue) prologue.SetAmbienceFade(1 - PushProgress);
+            if (revealMaterial) {
+                revealMaterial.SetFloat("_PaperEdge", 1 - Mathf.SmoothStep(0,1,Mathf.InverseLerp(.45f,.95f,PushProgress)));
+                // Paper tint, grain and translucency fade together, reaching the live home's colors.
+                revealMaterial.SetFloat("_PaperBlend", homePaperBlend * (1 - PushProgress));
+            }
+            ApplyCamera(Mathf.Lerp(HoldZoom(), TargetZoom(), PushProgress)); yield return null;
+        }
+        // Hand the identical background back to its live canvas before revealing controls.
+        // Navigation sizes itself from the real viewport, not the wider page render texture.
+        yield return new WaitForEndOfFrame();
+        RestoreHome(); controls.alpha = 0; group.alpha = 0;
+        if (homeRaycaster) homeRaycaster.enabled = false;
+        t = 0;
+        while (t < controlsRevealDuration) {
+            t = Mathf.Min(controlsRevealDuration, t + Mathf.Min(.05f,Time.unscaledDeltaTime));
+            ControlsProgress = Mathf.SmoothStep(0,1,t/controlsRevealDuration);
+            controls.alpha = controlsAlpha * ControlsProgress; yield return null;
+        }
+        yield return new WaitForEndOfFrame();
+        if (homeRaycaster) homeRaycaster.enabled = raycasterWasEnabled;
+        if (!GameManager.single.HasSeenThis(ChapterEndingSeenKey)) {
+            GameManager.single.thingsSeenPermanent.Add(ChapterEndingSeenKey);
+            Assets.Scripts.Services.SaveManager.Instance.Save();
+        }
+        Finished = true; group.alpha = 0; group.blocksRaycasts = false;
+        prologue.StopAmbience(); RestoreEndingMusic();
+    }
+    public void SkipStory()
+    {
+        if (Finished || !prologue) return;
+        StopAllCoroutines();
+        prologue.enabled = false; // Stops narration/foley and releases the moving illustration mesh.
+        if (!mapStory && !returnToMapAfterEnding && GameManager.single) {
+            string key = chapterEnding ? ChapterEndingSeenKey : CursedBookPrologue.SeenKey;
+            if (!GameManager.single.HasSeenThis(key)) {
+                GameManager.single.thingsSeenPermanent.Add(key);
+                Assets.Scripts.Services.SaveManager.Instance.Save();
+            }
+        }
+        if (mapStory || returnToMapAfterEnding) {
+            if (chapterEnding) { RestoreHome(); GameplayCanvas.single.homeUI.gameObject.SetActive(false); }
+            Finished = true; group.alpha = 0; group.blocksRaycasts = false; RestoreEndingMusic();
+        } else if (chapterEnding) {
+            RestoreHome(); Finished = true; group.alpha = 0; group.blocksRaycasts = false; RestoreEndingMusic();
+        } else Complete();
+    }
+
+    void RestoreEndingMusic()
+    {
+        if (ownsEndingMute && endingMusic) endingMusic.mute = endingMusicWasMuted;
+        ownsEndingMute = false;
+    }
+
     IEnumerator PlayMapStory()
     {
         var startupAudio=GetComponent<CursedBookIntroAudio>();if(startupAudio)startupAudio.enabled=false;
@@ -366,6 +480,7 @@ public sealed class CursedBookIntro : MonoBehaviour
     void OnDisable()
     {
         StopAllCoroutines();
+        RestoreEndingMusic();
         RestoreHome();
         if (homePage) homePage.texture = null;
         if (revealMaterial) { Destroy(revealMaterial); revealMaterial = null; }

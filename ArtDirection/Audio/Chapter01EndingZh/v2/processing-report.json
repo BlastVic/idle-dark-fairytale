@@ -1,0 +1,92 @@
+[
+  {
+    "page": 1,
+    "generation_id": "8KKc54VB03VoeGVaepiu",
+    "duration": 26.97,
+    "normalization": {
+      "input_i": "-32.55",
+      "input_tp": "-12.86",
+      "input_lra": "5.00",
+      "input_thresh": "-43.25",
+      "output_i": "-20.37",
+      "output_tp": "-3.00",
+      "output_lra": "5.10",
+      "output_thresh": "-31.12",
+      "normalization_type": "dynamic",
+      "target_offset": "0.37"
+    },
+    "source_sha256": "c5aaf07199f480060a82ba0d554ff3d05b2e4befe25b0c447fe67c2558c4c5df"
+  },
+  {
+    "page": 2,
+    "generation_id": "fLjcXtxuuVDnYbvue87m",
+    "duration": 24.81,
+    "normalization": {
+      "input_i": "-32.28",
+      "input_tp": "-12.67",
+      "input_lra": "7.10",
+      "input_thresh": "-43.08",
+      "output_i": "-19.74",
+      "output_tp": "-3.00",
+      "output_lra": "5.70",
+      "output_thresh": "-30.76",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.26"
+    },
+    "source_sha256": "9328495bf71dc3941b1746c950b1613cbe5deab89f916b85ca2061707fc4ed30"
+  },
+  {
+    "page": 3,
+    "generation_id": "zKdk5QsjUpVtBiIbZcWP",
+    "duration": 34.25,
+    "normalization": {
+      "input_i": "-32.89",
+      "input_tp": "-9.77",
+      "input_lra": "2.90",
+      "input_thresh": "-43.58",
+      "output_i": "-21.07",
+      "output_tp": "-3.00",
+      "output_lra": "3.40",
+      "output_thresh": "-32.13",
+      "normalization_type": "dynamic",
+      "target_offset": "1.07"
+    },
+    "source_sha256": "9d57a065c4dfd68dc4e976f380f828261088978a3d781a0478b9542a9b6fb71f"
+  },
+  {
+    "page": 4,
+    "generation_id": "ttJODWyfa4BzrIziz4Jp",
+    "duration": 36.33,
+    "normalization": {
+      "input_i": "-31.21",
+      "input_tp": "-9.93",
+      "input_lra": "6.90",
+      "input_thresh": "-42.05",
+      "output_i": "-20.25",
+      "output_tp": "-3.00",
+      "output_lra": "5.40",
+      "output_thresh": "-31.02",
+      "normalization_type": "dynamic",
+      "target_offset": "0.25"
+    },
+    "source_sha256": "44d8b46fae60fd21f80ce225d11cbebf0457bab9578627d736b92d4d438cfc9e"
+  },
+  {
+    "page": 5,
+    "generation_id": "G5TiC25G6fE6gI5cQYSO",
+    "duration": 30.81,
+    "normalization": {
+      "input_i": "-32.61",
+      "input_tp": "-12.99",
+      "input_lra": "4.30",
+      "input_thresh": "-43.25",
+      "output_i": "-19.53",
+      "output_tp": "-3.00",
+      "output_lra": "3.60",
+      "output_thresh": "-30.21",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.47"
+    },
+    "source_sha256": "49be7be5c9149216655f433fd21bb03495e28d8196ab614a4486f269842f9a33"
+  }
+]

@@ -1,0 +1,6 @@
+PASS: 44秒、44100Hz、立体声PCM16。
+PASS: 三处火声替换为用户完整2秒素材，7.4/23.8/38.2秒。
+PASS: 替换区间之外与旧版逐样本一致，包括循环首尾。
+PASS: 无削波。
+PASS: 原meta/GUID保留，Gameplay MusicManager.audioClips[0]继续绑定本资源，小屋走此轨且默认循环。
+本次未执行Unity运行时试听；旧runtime-validation.txt仅代表先前验证。

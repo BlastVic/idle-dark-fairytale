@@ -1,0 +1,97 @@
+[
+  {
+    "page": 1,
+    "generation_id": "bztKB7s5rat9JBy2mZNf",
+    "raw_duration": 25.36,
+    "delivered_duration": 26.51,
+    "source_sha256": "365067864f04ae5b828ce2b56ef443cb5979de0d8caab1aa14fe38112c32921d",
+    "normalization": {
+      "input_i": "-34.27",
+      "input_tp": "-13.56",
+      "input_lra": "4.90",
+      "input_thresh": "-44.74",
+      "output_i": "-21.08",
+      "output_tp": "-3.00",
+      "output_lra": "4.20",
+      "output_thresh": "-31.70",
+      "normalization_type": "dynamic",
+      "target_offset": "1.08"
+    }
+  },
+  {
+    "page": 2,
+    "generation_id": "jbMTrjhmBBmDsKd1yHRj",
+    "raw_duration": 22.72,
+    "delivered_duration": 23.87,
+    "source_sha256": "0db149dd6ae3f4b6bb92842f286c9b44e9c1319f3c52188a37267f1617153b45",
+    "normalization": {
+      "input_i": "-32.08",
+      "input_tp": "-11.61",
+      "input_lra": "6.40",
+      "input_thresh": "-42.73",
+      "output_i": "-19.74",
+      "output_tp": "-3.00",
+      "output_lra": "4.40",
+      "output_thresh": "-30.48",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.26"
+    }
+  },
+  {
+    "page": 3,
+    "generation_id": "IeaeOrgpAmSxCdwF1XPN",
+    "raw_duration": 33.28,
+    "delivered_duration": 34.43,
+    "source_sha256": "e3d29395bb9bc3c7f3c23992af86181e10e8d926e41e578d7f4a61f86ea831c0",
+    "normalization": {
+      "input_i": "-30.49",
+      "input_tp": "-10.05",
+      "input_lra": "4.70",
+      "input_thresh": "-41.13",
+      "output_i": "-20.00",
+      "output_tp": "-3.00",
+      "output_lra": "3.90",
+      "output_thresh": "-30.61",
+      "normalization_type": "dynamic",
+      "target_offset": "0.00"
+    }
+  },
+  {
+    "page": 4,
+    "generation_id": "xHlfbt3MXTz3t7ftcqG5",
+    "raw_duration": 35.44,
+    "delivered_duration": 36.59,
+    "source_sha256": "9a8975fd5d8cf9e727591390b92cd47a3f6bbea4d80605b97f1da36404866457",
+    "normalization": {
+      "input_i": "-31.47",
+      "input_tp": "-11.78",
+      "input_lra": "7.20",
+      "input_thresh": "-42.09",
+      "output_i": "-20.25",
+      "output_tp": "-3.00",
+      "output_lra": "6.40",
+      "output_thresh": "-30.90",
+      "normalization_type": "dynamic",
+      "target_offset": "0.25"
+    }
+  },
+  {
+    "page": 5,
+    "generation_id": "fsxeylTlB64LRoG3rqKS",
+    "raw_duration": 29.28,
+    "delivered_duration": 30.43,
+    "source_sha256": "4dea96595ca8d14ce55ad10cd4210f9a5b20afa662c636aa8a0ce8eddc4e5f32",
+    "normalization": {
+      "input_i": "-33.51",
+      "input_tp": "-12.24",
+      "input_lra": "4.20",
+      "input_thresh": "-44.07",
+      "output_i": "-19.56",
+      "output_tp": "-3.00",
+      "output_lra": "3.20",
+      "output_thresh": "-30.12",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.44"
+    }
+  }
+]

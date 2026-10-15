@@ -21,6 +21,13 @@ public class Router : MonoBehaviour
         }
     }
 
+    public CursedBookIntro chapter01EndingPrefab;
+    public CursedBookIntro ActiveChapterEnding { get; private set; }
+    public bool ShouldPlayChapterEnding() => chapter01EndingPrefab && GameManager.single.gameState == GameStateType.VICTORY &&
+        WaveManager.single.currentWaveset != null && WaveManager.single.currentWaveset.levelKey == "Mount Zion" &&
+        WaveManager.single.GetWaveseReachedByKey("Mount Zion") >= WaveManager.single.currentWaveset.waves.Length &&
+        !GameManager.single.HasSeenThis(CursedBookIntro.ChapterEndingSeenKey);
+
     GameManager gm;
     GameplayCanvas gc;
 
@@ -415,6 +422,7 @@ public class Router : MonoBehaviour
 
     public IEnumerator GoToCampFromBattle()
     {
+        bool playEnding = ShouldPlayChapterEnding();
         TransitionCanvas.single.ToBlack("GM goto campt");
         yield return new WaitForSeconds(.7f);
         gm.BattleCleanup();
@@ -432,8 +440,17 @@ public class Router : MonoBehaviour
 
         waitingForBattleCleanup = false;
 
-        TransitionCanvas.single.ToClear("Gm to camp");
         gm.SetGameState(GameStateType.CAMP);
+        if (playEnding) {
+            ActiveChapterEnding = Instantiate(chapter01EndingPrefab);
+            while (ActiveChapterEnding && !ActiveChapterEnding.HomeReady) yield return null;
+        }
+        TransitionCanvas.single.ToClear("Gm to camp");
+        if (ActiveChapterEnding) {
+            while (ActiveChapterEnding && !ActiveChapterEnding.Finished) yield return null;
+            if (ActiveChapterEnding) Destroy(ActiveChapterEnding.gameObject);
+            ActiveChapterEnding = null;
+        }
 
     }
 

@@ -21,7 +21,7 @@ public static class StoryMapNodeSetup
         string iconPath=root+"/Art/StoryBookCover.png";
         if(!File.Exists(iconPath))File.Copy("ArtDirection/Storybook/SpineSource/images/cover.png",iconPath);
         AssetDatabase.ImportAsset(iconPath,ImportAssetOptions.ForceSynchronousImport);
-        var importer=(TextureImporter)AssetImporter.GetAtPath(iconPath);importer.textureType=TextureImporterType.Sprite;importer.spriteImportMode=SpriteImportMode.Single;importer.alphaIsTransparency=true;importer.mipmapEnabled=true;importer.maxTextureSize=256;importer.textureCompression=TextureImporterCompression.Uncompressed;importer.filterMode=FilterMode.Trilinear;importer.SaveAndReimport();
+        var importer=(TextureImporter)AssetImporter.GetAtPath(iconPath);importer.textureType=TextureImporterType.Sprite;importer.spriteImportMode=SpriteImportMode.Single;importer.alphaIsTransparency=true;importer.mipmapEnabled=true;importer.maxTextureSize=2048;importer.textureCompression=TextureImporterCompression.Uncompressed;importer.filterMode=FilterMode.Bilinear;importer.SaveAndReimport();
         var icon=AssetDatabase.LoadAssetAtPath<Sprite>(iconPath);
         var player=AssetDatabase.LoadAssetAtPath<GameObject>(CursedBookIntroBuilder.Prefab).GetComponent<CursedBookIntro>();
         string storyPath=root+"/PrologueStory.asset";
@@ -58,10 +58,6 @@ public static class StoryMapNodeSetup
                 preview=Sprite.Create(texture,new Rect(0,Mathf.Clamp(texture.height*.58f-h*.5f,0,texture.height-h),texture.width,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect);preview.name="ProloguePreview";AssetDatabase.CreateAsset(preview,previewPath);
             }
             if(storyNode.preview==icon)storyNode.preview=preview;
-            if(!storyNode.seal.transform.Find("StoryMark")){
-                var mark=UnityEngine.Object.Instantiate(storyNode.label,storyNode.seal.transform);mark.name="StoryMark";mark.text="序";mark.fontSize=34;mark.color=new Color(.93f,.83f,.62f);mark.raycastTarget=false;
-                var rt=mark.rectTransform;rt.anchorMin=Vector2.zero;rt.anchorMax=Vector2.one;rt.offsetMin=rt.offsetMax=Vector2.zero;
-            }
             ui.battleDetailGlyph=ui.layout.detail.GetComponentsInChildren<Transform>(true).First(t=>t.name=="CrossedSwords").gameObject;
             if(!ui.storyDetailGlyph){
                 var glyph=UnityEngine.Object.Instantiate(ui.battleDetailGlyph,ui.battleDetailGlyph.transform.parent);glyph.name="StoryBookGlyph";

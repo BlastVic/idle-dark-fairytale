@@ -1,0 +1,44 @@
+斗篷一致性检查 — 2026-10-15
+范围：检索 ArtDirection/Storybook、Assets/DarkFairytale/UI/StorybookIntro 与 Shelter 图片；逐张检查现用序章7幅、第一章结尾最新5幅及庇护所角色/最新营地图。历史版本保留，不作为后续生产依据，未宣称逐张修复所有历史草稿。
+标准：自然垂落的背部后摆到臀部附近；坐姿到臀部/座面。肩部侧片可以短，不能把整件画成披肩。奔跑的上扬和透视不等于实际裁短。单张二维图不能验证真实厘米尺寸。
+
+逐幅结果：
+序章 OpeningSketch：胸像，无完整后摆，不可判定全长；无需更改。
+序章 Page01：坐姿，后摆位于臀部/树根座面附近，保留。
+序章 Page02：长飘带削短，修订 prologue-02-distant-village.png。
+序章 Page03：局部背影，后摆受画框遮挡；不能确证全长，无明显长拖尾，保留。
+序章 Page04：受祭者被烟火遮挡，长度不可判定；不能为验证服装而破坏悬疑，保留。
+序章 Page05：侧后摆至臀部附近，保留捂嘴动作。
+序章 Page06：后背布面偏短，补到上臀/裙腰，修订 prologue-06-escape.png。
+第一章 战后：原后摆偏短，补长至臀部，chapter01-01-after-battle.png。
+第一章 发现地图：移除下方过长红色布尾，再补足后腰，chapter01-02-discover-map.png。
+第一章 地图特写：斗篷仅入镜一角，全长不可判定，保留。
+第一章 清理：补足背部长度，chapter01-04-clearing-shelter.png。
+第一章 喝茶：后摆止于座面附近，保留最新武器不入镜版本。
+庇护所 RedHoodShortCape.png：坐姿后摆臀部附近，保留。
+营地 Character.png / BlackForestCamp-v5.png：蹲坐，后摆到臀部/树根座面附近，保留。
+
+产物：以上5幅新修订图，内置 image_gen 生成。保留历史图和游戏现用资源，不覆盖 Unity Assets；本次未进行游戏集成或 Unity 渲染验收。后续导入请按此清单采用新文件，避免再取旧稿。
+生成通用提示词：
+Precise localized garment-length correction ONLY. Same heroine wears one consistent short ragged red hooded cape: back fabric measured from shoulders to upper buttocks, hem just below waist belt over upper hips, not shoulder-only shawl and not thigh/knee-length. Side shoulder panels naturally shorter than center back. Preserve image composition, body pose, face, hands, hair, all props, background, exact lighting and current hand-drawn matte dark-fairytale illustration style. Do not repaint unrelated details or change scene. 
+
+chapter01-01-after-battle.png
+源图：/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Storybook/Chapter01Ending/Illustrations-unified-v2/01-after-battle.png
+Rear standing view: existing cloak hem stops at lower ribs/waist and is too short. EXTEND red cape back panel down over lower back to UPPER BUTTOCKS, covering belt and top third of leather skirt; end clearly ABOVE ivory lace skirt hem. Approximately add one hand-span below current center back hem. Natural gravity, short ragged uneven edge, no thigh-length train.
+
+chapter01-02-discover-map.png
+源图：/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Storybook/Chapter01Ending/Illustrations-unified-v2/02-discover-map.png
+Shoulder view leaning over drawer: REMOVE the long red fabric tail continuing below hip down toward bottom edge behind skirt. Cape is hood plus one short back panel ending at upper buttocks, near the upper hip pouch/belt area. Restore brown skirt and background beneath removed long red tail. Do not shorten to shoulders. Keep map folded with exact red English text If it's you, I know you can.
+
+chapter01-04-clearing-shelter.png
+源图：/Users/vic/Workshop/idle-dark-fairytale/ArtDirection/Storybook/Chapter01Ending/Illustrations-unified-v2/04-clearing-shelter-weapon-offscreen-v3.png
+Girl leaning forward dragging blanket: existing red cape looks like shoulder shawl. Extend rear cape down her back behind upper arms to UPPER BUTTOCKS/top of skirt, visible mainly along her left silhouette. Respect forward bend and gravity, cape falls behind torso with ragged hem ending at hip; no red cloth below skirt or touching bundle. Keep no weapon visible.
+
+prologue-02-distant-village.png
+源图：/Users/vic/Workshop/idle-dark-fairytale/Assets/DarkFairytale/UI/StorybookIntro/Prologue/Page02.png
+Small standing heroine lower left: shorten the longest left-swept red cloak tail, currently reaching bottom of skirt/upper thigh. Keep wind-swept but hem corresponds to UPPER BUTTOCK length, no lower than upper half of leather skirt, clearly above ivory lace skirt hem. Keep rest character exact and same size.
+
+prologue-06-escape.png
+源图：/Users/vic/Workshop/idle-dark-fairytale/Assets/DarkFairytale/UI/StorybookIntro/Prologue/Page06.png
+Small rear-running heroine: extend cape rear panel slightly to cover lower back and reach upper buttocks/top of leather skirt instead of ending above waist like a shawl. Maintain slight leftward flutter from running, same short hip-length garment, not a long flapping train. No lantern, preserve dark forest exactly.
+发现地图二次修正：extend back panel to cover belt and reach top of hip pouch, no tail below hips.

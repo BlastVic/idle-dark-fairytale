@@ -1,0 +1,66 @@
+{
+  "duration": 90,
+  "sample_rate": 44100,
+  "peak_dbfs": -11.313688631663652,
+  "rms_dbfs": -36.76917028826719,
+  "seam_step": 0.0,
+  "events": [
+    {
+      "layer": "birds",
+      "source": "v2-bird-1.wav",
+      "time": 8.1,
+      "duration": 0.94,
+      "level_dbfs": -35.5,
+      "pan": -0.65
+    },
+    {
+      "layer": "birds",
+      "source": "v2-bird-2.wav",
+      "time": 19.2,
+      "duration": 1.0,
+      "level_dbfs": -37.2,
+      "pan": 0.5
+    },
+    {
+      "layer": "birds",
+      "source": "v2-bird-1.wav",
+      "time": 43.6,
+      "duration": 1.06,
+      "level_dbfs": -38.9,
+      "pan": -0.35
+    },
+    {
+      "layer": "birds",
+      "source": "v2-bird-2.wav",
+      "time": 58.5,
+      "duration": 0.94,
+      "level_dbfs": -35.5,
+      "pan": 0.7
+    },
+    {
+      "layer": "birds",
+      "source": "v2-bird-1.wav",
+      "time": 82.6,
+      "duration": 1.0,
+      "level_dbfs": -37.2,
+      "pan": -0.5
+    },
+    {
+      "layer": "wolves",
+      "source": "distant-wolf.wav",
+      "time": 26.4,
+      "duration": 3.15,
+      "level_dbfs": -34,
+      "pan": 0.55
+    },
+    {
+      "layer": "wolves",
+      "source": "distant-wolf.wav",
+      "time": 67.7,
+      "duration": 3.36,
+      "level_dbfs": -38,
+      "pan": -0.65
+    }
+  ],
+  "unity_modified": false
+}

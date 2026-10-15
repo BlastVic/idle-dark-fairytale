@@ -7,6 +7,8 @@ public sealed class StorybookMapNode : MonoBehaviour
     public enum NodeKind { Battle, Story }
     public NodeKind kind;
     public StorySequence story;
+    public CursedBookIntro storyPlayerOverride;
+    public string storyUnlockLevelKey;
     public bool IsStory => kind == NodeKind.Story;
     public string levelKey;
     public string displayName;

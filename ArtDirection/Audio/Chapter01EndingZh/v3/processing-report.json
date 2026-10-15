@@ -1,0 +1,56 @@
+[
+  {
+    "page": 2,
+    "generation_id": "6sJpAeAdvO8kpRWVlne8",
+    "duration": 28.49,
+    "normalization": {
+      "input_i": "-30.38",
+      "input_tp": "-10.10",
+      "input_lra": "8.80",
+      "input_thresh": "-41.35",
+      "output_i": "-19.81",
+      "output_tp": "-3.00",
+      "output_lra": "6.70",
+      "output_thresh": "-30.85",
+      "normalization_type": "dynamic",
+      "target_offset": "-0.19"
+    },
+    "source_sha256": "ba36b69bed61f2fc960faa2df9761d15b9992a4f830b7d67f1a105f8841f31af"
+  },
+  {
+    "page": 4,
+    "generation_id": "wg37YTMaKZmlVDPXKjt4",
+    "duration": 15.77,
+    "normalization": {
+      "input_i": "-31.40",
+      "input_tp": "-10.97",
+      "input_lra": "4.70",
+      "input_thresh": "-42.30",
+      "output_i": "-20.74",
+      "output_tp": "-3.00",
+      "output_lra": "3.40",
+      "output_thresh": "-31.51",
+      "normalization_type": "dynamic",
+      "target_offset": "0.74"
+    },
+    "source_sha256": "305ee7e7ef7b91e286a81786f8f867d7bbc6a6e17b03120a4d6367c92895eeb4"
+  },
+  {
+    "page": 5,
+    "generation_id": "HJZS7j5ZFhsZgvL9kD5W",
+    "duration": 19.45,
+    "normalization": {
+      "input_i": "-33.68",
+      "input_tp": "-12.19",
+      "input_lra": "3.20",
+      "input_thresh": "-44.54",
+      "output_i": "-20.07",
+      "output_tp": "-3.00",
+      "output_lra": "2.60",
+      "output_thresh": "-31.04",
+      "normalization_type": "dynamic",
+      "target_offset": "0.07"
+    },
+    "source_sha256": "d4b9ecd8a3c36d9f45b1ab3162b552ddce9b718f755c0042173ce3cdc8a67505"
+  }
+]

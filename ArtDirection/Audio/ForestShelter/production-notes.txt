@@ -1,0 +1,18 @@
+黑森林临时庇护所环境音 · 试听 v1
+
+用途：序章结束后的主界面。仅供试听，尚未接入 Unity。
+时长：90 秒，44.1 kHz，立体声 PCM WAV；循环播放使用 WAV。
+设计：低声林风、疏密变化的虫鸣、错落的夜鸟、两次远处狼嚎、三处轻微枝叶动静。
+没有人声、音乐或火堆轰鸣。狼嚎后留出安静空隙。
+
+素材来源：已有 ElevenLabs 序章素材复用，并新增 ElevenLabs 枝叶音效。
+source/forest.wav、v2-insects-*.wav、v2-bird-*.wav
+来自 ArtDirection/Audio/PrologueZh/soundscape/source。
+source/distant-wolf.wav 来自 ArtDirection/Audio/PrologueZh/full-mix-v3。
+新增枝叶素材的生成记录见 source/rustle-provenance.json。
+
+制作：build_loop.py；分层滤波、远近声像、轻微回声，事件跨循环边界续接。
+循环底层使用圆周交叠混合，没有首尾淡出造成的静音空隙。
+输出保留动态，整体 RMS 目标 -32 dBFS，峰值上限 -6 dBFS。
+验证记录见 mix-plan-and-validation.json；主观氛围和音量仍需试听确认。
+output/forest-shelter 中有 MP3 试听、连续两遍 WAV 和接缝前后各 10 秒试听。

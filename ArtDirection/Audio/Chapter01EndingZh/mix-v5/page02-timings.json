@@ -1,0 +1,50 @@
+{
+  "page": 2,
+  "duration": 24.769433106575963,
+  "leading_padding": 0.45,
+  "trailing_padding": 1.0,
+  "source": "v2 page02, replacing only quotation with v3 page05 quotation",
+  "alignment_note": "独立 faster-whisper small 自动转写，与批准原文字符对齐。字幕保留批准原文。句边界未经人工逐帧校准，建议预留约 ±0.5 秒核对窗口；个别停顿或弱音可能更大，该窗口不是实测误差保证。",
+  "sentences": [
+    {
+      "text": "她开始翻找屋里的东西。",
+      "start": 0.45,
+      "end": 2.38
+    },
+    {
+      "text": "在一只旧抽屉里，她找到了一张折起的纸。",
+      "start": 3.02,
+      "end": 6.52
+    },
+    {
+      "text": "纸边已经磨破，外侧留着几行褪色的红字。",
+      "start": 7.06,
+      "end": 11.36
+    },
+    {
+      "text": "“是你的话，一定可以。”",
+      "start": 12.06,
+      "end": 14.06
+    },
+    {
+      "text": "她又读了一遍。",
+      "start": 15.14,
+      "end": 16.52
+    },
+    {
+      "text": "是谁留下的？",
+      "start": 17.16,
+      "end": 18.58
+    },
+    {
+      "text": "又是写给谁的？",
+      "start": 18.58,
+      "end": 20.48
+    },
+    {
+      "text": "她小心地把纸抽了出来。",
+      "start": 21.06,
+      "end": 23.44
+    }
+  ]
+}

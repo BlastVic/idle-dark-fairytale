@@ -1,0 +1,59 @@
+{
+  "voice_id": "QAe8SYEl8U8qnxlfuLRz",
+  "model_id": "eleven_v4",
+  "flow_id": "QPNIOGlN0cFoRqW3tWHS",
+  "prompts": [
+    "[low register] [somber] [slow intimate narration] 狼终于倒下了。\n[pause] [restrained] 女孩握着镰刀，站了很久。\n直到确定它不再动弹，[short pause] 她才慢慢放下刀刃。\n[pause] [low voice] [unhurried] 小屋里，只剩下炉火的噼啪声，和她尚未平复的喘息。\n[pause] [pensive] 可她仍然不知道，该怎样离开这片森林。\n[short pause] [subdued] 或许，住在这里的人，[short pause] 曾经知道出去的路。",
+    "[low register] [somber] [slow intimate narration] 她开始翻找屋里的东西。\n[pause] [restrained] 在一只旧抽屉里，她找到了一张折起的纸。\n纸边已经磨破，外侧留着几行褪色的红字。\n[pause] [low voice] [pensive] “是你的话，[short pause] 一定可以。”\n[pause] [unhurried] 她又读了一遍。\n[pause] [subdued questioning] 是谁留下的？\n[pause] 又是写给谁的？\n[pause] [low voice] [restrained] 她小心地把纸抽了出来。",
+    "[low register] [somber] [slow intimate narration] 那是一张地图。\n[pause] [restrained] 折痕处已经开裂，几处边角也不知去了哪里。\n她将它轻轻铺平，辨认着纸上的道路。\n[pause] [low voice] [unhurried] 森林里的一间小屋，[short pause] 一座村庄。\n再往前，是一座被红笔圈起的城堡。\n[pause] [pensive] 那里会有人知道，怎么离开这里吗？\n[pause] [subdued] 她沿着路线往回看，手指停在了村庄上。\n[pause] [quiet dread] 想到那堆火，她的手僵住了。\n[pause] [low voice] [slowing down] 要去城堡，就得再穿过那个地方。",
+    "[low register] [somber] [slow intimate narration] 可她已经没有力气，再走一夜了。\n[pause] [restrained] 这间小屋有屋顶，也有尚未熄灭的炉火。\n要留下来，总得先收拾出一个能歇脚的地方。\n[pause] [low voice] [unhurried] 她找来一条旧毯子，裹住狼的尸体，抓紧两角，[pause] 一点一点地往门外拖。\n[pause] [weary] 尸体比她想的还沉。\n她几次停下来喘气，才终于将它拖过门槛。\n[pause] [subdued] 随后，她擦去炉边的血迹，扶起椅子。\n[pause] [low voice] [slowing down] 木板上的爪痕，却怎么也擦不掉。",
+    "[low register] [somber] [slow intimate narration] 等她终于在炉边坐下，手还在微微发抖。\n[pause] [restrained] 她捧起一杯热茶，让暖意一点一点渗进指尖。\n地图放在身旁，镰刀也搁在随手能够到的桌边。\n[pause] [low voice] [unhurried] 屋外，风仍在树梢间穿行。\n她听了一会儿，[pause] 慢慢松下紧绷的肩膀。\n[pause] [weary] 等恢复些力气，她就得回到那座村庄。\n[pause] [quiet relief] [low voice] 但现在，[pause] [slowing down] 她可以先歇一会儿。"
+  ],
+  "runs": [
+    {
+      "node_id": "yja4q4rDfKKG18Yo63zO",
+      "session_ids": [
+        "RPlOJyrtEJD3XbVKfPwl",
+        "EZxnn9oinnPfmjq7sOpv",
+        "ziUzJnYhl0MOpcy2HQvx",
+        "JabEwA3yUX4Rb6urDnHe"
+      ]
+    },
+    {
+      "node_id": "GtM7b0ZFq7XPbBfK70T2",
+      "session_ids": [
+        "ngs2yhGXB16tu7vwjdON",
+        "KW2xAgB8fyBgdS5uoNpz",
+        "geTUr3iccCNLotH0p4Z5",
+        "Mt7VKut7Tvvj4zd9W74b"
+      ]
+    },
+    {
+      "node_id": "xFvjs7pDVh2qAhjNyFdS",
+      "session_ids": [
+        "0Jpzxq5YCk8n45HUqXNy",
+        "1jMvVXPXhtCOtjInSgpr",
+        "zxM9eR8WAw61OFRO8iEl",
+        "8ENkn91T19K894dqD0dr"
+      ]
+    },
+    {
+      "node_id": "pbqXziCmRnyiXpqtwjIG",
+      "session_ids": [
+        "t6miSRHKzWRHmLkQCwsf",
+        "mNi0ByvEiCHdsUwdODuV",
+        "tXobDFl6agoAp0KhR03B",
+        "CBuJ2VnWX7VT6pxB6JRs"
+      ]
+    },
+    {
+      "node_id": "FfX77RXlNSQg8p6MmMNr",
+      "session_ids": [
+        "FMPGQXhibcsiOMBF6m46",
+        "0oKNZaLNqdICNuPlacAD",
+        "XLZikhe5Kj7IUTaCuTJv",
+        "pcKhN2pcL1hfN3kpGJGo"
+      ]
+    }
+  ]
+}

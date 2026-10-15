@@ -1,0 +1,11 @@
+小屋庇护所灯光统一（2026-10-15）
+用户授权：主界面小屋火光偏亮，可调整为后期插画的风格。
+对照：ArtDirection/Storybook/Chapter01Ending/Illustrations-unified-v2/05-rest-by-fire-weapon-offscreen-v3.png。
+此次保留原始分层美术、构图、角色姿势和动画，通过持久化 Prefab 中 Graphic Color 调整光色，不重新生成插画。
+ShelterHome/ShelterIllustration 背景 RGB=(0.78,0.78,0.84)，暗部稍偏冷。
+RedHoodShelter RGB=(0.87,0.85,0.86)，人物轻压亮度，保持清晰。
+Hearth RGB=(0.67,0.66,0.69)，压低炉火亮度。
+Alpha 均为 1，不以透明度制造泛灰。功能 UI 和森林营地未调色。
+第一章结尾继续使用实时小屋，所以与主界面共享本次灯光调整。
+Unity Editor 验证 9:16、3:4、1:2，截图在 output/cabin-tone/，不提交 Git。
+结局播放、交接回主界面、音乐恢复及地图导航通过。此次为光色统一，不声称与另一机位的参考插画逐像素一致。

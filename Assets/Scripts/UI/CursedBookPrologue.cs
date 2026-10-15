@@ -16,7 +16,7 @@ public sealed class CursedBookPrologue : MonoBehaviour
         public Texture2D illustration;
         [Tooltip("Center of the visible crop, normalized within the original illustration.")]
         public Vector2 focalPoint = new Vector2(.5f, .5f);
-        [Tooltip("Dry narration only; serialized field name retained for existing prefab compatibility.")]
+        [Tooltip("Narration with optional synchronized action sounds; serialized field name retained for existing prefab compatibility.")]
         public AudioClip narrationAndAmbience;
         public Caption[] captions;
         [Min(0)] public float silentDuration;
@@ -27,12 +27,18 @@ public sealed class CursedBookPrologue : MonoBehaviour
     public Text openingText;
     public ProloguePageSurface pageSurface;
     public AudioSource narration, pageFoley;
+    public AudioSource continuousAmbience;
+    float ambienceFade;
+    public void SetAmbienceFade(float value) { ambienceFade = Mathf.Clamp01(value); }
+    public void StopAmbience() { if (continuousAmbience) continuousAmbience.Stop(); }
+    void Update() { if (continuousAmbience) continuousAmbience.volume = Gain * ambienceFade; }
     public AudioClip pageTurnSound;
     public AudioClip coverOpenSound;
     [Range(0,1)] public float coverOpenGain=.65f;
     public Page[] pages;
     [Min(.1f)] public float inkDuration = 1.8f;
     [Min(0)] public float afterNarrationHold = .4f;
+    [Min(0)] public float beforeNarrationHold;
     [Range(0,1)] public float narrationGain = 1;
     [Range(0,1)] public float pageTurnGain = .65f;
     [Tooltip("Editor preview only; never changes the saved player's progress.")]
@@ -66,6 +72,23 @@ public sealed class CursedBookPrologue : MonoBehaviour
     bool preview;
     float Gain => SoundManager.Instance ? SoundManager.Instance.getSFXVolume() : 1;
 
+    public bool Paused { get; private set; }
+    bool resumeNarration, resumeFoley, resumeAmbience;
+    float StoryDelta => Paused ? 0 : Time.unscaledDeltaTime;
+    public void SetPaused(bool value) {
+        if (Paused == value) return;
+        Paused = value;
+        if (value) {
+            resumeNarration = narration && narration.isPlaying; resumeFoley = pageFoley && pageFoley.isPlaying;
+            resumeAmbience = continuousAmbience && continuousAmbience.isPlaying;
+            if (resumeAmbience) continuousAmbience.Pause();
+            if (resumeNarration) narration.Pause(); if (resumeFoley) pageFoley.Pause();
+        } else {
+            if (resumeAmbience) continuousAmbience.UnPause();
+            if (resumeNarration) narration.UnPause(); if (resumeFoley) pageFoley.UnPause();
+        }
+    }
+    IEnumerator StoryWait(float seconds) { for(float t=0;t<seconds;t+=StoryDelta) yield return null; }
     void Awake() { Hide(); }
     public bool ShouldPlay()
     {
@@ -89,6 +112,8 @@ public sealed class CursedBookPrologue : MonoBehaviour
         if(HasVoicedTimeline && completionKey==SeenKey){yield return PlayVoiced(turnLastPage,completionKey);yield break;}
         if (!Ready()) { Debug.LogError("Prologue: incomplete saved page/audio references.", this); yield break; }
         IsPlaying = true; Completed = false; TurnsCompleted = 0;
+        ambienceFade = 1;
+        if (continuousAmbience && !silentPreview) continuousAmbience.Play();
         originalMaterial = illustration.material;
         if (originalMaterial && originalMaterial.HasProperty("_Reveal")) {
             ink = new Material(originalMaterial); illustration.material = ink;
@@ -99,7 +124,7 @@ public sealed class CursedBookPrologue : MonoBehaviour
             yield return ReadCaptions(openingCaptions, openingDuration, null);
             Opening = false; subtitle.text = "";
             if(openingText)openingText.gameObject.SetActive(false);
-            yield return new WaitForSecondsRealtime(.7f);
+            yield return StoryWait(.7f);
         }
         for (int i = 0; i < pages.Length; i++) {
             PageIndex = i;
@@ -111,15 +136,16 @@ public sealed class CursedBookPrologue : MonoBehaviour
             illustration.gameObject.SetActive(true);
             float t = 0;
             while (t < inkDuration) {
-                t = Mathf.Min(inkDuration, t + Mathf.Min(.05f, Time.unscaledDeltaTime));
+                t = Mathf.Min(inkDuration, t + Mathf.Min(.05f, StoryDelta));
                 SetInk(Mathf.SmoothStep(0, 1, t / Mathf.Max(.01f, inkDuration)));
                 yield return null;
             }
             SetInk(1);
             // Speech starts only after the complete illustration is visible.
+            yield return StoryWait(beforeNarrationHold);
             yield return ReadCaptions(page.captions, page.silentDuration, page.narrationAndAmbience);
             Reading = false; subtitle.text = "";
-            yield return new WaitForSecondsRealtime(afterNarrationHold);
+            yield return StoryWait(afterNarrationHold);
             // Includes the sixth turn: only afterwards may the normal home-page reveal begin.
             if (turnLastPage || i < pages.Length - 1) yield return TurnOnePage();
         }
@@ -138,7 +164,8 @@ public sealed class CursedBookPrologue : MonoBehaviour
         intro.SampleNarrativeOpening(0,0);
         narration.clip=fullNarration;narration.volume=Gain*narrationGain;narration.Play();
         Spine.TrackEntry turn=null;bool changed=false,coverPlayed=false;
-        while(narration.isPlaying){
+        while(narration.isPlaying || Paused){
+            if(Paused){yield return null;continue;}
             VoiceTime=narration.time;PageReadTime=VoiceTime; narration.volume=Gain*narrationGain;
             subtitle.text="";
             if(voiceCaptions!=null)foreach(var c in voiceCaptions)if(VoiceTime>=c.start && VoiceTime<c.end){subtitle.text=c.text;break;}
@@ -194,6 +221,12 @@ public sealed class CursedBookPrologue : MonoBehaviour
             GameManager.single.thingsSeenPermanent.Add(completionKey);SaveManager.Instance.Save();
         }
     }
+    public IEnumerator ReadHomePage(Page page)
+    {
+        IsPlaying = true; PageIndex = 4;
+        yield return ReadCaptions(page.captions, page.silentDuration, page.narrationAndAmbience);
+        subtitle.text = ""; IsPlaying = false;
+    }
     IEnumerator ReadCaptions(Caption[] captions, float duration, AudioClip clip)
     {
         Reading = true; PageReadTime = 0;
@@ -201,14 +234,15 @@ public sealed class CursedBookPrologue : MonoBehaviour
         narration.Stop();
         if (voiced) { narration.clip = clip; narration.volume = Gain * narrationGain; narration.Play(); }
         if (captions != null) foreach (var c in captions) duration = Mathf.Max(duration, c.end);
-        while (voiced ? narration.isPlaying : PageReadTime < duration) {
+        while (voiced ? narration.isPlaying || Paused : PageReadTime < duration) {
+            if(Paused){yield return null;continue;}
             if (voiced) { PageReadTime = narration.time; narration.volume = Gain * narrationGain; }
             var captionTarget = Opening && openingText ? openingText : subtitle;
             captionTarget.text = "";
             if (captions != null) foreach (var c in captions)
                 if (PageReadTime >= c.start && PageReadTime < c.end) { captionTarget.text = c.text; break; }
             yield return null;
-            if (!voiced) PageReadTime += Time.unscaledDeltaTime;
+            if (!voiced) PageReadTime += StoryDelta;
         }
         Reading = false;
     }
@@ -222,14 +256,14 @@ public sealed class CursedBookPrologue : MonoBehaviour
         track.MixDuration = 0; track.TrackTime = 0; book.Update(0);
         pageSurface.Begin(book, "turning_page_7");
         pageFoley.volume = Gain * pageTurnGain; pageFoley.clip = pageTurnSound; if (!silentPreview) pageFoley.Play();
-        float duration=HasVoicedTimeline?pageTurnDuration:track.Animation.Duration;
+        float duration=(HasVoicedTimeline || intro.chapterEnding) && !silentPreview ? pageTurnDuration : track.Animation.Duration;
         float t = 0;
         while (t < duration) {
             track.TrackTime = track.Animation.Duration*t/duration; book.Update(0);
             // The front illustration follows the leaf, then disappears as its back turns toward us.
             illustration.color = new Color(1, 1, 1, 1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.48f, .52f, t / duration)));
             yield return null;
-            t = Mathf.Min(duration, t + Mathf.Min(.05f, Time.unscaledDeltaTime));
+            t = Mathf.Min(duration, t + Mathf.Min(.05f, StoryDelta));
         }
         track.TrackTime = track.Animation.Duration; book.Update(0);
         pageSurface.End(); illustration.gameObject.SetActive(false);
@@ -260,7 +294,7 @@ public sealed class CursedBookPrologue : MonoBehaviour
         if (ink) { illustration.material = originalMaterial; Destroy(ink); ink = null; }
     }
     void OnDisable() {
-        StopAllCoroutines(); if (narration) narration.Stop(); if (pageFoley) pageFoley.Stop();
+        StopAmbience(); StopAllCoroutines(); if (narration) narration.Stop(); if (pageFoley) pageFoley.Stop();
         Opening = Reading = TurningPage = IsPlaying = false; if(pageSurface)pageSurface.End(); Hide(); ReleaseInk();
     }
 }

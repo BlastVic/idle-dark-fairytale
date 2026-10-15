@@ -56,7 +56,14 @@ public sealed class StorybookMapUI : MonoBehaviour
     public Waveset Data(int index)=>WaveManager.single?.waveDb?.FirstOrDefault(w=>w.levelKey==nodes[index].levelKey);
     public bool IsUnlocked(int index)
     {
-        if(nodes[index].IsStory)return nodes[index].story && nodes[index].story.pages!=null && nodes[index].story.pages.Length>0;
+        if(nodes[index].IsStory){
+            var node=nodes[index];
+            bool available=node.story && node.story.pages!=null && node.story.pages.Length>0;
+            if(string.IsNullOrEmpty(node.storyUnlockLevelKey))return available;
+            var prerequisite=WaveManager.single.waveDb.FirstOrDefault(w=>w.levelKey==node.storyUnlockLevelKey);
+            return available && (GameManager.single.HasSeenThis(node.story.completionKey) ||
+                prerequisite!=null && WaveManager.single.GetWaveseReachedByKey(prerequisite.levelKey)>=prerequisite.waves.Length);
+        }
         var wave=Data(index);if(wave==null)return false;
         if(string.IsNullOrEmpty(wave.precondition))return true;
         var previous=WaveManager.single.waveDb.FirstOrDefault(w=>w.levelKey==wave.precondition);
@@ -78,7 +85,7 @@ public sealed class StorybookMapUI : MonoBehaviour
             n.progress.gameObject.SetActive(unlocked);
             n.label.text=NodeTitle(i);
             n.labelFrame.color=selected?new Color(1,.83f,.77f):Color.white;
-            n.progress.text=n.IsStory?(complete?"已观看 · 可重播":"剧情") : w==null?"未配置":unlocked?Mathf.Clamp(WaveManager.single.GetWaveseReachedByKey(w.levelKey),0,w.waves.Length)+" / "+w.waves.Length:"未解锁";
+            n.progress.text=n.IsStory?(!unlocked?"通关第一章解锁":complete?"已观看 · 可重播":"剧情") : w==null?"未配置":unlocked?Mathf.Clamp(WaveManager.single.GetWaveseReachedByKey(w.levelKey),0,w.waves.Length)+" / "+w.waves.Length:"未解锁";
             n.button.interactable=!IsNavigating;
             foreach(var dot in n.incomingRoute)dot.color=unlocked?new Color(1,.70f,.30f,.95f):new Color(.67f,.65f,.61f,.75f);
         }
@@ -87,7 +94,7 @@ public sealed class StorybookMapUI : MonoBehaviour
         if(storyDetailGlyph)storyDetailGlyph.SetActive(node.IsStory);
         detailPreview.preserveAspect=false;
         detailTitle.text=NodeTitle(selectedIndex);
-        detailStatus.text=node.IsStory?(IsCompleted(selectedIndex)?"已观看 · 可再次播放":"剧情节点") : !canEnter?"尚未解锁":IsCompleted(selectedIndex)?"已通关 · 可再次探索":"当前探索";
+        detailStatus.text=node.IsStory?(!canEnter?"通关第一章后解锁":IsCompleted(selectedIndex)?"已观看 · 可再次播放":"剧情节点") : !canEnter?"尚未解锁":IsCompleted(selectedIndex)?"已通关 · 可再次探索":"当前探索";
         detailWaves.text=node.IsStory?"播放结束后返回地图" : data==null?"关卡数据未配置":canEnter?"波次  "+WaveManager.single.GetWaveseReachedByKey(data.levelKey)+" / "+data.waves.Length:"完成前置关卡后解锁";
         detailPreview.sprite=node.preview;enterButton.interactable=canEnter&&!IsNavigating;
         enterCaption.text=canEnter?(node.IsStory?"播放剧情":"进入关卡"):"未解锁";
@@ -122,7 +129,7 @@ public sealed class StorybookMapUI : MonoBehaviour
     public void EnterSelected()
     {
         if(IsNavigating||IsDragging||Time.unscaledTime<suppressClickUntil||!IsUnlocked(selectedIndex)||GameManager.single.gameState!=GameStateType.MAP)return;
-        if(nodes[selectedIndex].IsStory){StartCoroutine(EnterStory(nodes[selectedIndex].story));return;}
+        if(nodes[selectedIndex].IsStory){StartCoroutine(EnterStory(nodes[selectedIndex]));return;}
         layout.RememberPosition();string key=nodes[selectedIndex].levelKey;IsNavigating=true;controls.interactable=false;Refresh();
         SoundManager.Instance.PlayClip("CLICK");Router.single.StartCoroutine(Enter(key));
     }
@@ -133,16 +140,18 @@ public sealed class StorybookMapUI : MonoBehaviour
         int number=nodes.Take(index+1).Count(n=>!n.IsStory);
         return "1-"+number+"  "+node.displayName;
     }
-    IEnumerator EnterStory(StorySequence story)
+    IEnumerator EnterStory(StorybookMapNode node)
     {
-        if(!storyPlayerPrefab){Debug.LogError("Story player prefab missing",this);yield break;}
+        var playerPrefab=node.storyPlayerOverride?node.storyPlayerOverride:storyPlayerPrefab;
+        if(!playerPrefab){Debug.LogError("Story player prefab missing",this);yield break;}
         IsNavigating=true;controls.interactable=false;layout.RememberPosition();Refresh();
         var music=MusicManager.Instance?MusicManager.Instance.backgroundMusicSource:null;
         bool muted=music&&music.mute;
         try {
             if(music)music.mute=true;
-            ActiveStory=Instantiate(storyPlayerPrefab);
-            ActiveStory.mapStory=story;
+            ActiveStory=Instantiate(playerPrefab);
+            ActiveStory.mapStory=node.story;
+            ActiveStory.returnToMapAfterEnding=true;
             ActiveStory.GetComponent<Canvas>().sortingOrder=GetComponent<Canvas>().sortingOrder+100;
             controls.alpha=0;controls.blocksRaycasts=false;
             while(ActiveStory&&!ActiveStory.Finished)yield return null;

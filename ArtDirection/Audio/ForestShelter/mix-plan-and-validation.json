@@ -1,0 +1,210 @@
+{
+  "duration": 90,
+  "sample_rate": 44100,
+  "peak_dbfs": -6.285936930666715,
+  "rms_dbfs": -31.999999930164794,
+  "seam_step": 0.0,
+  "events": [
+    {
+      "layer": "insects",
+      "source": "v2-insects-1.wav",
+      "time": 0.7,
+      "duration": 3.86,
+      "level_dbfs": -39.5,
+      "pan": 0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-2.wav",
+      "time": 4.9,
+      "duration": 2.0,
+      "level_dbfs": -41.0,
+      "pan": -0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-3.wav",
+      "time": 10.3,
+      "duration": 1.0350113378684807,
+      "level_dbfs": -42.5,
+      "pan": 0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-4.wav",
+      "time": 15.6,
+      "duration": 2.8950113378684805,
+      "level_dbfs": -39.5,
+      "pan": -0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-1.wav",
+      "time": 21.4,
+      "duration": 4.0,
+      "level_dbfs": -41.0,
+      "pan": 0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-2.wav",
+      "time": 35.8,
+      "duration": 2.07,
+      "level_dbfs": -42.5,
+      "pan": -0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-3.wav",
+      "time": 40.1,
+      "duration": 0.9649886621315192,
+      "level_dbfs": -39.5,
+      "pan": 0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-4.wav",
+      "time": 45.8,
+      "duration": 3.0,
+      "level_dbfs": -41.0,
+      "pan": -0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-1.wav",
+      "time": 50.2,
+      "duration": 4.14,
+      "level_dbfs": -42.5,
+      "pan": 0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-2.wav",
+      "time": 55.6,
+      "duration": 1.93,
+      "level_dbfs": -39.5,
+      "pan": -0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-3.wav",
+      "time": 61.2,
+      "duration": 1.0,
+      "level_dbfs": -41.0,
+      "pan": 0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-4.wav",
+      "time": 74.7,
+      "duration": 3.1049886621315195,
+      "level_dbfs": -42.5,
+      "pan": -0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-1.wav",
+      "time": 79.4,
+      "duration": 3.86,
+      "level_dbfs": -39.5,
+      "pan": 0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-2.wav",
+      "time": 85.3,
+      "duration": 2.0,
+      "level_dbfs": -41.0,
+      "pan": -0.55
+    },
+    {
+      "layer": "insects",
+      "source": "v2-insects-3.wav",
+      "time": 88.8,
+      "duration": 1.0350113378684807,
+      "level_dbfs": -42.5,
+      "pan": 0.55
+    },
+    {
+      "layer": "birds",
+      "source": "v2-bird-1.wav",
+      "time": 8.1,
+      "duration": 0.94,
+      "level_dbfs": -35.5,
+      "pan": -0.65
+    },
+    {
+      "layer": "birds",
+      "source": "v2-bird-2.wav",
+      "time": 19.2,
+      "duration": 1.0,
+      "level_dbfs": -37.2,
+      "pan": 0.5
+    },
+    {
+      "layer": "birds",
+      "source": "v2-bird-1.wav",
+      "time": 43.6,
+      "duration": 1.06,
+      "level_dbfs": -38.9,
+      "pan": -0.35
+    },
+    {
+      "layer": "birds",
+      "source": "v2-bird-2.wav",
+      "time": 58.5,
+      "duration": 0.94,
+      "level_dbfs": -35.5,
+      "pan": 0.7
+    },
+    {
+      "layer": "birds",
+      "source": "v2-bird-1.wav",
+      "time": 82.6,
+      "duration": 1.0,
+      "level_dbfs": -37.2,
+      "pan": -0.5
+    },
+    {
+      "layer": "wolves",
+      "source": "distant-wolf.wav",
+      "time": 26.4,
+      "duration": 3.15,
+      "level_dbfs": -34,
+      "pan": 0.55
+    },
+    {
+      "layer": "wolves",
+      "source": "distant-wolf.wav",
+      "time": 67.7,
+      "duration": 3.36,
+      "level_dbfs": -38,
+      "pan": -0.65
+    },
+    {
+      "layer": "rustles",
+      "source": "rustle-1.wav",
+      "time": 14.3,
+      "duration": 1.0,
+      "level_dbfs": -43,
+      "pan": -0.65
+    },
+    {
+      "layer": "rustles",
+      "source": "rustle-2.wav",
+      "time": 51.9,
+      "duration": 1.0,
+      "level_dbfs": -43,
+      "pan": 0.65
+    },
+    {
+      "layer": "rustles",
+      "source": "rustle-3.wav",
+      "time": 77.3,
+      "duration": 1.0,
+      "level_dbfs": -43,
+      "pan": -0.35
+    }
+  ],
+  "unity_modified": false
+}

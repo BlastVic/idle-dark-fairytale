@@ -30,12 +30,21 @@ namespace IdleKnightHero.UI
 
         public AudioClip[] battleNormalClips;
         public AudioClip[] audioClips;
+        [Tooltip("Looping ambience for the forest shelter before the cabin is unlocked.")]
+        public AudioClip forestShelterAmbience;
 
         public void PlayMusicByClipNumber(int clipNum, bool loop = true)
         {
             StopAllCoroutines();
             AudioClip newClip = null;
             newClip = audioClips[clipNum];
+            if (clipNum == 0 && forestShelterAmbience)
+            {
+                var home = GameplayCanvas.single ? GameplayCanvas.single.homeUI : null;
+                var backdrop = home ? home.GetComponent<ShelterChapterBackdrop>() : null;
+                if (backdrop) backdrop.Refresh();
+                if (backdrop && !backdrop.IsCabin) newClip = forestShelterAmbience;
+            }
             StartCoroutine(PlayNewClipChain(newClip, loop));
         }
 

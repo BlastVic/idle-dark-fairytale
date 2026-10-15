@@ -1,0 +1,232 @@
+[
+  {
+    "page": 1,
+    "candidates": [
+      {
+        "id": "8KKc54VB03VoeGVaepiu",
+        "median_f0_hz": 202.53164556962025,
+        "f0_p10": 179.77528089887642,
+        "f0_p90": 250.0,
+        "voiced_frames": 852,
+        "duration": 25.52
+      },
+      {
+        "id": "ATVX6A8aTD7BpsliFiDE",
+        "median_f0_hz": 202.53164556962025,
+        "f0_p10": 179.77528089887642,
+        "f0_p90": 246.15384615384616,
+        "voiced_frames": 865,
+        "duration": 24.16
+      },
+      {
+        "id": "wE8PERZrtt2jbQGFnMZc",
+        "median_f0_hz": 202.53164556962025,
+        "f0_p10": 179.77528089887642,
+        "f0_p90": 238.80597014925374,
+        "voiced_frames": 828,
+        "duration": 24.4
+      },
+      {
+        "id": "1fyhpndTntRXex2M9sqa",
+        "median_f0_hz": 202.53164556962025,
+        "f0_p10": 179.3757802746567,
+        "f0_p90": 242.42424242424244,
+        "voiced_frames": 899,
+        "duration": 25.2
+      }
+    ],
+    "selected": "8KKc54VB03VoeGVaepiu",
+    "v1_pitch": {
+      "median_f0_hz": 222.22222222222223,
+      "f0_p10": 183.90804597701148,
+      "f0_p90": 285.7142857142857,
+      "voiced_frames": 977,
+      "duration": 26.51
+    },
+    "selection_note": "优先较低的基频中位数；此粗略声学筛选不代表主观情感听审。"
+  },
+  {
+    "page": 2,
+    "candidates": [
+      {
+        "id": "fLjcXtxuuVDnYbvue87m",
+        "median_f0_hz": 200.0,
+        "f0_p10": 181.8181818181818,
+        "f0_p90": 253.96825396825398,
+        "voiced_frames": 623,
+        "duration": 23.36
+      },
+      {
+        "id": "KuXh6AHj1cM6UVK21Qaa",
+        "median_f0_hz": 200.0,
+        "f0_p10": 181.8181818181818,
+        "f0_p90": 253.96825396825398,
+        "voiced_frames": 622,
+        "duration": 22.64
+      },
+      {
+        "id": "A8fwXfRop5iomFDFQU3y",
+        "median_f0_hz": 202.53164556962025,
+        "f0_p10": 181.8181818181818,
+        "f0_p90": 258.06451612903226,
+        "voiced_frames": 640,
+        "duration": 22.16
+      },
+      {
+        "id": "ks5nFf2k9wy1syWYAaA2",
+        "median_f0_hz": 210.52631578947367,
+        "f0_p10": 179.77528089887642,
+        "f0_p90": 262.2950819672131,
+        "voiced_frames": 656,
+        "duration": 22.8
+      }
+    ],
+    "selected": "fLjcXtxuuVDnYbvue87m",
+    "v1_pitch": {
+      "median_f0_hz": 225.35211267605635,
+      "f0_p10": 186.04651162790697,
+      "f0_p90": 307.6923076923077,
+      "voiced_frames": 745,
+      "duration": 23.87
+    },
+    "selection_note": "优先较低的基频中位数；此粗略声学筛选不代表主观情感听审。"
+  },
+  {
+    "page": 3,
+    "candidates": [
+      {
+        "id": "MBaRNoRQor743xxKgJOk",
+        "median_f0_hz": 202.53164556962025,
+        "f0_p10": 175.82417582417582,
+        "f0_p90": 253.96825396825398,
+        "voiced_frames": 1159,
+        "duration": 33.12
+      },
+      {
+        "id": "zKdk5QsjUpVtBiIbZcWP",
+        "median_f0_hz": 197.53086419753086,
+        "f0_p10": 172.04301075268816,
+        "f0_p90": 242.42424242424244,
+        "voiced_frames": 1140,
+        "duration": 32.8
+      },
+      {
+        "id": "c52PueYFzHrAxQ8dN9t6",
+        "median_f0_hz": 200.0,
+        "f0_p10": 179.77528089887642,
+        "f0_p90": 258.06451612903226,
+        "voiced_frames": 1129,
+        "duration": 32.8
+      },
+      {
+        "id": "S6HYcdIWEbTGdVsXCW9Q",
+        "median_f0_hz": 205.12820512820514,
+        "f0_p10": 177.77777777777777,
+        "f0_p90": 253.96825396825398,
+        "voiced_frames": 1182,
+        "duration": 34.24
+      }
+    ],
+    "selected": "zKdk5QsjUpVtBiIbZcWP",
+    "v1_pitch": {
+      "median_f0_hz": 219.17808219178082,
+      "f0_p10": 181.8181818181818,
+      "f0_p90": 285.7142857142857,
+      "voiced_frames": 1286,
+      "duration": 34.43
+    },
+    "selection_note": "优先较低的基频中位数；此粗略声学筛选不代表主观情感听审。"
+  },
+  {
+    "page": 4,
+    "candidates": [
+      {
+        "id": "ttJODWyfa4BzrIziz4Jp",
+        "median_f0_hz": 195.1219512195122,
+        "f0_p10": 176.41025641025644,
+        "f0_p90": 228.57142857142858,
+        "voiced_frames": 1144,
+        "duration": 34.88
+      },
+      {
+        "id": "fc0ztLkYVKp7GlEtCR3s",
+        "median_f0_hz": 197.53086419753086,
+        "f0_p10": 181.8181818181818,
+        "f0_p90": 231.8840579710145,
+        "voiced_frames": 1082,
+        "duration": 34.88
+      },
+      {
+        "id": "gw4YYIWlPhYVD9YPbj7R",
+        "median_f0_hz": 197.53086419753086,
+        "f0_p10": 179.77528089887642,
+        "f0_p90": 231.8840579710145,
+        "voiced_frames": 1061,
+        "duration": 34.48
+      },
+      {
+        "id": "Bipy11oT9OjkwzhirtKs",
+        "median_f0_hz": 197.53086419753086,
+        "f0_p10": 175.82417582417582,
+        "f0_p90": 235.2941176470588,
+        "voiced_frames": 1088,
+        "duration": 34.8
+      }
+    ],
+    "selected": "ttJODWyfa4BzrIziz4Jp",
+    "v1_pitch": {
+      "median_f0_hz": 205.12820512820514,
+      "f0_p10": 181.8181818181818,
+      "f0_p90": 266.6666666666667,
+      "voiced_frames": 1250,
+      "duration": 36.59
+    },
+    "selection_note": "优先较低的基频中位数；此粗略声学筛选不代表主观情感听审。"
+  },
+  {
+    "page": 5,
+    "candidates": [
+      {
+        "id": "tbCO0O6fDgHMU6Hye9QT",
+        "median_f0_hz": 197.53086419753086,
+        "f0_p10": 175.82417582417582,
+        "f0_p90": 250.0,
+        "voiced_frames": 1098,
+        "duration": 29.44
+      },
+      {
+        "id": "G5TiC25G6fE6gI5cQYSO",
+        "median_f0_hz": 195.1219512195122,
+        "f0_p10": 177.77777777777777,
+        "f0_p90": 246.15384615384616,
+        "voiced_frames": 1088,
+        "duration": 29.36
+      },
+      {
+        "id": "mzNQB47UgUbQgq9bujtb",
+        "median_f0_hz": 195.1219512195122,
+        "f0_p10": 175.82417582417582,
+        "f0_p90": 242.42424242424244,
+        "voiced_frames": 1129,
+        "duration": 29.52
+      },
+      {
+        "id": "TuwQ93u8gyBIref1tp2n",
+        "median_f0_hz": 197.53086419753086,
+        "f0_p10": 177.77777777777777,
+        "f0_p90": 246.15384615384616,
+        "voiced_frames": 1077,
+        "duration": 29.44
+      }
+    ],
+    "selected": "G5TiC25G6fE6gI5cQYSO",
+    "v1_pitch": {
+      "median_f0_hz": 205.12820512820514,
+      "f0_p10": 183.90804597701148,
+      "f0_p90": 271.6540035067219,
+      "voiced_frames": 1230,
+      "duration": 30.43
+    },
+    "selection_note": "优先较低的基频中位数；此粗略声学筛选不代表主观情感听审。"
+  }
+]

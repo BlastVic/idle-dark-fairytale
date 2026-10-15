@@ -1,0 +1,138 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a06d59cd1d690449aa4ba282ae95a040, type: 3}
+  m_Name: Chapter01Ending
+  m_EditorClassIdentifier: Assembly-CSharp::StorySequence
+  storyKey: Chapter01Ending
+  displayName: "\u7B2C\u4E00\u7AE0 \xB7 \u730E\u4EBA\u5C0F\u5C4B"
+  completionKey: Story-Chapter01-Ending-Read-v1
+  pages:
+  - title: "\u72FC\u7EC8\u4E8E\u5012\u4E0B"
+    illustration: {fileID: 2800000, guid: a5b9f3b6903ca494196b011a9a8ef4cb, type: 3}
+    focalPoint: {x: 0.5, y: 0.625}
+    narrationAndAmbience: {fileID: 8300000, guid: a07445d417f6d447db082a899bf60ef3, type: 3}
+    captions:
+    - start: 0.58
+      end: 2.46
+      text: "\u72FC\u7EC8\u4E8E\u5012\u4E0B\u4E86\u3002"
+    - start: 3.14
+      end: 5.8
+      text: "\u5973\u5B69\u63E1\u7740\u9570\u5200\uFF0C\u7AD9\u4E86\u5F88\u4E45\u3002"
+    - start: 5.8
+      end: 10.48
+      text: "\u76F4\u5230\u786E\u5B9A\u5B83\u4E0D\u518D\u52A8\u5F39\uFF0C\u5979\u624D\u6162\u6162\u653E\u4E0B\u5200\u5203\u3002"
+    - start: 11.28
+      end: 16.52
+      text: "\u5C0F\u5C4B\u91CC\uFF0C\u53EA\u5269\u4E0B\u7089\u706B\u7684\u567C\u556A\u58F0\uFF0C\u548C\u5979\u5C1A\u672A\u5E73\u590D\u7684\u5598\u606F\u3002"
+    - start: 17.2
+      end: 20.7
+      text: "\u53EF\u5979\u4ECD\u7136\u4E0D\u77E5\u9053\uFF0C\u8BE5\u600E\u6837\u79BB\u5F00\u8FD9\u7247\u68EE\u6797\u3002"
+    - start: 21.54
+      end: 25.58
+      text: "\u6216\u8BB8\uFF0C\u4F4F\u5728\u8FD9\u91CC\u7684\u4EBA\uFF0C\u66FE\u7ECF\u77E5\u9053\u51FA\u53BB\u7684\u8DEF\u3002"
+    silentDuration: 26.97
+  - title: "\u7559\u4E0B\u7684\u5730\u56FE"
+    illustration: {fileID: 2800000, guid: 46d5c3884181e456c878377ab26dc23d, type: 3}
+    focalPoint: {x: 0.5, y: 0.5}
+    narrationAndAmbience: {fileID: 8300000, guid: 6a83199a89a0042e6adf3396f47b0452, type: 3}
+    captions:
+    - start: 0.45
+      end: 2.38
+      text: "\u5979\u5F00\u59CB\u7FFB\u627E\u5C4B\u91CC\u7684\u4E1C\u897F\u3002"
+    - start: 3.02
+      end: 6.52
+      text: "\u5728\u4E00\u53EA\u65E7\u62BD\u5C49\u91CC\uFF0C\u5979\u627E\u5230\u4E86\u4E00\u5F20\u6298\u8D77\u7684\u7EB8\u3002"
+    - start: 7.06
+      end: 11.36
+      text: "\u7EB8\u8FB9\u5DF2\u7ECF\u78E8\u7834\uFF0C\u5916\u4FA7\u7559\u7740\u51E0\u884C\u892A\u8272\u7684\u7EA2\u5B57\u3002"
+    - start: 12.06
+      end: 14.06
+      text: "\u201C\u662F\u4F60\u7684\u8BDD\uFF0C\u4E00\u5B9A\u53EF\u4EE5\u3002\u201D"
+    - start: 15.14
+      end: 16.52
+      text: "\u5979\u53C8\u8BFB\u4E86\u4E00\u904D\u3002"
+    - start: 17.16
+      end: 18.58
+      text: "\u662F\u8C01\u7559\u4E0B\u7684\uFF1F"
+    - start: 18.58
+      end: 20.48
+      text: "\u53C8\u662F\u5199\u7ED9\u8C01\u7684\uFF1F"
+    - start: 21.06
+      end: 23.44
+      text: "\u5979\u5C0F\u5FC3\u5730\u628A\u7EB8\u62BD\u4E86\u51FA\u6765\u3002"
+    silentDuration: 24.769434
+  - title: "\u7A7F\u8FC7\u6751\u5E84"
+    illustration: {fileID: 2800000, guid: 9386fc6d09eac43ebaa811f7061410de, type: 3}
+    focalPoint: {x: 0.5, y: 0.5}
+    narrationAndAmbience: {fileID: 8300000, guid: fc9a417b4664e42308295ed96b2ee484, type: 3}
+    captions:
+    - start: 0.45
+      end: 1.76
+      text: "\u90A3\u662F\u4E00\u5F20\u5730\u56FE\u3002"
+    - start: 2.66
+      end: 6.98
+      text: "\u6298\u75D5\u5904\u5DF2\u7ECF\u5F00\u88C2\uFF0C\u51E0\u5904\u8FB9\u89D2\u4E5F\u4E0D\u77E5\u53BB\u4E86\u54EA\u91CC\u3002"
+    - start: 7.5
+      end: 11.04
+      text: "\u5979\u5C06\u5B83\u8F7B\u8F7B\u94FA\u5E73\uFF0C\u8FA8\u8BA4\u7740\u7EB8\u4E0A\u7684\u9053\u8DEF\u3002"
+    - start: 11.04
+      end: 14.6
+      text: "\u68EE\u6797\u91CC\u7684\u4E00\u95F4\u5C0F\u5C4B\uFF0C\u4E00\u5EA7\u6751\u5E84\u3002"
+    - start: 15.06
+      end: 18.26
+      text: "\u518D\u5F80\u524D\uFF0C\u662F\u4E00\u5EA7\u88AB\u7EA2\u7B14\u5708\u8D77\u7684\u57CE\u5821\u3002"
+    - start: 18.84
+      end: 21.98
+      text: "\u90A3\u91CC\u4F1A\u6709\u4EBA\u77E5\u9053\uFF0C\u600E\u4E48\u79BB\u5F00\u8FD9\u91CC\u5417\uFF1F"
+    - start: 22.74
+      end: 26.46
+      text: "\u5979\u6CBF\u7740\u8DEF\u7EBF\u5F80\u56DE\u770B\uFF0C\u624B\u6307\u505C\u5728\u4E86\u6751\u5E84\u4E0A\u3002"
+    - start: 26.46
+      end: 29.78
+      text: "\u60F3\u5230\u90A3\u5806\u706B\uFF0C\u5979\u7684\u624B\u50F5\u4F4F\u4E86\u3002"
+    - start: 29.78
+      end: 32.94
+      text: "\u8981\u53BB\u57CE\u5821\uFF0C\u5C31\u5F97\u518D\u7A7F\u8FC7\u90A3\u4E2A\u5730\u65B9\u3002"
+    silentDuration: 34.25
+  - title: "\u4ECA\u665A\u7559\u5728\u8FD9\u91CC"
+    illustration: {fileID: 2800000, guid: 34a246bdb42e04ac59cd681b41f34e99, type: 3}
+    focalPoint: {x: 0.5, y: 0.625}
+    narrationAndAmbience: {fileID: 8300000, guid: eba9e0b3d8d314c23a8b65e09fd9a988, type: 3}
+    captions:
+    - start: 0.45
+      end: 3.38
+      text: "\u5979\u5DF2\u7ECF\u6CA1\u6709\u529B\u6C14\uFF0C\u518D\u8D70\u4E00\u591C\u4E86\u3002"
+    - start: 3.94
+      end: 11.36
+      text: "\u5979\u628A\u72FC\u7684\u5C38\u4F53\u62D6\u5230\u5C4B\u5916\uFF0C\u7B80\u5355\u6E05\u7406\u4E86\u5C4B\u5B50\uFF0C\u7136\u540E\u5728\u7089\u8FB9\u6E05\u51FA\u4E00\u5904\u843D\u811A\u7684\u5730\u65B9\u3002"
+    - start: 11.94
+      end: 14.48
+      text: "\u4ECA\u665A\uFF0C\u5979\u53EA\u80FD\u7559\u5728\u8FD9\u91CC\u3002"
+    silentDuration: 15.77
+  - title: "\u662F\u4F60\u7684\u8BDD\uFF0C\u4E00\u5B9A\u53EF\u4EE5"
+    illustration: {fileID: 0}
+    focalPoint: {x: 0.5, y: 0.5}
+    narrationAndAmbience: {fileID: 8300000, guid: 66cc83716ff6c4f5880e0d51585f4fdc, type: 3}
+    captions:
+    - start: 0.45
+      end: 4.18
+      text: "\u70ED\u8336\u6696\u7740\u6307\u5C16\uFF0C\u5979\u7EC8\u4E8E\u677E\u4E0B\u4E86\u80A9\u8180\u3002"
+    - start: 4.18
+      end: 7.26
+      text: "\u76EE\u5149\u5374\u53C8\u843D\u56DE\u90A3\u5F20\u5730\u56FE\u3002"
+    - start: 8.08
+      end: 10.16
+      text: "\u201C\u662F\u4F60\u7684\u8BDD\uFF0C\u4E00\u5B9A\u53EF\u4EE5\u3002\u201D"
+    - start: 10.96
+      end: 16.28
+      text: "\u7559\u4E0B\u8FD9\u53E5\u8BDD\u7684\u4EBA\uFF0C\u600E\u4E48\u77E5\u9053\u627E\u5230\u5730\u56FE\u7684\uFF0C\u4F1A\u662F\u8C01\uFF1F"
+    silentDuration: 17.81034

@@ -1,0 +1,15 @@
+Approved v2 WAV copied byte-for-byte to Assets/Audio/ForestShelter/ForestShelterLoop.wav.
+Gameplay MusicManager forestShelterAmbience is a serialized clip reference.
+Camp selection follows ShelterChapterBackdrop.IsCabin.
+PCM stereo, normalization disabled; existing music volume setting applies.
+
+Forest shelter audio validation
+PASS shelter music muted during prologue
+PASS prologue transitions to home
+PASS forest clip playing and looping after prologue
+PASS 90 second PCM clip imported
+PASS actual playback wraps at loop boundary
+PASS battle replaces forest ambience
+PASS return to forest restores ambience
+PASS unlocked cabin retains original looping ambience
+FINISHED (save disabled)

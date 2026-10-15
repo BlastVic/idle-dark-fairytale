@@ -1,0 +1,197 @@
+[
+  {
+    "page": 1,
+    "recognized_text": "狼终于倒下了小红帽握着镰刀站了很久直到确定他不再动弹他才慢慢放下刀刃小屋里只剩下炉火的批趴声和他尚未平复的喘息可他仍然不知道该怎样离开这片森林或许住在这里的人曾经知道出去的路",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "它",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "噼啪",
+        "recognized": "批趴"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      }
+    ],
+    "script_characters": 87,
+    "recognized_characters": 87
+  },
+  {
+    "page": 2,
+    "recognized_text": "他开始翻找屋里的东西在一只旧抽屉里他找到了一张折起的纸纸边已经磨破外侧留着几行褪色的红字是你的话一定可以他又读了一遍是谁留下的又是写给谁的他小心的把纸抽了出来",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "地",
+        "recognized": "的"
+      }
+    ],
+    "script_characters": 79,
+    "recognized_characters": 79
+  },
+  {
+    "page": 3,
+    "recognized_text": "那是一张地图哲恒处已经开裂几处边角也不知去了哪里他将他轻轻铺平辨认著纸上的道路森林里的一间小屋一座村庄再往前是一座被红笔圈起的城堡那里会有人知道怎么离开这里吗他沿著路线往回看手指停在了村庄上想到那堆火他的手僵住了要去城堡就得再穿过那个地方",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "折痕",
+        "recognized": "哲恒"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "它",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "着",
+        "recognized": "著"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "着",
+        "recognized": "著"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      }
+    ],
+    "script_characters": 119,
+    "recognized_characters": 119
+  },
+  {
+    "page": 4,
+    "recognized_text": "可他已经没有力气再走一夜了这间小屋有屋顶也有尚未熄灭的炉火要留下来总得先收拾出一个能歇脚的地方他找来一条旧毯子裹住狼的尸体抓紧两角一点一点的往门外拖尸体比他想的还沉他几次停下来喘气才终于将他拖过门槛随后它擦去炉边的血剂扶起椅子木板上的爪痕却怎么也擦不掉",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "地",
+        "recognized": "的"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "它",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "它"
+      },
+      {
+        "type": "replace",
+        "script": "迹",
+        "recognized": "剂"
+      }
+    ],
+    "script_characters": 126,
+    "recognized_characters": 126
+  },
+  {
+    "page": 5,
+    "recognized_text": "等他终于在炉边坐下手还在微微发抖他捧起一杯热茶让暖意一点一点渗进指尖地图放在身旁镰刀也割在随手能够到的桌边屋外风仍在树梢间穿行他听了一会儿慢慢松下紧绷的肩膀等恢复些力气他就得回到那座村庄但现在他可以先歇一会儿",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "搁",
+        "recognized": "割"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      }
+    ],
+    "script_characters": 104,
+    "recognized_characters": 104
+  }
+]

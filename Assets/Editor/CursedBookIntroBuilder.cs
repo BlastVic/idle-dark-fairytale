@@ -154,6 +154,7 @@ public static class CursedBookIntroBuilder
         var shader = Shader.Find("DarkFairytale/UI/HiddenInk");
         if (!shader || ShaderUtil.ShaderHasError(shader)) throw new Exception("Hidden ink shader failed to compile.");
         var material = Asset(Root + "/HiddenInk.mat", () => new Material(shader));
+        material.SetFloat("_EdgeWidth", .0475f); EditorUtility.SetDirty(material);
         var root = PrefabUtility.LoadPrefabContents(Prefab);
         try {
             root.GetComponent<CursedBookIntro>().homePage.material = material;

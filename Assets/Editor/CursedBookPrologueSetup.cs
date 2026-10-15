@@ -58,7 +58,7 @@ public static class CursedBookPrologueSetup
                 var material = AssetDatabase.LoadAssetAtPath<Material>(materialPath);
                 if (!material) { material = new Material(Shader.Find("DarkFairytale/UI/HiddenInk")); AssetDatabase.CreateAsset(material, materialPath); }
                 material.SetTexture("_PaperTex", AssetDatabase.LoadAssetAtPath<Texture2D>(Art + "Paper.png"));
-                material.SetFloat("_PaperBlend", .55f); material.SetFloat("_EdgeWidth", .095f);
+                material.SetFloat("_PaperBlend", .55f); material.SetFloat("_EdgeWidth", .0475f);
                 material.SetVector("_SourceUV",new Vector4(0,0,1,1));
                 EditorUtility.SetDirty(material); p.illustration.material = material;
     }

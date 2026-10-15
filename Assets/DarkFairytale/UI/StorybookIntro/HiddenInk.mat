@@ -29,6 +29,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _EdgeWidth: 0.0475
     - _Feather: 0.055
     - _Reveal: 0
     m_Colors:

@@ -1,0 +1,122 @@
+[
+  {
+    "page": 1,
+    "recognized_text": "狼终于倒下了女孩握着镰刀站了很久直到确定她不再动弹她才慢慢放下刀刃小屋里只剩下炉火的批趴声和她尚未平复的喘息可她仍然不知道该怎样离开这片森林或许住在这里的人曾经知道出去的路",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "它",
+        "recognized": "她"
+      },
+      {
+        "type": "replace",
+        "script": "噼啪",
+        "recognized": "批趴"
+      }
+    ],
+    "script_characters": 86,
+    "recognized_characters": 86
+  },
+  {
+    "page": 2,
+    "recognized_text": "他开始翻找屋里的东西在一只旧抽屉里他找到了一张折起的纸纸边已经磨破外侧留着几行退色的红字是你的话一定可以他又读了一遍是谁留下的又是写给谁的他小心的把纸抽了出来",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "褪",
+        "recognized": "退"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "地",
+        "recognized": "的"
+      }
+    ],
+    "script_characters": 79,
+    "recognized_characters": 79
+  },
+  {
+    "page": 3,
+    "recognized_text": "那是一张地图折痕处已经开裂几处边角也不知去了哪里他将他轻轻铺平辨认著纸上的道路森林里的一间小屋一座村庄再往前是一座被红笔圈起的城堡那里会有人知道怎么离开这里吗他沿著路线往回看手指停在了村庄上想到那堆火他的手僵住了要去城堡就得再穿过那个地方",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "它",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "着",
+        "recognized": "著"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      },
+      {
+        "type": "replace",
+        "script": "着",
+        "recognized": "著"
+      },
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      }
+    ],
+    "script_characters": 119,
+    "recognized_characters": 119
+  },
+  {
+    "page": 4,
+    "recognized_text": "她已经没有力气再走一夜了她把狼的尸体拖到屋外简单清理了屋子然后在楼边清出一处落脚的地方今晚她只能留在这里",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "炉",
+        "recognized": "楼"
+      }
+    ],
+    "script_characters": 52,
+    "recognized_characters": 52
+  },
+  {
+    "page": 5,
+    "recognized_text": "热茶暖着指尖他终于松下了肩膀目光却又落回那张地图是你的话一定可以留下这句话的人怎么知道找到地图的会是谁",
+    "differences": [
+      {
+        "type": "replace",
+        "script": "她",
+        "recognized": "他"
+      }
+    ],
+    "script_characters": 51,
+    "recognized_characters": 51
+  }
+]
