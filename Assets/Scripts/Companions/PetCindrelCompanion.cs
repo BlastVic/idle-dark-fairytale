@@ -6,7 +6,7 @@ using UnityEngine;
 public sealed class PetCindrelCompanion : MonoBehaviour
 {
     public SkeletonAnimation skeleton;
-    public Vector2 viewportFeet = new Vector2(.22f, .38f);
+    public Vector2 viewportFeet = new Vector2(.18f, .38f);
     public Vector2 viewportSize = new Vector2(.54f, .17f);
     public float exitSeconds = 1.2f;
     public bool Exiting { get; private set; }

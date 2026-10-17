@@ -129,7 +129,7 @@ public sealed class MonsterPreviewStage : MonoBehaviour
             if(tester.CompanionDisplaySize.HasValue && redHood){
                 // Allies share the left side; reserve the right side for pet attack effects.
                 var actor=tester.character.transform;var scale=actor.lossyScale;
-                float center=previewCamera.ViewportToWorldPoint(new Vector3(.20f,.5f,20)).x;
+                float center=previewCamera.ViewportToWorldPoint(new Vector3(tester.CompanionPreviewCenter,.5f,20)).x;
                 float feet=redHood.GetComponent<MeshRenderer>().bounds.min.y+height*.07f;
                 actor.position=new Vector3(center-monsterBounds.center.x*scale.x,feet-monsterBounds.min.y*scale.y,0);
                 tester.character.GetComponent<MeshRenderer>().sortingOrder=redHood.GetComponent<MeshRenderer>().sortingOrder-1;

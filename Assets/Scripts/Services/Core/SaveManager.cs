@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Assets.Scripts.Extentions;
 using UnityEngine;
@@ -115,17 +115,17 @@ namespace Assets.Scripts.Services
             _userData.sinisterStampedeLevel = SkillsController.Instance.sinisterStampedeLevel;
             _userData.angelOnMyShoulderLevel = SkillsController.Instance.angelOnMyShoulderLevel;
             _userData.devilOnMyShoulderLevel = SkillsController.Instance.devilOnMyShoulderLevel;
-            _userData.pathCleanerLevel = SkillsController.Instance.pathCleanerLevel;
+            _userData.pathCleanerLevel = SkillsController.Instance.shadowWolfLevel;
             _userData.luckyBastardLevel = SkillsController.Instance.luckyBastardLevel;
             _userData.ressurrectionLevel = SkillsController.Instance.ressurrectionLevel;
             _userData.twiceTheFunLevel = SkillsController.Instance.twiceTheFunLevel;
-            _userData.lastButNotLeastLevel = SkillsController.Instance.lastButNotLeastLevel;
+            _userData.lastButNotLeastLevel = SkillsController.Instance.ghostWolfPackLevel;
             _userData.cindrelLevel = SkillsController.Instance.cindrelLevel;
             _userData.lightningDemiGodlevel = SkillsController.Instance.lightningDemiGodlevel;
             _userData.bossKillerLevel = SkillsController.Instance.bossKillerLevel;
             _userData.myLuckyStarsLevel = SkillsController.Instance.myLuckyStarsLevel;
             _userData.battlefieldTacticianLevel = SkillsController.Instance.battlefieldTacticianLevel;
-            _userData.breathOfHellLevel = SkillsController.Instance.breathOfHellLevel;
+            _userData.breathOfHellLevel = SkillsController.Instance.beastPackLeaderLevel;
 
             _userData.xpNow = gm.xpNow;
             _userData.xpMax = gm.xpMax;
@@ -228,7 +228,7 @@ namespace Assets.Scripts.Services
 
             //skill levels
             SkillsController.Instance.regenLevel = _userData.regenLevel;
-            SkillsController.Instance.pathCleanerLevel = _userData.pathCleanerLevel;
+            SkillsController.Instance.shadowWolfLevel = _userData.pathCleanerLevel;
             SkillsController.Instance.angelOnMyShoulderLevel = _userData.angelOnMyShoulderLevel;
             SkillsController.Instance.devilOnMyShoulderLevel = _userData.devilOnMyShoulderLevel;
             SkillsController.Instance.sinisterStampedeLevel = _userData.sinisterStampedeLevel;
@@ -236,12 +236,12 @@ namespace Assets.Scripts.Services
             SkillsController.Instance.ressurrectionLevel = _userData.ressurrectionLevel;
             SkillsController.Instance.twiceTheFunLevel = _userData.twiceTheFunLevel;
             SkillsController.Instance.cindrelLevel = _userData.cindrelLevel;
-            SkillsController.Instance.lastButNotLeastLevel = _userData.lastButNotLeastLevel;
+            SkillsController.Instance.ghostWolfPackLevel = _userData.lastButNotLeastLevel;
             SkillsController.Instance.lightningDemiGodlevel = _userData.lightningDemiGodlevel;
             SkillsController.Instance.bossKillerLevel = _userData.bossKillerLevel;
             SkillsController.Instance.myLuckyStarsLevel = _userData.myLuckyStarsLevel;
             SkillsController.Instance.battlefieldTacticianLevel = _userData.battlefieldTacticianLevel;
-            SkillsController.Instance.breathOfHellLevel = _userData.breathOfHellLevel;
+            SkillsController.Instance.beastPackLeaderLevel = _userData.breathOfHellLevel;
 
             gm.xpNow = _userData.xpNow;
             gm.xpMax = _userData.xpMax;
@@ -436,6 +436,7 @@ namespace Assets.Scripts.Services
             set => lastAllocatedStatId = value >= LevelTypeEnum.HP && value <= LevelTypeEnum.CRIT_DMG ? (int)value + 1 : 0;
         }
         public int regenLevel = 0;
+        // Keep the persisted key so invested levels migrate to Summon: Shadow Wolf.
         public int pathCleanerLevel = 0;
         public int sinisterStampedeLevel = 0;
         public int devilOnMyShoulderLevel = 0;

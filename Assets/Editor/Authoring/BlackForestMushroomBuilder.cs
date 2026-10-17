@@ -174,6 +174,7 @@ public static class BlackForestMushroomBuilder
             skeleton.AnimationName = "Idle1"; skeleton.loop = true; skeleton.Initialize(true);
             var enemy = go.GetComponent<Enemy>(); enemy.skeletonAnimation = skeleton; enemy.maxSkins = 1; enemy.maxAttacks = 2;
             enemy.bossName = ""; enemy.waitBetweenAttacks = 2.8f; enemy.expGiven = 1; enemy.itemsGiven = new List<Item>(); enemy.currentAnimation = "";
+            enemy.equipmentLootKey = EquipmentLoot.Data.monsters.Any(m=>m.key==id) ? id : "";
             var impact = new GameObject("ImpactPoint"); impact.transform.SetParent(skeleton.transform, false); impact.transform.localPosition = new Vector3(0, 1.7f, 0); enemy.rootPos = impact;
             var actor = go.GetComponent<Actor_Base>(); actor.isPlayer = false; actor.isBoss = false; actor.chanceInterruptAttack = 35;
             actor.baseStat.hpMax = 6; actor.baseStat.hpNow = 6; actor.baseStat.dmg = 1;

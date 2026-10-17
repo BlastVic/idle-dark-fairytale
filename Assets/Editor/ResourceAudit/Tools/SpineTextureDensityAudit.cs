@@ -32,7 +32,7 @@ public static class SpineTextureDensityAudit
             parent=new GameObject("Texture density probe (inactive)");parent.SetActive(false);UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(parent,scene);
             var companionPath="Assets/DarkFairytale/Companions/PetCindrel/Prefabs/PetCindrel.prefab";
             var companionSource=AssetDatabase.LoadAssetAtPath<GameObject>(companionPath).GetComponent<PetCindrelEffects>();
-            var extras=new[]{companionPath,"Assets/Resources/Effects/DongzhuoCast.prefab"}.Concat(new[]{companionSource.emberBolt,companionSource.emberImpact,companionSource.clawArc,companionSource.ashDust,companionSource.emberBreath}.Select(e=>AssetDatabase.GetAssetPath(e.gameObject)));
+            var extras=new[]{companionPath,"Assets/Resources/Effects/DongzhuoCast.prefab"}.Concat(new[]{companionSource.emberBolt,companionSource.emberImpact,companionSource.clawArc,companionSource.ashDust}.Select(e=>AssetDatabase.GetAssetPath(e.gameObject)));
             var paths=LevelDataDescriptions.EnemyDb.Select(e=>AssetDatabase.GUIDToAssetPath(e.assetRef.AssetGUID)).Concat(new[]{"Assets/DarkFairytale/Characters/RedHood/Prefabs/Player.prefab"}).Concat(LevelDataDescriptions.ParticleDb.Select(e=>AssetDatabase.GUIDToAssetPath(e.assetRef.AssetGUID))).Concat(extras).Distinct().ToArray();
             foreach(var path in paths){
                 File.WriteAllText(Dir+"density-progress.txt",path);

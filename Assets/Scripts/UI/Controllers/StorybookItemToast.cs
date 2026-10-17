@@ -13,6 +13,7 @@ public sealed class StorybookItemToast : MonoBehaviour
     public float visualScale=.9f;
     public float topInset=460,enterDuration=.24f,holdDuration=2.1f,exitDuration=.22f;
     public Vector2 textRewardLayout = new Vector2(0,650);
+    readonly Vector3[] headerCorners=new Vector3[4];
     Vector2[] equipmentPositions, equipmentSizes;
     void BindRewardLayout(bool reward)
     {
@@ -29,7 +30,7 @@ public sealed class StorybookItemToast : MonoBehaviour
         icon.sprite=reward?null:InventoryManager.single.GetSpriteIcon(item.m_IconName);icon.enabled=icon.sprite;
         BindRewardLayout(reward);
         heading.text=reward?"获得奖励":"获得装备";
-        string name=string.IsNullOrWhiteSpace(item.m_ItemFinalTitle)?item.m_ItemBasicTitle:item.m_ItemFinalTitle;
+        string name=EquipmentNames.Display(item);
         itemName.text=string.IsNullOrWhiteSpace(name)?"旅途收获":name;
         detail.text=reward?"奖励已获得":StorybookEquipmentUI.GradeName(item.itemGrade)+(item.baseStat!=null?"  ·  "+StorybookEquipmentUI.PrimaryText(item):"");
         qualityAccent.color=reward?new Color(.55f,.12f,.08f):StorybookEquipmentUI.GradeColor(item.itemGrade);
@@ -56,5 +57,17 @@ public sealed class StorybookItemToast : MonoBehaviour
         float scale=Mathf.Min(available.x/1080,available.y/1500)*visualScale;
         card.anchorMin=card.anchorMax=card.pivot=Vector2.one*.5f;card.sizeDelta=designSize;card.localScale=Vector3.one*scale;
         card.anchoredPosition=new Vector2(bounds.xMin+bounds.width*normalized.center.x,bounds.yMin+bounds.height*normalized.yMax-(topInset+designSize.y*.5f-motion)*scale);
+        var hud=GameplayCanvas.single?GameplayCanvas.single.battleHud:null;
+        if(hud&&hud.gameObject.activeInHierarchy){
+            var layout=hud.GetComponent<BattleHudSafeArea>();
+            if(layout&&layout.topPanel){
+                layout.topPanel.GetWorldCorners(headerCorners);
+                var pos=card.anchoredPosition;
+                pos.y=root.InverseTransformPoint(headerCorners[0]).y-(24+designSize.y*.5f-motion)*scale;
+                card.anchoredPosition=pos;
+            }
+        }
+        var boss=hud?hud.bossHud:null;
+        if(boss&&boss.Presenting){var pos=card.anchoredPosition;pos.y=Mathf.Min(pos.y,boss.BottomIn(root)-(24+designSize.y*.5f)*scale);card.anchoredPosition=pos;}
     }
 }

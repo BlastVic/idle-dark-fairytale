@@ -61,6 +61,11 @@ public sealed class EquipmentIconSetProbe
                 string key=prefixes[c]+i;var sprite=im.GetSpriteIcon(key);
                 Check(sprite&&sprite.name==key&&sprite.texture.width==256&&sprite.texture.height==256,key+" resolves to same-name 256px sprite");
                 Check(im.m_ItemIcons.Count(x=>x.spriteName==key)==1,key+" unique mapping");
+                var artworkName=EquipmentNames.ForIcon(key);
+                Check(!string.IsNullOrWhiteSpace(artworkName)&&artworkName!=key,key+" has artwork name: "+artworkName);
+                var legacy=new Item{m_IconName=key,m_ItemBasicTitle="Old equipment",m_ItemFinalTitle="Old legendary equipment",itemGrade=ItemGrade.LEGENDARY};
+                Check(EquipmentNames.Display(legacy)==artworkName&&legacy.m_ItemFinalTitle=="Old legendary equipment",key+" old save displays current name without rewriting saved data");
+                Check(im.GetRandomName(new Item{m_IconName=key})==artworkName,key+" new drop uses current name");
                 list.Add(new Item{uniqueId=id++,m_ItemType=types[c],m_IconName=key,m_ItemFinalTitle=key,itemGrade=(ItemGrade)Mathf.Min(4,(i-1)*5/counts[c]),baseStat=new Stat{dmg=i+5,def=i+3,hpMax=i+10},rollStat=new RollStat()});
             }
         }

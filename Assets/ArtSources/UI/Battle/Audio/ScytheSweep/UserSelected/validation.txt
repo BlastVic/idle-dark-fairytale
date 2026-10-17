@@ -1,0 +1,25 @@
+PASS Skill5 cast at attack speed 100
+PASS slash follows animation time: 0.4602224
+PASS slash pitch follows attack speed
+PASS spin belongs to actual effect instance
+PASS spin lasts 1.2667s at fixed speed
+PASS explicit 2D one-shot
+PASS both authored clips triggered
+PASS audio sources cleaned up
+PASS Skill5 cast at attack speed 200
+PASS slash follows animation time: 0.4612208
+PASS slash pitch follows attack speed
+PASS spin belongs to actual effect instance
+PASS spin lasts 1.2667s at fixed speed
+PASS explicit 2D one-shot
+PASS both authored clips triggered
+PASS audio sources cleaned up
+PASS Skill5 cast at attack speed 75
+PASS slash follows animation time: 0.4600829
+PASS slash pitch follows attack speed
+PASS spin belongs to actual effect instance
+PASS spin lasts 1.2667s at fixed speed
+PASS explicit 2D one-shot
+PASS both authored clips triggered
+PASS audio sources cleaned up
+PASS all 3 attack speeds; no runtime exceptions observed by validator

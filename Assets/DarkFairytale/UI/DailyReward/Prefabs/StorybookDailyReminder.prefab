@@ -1316,6 +1316,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
+  - component: {fileID: 8900000000000010011}
   - component: {fileID: 2995683860279313323}
   - component: {fileID: 3484211683101680127}
   - component: {fileID: 8274054597820973499}
@@ -1584,3 +1585,15 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &8900000000000010011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782339543633351174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 260efb49f96b4323844c1f614c679e1b, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:

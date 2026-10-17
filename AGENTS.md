@@ -77,3 +77,5 @@
 - `Assets/Resources/Data` 放配置单例；Environment 放章节环境目录；Localization 放文本。移动 Resources 文件必须同步改运行加载键、编辑器路径和生成位置，并验证独立运行所用的加载方式，不可依赖编辑器搜索回退。
 - 例外仅限真实工具约束：`Assets/Editor/SpineSettings.asset` 是 Spine 固定路径；`Assets/Resources/IAPProductCatalog.json` 与 `BillingMode.json` 是 Unity IAP 固定入口；第三方插件、AddressableAssetsData、Unity 工程配置保持其规定结构。不得为了外观整齐修改供应商源码或改变 asmdef 范围。
 - 移动 Unity 资源必须同时保留原 `.meta` GUID，更新完整路径与动态拼接路径、制作清单和当前说明。整理不触发 Prefab 自动重建；完成后检查 GUID 引用、Resources 加载、Spine、正式场景与常用制作工具。迁移记录归入资源审计 Data，说明归入 Docs；临时日志、崩溃转储、截图放忽略目录。
+
+- 新装备图标更换外观时须同步更新 `Assets/Resources/Localization/EquipmentNames.json` 的展示名称及装备模板。名称按图标键统一查询，兼容旧存档，品质独立展示；不得改动既有资源键、装备 ID 或属性来实现改名。

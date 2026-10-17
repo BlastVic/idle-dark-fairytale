@@ -53,8 +53,10 @@ MonoBehaviour:
   preview: 0
   targetEnemy: 1
   targetEnemyGroup: 1
+  horizontalSweep: 1
   animationName: animation
   startTime: 0.2333
+  spawnSound: {fileID: 8300000, guid: 19041fb79d8f45a9a1904f2aa5025d09, type: 3}
 --- !u!1 &6308763977230941368
 GameObject:
   m_ObjectHideFlags: 0

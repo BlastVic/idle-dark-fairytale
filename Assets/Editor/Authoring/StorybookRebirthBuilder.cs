@@ -49,7 +49,7 @@ public static class StorybookRebirthBuilder
             ui.cancel=Button(panel.transform,"Cancel",primary,50,421,320,83,"继续冒险",31,out _);ui.confirm=Button(panel.transform,"ConfirmRebirth",primary,429,421,320,83,"确认转生",31,out _);ui.cancel.GetComponent<Image>().type=ui.confirm.GetComponent<Image>().type=Image.Type.Sliced;
             Txt(panel.transform,"Hint","确认后将开始新的旅途",110,522,579,42,24);ui.confirmation.SetActive(false);
             owner.view=ui;owner.rebirthCanvas=root.gameObject;owner.rebirthButton=ui.rebirth.gameObject;owner.closeButton=ui.back.gameObject;owner.AreYouSurePanel=ui.confirmation;owner.cutsceneObj.SetActive(false);
-            layout.Apply();ProductionUiArt.SaveAsPrefabAsset(package,Path);
+            StorybookDialogAuthoring.Apply((RectTransform)ui.confirmBody.transform.parent,ui.cancel);layout.Apply();ProductionUiArt.SaveAsPrefabAsset(package,Path);
         }finally{PrefabUtility.UnloadPrefabContents(package);}
         AssetDatabase.SaveAssets();AssetDatabase.Refresh();
     }

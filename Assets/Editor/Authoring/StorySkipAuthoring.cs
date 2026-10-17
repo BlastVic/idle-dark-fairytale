@@ -23,6 +23,7 @@ public static class StorySkipAuthoring {
   state.grayscaleShader=Shader.Find("UI/Storybook Disabled");
  }
  static void StylePanel(StorySkipUI ui){
+  if(ui.panel.GetComponentInChildren<StorybookDialogChrome>(true))return;
   var image=ui.panel.GetComponent<Image>();image.sprite=null;image.material=null;image.type=Image.Type.Simple;image.color=new Color(.88f,.83f,.72f,1);
   var edge=ui.panel.GetComponent<Outline>();if(!edge)edge=ui.panel.gameObject.AddComponent<Outline>();edge.effectColor=new Color(.38f,.29f,.18f,1);edge.effectDistance=new Vector2(3,-3);
   var sr=(RectTransform)ui.skip.transform;sr.sizeDelta=new Vector2(172,76);sr.anchorMin=sr.anchorMax=new Vector2(1,1);sr.anchoredPosition=new Vector2(-116,-68);
@@ -34,7 +35,7 @@ public static class StorySkipAuthoring {
  var root=PrefabUtility.LoadPrefabContents(path);
  try {
   if(root.GetComponent<StorySkipUI>()){
-    var existing=root.GetComponent<StorySkipUI>();foreach(var button in new[]{existing.skip,existing.cancel,existing.confirm})Style(button);StylePanel(existing);
+    var existing=root.GetComponent<StorySkipUI>();foreach(var button in new[]{existing.skip,existing.cancel,existing.confirm})Style(button);StylePanel(existing);StorybookDialogAuthoring.Apply(existing.panel,existing.cancel);
     PrefabUtility.SaveAsPrefabAsset(root,path);continue;
   }
   var intro=root.GetComponent<CursedBookIntro>();var ui=root.AddComponent<StorySkipUI>();ui.intro=intro;ui.core=root.GetComponent<CursedBookIntroLayout>().core;
@@ -45,7 +46,7 @@ public static class StorySkipAuthoring {
   Label(ui.panel,"Message","你确定要跳过剧情吗？你可以在地图里重新观看剧情。",intro.prologue.subtitle.font,34,new Vector2(740,150),new Vector2(0,35));
   ui.cancel=Button(ui.panel,"CancelButton","继续观看",intro.prologue.subtitle.font,new Vector2(300,86),new Vector2(-180,-145));
   ui.confirm=Button(ui.panel,"ConfirmButton","确认跳过",intro.prologue.subtitle.font,new Vector2(300,86),new Vector2(180,-145));
-  StylePanel(ui);modal.gameObject.SetActive(false);PrefabUtility.SaveAsPrefabAsset(root,path);
+  StylePanel(ui);StorybookDialogAuthoring.Apply(ui.panel,ui.cancel);modal.gameObject.SetActive(false);PrefabUtility.SaveAsPrefabAsset(root,path);
  }finally{PrefabUtility.UnloadPrefabContents(root);}
  }
  File.WriteAllText(Dir+"install.txt","Installed saved skip UI on both story prefabs.");

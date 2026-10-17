@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Tooltip("Combat workbenches use isolated data without campaign startup or persistence.")]
+    public bool standaloneCombat;
+
     [Header("Game State Info")]
     public GameStateType gameState;
 
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
     public void RecordPlayerDeath()
     {
         if (playerDeathCount < int.MaxValue) playerDeathCount = Mathf.Max(0, playerDeathCount) + 1;
-        SaveManager.Instance.SaveDeathProgress();
+        if (!standaloneCombat) SaveManager.Instance.SaveDeathProgress();
     }
 
     public int rebirthLevel = 0;
@@ -75,7 +78,7 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EventManager.OnLoadComplete += HandleLoadComplete;
+        if (!standaloneCombat) EventManager.OnLoadComplete += HandleLoadComplete;
     }
 
     private void OnDisable()
@@ -85,6 +88,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        if (standaloneCombat) return;
         //TEMPORARY AUTO_LEVEL LOADING
         //WaveManager.single.StartLevel("Level1");
         gc.ToggleBattleUi(false);

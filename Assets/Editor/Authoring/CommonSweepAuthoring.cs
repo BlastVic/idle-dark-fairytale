@@ -42,7 +42,7 @@ public static class CommonSweepAuthoring
             var effect=root.AddComponent<CommonSpineBattleEffect>();effect.targetEnemy=true;effect.targetEnemyGroup=true;effect.animationName="animation";effect.startTime=.2333f;effect.skeleton=skeleton;effect.duration=sd.FindAnimation("animation").Duration-effect.startTime;
             bool any=false;Bounds bounds=new Bounds();
             for(int i=0;i<=60;i++){effect.Sample(effect.duration*i/60f);foreach(var v in skeleton.GetComponent<MeshFilter>().sharedMesh.vertices){var p=skeleton.transform.TransformPoint(v);if(!any){bounds=new Bounds(p,Vector3.zero);any=true;}else bounds.Encapsulate(p);}}
-            effect.motionBounds=bounds;skeleton.timeScale=1;effect.Sample(0);skeleton.timeScale=1;
+            effect.motionBounds=bounds;effect.horizontalSweep=true;skeleton.timeScale=1;effect.Sample(0);skeleton.timeScale=1;
             PrefabUtility.SaveAsPrefabAsset(root,path);
         }finally{PrefabUtility.UnloadPrefabContents(root);}
         var rigPath=SpineEffectsTestBuilder.Root+"/SpineEffectsTestRig.prefab";var rig=PrefabUtility.LoadPrefabContents(rigPath);

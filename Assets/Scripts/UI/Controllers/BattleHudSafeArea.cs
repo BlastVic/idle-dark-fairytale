@@ -2,12 +2,15 @@ using UnityEngine;
 
 /// <summary>Fits an authored 1080x1920 core inside the safe area without stretching artwork.</summary>
 [ExecuteAlways]
+[DefaultExecutionOrder(-50)]
 [RequireComponent(typeof(RectTransform))]
 public sealed class BattleHudSafeArea : MonoBehaviour
 {
     public RectTransform core;
     public Vector2 referenceSize = new Vector2(1080, 1920);
     public bool respectSafeArea = true;
+    public RectTransform topPanel;
+    [Min(0)] public float topInset = 24;
     public RectTransform bottomPanel;
     [Min(0)] public float bottomInset = 50;
     Rect lastSafe;
@@ -28,6 +31,15 @@ public sealed class BattleHudSafeArea : MonoBehaviour
         lastSize = size; lastSafe = safe;
         Rect normalized = NormalizedSafeArea(safe, new Vector2(Screen.width, Screen.height));
         FitCore(core, size, normalized, referenceSize);
+        if (topPanel)
+        {
+            // The centred design core leaves extra vertical space on tall phones.
+            // Dock the header to the safe-area edge without scaling its artwork.
+            float extraHeight = size.y * normalized.height / core.localScale.y - referenceSize.y;
+            var position = topPanel.anchoredPosition;
+            position.y = extraHeight * .5f - topInset - topPanel.rect.height * (1 - topPanel.pivot.y);
+            topPanel.anchoredPosition = position;
+        }
         if (bottomPanel)
         {
             // Keep the original artwork scale, but dock to the actual safe-area bottom.

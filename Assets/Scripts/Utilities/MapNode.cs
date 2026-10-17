@@ -49,7 +49,7 @@ public class MapNode : MonoBehaviour
 
         GameManager.single.lastBattleKey = mapFullName;
         TransitionCanvas.single.ToBlack("Map Node");
-        yield return new WaitForSeconds(.8f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
 
         LevelController.Instance.AssetManager.mapPackageObj.SetActive(false);
         GameplayCanvas.single.ToggleButtonGrid(false);

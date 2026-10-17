@@ -97,7 +97,7 @@ public static class PetCindrelBuilder {
                 }
                 report.AppendLine(anim.Name+": PASS both skins, finite geometry, identical deformation; duration="+anim.Duration);
             }
-            foreach(var name in new[]{"Idle1","Attack1","Attack2","Attack3","Hit","Death1","Exit"}) {
+            foreach(var name in new[]{"Idle1","Attack1","Attack2","Hit","Death1","Exit"}) {
                 int hits=0,ends=0;Spine.AnimationState.TrackEntryEventDelegate handler=(entry,e)=>{if(e.Data.Name=="OnHit")hits++;if(e.Data.Name=="OnComplete")ends++;};
                 Pose(s,"1",name,0);s.AnimationState.Event+=handler;
                 for(int f=0;f<Mathf.CeilToInt(s.Skeleton.Data.FindAnimation(name).Duration*60)+3;f++)s.Update(1/60f);
@@ -118,7 +118,7 @@ public static class PetCindrelBuilder {
                 for(int f=1;f<=60;f++){Pose(s,"1",anim.Name,anim.Duration*f/60f);motion.Encapsulate(s.GetComponent<Renderer>().bounds);}
                 cam.transform.position=new Vector3(motion.center.x,motion.center.y,-10);cam.orthographicSize=Mathf.Max(motion.size.y/2,motion.size.x/3f)*1.15f;
                 RenderStrip(s,cam,anim.Name,anim.Duration);
-                if(new[]{"Idle1","Attack1","Attack2","Attack3","Hit","Death1","Exit"}.Contains(anim.Name)) {
+                if(new[]{"Idle1","Attack1","Attack2","Hit","Death1","Exit"}.Contains(anim.Name)) {
                     cam.orthographicSize=Mathf.Max(motion.size.y,motion.size.x)*.56f;
                     for(int f=0;f<6;f++){Pose(s,"1",anim.Name,anim.Duration*f/5f);Render(cam,Output+"/"+anim.Name+"-"+f+".png",768,768);}
                 }

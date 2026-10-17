@@ -24,6 +24,7 @@ namespace IdleKnightHero.UI
 
         void OnAudioLevelChanged()
         {
+            if (stoppingMusic) return;
             StopAllCoroutines();
             backgroundMusicSource.volume = SoundManager.Instance.getBGVolume();
         }
@@ -33,9 +34,10 @@ namespace IdleKnightHero.UI
         [Tooltip("Looping ambience for the forest shelter before the cabin is unlocked.")]
         public AudioClip forestShelterAmbience;
 
-        public void PlayMusicByClipNumber(int clipNum, bool loop = true)
+        public void PlayMusicByClipNumber(int clipNum, bool loop = true, bool immediate = false)
         {
             StopAllCoroutines();
+            stoppingMusic = false;
             AudioClip newClip = null;
             newClip = audioClips[clipNum];
             if (clipNum == 0 && forestShelterAmbience)
@@ -45,12 +47,22 @@ namespace IdleKnightHero.UI
                 if (backdrop) backdrop.Refresh();
                 if (backdrop && !backdrop.IsCabin) newClip = forestShelterAmbience;
             }
+            if (immediate)
+            {
+                backgroundMusicSource.Stop();
+                backgroundMusicSource.clip = newClip;
+                backgroundMusicSource.loop = loop;
+                backgroundMusicSource.volume = SoundManager.Instance.getBGVolume();
+                backgroundMusicSource.Play();
+                return;
+            }
             StartCoroutine(PlayNewClipChain(newClip, loop));
         }
 
         public void PlayBattleNormalMusic(bool loop = true)
         {
             StopAllCoroutines();
+            stoppingMusic = false;
             AudioClip newClip = null;
             newClip = battleNormalClips[Random.Range(0, battleNormalClips.Length - 1)];
             StartCoroutine(PlayNewClipChain(newClip, loop));
@@ -58,7 +70,32 @@ namespace IdleKnightHero.UI
 
         public void PlayMusicByClip(AudioClip newClip)
         {
+            StopAllCoroutines();
+            stoppingMusic = false;
             StartCoroutine(PlayNewClipChain(newClip));
+        }
+
+        bool stoppingMusic;
+        public void StopBackgroundMusic(float fadeDuration = 0)
+        {
+            StopAllCoroutines();
+            stoppingMusic = true;
+            if (!backgroundMusicSource) return;
+            StartCoroutine(StopMusicChain(Mathf.Max(0, fadeDuration)));
+        }
+
+        IEnumerator StopMusicChain(float duration)
+        {
+            float startVolume = backgroundMusicSource.volume;
+            float elapsed = 0;
+            while (elapsed < duration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                backgroundMusicSource.volume = Mathf.Lerp(startVolume, 0, elapsed / duration);
+                yield return null;
+            }
+            backgroundMusicSource.volume = 0;
+            backgroundMusicSource.Stop();
         }
 
         public int originalBattleClip = 1;
@@ -77,7 +114,8 @@ namespace IdleKnightHero.UI
 
             fadeComplete = true;
 
-            //CHANGE CLIP
+            // Stop first so retrying the same clip always starts from the beginning.
+            backgroundMusicSource.Stop();
             backgroundMusicSource.clip = newClip;
 
             //FADE IN

@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 config = json.loads((ROOT / "Docs/Balance/chapter01.json").read_text())
 monsters = {m["key"]: m for m in config["monsters"]}
+loot = json.loads((ROOT / "Assets/Resources/Data/Equipment/EquipmentLoot.json").read_text())
 scene = (ROOT / "Assets/Scenes/Gameplay.unity").read_text()
 blocks = re.split(r"^  - levelKey: ", scene, flags=re.M)[1:]
 
@@ -29,7 +30,11 @@ for m in monsters.values():
         assert stat(text, serialized) == m[design], (m["key"], serialized)
     for design, serialized in [("interval", "waitBetweenAttacks"), ("experience", "expGiven"), ("interruptChance", "chanceInterruptAttack")]:
         assert math.isclose(float(re.search(r"^  " + serialized + r": ([\d.]+)", text, re.M)[1]), m[design], rel_tol=1e-6)
-    assert m["drops"] and all(0 < item["m_ChanceDrop"] <= 1 for item in m["drops"])
+    if m.get("equipmentLootKey"):
+        assert not m["drops"] and m["equipmentLootKey"] in {r["key"] for r in loot["monsters"]}
+        assert "equipmentLootKey: " + m["equipmentLootKey"] in text and "  itemsGiven: []" in text
+    else:
+        assert m["drops"] and all(0 < item["m_ChanceDrop"] <= 1 for item in m["drops"])
     assert m["hp"] > 0 and m["damage"] > 0 and m["interval"] > 0
     animations = json.loads(next((ROOT / m["path"]).parent.glob(m["key"] + ".json")).read_text())["animations"]
     hits = [e["time"] for e in animations["Attack1"]["events"] if e["name"] == "OnHit"]
@@ -41,8 +46,13 @@ for i, node in enumerate(config["nodes"]):
     rewards = node["rewards"]
     for key in ["crystalsMin", "crystalsMax", "chestSeconds", "chestGrade"]:
         assert float(re.search(r"^    " + key + r": ([\d.]+)", blocks[i], re.M)[1]) == rewards[key]
-    for key in ["normal", "gold", "diamond"]:
-        assert rewards[key] and all(0 < item["m_ChanceDrop"] <= 1 for item in rewards[key])
+    if rewards.get("equipmentLootTier"):
+        assert rewards["equipmentLootTier"] == node["index"]
+        assert f"equipmentLootTier: {node['index']}" in blocks[i]
+        assert all(not rewards[k] for k in ["normal", "gold", "diamond"])
+    else:
+        for key in ["normal", "gold", "diamond"]:
+            assert rewards[key] and all(0 < item["m_ChanceDrop"] <= 1 for item in rewards[key])
     actual = waves(blocks[i])
     if node["index"] == 5:
         assert all("MobMurmlet" not in wave for wave in actual), "Node 5 must not include MobMurmlet"
@@ -67,13 +77,14 @@ assert all(a["hp"] < b["hp"] and a["damage"] < b["damage"] for a, b in zip(confi
 original = subprocess.check_output(["git", "show", "b759ee1:Assets/Scenes/MainScenes/Gameplay.unity"], cwd=ROOT, text=True)
 old_blocks = re.split(r"^  - levelKey: ", original, flags=re.M)[1:]
 baseline = []
+original_paths = subprocess.check_output(["git", "ls-tree", "-r", "--name-only", "b759ee1", "--", "Assets/Prefab"], cwd=ROOT, text=True).splitlines()
 for key in ["Khorasan Ruins I", "Khorasan Ruins II", "Mount Zion", "The Great Cave Entrance", "The Cave of Dry Bones"]:
     block = next(b for b in old_blocks if b.splitlines()[0] == key)
     hp = xp = count = 0
     for wave in waves(block):
         for name in wave:
-            path = next((ROOT / "Assets/Prefab").rglob(name + ".prefab"))
-            text = subprocess.check_output(["git", "show", "b759ee1:" + str(path.relative_to(ROOT))], cwd=ROOT, text=True)
+            path = next(p for p in original_paths if p.endswith("/" + name + ".prefab"))
+            text = subprocess.check_output(["git", "show", "b759ee1:" + path], cwd=ROOT, text=True)
             hp += stat(text, "hpMax")
             xp += float(re.search(r"^  expGiven: ([\d.]+)", text, re.M)[1])
             count += 1

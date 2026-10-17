@@ -19,6 +19,7 @@ public class MonsterAnimationTest : MonoBehaviour
     public Vector3 CombatDisplayScale { get; private set; } = Vector3.one;
     public bool CombatIsBoss { get; private set; }
     public Vector2? CompanionDisplaySize { get; private set; }
+    public float CompanionPreviewCenter { get; private set; } = .20f;
     public float CombatSizeMultiplier { get; private set; } = 1f;
     [Range(.1f, 2f)] public float speed = 1;
     public string[] AnimationNames { get; private set; } = new string[0];
@@ -124,7 +125,7 @@ public class MonsterAnimationTest : MonoBehaviour
         CombatDisplayScale = Vector3.one;
         CombatIsBoss = false;
         CombatSizeMultiplier = 1f;
-        CompanionDisplaySize = null;
+        CompanionDisplaySize = null; CompanionPreviewCenter = .20f;
         AnimationNames = new string[0]; SelectedAnimation = 0; elapsed = 0; Error = null;
         if (character) { character.gameObject.SetActive(false); Destroy(character.gameObject); }
         try
@@ -142,6 +143,8 @@ public class MonsterAnimationTest : MonoBehaviour
                     CombatIsBoss = lifebar && (lifebar.isBoss || lifebar.isMiniBoss);
                     var companion = prefab.GetComponent<PetCindrelCompanion>();
                     if(companion) CompanionDisplaySize = companion.viewportSize;
+                    var wolfPet = prefab.GetComponent<WolfPetCompanion>();
+                    if(wolfPet){ CompanionDisplaySize = wolfPet.viewportSize; CompanionPreviewCenter = wolfPet.viewportFeet.x; }
                     entranceSettings = prefab.GetComponent<DropIn>();
                     var enemy = prefab.GetComponent<Enemy>();
                     CombatSizeMultiplier = enemy ? Mathf.Max(.1f, enemy.displaySizeMultiplier) : 1f;
@@ -167,6 +170,7 @@ public class MonsterAnimationTest : MonoBehaviour
             foreach (var key in new[] { "Idle1", "Attack1", "Hit", "Death1" })
                 if (character.Skeleton.Data.FindAnimation(key) != null) ordered.Add(key);
             foreach (var anim in animations) if (!ordered.Contains(anim.Name)) ordered.Add(anim.Name);
+            if (character.GetComponent<PetCindrelEffects>()) ordered.Remove("Attack3");
             AnimationNames = ordered.ToArray();
             int idle = Array.FindIndex(AnimationNames, n => n == "Idle1" || string.Equals(n, "idle", StringComparison.OrdinalIgnoreCase));
             if (AnimationNames.Length > 0) Play(Mathf.Max(0, idle));

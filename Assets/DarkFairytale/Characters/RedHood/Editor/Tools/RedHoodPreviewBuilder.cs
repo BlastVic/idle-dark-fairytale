@@ -53,6 +53,7 @@ namespace RedHoodPrototype.Editor {
             var controls = new GameObject("Animation Preview Controls").AddComponent<RedHoodAnimationPreview>();
             controls.character = character;
             EditorSceneManager.SaveScene(scene, "Assets/DarkFairytale/Characters/RedHood/Tests/RedHoodAnimationTest.unity");
+            RedHoodPreviewUiBuilder.Install();
             AssetDatabase.SaveAssets();
             if (Application.isBatchMode) ValidateAndRender(character, camera);
             Debug.Log("RED_HOOD_PROTOTYPE_READY: " + "Assets/DarkFairytale/Characters/RedHood/Tests/RedHoodAnimationTest.unity");

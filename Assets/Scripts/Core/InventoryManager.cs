@@ -107,6 +107,13 @@ public class InventoryManager : MonoBehaviour
 
     public string GetRandomName(Item nextItem)
     {
+        var artworkName=EquipmentNames.ForIcon(nextItem.m_IconName);
+        if(nextItem.itemGrade!=ItemGrade.UI_ONLY && artworkName!=null) {
+            nextItem.m_ItemBasicTitle=artworkName;
+            nextItem.m_ItemFinalTitle=artworkName;
+            return artworkName;
+        }
+
         string adj = GetAdjective(nextItem.itemGrade);
         //string adj = InventoryManager.single.GetAdjective(nextItem.m_ItemGrade);
 
@@ -617,6 +624,7 @@ public class Chest
     public string uniqueKey;
     public ChestGrade chestGrade;
     public string chestMapName;
+    public int equipmentLootTier; // Zero in older saves; resolve the known source name on opening.
     public float crystalsMin, crystalsMax = 20;
     public List<Item> possibleRewards;
     public List<Item> possibleGoldRewards;

@@ -18,7 +18,7 @@ public static class Chapter01BalanceTools
     [Serializable] public class Config { public int version; public string[] notes; public Monster[] monsters; public Node[] nodes; }
     [Serializable] public class Monster
     {
-        public string key, path, dropSource, bossName;
+        public string key, path, dropSource, bossName, equipmentLootKey;
         public float hp, damage, interval, experience, crit, defense, pierce;
         public bool boss, miniBoss;
         public int interruptChance;
@@ -36,7 +36,7 @@ public static class Chapter01BalanceTools
     [Serializable] public class Rewards
     {
         public float crystalsMin, crystalsMax;
-        public int chestSeconds;
+        public int chestSeconds, equipmentLootTier;
         public ChestGrade chestGrade;
         public System.Collections.Generic.List<Item> normal, gold, diamond;
     }
@@ -50,25 +50,15 @@ public static class Chapter01BalanceTools
             Require(item.m_ChanceDrop > 0 && item.m_ChanceDrop <= 1 && !string.IsNullOrEmpty(item.m_IconName)
                 && item.baseStat != null && item.rollStat != null, "Incomplete item " + label);
     }
+    static void CheckMonsterLoot(Monster m)
+    {
+        if(string.IsNullOrEmpty(m.equipmentLootKey)) { CheckItems(m.drops,m.key); return; }
+        Require(m.drops.Count==0 && EquipmentLoot.Data.monsters.Any(r=>r.key==m.equipmentLootKey),"Invalid equipment source "+m.key);
+    }
     static bool SameItems(System.Collections.Generic.List<Item> a, System.Collections.Generic.List<Item> b) =>
         a != null && b != null && a.Count == b.Count && a.Zip(b, (x,y) => JsonUtility.ToJson(x)==JsonUtility.ToJson(y)).All(x=>x);
-    // One-time explicit migration: snapshot source item definitions into the editable design.
-    static void CompleteDetails()
-    {
-        var config=Read();
-        foreach(var m in config.monsters)
-            m.drops=Utilities.DeepClone(AssetDatabase.LoadAssetAtPath<GameObject>(m.dropSource).GetComponent<Enemy>().itemsGiven.Where(i=>i.m_ChanceDrop>0).ToList());
-        WithScene(wm=>{
-            foreach(var n in config.nodes) {
-                var source=wm.waveDb.Single(w=>w.levelKey==(n.index==5?"The Great Cave Entrance":n.key));
-                n.rewards.normal=Utilities.DeepClone(source.chestItemsGiven);
-                n.rewards.gold=Utilities.DeepClone(source.chestGoldItemsGiven);
-                n.rewards.diamond=Utilities.DeepClone(source.chestDiamondItemsGiven);
-            }
-        },false);
-        File.WriteAllText(Design,JsonUtility.ToJson(config,true)+"\n");
-        Apply();
-    }
+    // Old source-prefab migration retired: current equipment comes from the catalog.
+    static void CompleteDetails() => throw new InvalidOperationException("Legacy drop migration retired. Use Apply Equipment Loot.");
     static Config Read() => JsonUtility.FromJson<Config>(File.ReadAllText(Design));
     static void Require(bool ok, string message) { if (!ok) throw new Exception(message); }
     static void Log(string message) => File.AppendAllText(Output + "validation.txt", message + "\n");
@@ -114,14 +104,14 @@ public static class Chapter01BalanceTools
             foreach (var m in config.monsters)
             {
                 Require(AssetDatabase.LoadAssetAtPath<GameObject>(m.path)?.GetComponent<Actor_Base>(), "Missing actor " + m.key);
-                Require(AssetDatabase.LoadAssetAtPath<GameObject>(m.dropSource)?.GetComponent<Enemy>(), "Missing drop source " + m.key);
-                CheckItems(m.drops,m.key);
+                CheckMonsterLoot(m);
                 Require(m.critDamage==150 && m.hpPercent==0 && m.damagePercent==0 && m.defensePercent==0 &&
                     m.attackSpeed==0 && m.block==0 && m.absorb==0, "Unsupported enemy stat configuration " + m.key);
             }
             foreach(var n in config.nodes) {
                 Require(n.rewards!=null && n.rewards.crystalsMin>=0 && n.rewards.crystalsMax>=n.rewards.crystalsMin && n.rewards.chestSeconds>0,"Missing node rewards "+n.key);
-                CheckItems(n.rewards.normal,n.key+" normal");CheckItems(n.rewards.gold,n.key+" gold");CheckItems(n.rewards.diamond,n.key+" diamond");
+                if(n.rewards.equipmentLootTier==0){CheckItems(n.rewards.normal,n.key+" normal");CheckItems(n.rewards.gold,n.key+" gold");CheckItems(n.rewards.diamond,n.key+" diamond");}
+                else Require(EquipmentLoot.Data.stages.Any(s=>s.key==n.key&&s.tier==n.rewards.equipmentLootTier),"Invalid loot stage "+n.key);
             }
         }, false);
         foreach (var m in config.monsters)
@@ -139,6 +129,7 @@ public static class Chapter01BalanceTools
                 enemy.waitBetweenAttacks = m.interval;
                 enemy.bossName = m.bossName;
                 enemy.itemsGiven = Utilities.DeepClone(m.drops);
+                enemy.equipmentLootKey=m.equipmentLootKey;
                 var bar = root.GetComponentInChildren<EnemyLifebar>(true);
                 if (m.boss && !bar.miniBossName)
                 {
@@ -165,7 +156,7 @@ public static class Chapter01BalanceTools
                 w.isMiniBoss = n.miniBoss;
                 w.isBoss = n.boss;
                 w.crystalsMin=n.rewards.crystalsMin;w.crystalsMax=n.rewards.crystalsMax;
-                w.chestSeconds=n.rewards.chestSeconds;w.chestGrade=n.rewards.chestGrade;
+                w.chestSeconds=n.rewards.chestSeconds;w.chestGrade=n.rewards.chestGrade;w.equipmentLootTier=n.rewards.equipmentLootTier;
                 w.chestItemsGiven=Utilities.DeepClone(n.rewards.normal);
                 w.chestGoldItemsGiven=Utilities.DeepClone(n.rewards.gold);
                 w.chestDiamondItemsGiven=Utilities.DeepClone(n.rewards.diamond);
@@ -192,8 +183,8 @@ public static class Chapter01BalanceTools
             var bar = go.GetComponentInChildren<EnemyLifebar>(true);
             Require(bar.isMiniBoss == m.miniBoss && bar.isBoss == (m.boss && !m.miniBoss), "Boss bar differs " + m.key);
             Require(!m.boss || bar.miniBossName, "Missing boss label " + m.key);
-            CheckItems(m.drops,m.key);
-            Require(SameItems(enemy.itemsGiven,m.drops), "Drops differ " + m.key);
+            CheckMonsterLoot(m);
+            Require(enemy.equipmentLootKey==m.equipmentLootKey && SameItems(enemy.itemsGiven,m.drops), "Drops differ " + m.key);
             var db = LevelDataDescriptions.EnemyDb.Single(x => x.key == m.key);
             Require(db.assetRef.AssetGUID == AssetDatabase.AssetPathToGUID(m.path), "Wrong addressable " + m.key);
             var data = enemy.skeletonAnimation.skeletonDataAsset.GetSkeletonData(false);
@@ -208,7 +199,7 @@ public static class Chapter01BalanceTools
                 for (int i = 0; i < w.waves.Length; i++)
                     Require(w.waves[i].enemies.SequenceEqual(n.waves[i].enemies), "Wave differs " + n.key + " / " + i);
                 Require(w.crystalsMin==n.rewards.crystalsMin && w.crystalsMax==n.rewards.crystalsMax && w.chestSeconds==n.rewards.chestSeconds &&
-                    w.chestGrade==n.rewards.chestGrade && SameItems(w.chestItemsGiven,n.rewards.normal) &&
+                    w.chestGrade==n.rewards.chestGrade && w.equipmentLootTier==n.rewards.equipmentLootTier && SameItems(w.chestItemsGiven,n.rewards.normal) &&
                     SameItems(w.chestGoldItemsGiven,n.rewards.gold) && SameItems(w.chestDiamondItemsGiven,n.rewards.diamond),"Node rewards differ "+n.key);
                 Log("PASS node " + n.index + " " + n.key + " waves=" + w.waves.Length);
             }
@@ -220,7 +211,7 @@ public static class Chapter01BalanceTools
     {
         var m = Read().monsters.Single(x => x.key == enemy.name.Replace("(Clone)", ""));
         var saved = AssetDatabase.LoadAssetAtPath<GameObject>(m.path).GetComponent<Enemy>();
-        Require(enemy.itemsGiven.Count == saved.itemsGiven.Count && enemy.itemsGiven.Zip(saved.itemsGiven,
+        Require(enemy.equipmentLootKey == saved.equipmentLootKey && enemy.itemsGiven.Count == saved.itemsGiven.Count && enemy.itemsGiven.Zip(saved.itemsGiven,
             (a, b) => JsonUtility.ToJson(a) == JsonUtility.ToJson(b)).All(x => x), "Runtime drops differ from saved prefab " + m.key);
     }
     static bool running, stopping;

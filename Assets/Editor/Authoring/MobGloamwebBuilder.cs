@@ -147,6 +147,7 @@ public static class MobGloamwebBuilder
             enemy.waitBetweenAttacks = 2.8f;
             enemy.expGiven = 1;
             enemy.itemsGiven = new List<Item>();
+            enemy.equipmentLootKey = "MobGloamweb";
             enemy.bossName = "";
             enemy.currentAnimation = "";
             enemy.rootPos.transform.localPosition = new Vector3(0, 1.1f, 0);

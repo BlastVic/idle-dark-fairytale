@@ -57,103 +57,8 @@ MonoBehaviour:
   bossName: "\u53F2\u83B1\u59C6\u4E4B\u738B"
   attackAudio: ATTACK1
   deathAudio: SLIME_DEATH
-  itemsGiven:
-  - m_ItemBasicTitle: Club
-    m_ItemFinalTitle: 
-    uniqueId: 0
-    isLocked: 0
-    m_ChanceDrop: 1
-    m_IconName: Wep5
-    m_ItemType: 0
-    m_SkinIfApplicable: 
-    m_AttachmentIfApplicable: Weapons/Wep5
-    itemGrade: 0
-    baseStat:
-      hpNow: 0
-      hpMax: 0
-      hpPerc: 0
-      dmg: 0
-      dmgPerc: 0
-      def: 0
-      defPerc: 0
-      block: 0
-      atkSpd: 0
-      crit: 0
-      critDmg: 0
-      pierce: 0
-      absorb: 0
-    rollStat:
-      dmgMin: 5
-      dmgMax: 20
-      defMin: 0
-      defMax: 0
-      atkSpdMin: 1
-      atkSpdMax: 15
-      critMin: 1
-      critMax: 7
-      critDmgMin: 10
-      critDmgMax: 50
-      hpMin: 0
-      hpMax_rolled: 0
-      dmgPercMin: 0
-      dmgPercMax: 0
-      hpPercMin: 0
-      hpPercMax: 0
-      defPercMin: 0
-      defPercMax: 0
-      percChanceBonus1: 0.5
-      percChanceBonus2: 0
-      percChanceBonus3: 0
-      percChanceBonus4: 0
-    fusionExp: 15
-  - m_ItemBasicTitle: Shield
-    m_ItemFinalTitle: 
-    uniqueId: 0
-    isLocked: 0
-    m_ChanceDrop: 0.2
-    m_IconName: Sh1
-    m_ItemType: 1
-    m_SkinIfApplicable: 
-    m_AttachmentIfApplicable: Shields/Sh1
-    itemGrade: 0
-    baseStat:
-      hpNow: 0
-      hpMax: 0
-      hpPerc: 0
-      dmg: 0
-      dmgPerc: 0
-      def: 0
-      defPerc: 0
-      block: 0
-      atkSpd: 0
-      crit: 0
-      critDmg: 0
-      pierce: 0
-      absorb: 0
-    rollStat:
-      dmgMin: 0
-      dmgMax: 0
-      defMin: 2
-      defMax: 4
-      atkSpdMin: 5
-      atkSpdMax: 10
-      critMin: 1
-      critMax: 7
-      critDmgMin: 0
-      critDmgMax: 0
-      hpMin: 0
-      hpMax_rolled: 0
-      dmgPercMin: 0
-      dmgPercMax: 0
-      hpPercMin: 0
-      hpPercMax: 0
-      defPercMin: 0
-      defPercMax: 0
-      percChanceBonus1: 0.35
-      percChanceBonus2: 0
-      percChanceBonus3: 0
-      percChanceBonus4: 0
-    fusionExp: 14
+  itemsGiven: []
+  equipmentLootKey: MobStillmere
   ab: {fileID: 8630582845144218380}
   rootPos: {fileID: 6305103309060886774}
   maxAttacks: 2
@@ -561,6 +466,10 @@ PrefabInstance:
     - target: {fileID: 8478708691680904612, guid: 73dedac85b9db42a5b4fda163a96b0a9, type: 3}
       propertyPath: m_EffectColor.r
       value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038247167084537370, guid: 73dedac85b9db42a5b4fda163a96b0a9, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

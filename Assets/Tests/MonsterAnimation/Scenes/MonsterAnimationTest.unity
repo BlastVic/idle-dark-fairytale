@@ -1646,7 +1646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: spine-unity::Spine.Unity.SkeletonAnimation
-  skeletonDataAsset: {fileID: 11400000, guid: 32cda02c4c8154167b4da8f25d2a3efa, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: 93bc7301610a14c7f98117df643575b1, type: 2}
   initialSkinName: 1
   initialFlipX: 0
   initialFlipY: 0
@@ -1695,7 +1695,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 254ef52d8e8bd4fefb3a2f517b26b3b8, type: 2}
+  - {fileID: 2100000, guid: c517cd1cdc09f4a0d809bc610083b4a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1774,18 +1774,20 @@ MonoBehaviour:
   character: {fileID: 1907753041}
   previewCamera: {fileID: 1667785563}
   monsters:
-  - {fileID: 11400000, guid: 841083333678d45d395721217757c282, type: 2}
-  - {fileID: 11400000, guid: 32cda02c4c8154167b4da8f25d2a3efa, type: 2}
   - {fileID: 11400000, guid: e29e1c19cdf9f4c9183dd32657e18815, type: 2}
   - {fileID: 11400000, guid: 020357d4d95ea462b9ca2561989344f3, type: 2}
-  - {fileID: 11400000, guid: 5a1d89b1f41c34a638cfb9684bbb8bcb, type: 2}
-  - {fileID: 11400000, guid: 105c36ad877ca4d64866706d5ac204ee, type: 2}
   - {fileID: 11400000, guid: 2de711e840620e04c99ef602c23ba36d, type: 2}
-  - {fileID: 11400000, guid: dcf0ae5a10cda4fb0ab31601b444c995, type: 2}
-  - {fileID: 11400000, guid: 1a86752b0c4c341af9bd4c0daa8c3211, type: 2}
-  - {fileID: 11400000, guid: 182934cfd7c5f4729ac5a3913358f41c, type: 2}
-  - {fileID: 11400000, guid: 05ba1d9f3f41f4fe0bf5df224de36ed0, type: 2}
   - {fileID: 11400000, guid: d0274db5e7aa64577b925792720286fe, type: 2}
+  - {fileID: 11400000, guid: 182934cfd7c5f4729ac5a3913358f41c, type: 2}
+  - {fileID: 11400000, guid: 105c36ad877ca4d64866706d5ac204ee, type: 2}
+  - {fileID: 11400000, guid: dcf0ae5a10cda4fb0ab31601b444c995, type: 2}
+  - {fileID: 11400000, guid: 841083333678d45d395721217757c282, type: 2}
+  - {fileID: 11400000, guid: 5a1d89b1f41c34a638cfb9684bbb8bcb, type: 2}
+  - {fileID: 11400000, guid: 05ba1d9f3f41f4fe0bf5df224de36ed0, type: 2}
+  - {fileID: 11400000, guid: 1a86752b0c4c341af9bd4c0daa8c3211, type: 2}
+  - {fileID: 11400000, guid: 32cda02c4c8154167b4da8f25d2a3efa, type: 2}
+  - {fileID: 11400000, guid: 93bc7301610a14c7f98117df643575b1, type: 2}
+  - {fileID: 11400000, guid: cba02fe8a12da45ee8eccfe92d6c8743, type: 2}
   monsterPrefabs:
   - {fileID: 2046055413157179689, guid: 9d3cca2ce51594e138f63660a4501407, type: 3}
   - {fileID: 8790708293848022153, guid: b76adce60ab5c4a2da034d0fad878894, type: 3}
@@ -1799,6 +1801,8 @@ MonoBehaviour:
   - {fileID: 3329271441167635431, guid: 5aeba921afc4d42678cb57c59cdff13d, type: 3}
   - {fileID: 1096393248549252976, guid: 996f8ad233cda461fb8cfacaa49548a6, type: 3}
   - {fileID: 1309471670457120370, guid: 0d86f8e451a414a8a917ed2318d715a3, type: 3}
+  - {fileID: 618365577021431290, guid: c27ffa2cb69c44ec98416322b4557abb, type: 3}
+  - {fileID: 4471001496572566895, guid: ec0e6bc2be7b94f0d81e7041a27b6a1d, type: 3}
   discoveryFolders:
   - Assets/Tests
   - Assets/DarkFairytale/Monsters/BlackForestMushroom
@@ -1811,6 +1815,8 @@ MonoBehaviour:
   - Assets/DarkFairytale/Monsters/MobMurmlet
   - Assets/DarkFairytale/Monsters/MobStillmere
   - Assets/DarkFairytale/Companions/PetCindrel
+  - Assets/DarkFairytale/Companions/PetShadowWolf
+  - Assets/DarkFairytale/Companions/PetGhostWolf
   hud: {fileID: 1352289090}
   stage: {fileID: 1320433615}
   loop: 1

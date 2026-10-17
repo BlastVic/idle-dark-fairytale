@@ -69,8 +69,9 @@ public sealed class StorybookChestOpening : MonoBehaviour
     {
         preview.SetActive(false);owner.view.source.gameObject.SetActive(false);
         skeleton.AnimationState.SetAnimation(0,"open",false);
+        // Full opening cue follows the shake, charge and lid release at 1.25s.
+        SoundManager.Instance.PlayClip("CHERRY_CHEST");
         float elapsed=0;
-        bool burst=false;
         while(elapsed<2.2f){
             elapsed+=Time.unscaledDeltaTime;
             float charge=Mathf.Clamp01(elapsed/1.2f);
@@ -78,7 +79,6 @@ public sealed class StorybookChestOpening : MonoBehaviour
             SetAlpha(glow,elapsed<1.25f?0:Mathf.Lerp(1,.72f,afterBurst/.95f));
             SetAlpha(rays,0);
             SetAlpha(seam,elapsed<1.25f?charge*(.8f+.2f*Mathf.Sin(elapsed*30)):Mathf.Max(0,1-afterBurst/.12f));
-            if(!burst&&elapsed>=1.25f){burst=true;SoundManager.Instance.PlayClip("CHEST_DROP_CRYSTALS");}
             SetAlpha(flash,0);
             AnimateSparks(afterBurst,elapsed>=1.25f);
             yield return null;
@@ -91,7 +91,7 @@ public sealed class StorybookChestOpening : MonoBehaviour
         for(int i=0;i<total;i++){
             Item item=i==0?null:owner.RewardItems[i-1];
             Sprite sprite=item==null?crystal:InventoryManager.single.GetSpriteIcon(item.m_IconName);
-            string label=item==null?"水晶 × "+owner.RewardAmount:StorybookEquipmentUI.GradeName(item.itemGrade)+" · "+item.m_ItemFinalTitle;
+            string label=item==null?"水晶 × "+owner.RewardAmount:StorybookEquipmentUI.GradeName(item.itemGrade)+" · "+EquipmentNames.Display(item);
             progress.text="战利品 "+(i+1)+" / "+total;
             featured.sprite=sprite;featured.material=item==null?crystalMaterial:null;
             featured.gameObject.SetActive(sprite);featuredName.text=label;SetAlpha(featuredName,1);

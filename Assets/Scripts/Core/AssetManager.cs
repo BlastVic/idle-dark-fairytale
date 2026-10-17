@@ -109,7 +109,15 @@ public class AssetManager : MonoBehaviour
     public void SpawnParticle(string assetKey, Vector3 position)
     {
         nextParticle = GetAssetByKey(AssetType.PARTICLE, assetKey);
-        LocalPrefabLoader.InstantiateAsync(nextParticle, position, Quaternion.identity).Completed += LocalPrefabLoader.Release;
+        LocalPrefabLoader.InstantiateAsync(nextParticle, position, Quaternion.identity).Completed += handle =>
+        {
+            // Resurrection audio follows the actual butterfly spawn, including async loading.
+            if (assetKey == "Res_Particle" &&
+                handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded &&
+                handle.Result && SoundManager.Instance)
+                SoundManager.Instance.PlayClip("RESSURRECTION", false, false);
+            LocalPrefabLoader.Release(handle);
+        };
     }
 
     //private void SpawnEnemy_Complete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj)

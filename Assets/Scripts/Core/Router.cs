@@ -23,7 +23,8 @@ public class Router : MonoBehaviour
 
     public CursedBookIntro chapter01EndingPrefab;
     public CursedBookIntro ActiveChapterEnding { get; private set; }
-    public bool ShouldPlayChapterEnding() => chapter01EndingPrefab && GameManager.single.gameState == GameStateType.VICTORY &&
+    public bool ShouldPlayChapterEnding() => GameManager.single.gameState == GameStateType.VICTORY && HasPendingChapterEnding;
+    public bool HasPendingChapterEnding => chapter01EndingPrefab &&
         WaveManager.single.currentWaveset != null && WaveManager.single.currentWaveset.levelKey == "Mount Zion" &&
         WaveManager.single.GetWaveseReachedByKey("Mount Zion") >= WaveManager.single.currentWaveset.waves.Length &&
         !GameManager.single.HasSeenThis(CursedBookIntro.ChapterEndingSeenKey);
@@ -58,7 +59,7 @@ public class Router : MonoBehaviour
     public IEnumerator GoToFusion()
     {
         TransitionCanvas.single.ToBlack("GM TO Fusion");
-        yield return new WaitForSeconds(.9f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         gm.SetGameState(GameStateType.FUSION);
 
         gc.ToggleCampUi(false);
@@ -75,8 +76,6 @@ public class Router : MonoBehaviour
         gc.ToggleButtonGrid(false);
         gc.ToggleFusionBarUI(false);
         LevelController.Instance.AssetManager.SpawnGeneralObj("FusionPackage");
-        yield return new WaitForSeconds(.3f);
-
         while (FusionPackage.single == null)
         {
             yield return null;//wait in black until done
@@ -100,7 +99,7 @@ public class Router : MonoBehaviour
     {
         TransitionCanvas.single.ToBlack("GM TO ");
         //GameplayCanvas.single.lastChestClicked = chestChosen;
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         if (FusionPackage.single) Destroy(FusionPackage.single.gameObject);
         if (FusionReturnsToEquipment)
         {
@@ -140,7 +139,7 @@ public class Router : MonoBehaviour
     {
         TransitionCanvas.single.ToBlack("GM TO reb");
 
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         gc.ToggleCampUi(false);
         LevelController.Instance.AssetManager.battleCampCamera.SetActive(false);
 
@@ -169,7 +168,7 @@ public class Router : MonoBehaviour
     {
         TransitionCanvas.single.ToBlack("GM TO c");
         //GameplayCanvas.single.lastChestClicked = chestChosen;
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         Destroy(RebirthPackage.single.gameObject);
         gc.ToggleCampUi(true);
         LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
@@ -180,7 +179,6 @@ public class Router : MonoBehaviour
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
         gc.OrderButtonGrid();
 
-        yield return new WaitForSeconds(.3f);
         TransitionCanvas.single.ToClear("GM TO C");
         gm.SetGameState(GameStateType.CAMP);
         gc.OrderButtonGrid();
@@ -204,7 +202,7 @@ public class Router : MonoBehaviour
         TransitionCanvas.single.ToBlack("GM TO CHEST");
         GameplayCanvas.single.lastChestClicked = chestChosen;
 
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         gc.ToggleCampUi(false);
 
         LevelController.Instance.AssetManager.HidePlayer();
@@ -235,7 +233,7 @@ public class Router : MonoBehaviour
         TransitionCanvas.single.ToBlack("GM TO CashMall");
         //GameplayCanvas.single.lastChestClicked = chestChosen;
         CameraEffects.single.SetOriginalCameraPosition();
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         if (CashMallPackage.single) Destroy(CashMallPackage.single.gameObject);
 
         if (GameObject.FindGameObjectWithTag("CherryChest"))
@@ -253,7 +251,6 @@ public class Router : MonoBehaviour
 
         gc.skillsPanel.SetActive(false);
 
-        yield return new WaitForSeconds(.3f);
         TransitionCanvas.single.ToClear("GM TO CHEST");
         gm.SetGameState(GameStateType.CAMP);
         gc.OrderButtonGrid();
@@ -281,7 +278,7 @@ public class Router : MonoBehaviour
     {
         TransitionCanvas.single.ToBlack("GM TO CHEST");
         //GameplayCanvas.single.lastChestClicked = chestChosen;
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         Destroy(ChestPackage.single.gameObject);
         gc.ToggleCampUi(true);
         gc.ToggleFusionBarUI(true);
@@ -290,7 +287,6 @@ public class Router : MonoBehaviour
         LevelController.Instance.AssetManager.TurnOnPlayer(true);
         gc.OrderButtonGrid();
 
-        yield return new WaitForSeconds(.3f);
         TransitionCanvas.single.ToClear("GM TO CHEST");
         gm.SetGameState(GameStateType.CAMP);
         gc.OrderButtonGrid();
@@ -305,32 +301,11 @@ public class Router : MonoBehaviour
 
     void FromChestRewards()
     {
-        Chest next = GameplayCanvas.single.lastChestClicked;
-        List<Item> nextListOfItems = next.possibleRewards;
-
-        if (next.chestGrade == ChestGrade.GOLD)
+        foreach (var item in EquipmentLoot.RollChest(GameplayCanvas.single.lastChestClicked, InventoryManager.single))
         {
-            nextListOfItems = next.possibleGoldRewards;
+            InventoryManager.single.AddItem(item);
+            GameplayCanvas.single.ShowItemPopUp(item);
         }
-        if (next.chestGrade == ChestGrade.DIAMOND)
-        {
-            nextListOfItems = next.possibleDiamondRewards;
-        }
-
-
-        foreach (Item item in nextListOfItems)
-        {
-            float chance = Random.Range(0, 1f);
-            if (chance <= item.m_ChanceDrop)
-            {
-                Item newItem = InventoryManager.single.CreateItemStats(item);
-                newItem.m_ItemFinalTitle = InventoryManager.single.GetRandomName(newItem);
-                newItem.uniqueId = Random.Range(0, 999999);
-                InventoryManager.single.AddItem(newItem);
-                GameplayCanvas.single.ShowItemPopUp(newItem);
-            }
-        }
-
     }
 
 
@@ -338,7 +313,7 @@ public class Router : MonoBehaviour
     {
         TransitionCanvas.single.ToBlack("GM goto lastbattle");
 
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
 
         while (waitingForBattleCleanup == true)
         {
@@ -371,7 +346,7 @@ public class Router : MonoBehaviour
     public IEnumerator GoToCampFromSkills()
     {
         TransitionCanvas.single.ToBlack("GM goto menu");
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         gc.ToggleBattleUi(false);
         gc.ToggleCampUi(true);
         gc.ToggleHpXpLevelUi(true);
@@ -403,7 +378,7 @@ public class Router : MonoBehaviour
     public IEnumerator GoToCampFromInventory()
     {
         TransitionCanvas.single.ToBlack("GM goto menu");
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         CameraEffects.single.SetOriginalCameraPosition();
         gc.inventoryPanel.SetActive(false);
 
@@ -423,7 +398,7 @@ public class Router : MonoBehaviour
     {
         bool playEnding = ShouldPlayChapterEnding();
         TransitionCanvas.single.ToBlack("GM goto campt");
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         gm.BattleCleanup();
 
         gc.victoryPanel.SetActive(false);
@@ -466,7 +441,7 @@ public class Router : MonoBehaviour
     {
 
         TransitionCanvas.single.ToBlack("GM goto camp from leave button");
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         gm.BattleCleanup();
         gc.victoryPanel.SetActive(false);
         gc.defeatPanel.SetActive(false);
@@ -483,7 +458,7 @@ public class Router : MonoBehaviour
     public IEnumerator GoToCampFromMap()
     {
         TransitionCanvas.single.ToBlack("GM goto camp from map");
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         LevelController.Instance.AssetManager.HideMapPackage();
 
         gc.ToggleBattleUi(false);
@@ -499,7 +474,7 @@ public class Router : MonoBehaviour
     public IEnumerator GoToCampFromMenu()
     {
         TransitionCanvas.single.ToBlack("GM goto camp from menu");
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
 
         gc.ToggleBattleUi(false);
         gc.ToggleCampUi(true);
@@ -515,7 +490,7 @@ public class Router : MonoBehaviour
     public IEnumerator GoToMap()
     {
         TransitionCanvas.single.ToBlack("GM goto map");
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         // Shop navigation goes straight to the map; never reveal or activate camp in between.
         if (CashMallPackage.single) Destroy(CashMallPackage.single.gameObject);
         CameraEffects.single.SetOriginalCameraPosition();
@@ -545,6 +520,7 @@ public class Router : MonoBehaviour
     }
 
 
+    [Tooltip("Fallback only when no death animation track is available.")]
     [SerializeField, Min(0)] float defeatPresentationDelay = 2.7f;
 
     public IEnumerator GoToDefeat()
@@ -561,17 +537,21 @@ public class Router : MonoBehaviour
         // Death() starts this coroutine before assigning the Spine death track.
         // Let that assignment finish, then preserve the death performance before covering it.
         yield return null;
-        float delay = defeatPresentationDelay;
-        foreach (var sound in SoundManager.Instance.clips)
-            if (sound.clipName == "PLAYER_DEATH" && sound.clip)
-                delay = Mathf.Max(delay, sound.clip.length + .25f);
         var skeleton = Player.single ? Player.single.skeletonAnimation : null;
         var death = skeleton ? skeleton.AnimationState.GetCurrent(0) : null;
         if (death != null && death.Animation.Name.Contains("Death"))
-            delay = Mathf.Max(delay, death.Animation.Duration / Mathf.Max(.01f, death.TimeScale * skeleton.timeScale * Time.timeScale) + .25f);
-        yield return new WaitForSecondsRealtime(delay);
+        {
+            // Follow actual playback (including speed changes), not the audio clip length
+            // or an additional fixed hold after the final pose.
+            while (skeleton && skeleton.isActiveAndEnabled &&
+                   skeleton.AnimationState.GetCurrent(0) == death && !death.IsComplete)
+                yield return null;
+        }
+        else if (defeatPresentationDelay > 0)
+            yield return new WaitForSecondsRealtime(defeatPresentationDelay);
         var deathFade = TransitionCanvas.single ? TransitionCanvas.single.GetComponent<StorybookDeathFade>() : null;
-        if (deathFade) yield return deathFade.CloseLife();
+        if (deathFade) yield return deathFade.CloseLife(() => MusicManager.Instance?.StopBackgroundMusic(1.2f));
+        else MusicManager.Instance?.StopBackgroundMusic(1.2f);
         gc.defeatPanel.SetActive(true);
         if (deathFade) yield return deathFade.RevealDefeat();
         //gc.ToggleMonetizeBottom(false);
@@ -677,7 +657,7 @@ public class Router : MonoBehaviour
     public IEnumerator GoToSkills()
     {
         TransitionCanvas.single.ToBlack("GM goto skills");
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
 
         CameraEffects.single.SetOriginalCameraPosition();
         gc.inventoryPanel.SetActive(false);
@@ -719,7 +699,7 @@ public class Router : MonoBehaviour
         // Currency purchases can remain disabled without blocking the shop's navigation.
         try { Assets.Scripts.Services.Purchasing.PurchaserManager.Instance.InitializePurchasing(); }
         catch (System.Exception exception) { Debug.LogWarning("Shop billing unavailable: " + exception.Message); }
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         GameplayCanvas.single.victoryPanel.SetActive(false);
         if (ChestPackage.single != null) Destroy(ChestPackage.single.gameObject);
 
@@ -769,11 +749,10 @@ public class Router : MonoBehaviour
         var ui=GameplayCanvas.single.experienceUI;
         if(ExperienceTransitioning||!ui||ui.gameObject.activeSelf)yield break;
         ExperienceTransitioning=true;
-        SoundManager.Instance.PlayClip("CLICK");
+        StorybookNavigation.PlayClick();
         TransitionCanvas.single.ToBlack("Enter experience");
-        yield return new WaitForSecondsRealtime(.9f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         ui.Show();
-        yield return new WaitForSecondsRealtime(.3f);
         TransitionCanvas.single.ToClear("Enter experience");
         yield return new WaitForSecondsRealtime(.6f);
         ExperienceTransitioning=false;
@@ -789,10 +768,10 @@ public class Router : MonoBehaviour
     }
     IEnumerator ReturnFromExperience(StorybookExperienceUI ui)
     {
-        SoundManager.Instance.PlayClip("CLICK");
+        StorybookNavigation.PlayClick();
         ui.Refresh();
         TransitionCanvas.single.ToBlack("Leave experience");
-        yield return new WaitForSecondsRealtime(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         ui.gameObject.SetActive(false);
         TransitionCanvas.single.ToClear("Leave experience");
         yield return new WaitForSecondsRealtime(.6f);
@@ -809,7 +788,7 @@ public class Router : MonoBehaviour
     public IEnumerator GoToInventory()
     {
         TransitionCanvas.single.ToBlack("GM goto inv");
-        yield return new WaitForSeconds(.7f);
+        yield return TransitionCanvas.single.WaitUntilCovered();
         gc.skillsPanel.SetActive(false);
         gc.ToggleChestButtonUI(false);
         gc.ToggleFusionBarUI(true);

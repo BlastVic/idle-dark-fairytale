@@ -214,9 +214,9 @@ namespace RedHoodPrototype.Editor {
                         after.AnimationState.AddAnimation(0,output.EndsWith("/skill3") ? "Skill3" : "Skill2",false,.25f);
                         after.AnimationState.AddAnimation(0,"Idle1",true,output.EndsWith("/skill3") ? 5.31f : 5.06f);
                     } else if(reviveReview) {
-                        Pose(after,"Death1",2.98f,false);
+                        Pose(after,"Death1",after.Skeleton.Data.FindAnimation("Death1").Duration,false);
                         var entry=after.AnimationState.SetAnimation(0,"Revive",false);entry.MixDuration=0;
-                        after.AnimationState.AddAnimation(0,"Idle1",true,2.73f);
+                        after.AnimationState.AddAnimation(0,"Idle1",true,entry.Animation.Duration);
                     } else {Pose(after,"Idle1",0,true);after.AnimationState.AddAnimation(0,"Death1",false,.25f);}
                     for(int i=0;i<((output.EndsWith("/skill2") || output.EndsWith("/skill3")) ? 450 : 240);i++) {
                         after.Update(1f/60);after.LateUpdate();camera.Render();RenderTexture.active=rt;
@@ -334,7 +334,8 @@ namespace RedHoodPrototype.Editor {
         }
 
         static void ValidateRevive(SkeletonAnimation actor,StringBuilder report) {
-            Pose(actor,"Death1",2.98f,false);
+            float duration=actor.Skeleton.Data.FindAnimation("Revive").Duration;
+            Pose(actor,"Death1",actor.Skeleton.Data.FindAnimation("Death1").Duration,false);
             var seated=actor.GetComponent<MeshFilter>().sharedMesh.vertices;
             Pose(actor,"Revive",0,false);
             var start=actor.GetComponent<MeshFilter>().sharedMesh.vertices;
@@ -343,46 +344,71 @@ namespace RedHoodPrototype.Editor {
             for(int i=0;i<start.Length;i++)seam=Mathf.Max(seam,Vector3.Distance(seated[i],start[i]));
             if(seam>.001f)throw new Exception("Revive start seam "+seam);
             float last=-100,minFoot=100,maxStep=0;
-            for(int i=0;i<=164;i++) {
-                Pose(actor,"Revive",Mathf.Min(2.73f,i/60f),false);
+            for(int i=0;i<=Mathf.CeilToInt(duration*60);i++) {
+                Pose(actor,"Revive",Mathf.Min(duration,i/60f),false);
                 float y=actor.Skeleton.FindBone("hips").WorldY;
                 if(i>0)maxStep=Mathf.Max(maxStep,Mathf.Abs(y-last));last=y;
                 foreach(string name in new[]{"far_foot","near_foot"})minFoot=Mathf.Min(minFoot,actor.Skeleton.FindBone(name).WorldY);
             }
             if(maxStep>.055f || minFoot<.15f)throw new Exception("Revive height pop/foot penetration");
             if(actor.Skeleton.FindSlot("scythe").A<.99f || actor.Skeleton.FindSlot("head_rest").A>.01f)throw new Exception("Revive final slots not restored");
+            Pose(actor,"Revive",duration,false);
+            var end=new System.Collections.Generic.Dictionary<string,float[]>();
+            foreach(var bone in actor.Skeleton.Bones)end[bone.Data.Name]=new[]{bone.WorldX,bone.WorldY,bone.A,bone.B,bone.C,bone.D};
+            Pose(actor,"Idle1",0,false);
+            float idleSeam=0;
+            foreach(var bone in actor.Skeleton.Bones) {
+                var pose=new[]{bone.WorldX,bone.WorldY,bone.A,bone.B,bone.C,bone.D};
+                for(int i=0;i<pose.Length;i++)idleSeam=Mathf.Max(idleSeam,Mathf.Abs(pose[i]-end[bone.Data.Name][i]));
+            }
+            if(idleSeam>.001f)throw new Exception("Revive Idle bone seam "+idleSeam);
+            float reverseError=0;
+            for(int sample=0;sample<=78;sample++) {
+                float time=duration*sample/78f;
+                Pose(actor,"Revive",time,false);var reversed=actor.GetComponent<MeshFilter>().sharedMesh.vertices;
+                Pose(actor,"Death1",duration-time,false);var original=actor.GetComponent<MeshFilter>().sharedMesh.vertices;
+                if(reversed.Length!=original.Length)throw new Exception("Reverse topology mismatch at "+time);
+                for(int i=0;i<original.Length;i++)reverseError=Mathf.Max(reverseError,Vector3.Distance(original[i],reversed[i]));
+            }
+            if(reverseError>.001f)throw new Exception("Reverse motion mismatch "+reverseError);
+            report.AppendLine("79 reversed mesh samples max error="+reverseError);
+            report.AppendLine("Revive Idle endpoint seam="+idleSeam);
             report.AppendLine("Revive: seated start seam="+seam+"; max hip step="+maxStep+"; minimum foot height="+minFoot+"; weapon restored and eyes open.");
         }
 
         static void ValidateDeath(SkeletonAnimation actor,StringBuilder report) {
-            Pose(actor,"Death1",1.48f,false);
-            if(actor.Skeleton.FindBone("near_foot").WorldX-actor.Skeleton.FindBone("far_foot").WorldX>.65f)throw new Exception("Death recovery did not close stance");
-            if(actor.Skeleton.FindSlot("scythe").A<.99f)throw new Exception("Death scythe hidden before kneeling");
-            Pose(actor,"Death1",1.60f,false);
+            Pose(actor,"Idle1",0,false);
+            var idleBones=new System.Collections.Generic.Dictionary<string,Vector2>();
+            foreach(var bone in actor.Skeleton.Bones) idleBones[bone.Data.Name]=new Vector2(bone.WorldX,bone.WorldY);
+            Pose(actor,"Death1",0,false);
+            foreach(var bone in actor.Skeleton.Bones)
+                if(Vector2.Distance(idleBones[bone.Data.Name],new Vector2(bone.WorldX,bone.WorldY))>.002f)
+                    throw new Exception("Death does not begin at Idle: "+bone.Data.Name);
+            Pose(actor,"Death1",.225f,false);
             float fade=actor.Skeleton.FindSlot("scythe").A;
             if(fade<=.05f || fade>=.95f)throw new Exception("Death scythe does not fade");
             float minDescent=99;
             for(int i=0;i<=30;i++) {
-                float t=1.78f+i*.02f;
+                float t=.4f+i*.02f;
                 Pose(actor,"Death1",t-.005f,false);float y0=actor.Skeleton.FindBone("hips").WorldY;
                 Pose(actor,"Death1",t+.005f,false);float y1=actor.Skeleton.FindBone("hips").WorldY;
                 minDescent=Mathf.Min(minDescent,(y0-y1)/.01f);
             }
             if(minDescent<.1f)throw new Exception("Death descent pauses at intermediate kneel: "+minDescent);
-            report.AppendLine("Continuous standing-to-seated descent; minimum vertical speed 1.78-2.38s="+minDescent);
-            Pose(actor,"Death1",2.73f,false);
+            report.AppendLine("Continuous standing-to-seated descent; minimum vertical speed 0.4-1.0s="+minDescent);
+            Pose(actor,"Death1",1.15f,false);
             var kneeFar=actor.Skeleton.FindBone("far_boot");var kneeNear=actor.Skeleton.FindBone("near_boot");
             var contactFar=new Vector2(kneeFar.WorldX,kneeFar.WorldY);var contactNear=new Vector2(kneeNear.WorldX,kneeNear.WorldY);
             for(int i=0;i<=15;i++) {
-                Pose(actor,"Death1",2.73f+i/60f,false);
+                Pose(actor,"Death1",1.15f+i/60f,false);
                 if(Vector2.Distance(contactFar,new Vector2(kneeFar.WorldX,kneeFar.WorldY))>.001f || Vector2.Distance(contactNear,new Vector2(kneeNear.WorldX,kneeNear.WorldY))>.001f)throw new Exception("Seated knees drift");
             }
-            Pose(actor,"Death1",2.98f,false);
+            Pose(actor,"Death1",1.30f,false);
             if(actor.Skeleton.FindSlot("scythe").A>.001f || actor.Skeleton.FindSlot("lantern").A>.001f)throw new Exception("Death weapon still visible");
             var far=actor.Skeleton.FindBone("far_boot");var near=actor.Skeleton.FindBone("near_boot");
             report.AppendLine("Death knees: "+far.WorldY+" / "+near.WorldY+"; fade midpoint alpha="+fade);
             if(far.WorldY<.08f || far.WorldY>.30f || near.WorldY<.08f || near.WorldY>.30f)throw new Exception("Both knees must reach ground");
-            report.AppendLine("Death: Victory-speed recovery; weapon and lantern fade 1.48-1.73; continuous descent onto heels 1.48-2.73; completion 2.98 s.");
+            report.AppendLine("Death: Direct Idle collapse; weapon and lantern fade 0.10-0.35; heel-sitting at 1.15; completion 1.30 s.");
         }
 
         static void ValidateVictory(SkeletonAnimation actor, StringBuilder report) {

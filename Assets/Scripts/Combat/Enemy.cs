@@ -16,6 +16,8 @@ public class Enemy : AnimationController
     public string attackAudio = "ATTACK1";
     public string deathAudio = "SLIME_DEATH";
     public List<Item> itemsGiven;
+    [Tooltip("Key in Data/Equipment/EquipmentLoot; empty uses legacy item rewards.")]
+    public string equipmentLootKey;
 
     public Actor_Base ab;
     public GameObject rootPos;
@@ -65,7 +67,7 @@ public class Enemy : AnimationController
 
     public void StartAttacking(bool instant = false)
     {
-        if (IsEntering || ab.isDying || PlayerIsDying) return;
+        if (IsEntering || ab.isDying || ab.trainingTarget || PlayerIsDying) return;
         if (attackRoutine != null)
         {
             StopCoroutine(attackRoutine);
@@ -100,7 +102,7 @@ public class Enemy : AnimationController
         {
             return;
         }
-        if (ab.isDying || PlayerIsDying) return;//cant attack when either combatant is dying
+        if (ab.isDying || ab.trainingTarget || PlayerIsDying) return;//cant attack when either combatant is dying
         SetAnimation("Attack" + Random.Range(1, maxAttacks), true, false, Random.RandomRange(.9f, 1.1f));
         StartAttacking();
     }
@@ -122,7 +124,7 @@ public class Enemy : AnimationController
 
     public override void AnimationOnHit(string animation)
     {
-        if (IsEntering || ab.isDying || PlayerIsDying) return;
+        if (IsEntering || ab.isDying || ab.trainingTarget || PlayerIsDying) return;
         if (animation.Contains("Attack"))
         {
             SoundManager.Instance.PlayClip(attackAudio, false, false);
@@ -169,6 +171,15 @@ public class Enemy : AnimationController
 
     public void Drops()
     {
+        if (!string.IsNullOrEmpty(equipmentLootKey))
+        {
+            foreach (var item in EquipmentLoot.RollMonster(equipmentLootKey))
+            {
+                InventoryManager.single.AddItem(item);
+                GameplayCanvas.single.ShowItemPopUp(item);
+            }
+            return;
+        }
         for (int i = 0; i < itemsGiven.Count; i++)
         {
             float chance = Random.Range(0, 1f);

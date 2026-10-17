@@ -7,7 +7,7 @@ public sealed class StorybookDeathFade : MonoBehaviour
 {
     public RawImage finalPage;
     public CanvasGroup pageGroup;
-    [Min(0)] public float stillDuration=.3f;
+    [Min(0)] public float stillDuration=0;
     [Min(.01f)] public float colourDuration=1.1f, revealDuration=.35f;
     [Min(.01f)] public float inkDuration=1.1f;
     [Min(0)] public float inkHoldDuration=.15f;
@@ -16,7 +16,7 @@ public sealed class StorybookDeathFade : MonoBehaviour
     Material instance;
     public bool Presenting {get;private set;}
     void Awake(){ResetPage();}
-    public IEnumerator CloseLife()
+    public IEnumerator CloseLife(System.Action onColourDrained = null)
     {
         ResetPage();
         yield return new WaitForEndOfFrame();
@@ -24,10 +24,11 @@ public sealed class StorybookDeathFade : MonoBehaviour
         instance=new Material(finalPage.material);
         instance.SetFloat("_InkProgress",0);instance.SetFloat("_Progress",0);finalPage.material=instance;finalPage.texture=captured;
         pageGroup.alpha=1;pageGroup.blocksRaycasts=true;Presenting=true;
-        yield return new WaitForSecondsRealtime(stillDuration);
+        if(stillDuration>0)yield return new WaitForSecondsRealtime(stillDuration);
         float time=0;
         while(time<colourDuration){time+=Time.unscaledDeltaTime;instance.SetFloat("_Progress",Mathf.Clamp01(time/colourDuration));yield return null;}
         instance.SetFloat("_Progress",1);
+        onColourDrained?.Invoke();
         yield return new WaitForSecondsRealtime(.15f);
         time=0;
         while(time<inkDuration){time+=Time.unscaledDeltaTime;InkProgress=Mathf.Clamp01(time/inkDuration);instance.SetFloat("_InkProgress",InkProgress);yield return null;}

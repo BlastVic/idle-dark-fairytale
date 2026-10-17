@@ -1,0 +1,847 @@
+fileFormatVersion: 2
+guid: 8c7dfff06d19845bc9ad604d9e976814
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8254445928270665714
+    second: PetShadowWolf_0
+  - first:
+      213: 8732322678956504385
+    second: PetShadowWolf_1
+  - first:
+      213: -3221169876411600535
+    second: PetShadowWolf_2
+  - first:
+      213: -1559946327358941100
+    second: PetShadowWolf_3
+  - first:
+      213: 5275358770364294080
+    second: PetShadowWolf_4
+  - first:
+      213: 1773524238437129856
+    second: PetShadowWolf_5
+  - first:
+      213: -6362170668615854843
+    second: PetShadowWolf_6
+  - first:
+      213: 4955462734546570806
+    second: PetShadowWolf_7
+  - first:
+      213: 8676348739303634331
+    second: PetShadowWolf_8
+  - first:
+      213: -1728815399360539250
+    second: PetShadowWolf_9
+  - first:
+      213: -3591069091645469048
+    second: PetShadowWolf_10
+  - first:
+      213: -2352932475808249149
+    second: PetShadowWolf_11
+  - first:
+      213: 6533833277602664237
+    second: PetShadowWolf_12
+  - first:
+      213: 6899857898822162788
+    second: PetShadowWolf_13
+  - first:
+      213: 4976256035559494220
+    second: PetShadowWolf_14
+  - first:
+      213: 1592350592245885208
+    second: PetShadowWolf_15
+  - first:
+      213: 7762146702946155648
+    second: PetShadowWolf_16
+  - first:
+      213: 2131492972114713434
+    second: PetShadowWolf_17
+  - first:
+      213: 8030192626850710256
+    second: PetShadowWolf_18
+  - first:
+      213: -2955266694145942607
+    second: PetShadowWolf_19
+  - first:
+      213: -8109509339633257981
+    second: PetShadowWolf_20
+  - first:
+      213: 7351937837045042230
+    second: PetShadowWolf_21
+  - first:
+      213: -5126245660727650045
+    second: PetShadowWolf_22
+  - first:
+      213: -9138491602366978367
+    second: PetShadowWolf_23
+  - first:
+      213: 3185789467280237687
+    second: PetShadowWolf_24
+  - first:
+      213: 2901780316527524352
+    second: PetShadowWolf_25
+  - first:
+      213: 2083332042538820151
+    second: PetShadowWolf_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PetShadowWolf_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 744
+        width: 287
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08e1c38921527d80800000000000000
+      internalID: -8254445928270665714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_1
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 706
+        width: 243
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1453a4fe5317f2970800000000000000
+      internalID: 8732322678956504385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_2
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 744
+        width: 286
+        height: 275
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9613c4b501b1c43d0800000000000000
+      internalID: -3221169876411600535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_3
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 639
+        width: 443
+        height: 382
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45858198415f95ae0800000000000000
+      internalID: -1559946327358941100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_4
+      rect:
+        serializedVersion: 2
+        x: 1307
+        y: 685
+        width: 467
+        height: 335
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c32e420ad6d53940800000000000000
+      internalID: 5275358770364294080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_5
+      rect:
+        serializedVersion: 2
+        x: 1781
+        y: 809
+        width: 199
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08e1798f5e2dc9810800000000000000
+      internalID: 1773524238437129856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 322
+        width: 516
+        height: 311
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5051eb03c7705b7a0800000000000000
+      internalID: -6362170668615854843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_7
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 509
+        width: 225
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63e85561a1755c440800000000000000
+      internalID: 4955462734546570806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_8
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 520
+        width: 115
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b95f9998535986870800000000000000
+      internalID: 8676348739303634331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_9
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 398
+        width: 89
+        height: 234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e85d3eecd830208e0800000000000000
+      internalID: -1728815399360539250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_10
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 490
+        width: 125
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e469cffa5f92ec0800000000000000
+      internalID: -3591069091645469048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_11
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 512
+        width: 110
+        height: 119
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ca08fe2164b85fd0800000000000000
+      internalID: -2352932475808249149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_12
+      rect:
+        serializedVersion: 2
+        x: 1233
+        y: 546
+        width: 143
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f022d8fb6dcaa50800000000000000
+      internalID: 6533833277602664237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_13
+      rect:
+        serializedVersion: 2
+        x: 1383
+        y: 526
+        width: 160
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 469d7f3b33831cf50800000000000000
+      internalID: 6899857898822162788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_14
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 567
+        width: 103
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c42daeebf763f0540800000000000000
+      internalID: 4976256035559494220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_15
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 570
+        width: 102
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819e2b05d6a291610800000000000000
+      internalID: 1592350592245885208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_16
+      rect:
+        serializedVersion: 2
+        x: 1771
+        y: 380
+        width: 151
+        height: 252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08c339bfc4fa8bb60800000000000000
+      internalID: 7762146702946155648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_17
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 123
+        width: 222
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5b9324a095949d10800000000000000
+      internalID: 2131492972114713434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_18
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 228
+        width: 81
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f2c569f5a9f07f60800000000000000
+      internalID: 8030192626850710256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_19
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 104
+        width: 162
+        height: 209
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb53ee6998ccf6d0800000000000000
+      internalID: -2955266694145942607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_20
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 118
+        width: 142
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 302727cb83c357f80800000000000000
+      internalID: -8109509339633257981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_21
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 190
+        width: 138
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63cc2d3b284570660800000000000000
+      internalID: 7351937837045042230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_22
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 11
+        width: 165
+        height: 302
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309d0f84bbaebd8b0800000000000000
+      internalID: -5126245660727650045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_23
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 203
+        width: 77
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c6a6023e4e8d2180800000000000000
+      internalID: -9138491602366978367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_24
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 241
+        width: 84
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7746b6634a2363c20800000000000000
+      internalID: 3185789467280237687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_25
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 72
+        width: 174
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00af7d6d2d1354820800000000000000
+      internalID: 2901780316527524352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PetShadowWolf_26
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 185
+        width: 90
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73227b8647b79ec10800000000000000
+      internalID: 2083332042538820151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PetShadowWolf_0: -8254445928270665714
+      PetShadowWolf_1: 8732322678956504385
+      PetShadowWolf_10: -3591069091645469048
+      PetShadowWolf_11: -2352932475808249149
+      PetShadowWolf_12: 6533833277602664237
+      PetShadowWolf_13: 6899857898822162788
+      PetShadowWolf_14: 4976256035559494220
+      PetShadowWolf_15: 1592350592245885208
+      PetShadowWolf_16: 7762146702946155648
+      PetShadowWolf_17: 2131492972114713434
+      PetShadowWolf_18: 8030192626850710256
+      PetShadowWolf_19: -2955266694145942607
+      PetShadowWolf_2: -3221169876411600535
+      PetShadowWolf_20: -8109509339633257981
+      PetShadowWolf_21: 7351937837045042230
+      PetShadowWolf_22: -5126245660727650045
+      PetShadowWolf_23: -9138491602366978367
+      PetShadowWolf_24: 3185789467280237687
+      PetShadowWolf_25: 2901780316527524352
+      PetShadowWolf_26: 2083332042538820151
+      PetShadowWolf_3: -1559946327358941100
+      PetShadowWolf_4: 5275358770364294080
+      PetShadowWolf_5: 1773524238437129856
+      PetShadowWolf_6: -6362170668615854843
+      PetShadowWolf_7: 4955462734546570806
+      PetShadowWolf_8: 8676348739303634331
+      PetShadowWolf_9: -1728815399360539250
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,4773 @@
+{
+  "version": 1,
+  "stages": [
+    {
+      "tier": 1,
+      "key": "Khorasan Ruins I",
+      "name": "暮色林缘"
+    },
+    {
+      "tier": 2,
+      "key": "Khorasan Ruins II",
+      "name": "蘑菇森林"
+    },
+    {
+      "tier": 3,
+      "key": "test01",
+      "name": "月下过桥"
+    },
+    {
+      "tier": 4,
+      "key": "test02",
+      "name": "溪畔小屋"
+    },
+    {
+      "tier": 5,
+      "key": "Mount Zion",
+      "name": "小屋内部"
+    }
+  ],
+  "monsters": [
+    {
+      "key": "MobGloamweb",
+      "tier": 1,
+      "chance": 0.35,
+      "count": 1,
+      "quality": 0
+    },
+    {
+      "key": "MobSplinterjaw",
+      "tier": 1,
+      "chance": 0.35,
+      "count": 1,
+      "quality": 0
+    },
+    {
+      "key": "MobBramblet",
+      "tier": 2,
+      "chance": 0.35,
+      "count": 1,
+      "quality": 0
+    },
+    {
+      "key": "MobTallowkin",
+      "tier": 2,
+      "chance": 0.35,
+      "count": 1,
+      "quality": 0
+    },
+    {
+      "key": "MobMurmlet",
+      "tier": 3,
+      "chance": 0.35,
+      "count": 1,
+      "quality": 0
+    },
+    {
+      "key": "MobStillmere",
+      "tier": 3,
+      "chance": 1,
+      "count": 2,
+      "quality": 1
+    },
+    {
+      "key": "MobHexmaw",
+      "tier": 4,
+      "chance": 0.35,
+      "count": 1,
+      "quality": 0
+    },
+    {
+      "key": "MobRivenfang",
+      "tier": 5,
+      "chance": 1,
+      "count": 3,
+      "quality": 1
+    }
+  ],
+  "qualities": [
+    {
+      "grade": 0,
+      "count": 3,
+      "rarityWeights": [
+        74,
+        21,
+        4,
+        1,
+        0
+      ]
+    },
+    {
+      "grade": 1,
+      "count": 4,
+      "rarityWeights": [
+        0,
+        55,
+        35,
+        9,
+        1
+      ]
+    },
+    {
+      "grade": 2,
+      "count": 5,
+      "rarityWeights": [
+        0,
+        0,
+        70,
+        25,
+        5
+      ]
+    }
+  ],
+  "categoryWeights": [
+    30,
+    17.5,
+    17.5,
+    17.5,
+    17.5
+  ],
+  "rarityMultipliers": [
+    1,
+    1.1,
+    1.2,
+    1.32,
+    1.45
+  ],
+  "extraAffixes": [
+    0,
+    1,
+    1,
+    2,
+    3
+  ],
+  "entries": [
+    {
+      "key": "Wep1",
+      "type": 0,
+      "tier": 1,
+      "profile": "balanced",
+      "primary": {
+        "stat": "dmg",
+        "min": 3,
+        "max": 5
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 1,
+        "max": 2
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Wep2",
+      "type": 0,
+      "tier": 1,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 4,
+        "max": 6
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Wep3",
+      "type": 0,
+      "tier": 1,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 4,
+        "max": 6
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Wep4",
+      "type": 0,
+      "tier": 1,
+      "profile": "agile",
+      "primary": {
+        "stat": "dmg",
+        "min": 3,
+        "max": 4
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Wep5",
+      "type": 0,
+      "tier": 1,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 4,
+        "max": 6
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Wep6",
+      "type": 0,
+      "tier": 1,
+      "profile": "balanced",
+      "primary": {
+        "stat": "dmg",
+        "min": 3,
+        "max": 5
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 1,
+        "max": 2
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Wep7",
+      "type": 0,
+      "tier": 2,
+      "profile": "precise",
+      "primary": {
+        "stat": "dmg",
+        "min": 6,
+        "max": 9
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Wep8",
+      "type": 0,
+      "tier": 2,
+      "profile": "agile",
+      "primary": {
+        "stat": "dmg",
+        "min": 6,
+        "max": 9
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Wep9",
+      "type": 0,
+      "tier": 2,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 8,
+        "max": 12
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 5,
+        "max": 7
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Wep10",
+      "type": 0,
+      "tier": 2,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 8,
+        "max": 12
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 5,
+        "max": 7
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Wep11",
+      "type": 0,
+      "tier": 2,
+      "profile": "agile",
+      "primary": {
+        "stat": "dmg",
+        "min": 6,
+        "max": 9
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Wep12",
+      "type": 0,
+      "tier": 2,
+      "profile": "balanced",
+      "primary": {
+        "stat": "dmg",
+        "min": 7,
+        "max": 10
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Wep13",
+      "type": 0,
+      "tier": 3,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 17,
+        "max": 24
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 7,
+        "max": 10
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Wep14",
+      "type": 0,
+      "tier": 3,
+      "profile": "precise",
+      "primary": {
+        "stat": "dmg",
+        "min": 13,
+        "max": 18
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Wep15",
+      "type": 0,
+      "tier": 3,
+      "profile": "agile",
+      "primary": {
+        "stat": "dmg",
+        "min": 13,
+        "max": 18
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Wep16",
+      "type": 0,
+      "tier": 3,
+      "profile": "balanced",
+      "primary": {
+        "stat": "dmg",
+        "min": 14,
+        "max": 20
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Wep17",
+      "type": 0,
+      "tier": 3,
+      "profile": "precise",
+      "primary": {
+        "stat": "dmg",
+        "min": 13,
+        "max": 18
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Wep18",
+      "type": 0,
+      "tier": 3,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 17,
+        "max": 24
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 7,
+        "max": 10
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Wep19",
+      "type": 0,
+      "tier": 4,
+      "profile": "precise",
+      "primary": {
+        "stat": "dmg",
+        "min": 25,
+        "max": 34
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Wep20",
+      "type": 0,
+      "tier": 4,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 34,
+        "max": 46
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 10,
+        "max": 13
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Wep21",
+      "type": 0,
+      "tier": 4,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 34,
+        "max": 46
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 10,
+        "max": 13
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Wep22",
+      "type": 0,
+      "tier": 4,
+      "profile": "mystic",
+      "primary": {
+        "stat": "dmg",
+        "min": 28,
+        "max": 38
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Wep23",
+      "type": 0,
+      "tier": 4,
+      "profile": "mystic",
+      "primary": {
+        "stat": "dmg",
+        "min": 28,
+        "max": 38
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Wep24",
+      "type": 0,
+      "tier": 5,
+      "profile": "balanced",
+      "primary": {
+        "stat": "dmg",
+        "min": 50,
+        "max": 65
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 4,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Wep25",
+      "type": 0,
+      "tier": 5,
+      "profile": "agile",
+      "primary": {
+        "stat": "dmg",
+        "min": 45,
+        "max": 58
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 6,
+        "max": 7
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Wep26",
+      "type": 0,
+      "tier": 5,
+      "profile": "agile",
+      "primary": {
+        "stat": "dmg",
+        "min": 45,
+        "max": 58
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 6,
+        "max": 7
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Wep27",
+      "type": 0,
+      "tier": 5,
+      "profile": "mystic",
+      "primary": {
+        "stat": "dmg",
+        "min": 50,
+        "max": 65
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Wep28",
+      "type": 0,
+      "tier": 5,
+      "profile": "heavy",
+      "primary": {
+        "stat": "dmg",
+        "min": 60,
+        "max": 78
+      },
+      "signature": {
+        "stat": "critDmg",
+        "min": 13,
+        "max": 16
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Head1",
+      "type": 2,
+      "tier": 1,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 1
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Head2",
+      "type": 2,
+      "tier": 1,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 1
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Head3",
+      "type": 2,
+      "tier": 1,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 2
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Head4",
+      "type": 2,
+      "tier": 1,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 2
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Head5",
+      "type": 2,
+      "tier": 1,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 1
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Head6",
+      "type": 2,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 3
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Head7",
+      "type": 2,
+      "tier": 2,
+      "profile": "precise",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 2
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Head8",
+      "type": 2,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 3
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Head9",
+      "type": 2,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 3
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Head10",
+      "type": 2,
+      "tier": 2,
+      "profile": "precise",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 2
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Head11",
+      "type": 2,
+      "tier": 3,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 4
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Head12",
+      "type": 2,
+      "tier": 3,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 4
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Head13",
+      "type": 2,
+      "tier": 3,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 2
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Head14",
+      "type": 2,
+      "tier": 3,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 2
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Head15",
+      "type": 2,
+      "tier": 3,
+      "profile": "offensive",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 3
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Head16",
+      "type": 2,
+      "tier": 4,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 6
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Head17",
+      "type": 2,
+      "tier": 4,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 4
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Head18",
+      "type": 2,
+      "tier": 4,
+      "profile": "offensive",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 5
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Head19",
+      "type": 2,
+      "tier": 4,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 4
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Head20",
+      "type": 2,
+      "tier": 4,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 4
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Head21",
+      "type": 2,
+      "tier": 5,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 9
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 6,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Head22",
+      "type": 2,
+      "tier": 5,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 8
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 30,
+        "max": 45
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Head23",
+      "type": 2,
+      "tier": 5,
+      "profile": "offensive",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 8
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 5,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Head24",
+      "type": 2,
+      "tier": 5,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 8
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 30,
+        "max": 45
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Head25",
+      "type": 2,
+      "tier": 5,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 7
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Head26",
+      "type": 2,
+      "tier": 5,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 9
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 6,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Sh1",
+      "type": 1,
+      "tier": 1,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 3
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Sh2",
+      "type": 1,
+      "tier": 1,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 2
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Sh3",
+      "type": 1,
+      "tier": 1,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 3
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Sh4",
+      "type": 1,
+      "tier": 1,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 2
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Sh5",
+      "type": 1,
+      "tier": 1,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 3
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Sh6",
+      "type": 1,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 4
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Sh7",
+      "type": 1,
+      "tier": 2,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 3
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 6,
+        "max": 9
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Sh8",
+      "type": 1,
+      "tier": 2,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 2
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Sh9",
+      "type": 1,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 4
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Sh10",
+      "type": 1,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 4
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Sh11",
+      "type": 1,
+      "tier": 3,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 5
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 10,
+        "max": 15
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Sh12",
+      "type": 1,
+      "tier": 3,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 4
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Sh13",
+      "type": 1,
+      "tier": 3,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 4
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Sh14",
+      "type": 1,
+      "tier": 3,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 6
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Sh15",
+      "type": 1,
+      "tier": 3,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 3,
+        "max": 5
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 10,
+        "max": 15
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Sh16",
+      "type": 1,
+      "tier": 4,
+      "profile": "offensive",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 8
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Sh17",
+      "type": 1,
+      "tier": 4,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 9
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Sh18",
+      "type": 1,
+      "tier": 4,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 7
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Sh19",
+      "type": 1,
+      "tier": 4,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 7
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Sh20",
+      "type": 1,
+      "tier": 4,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 5,
+        "max": 9
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Sh21",
+      "type": 1,
+      "tier": 5,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 8,
+        "max": 13
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 6,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Sh22",
+      "type": 1,
+      "tier": 5,
+      "profile": "offensive",
+      "primary": {
+        "stat": "def",
+        "min": 8,
+        "max": 12
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 5,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Sh23",
+      "type": 1,
+      "tier": 5,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 8,
+        "max": 11
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Sh24",
+      "type": 1,
+      "tier": 5,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 8,
+        "max": 12
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 30,
+        "max": 45
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Sh25",
+      "type": 1,
+      "tier": 5,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 8,
+        "max": 13
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 6,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Body1",
+      "type": 3,
+      "tier": 1,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 2
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Body2",
+      "type": 3,
+      "tier": 1,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 1
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Body3",
+      "type": 3,
+      "tier": 1,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 3
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Body4",
+      "type": 3,
+      "tier": 1,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 2
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Body5",
+      "type": 3,
+      "tier": 1,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 3
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Body6",
+      "type": 3,
+      "tier": 1,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 1,
+        "max": 2
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Body7",
+      "type": 3,
+      "tier": 2,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 3
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Body8",
+      "type": 3,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 5
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Body9",
+      "type": 3,
+      "tier": 2,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 4
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 6,
+        "max": 9
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Body10",
+      "type": 3,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 5
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Body11",
+      "type": 3,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 5
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Body12",
+      "type": 3,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 2,
+        "max": 5
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 6,
+          "max": 9
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Body13",
+      "type": 3,
+      "tier": 3,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 4,
+        "max": 5
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Body14",
+      "type": 3,
+      "tier": 3,
+      "profile": "precise",
+      "primary": {
+        "stat": "def",
+        "min": 4,
+        "max": 6
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Body15",
+      "type": 3,
+      "tier": 3,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 4,
+        "max": 7
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Body16",
+      "type": 3,
+      "tier": 3,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 4,
+        "max": 5
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Body17",
+      "type": 3,
+      "tier": 3,
+      "profile": "offensive",
+      "primary": {
+        "stat": "def",
+        "min": 4,
+        "max": 6
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Body18",
+      "type": 3,
+      "tier": 3,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 4,
+        "max": 7
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 10,
+          "max": 15
+        },
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Body19",
+      "type": 3,
+      "tier": 4,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 6,
+        "max": 9
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 18,
+        "max": 26
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Body20",
+      "type": 3,
+      "tier": 4,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 6,
+        "max": 10
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Body21",
+      "type": 3,
+      "tier": 4,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 6,
+        "max": 8
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Body22",
+      "type": 3,
+      "tier": 4,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 6,
+        "max": 10
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Body23",
+      "type": 3,
+      "tier": 4,
+      "profile": "agile",
+      "primary": {
+        "stat": "def",
+        "min": 6,
+        "max": 8
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Body24",
+      "type": 3,
+      "tier": 4,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 6,
+        "max": 10
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 18,
+          "max": 26
+        },
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Body25",
+      "type": 3,
+      "tier": 5,
+      "profile": "vitality",
+      "primary": {
+        "stat": "def",
+        "min": 10,
+        "max": 14
+      },
+      "signature": {
+        "stat": "hpMax",
+        "min": 30,
+        "max": 45
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Body26",
+      "type": 3,
+      "tier": 5,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 10,
+        "max": 13
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Body27",
+      "type": 3,
+      "tier": 5,
+      "profile": "offensive",
+      "primary": {
+        "stat": "def",
+        "min": 10,
+        "max": 14
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 5,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Body28",
+      "type": 3,
+      "tier": 5,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 10,
+        "max": 13
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Body29",
+      "type": 3,
+      "tier": 5,
+      "profile": "guard",
+      "primary": {
+        "stat": "def",
+        "min": 10,
+        "max": 15
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 6,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Body30",
+      "type": 3,
+      "tier": 5,
+      "profile": "mystic",
+      "primary": {
+        "stat": "def",
+        "min": 10,
+        "max": 13
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "hpMax",
+          "min": 30,
+          "max": 45
+        },
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        }
+      ]
+    },
+    {
+      "key": "Acc1",
+      "type": 4,
+      "tier": 1,
+      "profile": "offensive",
+      "primary": {
+        "stat": "hpMax",
+        "min": 6,
+        "max": 10
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 1,
+        "max": 1
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Acc2",
+      "type": 4,
+      "tier": 1,
+      "profile": "vitality",
+      "primary": {
+        "stat": "hpMax",
+        "min": 6,
+        "max": 10
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Acc3",
+      "type": 4,
+      "tier": 1,
+      "profile": "agile",
+      "primary": {
+        "stat": "hpMax",
+        "min": 6,
+        "max": 9
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "hpPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Acc4",
+      "type": 4,
+      "tier": 1,
+      "profile": "guard",
+      "primary": {
+        "stat": "hpMax",
+        "min": 6,
+        "max": 11
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Acc5",
+      "type": 4,
+      "tier": 1,
+      "profile": "vitality",
+      "primary": {
+        "stat": "hpMax",
+        "min": 6,
+        "max": 10
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Acc6",
+      "type": 4,
+      "tier": 1,
+      "profile": "guard",
+      "primary": {
+        "stat": "hpMax",
+        "min": 6,
+        "max": 11
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 1,
+          "max": 2
+        },
+        {
+          "stat": "atkSpd",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 1,
+          "max": 2
+        }
+      ]
+    },
+    {
+      "key": "Acc7",
+      "type": 4,
+      "tier": 2,
+      "profile": "guard",
+      "primary": {
+        "stat": "hpMax",
+        "min": 12,
+        "max": 21
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Acc8",
+      "type": 4,
+      "tier": 2,
+      "profile": "vitality",
+      "primary": {
+        "stat": "hpMax",
+        "min": 12,
+        "max": 20
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        }
+      ]
+    },
+    {
+      "key": "Acc9",
+      "type": 4,
+      "tier": 2,
+      "profile": "precise",
+      "primary": {
+        "stat": "hpMax",
+        "min": 12,
+        "max": 20
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "hpPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Acc10",
+      "type": 4,
+      "tier": 2,
+      "profile": "agile",
+      "primary": {
+        "stat": "hpMax",
+        "min": 12,
+        "max": 19
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "hpPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Acc11",
+      "type": 4,
+      "tier": 2,
+      "profile": "mystic",
+      "primary": {
+        "stat": "hpMax",
+        "min": 12,
+        "max": 19
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "hpPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Acc12",
+      "type": 4,
+      "tier": 2,
+      "profile": "mystic",
+      "primary": {
+        "stat": "hpMax",
+        "min": 12,
+        "max": 19
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 2,
+        "max": 3
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 3
+        },
+        {
+          "stat": "atkSpd",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "hpPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Acc13",
+      "type": 4,
+      "tier": 3,
+      "profile": "guard",
+      "primary": {
+        "stat": "hpMax",
+        "min": 24,
+        "max": 37
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Acc14",
+      "type": 4,
+      "tier": 3,
+      "profile": "agile",
+      "primary": {
+        "stat": "hpMax",
+        "min": 24,
+        "max": 35
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "hpPerc",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Acc15",
+      "type": 4,
+      "tier": 3,
+      "profile": "precise",
+      "primary": {
+        "stat": "hpMax",
+        "min": 24,
+        "max": 36
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 2,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "hpPerc",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Acc16",
+      "type": 4,
+      "tier": 3,
+      "profile": "vitality",
+      "primary": {
+        "stat": "hpMax",
+        "min": 24,
+        "max": 36
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        }
+      ]
+    },
+    {
+      "key": "Acc17",
+      "type": 4,
+      "tier": 3,
+      "profile": "mystic",
+      "primary": {
+        "stat": "hpMax",
+        "min": 24,
+        "max": 35
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 3,
+        "max": 4
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "atkSpd",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "hpPerc",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Acc18",
+      "type": 4,
+      "tier": 3,
+      "profile": "agile",
+      "primary": {
+        "stat": "hpMax",
+        "min": 24,
+        "max": 35
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 2,
+          "max": 4
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 3,
+          "max": 4
+        },
+        {
+          "stat": "hpPerc",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Acc19",
+      "type": 4,
+      "tier": 4,
+      "profile": "mystic",
+      "primary": {
+        "stat": "hpMax",
+        "min": 45,
+        "max": 64
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "stat": "hpPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Acc20",
+      "type": 4,
+      "tier": 4,
+      "profile": "agile",
+      "primary": {
+        "stat": "hpMax",
+        "min": 45,
+        "max": 64
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "hpPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Acc21",
+      "type": 4,
+      "tier": 4,
+      "profile": "offensive",
+      "primary": {
+        "stat": "hpMax",
+        "min": 45,
+        "max": 65
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 4,
+          "max": 5
+        }
+      ]
+    },
+    {
+      "key": "Acc22",
+      "type": 4,
+      "tier": 4,
+      "profile": "agile",
+      "primary": {
+        "stat": "hpMax",
+        "min": 45,
+        "max": 64
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "hpPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Acc23",
+      "type": 4,
+      "tier": 4,
+      "profile": "mystic",
+      "primary": {
+        "stat": "hpMax",
+        "min": 45,
+        "max": 64
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 4,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 3,
+          "max": 5
+        },
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "stat": "hpPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Acc24",
+      "type": 4,
+      "tier": 4,
+      "profile": "precise",
+      "primary": {
+        "stat": "hpMax",
+        "min": 45,
+        "max": 65
+      },
+      "signature": {
+        "stat": "crit",
+        "min": 3,
+        "max": 5
+      },
+      "bonuses": [
+        {
+          "stat": "atkSpd",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 4,
+          "max": 5
+        },
+        {
+          "stat": "hpPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Acc25",
+      "type": 4,
+      "tier": 5,
+      "profile": "vitality",
+      "primary": {
+        "stat": "hpMax",
+        "min": 80,
+        "max": 110
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 6,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Acc26",
+      "type": 4,
+      "tier": 5,
+      "profile": "mystic",
+      "primary": {
+        "stat": "hpMax",
+        "min": 80,
+        "max": 109
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "hpPerc",
+          "min": 6,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "key": "Acc27",
+      "type": 4,
+      "tier": 5,
+      "profile": "agile",
+      "primary": {
+        "stat": "hpMax",
+        "min": 80,
+        "max": 109
+      },
+      "signature": {
+        "stat": "atkSpd",
+        "min": 6,
+        "max": 7
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        },
+        {
+          "stat": "hpPerc",
+          "min": 6,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "key": "Acc28",
+      "type": 4,
+      "tier": 5,
+      "profile": "vitality",
+      "primary": {
+        "stat": "hpMax",
+        "min": 80,
+        "max": 110
+      },
+      "signature": {
+        "stat": "hpPerc",
+        "min": 6,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Acc29",
+      "type": 4,
+      "tier": 5,
+      "profile": "mystic",
+      "primary": {
+        "stat": "hpMax",
+        "min": 80,
+        "max": 109
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "hpPerc",
+          "min": 6,
+          "max": 8
+        }
+      ]
+    },
+    {
+      "key": "Acc30",
+      "type": 4,
+      "tier": 5,
+      "profile": "offensive",
+      "primary": {
+        "stat": "hpMax",
+        "min": 80,
+        "max": 110
+      },
+      "signature": {
+        "stat": "dmg",
+        "min": 5,
+        "max": 8
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "dmgPerc",
+          "min": 5,
+          "max": 6
+        }
+      ]
+    },
+    {
+      "key": "Acc31",
+      "type": 4,
+      "tier": 5,
+      "profile": "mystic",
+      "primary": {
+        "stat": "hpMax",
+        "min": 80,
+        "max": 109
+      },
+      "signature": {
+        "stat": "dmgPerc",
+        "min": 5,
+        "max": 6
+      },
+      "bonuses": [
+        {
+          "stat": "crit",
+          "min": 4,
+          "max": 6
+        },
+        {
+          "stat": "atkSpd",
+          "min": 6,
+          "max": 7
+        },
+        {
+          "stat": "hpPerc",
+          "min": 6,
+          "max": 8
+        }
+      ]
+    }
+  ],
+  "fusionExperience": [
+    1,
+    3,
+    15,
+    20,
+    50
+  ]
+}

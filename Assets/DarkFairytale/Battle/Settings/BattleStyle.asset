@@ -18,7 +18,8 @@ MonoBehaviour:
   moonAtmosphere: {fileID: 11400000, guid: 66ab90a9f1f634cee9561bd73bd4b376, type: 2}
   contactShadow: {fileID: 21300000, guid: 2ed4e53bbd17473aa0c9945b43788a7d, type: 3}
   enemyHealthBarPrefab: {fileID: 2324570392681577999, guid: 73dedac85b9db42a5b4fda163a96b0a9, type: 3}
-  playerFeet: {x: 0.23, y: 0.3}
+  playerFeet: {x: 0.19, y: 0.3}
+  playerRetreatLeftMargin: 0.09
   playerSize: {x: 0.35, y: 0.235}
   enemyFeet:
   - {x: 0.71, y: 0.3}

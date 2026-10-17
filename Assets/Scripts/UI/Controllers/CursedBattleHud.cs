@@ -8,6 +8,7 @@ public sealed class CursedBattleHud : MonoBehaviour
     public Image hpFill, xpFill;
     public BattleStatusDetails statusDetails;
     public Button backButton;
+    public StorybookBossHUD bossHud;
     public GameObject progressRow;
     public Image[] waveMarkers;
     public Color normalHp = Color.white;

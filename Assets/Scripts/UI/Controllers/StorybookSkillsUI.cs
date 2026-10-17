@@ -146,7 +146,7 @@ public sealed class StorybookSkillsUI : MonoBehaviour
     {
         var values=Values(wanted);
         return string.Join("\n",Selected.effectLabels.Select((label,i)=>{
-            string number=Number(values[i]*((Selected.key==SkillsTypeEnum.Devil_On_My_Shoulder&&i>=2)?1:100))+"%";
+            string number=Number(values[i]*100)+"%";
             return label+"  "+"<color=#8F2018>"+number+"</color>";
         }));
     }

@@ -16,40 +16,14 @@ public class AnimationController : MonoBehaviour
 
     void HandleEvent(Spine.TrackEntry entry, Spine.Event e)
     {
-        //Debug.Log("Handle Event:" + e.data.name);
-        if (entry.TrackIndex == 0)
-        {
-            if (e.Data.Name == "OnComplete")
-            {
-                string animationName = skeletonAnimation.state.GetCurrent(0).Animation.Name;
-                AnimationComplete(0, animationName);
-            }
-        }
-        if (entry.TrackIndex == 1)
-        {
-            if (e.Data.Name == "OnComplete")
-            {
-                string animationName = skeletonAnimation.state.GetCurrent(1).Animation.Name;
-                AnimationComplete(1, animationName);
-            }
-        }
-
-        if (e.Data.Name == "OnHit")
-        {
-            string animationName = skeletonAnimation.state.GetCurrent(0).Animation.Name;
-            AnimationOnHit(animationName);
-        }
-        //if (e.Data.Name == "OnHit")
-        //{
-        //    string animationName = skeletonAnimation.state.GetCurrent(1).Animation.Name;
-        //    AnimationOnHit_TrackOne(animationName);
-        //}
-        if (e.Data.Name == "OnSkill")
-        {
-            string animationName = skeletonAnimation.state.GetCurrent(0).Animation.Name;
-            AnimationOnSkill(animationName);
-        }
+        // Ignore outgoing mixed tracks: their events must not be attributed to the new action.
+        if (entry != skeletonAnimation.state.GetCurrent(entry.TrackIndex)) return;
+        string animationName = entry.Animation.Name;
+        if (e.Data.Name == "OnComplete") AnimationComplete(entry.TrackIndex, animationName);
+        if (entry.TrackIndex == 0 && e.Data.Name == "OnHit") AnimationOnHit(animationName);
+        if (entry.TrackIndex == 0 && e.Data.Name == "OnSkill") AnimationOnSkill(animationName);
     }
+
 
     public void SetLoop(bool b)
     {
@@ -145,8 +119,6 @@ public class AnimationController : MonoBehaviour
         if (skeletonAnimation == null) return;
         if (skeletonAnimation.state == null) return;
         skeletonAnimation.loop = isLoop;
-        skeletonAnimation.state.SetAnimation(0, animation, isLoop);
-        //SetAnimationOccurred(animation);
 
         var trackEntry = skeletonAnimation.state.SetAnimation(0, animation, isLoop);//.timeScale = speed;
         if (animation.Contains("Attack"))

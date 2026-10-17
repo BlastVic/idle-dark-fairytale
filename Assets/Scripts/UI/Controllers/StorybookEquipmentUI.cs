@@ -229,12 +229,12 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
             modeButton.GetComponentInChildren<Text>().color=active?new Color(.98f,.94f,.84f):Color.black;
         }
         for(int i=0;i<items.Count;i++)cells[i].Bind(this,items[i],items[i]==eq,items[i]==Selected,batch.Contains(items[i].uniqueId));
-        selectedName.text=Selected==null?"请选择装备":(layeredComparison?GradeName(Selected.itemGrade)+" · ":"")+Selected.m_ItemFinalTitle;
-        equippedName.text=eq==null?"未装备":(layeredComparison?GradeName(eq.itemGrade)+" · ":"")+eq.m_ItemFinalTitle;
+        selectedName.text=Selected==null?"请选择装备":(layeredComparison?GradeName(Selected.itemGrade)+" · ":"")+EquipmentNames.Display(Selected);
+        equippedName.text=eq==null?"未装备":(layeredComparison?GradeName(eq.itemGrade)+" · ":"")+EquipmentNames.Display(eq);
         selectedName.GetComponent<EquipmentSingleLineName>()?.SetTitle(selectedName.text);
         equippedName.GetComponent<EquipmentSingleLineName>()?.SetTitle(equippedName.text);
         grade.text=Selected==null?"":GradeName(Selected.itemGrade);equippedGrade.text=eq==null?"":GradeName(eq.itemGrade);
-        title.text=Selected==null?"装备详情":Selected.m_ItemFinalTitle+" · "+grade.text;
+        title.text=Selected==null?"装备详情":EquipmentNames.Display(Selected)+" · "+grade.text;
         selectedIcon.sprite=Selected==null?null:InventoryManager.single.GetSpriteIcon(Selected.m_IconName);selectedIcon.enabled=selectedIcon.sprite;
         equippedIcon.sprite=eq==null?null:InventoryManager.single.GetSpriteIcon(eq.m_IconName);equippedIcon.enabled=equippedIcon.sprite;
         bool canEquip=Selected!=null&&Selected!=eq&&Owned(Category).Contains(Selected);

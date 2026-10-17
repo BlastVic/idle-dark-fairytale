@@ -24,7 +24,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Headband
+    - m_ItemBasicTitle: "\u7C97\u5E03\u515C\u5E3D"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u7ED3\u7EF3\u624B\u73AF"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -140,7 +140,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 15
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u7ED3\u7EF3\u624B\u73AF"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -208,7 +208,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Dagger
+    - m_ItemBasicTitle: "\u94C1\u5C16\u957F\u77DB"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 45
-    - m_ItemBasicTitle: Dagger
+    - m_ItemBasicTitle: "\u94C1\u5C16\u957F\u77DB"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -319,7 +319,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 50
     itemsGiven:
-    - m_ItemBasicTitle: Collar
+    - m_ItemBasicTitle: "\u91D1\u58F3\u6000\u8868"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 25
-    - m_ItemBasicTitle: Collar
+    - m_ItemBasicTitle: "\u91D1\u58F3\u6000\u8868"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -415,7 +415,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 25
-    - m_ItemBasicTitle: Collar
+    - m_ItemBasicTitle: "\u91D1\u58F3\u6000\u8868"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -468,7 +468,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Robe
+    - m_ItemBasicTitle: "\u9501\u5B50\u77ED\u7532"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -536,7 +536,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Crescent
+    - m_ItemBasicTitle: "\u84DD\u7EB9\u9A91\u58EB\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 133
-    - m_ItemBasicTitle: Crescent
+    - m_ItemBasicTitle: "\u84DD\u7EB9\u9A91\u58EB\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -632,7 +632,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 133
-    - m_ItemBasicTitle: Crescent
+    - m_ItemBasicTitle: "\u84DD\u7EB9\u9A91\u58EB\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -700,7 +700,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Headband
+    - m_ItemBasicTitle: "\u4E9A\u9EBB\u5934\u5DFE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -748,7 +748,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 80
-    - m_ItemBasicTitle: Headband
+    - m_ItemBasicTitle: "\u4E9A\u9EBB\u5934\u5DFE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 80
-    - m_ItemBasicTitle: Headband
+    - m_ItemBasicTitle: "\u4E9A\u9EBB\u5934\u5DFE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -874,7 +874,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Melty
+    - m_ItemBasicTitle: "\u94C6\u9489\u94C1\u5706\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -922,7 +922,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 260
-    - m_ItemBasicTitle: Melty
+    - m_ItemBasicTitle: "\u94C6\u9489\u94C1\u5706\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -970,7 +970,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 260
-    - m_ItemBasicTitle: Melty
+    - m_ItemBasicTitle: "\u94C6\u9489\u94C1\u5706\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u9EC4\u94DC\u8170\u6263"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1081,7 +1081,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 555
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u9EC4\u94DC\u8170\u6263"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1129,7 +1129,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 555
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u9EC4\u94DC\u8170\u6263"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1192,7 +1192,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Palm Earring
+    - m_ItemBasicTitle: "\u94F6\u53F6\u80F8\u9488"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1240,7 +1240,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 600
-    - m_ItemBasicTitle: Palm Earring
+    - m_ItemBasicTitle: "\u94F6\u53F6\u80F8\u9488"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1288,7 +1288,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 600
-    - m_ItemBasicTitle: Palm Earring
+    - m_ItemBasicTitle: "\u94F6\u53F6\u80F8\u9488"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1371,7 +1371,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Morningstar
+    - m_ItemBasicTitle: "\u94F6\u5203\u957F\u621F"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1419,7 +1419,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 700
-    - m_ItemBasicTitle: Morningstar
+    - m_ItemBasicTitle: "\u94F6\u5203\u957F\u621F"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1467,7 +1467,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 700
-    - m_ItemBasicTitle: Morningstar
+    - m_ItemBasicTitle: "\u94F6\u5203\u957F\u621F"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1530,7 +1530,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Shirt
+    - m_ItemBasicTitle: "\u53CC\u72EE\u91D1\u7532"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1578,7 +1578,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 500
-    - m_ItemBasicTitle: Shirt
+    - m_ItemBasicTitle: "\u53CC\u72EE\u91D1\u7532"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1626,7 +1626,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 500
-    - m_ItemBasicTitle: Shirt
+    - m_ItemBasicTitle: "\u53CC\u72EE\u91D1\u7532"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1674,7 +1674,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 500
-    - m_ItemBasicTitle: Shirt
+    - m_ItemBasicTitle: "\u53CC\u72EE\u91D1\u7532"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1737,7 +1737,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Shield
+    - m_ItemBasicTitle: "\u70C8\u9633\u5706\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1785,7 +1785,7 @@ MonoBehaviour:
         percChanceBonus3: 0.5
         percChanceBonus4: 0.1
       fusionExp: 250
-    - m_ItemBasicTitle: Shield
+    - m_ItemBasicTitle: "\u70C8\u9633\u5706\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1833,7 +1833,7 @@ MonoBehaviour:
         percChanceBonus3: 0.5
         percChanceBonus4: 0.1
       fusionExp: 250
-    - m_ItemBasicTitle: Shield
+    - m_ItemBasicTitle: "\u70C8\u9633\u5706\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1906,7 +1906,7 @@ MonoBehaviour:
     skillPointsGiven: 1
     expGiven: 40000
     itemsGiven:
-    - m_ItemBasicTitle: Horns
+    - m_ItemBasicTitle: "\u9ED1\u9B03\u9A91\u58EB\u76D4"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -1954,7 +1954,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 333
-    - m_ItemBasicTitle: Horns
+    - m_ItemBasicTitle: "\u9ED1\u9B03\u9A91\u58EB\u76D4"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2002,7 +2002,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 333
-    - m_ItemBasicTitle: Horns
+    - m_ItemBasicTitle: "\u9ED1\u9B03\u9A91\u58EB\u76D4"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2065,7 +2065,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Armor
+    - m_ItemBasicTitle: "\u94C6\u94A2\u6218\u7532"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2113,7 +2113,7 @@ MonoBehaviour:
         percChanceBonus3: 0.5
         percChanceBonus4: 0.1
       fusionExp: 500
-    - m_ItemBasicTitle: Armor
+    - m_ItemBasicTitle: "\u94C6\u94A2\u6218\u7532"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2161,7 +2161,7 @@ MonoBehaviour:
         percChanceBonus3: 0.5
         percChanceBonus4: 0.1
       fusionExp: 500
-    - m_ItemBasicTitle: Armor
+    - m_ItemBasicTitle: "\u94C6\u94A2\u6218\u7532"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2239,7 +2239,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u84DD\u6CEA\u9879\u94FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2287,7 +2287,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0
       fusionExp: 1000
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u84DD\u6CEA\u9879\u94FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2335,7 +2335,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0
       fusionExp: 1000
-    - m_ItemBasicTitle: Earring
+    - m_ItemBasicTitle: "\u94DC\u5706\u5760"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2383,7 +2383,7 @@ MonoBehaviour:
         percChanceBonus3: 0
         percChanceBonus4: 0
       fusionExp: 1000
-    - m_ItemBasicTitle: Earring
+    - m_ItemBasicTitle: "\u94DC\u5706\u5760"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2436,7 +2436,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Woody
+    - m_ItemBasicTitle: "\u53CC\u6708\u6218\u65A7"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2484,7 +2484,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 500
-    - m_ItemBasicTitle: Woody
+    - m_ItemBasicTitle: "\u53CC\u6708\u6218\u65A7"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2532,7 +2532,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 500
-    - m_ItemBasicTitle: Woody
+    - m_ItemBasicTitle: "\u53CC\u6708\u6218\u65A7"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2590,7 +2590,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Leather
+    - m_ItemBasicTitle: "\u8D64\u91D1\u8D35\u65CF\u8863"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2638,7 +2638,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 500
-    - m_ItemBasicTitle: Leather
+    - m_ItemBasicTitle: "\u8D64\u91D1\u8D35\u65CF\u8863"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2686,7 +2686,7 @@ MonoBehaviour:
         percChanceBonus3: 0.25
         percChanceBonus4: 0
       fusionExp: 500
-    - m_ItemBasicTitle: Leather
+    - m_ItemBasicTitle: "\u8D64\u91D1\u8D35\u65CF\u8863"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2744,7 +2744,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 350000
     itemsGiven:
-    - m_ItemBasicTitle: Necklace
+    - m_ItemBasicTitle: "\u6708\u679D\u53D1\u7C2A"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2792,7 +2792,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0
       fusionExp: 600
-    - m_ItemBasicTitle: Necklace
+    - m_ItemBasicTitle: "\u6708\u679D\u53D1\u7C2A"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2840,7 +2840,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0
       fusionExp: 600
-    - m_ItemBasicTitle: Necklace
+    - m_ItemBasicTitle: "\u6708\u679D\u53D1\u7C2A"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2903,7 +2903,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Horns
+    - m_ItemBasicTitle: "\u73CD\u73E0\u793C\u51A0"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2951,7 +2951,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0.5
       fusionExp: 400
-    - m_ItemBasicTitle: Horns
+    - m_ItemBasicTitle: "\u73CD\u73E0\u793C\u51A0"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -2999,7 +2999,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0.5
       fusionExp: 400
-    - m_ItemBasicTitle: Horns
+    - m_ItemBasicTitle: "\u73CD\u73E0\u793C\u51A0"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3072,7 +3072,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 350000
     itemsGiven:
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u73CD\u73E0\u5760\u8033\u73AF"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3120,7 +3120,7 @@ MonoBehaviour:
         percChanceBonus3: 0.5
         percChanceBonus4: 0.1
       fusionExp: 3000
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u73CD\u73E0\u5760\u8033\u73AF"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3168,7 +3168,7 @@ MonoBehaviour:
         percChanceBonus3: 0.5
         percChanceBonus4: 0.1
       fusionExp: 3000
-    - m_ItemBasicTitle: Ring
+    - m_ItemBasicTitle: "\u73CD\u73E0\u5760\u8033\u73AF"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3236,7 +3236,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Claws
+    - m_ItemBasicTitle: "\u84DD\u91D1\u9F99\u9524"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3284,7 +3284,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0.1
       fusionExp: 4000
-    - m_ItemBasicTitle: Claws
+    - m_ItemBasicTitle: "\u84DD\u91D1\u9F99\u9524"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3332,7 +3332,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0.1
       fusionExp: 4000
-    - m_ItemBasicTitle: Claws
+    - m_ItemBasicTitle: "\u84DD\u91D1\u9F99\u9524"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3405,7 +3405,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Shield
+    - m_ItemBasicTitle: "\u8760\u7FFC\u9ED1\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3453,7 +3453,7 @@ MonoBehaviour:
         percChanceBonus3: 0.5
         percChanceBonus4: 0.1
       fusionExp: 4000
-    - m_ItemBasicTitle: Shield
+    - m_ItemBasicTitle: "\u8760\u7FFC\u9ED1\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3501,7 +3501,7 @@ MonoBehaviour:
         percChanceBonus3: 0.5
         percChanceBonus4: 0.1
       fusionExp: 4000
-    - m_ItemBasicTitle: Shield
+    - m_ItemBasicTitle: "\u8760\u7FFC\u9ED1\u76FE"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3584,7 +3584,7 @@ MonoBehaviour:
     skillPointsGiven: 2
     expGiven: 1000000
     itemsGiven:
-    - m_ItemBasicTitle: Leather
+    - m_ItemBasicTitle: "\u65E5\u8F6E\u796D\u888D"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3632,7 +3632,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0.1
       fusionExp: 2000
-    - m_ItemBasicTitle: Leather
+    - m_ItemBasicTitle: "\u65E5\u8F6E\u796D\u888D"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3680,7 +3680,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0.1
       fusionExp: 2000
-    - m_ItemBasicTitle: Leather
+    - m_ItemBasicTitle: "\u65E5\u8F6E\u796D\u888D"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3728,7 +3728,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0.1
       fusionExp: 2000
-    - m_ItemBasicTitle: Leather
+    - m_ItemBasicTitle: "\u65E5\u8F6E\u796D\u888D"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3806,7 +3806,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 350000
     itemsGiven:
-    - m_ItemBasicTitle: Day
+    - m_ItemBasicTitle: "\u73CD\u73E0\u6D6E\u96D5\u80F8\u9488"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3854,7 +3854,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 1
       fusionExp: 2000
-    - m_ItemBasicTitle: Day
+    - m_ItemBasicTitle: "\u73CD\u73E0\u6D6E\u96D5\u80F8\u9488"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3902,7 +3902,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 1
       fusionExp: 2000
-    - m_ItemBasicTitle: Night
+    - m_ItemBasicTitle: "\u7D2B\u6676\u82B1\u6212"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -3950,7 +3950,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0
       fusionExp: 2000
-    - m_ItemBasicTitle: Night
+    - m_ItemBasicTitle: "\u7D2B\u6676\u82B1\u6212"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -4028,7 +4028,7 @@ MonoBehaviour:
     skillPointsGiven: 0
     expGiven: 0
     itemsGiven:
-    - m_ItemBasicTitle: Claws
+    - m_ItemBasicTitle: "\u519C\u7528\u9570\u5200"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -4076,7 +4076,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0.5
       fusionExp: 5000
-    - m_ItemBasicTitle: Claws
+    - m_ItemBasicTitle: "\u519C\u7528\u9570\u5200"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -4124,7 +4124,7 @@ MonoBehaviour:
         percChanceBonus3: 1
         percChanceBonus4: 0.5
       fusionExp: 5000
-    - m_ItemBasicTitle: Claws
+    - m_ItemBasicTitle: "\u519C\u7528\u9570\u5200"
       m_ItemFinalTitle: 
       uniqueId: 0
       isLocked: 0
@@ -4648,6 +4648,20 @@ MonoBehaviour:
   - key: CashMallPackage
     assetRef:
       m_AssetGUID: 0e33a3b07569d470489af69d481d040d
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - key: PetShadowWolf
+    assetRef:
+      m_AssetGUID: c27ffa2cb69c44ec98416322b4557abb
+      m_SubObjectName: 
+      m_SubObjectType: 
+      m_SubObjectGUID: 
+      m_EditorAssetChanged: 0
+  - key: PetGhostWolf
+    assetRef:
+      m_AssetGUID: ec0e6bc2be7b94f0d81e7041a27b6a1d
       m_SubObjectName: 
       m_SubObjectType: 
       m_SubObjectGUID: 

@@ -19,15 +19,23 @@ public sealed class StorybookBattleResultUI : MonoBehaviour
     public Button replay, home, next, advert, currency;
     public GameObject standardActions, nextActions, rewardOptions;
     public Button replaySmall, homeSmall;
+    public Button watchEnding;
+    public bool OffersChapterEnding => victory && Router.single && Router.single.HasPendingChapterEnding;
     public CanvasGroup presentation;
     public bool IsBusy { get; private set; }
     public bool RewardClaimed { get; private set; }
+    // Tutorial-2 is saved when the first shelter attribute guide is completed.
+    // Keep the return route mandatory across restarts until that onboarding step is done.
+    public bool RequiresTutorialReturn => !victory && GameManager.single && !GameManager.single.HasSeenThis("Tutorial-2");
+    Vector2 homePosition;
     bool opening;
     int session;
     void Awake()
     {
+        homePosition=((RectTransform)home.transform).anchoredPosition;
         replay.onClick.AddListener(()=>Navigate(false,false)); home.onClick.AddListener(()=>Navigate(false,true));
         replaySmall.onClick.AddListener(()=>Navigate(false,false));homeSmall.onClick.AddListener(()=>Navigate(false,true));
+        if(watchEnding)watchEnding.onClick.AddListener(()=>Navigate(false,true));
         next.onClick.AddListener(()=>Navigate(true,false));
         advert.onClick.AddListener(OpenAdvert); currency.onClick.AddListener(OpenCurrency);
     }
@@ -55,9 +63,17 @@ public sealed class StorybookBattleResultUI : MonoBehaviour
         var w=WaveManager.single.currentWaveset;
         int index=chapterMap?System.Array.FindIndex(chapterMap.nodes,n=>!n.IsStory&&n.levelKey==w.levelKey):-1;
         location.text=index>=0?"1-"+chapterMap.nodes.Take(index+1).Count(n=>!n.IsStory)+"  "+chapterMap.nodes[index].displayName:w.levelName;
-        bool hasNext=!string.IsNullOrEmpty(NextKey());nextActions.SetActive(hasNext);standardActions.SetActive(!hasNext);
+        bool ending=OffersChapterEnding;
+        bool hasNext=!string.IsNullOrEmpty(NextKey());nextActions.SetActive(!ending&&hasNext);standardActions.SetActive(!ending&&!hasNext);
+        if(watchEnding)watchEnding.gameObject.SetActive(ending);
+        bool tutorialReturn=RequiresTutorialReturn;
+        replay.gameObject.SetActive(!tutorialReturn);
+        replaySmall.gameObject.SetActive(!tutorialReturn);
+        ((RectTransform)home.transform).anchoredPosition=tutorialReturn
+            ? (homePosition+((RectTransform)replay.transform).anchoredPosition)*.5f : homePosition;
         bool ready=!IsBusy&&!opening&&!Router.single.waitingForBattleCleanup;
         foreach(var b in new[]{replay,home,next,replaySmall,homeSmall})b.interactable=ready;
+        if(watchEnding)watchEnding.interactable=ready;
         advert.interactable=currency.interactable=ready&&!RewardClaimed;
         if(victory&&!RewardClaimed&&!opening){
             bool full=InventoryManager.single.chestsOwned.Count>=4;
@@ -70,7 +86,7 @@ public sealed class StorybookBattleResultUI : MonoBehaviour
     void Update(){Refresh();}
     void Navigate(bool advance,bool camp)
     {
-        if(IsBusy||opening||Router.single.waitingForBattleCleanup)return;
+        if(IsBusy||opening||Router.single.waitingForBattleCleanup||(!camp&&(RequiresTutorialReturn||OffersChapterEnding)))return;
         string key=advance?NextKey():null;if(advance&&string.IsNullOrEmpty(key))return;
         IsBusy=true;Refresh();
         if(advance)GameManager.single.lastBattleKey=key;

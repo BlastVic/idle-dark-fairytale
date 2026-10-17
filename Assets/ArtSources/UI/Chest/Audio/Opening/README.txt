@@ -1,0 +1,1 @@
+完整开箱音效。使用shake-1、charge-3、open-2生成源层。木箱晃动0.4/0.56/0.70/0.81/0.91/1.00/1.08秒；蓄力0.30秒开始；开盖1.25秒；总长2.18秒。运行文件Assets/Audio/Sounds/ChestOpening.mp3，保留GUID，通过CHERRY_CHEST在Present起点播放。奖励展示STAT_BUY/ITEM_DROP与战斗结算CHEST_DROP_CRYSTALS保持独立。已核对Spine关键帧、代码调用与音频长度，未进行Unity运行时试听验收。

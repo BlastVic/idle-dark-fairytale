@@ -178,7 +178,7 @@ public static class StorybookEquipmentBuilder
                 Txt(b.transform,"Caption",nav[i],0,109,185,47,31,i==0?new Color(.98f,.94f,.81f):Color.black);if(i<4)Rule(b.transform,183,18,1,124);
                 if(i==1){var badge=Pic(b.transform,"SkillBadge",Slice("SkillBadgeV4",320,1514,42,43),125,11,36,38);var badgeMat=Asset("Assets/DarkFairytale/UI/Equipment/Materials/EquipmentBadgeRing.mat",()=>{var m=new Material(Shader.Find("UI/Reference Ink Cutout"));var r=badge.sprite.rect;m.SetFloat("_Mode",1);m.SetFloat("_Inner",.39f);m.SetVector("_SourceRect",new Vector4(r.x/source.width,r.y/source.height,r.width/source.width,r.height/source.height));return m;});badge.material=badgeMat;var fill=Fill(badge.transform,"BadgeInterior",6,6,24,25,true);ui.skillBadge=Txt(badge.transform,"Count","3",0,0,36,37,24,new Color(.98f,.94f,.82f));}
             }
-            BuildOverlays(ui,l.core);l.Apply();ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
+            BuildOverlays(ui,l.core);StorybookDialogAuthoring.Apply((RectTransform)ui.modalTitle.transform.parent,ui.modalCancel);l.Apply();ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
         }finally{UnityEngine.Object.DestroyImmediate(root.gameObject);}
         Attach();AssetDatabase.SaveAssets();
     }

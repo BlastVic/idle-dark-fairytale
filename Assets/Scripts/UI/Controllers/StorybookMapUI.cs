@@ -167,7 +167,7 @@ public sealed class StorybookMapUI : MonoBehaviour
         GameManager.single.lastBattleKey=key;
         // This screen provides the replacement first-node guidance through selection and the entry button.
         if(GameManager.single.HasSeenThis("Tutorial-0")&&!GameManager.single.HasSeenThis("Tutorial-1"))GameManager.single.thingsSeenPermanent.Add("Tutorial-1");
-        TransitionCanvas.single.ToBlack("Storybook map node");yield return new WaitForSeconds(.8f);
+        TransitionCanvas.single.ToBlack("Storybook map node");yield return TransitionCanvas.single.WaitUntilCovered();
         LevelController.Instance.AssetManager.HideMapPackage();
         GameplayCanvas.single.ToggleButtonGrid(false);GameplayCanvas.single.ToggleFusionBarUI(false);
         WaveManager.single.CallStartLevel(key);

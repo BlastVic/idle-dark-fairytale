@@ -81,62 +81,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skeletonAnimation: {fileID: 1145699797785554248}
-  displaySizeMultiplier: 1.95
+  displaySizeMultiplier: 1.755
   maxSkins: 1
   expGiven: 20
   waitBetweenAttacks: 1.6
   bossName: 
   attackAudio: ATTACK1
   deathAudio: SLIME_DEATH
-  itemsGiven:
-  - m_ItemBasicTitle: Vest
-    m_ItemFinalTitle: 
-    uniqueId: 0
-    isLocked: 0
-    m_ChanceDrop: 0.5
-    m_IconName: Body2
-    m_ItemType: 3
-    m_SkinIfApplicable: 2
-    m_AttachmentIfApplicable: 
-    itemGrade: 0
-    baseStat:
-      hpNow: 0
-      hpMax: 0
-      hpPerc: 0
-      dmg: 0
-      dmgPerc: 0
-      def: 0
-      defPerc: 0
-      block: 0
-      atkSpd: 0
-      crit: 0
-      critDmg: 0
-      pierce: 0
-      absorb: 0
-    rollStat:
-      dmgMin: 5
-      dmgMax: 12
-      defMin: 4
-      defMax: 12
-      atkSpdMin: 5
-      atkSpdMax: 12
-      critMin: 0
-      critMax: 0
-      critDmgMin: 0
-      critDmgMax: 0
-      hpMin: 0
-      hpMax_rolled: 0
-      dmgPercMin: 0
-      dmgPercMax: 0
-      hpPercMin: 0
-      hpPercMax: 0
-      defPercMin: 0
-      defPercMax: 0
-      percChanceBonus1: 0.35
-      percChanceBonus2: 0
-      percChanceBonus3: 0
-      percChanceBonus4: 0
-    fusionExp: 20
+  itemsGiven: []
+  equipmentLootKey: MobHexmaw
   ab: {fileID: 9204639394684909044}
   rootPos: {fileID: 4265995701827695294}
   maxAttacks: 2

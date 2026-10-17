@@ -22,7 +22,9 @@ public static class CreatureNames
         new Entry("MobRivenfang", "霜牙狼王"),
         new Entry("MobMurmlet", "水史莱姆"),
         new Entry("MobStillmere", "史莱姆之王"),
-        new Entry("PetCindrel", "书脊龙")
+        new Entry("PetCindrel", "书脊龙"),
+        new Entry("PetShadowWolf", "影狼"),
+        new Entry("PetGhostWolf", "幽灵狼")
     };
 
     public static string DisplayName(string assetName)

@@ -61,20 +61,16 @@ public class ChestPackage : MonoBehaviour
     void Claim()
     {
         if(!CanAct)return;
+        var rewards=EquipmentLoot.RollChest(CurrentChest,InventoryManager.single);
         Opening=true;
         InventoryManager.single.RemoveChest(CurrentChest);
         float minimum=Mathf.Max(0,CurrentChest.crystalsMin),maximum=Mathf.Max(minimum,CurrentChest.crystalsMax);
         RewardAmount=Mathf.FloorToInt(UnityEngine.Random.Range(minimum,maximum));
         // Commit once; the opening and reward reveals are presentation only.
         GameManager.single.crystals+=RewardAmount;
-        var pool=CurrentChest.chestGrade==ChestGrade.DIAMOND?CurrentChest.possibleDiamondRewards:
-            CurrentChest.chestGrade==ChestGrade.GOLD?CurrentChest.possibleGoldRewards:CurrentChest.possibleRewards;
         RewardItems.Clear();
-        if(pool!=null)foreach(var candidate in pool){
-            if(UnityEngine.Random.Range(0f,1f)>candidate.m_ChanceDrop)continue;
-            var item=InventoryManager.single.CreateItemStats(candidate);
-            item.m_ItemFinalTitle=InventoryManager.single.GetRandomName(item);
-            item.uniqueId=UnityEngine.Random.Range(0,999999);
+        foreach(var item in rewards)
+        {
             InventoryManager.single.AddItem(item);RewardItems.Add(item);
         }
         // Commit removal, payment and all rewards together before the presentation begins.

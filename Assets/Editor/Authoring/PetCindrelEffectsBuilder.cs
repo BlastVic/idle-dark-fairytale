@@ -12,7 +12,7 @@ public static class PetCindrelEffectsBuilder
 {
  public const string Root=PetCindrelBuilder.Root+"/Effects";
  public const string Out="output/pet-effects";
- public static readonly string[] Names={"EmberBolt","EmberImpact","ClawArc","AshDust","EmberBreath"};
+ public static readonly string[] Names={"EmberBolt","EmberImpact","ClawArc","AshDust"};
  static T Asset<T>(string p,Func<T> create) where T:UnityEngine.Object{var a=AssetDatabase.LoadAssetAtPath<T>(p);if(a)return a;a=create();AssetDatabase.CreateAsset(a,p);return a;}
  public static void Build(string only=null){
   if(EditorApplication.isPlaying)throw new Exception("Stop Play before FX build");
@@ -26,7 +26,7 @@ public static class PetCindrelEffectsBuilder
    var materials=pages.Select(page=>{
     string p=folder+"/"+page;var ti=(TextureImporter)AssetImporter.GetAtPath(p);ti.textureType=TextureImporterType.Default;ti.alphaIsTransparency=true;ti.sRGBTexture=true;ti.mipmapEnabled=false;ti.maxTextureSize=4096;ti.textureCompression=TextureImporterCompression.Uncompressed;ti.SaveAndReimport();
     var mat=Asset(p+".mat",()=>new Material(Shader.Find("DarkFairytale/Book Ember Spine")));mat.mainTexture=AssetDatabase.LoadAssetAtPath<Texture2D>(p);
-    if(id=="AshDust"){mat.SetColor("_Shadow",new Color(.60f,.60f,.58f));mat.SetColor("_Mid",new Color(.86f,.86f,.83f));mat.SetColor("_Light",new Color(1f,1f,.97f));mat.SetFloat("_Opacity",1f);}else mat.SetFloat("_Opacity",id=="EmberBreath"?.72f:.85f);
+    if(id=="AshDust"){mat.SetColor("_Shadow",new Color(.60f,.60f,.58f));mat.SetColor("_Mid",new Color(.86f,.86f,.83f));mat.SetColor("_Light",new Color(1f,1f,.97f));mat.SetFloat("_Opacity",1f);}else mat.SetFloat("_Opacity",.85f);
     EditorUtility.SetDirty(mat);return mat;
    }).ToArray();
    atlas.materials=materials;atlas.Clear();EditorUtility.SetDirty(atlas);
@@ -57,7 +57,6 @@ public static class PetCindrelEffectsBuilder
    controller.emberImpact=AssetDatabase.LoadAssetAtPath<PetCindrelSpineEffect>(Root+"/EmberImpact/EmberImpact.prefab");
    controller.clawArc=AssetDatabase.LoadAssetAtPath<PetCindrelSpineEffect>(Root+"/ClawArc/ClawArc.prefab");
    controller.ashDust=AssetDatabase.LoadAssetAtPath<PetCindrelSpineEffect>(Root+"/AshDust/AshDust.prefab");
-   controller.emberBreath=AssetDatabase.LoadAssetAtPath<PetCindrelSpineEffect>(Root+"/EmberBreath/EmberBreath.prefab");
    PrefabUtility.SaveAsPrefabAsset(root,path);
   }finally{PrefabUtility.UnloadPrefabContents(root);}
  }

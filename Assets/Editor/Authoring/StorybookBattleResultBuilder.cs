@@ -56,7 +56,7 @@ public static class StorybookBattleResultBuilder
                 ui.replaySmall=Button(ui.nextActions.transform,"Replay","再次挑战",159,996,180,60,false,23);ui.homeSmall=Button(ui.nextActions.transform,"Home","返回庇护所",349,996,186,60,false,23);ui.nextActions.SetActive(false);ui.rewardOptions.SetActive(side==0);
                 ui.chapterMap=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DarkFairytale/UI/Map/Prefabs/Chapter01Map.prefab").GetComponent<StorybookMapUI>();
                 StorybookResultChestAuthoring.Apply(go);
-                ProductionUiArt.SaveAsPrefabAsset(go,Root+"/"+go.name+".prefab");
+                VictoryEndingButtonAuthoring.Apply(ui);ProductionUiArt.SaveAsPrefabAsset(go,Root+"/"+go.name+".prefab");
             }finally{Object.DestroyImmediate(go);}
         }
         var scene=EditorSceneManager.GetActiveScene();if(scene.path!="Assets/Scenes/Gameplay.unity")scene=EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");

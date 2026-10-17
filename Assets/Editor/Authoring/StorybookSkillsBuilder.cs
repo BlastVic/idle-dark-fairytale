@@ -79,9 +79,9 @@ public static class StorybookSkillsBuilder
             content.sizeDelta=new Vector2(0,1400);
             for(int row=1;row<5;row++)Line(content,"RowDivider",new Vector2(20,row*268-46),new Vector2(882,row*268-46),new Color(.22f,.18f,.13f,.13f),1);
             var pathRoot=Node(content,"DependencyPaths");Box(pathRoot,0,0,901,1400);
-            string[] names={"","生命复苏","三连斩","回旋镰斩","天使庇护","恶魔低语","死而复生","幸运收割","第三重击","书脊龙","双倍馈赠","雷霆裁决","首领猎手","幸运之星","战场谋略","地狱吐息"};
-            string[] desc={"","每2秒恢复生命。","{0}%概率发动快速三连击。","{0}%概率触发范围攻击。\n敌人多于1名时生效。","提升生命与防御。","提升攻击与攻速，\n增加暴击与暴伤。","阵亡时有{0}%概率复活。\n复活后恢复40%生命。","击败敌人时，有{0}%概率恢复20%生命。","每第三次攻击额外造成{0}%伤害。","书脊龙间歇造成{0}%攻击伤害。","击败敌人时，有{0}%概率获得双倍经验。","生命低于50%的敌人受到雷击，造成{0}%攻击伤害。","对首领有{0}%概率发动六连击，造成150%伤害。","受到暴击时，有{0}%概率获得10%生命吸收。","面对多个敌人时，伤害增加{0}%。","书脊龙有{0}%概率发动二连或三连攻击。"};
-            string[][] effect={null,new[]{"恢复生命"},new[]{"触发概率"},new[]{"触发概率"},new[]{"生命","防御"},new[]{"攻击","攻速","暴击","暴伤"},new[]{"复活概率"},new[]{"触发概率"},new[]{"额外伤害"},new[]{"攻击伤害"},new[]{"触发概率"},new[]{"攻击伤害"},new[]{"触发概率"},new[]{"触发概率"},new[]{"额外伤害"},new[]{"触发概率"}};
+            string[] names=Scripts.Skills.SkillDesign.Names;
+            string[] desc=Scripts.Skills.SkillDesign.Descriptions;
+            string[][] effect=Scripts.Skills.SkillDesign.Labels;
             Vector2[] positions={default,new Vector2(284,78),new Vector2(798,286),new Vector2(630,78),new Vector2(284,286),new Vector2(630,286),new Vector2(457,494),new Vector2(116,286),new Vector2(630,494),new Vector2(457,702),new Vector2(284,494),new Vector2(630,702),new Vector2(798,494),new Vector2(116,494),new Vector2(284,702),new Vector2(457,910)};
             Rect[] crops={default,new Rect(241,272,132,101),new Rect(752,438,132,106),new Rect(578,270,128,106),new Rect(246,438,137,105),new Rect(576,438,132,105),new Rect(403,625,148,109),new Rect(83,438,132,106),new Rect(576,628,132,106),new Rect(409,818,138,110),new Rect(246,628,137,105),new Rect(576,818,132,112),new Rect(752,628,132,106),new Rect(83,628,132,105),new Rect(247,818,135,112),new Rect(408,991,140,106)};
             var lockSprite=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/DarkFairytale/UI/Equipment/Sprites/LockGlyph.asset");var ink=AssetDatabase.LoadAssetAtPath<Material>("Assets/DarkFairytale/UI/Shelter/Reference/Materials/ReferenceInk.mat");
@@ -90,9 +90,10 @@ public static class StorybookSkillsBuilder
                 var r=Node(content,"Skill_"+((SkillsTypeEnum)i));var pos=positions[i];int row=Mathf.RoundToInt((pos.y-78)/208);Box(r,pos.x-76,pos.y-62+row*60,152,175);
                 var n=r.gameObject.AddComponent<StorybookSkillNode>();n.key=(SkillsTypeEnum)i;n.prerequisite=(SkillsTypeEnum)prerequisites[i].x;n.alternatePrerequisite=(SkillsTypeEnum)prerequisites[i].y;n.displayName=names[i];n.descriptionTemplate=desc[i];n.effectLabels=effect[i];ui.nodes[i-1]=n;
                 var hit=r.gameObject.AddComponent<Image>();hit.color=new Color(1,1,1,.001f);n.button=r.gameObject.AddComponent<Button>();n.button.targetGraphic=hit;n.button.navigation=new Navigation{mode=Navigation.Mode.None};r.gameObject.AddComponent<ShelterButtonFeedback>();r.gameObject.AddComponent<StorybookEquipmentButtonState>().grayscaleShader=Shader.Find("UI/Storybook Disabled");
-                var crop=crops[i];var sprite=Slice("CleanSkill"+i,crop.x,crop.y,crop.width,crop.height);n.icon=Pic(r,"ApprovedIllustration",sprite,7,2,138,120);n.icon.material=CleanIcon(i,sprite);n.icon.preserveAspect=true;
+                var crop=crops[i];var sprite=i==8?AssetDatabase.LoadAssetAtPath<Sprite>(GhostWolfPackAuthoring.IconPath):i==2?AssetDatabase.LoadAssetAtPath<Sprite>(ShadowWolfSkillAuthoring.IconPath):Slice("CleanSkill"+i,crop.x,crop.y,crop.width,crop.height);n.icon=Pic(r,"ApprovedIllustration",sprite,7,2,138,120);n.icon.material=(i==2||i==8)?null:CleanIcon(i,sprite);n.icon.preserveAspect=true;
                 var sel=Node(r,"SelectedCrimsonRing");Box(sel,5,0,142,124);var mark=sel.gameObject.AddComponent<StorybookSkillMark>();mark.ring=true;mark.color=new Color(.62f,.035f,.025f);mark.raycastTarget=false;n.selected=sel.gameObject;n.selected.SetActive(false);
                 n.caption=Text(r,"Name",names[i],-6,125,164,32,25);n.level=Text(r,"Level","Lv. 0 / 10",-6,156,164,26,21);
+                if(i==8||i==9){n.caption.text=i==8?"召唤：\n幽灵狼群":"召唤：\n书脊龙";n.caption.rectTransform.sizeDelta=new Vector2(164,60);n.level.rectTransform.anchoredPosition=new Vector2(-6,-196);}
                 var lk=Pic(r,"Lock",lockSprite,124,93,24,31);lk.material=ink;n.locked=lk.gameObject;
                 var available=Node(r,"AvailableState");Box(available,0,0,152,175);n.available=available.gameObject;
                 var bookmark=Node(available,"ActionBookmark");Box(bookmark,120,0,30,48);

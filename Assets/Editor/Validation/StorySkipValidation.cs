@@ -10,13 +10,17 @@ public static class StorySkipValidation {
  const string D="output/story-skip/";static bool running;
  static StorySkipValidation(){EditorApplication.update+=Tick;EditorApplication.playModeStateChanged+=s=>{if(s==PlayModeStateChange.EnteredEditMode&&SessionState.GetBool("SKIP_QA",false)){SessionState.SetBool("SKIP_QA",false);SessionState.SetBool("PROLOGUE_QA_FORCE",false);SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",false);running=false;}};}
  static void Tick(){if(EditorApplication.isCompiling||EditorApplication.isUpdating)return;if(EditorApplication.isPlaying){if(!running&&SessionState.GetBool("SKIP_QA",false)&&GameManager.single){running=true;GameManager.single.StartCoroutine(Run());}return;}if(!File.Exists(D+"validate.request"))return;File.Delete(D+"validate.request");File.WriteAllText(D+"validation.txt","");SessionState.SetBool("SKIP_QA",true);SessionState.SetBool("PROLOGUE_QA_FORCE",true);SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",true);Size(720,1280);EditorApplication.isPlaying=true;}
- static void Size(int w,int h){typeof(CursedBookIntroValidation).GetMethod("Resolution",BindingFlags.NonPublic|BindingFlags.Static).Invoke(null,new object[]{w,h});}
+ static void Size(int w,int h){var asm=typeof(Editor).Assembly;var type=asm.GetType("UnityEditor.GameViewSizes");var instance=type.BaseType.GetProperty("instance",BindingFlags.Public|BindingFlags.Static).GetValue(null);
+ var group=type.GetMethod("GetGroup").Invoke(instance,new[]{type.GetProperty("currentGroupType",BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance).GetValue(instance)});
+ var size=System.Activator.CreateInstance(asm.GetType("UnityEditor.GameViewSize"),BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance,null,new object[]{System.Enum.Parse(asm.GetType("UnityEditor.GameViewSizeType"),"FixedResolution"),w,h,"Skip "+w+"x"+h},null);
+ group.GetType().GetMethod("AddCustomSize").Invoke(group,new[]{size});var view=EditorWindow.GetWindow(asm.GetType("UnityEditor.GameView"));view.GetType().GetProperty("selectedSizeIndex",BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance).SetValue(view,(int)group.GetType().GetMethod("GetTotalCount").Invoke(group,null)-1);view.Focus();view.Repaint();}
  static void Check(bool value,string name){File.AppendAllText(D+"validation.txt",(value?"PASS ":"FAIL ")+name+"\n");}
  static void Shot(string name){var t=ScreenCapture.CaptureScreenshotAsTexture();File.WriteAllBytes(D+name+".png",t.EncodeToPNG());Object.Destroy(t);}
  static IEnumerator Ready(CursedBookIntro i){float limit=Time.realtimeSinceStartup+30;while(i&&!i.prologue.narration.isPlaying&&Time.realtimeSinceStartup<limit)yield return null;}
  static IEnumerator Run(){
  yield return null;var gm=GameManager.single;for(int n=0;n<20;n++)if(!gm.HasSeenThis("Tutorial-"+n))gm.thingsSeenPermanent.Add("Tutorial-"+n);
- var intro=Object.FindAnyObjectByType<CursedBookIntro>();yield return Ready(intro);yield return new WaitForSecondsRealtime(.5f);
+ var intro=Object.FindAnyObjectByType<CursedBookIntro>();yield return Ready(intro);
+ float pageDeadline=Time.realtimeSinceStartup+40;while(intro.prologue.PageIndex<0||!intro.prologue.Reading){if(Time.realtimeSinceStartup>pageDeadline)break;yield return null;}yield return new WaitForSecondsRealtime(.5f);
  var ui=intro.GetComponent<StorySkipUI>();Check(ui&&ui.skip.gameObject.activeInHierarchy,"skip visible in prologue");
  Check(!ui.IsReplay&&((RectTransform)ui.skip.transform).anchorMin.y==1,"normal story skip at top right");
  ui.skip.onClick.Invoke();float time=intro.prologue.narration.time;yield return new WaitForSecondsRealtime(.5f);Check(intro.prologue.Paused&&Mathf.Abs(time-intro.prologue.narration.time)<.05f&&!intro.Finished,"confirmation pauses without finishing story");
@@ -24,7 +28,11 @@ public static class StorySkipValidation {
  for(int k=0;k<3;k++){
  Size(w[k],h[k]);yield return new WaitForSecondsRealtime(.2f);yield return new WaitForEndOfFrame();Shot("confirmation-"+ratio[k]);
  var corners=new Vector3[4];ui.panel.GetWorldCorners(corners);Check(corners.All(c=>c.x>=0&&c.y>=0&&c.x<=Screen.width&&c.y<=Screen.height),"confirmation safe bounds "+ratio[k]);
- ui.cancel.onClick.Invoke();yield return new WaitForEndOfFrame();Shot("skip-button-"+ratio[k]);ui.skip.onClick.Invoke();
+ ui.cancel.onClick.Invoke();yield return new WaitForEndOfFrame();Shot("skip-button-"+ratio[k]);
+ var rect=(RectTransform)ui.skip.transform;rect.GetWorldCorners(corners);Check(corners.All(c=>c.x>=0&&c.y>=0&&c.x<=Screen.width&&c.y<=Screen.height),"skip visible bounds "+ratio[k]+" "+string.Join(";",corners.Select(c=>c.ToString())));
+ Check(Screen.width==w[k]&&Screen.height==h[k],"actual render resolution "+ratio[k]);
+ var hits=new System.Collections.Generic.List<UnityEngine.EventSystems.RaycastResult>();var pointer=new UnityEngine.EventSystems.PointerEventData(UnityEngine.EventSystems.EventSystem.current){position=(corners[0]+corners[2])*.5f};UnityEngine.EventSystems.EventSystem.current.RaycastAll(pointer,hits);
+ Check(hits.Count>0&&hits[0].gameObject.GetComponentInParent<UnityEngine.UI.Button>()==ui.skip,"skip receives pointer "+ratio[k]);ui.skip.onClick.Invoke();
  }
  time=intro.prologue.narration.time;
  ui.confirm.interactable=false;yield return null;yield return new WaitForEndOfFrame();Shot("confirmation-disabled");

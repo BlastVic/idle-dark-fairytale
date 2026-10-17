@@ -13,7 +13,9 @@ public class DarkFairytaleBattleStyle : ScriptableObject
     public Sprite contactShadow;
     [Tooltip("Optional authored UGUI prefab, shared by normal and boss health displays.")]
     public EnemyLifebar enemyHealthBarPrefab;
-    public Vector2 playerFeet = new Vector2(.23f, .30f);
+    public Vector2 playerFeet = new Vector2(.19f, .30f);
+    [Tooltip("Minimum viewport margin for the retreating victory silhouette.")]
+    [Range(0f, .2f)] public float playerRetreatLeftMargin = .09f;
     public Vector2 playerSize = new Vector2(.35f, .235f);
     [Tooltip("Viewport feet: front center (same depth as player), back left, back right. Shallow triangle, not a queue.")]
     public Vector2[] enemyFeet = {
@@ -58,7 +60,7 @@ public class DarkFairytaleBattleStyle : ScriptableObject
             skeleton.Update(0);
             skeleton.LateUpdate();
             float left = skeleton.GetComponent<MeshRenderer>().bounds.min.x;
-            float safeLeft = ViewportPoint(camera, new Vector2(.14f, playerFeet.y)).x;
+            float safeLeft = ViewportPoint(camera, new Vector2(playerRetreatLeftMargin, playerFeet.y)).x;
             player.transform.position += Vector3.right * Mathf.Max(0, safeLeft - left);
             skeleton.AnimationState.ClearTracks();
             skeleton.Skeleton.SetToSetupPose();

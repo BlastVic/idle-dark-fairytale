@@ -18,6 +18,8 @@ public class Actor_Base : MonoBehaviour
     public bool isBoss = false;
     public EnemyLifebar enemyLifebar;
 
+    [System.NonSerialized] public bool trainingTarget, forceSkillTriggers;
+    public event System.Action<float> DamageReceived;
     Enemy enemy;
 
     private void Start()
@@ -28,6 +30,8 @@ public class Actor_Base : MonoBehaviour
             enemyLifebar = transform.GetChild(0).GetComponent<EnemyLifebar>();
         }
         InitActor();
+        if(isBoss&&GameplayCanvas.single&&GameplayCanvas.single.battleHud&&GameplayCanvas.single.battleHud.bossHud)
+            GameplayCanvas.single.battleHud.bossHud.Bind(this);
     }
 
     private void InitActor()
@@ -57,9 +61,10 @@ public class Actor_Base : MonoBehaviour
     {
         //dont have clamp
         LevelController.Instance.AssetManager.SpawnParticle("Absorb_Particle", Player.single.rootPos.transform.position + new Vector3(0, .5f, 0));
-        float absorb = currentStat.hpMax * .2f;
-        currentStat.absorb += absorb;
-        currentStat.hpNow += absorb;
+        float limit = currentStat.hpMax * Mathf.Max(0, val);
+        float added = Mathf.Max(0, limit - currentStat.absorb);
+        currentStat.absorb += added;
+        currentStat.hpNow += added;
 
         CallRefreshHp();
     }
@@ -115,10 +120,10 @@ public class Actor_Base : MonoBehaviour
                 if (Player.single.myLuckyStarsVal > 0)
                 {
                     float rngLuckyStars = Random.Range(0, 1f);
-                    if (Player.single.myLuckyStarsVal > rngLuckyStars)
+                    if (SkillDesign.WardChance >= rngLuckyStars || forceSkillTriggers)
                     {
                         //Debug.Log("Should play lucky stars");
-                        AddAbsorb(.2f); // give 20% absorb
+                        AddAbsorb(Player.single.myLuckyStarsVal);
                     }
                 }
                 #endregion
@@ -171,6 +176,8 @@ public class Actor_Base : MonoBehaviour
             LevelController.Instance.AssetManager.SpawnPopUpText(enemy.rootPos.transform.position, isPlayer, dmg, isCrit, isPet, isLightning);
         }
 
+        DamageReceived?.Invoke(dmg);
+        if (trainingTarget) return; // Keep the real hit animation/VFX, without health or death.
         currentStat.hpNow -= dmg;
         if (isPlayer)
         {
@@ -208,12 +215,11 @@ public class Actor_Base : MonoBehaviour
             SoundManager.Instance.PlayClip("PLAYER_DEATH", false, false);
             if (PetCindrel.single != null) PetCindrel.single.FlyOff();
             #region ROLL FOR RESSURRECTIOn
-            float resChance = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Ressurrection), SkillsTypeEnum.Ressurrection)[0];
+            float resChance = SkillsController.Instance.ressurrectionLevel > 0 ? SkillDesign.ReviveChance : 0;
             float rand = Random.Range(0, 1f);
             //Debug.Log("res:" + resChance + " roll:" + rand);
-            if (resChance > rand)
+            if (resChance > rand || forceSkillTriggers)
             {
-                SoundManager.Instance.PlayClip("RESSURRECTION", false, false);
                 ressurrectionWaiting = true;
             }
             else
@@ -237,41 +243,47 @@ public class Actor_Base : MonoBehaviour
             enemy.Drops();
 
 
-            #region ROLL FOR TWICE THE FUN
-            float twiceChance = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Twice_The_Fun), SkillsTypeEnum.Twice_The_Fun)[0];
-            float twiceRand = Random.Range(0, 1f);
-            //Debug.Log("lucky:" + luckyChance + " roll:" + rand);
-            if (twiceChance > twiceRand)
-            {
-                LevelController.Instance.AssetManager.SpawnNotifierText(Player.single.rootPos.transform.position + new Vector3(0, 1.7f, 0));
-                GameManager.single.IncXp(enemy.expGiven * 2);
-
-            }
-            else
-            {
-                GameManager.single.IncXp(enemy.expGiven);//once the fun - normal xp ;)
-            }
-            #endregion
-
-            #region ROLL FOR LUCKY BASTARD
-            float luckyChance = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Lucky_Bastard), SkillsTypeEnum.Lucky_Bastard)[0];
-            float rand = Random.Range(0, 1f);
-            //Debug.Log("lucky:" + luckyChance + " roll:" + rand);
-            if (luckyChance > rand && !Player.single.ab.isDying)
-            {
-                SoundManager.Instance.PlayClip("HEAL", false, false);
-                Player.single.ab.currentStat.hpNow += Player.single.ab.currentStat.hpMax * .2f;//add 20 % hp for a kill that passed lucky bastard RNG
-                GameplayCanvas.single.RefreshHp();
-                LevelController.Instance.AssetManager.SpawnParticle("Heal_Particle", Player.single.rootPos.transform.position + new Vector3(0, 1.7f, 0));
-
-            }
-            #endregion
+            ApplyKillSkillRewards();
         }
 
     }
 
+    public void ApplyKillSkillRewards(bool force = false, bool grantExperience = true)
+    {
+            #region ROLL FOR TWICE THE FUN
+            float twiceChance = SkillsController.Instance.twiceTheFunLevel > 0 ? SkillDesign.ExperienceChance : 0;
+            float twiceRand = Random.Range(0, 1f);
+            //Debug.Log("lucky:" + luckyChance + " roll:" + rand);
+            if (twiceChance > twiceRand || (force && twiceChance > 0))
+            {
+                LevelController.Instance.AssetManager.SpawnNotifierText(Player.single.rootPos.transform.position + new Vector3(0, 1.7f, 0));
+                if (grantExperience) GameManager.single.IncXp(enemy.expGiven * (1 + SkillsController.Instance.GetSkillValues(SkillsController.Instance.twiceTheFunLevel, SkillsTypeEnum.Twice_The_Fun)[0]));
+
+            }
+            else
+            {
+                if (grantExperience) GameManager.single.IncXp(enemy.expGiven);//once the fun - normal xp ;)
+            }
+            #endregion
+
+            #region ROLL FOR LUCKY BASTARD
+            float luckyChance = SkillsController.Instance.luckyBastardLevel > 0 ? SkillDesign.KillHealChance : 0;
+            float rand = Random.Range(0, 1f);
+            //Debug.Log("lucky:" + luckyChance + " roll:" + rand);
+            if ((luckyChance > rand || (force && luckyChance > 0)) && !Player.single.ab.isDying)
+            {
+                SoundManager.Instance.PlayClip("HEAL", false, false);
+                Player.single.ab.HealByPercent(SkillsController.Instance.GetSkillValues(SkillsController.Instance.luckyBastardLevel, SkillsTypeEnum.Lucky_Bastard)[0]);
+                GameplayCanvas.single?.RefreshHp();
+                LevelController.Instance.AssetManager.SpawnParticle("Heal_Particle", Player.single.rootPos.transform.position + new Vector3(0, 1.7f, 0));
+
+            }
+            #endregion
+    }
+
     public void CallRefreshHp()
     {
+        if (trainingTarget) return;
 
 
         float perc = currentStat.hpNow / currentStat.hpMax;
@@ -279,7 +291,7 @@ public class Actor_Base : MonoBehaviour
         {
             //Debug.Log("Player.single.ab.current.absorb:" + Player.single.ab.currentStat.absorb);
 
-            GameplayCanvas.single.RefreshHp();
+            GameplayCanvas.single?.RefreshHp();
 
         }
         else

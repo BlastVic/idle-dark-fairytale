@@ -558,7 +558,7 @@ UnityEngine.iOS.Device.RequestStoreReview();
         SoundManager.Instance.PlayClip("ITEM_DROP");
         itemPopUp.transform.GetChild(0).transform.GetChild(0).GetComponent<Image>().sprite = InventoryManager.single.GetSpriteIcon(item.m_IconName);
 
-        itemPopUp.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = item.m_ItemFinalTitle;
+        itemPopUp.transform.GetChild(0).transform.GetChild(1).GetComponent<Text>().text = EquipmentNames.Display(item);
     }
 
     public void ItemPopUpEnded()

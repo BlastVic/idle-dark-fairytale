@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Assets.Scripts.Extentions;
 using Scripts.Skills;
@@ -12,13 +12,15 @@ public class SkillsController : MonoSingleton<SkillsController>
     private const String VAL4 = "[VAL4]";
 
     public int regenLevel = 0;
-    public int pathCleanerLevel = 0;
+    [UnityEngine.Serialization.FormerlySerializedAs("pathCleanerLevel")]
+    public int shadowWolfLevel = 0;
     public int sinisterStampedeLevel = 0;
     public int devilOnMyShoulderLevel = 0;
     public int angelOnMyShoulderLevel = 0;
     public int ressurrectionLevel = 0;
     public int luckyBastardLevel = 0;
-    public int lastButNotLeastLevel = 0;
+    [UnityEngine.Serialization.FormerlySerializedAs("lastButNotLeastLevel")]
+    public int ghostWolfPackLevel = 0;
     public int twiceTheFunLevel = 0;
     [UnityEngine.Serialization.FormerlySerializedAs("taironTheDragonLevel")]
     public int cindrelLevel = 0;
@@ -26,7 +28,14 @@ public class SkillsController : MonoSingleton<SkillsController>
     public int bossKillerLevel = 0;
     public int myLuckyStarsLevel = 0;
     public int battlefieldTacticianLevel = 0;
-    public int breathOfHellLevel = 0;
+    [UnityEngine.Serialization.FormerlySerializedAs("breathOfHellLevel")]
+    public int beastPackLeaderLevel = 0;
+
+    public float GetSummonDamageMultiplier(SkillsTypeEnum skill)
+    {
+        if (skill != SkillsTypeEnum.PetCindrel && skill != SkillsTypeEnum.PetShadowWolf && skill != SkillsTypeEnum.GhostWolfPack) return 1;
+        return 1 + GetSkillValues(GetSkillLevel(SkillsTypeEnum.BeastPackLeader), SkillsTypeEnum.BeastPackLeader)[0];
+    }
 
     public int GetSkillLevel(SkillsTypeEnum key)
     {
@@ -36,8 +45,8 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Regen:
                 levelFound = regenLevel;
                 break;
-            case SkillsTypeEnum.Path_Cleaner:
-                levelFound = pathCleanerLevel;
+            case SkillsTypeEnum.PetShadowWolf:
+                levelFound = shadowWolfLevel;
                 break;
             case SkillsTypeEnum.Sinister_Stampede:
                 levelFound = sinisterStampedeLevel;
@@ -54,8 +63,8 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Lucky_Bastard:
                 levelFound = luckyBastardLevel;
                 break;
-            case SkillsTypeEnum.Last_But_Not_Least:
-                levelFound = lastButNotLeastLevel;
+            case SkillsTypeEnum.GhostWolfPack:
+                levelFound = ghostWolfPackLevel;
                 break;
             case SkillsTypeEnum.PetCindrel:
                 levelFound = cindrelLevel;
@@ -75,8 +84,8 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Battlefield_Tactician:
                 levelFound = battlefieldTacticianLevel;
                 break;
-            case SkillsTypeEnum.Breath_Of_Hell:
-                levelFound = breathOfHellLevel;
+            case SkillsTypeEnum.BeastPackLeader:
+                levelFound = beastPackLeaderLevel;
                 break;
         }
         return levelFound;
@@ -91,8 +100,8 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Regen:
                 regenLevel++;
                 break;
-            case SkillsTypeEnum.Path_Cleaner:
-                pathCleanerLevel++;
+            case SkillsTypeEnum.PetShadowWolf:
+                shadowWolfLevel++;
                 break;
             case SkillsTypeEnum.Sinister_Stampede:
                 sinisterStampedeLevel++;
@@ -109,8 +118,8 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Lucky_Bastard:
                 luckyBastardLevel++;
                 break;
-            case SkillsTypeEnum.Last_But_Not_Least:
-                lastButNotLeastLevel++;
+            case SkillsTypeEnum.GhostWolfPack:
+                ghostWolfPackLevel++;
                 break;
             case SkillsTypeEnum.PetCindrel:
                 cindrelLevel++;
@@ -130,8 +139,8 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Battlefield_Tactician:
                 battlefieldTacticianLevel++;
                 break;
-            case SkillsTypeEnum.Breath_Of_Hell:
-                breathOfHellLevel++;
+            case SkillsTypeEnum.BeastPackLeader:
+                beastPackLeaderLevel++;
                 break;
 
         }
@@ -169,7 +178,7 @@ public class SkillsController : MonoSingleton<SkillsController>
                 val[0] *= 100;
                 desc = sd.desc.Replace(VAL1, val[0].ToString());
                 break;
-            case SkillsTypeEnum.Path_Cleaner:
+            case SkillsTypeEnum.PetShadowWolf:
                 val[0] = GetSkillValues(levelWanted, type)[0];
                 val[0] *= 100;
                 desc = sd.desc.Replace(VAL1, val[0].ToString());
@@ -219,7 +228,7 @@ public class SkillsController : MonoSingleton<SkillsController>
                 val[0] *= 100;
                 desc = sd.desc.Replace(VAL1, val[0].ToString());
                 break;
-            case SkillsTypeEnum.Last_But_Not_Least:
+            case SkillsTypeEnum.GhostWolfPack:
                 val[0] = GetSkillValues(levelWanted, type)[0];
                 val[0] *= 100;
                 desc = sd.desc.Replace(VAL1, val[0].ToString());
@@ -244,7 +253,7 @@ public class SkillsController : MonoSingleton<SkillsController>
                 val[0] *= 100;
                 desc = sd.desc.Replace(VAL1, val[0].ToString());
                 break;
-            case SkillsTypeEnum.Breath_Of_Hell:
+            case SkillsTypeEnum.BeastPackLeader:
                 val[0] = GetSkillValues(levelWanted, type)[0];
                 val[0] *= 100;
                 desc = sd.desc.Replace(VAL1, val[0].ToString());
@@ -262,7 +271,7 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Regen:
                 val[0] = SkillsDataDescriptions.SkillDataArr.Where(x => x.skillsType == type).FirstOrDefault().value1[level];
                 break;
-            case SkillsTypeEnum.Path_Cleaner:
+            case SkillsTypeEnum.PetShadowWolf:
                 val[0] = SkillsDataDescriptions.SkillDataArr.Where(x => x.skillsType == type).FirstOrDefault().value1[level];
                 break;
             case SkillsTypeEnum.Sinister_Stampede:
@@ -285,7 +294,7 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Lucky_Bastard:
                 val[0] = SkillsDataDescriptions.SkillDataArr.Where(x => x.skillsType == type).FirstOrDefault().value1[level];
                 break;
-            case SkillsTypeEnum.Last_But_Not_Least:
+            case SkillsTypeEnum.GhostWolfPack:
                 val[0] = SkillsDataDescriptions.SkillDataArr.Where(x => x.skillsType == type).FirstOrDefault().value1[level];
                 break;
             case SkillsTypeEnum.PetCindrel:
@@ -306,7 +315,7 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Battlefield_Tactician:
                 val[0] = SkillsDataDescriptions.SkillDataArr.Where(x => x.skillsType == type).FirstOrDefault().value1[level];
                 break;
-            case SkillsTypeEnum.Breath_Of_Hell:
+            case SkillsTypeEnum.BeastPackLeader:
                 val[0] = SkillsDataDescriptions.SkillDataArr.Where(x => x.skillsType == type).FirstOrDefault().value1[level];
                 break;
         }
@@ -316,7 +325,7 @@ public class SkillsController : MonoSingleton<SkillsController>
     public void ResetSkills()
     {
         regenLevel = 0;
-        pathCleanerLevel = 0;
+        shadowWolfLevel = 0;
         sinisterStampedeLevel = 0;
         devilOnMyShoulderLevel = 0;
         angelOnMyShoulderLevel = 0;
@@ -324,11 +333,11 @@ public class SkillsController : MonoSingleton<SkillsController>
         luckyBastardLevel = 0;
         twiceTheFunLevel = 0;
         cindrelLevel = 0;
-        lastButNotLeastLevel = 0;
+        ghostWolfPackLevel = 0;
         lightningDemiGodlevel = 0;
         bossKillerLevel = 0;
         myLuckyStarsLevel = 0;
         battlefieldTacticianLevel = 0;
-        breathOfHellLevel = 0;
+        beastPackLeaderLevel = 0;
     }
 }

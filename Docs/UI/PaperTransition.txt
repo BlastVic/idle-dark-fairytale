@@ -1,0 +1,29 @@
+当前方案：旧画面直接润开到新画面（用户最新要求）。
+取消空白纸面和 0.3 秒纸张淡入。切换前在帧末捕获当前彩色画面，由持久化 RawImage 显示；目标页面就绪后，用 0.6 秒毛细扩散遮罩逐步透出目标页面。截图在结束/禁用时释放。翻页开关仍关闭。
+本轮实际 Unity 验证：output/transition-view-ink/。三种比例均保存并检查营地到技能页面的混合过渡截图；全部断言 PASS/DONE，验证覆盖材质直接采样旧画面、视口覆盖、输入释放、暂停和连续请求，以及技能/地图/商店导航。未验证 APK 与真机性能。
+
+历史方案记录（不代表当前配置）：
+
+最新调整：纸张遮罩在 0.3 秒内从 alpha 0 线性淡入至 1，完全覆盖后路由才切换，新界面继续使用 0.6 秒润开。paperFadeDuration 为 Prefab 可编辑参数，翻页仍关闭。使用 unscaledDeltaTime，淡入期间阻挡重复点击，提前请求润开会排队至覆盖完成。
+验证：output/transition-paper-fade/；Unity 三种比例实际淡入截图已检查，全部回归 PASS/DONE，包括透明起始、中间透明度、覆盖等待、暂停、中断和技能/地图/商店导航。未进行 APK 与真机验证。
+
+此前方案记录：
+
+当前试用方案（用户最新调整）：跳过翻页，点击后直接润开新 UI。
+Prefab 的 playPageTurn 已关闭；即时用纸面遮住切换过程，目标界面就绪后播放 0.6 秒润开，无翻页、无黑白化或额外固定停顿。保留翻页实现与 Inspector 开关，方便比较方案。
+本轮 Unity 实景：output/transition-ink-only/。9:16、3:4、1:2 三种比例截图已检查，全部回归断言 PASS/DONE（即时遮挡、润开释放输入、暂停与中断、技能/地图/商店切换）。未验证 APK 与真机性能。
+
+以下为上一版翻页实现记录：
+
+UI 翻页与润开转场（2026-10-17 用户调整）
+
+用户明确恢复翻页，要求画面随书页一起翻走，再润开新界面。
+正式 Prefab：Assets/DarkFairytale/UI/Transition/Prefabs/StorybookTransition.prefab
+持久节点：InkPaper 与 TurningStoryLeaf（RawImage）。布局和材质可在 Inspector 调整，运行时不生成整套 UI。
+TurningStoryLeaf 直接复用 StorybookIntro/Spine/CursedBook_SkeletonData 的 TurnPage 动画及 turning_page_7 网格；旧界面截图贴在该网格上，文字、图标与背景随实际书页变形翻走。网格归一化到当前视口，翻页时长 0.65 秒，润开时长 0.6 秒；这是复用动画并适配全屏，不声明与故事模式的尺寸和速度完全一致。
+材质/Shader：StoryPageTransition。底纸复用 Shared/RuntimeArt/cb57bb18c7fdf7fd0516.png（40×35 的独立干净纸纹），不引用界面设计稿。翻到背面后显示纸纹；新页面采用故事模式的毛细墨迹扩散显现。
+原路由 API、输入遮挡、提前请求显示排队、暂停时动画与截图释放逻辑保留。独立的死亡结算演出未修改。
+
+保留此前节奏修复：Router 与地图进入战斗统一等待 WaitUntilCovered，不追加 0.7～0.9 秒固定等待；删除目标界面已就绪后的额外 0.3 秒停顿。异步资源加载、战斗清理等真实就绪等待保留。
+
+验证：output/transition-story-leaf/（本地忽略目录）。Unity 回归 DONE，全部断言 PASS；1080×1920、768×1024、720×1440 的实际翻页与润开截图已检查。技能进入/返回、地图进入、商店进入/返回、暂停状态、中途反复请求、强制显示及射线释放均通过。未进行 APK 构建与真机性能验证。

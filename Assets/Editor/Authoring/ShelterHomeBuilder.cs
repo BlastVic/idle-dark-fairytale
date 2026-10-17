@@ -93,7 +93,7 @@ public static class ShelterHomeBuilder
             ui.numberText.rectTransform.anchoredPosition=new Vector2(16,-128);ui.numberText.fontSize=22;ui.numberText.resizeTextMaxSize=22;
             ui.collapseButton.targetGraphic.GetComponent<Image>().sprite=null;ui.collapseButton.targetGraphic.color=new Color(1,1,1,.08f);ui.settingsButton.targetGraphic.GetComponent<Image>().sprite=null;ui.settingsButton.targetGraphic.color=new Color(1,1,1,.08f);ui.levelText.fontSize=52;ui.levelText.resizeTextMaxSize=52;
             foreach(var b in ui.statButtons) { var img=(Image)b.targetGraphic; img.sprite=null;img.color=new Color(.78f,.72f,.61f); if(!b.GetComponent<Outline>()) {var outline=b.gameObject.AddComponent<Outline>();outline.effectColor=new Color(.2f,.14f,.1f);outline.effectDistance=new Vector2(1,-1);} var txt=b.GetComponentInChildren<Text>();txt.fontSize=40;txt.resizeTextMaxSize=40;}
-            ProductionUiArt.SaveAsPrefabAsset(go,Path);
+            StorybookDialogAuthoring.Apply((RectTransform)ui.modalTitle.transform.parent,ui.modalClose,ui.modalClose);ProductionUiArt.SaveAsPrefabAsset(go,Path);
         } finally {PrefabUtility.UnloadPrefabContents(go);}
         AssetDatabase.SaveAssets();
     }
@@ -209,7 +209,7 @@ public static class ShelterHomeBuilder
             ui.musicSlider=Slider(audio,"Music",12);ui.soundSlider=Slider(audio,"Sound",142);
             ui.musicValue=Txt("MusicValue",audio,"100%",653,0,110,60,28);ui.soundValue=Txt("SoundValue",audio,"100%",653,130,110,60,28);
             ui.modal.SetActive(false);
-            ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
+            StorybookDialogAuthoring.Apply((RectTransform)ui.modalTitle.transform.parent,ui.modalClose,ui.modalClose);ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
         } finally {UnityEngine.Object.DestroyImmediate(root.gameObject);}
     }
 }

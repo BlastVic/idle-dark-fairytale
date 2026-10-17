@@ -42,19 +42,8 @@ public class WaveManager : MonoBehaviour
 
         LevelController.Instance.AssetManager.TurnOnPlayer();
         currentWaveset = GetWavesetByKey(levelKey);
-        //music chooser
-        if (currentWaveset.isMiniBoss)
-        {
-            MusicManager.Instance.PlayMusicByClipNumber(1);
-        }
-        else if (currentWaveset.isBoss)
-        {
-            MusicManager.Instance.PlayMusicByClipNumber(2);
-        }
-        else
-        {
-            MusicManager.Instance.PlayBattleNormalMusic();// (1);
-        }
+        // Every attempt begins with normal battle music; boss music belongs to the final wave.
+        MusicManager.Instance.PlayBattleNormalMusic();
         GameplayCanvas.single.ToggleHpXpLevelUi(true);
         LevelController.Instance.AssetManager.SpawnMap(currentWaveset.mapGraphicKey);
         //WAIT UNTIL MAP GRAPHICS ARE LOADED - to continue
@@ -159,6 +148,7 @@ public class WaveManager : MonoBehaviour
             Chest newChest = new Chest
             {
                 chestMapName = currentWaveset.levelName,
+                equipmentLootTier = currentWaveset.equipmentLootTier,
                 chestGrade = chestGradeChosen,
                 possibleRewards = currentWaveset.chestItemsGiven,
                 possibleGoldRewards = currentWaveset.chestGoldItemsGiven,
@@ -185,10 +175,29 @@ public class WaveManager : MonoBehaviour
     public void CallNextWave()
     {
         GameplayCanvas.single.RefreshWaveText();
+        bool bossWave = waveNumber == currentWaveset.waves.Length - 1 &&
+            (currentWaveset.isMiniBoss || currentWaveset.isBoss);
+        int bossClip = currentWaveset.isMiniBoss ? 1 : 2;
+        System.Action startBossMusic = bossWave
+            ? () => MusicManager.Instance.PlayMusicByClipNumber(bossClip, immediate: true)
+            : (System.Action)null;
+        var bossHud = GameplayCanvas.single.battleHud ? GameplayCanvas.single.battleHud.bossHud : null;
+        if (bossHud) bossHud.BeginWave(currentWaveset.waves[waveNumber], startBossMusic);
+        if (!bossHud || !bossHud.Presenting) startBossMusic?.Invoke();
         StartCoroutine(SpawnWave(currentWaveset.waves[waveNumber]));
     }
     public IEnumerator SpawnWave(Wave w)
     {
+        var banner=GameplayCanvas.single.battleHud?GameplayCanvas.single.battleHud.bossHud:null;
+        if(banner&&banner.Presenting){
+            int presentation=banner.PresentationId;
+            while(banner&&banner.Presenting&&banner.PresentationId==presentation&&!banner.EntranceFinished){
+                if(GameManager.single.gameState!=GameStateType.BATTLE)yield break;
+                yield return null;
+            }
+            // A return, death, or replacement wave must not spawn the queued boss later.
+            if(!banner||!banner.Presenting||banner.PresentationId!=presentation||GameManager.single.gameState!=GameStateType.BATTLE)yield break;
+        }
         foreach (string s in w.enemies)
         {
 
@@ -243,6 +252,7 @@ public class Waveset
     public float crystalsMin, crystalsMax = 20;
     public ChestGrade chestGrade;
     public int chestSeconds = 10;
+    [Range(0, 5)] public int equipmentLootTier;
     public List<Item> chestItemsGiven;
     public List<Item> chestGoldItemsGiven;
     public List<Item> chestDiamondItemsGiven;

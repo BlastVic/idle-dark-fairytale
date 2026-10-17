@@ -10,7 +10,7 @@ public static class StorybookSkillDetailsAuthoring
 {
     const string Request="output/skills-ui/details-layout.request";
     static readonly Color Ink=new Color(.075f,.055f,.035f);
-    public static readonly string[] Descriptions={"", "每2秒恢复生命。", "有概率发动快速三连击。", "有概率触发范围攻击。\n敌人多于1名时生效。", "提升生命与防御。", "提升攻击与攻速，\n增加暴击与暴伤。", "阵亡时有概率复活。\n复活后恢复40%生命。", "击败敌人时，有概率恢复20%生命。", "每第三次攻击造成额外伤害。", "书脊龙间歇造成攻击伤害。", "击败敌人时，有概率获得双倍经验。", "生命低于50%的敌人受到雷击，造成攻击伤害。", "对首领有概率发动六连击，造成150%伤害。", "受到暴击时，有概率获得10%生命吸收。", "面对多个敌人时，增加伤害。", "书脊龙有概率发动二连或三连攻击。"};
+    public static readonly string[] Descriptions=Scripts.Skills.SkillDesign.Descriptions;
     static StorybookSkillDetailsAuthoring(){EditorApplication.update+=Poll;}
     static void Poll(){
         if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists(Request))return;
@@ -62,7 +62,7 @@ public static class StorybookSkillDetailsAuthoring
         ui.nextHeading=Heading(next,"TargetHeading","目标技能等级   <color=#8F2018>Lv. 3</color>",bold);
         ui.nextValues.transform.SetParent(next,false);ui.nextValues.transform.SetSiblingIndex(1);ui.nextValues.color=Ink;ui.nextValues.lineSpacing=1.2f;Divider(next);
         foreach(var text in new[]{ui.description,ui.currentValues,ui.nextValues,ui.currentOnlyText}){text.font=bold;text.color=Ink;text.supportRichText=true;}
-        ui.currentValues.text="触发概率  <color=#8F2018>7.5%</color>";ui.nextValues.text="触发概率  <color=#8F2018>9%</color>";
+        ui.currentValues.text="每目标基础伤害  <color=#8F2018>60%</color>";ui.nextValues.text="每目标基础伤害  <color=#8F2018>70%</color>";
         ui.currentOnlyText.color=Ink;ui.currentOnly.transform.SetSiblingIndex(2);
         ui.cost.color=Ink;ui.cost.alignment=TextAnchor.MiddleLeft;ui.cost.text="技能点消耗   <color=#861A12>1 点</color>";
     }

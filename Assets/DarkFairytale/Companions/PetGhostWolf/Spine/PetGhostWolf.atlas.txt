@@ -1,0 +1,201 @@
+PetGhostWolf.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Front_Face
+  rotate: false
+  xy: 4, 4
+  size: 288, 275
+  orig: 288, 275
+  offset: 0, 0
+  index: -1
+Front_Face_02
+  rotate: false
+  xy: 300, 4
+  size: 252, 314
+  orig: 252, 314
+  offset: 0, 0
+  index: -1
+Front_Face_03
+  rotate: false
+  xy: 560, 4
+  size: 288, 275
+  orig: 288, 275
+  offset: 0, 0
+  index: -1
+Front_Neck
+  rotate: false
+  xy: 856, 4
+  size: 444, 380
+  orig: 444, 380
+  offset: 0, 0
+  index: -1
+Front_Waist
+  rotate: false
+  xy: 1308, 4
+  size: 466, 334
+  orig: 466, 334
+  offset: 0, 0
+  index: -1
+Front_Pelvis
+  rotate: false
+  xy: 1782, 4
+  size: 198, 211
+  orig: 198, 211
+  offset: 0, 0
+  index: -1
+Front_tail
+  rotate: false
+  xy: 4, 392
+  size: 518, 311
+  orig: 518, 311
+  offset: 0, 0
+  index: -1
+Front_Mouth_01
+  rotate: false
+  xy: 530, 392
+  size: 226, 123
+  orig: 226, 123
+  offset: 0, 0
+  index: -1
+Front_Mouth_02
+  rotate: false
+  xy: 764, 392
+  size: 115, 112
+  orig: 115, 112
+  offset: 0, 0
+  index: -1
+Front_Mouth_03
+  rotate: false
+  xy: 887, 392
+  size: 89, 234
+  orig: 89, 234
+  offset: 0, 0
+  index: -1
+Front_Ear_L_01
+  rotate: false
+  xy: 984, 392
+  size: 125, 142
+  orig: 125, 142
+  offset: 0, 0
+  index: -1
+Front_Ear_R_01
+  rotate: false
+  xy: 1117, 392
+  size: 109, 119
+  orig: 109, 119
+  offset: 0, 0
+  index: -1
+Front_Hand_L
+  rotate: false
+  xy: 1234, 392
+  size: 142, 85
+  orig: 142, 85
+  offset: 0, 0
+  index: -1
+Front_Hand_R
+  rotate: false
+  xy: 1384, 392
+  size: 159, 105
+  orig: 159, 105
+  offset: 0, 0
+  index: -1
+Front_Foot_L
+  rotate: false
+  xy: 1551, 392
+  size: 102, 66
+  orig: 102, 66
+  offset: 0, 0
+  index: -1
+Front_Foot_R
+  rotate: false
+  xy: 1661, 392
+  size: 103, 61
+  orig: 103, 61
+  offset: 0, 0
+  index: -1
+Front_Arm_L_01
+  rotate: false
+  xy: 1772, 392
+  size: 149, 251
+  orig: 149, 251
+  offset: 0, 0
+  index: -1
+Front_Arm_L_02
+  rotate: false
+  xy: 4, 711
+  size: 223, 189
+  orig: 223, 189
+  offset: 0, 0
+  index: -1
+Front_Arm_L_03
+  rotate: false
+  xy: 235, 711
+  size: 79, 84
+  orig: 79, 84
+  offset: 0, 0
+  index: -1
+Front_Arm_R_01
+  rotate: false
+  xy: 322, 711
+  size: 160, 209
+  orig: 160, 209
+  offset: 0, 0
+  index: -1
+Front_Arm_R_02
+  rotate: false
+  xy: 490, 711
+  size: 142, 195
+  orig: 142, 195
+  offset: 0, 0
+  index: -1
+Front_Leg_L_01
+  rotate: false
+  xy: 640, 711
+  size: 137, 125
+  orig: 137, 125
+  offset: 0, 0
+  index: -1
+Front_Leg_L_02
+  rotate: false
+  xy: 785, 711
+  size: 165, 301
+  orig: 165, 301
+  offset: 0, 0
+  index: -1
+Front_Leg_L_03
+  rotate: false
+  xy: 958, 711
+  size: 76, 109
+  orig: 76, 109
+  offset: 0, 0
+  index: -1
+Front_Leg_R_01
+  rotate: false
+  xy: 1042, 711
+  size: 84, 71
+  orig: 84, 71
+  offset: 0, 0
+  index: -1
+Front_Leg_R_02
+  rotate: false
+  xy: 1134, 711
+  size: 173, 241
+  orig: 173, 241
+  offset: 0, 0
+  index: -1
+Front_Leg_R_03
+  rotate: false
+  xy: 1315, 711
+  size: 90, 128
+  orig: 90, 128
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 1413, 711
+  size: 208, 45
+  orig: 208, 45
+  offset: 0, 0
+  index: -1

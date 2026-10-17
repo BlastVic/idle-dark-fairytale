@@ -1,0 +1,8 @@
+Production Spine texture repaint, NOT a concept board. Input1 is an exact 1536x1536 4x4 grid of detached wolf body parts, input2 is selected character design. Preserve every part's precise position, scale, orientation, silhouette and internal feature coordinates from input1. Do not assemble a wolf, do not add text, borders, shadows or background. Exactly same grid cells, transparent RGBA background. Repaint INSIDE each original piece with detailed handpainted dark-fairytale strokes from design, maintain soft continuous joint colors and readable mouth/eyes. No symbols or wounds. Keep alternative faces and mouth pieces aligned. Do not paint forest/scenery inside any piece. 
+
+{
+  "PetShadowWolf": "Shadow wolf: charcoal-black and muted violet textured fur, warm pale grey muzzle and underside, subtle purple eyes. Fine dark smoky curls painted along existing mane/tail edges inside existing silhouette; normal opaque joint cores. No red runes or leg wounds.",
+  "PetGhostWolf": "Deep navy BLUE GHOST wolf, not furry solid wolf. Flowing broad steel-blue mist strokes over transparent navy body, white eyes, no black outline; translucent interiors with real alpha, slightly more opaque joint edges for continuity. Inner smoke sweeps follow existing fur contours and fit within original pieces, wispy alpha edges; no forest or reflected landscape. Maintain facial/mouth forms, blue translucent claws. No grey or cream fur."
+}
+
+Ghost sheet 0: retain closed eye on third alternate face. Sheet 1: only the eleven existing limb segments; no faces or added parts. Correction: third cell first row is an arm segment, remove hallucinated eye/face, repaint as matching blue mist while preserving outline.

@@ -1,0 +1,1 @@
+柔和悲伤的无人声战败提示音。设计：下行弱奏钢琴与低弦余韵，使用ElevenLabs音效v2生成take-1；2秒，25ms淡入、350ms淡出。正式文件Assets/Audio/Sounds/Death.wav，保留PLAYER_DEATH绑定和GUID，关闭导入归一化保留柔和音量。2秒音效加0.25秒小于现有2.7秒失败等待，因此不增加失败流程等待。旧文件本地备份output/defeat-audio/previous-death.wav。仅验证文件、响度和静态绑定，未进行Unity实际试听。

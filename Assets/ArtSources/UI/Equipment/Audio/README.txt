@@ -1,0 +1,1 @@
+用户批准皮衣穿戴第1版的前半段：0.45秒，末尾50ms淡出。源试听output/leather-wear-options/preview-1-short.mp3，批准音频保存在同目录approved-leather-equip.mp3。解码为44100Hz立体声PCM16替换Assets/Audio/Sounds/Equip1.wav，保留GUID和EQUIP_ITEM绑定，关闭归一化保留试听音量。已验证时长、无削波及场景绑定，未进行Unity内试听。

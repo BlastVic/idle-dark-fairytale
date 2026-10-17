@@ -1,0 +1,8 @@
+Boss 头像原稿，2026-10-17。
+使用内置 image_gen（imagegen 技能），参考现有 MonsterAnimation 测试头像保持角色身份。此目录仅作源素材，不被运行资源引用。
+
+MobRivenfang 提示词：Create a production game boss portrait icon, transparent background, square. Reference is the exact existing boss identity: fierce white silver wolf king, pointed wolf ears, enormous angular icy white mane, sharp muzzle, small golden eye, antique brass shoulder armor. Paint a close cropped head and upper shoulders, facing slightly left, occupying 90% of square, dramatic snarling expression, strong readable silhouette and bold dark ink outlines with muted hand-painted cursed-fairytale texture. Match reference proportions and equipment, no new crown, no text, no UI frame, no glow or background. It must be a clean standalone portrait with real alpha, readable at 160 pixels.
+
+MobStillmere 提示词：Create a production game boss portrait icon, square transparent background. Preserve reference identity exactly: round pale icy-blue translucent slime king, large hollow black oval eyes, small mournful mouth, old tarnished bronze crown with high rounded loops and pale blue triangular gem, wisps and scratches visible within translucent body. Close up entire face and crown, occupy 90% of square, clean bold ink contour and muted hand-painted cursed fairytale texture matching reference. Slight ominous expression, no new teeth or human anatomy. No text, no frame, no background, no added glow. Actual transparent alpha and recognizable at 160 pixels.
+
+正式资源：Assets/DarkFairytale/UI/BossHUD/Textures；256×256 PNG alpha，Unity Sprite，关闭 mipmap，CompressedHQ。设计显示尺寸120逻辑像素（充满脉冲最大1.07倍）；实际1080屏约129像素，正式256贴图保留约2倍像素余量。头像原稿缩放后单独保存，不通过整张设计稿裁切。

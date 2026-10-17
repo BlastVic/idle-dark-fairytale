@@ -20,6 +20,15 @@ public class Player : AnimationController
     }
 
     public bool isCampPlayer = false;
+    [System.NonSerialized] public bool manualControl;
+    public bool PerformManualAction(SkillsTypeEnum skill)
+    {
+        if (!manualControl || ab.isDying) return false;
+        if (PlayerSkillScheduler.AnimationFor(skill) != null) { var added=QueueSkill(skill); if (!isAttacking) TryBeginQueuedSkill(); return added; }
+        if (isAttacking) return false;
+        SetAnimation(skill == SkillsTypeEnum.Boss_Killer ? "Skill7" : "Attack1", false, false, Mathf.Max(.01f,ab.currentStat.atkSpd*.01f));
+        return true;
+    }
     public Actor_Base ab;
     public GameObject rootPos;
 
@@ -42,6 +51,7 @@ public class Player : AnimationController
     private void Start()
     {
         base.Start();
+        skeletonAnimation.AnimationState.Complete += OnTrackComplete;
     }
 
     public void InitPlayer()
@@ -57,6 +67,8 @@ public class Player : AnimationController
         if (shadow) shadow.gameObject.SetActive(false);
         currentAnimation = "";
         isAttacking = false;
+        attackIndexer = 0;
+        ResetCombatActions();
         SetSkinsAndAttachments();
 
 
@@ -71,13 +83,6 @@ public class Player : AnimationController
             var assets = LevelController.Instance.AssetManager;
             if (assets.battleStyle)
                 assets.battleStyle.PlacePlayer(this, assets.battleCampCamera.GetComponent<Camera>());
-
-            if (SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.PetCindrel) > 0)
-            {
-                LevelController.Instance.AssetManager.SpawnGeneralObj("PetCindrel");
-            }
-
-
         }
 
         ab.isDying = false;
@@ -85,20 +90,22 @@ public class Player : AnimationController
 
         ab.currentStat = GameManager.single.CalcPlayer();
         ab.currentStat.hpNow = ab.currentStat.hpMax;//fill hp
-        GameplayCanvas.single.RefreshHp();
-        GameplayCanvas.single.FillHp();
+        GameplayCanvas.single?.RefreshHp();
+        GameplayCanvas.single?.FillHp();
 
         if (isCampPlayer)
         {
             StopAllCoroutines();
             SetAnimation("Idle1", true, false, 1);
 
-            GameplayCanvas.single.RefreshHp();
-            GameplayCanvas.single.RefreshXp();
+            GameplayCanvas.single?.RefreshHp();
+            GameplayCanvas.single?.RefreshXp();
         }
         else
         {
             StopAllCoroutines();
+
+            SummonLearnedCompanions();
 
             //boot up our skills
             regenVal = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Regen), SkillsTypeEnum.Regen)[0];
@@ -111,10 +118,8 @@ public class Player : AnimationController
 
             myLuckyStarsVal = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.My_Lucky_Stars), SkillsTypeEnum.My_Lucky_Stars)[0];
 
-            sinisterStampedeChance = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Sinister_Stampede), SkillsTypeEnum.Sinister_Stampede)[0];
-            bossKillerChance = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Boss_Killer), SkillsTypeEnum.Boss_Killer)[0];
-
-            pathCleanerChance = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Path_Cleaner), SkillsTypeEnum.Path_Cleaner)[0];
+            sinisterStampedeChance = SkillsController.Instance.sinisterStampedeLevel > 0 ? SkillDesign.SweepChance : 0;
+            bossKillerChance = SkillsController.Instance.bossKillerLevel > 0 ? SkillDesign.BossChance : 0;
 
             //start our attack
             Attack();
@@ -123,11 +128,20 @@ public class Player : AnimationController
     }
 
 
+    void SummonLearnedCompanions()
+    {
+        var skills = SkillsController.Instance;
+        var assets = LevelController.Instance.AssetManager;
+        if (skills.GetSkillLevel(SkillsTypeEnum.PetCindrel) > 0)
+            assets.SpawnGeneralObj("PetCindrel");
+        if (skills.GetSkillLevel(SkillsTypeEnum.PetShadowWolf) > 0)
+            assets.SpawnGeneralObj("PetShadowWolf");
+    }
+
     public float myLuckyStarsVal;
     public float regenVal;
     public float lightningVal;
     public float sinisterStampedeChance;
-    public float pathCleanerChance;
     public float bossKillerChance;
 
     float regenNext, lightningNext, lightningInterval;
@@ -145,94 +159,156 @@ public class Player : AnimationController
         }
     }
 
+    public const float ActionRecovery = .2f;
+    public PlayerSkillScheduler SkillScheduler { get; } = new PlayerSkillScheduler();
+    readonly List<Actor_Base> lightningTargets = new List<Actor_Base>();
+    Coroutine nextAction;
+    float castAttackSpeed;
+
+    void OnTrackComplete(Spine.TrackEntry entry)
+    {
+        if (entry.TrackIndex == 0 && entry == skeletonAnimation.AnimationState.GetCurrent(0) &&
+            (entry.Animation.Name.StartsWith("Attack") || entry.Animation.Name.StartsWith("Skill")))
+            AnimationComplete(0, entry.Animation.Name);
+    }
+
+    void ResetCombatActions()
+    {
+        GhostWolfPackAudio.StopAll(this);
+        if (nextAction != null) StopCoroutine(nextAction);
+        nextAction = null;
+        SkillScheduler.Clear(); lightningTargets.Clear(); isAttacking = false;
+    }
+
+    public bool QueueSkill(SkillsTypeEnum skill)
+    {
+        if (isCampPlayer || ab.isDying || IsVictoryRelaxing) return false;
+        return SkillScheduler.Enqueue(skill);
+    }
+
+    bool CanLightningHit(Actor_Base target)
+    {
+        return target && target.gameObject.activeInHierarchy && !target.isDying &&
+            target.currentStat.hpNow < target.currentStat.hpMax * .5f &&
+            (!target.TryGetComponent<DropIn>(out var drop) || !drop.IsEntering);
+    }
+
     IEnumerator LightningLoop()
     {
-        lightningInterval=Random.Range(1,3f);lightningNext=Time.time+lightningInterval;
-        yield return new WaitForSeconds(lightningInterval);
-        if (!ab.isDying)
+        while (!isCampPlayer && !ab.isDying && !IsVictoryRelaxing)
         {
-            //Debug.Log("Try some lightning");
-            foreach (Actor_Base nextAb in GameManager.single.GetLivingEnemies(false))
-            {
-                if (nextAb.currentStat.hpNow < (nextAb.currentStat.hpMax / 2))
-                {
-                    //Debug.Log("Cast a lightning");
-                    SoundManager.Instance.PlayClip("LIGHTNING");
-                    LevelController.Instance.AssetManager.SpawnParticle("Lightning_Particle", nextAb.transform.position);
-                    float lightningDmg = Player.single.ab.currentStat.dmg * lightningVal;
-                    nextAb.Hit(lightningDmg, false, 0, 150, false, true);
-                }
-            }
+            lightningInterval = SkillDesign.LightningInterval;
+            lightningNext = Time.time + lightningInterval;
+            yield return new WaitForSeconds(lightningInterval);
+            if (isCampPlayer || ab.isDying || IsVictoryRelaxing) yield break;
+            foreach (var target in GameManager.single.GetLivingEnemies(false))
+                if (CanLightningHit(target)) { QueueSkill(SkillsTypeEnum.Lightning_Demi_God); break; }
+            // Attack() consumes this request between actions, never interrupting another skill.
+            while (SkillScheduler.Contains(SkillsTypeEnum.Lightning_Demi_God)) yield return null;
+        }
+    }
 
+    bool CanCastSkill(SkillsTypeEnum skill)
+    {
+        if (SkillsController.Instance.GetSkillLevel(skill) <= 0) return false;
+        var targets = GameManager.single.GetLivingEnemies(false);
+        if (skill == SkillsTypeEnum.Lightning_Demi_God) return targets.Exists(CanLightningHit);
+        if (skill == SkillsTypeEnum.Boss_Killer) return GameManager.single.GetAllBosses(false).Count > 0;
+        return targets.Count > 0;
+    }
 
-            StartCoroutine("LightningLoop");
+    public float SkillCompensation(string animation, bool includeExpectedCritical = true)
+    {
+        float speed = Mathf.Max(.01f, ab.currentStat.atkSpd * .01f);
+        float skillRate = (animation == "Skill2" || animation == "Skill3") ? 1.2f : 1f;
+        float attacks = (skeletonAnimation.Skeleton.Data.FindAnimation(animation).Duration / (speed * skillRate) + ActionRecovery) /
+            ((skeletonAnimation.Skeleton.Data.FindAnimation("Attack1").Duration + skeletonAnimation.Skeleton.Data.FindAnimation("Attack2").Duration) * .5f / speed + ActionRecovery);
+        float damage = ab.currentStat.dmg;
+        if (GameManager.single.GetLivingEnemies(false).Count >= 2)
+            damage *= 1 + SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Battlefield_Tactician), SkillsTypeEnum.Battlefield_Tactician)[0];
+        if (includeExpectedCritical)
+            damage *= 1 + Mathf.Clamp01(ab.currentStat.crit * .01f) * (ab.currentStat.critDmg * .01f - 1);
+        return damage * attacks;
+    }
+
+    bool TryBeginQueuedSkill()
+    {
+        if (!SkillScheduler.TryBegin(CanCastSkill, out var skill)) return false;
+        string animation = PlayerSkillScheduler.AnimationFor(skill);
+        castAttackSpeed = Mathf.Max(.01f, ab.currentStat.atkSpd * .01f);
+        SkillScheduler.SetCompensation(SkillCompensation(animation, skill != SkillsTypeEnum.Sinister_Stampede && skill != SkillsTypeEnum.Boss_Killer));
+        lightningTargets.Clear();
+        if (skill == SkillsTypeEnum.Lightning_Demi_God)
+            lightningTargets.AddRange(GameManager.single.GetLivingEnemies(false).FindAll(CanLightningHit));
+        SetAnimation(animation, false, false, castAttackSpeed);
+        if (skill == SkillsTypeEnum.Sinister_Stampede) StartCoroutine(PlayScytheSlash());
+        return true;
+    }
+
+    IEnumerator PlayScytheSlash()
+    {
+        var entry = skeletonAnimation.AnimationState.GetCurrent(0);
+        if (entry == null || entry.Animation.Name != "Skill5") yield break;
+        while (entry.TrackTime < .46f)
+        {
+            if (ab.isDying || IsVictoryRelaxing || skeletonAnimation.AnimationState.GetCurrent(0) != entry) yield break;
+            yield return null;
+        }
+        if (ab.isDying || IsVictoryRelaxing || skeletonAnimation.AnimationState.GetCurrent(0) != entry) yield break;
+        SkillTimedAudio.Play(transform, Resources.Load<AudioClip>("Audio/Skills/ScytheSlash"), entry.TimeScale * skeletonAnimation.timeScale);
+    }
+
+    void ReleaseLightning()
+    {
+        var targets = lightningTargets.FindAll(CanLightningHit).ToArray();
+        float bonus = targets.Length > 0 ? SkillScheduler.Compensation / targets.Length : 0;
+        lightningTargets.Clear();
+        bool sounded = false;
+        foreach (var target in targets)
+        {
+            // Snapshot targets prevent a delayed cast spilling into a new wave.
+            if (!CanLightningHit(target)) continue;
+            if (!sounded) { SoundManager.Instance.PlayClip("LIGHTNING"); sounded = true; }
+            LevelController.Instance.AssetManager.SpawnParticle("Lightning_Particle", target.transform.position);
+            target.Hit(ab.currentStat.dmg * lightningVal + bonus, false, 0, 150, false, true);
         }
     }
 
     public bool isAttacking = false;
     public int attackIndexer = 0;
-    public bool shouldUse3rdAttackBoost = false;
 
     void Attack()
     {
-        if (isCampPlayer || ab.isDying || IsVictoryRelaxing) return;//skip attacks outside active combat
-
-        if (GameManager.single.GetLivingEnemies(false).Count == 0)
-        {
-            //Debug.Log("No Enemies");
-            StartCoroutine(AttackComplete(.2f));
-            return;
+        if (isCampPlayer || ab.isDying || IsVictoryRelaxing || isAttacking) return;
+        if (GameManager.single.GetLivingEnemies(false).Count == 0) {
+            SkillScheduler.Clear(); ScheduleNextAction(); return;
         }
-
-        #region Last But Not Least
-        shouldUse3rdAttackBoost = false;
+        // Drain outstanding requests before rolling a new attack opportunity.
+        if (TryBeginQueuedSkill()) return;
+        if (manualControl) return;
         attackIndexer++;
-        if (SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Last_But_Not_Least) > 0)
-        {
-            if (Utilities.IsDivisible(attackIndexer, 3))
-            {
-                shouldUse3rdAttackBoost = true;
-            }
-        }
-        #endregion
-
-        #region Sinister Stampede Override
-        if (GameManager.single.GetLivingEnemies(false).Count >= 2)
-        {
-            if (Random.Range(0, 1f) <= sinisterStampedeChance)
-            {
-                //Debug.Log("Could do a sinister Stampede!");
-                SetAnimation("Skill5", false, false, ab.currentStat.atkSpd * 0.01f);
-                SoundManager.Instance.PlayClip("JUMP_SKILL");
-                return;
-            }
-        }
-        #endregion
+        if (Random.Range(0, 1f) < sinisterStampedeChance)
+            QueueSkill(SkillsTypeEnum.Sinister_Stampede);
+        if (SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.GhostWolfPack) > 0 && attackIndexer % 3 == 0)
+            QueueSkill(SkillsTypeEnum.GhostWolfPack);
+        // Both rolls are retained when they become ready together.
+        if (TryBeginQueuedSkill()) return;
 
         #region Boss Killer
         if (GameManager.single.GetAllBosses(false).Count >= 1)
         {
-            if (Random.Range(0, 1f) <= bossKillerChance)
+            if (Random.Range(0, 1f) < bossKillerChance)
             {
                 Debug.Log("Rolled for boss killer");
-                SetAnimation("Skill7", false, false, ab.currentStat.atkSpd * 0.01f);
+                QueueSkill(SkillsTypeEnum.Boss_Killer);
+                TryBeginQueuedSkill();
                 SoundManager.Instance.PlayClip("JUMP_SKILL");
                 return;
             }
         }
         #endregion
 
-
-        #region Path Cleaner
-        if (Random.Range(0, 1f) <= pathCleanerChance)
-        {
-            //Debug.Log("Could do a sinister Stampede!");
-            SetAnimation("Skill4", false, false, ab.currentStat.atkSpd * 0.01f);
-            return;
-        }
-        #endregion
-
-        int attackNum = Random.Range(1, 3);
+        int attackNum = Random.Range(0, 100) < 70 ? 1 : 2; // Normal attacks: 70% Attack1, 30% Attack2.
         //Debug.Log("attackspeed formatted:" + (ab.currentStat.atkSpd * .01f));
         SetAnimation("Attack" + attackNum, false, false, ab.currentStat.atkSpd * 0.01f);
     }
@@ -347,14 +423,22 @@ public class Player : AnimationController
         if (isAttacking && !animation.Contains("Death")) return;//dont let anything happen until attack finishes
         if (animation == currentAnimation) return;//dont let anything overwrite identical animation
 
+        if (animation.Contains("Death")) ResetCombatActions();
         currentAnimation = animation;
-        base.SetAnimation(animation, isLoop, isOnComplete, speed);
+        // Scale the complete performance, including holds, recovery and events.
+        base.SetAnimation(animation, isLoop, isOnComplete, (animation == "Death1" || animation == "Revive" || animation == "Skill2" || animation == "Skill3") ? speed * 1.2f : speed);
+        if (animation.StartsWith("Attack") || animation.StartsWith("Skill")) isAttacking = true;
     }
 
     public override void AnimationOnHit(string animation)
     {
-        if (ab.isDying || IsVictoryRelaxing) return;
-        if (animation.Contains("Attack") || animation.Contains("Skill4")/*path cleaner*/)
+        if (isCampPlayer || ab.isDying || IsVictoryRelaxing) return;
+        if (!isAttacking || animation != currentAnimation) return;
+        if (animation == "Skill2" || animation == "Skill3" || animation == "Skill5" || animation == "Skill7") {
+            if (!SkillScheduler.ConsumeHit(animation)) return;
+        }
+        if (animation == "Skill3") { ReleaseLightning(); return; }
+        if (animation.Contains("Attack"))
         {
             SoundManager.Instance.PlayClip("ATTACK1");
             if (GameManager.single.GetLivingEnemies(false).Count > 0)
@@ -362,6 +446,13 @@ public class Player : AnimationController
 
                 ProcessDamage(1, GameManager.single.GetLivingEnemies(false)[0]);
             }
+        }
+
+        if (animation == "Skill2")
+        {
+            GhostWolfPackAudio.Play(this);
+            GhostWolfPack.Cast(this, SkillScheduler.Compensation);
+            return;
         }
 
         if (animation == "Skill5")
@@ -375,7 +466,7 @@ public class Player : AnimationController
                 ? assets.battleStyle.EnemyPosition(assets.battleCampCamera.GetComponent<Camera>(), 0)
                 : new Vector3(-3, -5.5f, 0);
             assets.SpawnParticle("AOE_Particle", position);
-            ProcessDmg_AOE();
+            ProcessDmg_AOE(SkillsController.Instance.GetSkillValues(SkillsController.Instance.sinisterStampedeLevel, SkillsTypeEnum.Sinister_Stampede)[0], SkillScheduler.Compensation);
         }
 
         if (animation.Contains("Skill7"))
@@ -383,24 +474,16 @@ public class Player : AnimationController
             //sinister stampede
             Debug.Log("OnHit Skill 7");
             if (GameManager.single.GetAllBosses(false).Count > 0)
-                ProcessDamage(1.5f, GameManager.single.GetAllBosses(false)[0]);
+                ProcessDamage(SkillsController.Instance.GetSkillValues(SkillsController.Instance.bossKillerLevel, SkillsTypeEnum.Boss_Killer)[0], GameManager.single.GetAllBosses(false)[0], SkillScheduler.Compensation);
         }
     }
 
-    void ProcessDamage(float perc, Actor_Base targetAb)
+    void ProcessDamage(float perc, Actor_Base targetAb, float compensation = 0)
     {
         float dmgRandomized = ab.currentStat.dmg * Random.Range(.9f, 1.1f);
         VibrationsManager.Instance.CallVibe(MoreMountains.NiceVibrations.HapticTypes.LightImpact);
 
-        #region LAST BUT NOT LEAST
-        if (shouldUse3rdAttackBoost)
-        {
-            //Debug.Log("3rd hit before:" + dmgRandomized);
-            dmgRandomized += dmgRandomized * SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Last_But_Not_Least), SkillsTypeEnum.Last_But_Not_Least)[0];
-            //Debug.Log("3rd hit after:" + dmgRandomized);
-            shouldUse3rdAttackBoost = false;
-        }
-        #endregion
+
 
         #region BATTLEFIELD TACTICIAN
         float battlefieldVal = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Battlefield_Tactician), SkillsTypeEnum.Battlefield_Tactician)[0];
@@ -414,6 +497,7 @@ public class Player : AnimationController
         }
         #endregion
 
+        dmgRandomized += compensation * Random.Range(.9f, 1.1f);
         float critChance = Random.Range(0, 100);
         bool isCrit = false;
         if (critChance < ab.currentStat.crit) isCrit = true;
@@ -424,17 +508,19 @@ public class Player : AnimationController
 
     }
 
-    public void ProcessDmg_AOE(float perc = 1)
+    public void ProcessDmg_AOE(float perc = 1, float compensation = 0)
     {
         if (ab.isDying) return;
         //default     public IEnumerator Shake (float duration=.15f, float magnitude=.07f)
         StartCoroutine(CameraEffects.single.Shake(.45f, .2f));
         VibrationsManager.Instance.CallVibe(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
 
-        foreach (Actor_Base nextAb in GameManager.single.GetLivingEnemies(false))
+        var targets = GameManager.single.GetLivingEnemies(false);
+        float bonus = targets.Count > 0 ? compensation / targets.Count : 0;
+        foreach (Actor_Base nextAb in targets)
         {
             //first alter it by our perc param, then randomize it by 10%
-            float dmgRandomized = (ab.currentStat.dmg * perc) * Random.Range(.9f, 1.1f);
+            float dmgRandomized = (ab.currentStat.dmg * perc + bonus) * Random.Range(.9f, 1.1f);
             float critChance = Random.Range(0, 100);
             bool isCrit = false;
             if (critChance < ab.currentStat.crit) isCrit = true;
@@ -444,7 +530,8 @@ public class Player : AnimationController
 
     public override void ForceAnimation(string animation, bool isLoop)
     {
-        base.ForceAnimation(animation, isLoop);
+        // Forced transitions still respect the combat lock; death remains an interruption.
+        SetAnimation(animation, isLoop, false);
     }
 
     public override void AnimationComplete(int trackIndex, string animationName)
@@ -457,18 +544,20 @@ public class Player : AnimationController
             currentAnimation = "Revive";
             skeletonAnimation.timeScale = 1;
             var revive = skeletonAnimation.AnimationState.SetAnimation(0, "Revive", false);
+            revive.TimeScale = 1.2f; // Match the direct collapse in reverse.
             revive.MixDuration = 0; // Revive starts at the exact seated death pose.
             LevelController.Instance.AssetManager.SpawnParticle("Res_Particle", rootPos.transform.position);
             return;
         }
         if ((animationName == "Revive" || animationName.Contains("Death")) && ab.ressurrectionWaiting)
         {
-            ab.currentStat.hpNow = ab.currentStat.hpMax * .4f;
+            ab.currentStat.hpNow = ab.currentStat.hpMax * SkillsController.Instance.GetSkillValues(SkillsController.Instance.ressurrectionLevel, SkillsTypeEnum.Ressurrection)[0];
             if (animationName != "Revive")
                 LevelController.Instance.AssetManager.SpawnParticle("Res_Particle", rootPos.transform.position);
-            GameplayCanvas.single.RefreshHp();
+            GameplayCanvas.single?.RefreshHp();
             ab.isDying = false;
             ab.ressurrectionWaiting = false;
+            SummonLearnedCompanions();
             isAttacking = false;
             // Death fades weapon slots; restore them even when no target is available.
             skeletonAnimation.AnimationState.ClearTracks();
@@ -485,19 +574,30 @@ public class Player : AnimationController
 
         if (ab.isDying) return;
 
-        if (animationName.Contains("Attack") || animationName.Contains("Skill"))
+        if (animationName.StartsWith("Attack") || animationName.StartsWith("Skill"))
         {
-            StartCoroutine(AttackComplete());
+            var track = skeletonAnimation.AnimationState.GetCurrent(0);
+            if (!isAttacking || currentAnimation != animationName || track == null ||
+                track.Animation.Name != animationName || track.TrackTime + .0001f < track.Animation.Duration) return;
+            isAttacking = false;
+            SkillScheduler.Complete(); lightningTargets.Clear();
+            SetAnimation("Idle1", true, true, 1);
+            ScheduleNextAction();
+            return;
         }
-
         SetAnimation("Idle1", true, true, 1);
-        //base.AnimationComplete(trackIndex, animationName);
     }
 
-    public IEnumerator AttackComplete(float delay = 0)
+    void ScheduleNextAction()
     {
-        yield return new WaitForSeconds(.2f);
-        isAttacking = false;
+        if (nextAction != null) StopCoroutine(nextAction);
+        nextAction = StartCoroutine(AttackComplete());
+    }
+
+    public IEnumerator AttackComplete(float delay = ActionRecovery)
+    {
+        yield return new WaitForSeconds(delay);
+        nextAction = null;
         Attack();
     }
 
@@ -510,6 +610,7 @@ public class Player : AnimationController
         var victory=data.FindAnimation("Victory");
         if (victory==null || data.FindAnimation("VictoryIdle")==null) return 0;
         StopAllCoroutines();
+        ResetCombatActions();
         IsVictoryRelaxing=true;
         isAttacking=false;
         currentAnimation="Victory";

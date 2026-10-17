@@ -1,0 +1,19 @@
+返回按钮音效统一（2026-10-17）
+
+范围：11 个正式 UI 的 12 个返回按钮，包含融合页底部的同功能返回入口。逐项读取控制器序列化绑定，非按节点名称猜测。
+处理：在现有按钮 Prefab 节点上持久化 StorybookReturnAudio，使用现有 CLICK；执行顺序 -100，先绑定音效再执行页面禁用/关闭回调。地图已有 PlayClick 保留；经验页 Router 的 CLICK 改为同一 PlayClick，同帧去重避免重复播放。程序内部自动关闭不新增点击声。
+验证：Unity Play Mode 内从每个正式 Prefab 克隆对应按钮，使用 EventSystem 的 pointerClickHandler 触发；12 个按钮均通过正常点击一次、与导航音效去重、禁用静音、恢复音效。output/return-audio/validation.txt 全部 PASS/DONE。此轮仅修改声音绑定，无布局或图片变化。未进行真机扬声器听感验收。
+
+正式资源与按钮：
+Assets/Prefab/Addressable Prefabs/Packages/FusionPackage.prefab | StorybookFusionUI.back
+Assets/Prefab/Addressable Prefabs/Packages/FusionPackage.prefab | StorybookFusionUI.returnToShelter
+Assets/Prefab/Addressable Prefabs/Packages/RebirthPackage.prefab | StorybookRebirthUI.back
+Assets/Prefab/Addressable Prefabs/Packages/CashMallPackage.prefab | StorybookShopUI.back
+Assets/Prefab/Addressable Prefabs/Packages/ChestPackage.prefab | StorybookChestUI.back
+Assets/DarkFairytale/UI/Experience/StorybookExperience.prefab | StorybookExperienceUI.close
+Assets/DarkFairytale/UI/Settings/StorybookSettings.prefab | StorybookSettingsUI.back
+Assets/DarkFairytale/UI/Equipment/Prefabs/StorybookEquipment.prefab | StorybookEquipmentUI.back
+Assets/DarkFairytale/UI/Skills/Prefabs/StorybookSkills.prefab | StorybookSkillsUI.back
+Assets/DarkFairytale/UI/CursedStorybook/Prefabs/CursedStorybookBattleHUD.prefab | CursedBattleHud.backButton
+Assets/DarkFairytale/UI/Map/Prefabs/Chapter01Map.prefab | StorybookMapUI.backButton
+Assets/DarkFairytale/UI/DailyReward/Prefabs/StorybookDailyReminder.prefab | StorybookDailyReminder.close

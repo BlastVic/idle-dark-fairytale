@@ -203,55 +203,8 @@ MonoBehaviour:
   bossName: 
   attackAudio: ATTACK1
   deathAudio: SLIME_DEATH
-  itemsGiven:
-  - m_ItemBasicTitle: Vest
-    m_ItemFinalTitle: 
-    uniqueId: 0
-    isLocked: 0
-    m_ChanceDrop: 1
-    m_IconName: Body1
-    m_ItemType: 3
-    m_SkinIfApplicable: 1
-    m_AttachmentIfApplicable: 
-    itemGrade: 0
-    baseStat:
-      hpNow: 0
-      hpMax: 0
-      hpPerc: 0
-      dmg: 0
-      dmgPerc: 0
-      def: 0
-      defPerc: 0
-      block: 0
-      atkSpd: 0
-      crit: 0
-      critDmg: 0
-      pierce: 0
-      absorb: 0
-    rollStat:
-      dmgMin: 1
-      dmgMax: 4
-      defMin: 2
-      defMax: 4
-      atkSpdMin: 0
-      atkSpdMax: 0
-      critMin: 0
-      critMax: 0
-      critDmgMin: 0
-      critDmgMax: 0
-      hpMin: 5
-      hpMax_rolled: 15
-      dmgPercMin: 0
-      dmgPercMax: 0
-      hpPercMin: 0
-      hpPercMax: 0
-      defPercMin: 0
-      defPercMax: 0
-      percChanceBonus1: 0.5
-      percChanceBonus2: 0
-      percChanceBonus3: 0
-      percChanceBonus4: 0
-    fusionExp: 15
+  itemsGiven: []
+  equipmentLootKey: MobTallowkin
   ab: {fileID: 6802930184926116056}
   rootPos: {fileID: 5679416213914866844}
   maxAttacks: 2

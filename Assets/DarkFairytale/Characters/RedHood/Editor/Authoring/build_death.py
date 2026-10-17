@@ -1,4 +1,4 @@
-"""Explicit death authoring: Victory-speed recovery, then continuous heel-sitting."""
+"""Direct Idle-to-defeat collapse, with the existing heel-sitting final pose."""
 import copy,json,math
 from pathlib import Path
 ROOT=next(p for p in Path(__file__).resolve().parents if (p/'ProjectSettings').is_dir())
@@ -9,7 +9,7 @@ def value(keys,t,field,default):
             u=(t-a.get('time',0))/(b['time']-a.get('time',0))
             return a.get(field,default)*(1-u)+b.get(field,default)*u
     return keys[-1].get(field,default)
-def build(d):
+def build_seated_reference(d):
     source=d['animations']['Victory'];a={'bones':{},'slots':{},'events':[{'time':2.3,'name':'OnComplete'}],'drawOrder':[{'time':0}]}
     targets={('hips','translate'):{'x':-80,'y':-63},('torso','rotate'):{'angle':-15},('torso','translate'):{'x':0,'y':0},('head','rotate'):{'angle':-16},('weapon','translate'):{'x':-20,'y':-18},('weapon','rotate'):{'angle':-25},('far_foot','translate'):{'x':-38,'y':-10},('near_foot','translate'):{'x':-243,'y':-5},('cloth_root','rotate'):{'angle':5},('cloth_mid','rotate'):{'angle':-3},('cloth_back','rotate'):{'angle':0},('skirt','rotate'):{'angle':-8},('lantern','rotate'):{'angle':0}}
     for bone,tls in source['bones'].items():
@@ -123,6 +123,74 @@ def build(d):
             for child in node:restore_victory_clock(child)
     restore_victory_clock(a)
     d['animations']['Death1']=a
+def build(d):
+    # Retain the approved seated endpoint; do not replay Victory's recovery.
+    build_seated_reference(d)
+    old=d['animations']['Death1'];idle=d['animations']['Idle1']
+    setup={b['name']:b for b in d['bones']}
+    duration=1.30; descent=1.15
+    times=sorted(set([round(i/120,6) for i in range(157)]+[descent,duration]))
+    a={'bones':{},'slots':copy.deepcopy(old['slots']),
+       'ik':{name:[{'time':0,'mix':0,'bendPositive':False}] for name in old['ik']},
+       'drawOrder':[{'time':0}],'events':[{'time':duration,'name':'OnComplete'}]}
+    def smooth(t):
+        u=max(0,min(1,t/descent));return u*u*(3-2*u)
+    for bone in set(old['bones'])|set(idle['bones']):
+        a['bones'][bone]={}
+        for kind in set(old['bones'].get(bone,{}))|set(idle['bones'].get(bone,{})):
+            fields=['angle'] if kind=='rotate' else ['x','y'];default=1 if kind=='scale' else 0
+            start=idle['bones'].get(bone,{}).get(kind,[{}])[0]
+            end=old['bones'].get(bone,{}).get(kind,[{}])[-1]
+            a['bones'][bone][kind]=[dict(time=t,**{f:round(start.get(f,default)+(end.get(f,default)-start.get(f,default))*smooth(t),6) for f in fields}) for t in times]
+    # Explicit FK starts at the exact Idle IK solution. Both knees fold while
+    # the pelvis lowers: the front foot retreats during the fall, never before it.
+    legs=[]
+    for side in ['far','near']:
+        thigh=setup[side+'_thigh'];boot=setup[side+'_boot'];foot=setup[side+'_foot']
+        px=thigh['x'];py=153+thigh['y'];ax=foot['x'];ay=foot['y']
+        dx=ax-px;dy=ay-py;L=thigh['length'];B=boot['length']
+        beta=-math.acos(max(-1,min(1,(dx*dx+dy*dy-L*L-B*B)/(2*L*B))))
+        theta=math.atan2(dy,dx)-math.atan2(B*math.sin(beta),L+B*math.cos(beta))
+        kx=px+L*math.cos(theta);ky=py+L*math.sin(theta)
+        end=lambda bone,kind,f,default=0:old['bones'][bone][kind][-1].get(f,default)
+        sx=end(side+'_thigh','scale','x',1)
+        hx=end('hips','translate','x');hy=153+end('hips','translate','y')
+        ex=hx+thigh['x']+end(side+'_thigh','translate','x');ey=hy+thigh['y']+end(side+'_thigh','translate','y')
+        et=math.radians(thigh['rotation']+end(side+'_thigh','rotate','angle'))
+        ekx=ex+L*sx*math.cos(et);eky=ey+L*sx*math.sin(et)
+        eax=ax+end(side+'_foot','translate','x');eay=ay+end(side+'_foot','translate','y')
+        legs.append((side,theta,et,sx,ax,ay,eax,eay,kx,ky,ekx,eky))
+    for i,t in enumerate(times):
+        u=smooth(t);poses=[]
+        for side,theta,et,sx,ax,ay,eax,eay,kx,ky,ekx,eky in legs:
+            th=theta+(et-theta)*u;scale=1+(sx-1)*u
+            fx=ax+(eax-ax)*u;fy=ay+(eay-ay)*u
+            alpha0=math.atan2(ky-ay,kx-ax);alpha1=math.atan2(eky-eay,ekx-eax)
+            alpha=alpha0+(alpha1-alpha0)*u
+            shin=math.hypot(kx-ax,ky-ay)*(1-u)+math.hypot(ekx-eax,eky-eay)*u
+            nx=fx+shin*math.cos(alpha);ny=fy+shin*math.sin(alpha)
+            px=nx-setup[side+'_thigh']['length']*scale*math.cos(th)
+            py=ny-setup[side+'_thigh']['length']*scale*math.sin(th)
+            local=a['bones'][side+'_thigh']['translate'][i]
+            poses.append((side,th,scale,fx,fy,nx,ny,px,py,local))
+        hx=sum(p[7]-setup[p[0]+'_thigh']['x']-p[9]['x'] for p in poses)/2
+        hy=sum(p[8]-setup[p[0]+'_thigh']['y']-p[9]['y'] for p in poses)/2
+        a['bones']['hips']['translate'][i].update(x=round(hx,6),y=round(hy-153,6))
+        for side,th,scale,fx,fy,nx,ny,px,py,local in poses:
+            thigh=side+'_thigh';boot=side+'_boot';foot=side+'_foot'
+            local.update(x=round(px-hx-setup[thigh]['x'],6),y=round(py-hy-setup[thigh]['y'],6))
+            for kind,vals in [('rotate',{'angle':math.degrees(th)-setup[thigh]['rotation']}),('scale',{'x':scale,'y':1})]:
+                a['bones'][thigh].setdefault(kind,[{} for _ in times])[i]=dict(time=t,**vals)
+            dx=fx-nx;dy=fy-ny;lx=(math.cos(th)*dx+math.sin(th)*dy)/scale;ly=-math.sin(th)*dx+math.cos(th)*dy
+            a['bones'][boot]['rotate'][i]={'time':t,'angle':math.degrees(math.atan2(ly,lx))-setup[boot]['rotation']}
+            a['bones'][boot]['scale'][i]={'time':t,'x':math.hypot(lx,ly)/setup[boot]['length'],'y':1}
+    def color(t,v):return {'time':t,'color':'ffffff'+format(round(v*255),'02x')}
+    for name in ['scythe','lantern']:
+        a['slots'][name]['color']=[color(0,1),color(.10,1),color(.35,0),color(duration,0)]
+    a['slots']['head']['color']=[color(0,1),color(.12,1),color(.3,0),color(duration,0)]
+    a['slots']['head_rest']['color']=[color(0,0),color(.12,0),color(.3,1),color(duration,1)]
+    d['animations']['Death1']=a
+
 if __name__=='__main__':
     for p in [ROOT/'Assets/DarkFairytale/Characters/RedHood/Spine/RedHoodBattle.json']:
         d=json.loads(p.read_text());build(d);p.write_text(json.dumps(d,ensure_ascii=False,separators=(',',':'))+'\n')

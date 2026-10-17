@@ -26,12 +26,12 @@ public class PetCindrel : AnimationController
     }
 
     public GameObject rootPos;
-    public float breathOfHellChance = 0;
+    public const float ClawChance = .20f;
+    public static string AttackForRoll(float roll) => roll < ClawChance ? "Attack2" : "Attack1";
     private void Start()
     {
         base.Start();
         groundCompanion=GetComponent<PetCindrelCompanion>();
-        breathOfHellChance = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Breath_Of_Hell), SkillsTypeEnum.Breath_Of_Hell)[0];
 
         myDmg = Player.single.ab.currentStat.dmg * SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.PetCindrel), SkillsTypeEnum.PetCindrel)[0];
         if (myDmg < 1) myDmg = 1;
@@ -48,36 +48,14 @@ public class PetCindrel : AnimationController
                 SetAnimation("Idle1",true,true); StartCoroutine(AttackComplete()); return;
             }
         }
-        #region Breath Of Hell
-
-        if (Random.Range(0, 1f) <= breathOfHellChance)
-        {
-
-            if (Random.Range(0, 100) < 50)
-            {
-                //Debug.Log("Could do Breath of Hell 2!");
-
-                SetAnimation("Attack2", false, false, 1);
-            }
-            else
-            {
-                //Debug.Log("Could do Breath of Hell 3!");
-
-                SetAnimation("Attack3", false, false, 1);
-            }
-            return;
-        }
-
-        #endregion
-
-
-        SetAnimation("Attack1", false, false, 1);
+        SetAnimation(AttackForRoll(Random.Range(0, 1f)), false, false, 1);
     }
 
     #region ANIMATION 
     public string currentAnimation = "";
     public override void SetAnimation(string animation, bool isLoop, bool isOnComplete, float speed = 1)
     {
+        if (animation == "Attack3") return; // The five-projectile breath is retired.
         if (groundCompanion && groundCompanion.Exiting) return;
         if (!Player.single || Player.single.ab.isDying) return;
         if (isAttacking) return;//dont let anything happen until attack finishes
@@ -90,7 +68,7 @@ public class PetCindrel : AnimationController
     public override void AnimationOnHit(string animation)
     {
         if (groundCompanion && (groundCompanion.Exiting || !Player.single || Player.single.ab.isDying)) return;
-        if (animation.Contains("Attack") || animation.Contains("Skill4")/*path cleaner*/)
+        if (animation == "Attack1" || animation == "Attack2")
         {
             SoundManager.Instance.PlayClip(groundCompanion && animation == "Attack2" ? "ATTACK1" : "FIRE");
             if (GameManager.single.GetLivingEnemies(false).Count > 0)
@@ -109,7 +87,7 @@ public class PetCindrel : AnimationController
     public float myDmg = 1;
     void ProcessDamage(float perc, Actor_Base targetAb)
     {
-        float dmgRandomized = myDmg * Random.Range(.9f, 1.1f);
+        float dmgRandomized = myDmg * SkillsController.Instance.GetSummonDamageMultiplier(SkillsTypeEnum.PetCindrel) * Random.Range(.9f, 1.1f);
 
 
 
@@ -123,7 +101,7 @@ public class PetCindrel : AnimationController
 
     public override void ForceAnimation(string animation, bool isLoop)
     {
-        base.ForceAnimation(animation, isLoop);
+        SetAnimation(animation, isLoop, false);
     }
 
     public override void AnimationComplete(int trackIndex, string animationName)

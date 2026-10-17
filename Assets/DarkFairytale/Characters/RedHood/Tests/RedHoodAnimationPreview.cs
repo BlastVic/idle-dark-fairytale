@@ -1,132 +1,87 @@
+using System;
+using System.Linq;
 using UnityEngine;
 using Spine.Unity;
 
 namespace RedHoodPrototype {
-    // Standalone animation viewer: deliberately has no inventory/save/combat dependencies.
+    // Independent preview; all controls are authored in RedHoodPreviewHUD.prefab.
     public sealed class RedHoodAnimationPreview : MonoBehaviour {
         public SkeletonAnimation character;
-        [Range(0.1f, 2f)] public float speed = 1f;
-        public bool autoAttack = true;
-        public bool paused;
-        private string selected = "Attack1";
-        private float nextAttack = -1f;
-        private int hitCount;
-        private float flash;
-        private bool alternate;
-        private float timeline;
-        private bool inspecting;
-        private Spine.TrackEntry Current { get { return character && character.AnimationState != null ? character.AnimationState.GetCurrent(0) : null; } }
-        private readonly string[] animations = { "Idle1", "Attack1", "Attack2", "Hit", "Skill1", "Skill2", "Skill3", "Death1", "Revive", "Victory", "Rebirth" };
-
+        public RedHoodPreviewHud hud;
+        public Camera previewCamera;
+        public SpriteRenderer backdrop;
+        public Bounds motionBounds;
+        [Range(.1f,2f)] public float speed=1;
+        public bool autoAttack, paused, loop, autoCycle, returnToIdle=true;
+        public float zoom=1;
+        public string Selected {get;private set;}="Idle1";
+        public string[] AnimationNames {get;private set;}=Array.Empty<string>();
+        public int HitCount {get;private set;}
+        public int CompleteCount {get;private set;}
+        public float Timeline => Current==null ? 0 : Current.AnimationTime;
+        public float Duration => Current==null ? 0 : Current.Animation.Duration;
+        public string Playing => Current==null ? "—" : Current.Animation.Name;
+        public float EffectiveSpeed => speed*((Playing=="Death1" || Playing=="Revive" || Playing=="Skill2" || Playing=="Skill3") ? 1.2f : 1);
+        public Spine.TrackEntry Current => character && character.AnimationState!=null ? character.AnimationState.GetCurrent(0) : null;
+        bool inspecting, finished, completionHandled;float finishDelay;
         void Start() {
-            if (!character) { enabled = false; return; }
+            if(!character){enabled=false;return;}
             character.Initialize(false);
-            character.AnimationState.Event += OnSpineEvent;
-            Play(autoAttack ? "Attack1" : "Idle1");
+            AnimationNames=character.Skeleton.Data.Animations.Select(a=>a.Name).ToArray();
+            character.AnimationState.Event+=OnEvent;
+            character.AnimationState.Complete+=OnComplete;
+            if(hud)hud.Bind(this);
+            Play("Idle1");
         }
-
-        void OnDestroy() {
-            if (character && character.AnimationState != null)
-                character.AnimationState.Event -= OnSpineEvent;
+        void OnDestroy(){if(character && character.AnimationState!=null){character.AnimationState.Event-=OnEvent;character.AnimationState.Complete-=OnComplete;}}
+        void OnEvent(Spine.TrackEntry entry,Spine.Event e){if(inspecting||entry!=Current)return;if(e.Data.Name=="OnHit")HitCount++;if(e.Data.Name=="OnComplete")CompleteCount++;}
+        void OnComplete(Spine.TrackEntry entry){if(!inspecting&&entry==Current&&!entry.Loop){finished=true;completionHandled=true;finishDelay=.12f;}}
+        public void Select(string name){autoAttack=false;autoCycle=false;Play(name);}
+        public void Play(string name){
+            if(character.Skeleton.Data.FindAnimation(name)==null)return;
+            Selected=name;paused=false;inspecting=false;finished=false;completionHandled=false;HitCount=CompleteCount=0;
+            character.timeScale=speed;
+            var entry=character.AnimationState.SetAnimation(0,name,loop || name=="Idle1" || name=="VictoryIdle");
+            entry.TimeScale=(name=="Death1" || name=="Revive" || name=="Skill2" || name=="Skill3") ? 1.2f : 1;
+            character.Update(0);character.LateUpdate();
         }
-
-        void OnSpineEvent(Spine.TrackEntry entry, Spine.Event e) {
-            if (inspecting || entry != Current) return;
-            if (e.Data.Name == "OnHit") { hitCount++; flash = 0.18f; }
-            if (e.Data.Name == "OnComplete" && autoAttack) nextAttack = 0.2f;
+        public void Replay(){Play(Selected);}
+        public void SetPaused(bool value){paused=value;inspecting=false;character.timeScale=paused ? 0 : speed;}
+        public void SetLoop(bool value){loop=value;if(Current!=null)Current.Loop=value;finished=false;}
+        public void SetCycle(bool value){autoCycle=value;if(value){autoAttack=false;loop=false;Play(Selected);if(Current!=null)Current.Loop=false;}}
+        public void SetAutoAttack(bool value){autoAttack=value;if(value){autoCycle=false;loop=false;Play("Attack1");}}
+        public void Seek(float seconds){
+            paused=true;inspecting=true;finished=false;completionHandled=false;character.timeScale=0;
+            string clip=Playing=="—"?Selected:Playing;
+            character.AnimationState.ClearTracks();character.Skeleton.SetToSetupPose();
+            var entry=character.AnimationState.SetAnimation(0,clip,false);entry.MixDuration=0;entry.TimeScale=(clip=="Death1" || clip=="Revive" || clip=="Skill2" || clip=="Skill3") ? 1.2f : 1;
+            entry.TrackTime=Mathf.Clamp(seconds,0,entry.Animation.Duration);entry.AnimationLast=entry.TrackTime;
+            character.AnimationState.Apply(character.Skeleton);character.Skeleton.UpdateWorldTransform();character.LateUpdate();
         }
-
-        public void Play(string animation) {
-            if (character.Skeleton.Data.FindAnimation(animation) == null) return;
-            selected = animation;
-            nextAttack = -1f;
-            timeline = 0;
-            inspecting = false;
-            paused = false;
-            character.timeScale = speed;
-            character.AnimationState.SetAnimation(0, animation, animation == "Idle1");
-            if(animation=="Victory" && character.Skeleton.Data.FindAnimation("VictoryIdle")!=null)
-                character.AnimationState.AddAnimation(0,"VictoryIdle",true,character.Skeleton.Data.FindAnimation("Victory").Duration);
-            character.Update(0);
+        public void Step(float direction){Seek(Timeline+direction/60f);}
+        public void ResetView(){zoom=1;}
+        void Update(){
+            if(!character||Current==null)return;character.timeScale=paused?0:speed;
+            if(paused)return;
+            if(!completionHandled&&!Current.Loop&&Current.IsComplete){completionHandled=true;finished=true;finishDelay=.12f;}
+            // Cycling must also leave intrinsically looping Idle clips.
+            if(autoCycle && Current.TrackTime>=Current.Animation.Duration){finished=true;finishDelay=0;Current.Loop=false;}
+            if(!finished)return;finishDelay-=Time.unscaledDeltaTime;if(finishDelay>0)return;finished=false;
+            if(autoAttack){Play(Playing=="Attack1"?"Attack2":"Attack1");return;}
+            if(autoCycle){var index=Array.IndexOf(AnimationNames,Selected);Play(AnimationNames[(index+1)%AnimationNames.Length]);Current.Loop=false;return;}
+            if(Playing=="Victory" && character.Skeleton.Data.FindAnimation("VictoryIdle")!=null){Transition("VictoryIdle");return;}
+            if(returnToIdle && Playing!="Idle1" && Playing!="VictoryIdle" && Playing!="Death1" && Playing!="Rebirth")Transition("Idle1");
         }
-
-        void Update() {
-            if (!character || character.AnimationState == null) return;
-            character.timeScale = paused ? 0 : speed;
-            if (!inspecting && Current != null) timeline = Current.AnimationTime;
-            if (paused) return;
-            flash = Mathf.Max(0, flash - Time.deltaTime);
-            if (autoAttack && nextAttack >= 0) {
-                nextAttack -= Time.deltaTime * speed;
-                if (nextAttack <= 0) {
-                    alternate = !alternate;
-                    Play(alternate ? "Attack2" : "Attack1");
-                }
-            }
-        }
-
-        public void Seek(float seconds) {
-            autoAttack = false;
-            paused = true;
-            inspecting = true;
-            character.timeScale = 0;
-            character.AnimationState.ClearTracks();
-            character.Skeleton.SetToSetupPose();
-            var entry = character.AnimationState.SetAnimation(0, selected, false);
-            timeline = Mathf.Clamp(seconds, 0, entry.Animation.Duration);
-            entry.TrackTime = timeline;
-            entry.AnimationLast = timeline;
-            character.AnimationState.Apply(character.Skeleton);
-            character.Skeleton.UpdateWorldTransform();
-            character.LateUpdate();
-        }
-
-        void OnGUI() {
-            if (!character || character.AnimationState == null) return;
-            float scale = Mathf.Min(Screen.width / 540f, Screen.height / 960f);
-            var matrix = GUI.matrix;
-            GUI.matrix = Matrix4x4.TRS(new Vector3((Screen.width - 540 * scale) / 2, 0), Quaternion.identity, Vector3.one * scale);
-            GUILayout.BeginArea(new Rect(18, 16, 504, 218), GUI.skin.box);
-            GUILayout.Label("RED HOOD / SPINE ANIMATION LAB");
-            GUILayout.Label("Reference side view / new rig and scythe animation timelines");
-            GUILayout.Label("Playing: " + selected + "    OnHit events: " + hitCount);
-            GUILayout.BeginHorizontal();
-            if (GUILayout.Button(paused ? "Resume" : "Pause", GUILayout.Height(30))) { paused = !paused; inspecting = false; }
-            if (GUILayout.Button(autoAttack ? "Auto attack: ON" : "Auto attack: OFF", GUILayout.Height(30))) {
-                autoAttack = !autoAttack;
-                if (autoAttack) Play("Attack1");
-            }
-            GUILayout.EndHorizontal();
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Speed " + speed.ToString("0.0") + "x", GUILayout.Width(95));
-            speed = GUILayout.HorizontalSlider(speed, 0.1f, 2f);
-            GUILayout.EndHorizontal();
-            if (Current != null) {
-                float duration = Current.Animation.Duration;
-                GUILayout.Label("Time: " + timeline.ToString("0.00") + " / " + duration.ToString("0.00") + " s");
-                float next = GUILayout.HorizontalSlider(timeline, 0, duration);
-                if (Mathf.Abs(next - timeline) > 0.001f) Seek(next);
-                GUILayout.BeginHorizontal();
-                if (GUILayout.Button("< Frame")) Seek(timeline - 1f / 60f);
-                if (GUILayout.Button("Frame >")) Seek(timeline + 1f / 60f);
-                if (GUILayout.Button("Restart")) { Play(selected); paused = false; }
-                GUILayout.EndHorizontal();
-            }
-            GUILayout.EndArea();
-            if (flash > 0) GUI.Label(new Rect(235, 180, 150, 40), "HIT!");
-            GUILayout.BeginArea(new Rect(18, 775, 504, 170), GUI.skin.box);
-            GUILayout.Label("Select an animation (disables auto attack)");
-            for (int row = 0; row < 2; row++) {
-                GUILayout.BeginHorizontal();
-                for (int col = 0; col < 4; col++) {
-                    string name = animations[row * 4 + col];
-                    if (GUILayout.Button(name, GUILayout.Height(42))) { autoAttack = false; Play(name); }
-                }
-                GUILayout.EndHorizontal();
-            }
-            GUILayout.Label("Independent cape and lantern sway / wrist IK grip");
-            GUILayout.EndArea();
-            GUI.matrix = matrix;
+        void Transition(string name){var e=character.AnimationState.SetAnimation(0,name,true);e.TimeScale=1;}
+        void LateUpdate(){
+            if(!previewCamera||!hud||!hud.previewArea)return;
+            var corners=new Vector3[4];hud.previewArea.GetWorldCorners(corners);
+            var a=previewCamera.ScreenToWorldPoint(new Vector3(corners[0].x,corners[0].y,20));
+            var b=previewCamera.ScreenToWorldPoint(new Vector3(corners[2].x,corners[2].y,20));
+            float fit=Mathf.Min((b.x-a.x)/Mathf.Max(.01f,motionBounds.size.x),(b.y-a.y)/Mathf.Max(.01f,motionBounds.size.y))*.92f*zoom;
+            character.transform.localScale=Vector3.one*fit;
+            character.transform.position=new Vector3((a.x+b.x)/2-motionBounds.center.x*fit,a.y-motionBounds.min.y*fit,0);
+            if(backdrop&&backdrop.sprite){float h=2*previewCamera.orthographicSize;backdrop.transform.localScale=Vector3.one*Mathf.Max(h/backdrop.sprite.bounds.size.y,h*previewCamera.aspect/backdrop.sprite.bounds.size.x);backdrop.transform.position=Vector3.zero;}
         }
     }
 }

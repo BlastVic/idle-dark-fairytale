@@ -50,7 +50,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PetCindrel
   skeletonAnimation: {fileID: 8190205456456243260}
   rootPos: {fileID: 2556668462395354660}
-  breathOfHellChance: 0
   isAttacking: 0
   currentAnimation: 
   myDmg: 1
@@ -67,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PetCindrelCompanion
   skeleton: {fileID: 8190205456456243260}
-  viewportFeet: {x: 0.22, y: 0.38}
+  viewportFeet: {x: 0.18, y: 0.38}
   viewportSize: {x: 0.54, y: 0.17}
   exitSeconds: 1.2
 --- !u!114 &1389194431671637771
@@ -87,20 +86,15 @@ MonoBehaviour:
   emberImpact: {fileID: 262975721325697928, guid: 2de0df3e04794460f92d1eb22ff9d8d6, type: 3}
   clawArc: {fileID: 7828527964513117360, guid: 6d957b570d7f24a559c0b8304d39085a, type: 3}
   ashDust: {fileID: 4312391581068962187, guid: dcc443e2160754d1098be2eab5710126, type: 3}
-  emberBreath: {fileID: 1849341398179001321, guid: f9a44b30e040548dcafd2eb105db66b8, type: 3}
   mouthOffset: {x: 0.42, y: 0.08}
   boltWidth: 0.18
   impactWidth: 0.54
   clawWidth: 0.72
-  breathWidth: 0.63
   lobLaunchTime: 0.5
   lobApexHeight: 0.22
-  barrageSpread: 0.18
-  barrageEmissionWindow: {x: 1.3, y: 1.93}
-  barrageFlightTime: 0.5
-  barrageMuzzleClearance: {x: 0.065, y: 0.035}
   dustContactOffset: {x: 0.04, y: 0.05}
   previewOnly: 0
+  previewCamera: {fileID: 0}
 --- !u!1 &2556668462395354660
 GameObject:
   m_ObjectHideFlags: 0
