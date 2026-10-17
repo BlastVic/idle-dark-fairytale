@@ -10,6 +10,17 @@ public static class StorybookBossHUDAuthoring
     public const string Path="Assets/DarkFairytale/UI/BossHUD/Prefabs/StorybookBossHUD.prefab";
     const string Hud="Assets/DarkFairytale/UI/CursedStorybook/Prefabs/CursedStorybookBattleHUD.prefab";
     static StorybookBossHUDAuthoring(){EditorApplication.update+=()=>{if(EditorApplication.isCompiling||EditorApplication.isUpdating||EditorApplication.isPlayingOrWillChangePlaymode||!File.Exists("output/boss-hud/build.request"))return;File.Delete("output/boss-hud/build.request");try{Build();File.WriteAllText("output/boss-hud/build.txt","PASS");}catch(Exception e){File.WriteAllText("output/boss-hud/build.txt",e.ToString());}};}
+    [MenuItem("Tools/Dark Fairytale/Repair Boss HUD Production Frames")]
+    public static void RepairProductionFrames()
+    {
+        var root = PrefabUtility.LoadPrefabContents(Path);
+        try
+        {
+            if (ProductionUiArt.FinalizePrefab(root)) PrefabUtility.SaveAsPrefabAsset(root, Path);
+        }
+        finally { PrefabUtility.UnloadPrefabContents(root); }
+        AssetDatabase.SaveAssets();
+    }
     static RectTransform Node(Transform parent,string name,Vector2 pos,Vector2 size){var go=new GameObject(name,typeof(RectTransform));go.layer=5;go.transform.SetParent(parent,false);var r=(RectTransform)go.transform;r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=pos;r.sizeDelta=size;return r;}
     static Image Pic(Transform p,string n,Sprite s,Vector2 pos,Vector2 size,Color c){var r=Node(p,n,pos,size);var im=r.gameObject.AddComponent<Image>();im.sprite=s;im.color=c;im.raycastTarget=false;return im;}
     static Text Text(Transform p,string n,string value,Vector2 pos,Vector2 size,int fontSize,Color c){var r=Node(p,n,pos,size);var t=r.gameObject.AddComponent<Text>();t.font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Bold.otf");t.fontSize=fontSize;t.text=value;t.color=c;t.alignment=TextAnchor.MiddleLeft;t.horizontalOverflow=HorizontalWrapMode.Overflow;t.verticalOverflow=VerticalWrapMode.Overflow;t.raycastTarget=false;return t;}
@@ -37,6 +48,7 @@ public static class StorybookBossHUDAuthoring
             ui.chargeTip=Pic(track.transform,"ChargeLeadingLight",null,Vector2.zero,new Vector2(4,30),new Color(1,.86f,.48f)).rectTransform;ui.chargeTip.pivot=Vector2.one*.5f;
             var flash=Pic(track.transform,"FullChargeFlash",ui.fill.sprite,Vector2.zero,new Vector2(806,38),new Color(1,.85f,.46f));flash.rectTransform.anchorMin=Vector2.zero;flash.rectTransform.anchorMax=Vector2.one;flash.rectTransform.offsetMin=flash.rectTransform.offsetMax=Vector2.zero;ui.impact=flash.gameObject.AddComponent<CanvasGroup>();ui.impact.alpha=0;ui.impact.blocksRaycasts=false;
             ui.portraits=new[]{new StorybookBossHUD.PortraitEntry{key="MobRivenfang",displayName="霜牙狼王",portrait=Sprite("Assets/DarkFairytale/UI/BossHUD/Textures/MobRivenfang.png")},new StorybookBossHUD.PortraitEntry{key="MobStillmere",displayName="史莱姆之王",portrait=Sprite("Assets/DarkFairytale/UI/BossHUD/Textures/MobStillmere.png")}};
+            ProductionUiArt.FinalizePrefab(root.gameObject);
             PrefabUtility.SaveAsPrefabAsset(root.gameObject,Path);UnityEngine.Object.DestroyImmediate(root.gameObject);
         }
         var hud=PrefabUtility.LoadPrefabContents(Hud);try{var controller=hud.GetComponent<CursedBattleHud>();if(!controller.bossHud){var go=(GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Path),hud.transform);controller.bossHud=go.GetComponent<StorybookBossHUD>();controller.bossHud.header=hud.GetComponent<BattleHudSafeArea>().core.Find("ChapterHeader") as RectTransform;PrefabUtility.SaveAsPrefabAsset(hud,Hud);}}finally{PrefabUtility.UnloadPrefabContents(hud);}
