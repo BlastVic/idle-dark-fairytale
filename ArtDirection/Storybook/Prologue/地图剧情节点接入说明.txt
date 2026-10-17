@@ -7,11 +7,11 @@
 开机新玩家的序章流程保持原有默认行为：六页和最后一次翻页后进入主界面。本次新增的地图分支只改变从地图进入的重播出口。
 
 可编辑资源：
-Assets/DarkFairytale/UI/Map/Chapter01Map.prefab
+Assets/DarkFairytale/UI/Map/Prefabs/Chapter01Map.prefab
 - Story_Prologue：持久化 UGUI 节点，书本、标题、进度、定位标志、按钮可在 Inspector 调整。
 - StorybookMapUI.nodes：包括序章和五个战斗节点的顺序。
 - storyPlayerPrefab：指向现有 CursedBookIntro.prefab，复用书页动画、音效和字幕。
-Assets/DarkFairytale/UI/Map/PrologueStory.asset
+Assets/DarkFairytale/UI/Map/Data/PrologueStory.asset
 - StorySequence：storyKey、displayName、completionKey 和 pages 可编辑。
 - pages 保存插画、旁白、字幕时间与取景参数。完成标记与启动序章相同。
 

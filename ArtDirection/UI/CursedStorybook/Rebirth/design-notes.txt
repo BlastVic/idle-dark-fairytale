@@ -4,7 +4,7 @@
 主题：重返故事起点。林间石门与身穿短款破边红斗篷的小红帽背影；不使用祭拜、神像或古神意象。
 布局：独立页头 → 旅途插画 → 次数/条件 → 双列收益对比 → 重置内容 → 转生/继续冒险。
 演示：第一次转生，Lv.60。属性点+10、技能点+3、经验加成+50%、起始蓝水晶10000；Lv.61预览为+10、+3、+51%、10015。
-数值来源：Assets/Resources/LevelDataDescriptions.asset 及 LevelController.GetRebirthXpByLevel/GetRebirthCrystalsByLevel，假定无此前累计加成。
+数值来源：Assets/Resources/Data/LevelDataDescriptions.asset 及 LevelController.GetRebirthXpByLevel/GetRebirthCrystalsByLevel，假定无此前累计加成。
 重置说明对应 ProcessRebirth：等级回到1，装备、技能、属性、融合与关卡进度重置。起始蓝水晶不是商城血月结晶。
 后续实装：文字与数字用真实文本节点；数据动态绑定，可编辑 UGUI Prefab；保留现有二次确认及转生动画流程，三种比例与安全区实际验证。当前图片仅为概念参考。
 

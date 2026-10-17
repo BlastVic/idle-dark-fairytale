@@ -1,6 +1,6 @@
 融合 UI 落地与验证
 
-已替换 Assets/Prefab/Addressable Prefabs/FusionPackage.prefab。
+已替换 Assets/Prefab/Addressable Prefabs/Packages/FusionPackage.prefab。
 原 Addressables key FusionPackage 和 GUID 0de4298cd9d9d46998f26727620d36d4 保留。
 布局、插画、标题、文本、按钮、填充进度条及八个奖励槽均为持久化 UGUI 节点，可在 Inspector 调整。运行时只绑定数据、交互和安全区适配，不创建整套 UI，也不在导入或运行时重建 Prefab。编辑工具只有菜单或明确 build.request 才执行。
 

@@ -3,7 +3,7 @@
 import collections,csv,json,pathlib,re
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 report=json.loads((ROOT/'output/ui-production-audit/ui-nodes.json').read_text())
-catalog=json.loads((ROOT/'Assets/Editor/ProductionUiArtCatalog.json').read_text())['entries']
+catalog=json.loads((ROOT/'Assets/Editor/ResourceAudit/Data/ProductionUiArtCatalog.json').read_text())['entries']
 converted={x['sprite']:x for x in catalog}
 for entry in catalog:
  for part in entry.get('frameParts') or []: converted[part['sprite']]=entry

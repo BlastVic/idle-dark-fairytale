@@ -4,7 +4,7 @@
 
 可操作技能显示暗红环与书签；锁定技能整体灰化，并进一步淡化图标、保留锁图标。点数不足或满级时隐藏操作书签。9→10 级需要两个技能点。
 
-15 个技能的状态节点均持久化在 `Assets/DarkFairytale/UI/Skills/StorybookSkills.prefab` 中：`AvailableState/AvailableCrimsonRing`、`AvailableState/ActionBookmark`、`AvailableState/CanUpgrade`。可在 Inspector 调整尺寸、位置和颜色；运行时仅绑定显隐与符号，不重建层级。
+15 个技能的状态节点均持久化在 `Assets/DarkFairytale/UI/Skills/Prefabs/StorybookSkills.prefab` 中：`AvailableState/AvailableCrimsonRing`、`AvailableState/ActionBookmark`、`AvailableState/CanUpgrade`。可在 Inspector 调整尺寸、位置和颜色；运行时仅绑定显隐与符号，不重建层级。
 
 ## Unity 实际验证
 

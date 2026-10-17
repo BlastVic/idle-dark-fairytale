@@ -1,7 +1,7 @@
 共用角色属性面板，2026-10-14
 用户要求：主界面的属性布局与装备 UI 一致，以装备页现有面板制作共用 Prefab。
 
-共用资产：Assets/DarkFairytale/UI/Shared/StorybookAttributePanel.prefab
+共用资产：Assets/DarkFairytale/UI/Shared/Prefabs/StorybookAttributePanel.prefab
 引用方：ShelterHome.prefab、StorybookEquipment.prefab，均为保持连接的嵌套 Prefab 实例。
 原装备面板直接提取，沿用背景、边框、图标、字体、标题、六个属性格、加点和收展箭头，无新增替代美术。主界面使用统一缩放及原页面定位；宽屏扩展列间空间，不横向拉伸图标和文字。
 运行时代码仅更新数据、折叠状态及必要适配，不创建 UI。共用数据呈现保证点数、数字格式和加点状态一致。保留两处原有属性成本和连续加点限制。

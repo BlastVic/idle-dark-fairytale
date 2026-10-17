@@ -235,7 +235,7 @@
 | 当前外部源素材 | 项目同级目录 `../Spine/monster/<怪物ID>/` |
 | 当前约定的外部导出位置 | 项目同级目录 `../Spine/export/monster/`；新增批量资源建议按怪物 ID 分子目录 |
 | 新怪物预览资源 | 项目内 `Assets/Tests/Monsters/<怪物ID>/` |
-| 统一测试场景 | 项目内 `Assets/Tests/MonsterAnimation/MonsterAnimationTest.unity` |
+| 统一测试场景 | 项目内 `Assets/Tests/MonsterAnimation/Scenes/MonsterAnimationTest.unity` |
 | 原怪物美术 | 项目内 `Assets/Grfx/Enemies/` |
 | 原怪物预制体 | 项目内 `Assets/Prefab/Addressable Prefabs/Enemies/` |
 
@@ -324,12 +324,12 @@
 
 代码或导出管线调整后，同步更新本手册及验收规则。
 
-- [Enemy.cs](../Assets/Scripts/Enemy.cs)：待机、攻击选择、皮肤、命中与死亡完成。
+- [Enemy.cs](../Assets/Scripts/Combat/Enemy.cs)：待机、攻击选择、皮肤、命中与死亡完成。
 - [AnimationController.cs](../Assets/Scripts/Oneshark/AnimationController.cs)：事件路由、攻击数量统计和播放入口。
-- [Actor_Base.cs](../Assets/Scripts/Actor_Base.cs)：受击、打断、死亡与血条引用。
-- [DropIn.cs](../Assets/Scripts/DropIn.cs)：入场与子节点顺序。
-- [AssetManager.cs](../Assets/Scripts/AssetManager.cs) 和 [WaveManager.cs](../Assets/Scripts/WaveManager.cs)：资源键、实例化和波次。
-- [统一测试场景使用说明](../Assets/Tests/MonsterAnimation/README.md)：扫描目录、操作菜单及验证能力。
+- [Actor_Base.cs](../Assets/Scripts/Combat/Actor_Base.cs)：受击、打断、死亡与血条引用。
+- [DropIn.cs](../Assets/Scripts/Utilities/DropIn.cs)：入场与子节点顺序。
+- [AssetManager.cs](../Assets/Scripts/Core/AssetManager.cs) 和 [WaveManager.cs](../Assets/Scripts/Combat/WaveManager.cs)：资源键、实例化和波次。
+- [统一测试场景使用说明](../Assets/Tests/MonsterAnimation/Documentation/README.md)：扫描目录、操作菜单及验证能力。
 - [mon_7070 美术制作方案](mon7070-crow-doll.md)：单个怪物的视觉设计示例。
 
 ## 出场演出与战斗隔离
@@ -344,4 +344,4 @@
 
 ## 默认验收入口（2026-10-11）
 
-后续怪物在 Unity 中的运行预览统一直接启动 `Assets/Tests/MonsterAnimation/MonsterAnimationTest.unity`。复用已有可编辑 UGUI、背景和小红帽参照；必要的目录、取景和验证能力在该场景及配套工具中补充。预览必须采用新怪物 Prefab 的初始皮肤和朝向，基础四动作的范围均需可见。保持资源/预览验收与完整战斗验收分别记录；不能以自定义事件计数通过推断伤害、掉落、销毁和波次已通过。
+后续怪物在 Unity 中的运行预览统一直接启动 `Assets/Tests/MonsterAnimation/Scenes/MonsterAnimationTest.unity`。复用已有可编辑 UGUI、背景和小红帽参照；必要的目录、取景和验证能力在该场景及配套工具中补充。预览必须采用新怪物 Prefab 的初始皮肤和朝向，基础四动作的范围均需可见。保持资源/预览验收与完整战斗验收分别记录；不能以自定义事件计数通过推断伤害、掉落、销毁和波次已通过。

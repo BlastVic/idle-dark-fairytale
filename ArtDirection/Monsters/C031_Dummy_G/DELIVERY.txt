@@ -47,7 +47,7 @@ MonsterAnimationTest 可选择 MobRotleafChild，有实际模型缩略图、中�
 MobHollowWolf 既有单怪/混编 3 次回归也通过，运行错误 0。
 
 实战中发现并修复的通用逻辑
-Assets/Scripts/Enemy.cs：
+Assets/Scripts/Combat/Enemy.cs：
 1. 立即攻击直接执行，不再通过同步结束的协程覆盖下一次攻击句柄；StopAttacking 能取消待执行攻击。
 2. 波次完成等待同场其他怪物的死亡动画结束，避免提前胜利清理尚未完成 Death1 的怪物。
 失败过程未被当作通过；最终报告记录修复后的运行结果。
@@ -61,7 +61,7 @@ Assets/Scripts/Enemy.cs：
 1. 项目根目录运行 python3 ArtDirection/Monsters/C031_Dummy_G/build_rig.py。
 2. Unity 等待脚本编译完成，显式菜单 Tools > Dark Fairytale > Monsters > MobRotleafChild > Build and Register。
 3. 数据不变验证：python3 ArtDirection/Monsters/C031_Dummy_G/build_rig.py --verify。
-4. MobRotleafChild 菜单 Validate and Render；预览与临时实战入口见 Assets/Tests/MonsterAnimation/README.md。
+4. MobRotleafChild 菜单 Validate and Render；预览与临时实战入口见 Assets/Tests/MonsterAnimation/Documentation/README.md。
 已有 Prefab 不重建，正式关卡不更改。未提交 Git。
 
 证据

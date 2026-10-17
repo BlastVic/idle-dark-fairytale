@@ -46,7 +46,7 @@ Mob004 验收报告
 - attackAudio=ATTACK1、deathAudio=SLIME_DEATH 仍是通用/史莱姆占位，应在正式定稿时确认声音。
 
 五、复测入口
-打开 Assets/Tests/MonsterAnimation/MonsterAnimationTest.unity。
+打开 Assets/Tests/MonsterAnimation/Scenes/MonsterAnimationTest.unity。
 Tools > Dark Fairytale > Monsters > Validate Mob004：离线原数据/事件/网格采样与独立关键帧。
 Tools > Dark Fairytale > Monsters > Validate Mob004 In Test Scene：自动进入 Play，运行资源加载和 UGUI/比例/关键帧验收，结束退出 Play、恢复分辨率。
 Prepare Mob004 Acceptance 仅在需要上述已知引用/材质修复时显式运行，不在导入时执行。

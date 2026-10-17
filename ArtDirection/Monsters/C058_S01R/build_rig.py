@@ -3,7 +3,7 @@ import copy,json,hashlib
 from pathlib import Path
 from PIL import Image
 BASE=Path(__file__).resolve().parent; SRC=BASE/'source'; ORIG=SRC/'original-rig'; ROOT=BASE.parents[2]
-OUT=ROOT/'Assets/DarkFairytale/Companions/PetCindrel'; ID='PetCindrel'
+OUT=ROOT/'Assets/DarkFairytale/Companions/PetCindrel/Spine'; ID='PetCindrel'
 ALIASES={'Idle1':'Idle_Battle_00','CampIdle':'Idle_Down_00','Attack1':'Atk1_00','Attack2':'Atk_E_00','Attack3':'LinkSkill_00','Hit':'Hit_00','Death1':'Death_00','Exit':'Run_Battle_00'}
 HITS={'Attack1':1.10,'Attack2':1.1667,'Attack3':2.43}
 def duration(o):

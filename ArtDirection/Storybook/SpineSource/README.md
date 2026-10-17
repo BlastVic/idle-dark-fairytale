@@ -2,7 +2,7 @@
 
 ## 编辑入口
 
-- UGUI Prefab：`Assets/DarkFairytale/UI/StorybookIntro/CursedBookIntro.prefab`
+- UGUI Prefab：`Assets/DarkFairytale/UI/StorybookIntro/Prefabs/CursedBookIntro.prefab`
 - Spine SkeletonData：同目录 `CursedBook_SkeletonData.asset`
 - Spine 源数据：本目录 `CursedBook.json` 和 `images/`，可在 Spine 3.8 中通过 Import Data 导入；这是可导入 JSON 源数据，不是原生 `.spine` 工程。
 - 数据生成脚本：`build_animation.py`。只生成几何、插槽及时间轴，不修改图片。手工编辑 Spine 后请直接导出到资源目录，不要运行脚本覆盖手工调整。

@@ -6,7 +6,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
-OUT = ROOT / 'Assets/DarkFairytale/UI/StorybookIntro'
+OUT = ROOT / 'Assets/DarkFairytale/UI/StorybookIntro/Spine'
 OUT.mkdir(parents=True, exist_ok=True)
 bones = [{'name': 'root'}, {'name': 'book', 'parent': 'root', 'x': -250}]
 slots, attachments, deform, timelines = [], {}, {}, {}

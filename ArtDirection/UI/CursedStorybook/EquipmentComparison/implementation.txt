@@ -1,7 +1,7 @@
 Approved equipment comparison redesign
 
 References: approved-five-stats.png and approved-one-stat.png (user-approved concept images).
-Prefab: Assets/DarkFairytale/UI/Equipment/StorybookEquipment.prefab.
+Prefab: Assets/DarkFairytale/UI/Equipment/Prefabs/StorybookEquipment.prefab.
 
 Quality and title occupy one single line, with bounded font fitting and ellipsis for long titles.
 Equipment artwork is dynamically bound to the current/target item sprites behind stat rows. The translucent parchment veil and image are separate editable prefab nodes. Existing game equipment assets and frame/button assets are reused; no generated text or icons are baked into the runtime UI.

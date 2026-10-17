@@ -14,7 +14,7 @@ MobBriarChild · 荆棘莓童 — 2026-10-12
 资源路径
 Assets/DarkFairytale/Monsters/MobBriarChild/MobBriarChild.prefab
 同目录 MobBriarChild.json / MobBriarChild.atlas.txt / MobBriarChild.png / SkeletonData / Atlas / 正常与闪白材质。
-Assets/Resources/LevelDataDescriptions.asset 与 Addressables 注册精确键 MobBriarChild。
+Assets/Resources/Data/LevelDataDescriptions.asset 与 Addressables 注册精确键 MobBriarChild。
 外部导出 ../Spine/export/monster/MobBriarChild/ 与项目 JSON/atlas/PNG 字节一致。
 没有覆盖原版怪物，也没有改正式关卡波次或写测试存档。
 

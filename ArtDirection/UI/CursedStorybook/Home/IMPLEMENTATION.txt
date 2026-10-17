@@ -1,6 +1,6 @@
 庇护所主 UI — V7 开发说明
 
-入口：Assets/DarkFairytale/UI/Shelter/ShelterHome.prefab
+入口：Assets/DarkFairytale/UI/Shelter/Prefabs/ShelterHome.prefab
 场景：Assets/Scenes/MainScenes/Gameplay.unity，通过 GameplayCanvas.homeUI 引用。
 UGUI 控件均持久化在 Prefab 中：背景、头像、等级、编号、血条、经验条、货币、设置、四个宝箱槽、右侧功能图标、六项属性、收展按钮、继续战斗、五个底部入口，以及详情和设置面板。
 

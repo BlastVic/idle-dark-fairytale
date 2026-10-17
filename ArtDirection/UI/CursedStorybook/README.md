@@ -4,8 +4,8 @@
 
 ## 可编辑交付
 
-- 主界面：`Assets/DarkFairytale/UI/CursedStorybook/CursedStorybookBattleHUD.prefab`。
-- 敌人血条：`Assets/DarkFairytale/UI/CursedStorybook/CursedStorybookEnemyBar.prefab`。
+- 主界面：`Assets/DarkFairytale/UI/CursedStorybook/Prefabs/CursedStorybookBattleHUD.prefab`。
+- 敌人血条：`Assets/DarkFairytale/UI/CursedStorybook/Prefabs/CursedStorybookEnemyBar.prefab`。
 - 场景：`Assets/Scenes/MainScenes/Gameplay.unity` 中的主 HUD Prefab 实例，通过 `GameplayCanvas.battleHud` 绑定。
 - 敌人血条由 `MoonlitCastleBattleStyle.asset` 的 `enemyHealthBarPrefab` 引用；生成敌人时实例化此 Prefab，并交回现有 `EnemyLifebar`、`Actor_Base` 与 `DropIn` 控制。
 

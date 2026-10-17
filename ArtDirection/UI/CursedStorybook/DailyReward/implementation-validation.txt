@@ -1,7 +1,7 @@
 每日补给实施与验证（2026-10-13）
 已选基准：daily-reminder-concept-v2.png，关闭按钮左上角。
 
-交付：Assets/DarkFairytale/UI/DailyReward/StorybookDailyReminder.prefab；Gameplay 场景绑定；CashMallPackage.prefab 顶部新增每日补给卡片。
+交付：Assets/DarkFairytale/UI/DailyReward/Prefabs/StorybookDailyReminder.prefab；Gameplay 场景绑定；CashMallPackage.prefab 顶部新增每日补给卡片。
 所有布局、奖励图片、文本和按钮为持久化 UGUI 节点。编辑工具仅显式执行，不随导入或运行重建。
 图像处理：内置 imagegen 从已选稿去除文案，并生成移除结晶与按钮后的底板；Unity Sprite 分片复用原稿结晶和按钮。没有以其他设计替代。
 

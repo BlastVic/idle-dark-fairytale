@@ -2,7 +2,7 @@
 
 启动流程：沿用 CursedBookIntro 原开书动画与镜头。镜头停在中间视距，依次播放六张序章插画；每张先用现有 HiddenInk 材质显影，再播放对应 Lauren 英文纯旁白。该段音轨结束后短暂停留，翻动一张纸页并播放一次单页音效（0.82 秒，书身与镜头不动），再显示下一张。第六张之后同样播放一次翻页音效，然后恢复原来的主界面显影、镜头推进及操作按钮出现流程。
 
-演出资产：Assets/DarkFairytale/UI/StorybookIntro/CursedBookIntro.prefab
+演出资产：Assets/DarkFairytale/UI/StorybookIntro/Prefabs/CursedBookIntro.prefab
 新增组件：CursedBookPrologue。PrologueIllustration、PrologueSubtitle、两个 AudioSource 都是持久化 Prefab 节点，可在 Inspector 调整。每页图片、音轨、字幕与时长参数均序列化。运行时不创建整套 UI。
 
 插画：采用六张已选序章插画，图 6 为最新中等压暗效果图。竖图等比铺满 3:4 书页绘画区域，裁去上下部分边缘以消除左右过宽留白，沿用书页边缘墨绘渐隐效果，不横向拉伸。每页 focalPoint 可在 Inspector 调整取景中心。原图路径和切分边界见 output/prologue-integration/asset-sources.json。

@@ -1,6 +1,6 @@
 商店 UI 与血月结晶（2026-10-13）
 
-已接入的可编辑 UGUI Prefab：Assets/Prefab/Addressable Prefabs/CashMallPackage.prefab。
+已接入的可编辑 UGUI Prefab：Assets/Prefab/Addressable Prefabs/Packages/CashMallPackage.prefab。
 保留 CashMallPackage Addressable 资源地址及原有 Router 入口。所有布局、插画、文字、价格按钮、滚动区域、遮罩、到账反馈均为持久化 Prefab 节点；运行时只绑定数据与交互。
 编辑器主动重建入口：Tools/Dark Fairytale/UI/Build Shop (Explicit)。不会在导入或 Play 时自动覆盖手动调整。
 

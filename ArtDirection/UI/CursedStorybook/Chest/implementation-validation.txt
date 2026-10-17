@@ -1,6 +1,6 @@
 宝箱详情 UI 实装 — 2026-10-13
 
-替换 Assets/Prefab/Addressable Prefabs/ChestPackage.prefab，保留原 GUID 与 ChestPackage 地址键；主界面宝箱仍通过原 Router/AssetManager 入口。40 个持久化 UGUI 节点，标题、来源、余额、倒计时、消耗、按钮均为真实文本。菜单工具仅显式执行，不会在导入或运行时重建。
+替换 Assets/Prefab/Addressable Prefabs/Packages/ChestPackage.prefab，保留原 GUID 与 ChestPackage 地址键；主界面宝箱仍通过原 Router/AssetManager 入口。40 个持久化 UGUI 节点，标题、来源、余额、倒计时、消耗、按钮均为真实文本。菜单工具仅显式执行，不会在导入或运行时重建。
 
 美术：直接引用已选稿 ApprovedChest.png 的宝箱、晶石、手套、红书签、蜡封和边框，清字图只提供空白底图。保留原稿像素，用可编辑材质轮廓去除背景，未以新宝箱替换。原两栏概念图的单栏偏长，按居中 540×960 核心区域重新分配垂直布局，宝箱与图标按等比显示；边框使用九宫格。与概念稿的留白、字号、纹理拼接及轮廓边缘有适配差异，不宣称逐像素还原。三个品质绑定各自标题，目前共同使用获批的宝箱造型。
 

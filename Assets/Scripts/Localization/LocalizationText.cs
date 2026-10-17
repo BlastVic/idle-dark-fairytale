@@ -97,7 +97,7 @@ namespace Assets.Scripts.Localization
         private static void CreateContent()
         {
             var xmlDocument = new XmlDocument();
-            var stringReader = new StringReader(Resources.Load<TextAsset>("IdleLocalTexts").text);
+            var stringReader = new StringReader(Resources.Load<TextAsset>("Localization/IdleLocalTexts").text);
 
             xmlDocument.LoadXml(stringReader.ReadToEnd());
             

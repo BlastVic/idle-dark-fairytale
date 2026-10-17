@@ -5,7 +5,7 @@
 
 游戏资产：Assets/Audio/StorybookIntro/Prologue/Chinese/PrologueZhFull.wav
 时轴：Assets/DarkFairytale/UI/StorybookIntro/Prologue/VoiceTimeline.zh-CN.json
-Prefab：Assets/DarkFairytale/UI/StorybookIntro/CursedBookIntro.prefab
+Prefab：Assets/DarkFairytale/UI/StorybookIntro/Prefabs/CursedBookIntro.prefab
 
 音频保持连续播放，字幕、开书和插画转场以 AudioSource.time 为准，避免逐页切断环境音。
 在引子与六幅插画之间的六处旁白停顿中各增加 3 秒衔接（第一处保持安静，其余保留环境声），最终音频 155.531 秒。原混音和原始素材未覆盖。

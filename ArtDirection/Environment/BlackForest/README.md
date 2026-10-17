@@ -43,8 +43,8 @@
 - 实景检查：打开现有 Gameplay 场景并进入 Play，执行 Test First Level Atmosphere。在首关三波蘑菇战斗中检查图层并截取三种眼睛状态，同时沿用战斗事件检查。
 - 检查结果与实景截图位于 `output/black-forest-atmosphere/`。截图是视觉核验依据；没有以静态截图代替动画采样。
 
-调整悬挂点和图层位置：`Assets/Scripts/BlackForestAtmosphere.cs`。
-调整 Spine 动画关键帧：`Assets/Editor/BlackForestAtmosphereBuilder.cs`，修改后重新 Build。
+调整悬挂点和图层位置：`Assets/Scripts/Environment/BlackForestAtmosphere.cs`。
+调整 Spine 动画关键帧：`Assets/Editor/Authoring/BlackForestAtmosphereBuilder.cs`，修改后重新 Build。
 
 ## 本轮验收
 

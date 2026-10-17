@@ -5,7 +5,7 @@
 2. equipment-v4-three-column-compact.png：左当前装备、中目标装备、右属性增减；移除详情总标题、提示与左右箭头。
 3. 保留按钮与详情边框之间的底部留白。
 
-交付仍为 Assets/DarkFairytale/UI/Equipment/StorybookEquipment.prefab 及 EquipmentCell.prefab。
+交付仍为 Assets/DarkFairytale/UI/Equipment/Prefabs/StorybookEquipment.prefab 及 EquipmentCell.prefab。
 切换按钮、文字、遮罩、姿态参照与三栏对比均是持久化 Prefab 节点；运行时只绑定数据、切换显示及进行尺寸适配。旧总标题和左右按钮兼容引用保留为 inactive 节点，不显示或拦截输入；左右滑动切换仍可使用。
 精简模式主属性底部居中；详细模式缩小并上移图标，下方半透明黑底显示所有非零属性及主属性。
 常规详细卡片为三行高度；若有更多属性，按当前分类最长属性列表增加所有卡片高度，保持网格对齐，不静默截断属性。显示模式在同次运行中保留；切换保留选择与当前浏览行，分类保留各自滚动位置。

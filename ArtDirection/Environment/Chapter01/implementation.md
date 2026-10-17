@@ -12,7 +12,7 @@
 | 4 | 溪畔小屋 | test02 | 月亮、小河、树旁及门旁路灯、烟囱烟雾、二楼窗内狼头阴影 |
 | 5 | 小屋内部 | Mount Zion | 烛火、壁炉火焰燃烧与明暗变化 |
 
-`Assets/Resources/Chapter01Environments.asset` 保存节点与 Prefab 的绑定，同时提供 `CH1_Node01` 至 `CH1_Node05` 独立环境键。优先按正式关卡键查询，当前路线第 3、4 个节点的资源键虽然叫 test01/test02，但它们属于当前前五个可见节点，不能跳过。未配置关卡沿用原背景回退。
+`Assets/Resources/Environment/Chapter01Environments.asset` 保存节点与 Prefab 的绑定，同时提供 `CH1_Node01` 至 `CH1_Node05` 独立环境键。优先按正式关卡键查询，当前路线第 3、4 个节点的资源键虽然叫 test01/test02，但它们属于当前前五个可见节点，不能跳过。未配置关卡沿用原背景回退。
 
 ## 编辑与交付结构
 

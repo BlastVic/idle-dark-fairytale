@@ -2,8 +2,8 @@
 日期：2026-10-13
 
 交付
-主界面：Assets/DarkFairytale/UI/Equipment/StorybookEquipment.prefab
-装备格：Assets/DarkFairytale/UI/Equipment/EquipmentCell.prefab
+主界面：Assets/DarkFairytale/UI/Equipment/Prefabs/StorybookEquipment.prefab
+装备格：Assets/DarkFairytale/UI/Equipment/Prefabs/EquipmentCell.prefab
 Gameplay 场景已经绑定新界面。布局、边框、文字、按钮、滚动区域均为持久化 UGUI 节点，可在 Inspector 修改。
 Tools/Dark Fairytale/UI/Build Equipment UI (Explicit) 是重新制作初版的显式操作，会覆盖本界面 Prefab；日常手动调整不要再次执行。运行、导入和进入 Play 不会自动重建。
 

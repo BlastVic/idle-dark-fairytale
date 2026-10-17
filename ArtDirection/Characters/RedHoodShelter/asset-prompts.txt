@@ -1,5 +1,5 @@
 工具：内置 image_gen，透明输出保留原 Alpha；非 CLI。
-参考：Assets/DarkFairytale/UI/Shelter/ShelterScene.png。
+参考：Assets/DarkFairytale/UI/Shelter/Textures/ShelterScene.png。
 
 1. ShelterEmpty.png
 Edit target: supplied shelter illustration. Create a CLEAN BACKGROUND PLATE for layered game animation. Remove ONLY the seated red hood girl, all her red cloak pooled on floor, her boots, the mug and its steam. Reconstruct the empty wooden chest/bench she was sitting on, the wall behind her and rug under her feet seamlessly. Keep everything else EXACTLY in place: fireplace left, wooden chest bench around x150-600 y900, bed right, window, scythe, hanging lamps, rug, perspective and warm candlelight, dark fairytale ink drawing style. Preserve exact 1086x1448 aspect ratio and composition. No person or ghost silhouette anywhere. No interface, text, new objects, transparent background or borders. This must align as closely as possible with original for overlaying the extracted character at her original position.

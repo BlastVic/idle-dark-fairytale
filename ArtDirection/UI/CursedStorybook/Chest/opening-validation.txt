@@ -3,8 +3,8 @@
 确认方向：金光蓄力、左右摇晃、短暂停顿、箱盖猛然震开并回弹，随后奖励逐件弹出，归入战利品列表。演出完毕由玩家点击“收下战利品”返回。
 
 交付资源：
-Assets/Prefab/Addressable Prefabs/ChestPackage.prefab
-Assets/DarkFairytale/UI/Chest/ChestRewardRow.prefab
+Assets/Prefab/Addressable Prefabs/Packages/ChestPackage.prefab
+Assets/DarkFairytale/UI/Chest/Prefabs/ChestRewardRow.prefab
 Assets/DarkFairytale/UI/Chest/Spine/Chest_SkeletonData.asset
 Spine 3.8 JSON、图集和透明分层贴图保存在同目录；提供可导入骨架数据，无原生 .spine 工程。
 布局、特效图片节点、奖励模板、文本、按钮均为持久化 UGUI Prefab 节点。编辑器制作工具仅显式请求执行，不随导入或运行重建。

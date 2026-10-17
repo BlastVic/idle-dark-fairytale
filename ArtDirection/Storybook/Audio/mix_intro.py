@@ -3,7 +3,7 @@ from pathlib import Path
 import wave
 import numpy as np
 RATE=44100
-src=Path('output/storybook-audio/source'); dst=Path('Assets/Audio/StorybookIntro')
+src=Path('output/storybook-audio/source'); dst=Path('Assets/Audio/StorybookIntro/Clips')
 def read(name):
  with wave.open(str(src/(name+'.wav'))) as f:
   a=np.frombuffer(f.readframes(f.getnframes()),'<i2').reshape(-1,f.getnchannels()).astype(float)/32768

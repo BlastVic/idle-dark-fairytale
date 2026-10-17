@@ -7,7 +7,7 @@ MobRuneWolf — 猩红符文狼 / Unity 交付
 运行目录：Assets/DarkFairytale/Monsters/MobRuneWolf/
 内容：MobRuneWolf.prefab、MobRuneWolf.json、MobRuneWolf.atlas.txt、MobRuneWolf.png、材质、闪白材质、Atlas、SkeletonData。
 配置键和 Addressables 地址：MobRuneWolf。LevelDataDescriptions.EnemyDb 已注册；正式关卡敌人列表可填写此键。
-未替换当前正式关卡配置。已加入 Assets/Tests/MonsterAnimation/MonsterAnimationTest.unity 的目录和 Prefab 列表。
+未替换当前正式关卡配置。已加入 Assets/Tests/MonsterAnimation/Scenes/MonsterAnimationTest.unity 的目录和 Prefab 列表。
 
 预览步骤：
 1. Unity 菜单 Tools > Dark Fairytale > Monsters > Open Test Scene。

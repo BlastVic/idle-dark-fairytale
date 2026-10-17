@@ -2,7 +2,7 @@
 
 交付
 角色 Prefab：Assets/DarkFairytale/UI/Shelter/RedHoodIdle/RedHoodShelter.prefab
-主界面 Prefab：Assets/DarkFairytale/UI/Shelter/ShelterHome.prefab
+主界面 Prefab：Assets/DarkFairytale/UI/Shelter/Prefabs/ShelterHome.prefab
 嵌套位置：SupportedViewport/ShelterIllustration/RedHoodShelter
 运行数据：同目录 RedHoodShelter.json、RedHoodShelter.atlas.txt、RedHoodShelter.png、SkeletonDataAsset 与 UI 材质。
 可编辑源：SpineSource/RedHoodShelter.json + images/body.png、eyes.png、steam.png。使用 Spine 3.8 导入 JSON 后编辑骨骼、权重、网格和时间线；当前交付为 JSON 源数据，不是原生 .spine 二进制工程。

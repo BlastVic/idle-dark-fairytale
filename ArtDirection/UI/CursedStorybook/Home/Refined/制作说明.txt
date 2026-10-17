@@ -4,7 +4,7 @@
 ArtDirection/UI/CursedStorybook/Home/home-v7-refined-right-icons.png
 
 交付入口
-Assets/DarkFairytale/UI/Shelter/ShelterHome.prefab
+Assets/DarkFairytale/UI/Shelter/Prefabs/ShelterHome.prefab
 - SupportedViewport：允许 1:2 至 3:4 的竖屏区域，超出范围为纯黑。
 - ShelterIllustration：1080×2160 等比场景，角色和壁炉都为其子节点，保持空间关系。
 - Core_9x16：以 1080×1920 为基准，随可用比例增大横向或纵向布局范围。

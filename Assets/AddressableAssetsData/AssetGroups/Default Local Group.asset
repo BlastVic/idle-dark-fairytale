@@ -21,12 +21,12 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0de4298cd9d9d46998f26727620d36d4
-    m_Address: Assets/Prefab/Addressable Prefabs/FusionPackage.prefab
+    m_Address: Assets/Prefab/Addressable Prefabs/Packages/FusionPackage.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e33a3b07569d470489af69d481d040d
-    m_Address: Assets/Prefab/Addressable Prefabs/CashMallPackage.prefab
+    m_Address: Assets/Prefab/Addressable Prefabs/Packages/CashMallPackage.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 432997815b89b624f93c2bc36807935a
-    m_Address: Assets/Prefab/Addressable Prefabs/MapPackageAuto.prefab
+    m_Address: Assets/Prefab/Addressable Prefabs/Packages/MapPackageAuto.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b90ce2ee895c64461929bdaece2c06bd
-    m_Address: Assets/Prefab/Addressable Prefabs/ChestPackage.prefab
+    m_Address: Assets/Prefab/Addressable Prefabs/Packages/ChestPackage.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -126,7 +126,7 @@ MonoBehaviour:
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: dabbd59e3387d48d69670edfc152d1d6
-    m_Address: Assets/Prefab/Addressable Prefabs/RebirthPackage.prefab
+    m_Address: Assets/Prefab/Addressable Prefabs/Packages/RebirthPackage.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

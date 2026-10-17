@@ -6,10 +6,10 @@
 每幅显现 1.8 秒；文字读完停留 0.4 秒，再进行单页翻动。无旁白、翻页声和环境音。
 新玩家首次观看；老存档可通过地图的序章节点重播。地图重播结束仍返回地图。
 游戏中英文音频原素材保留，当前 Silent Preview 开启。后续配音需替换中文音频并按语音时间重新校准字幕，不能直接取消静音使用旧英文音轨。
-Prefab: Assets/DarkFairytale/UI/StorybookIntro/CursedBookIntro.prefab
+Prefab: Assets/DarkFairytale/UI/StorybookIntro/Prefabs/CursedBookIntro.prefab
 Inspector 可编辑 Opening Captions / Opening Duration，以及各 Pages 的 Captions / Silent Duration。
 源文本: Assets/DarkFairytale/UI/StorybookIntro/Prologue/Captions.zh-CN.json
-地图重播配置: Assets/DarkFairytale/UI/Map/PrologueStory.asset
+地图重播配置: Assets/DarkFairytale/UI/Map/Data/PrologueStory.asset
 ChinesePrologueSetup 仅在显式 install.request 时写入；不会导入时自动覆盖手动编辑。
 
 开场（阅读 28.88 秒）

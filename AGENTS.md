@@ -45,7 +45,9 @@
 - 尺寸一致须同时核对角色比例与相机投影，不能仅凭引用同一个 Prefab 判断。以同屏幕比例下的实际 Unity 渲染验证特效相对角色的大小。
 - 如保留调试大小滑杆，100% 必须对应正式战斗尺寸，其他倍率仅用于临时调试，不作为默认展示或验收基准。
 
-# 小红帽服装规范
+# 小红帽资源与服装规范
+
+- 战斗小红帽统一存放于 `Assets/DarkFairytale/Characters/RedHood/`：Spine、Prefabs、Tests、Editor 各司其职。正式与预览共用唯一正式 SkeletonData/JSON，不再创建 RedHoodPrototype 或同步第二份动画。原稿、分件、表情及武器视角参考统一归档至 `Assets/ArtSources/Characters/RedHood/`。
 
 - 主界面与战斗统一使用短款破边斗篷。自然垂落的后摆应到臀部附近；坐姿按臀部/座面位置判断长度，不能缩成仅盖肩背的披肩，也不延长成落地拖尾。
 
@@ -66,3 +68,12 @@
 - 装备华丽度随原版装备进阶顺序整体递增：前期以朴素布料、木材、皮革和普通铁器为主；中期增加材质对比、结构层次和少量装饰；后期允许更精致的轮廓、镶嵌、纹样与特殊材质。递进参考原版，不把所有装备都做成初级朴素款，也不把前期做成高阶外观。各阶段仍须保留简洁画风与小尺寸辨识度，华丽不等于堆满细碎装饰或重复主题符号。
 - 前期兜帽采用贴合小红帽角色的圆润帽顶，不使用尖顶或长尖尾，避免产生法师帽印象。尖顶造型仅作为后期装备备选。
 - 装备目前仅用于 UI 展示，优先简洁、缩小后的辨识度与丰富的品类轮廓；参考原版的种类多样性。统一画风不等于统一主题装饰，不给所有装备套上红丝带、蜡封、荆棘或小红帽元素。通过装备类型、形状、材质和适量配色区分，不靠重复贴主题符号或仅换色凑数量。
+
+# 项目目录结构规范
+
+- 分类层原则上只放文件夹，具体文件进入末级目录；不要在已有功能分类旁追加零散贴图、Prefab、材质、Shader、代码或说明文件。先复用已有分类，避免为了一个文件建立意义不明的 Misc/Other 目录。
+- 正式美术按功能归入 `Assets/DarkFairytale`。功能内部按需要分为 Prefabs、Textures、Materials、Shaders、Sprites、Data、Spine、Documentation；完整 Spine 导出组（JSON、atlas、贴图和对应材质/数据）保持同目录，避免破坏导入器与相对页面路径。已经是单一用途的末级目录不强制继续拆分。
+- 通用运行代码归入 `Assets/Scripts` 的功能子目录；编辑器制作工具、验证、构建处理、资源审计分别归入 `Assets/Editor/Authoring`、`Validation`、`BuildPostprocess`、`ResourceAudit`。角色专属工具保留在角色的 Editor 子树。
+- `Assets/Resources/Data` 放配置单例；Environment 放章节环境目录；Localization 放文本。移动 Resources 文件必须同步改运行加载键、编辑器路径和生成位置，并验证独立运行所用的加载方式，不可依赖编辑器搜索回退。
+- 例外仅限真实工具约束：`Assets/Editor/SpineSettings.asset` 是 Spine 固定路径；`Assets/Resources/IAPProductCatalog.json` 与 `BillingMode.json` 是 Unity IAP 固定入口；第三方插件、AddressableAssetsData、Unity 工程配置保持其规定结构。不得为了外观整齐修改供应商源码或改变 asmdef 范围。
+- 移动 Unity 资源必须同时保留原 `.meta` GUID，更新完整路径与动态拼接路径、制作清单和当前说明。整理不触发 Prefab 自动重建；完成后检查 GUID 引用、Resources 加载、Spine、正式场景与常用制作工具。迁移记录归入资源审计 Data，说明归入 Docs；临时日志、崩溃转储、截图放忽略目录。

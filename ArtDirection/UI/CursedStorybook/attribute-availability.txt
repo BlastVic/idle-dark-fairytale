@@ -1,6 +1,6 @@
 Attribute availability visual update
 
-Shared prefab: Assets/DarkFairytale/UI/Shared/StorybookAttributePanel.prefab, used by ShelterHome and StorybookEquipment.
+Shared prefab: Assets/DarkFairytale/UI/Shared/Prefabs/StorybookAttributePanel.prefab, used by ShelterHome and StorybookEquipment.
 Each saved stat cell now contains an UnavailableBackground and UnavailableReason. A full-cell translucent charcoal tint preserves parchment texture and keeps functional text readable. The existing button greyscale treatment remains in place and restores automatically with availability.
 Actual rule: the last purchased stat cannot be purchased consecutively (PurchaserManager.LastStatPurchased), not a permanent allocation cap. The reason reads 不可连续加点 for that case and 点数不足 for insufficient points. Navigating away does not incorrectly mark stats as permanently unavailable.
 Runtime only binds states; no cells or UI objects are generated at runtime. The explicit editor patch runs only with output/attribute-availability/patch.request.

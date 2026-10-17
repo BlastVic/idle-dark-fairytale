@@ -1,6 +1,6 @@
 技能 UI 制作与验证（2026-10-13）
 
-交付：Assets/DarkFairytale/UI/Skills/StorybookSkills.prefab。
+交付：Assets/DarkFairytale/UI/Skills/Prefabs/StorybookSkills.prefab。
 Gameplay.unity 的 GameplayCanvas.skillsPanel 已连接新 Prefab；原面板作为停用的 LegacySkillsPanel_Reference 保留。
 节点、文字、按钮、连线、虚线、箭头和详情布局均持久化在 Prefab 中，可在 Inspector 调整。
 运行时只负责数据、交互、Graphic 网格绘制和安全区适配，不生成层级。

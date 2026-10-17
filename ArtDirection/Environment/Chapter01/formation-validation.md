@@ -1,6 +1,6 @@
 # 第一章战斗站位实现与验证
 
-2026-10-10。现有 Gameplay 战斗已采用紧凑三角站位，配置保存在 `Assets/DarkFairytale/MoonlitCastleBattleStyle.asset`，可在 Inspector 调整。代码默认值同步更新。五节新背景仍为概念图，本次仅调整现有真实场景的普通怪站位与尺寸。
+2026-10-10。现有 Gameplay 战斗已采用紧凑三角站位，配置保存在 `Assets/DarkFairytale/Battle/Settings/BattleStyle.asset`，可在 Inspector 调整。代码默认值同步更新。五节新背景仍为概念图，本次仅调整现有真实场景的普通怪站位与尺寸。
 
 | 角色或槽位 | 脚底横向位置 | 脚底纵向位置 | 最大宽度 | 最大高度 |
 | --- | --- | --- | --- | --- |

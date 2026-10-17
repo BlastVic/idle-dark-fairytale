@@ -113,7 +113,7 @@ Unity 目录在 `Assets/DarkFairytale/Monsters/BlackForestMushroom/` 下，三�
 - Unity：`Assets/DarkFairytale/Monsters/BlackForestMushroom/BF_Mushroom_{Wine,Moss,Moon}/`。
 - 外部导出：项目同级 `Spine/export/monster/BF_Mushroom_{Wine,Moss,Moon}/`。
 - 分件和 JSON：`source/BF_Mushroom_{Wine,Moss,Moon}/`。
-- 统一测试场景：`Assets/Tests/MonsterAnimation/MonsterAnimationTest.unity`。
+- 统一测试场景：`Assets/Tests/MonsterAnimation/Scenes/MonsterAnimationTest.unity`。
 - 首关：Gameplay 的 `Khorasan Ruins I`，第一波酒红、第二波苔绿、第三波月紫＋酒红。保留已有资源键、GUID 和战场布局。
 
 `1` 皮肤使用 linked mesh 继承默认皮肤，确保 spawn 的原 deform 时间线仍然生效。三者保留 `default`、`1` 皮肤以及 Enemy / Actor_Base / DropIn / 血条结构，HP 6、伤害 1、攻击间隔 2.8 秒、经验 1；数值仍为测试配置。
@@ -143,7 +143,7 @@ Unity 目录在 `Assets/DarkFairytale/Monsters/BlackForestMushroom/` 下，三�
 
 主角尺寸框由屏幕宽高 44%／28% 调整为 35%／23.5%，前排怪物由 30%／23% 调整为 24%／18.5%，实际缩放保持原宽高比。主角脚下锚点为 (23%, 30%)，前排怪物为 (68%, 31%)；后排为 (84%, 48%)、尺寸框 18%／14%。其余普通怪物位置也同步缩小并错开，Boss 专用参数保留。血条、接地阴影沿用随角色尺寸自动适配的逻辑。
 
-配置集中在 `Assets/DarkFairytale/MoonlitCastleBattleStyle.asset`，脚本默认值同步。修改前双怪画面备份：`output/monster-animation/before-spacing-v6/wave3.png`。
+配置集中在 `Assets/DarkFairytale/Battle/Settings/BattleStyle.asset`，脚本默认值同步。修改前双怪画面备份：`output/monster-animation/before-spacing-v6/wave3.png`。
 
 ## v7：后排落脚点回到道路
 

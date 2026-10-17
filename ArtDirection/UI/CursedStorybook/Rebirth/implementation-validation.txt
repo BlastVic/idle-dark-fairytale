@@ -1,7 +1,7 @@
 转生 UI 实装验证 — 2026-10-13
 
 用户最终选择：恢复第一版 rebirth-concept-v1.png，撤回左右同层按钮的 v2；大转生按钮在上，继续冒险文本按钮在下。
-交付：Assets/Prefab/Addressable Prefabs/RebirthPackage.prefab，保留原 Addressables GUID、原转生动画和返回流程。新界面位于 StorybookRebirth/Core_9x16。旧 Canvas 停用保留参照。
+交付：Assets/Prefab/Addressable Prefabs/Packages/RebirthPackage.prefab，保留原 Addressables GUID、原转生动画和返回流程。新界面位于 StorybookRebirth/Core_9x16。旧 Canvas 停用保留参照。
 所有文本、奖励数值、按钮、图标与页面面板为持久化 UGUI 节点；无运行时创建布局。Builder 仅由明确菜单/请求执行，导入和运行不重建。
 美术：ApprovedRebirth 是 v1 原稿；森林与人物插画、返回书签、图标和蜡封从原稿取材。内置 image_gen 清除文字及可拆控件，生成 BlankLabels 与 BasePlate，保留版式后分切节点。文字全部替换为 NotoSerifCJKsc-Black Text 组件。
 功能：收益实时绑定现有配置与公式（含已有累计加成、升级预览）；未达条件与满转生拦截；二次确认；确认取消无数据更改；重置/奖励执行一次；原动画结束返回营地，并恢复宝箱导航状态。血月结晶保留。

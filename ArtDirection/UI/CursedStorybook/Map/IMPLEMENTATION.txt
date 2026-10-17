@@ -5,8 +5,8 @@
 第二章村庄和旧地图的后续背景、节点、云层、相机附属界面已隐藏；旧资源和关卡数据仍保留。
 
 可编辑入口
-Assets/DarkFairytale/UI/Map/Chapter01Map.prefab
-实际加载容器：Assets/Prefab/Addressable Prefabs/MapPackageAuto.prefab（Addressables key: MapPackage）。
+Assets/DarkFairytale/UI/Map/Prefabs/Chapter01Map.prefab
+实际加载容器：Assets/Prefab/Addressable Prefabs/Packages/MapPackageAuto.prefab（Addressables key: MapPackage）。
 Core_9x16 下分别是 MapViewport、Header、SelectedNodeCard、Navigation。
 MapViewport/Chapter01Terrain 保存背景、RouteSegments 和五个节点。
 图片、节点按钮、文字、路线点、徽章和导航都是持久化 UGUI 节点；名称、波次和状态用 Text 组件显示。
@@ -34,7 +34,7 @@ BlackForest.png 是依据参考图去除 UI 并补全地形的制作底图。按
 后续新增章节时仍须用真实底图验证道路、河流、岸线和植被拼接；目前没有第二章底图的拼接验收。
 
 本地验收
-Assets/Editor/StorybookMapValidation.cs 通过明确请求执行实际 Gameplay 验收；测试期间关闭存档写入，进度夹具只在本次 Play 会话有效。
+Assets/Editor/Validation/StorybookMapValidation.cs 通过明确请求执行实际 Gameplay 验收；测试期间关闭存档写入，进度夹具只在本次 Play 会话有效。
 截图与详细日志：output/map-ui/，该目录被 Git 忽略。
 测试命令：编辑器空闲且编译完成后创建 output/map-ui/validate.request。capture.request 只做三种比例截图与按钮命中检查。
 

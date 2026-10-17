@@ -2266,7 +2266,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1024, y: 1536}
+  m_SizeDelta: {x: 941, y: 1672}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6590309249248022450
 CanvasRenderer:
@@ -2296,7 +2296,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 756b19a12895842c5b6fd086249297e7, type: 2}
+  m_Sprite: {fileID: 21300000, guid: 325a2b1ba99fa4147b393d405ae43fac, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2739,7 +2739,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StorybookResultBackdrop
   supported: {fileID: 8141071833474938674}
   background: {fileID: 8733751305821418531}
-  artworkSize: {x: 1024, y: 1536}
+  artworkSize: {x: 941, y: 1672}
 --- !u!114 &761175863475446971
 MonoBehaviour:
   m_ObjectHideFlags: 0

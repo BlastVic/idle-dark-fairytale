@@ -63,7 +63,7 @@
       "repair-v2/legs.png",
       "repair-v2/blink.png"
     ],
-    "exporter": "Assets/Editor/MobGloamwebTextureRepair.cs",
+    "exporter": "Assets/Editor/Authoring/MobGloamwebTextureRepair.cs",
     "registration": "repair-v2/registration.json",
     "preserved": "All existing JSON bytes, bones, slots, weights, UVs, original animations and game events unchanged",
     "parts": "26; body/head artwork retained, eye/mouth/legs registered using nontransparent bounds; sparse closed-eye marks retain full-eye canvas",
