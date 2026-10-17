@@ -1,0 +1,12 @@
+怪物出场配置更新（2026-10-16）
+
+水史莱姆 MobMurmlet、史莱姆之王 MobStillmere、疯松鼠 MobSplinterjaw：在原站位播放原生 spawn，不添加额外下落位移。保留 spawn 动画自身的跳跃、缩放和显隐。
+枯叶菇 MobVesperling、刺帽菇 MobBramblet：与红眼狼、霜牙狼王一致，从屏幕右侧外播放 Run_Battle_00 跑入，runDuration=0.6 秒。
+花背蛛 MobGloamweb：保留原有从天而降。
+Prefab 与显式构建工具已同步；原版参照素材、骨架、贴图和英文资源键不变。
+
+实测：
+MonsterAnimationTest：12 角色引用与 173 动作回归；原地 spawn 无额外位置偏移；四种跑入角色在 9:16、3:4、1:2 下验证屏幕外起点、向左移动、准确到位、暂停、倍速、重播与取消。PASS，运行时错误 0。
+Gameplay：11 单怪及混编波次；原地 spawn 全程根显示节点无平移；蜘蛛保留下落；跑步角色使用原生动画并从右侧屏幕外进场；入场锁定、攻击、受击、死亡、经验、胜利和返回正常。PASS，运行时错误 0。
+运行时波次和属性仅用于测试，不改正式关卡或存档。验收结束返回 MonsterAnimationTest。
+本地证据：output/monster-entrance-rules/，跑步阶段截图另见 output/wolf-run-entrance/。截图均被 Git 忽略，未提交 Git。

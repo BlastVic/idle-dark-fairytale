@@ -1,0 +1,5 @@
+{
+  "tool": "imagegen builtin",
+  "prompt": "Precisely restore this existing small game UI circular wolf medallion, not a redesign. It is an 87x87-ish raster icon: black ink wolf head on warm parchment, circular antique dark metal rim. At the RIGHT edge there is an overlaid circular PADLOCK BADGE covering the parchment and rim. Remove ONLY that right-hand padlock badge and reconstruct the tiny missing parchment and circular metal rim beneath it, continuing the existing rim and paper texture naturally. Preserve the original wolf silhouette, head, nose, ears, eye, neck, all other rim details and exact layout. Do not change wolf, do not add symbols or writing. Keep same framing, same palette, same circle diameter. Outside medallion must remain transparent. This is localized restoration of the right edge, not a new icon. Output one single icon with transparent exterior. The original main subject must stay unchanged.",
+  "usage": "Only right-edge patch x>=61, top-origin y 24..71 at original 87x87 size. Original wolf subject pixels retained outside repair."
+}

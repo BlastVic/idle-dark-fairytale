@@ -1,5 +1,5 @@
 Shader "UI/Chest Interior Light" {
-Properties { _Mode("0 Interior, 1 Closed seam",Float)=0 }
+Properties { [PerRendererData] _MainTex("UI Texture",2D)="white" {} _Mode("0 Interior, 1 Closed seam",Float)=0 }
 SubShader { Tags {"Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True"} Cull Off ZWrite Off ZTest [unity_GUIZTestMode] Blend SrcAlpha OneMinusSrcAlpha
 Pass { CGPROGRAM
 #pragma vertex vert

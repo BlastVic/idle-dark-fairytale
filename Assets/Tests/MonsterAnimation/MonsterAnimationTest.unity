@@ -1802,15 +1802,15 @@ MonoBehaviour:
   discoveryFolders:
   - Assets/Tests
   - Assets/DarkFairytale/Monsters/BlackForestMushroom
-  - Assets/DarkFairytale/Monsters/MobRuneWolf
+  - Assets/DarkFairytale/Monsters/MobHexmaw
   - Assets/DarkFairytale/Monsters/BlackForestSpider
-  - Assets/DarkFairytale/Monsters/MobHollowWolf
-  - Assets/DarkFairytale/Monsters/MobRotleafChild
-  - Assets/DarkFairytale/Monsters/MobBriarChild
-  - Assets/DarkFairytale/Monsters/MobBarkSquirrel
-  - Assets/DarkFairytale/Monsters/MobDrownedMoon
-  - Assets/DarkFairytale/Monsters/MobDrownedKing
-  - Assets/DarkFairytale/Companions/MobBookSpineDragon
+  - Assets/DarkFairytale/Monsters/MobRivenfang
+  - Assets/DarkFairytale/Monsters/MobVesperling
+  - Assets/DarkFairytale/Monsters/MobBramblet
+  - Assets/DarkFairytale/Monsters/MobSplinterjaw
+  - Assets/DarkFairytale/Monsters/MobMurmlet
+  - Assets/DarkFairytale/Monsters/MobStillmere
+  - Assets/DarkFairytale/Companions/PetCindrel
   hud: {fileID: 1352289090}
   stage: {fileID: 1320433615}
   loop: 1

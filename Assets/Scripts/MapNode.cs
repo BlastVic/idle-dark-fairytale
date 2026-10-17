@@ -80,64 +80,7 @@ public class MapNode : MonoBehaviour
 
     }
 
-#if UNITY_EDITOR
+    // Legacy map authoring was retired with the old map prefab and artwork.
 
-    public void UpdateInfo(Waveset waveSet)
-    {
-        this.mapFullName = waveSet.levelKey;
-        this.goNormal.SetActive(!waveSet.isMiniBoss);
-        this.goMiniBOSS.SetActive(waveSet.isMiniBoss);
-        this.hideMap.mapPrerequisiteFullName = waveSet.precondition;
-        this.hideMap.gameObject.SetActive(!string.IsNullOrEmpty(waveSet.precondition));
-        Sprite sprite = (Sprite)UnityEditor.AssetDatabase.LoadAssetAtPath(string.Format("Assets/Grfx/Menus/WorldMap/{0}.png",waveSet.icon), typeof(Sprite));
-        this.imgNormal.sprite = sprite;
-        this.imgMiniBOSS.sprite = sprite;
-        if(!string.IsNullOrEmpty(waveSet.color))
-        {
-            string[] colors = waveSet.color.Split(',');
-            this.imgMiniBOSSBG.color = new Color(float.Parse(colors[0]) / 255f, float.Parse(colors[1]) / 255f, float.Parse(colors[2]) / 255f, 1f);
-        }
-        for (int i = 0; i < this.listArrows.Length; i++)
-        {
-            this.listArrows[i].SetActive(false);
-        }
-        if (!string.IsNullOrEmpty(waveSet.precondition))
-        {
-            Waveset preWave = WaveManager.single.GetWavesetByKey(waveSet.precondition);
-            string[] currentPos = waveSet.position.Split(',');
-            string[] prePos = preWave.position.Split(',');
-            Vector2 vecCurrent = new Vector2(float.Parse(currentPos[0]), float.Parse(currentPos[1]));
-            Vector2 vecPre = new Vector2(float.Parse(prePos[0]), float.Parse(prePos[1]));
-            for (int i = 0; i < this.listArrows.Length; i++)
-            {
-                if (vecPre.x < vecCurrent.x && vecPre.y == vecCurrent.y)
-                {
-                    this.listArrows[0].SetActive(true);
-                }
-                else if (vecPre.x > vecCurrent.x && vecPre.y == vecCurrent.y)
-                {
-                    this.listArrows[1].SetActive(true);
-                }
-                else if (vecPre.x == vecCurrent.x && vecPre.y < vecCurrent.y)
-                {
-                    this.listArrows[2].SetActive(true);
-                }
-                else if (vecPre.x == vecCurrent.x && vecPre.y > vecCurrent.y)
-                {
-                    this.listArrows[3].SetActive(true);
-                }
-                else if (vecPre.x < vecCurrent.x && vecPre.y < vecCurrent.y)
-                {
-                    this.listArrows[4].SetActive(true);
-                }
-                else if (vecPre.x > vecCurrent.x && vecPre.y < vecCurrent.y)
-                {
-                    this.listArrows[5].SetActive(true);
-                }
-            }
-        }
-    }
-
-#endif
 
 }

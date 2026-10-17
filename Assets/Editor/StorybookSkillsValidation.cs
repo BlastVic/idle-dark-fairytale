@@ -49,7 +49,7 @@ public sealed class SkillsProbe
         yield return new WaitForSecondsRealtime(1);
         var gc=GameplayCanvas.single;var gm=GameManager.single;gc.CancelInvoke("TryShowingXpBoosterNotification");gc.xpBoosterNotification.SetActive(false);
         for(int i=0;i<20;i++)if(!gm.HasSeenThis("Tutorial-"+i))gm.thingsSeenPermanent.Add("Tutorial-"+i);
-        if(TutorialManager.single){var tutorial=TutorialManager.single;tutorial.automatic=false;if(tutorial.view)tutorial.view.Hide();if(tutorial.overlay)tutorial.overlay.SetActive(false);if(tutorial.tutorialCharacter)tutorial.tutorialCharacter.SetActive(false);foreach(var t in tutorial.tutorials)if(t)t.SetActive(false);}
+        if(TutorialManager.single){var tutorial=TutorialManager.single;tutorial.automatic=false;if(tutorial.view)tutorial.view.Hide();}
         Router.single.SkillsButton();yield return new WaitForSecondsRealtime(2);
         ui=gc.skillsPanel.GetComponent<StorybookSkillsUI>();Check(ui&&ui.isActiveAndEnabled,"existing Skills route opens authored prefab");if(!ui){Finish();yield break;}
         yield return new WaitForEndOfFrame();Shot("current-save-9x16");

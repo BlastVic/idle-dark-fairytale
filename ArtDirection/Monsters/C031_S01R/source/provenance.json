@@ -1,5 +1,5 @@
 {
-  "monster_id": "MobBriarChild",
+  "monster_id": "MobBramblet",
   "approved_design": "A-character-v1.png",
   "painting": "built-in image_gen; exact model identifier not exposed",
   "painting_prompts": "painting-prompts.json",
@@ -68,6 +68,6 @@
     "Front_Leg_01.png": "d1b5d49bda64a5567919032a7dbc81782c765684a49368c48ab7bee03ff255ac",
     "Front_Body.png": "dff9a0d96ef0f6d38a99a81fcdaa77f8fbbc1f986c884871bd3ec17f7e8812dc"
   },
-  "registration": "2x original canvas; measured uneven generated cell boundaries in MobBriarChildBuilder; UV-visible source alpha bounds; cap inset plus per-part uniform fit in registration.json; generated alpha retained; no mesh or UV edits",
+  "registration": "2x original canvas; measured uneven generated cell boundaries in MobBrambletBuilder; UV-visible source alpha bounds; cap inset plus per-part uniform fit in registration.json; generated alpha retained; no mesh or UV edits",
   "atlas": "Unity PackTextures; 8 px padding; 4096 maximum; straight alpha; no rotation; verify packed dimensions equal part canvas"
 }

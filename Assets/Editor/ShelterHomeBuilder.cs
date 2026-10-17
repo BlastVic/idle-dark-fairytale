@@ -62,7 +62,7 @@ public static class ShelterHomeBuilder
         for(int i=0;i<4;i++) {
             string path=Root+"/Sprites/"+names[i]+".asset";
             assets[i]=AssetDatabase.LoadAssetAtPath<Sprite>(path);
-            if(!assets[i]) {assets[i]=Sprite.Create(texture,rects[i],new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,borders[i]);AssetDatabase.CreateAsset(assets[i],path);}
+            if(!assets[i]) {assets[i]=ProductionUiArt.Create(texture,rects[i],new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,borders[i]);AssetDatabase.CreateAsset(assets[i],path);}
         }
         var go=PrefabUtility.LoadPrefabContents(Path);
         try {
@@ -82,7 +82,7 @@ public static class ShelterHomeBuilder
             if(!extra) {var img=Pic("LowerBackdrop",illustration.parent,illustration.GetComponent<Image>().sprite,0,1430,1080,1440);img.color=new Color(.28f,.25f,.23f);img.transform.SetSiblingIndex(0);}
             var core=go.transform.Find("Core_9x16");if(!core.GetComponent<RectMask2D>())core.gameObject.AddComponent<RectMask2D>();
             var floor=AssetDatabase.LoadAssetAtPath<Sprite>(Root+"/Sprites/ShelterFloor.asset");
-            if(!floor) {var textureScene=illustration.GetComponent<Image>().sprite.texture;floor=Sprite.Create(textureScene,new Rect(0,0,textureScene.width,400),new Vector2(.5f,.5f),100);AssetDatabase.CreateAsset(floor,Root+"/Sprites/ShelterFloor.asset");}
+            if(!floor) {var textureScene=illustration.GetComponent<Image>().sprite.texture;floor=ProductionUiArt.Create(textureScene,new Rect(0,0,textureScene.width,400),new Vector2(.5f,.5f),100);AssetDatabase.CreateAsset(floor,Root+"/Sprites/ShelterFloor.asset");}
             var lower=(RectTransform)core.Find("LowerBackdrop");lower.GetComponent<Image>().sprite=floor;lower.GetComponent<Image>().color=new Color(.65f,.61f,.56f);lower.anchoredPosition=new Vector2(0,-1490);lower.sizeDelta=new Vector2(1080,1080f*400/floor.texture.width);
             foreach(var slider in new[]{ui.musicSlider,ui.soundSlider}) {
                 slider.fillRect.sizeDelta=new Vector2(0,-32);slider.fillRect.pivot=new Vector2(0,.5f);slider.fillRect.anchoredPosition=new Vector2(0,0);
@@ -93,7 +93,7 @@ public static class ShelterHomeBuilder
             ui.numberText.rectTransform.anchoredPosition=new Vector2(16,-128);ui.numberText.fontSize=22;ui.numberText.resizeTextMaxSize=22;
             ui.collapseButton.targetGraphic.GetComponent<Image>().sprite=null;ui.collapseButton.targetGraphic.color=new Color(1,1,1,.08f);ui.settingsButton.targetGraphic.GetComponent<Image>().sprite=null;ui.settingsButton.targetGraphic.color=new Color(1,1,1,.08f);ui.levelText.fontSize=52;ui.levelText.resizeTextMaxSize=52;
             foreach(var b in ui.statButtons) { var img=(Image)b.targetGraphic; img.sprite=null;img.color=new Color(.78f,.72f,.61f); if(!b.GetComponent<Outline>()) {var outline=b.gameObject.AddComponent<Outline>();outline.effectColor=new Color(.2f,.14f,.1f);outline.effectDistance=new Vector2(1,-1);} var txt=b.GetComponentInChildren<Text>();txt.fontSize=40;txt.resizeTextMaxSize=40;}
-            PrefabUtility.SaveAsPrefabAsset(go,Path);
+            ProductionUiArt.SaveAsPrefabAsset(go,Path);
         } finally {PrefabUtility.UnloadPrefabContents(go);}
         AssetDatabase.SaveAssets();
     }
@@ -104,7 +104,7 @@ public static class ShelterHomeBuilder
         return AssetDatabase.LoadAssetAtPath<Texture2D>(p);
     }
     static Sprite Slice(Texture2D t,string name,Rect r) {
-        var s=Sprite.Create(t,r,new Vector2(.5f,.5f),100);s.name=name;AssetDatabase.CreateAsset(s,Root+"/Sprites/"+name+".asset");return s;
+        var s=ProductionUiArt.Create(t,r,new Vector2(.5f,.5f),100);s.name=name;AssetDatabase.CreateAsset(s,Root+"/Sprites/"+name+".asset");return s;
     }
     // Coordinates use the parent's top-left, y increases down. All positions remain serialized.
     static RectTransform Node(string name,Transform parent,float x,float y,float w,float h) {
@@ -209,7 +209,7 @@ public static class ShelterHomeBuilder
             ui.musicSlider=Slider(audio,"Music",12);ui.soundSlider=Slider(audio,"Sound",142);
             ui.musicValue=Txt("MusicValue",audio,"100%",653,0,110,60,28);ui.soundValue=Txt("SoundValue",audio,"100%",653,130,110,60,28);
             ui.modal.SetActive(false);
-            PrefabUtility.SaveAsPrefabAsset(root.gameObject,Path);
+            ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
         } finally {UnityEngine.Object.DestroyImmediate(root.gameObject);}
     }
 }

@@ -1,4 +1,4 @@
-MobBarkSquirrel 口部贴图修复 — 2026-10-12
+MobSplinterjaw 口部贴图修复 — 2026-10-12
 
 原因：mouth02 内壁与 mouth01 舌头使用方向性很强的木纹/毛发笔触，被原骨架上下颌权重拉伸后形成纵向条纹。原动画本身包含夸张张嘴动作。
 修复：内置 image_gen 重绘深暗酒红口腔与低对比舌头，透明背景。构建时仅两块口部改用 source/painted-mouth-v2.png；其他部件仍读取原已确认图。提示词见 source/mouth-repair-prompt.json。
@@ -6,8 +6,8 @@ MobBarkSquirrel 口部贴图修复 — 2026-10-12
 资源/动画：PASS。修复前后整份 JSON 及其他 12 块分件 PNG SHA256 不变；原骨架、UV、权重、原 7 段动画、游戏别名与事件均保留。14 区域图集尺寸正确，项目与外部导出一致。
 Unity 动画：PASS。11 段动画 × default/1 两皮肤；有限顶点、linked deform、命中/完成事件与攻击打断回归通过。
 美术：实际 Unity 渲染逐项检查 Idle、Attack 极值、Death、run、spawn、stun、victory，树皮纵向纹理已消除，舌头与下颌衔接可见。保留原始夸张张嘴幅度。
-证据：output/monster-mouth-repair/before/ 与 output/monster-animation/MobBarkSquirrel/；仅本地保存。
+证据：output/monster-mouth-repair/before/ 与 output/monster-animation/MobSplinterjaw/；仅本地保存。
 实战：本轮仅贴图修复，未重跑完整伤害/波次链路；不将动画事件通过描述为实战验收。
 原生工程：新原生 .spine 工程仍待补；此次未更改既有源工程状态。
 
-测试场景：PASS。MonsterAnimationTest 三比例 720×1280 / 768×1024 / 720×1440 实景复验；固定缩放验证器结果 nine monsters, errors=0。已回到 MobBarkSquirrel Idle1，缩放 1。
+测试场景：PASS。MonsterAnimationTest 三比例 720×1280 / 768×1024 / 720×1440 实景复验；固定缩放验证器结果 nine monsters, errors=0。已回到 MobSplinterjaw Idle1，缩放 1。

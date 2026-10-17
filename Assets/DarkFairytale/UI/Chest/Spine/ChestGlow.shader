@@ -1,5 +1,5 @@
 Shader "UI/Chest Opening Glow" {
-Properties { _Color("Tint",Color)=(1,1,1,1) _Falloff("Edge falloff",Float)=2 _Rays("Radiating beams",Range(0,1))=0 }
+Properties { [PerRendererData] _MainTex("UI Texture",2D)="white" {} _Color("Tint",Color)=(1,1,1,1) _Falloff("Edge falloff",Float)=2 _Rays("Radiating beams",Range(0,1))=0 }
 SubShader { Tags {"Queue"="Transparent" "RenderType"="Transparent" "IgnoreProjector"="True"} Cull Off ZWrite Off ZTest [unity_GUIZTestMode] Blend SrcAlpha OneMinusSrcAlpha
 Pass { CGPROGRAM
 #pragma vertex vert

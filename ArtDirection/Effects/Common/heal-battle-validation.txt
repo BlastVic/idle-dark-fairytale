@@ -1,0 +1,12 @@
+Common FX live Gameplay; no save writes. Explicit VFX invocation, not skill-probability testing.
+PASS Addressables Heal_Particle
+PASS healing Spine visible
+PASS healing native scale 100%
+PASS Addressables Heal_Particle
+PASS healing Spine visible
+PASS healing native scale 100%
+PASS Addressables Heal_Particle
+PASS healing Spine visible
+PASS healing native scale 100%
+PASS zero runtime errors
+COMPLETE: healing Spine x 3 aspect ratios, production Addressables and original healing trigger.

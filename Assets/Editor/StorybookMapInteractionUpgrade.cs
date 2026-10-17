@@ -14,7 +14,7 @@ public static class StorybookMapInteractionUpgrade
         if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists(request))return;
         File.Delete(request);
         var root=PrefabUtility.LoadPrefabContents(StorybookMapBuilder.Path);
-        try{Apply(root);PrefabUtility.SaveAsPrefabAsset(root,StorybookMapBuilder.Path);AssetDatabase.SaveAssets();File.WriteAllText("output/map-ui/upgrade-result.txt","PASS");}
+        try{Apply(root);ProductionUiArt.SaveAsPrefabAsset(root,StorybookMapBuilder.Path);AssetDatabase.SaveAssets();File.WriteAllText("output/map-ui/upgrade-result.txt","PASS");}
         finally{PrefabUtility.UnloadPrefabContents(root);}
     }
     [MenuItem("Tools/Dark Fairytale/UI/Upgrade Map Interactions (Explicit)")]
@@ -22,10 +22,10 @@ public static class StorybookMapInteractionUpgrade
     static void CorrectSeal(string name,Rect topRect,ref Sprite sprite,ref Material material)
     {
         string path=StorybookMapBuilder.Root+"/Sprites/"+name+".asset";
-        var texture=AssetDatabase.LoadAssetAtPath<Texture2D>(StorybookMapBuilder.Root+"/Art/ApprovedMap.png");
+        var texture=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/ArtSources/UI/Map/Art/ApprovedMap.png");
         var rect=new Rect(topRect.x,texture.height-topRect.y-topRect.height,topRect.width,topRect.height);
         var slice=AssetDatabase.LoadAssetAtPath<Sprite>(path);
-        if(!slice){slice=Sprite.Create(texture,rect,Vector2.one*.5f,100,0,SpriteMeshType.FullRect);slice.name=name;AssetDatabase.CreateAsset(slice,path);}
+        if(!slice){slice=ProductionUiArt.Create(texture,rect,Vector2.one*.5f,100,0,SpriteMeshType.FullRect);slice.name=name;AssetDatabase.CreateAsset(slice,path);}
         string matPath=StorybookMapBuilder.Root+"/"+name+".mat";var mat=AssetDatabase.LoadAssetAtPath<Material>(matPath);
         if(!mat){mat=new Material(material);AssetDatabase.CreateAsset(mat,matPath);}
         mat.SetVector("_SourceRect",new Vector4(rect.x/texture.width,rect.y/texture.height,rect.width/texture.width,rect.height/texture.height));

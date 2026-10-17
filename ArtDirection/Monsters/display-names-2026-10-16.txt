@@ -1,0 +1,31 @@
+中文显示名称统一（2026-10-16，简化版）
+
+MobTallowkin = 红帽菇
+MobGnarlo = 木头菇
+MobDrowseed = 瞌睡菇
+MobHexmaw = 红眼狼
+MobVesperling = 枯叶菇
+MobBramblet = 刺帽菇
+MobSplinterjaw = 疯松鼠
+MobGloamweb = 花背蛛
+MobRivenfang = 霜牙狼王
+MobMurmlet = 水史莱姆
+MobStillmere = 史莱姆之王
+PetCindrel = 书脊龙
+
+范围：只替换中文显示名；英文代码名称、资源键、路径、GUID 不变。
+同步：CreatureNames、MonsterAnimationTest 持久卡片和标题、两个 BOSS Prefab 的 bossName/血条文字、书脊龙技能标题和描述、编辑器制作工具默认文案、第一章战斗配置和测试说明。
+剧情：序章与章末文本已扫描，无旧专名。章末“狼终于倒下了”等泛称保留，与现有配音一致；不改变剧情台词或音频。
+历史迁移记录和美术设计报告保留当时名称，当前显示名以 CreatureNames 为准。
+
+验证：
+- Assets 中脚本、Prefab、场景、配置按 UTF-8 和 Unity YAML Unicode 转义扫描，无旧显示名残留。
+- MonsterAnimationTest：12 个角色、173 段动作、中英文搜索、出场、三种比例（720x1280、768x1024、720x1440），PASS，运行时错误 0。
+- Gameplay：11 个单怪波次及混编波次，真实出场/攻击/受击/死亡/经验/胜利/返回，PASS，运行时错误 0。
+- 两个 BOSS 实例血条实际文本分别为“霜牙狼王”和“史莱姆之王”；截图已目视核对。
+- 章末五页剧情、翻页、字幕边界（三比例）、返回营地及地图导航，PASS，运行时错误 0。
+- 第一章配置 Python 检查及 Unity 持久配置/Addressables/掉落/动作/BOSS 检查，PASS。
+- 验证工具补充真实 BOSS 标签断言、story 入口；章末验证改用当前平台 Game View 比例设置。
+
+本地截图与报告：output/creature-display-names-2026-10-16/（Git 已忽略）。
+未提交 Git。

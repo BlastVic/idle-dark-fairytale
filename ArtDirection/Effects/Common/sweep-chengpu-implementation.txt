@@ -1,0 +1,23 @@
+阴影践踏群攻特效替换为 chengpu_skill_tx_1。
+源文件来自 /Users/vic/Workshop/Spine/effect/chengpu_skill_tx_1，JSON/atlas/PNG 保持逐字节一致。
+保留 AOE_Particle 与原 Prefab GUID；一次发动一个横扫特效，伤害仍由 ProcessDmg_AOE 对全部存活敌人结算，技能概率和伤害数值不变。
+动画 animation，从原时间 0.2333 秒开始，跳过空白引导；可见播放时长 1.2667 秒。
+SkeletonData scale=0.01，根缩放=2，骨架局部偏移(-0.9,0,0)，补偿主刀环右偏。
+战斗位置为存活敌人整体包围区域中心；测试以展示敌人中心为落点，共用 Prefab 和固定缩放，100% 为战斗尺寸。
+Unity 实景验证涵盖 9:16、3:4、1:2，截图仅保留在 output/。
+
+测试场景动作联动：选择阴影践踏时使用小红帽 Attack2 横向挥镰，统一时间轴控制动作与两段特效。起手刀光 t=0.43，敌群横扫 t=0.56（Attack2 的 OnHit 时间），完整预览 1.8267 秒；动作完成后回到 Idle1。
+暂停、步进、回拖和重播均重建确定的动作姿态；起手位置基于待机身体位置，避免武器挥动改变包围盒导致特效漂移。仅修改测试场景控制器，不修改正式技能动作。
+
+测试场景五阶段修订：Attack2 横劈 → dongzhuo 起手刀光以 scythe_projection 附件中心定位（补偿特效自身中心，向右下微调）→ 镰刀前方原地生成 → 同点旋转 → 26 世界单位/秒向右飞出视口，整体越界后隐藏。
+主特效起点取横劈命中时镰刀位置，与怪物无关；xg1 在 UpdateLocal 阶段固定到生成阶段中心(-94,60)源骨架坐标，去掉原资源右侧烟尾，防止每帧动画覆盖位置修正。飞行阶段循环稳定的旋转片段，避免原片段缩小淡出导致屏内提前消失。
+预览全长2.3秒，主特效开始后0.62秒起飞；相关参数在 SpineEffectsTest 组件中可调。仍处于测试场景调试范围，正式战斗尚未应用此五阶段演出。
+
+2026-10-16 调整：显示名称统一为「回旋镰斩」，同步技能树 Prefab、测试目录与对应编辑器生成源；Sinister_Stampede 枚举/存档键保持不变。
+测试演出两段特效整体后移 0.13 秒：sweepCastTime=0.56，sweepHitTime=0.69。小红帽原动作及其伤害事件不变，生成后的原地成形、旋转、右移时长与尺寸不变。
+2026-10-16 位置微调：回旋镰斩主特效 sweepForwardOffset.x 从 1.0 调为 1.8，向右增加 0.8 世界单位（9:16、720px 宽画面约 53px）。原地成形和旋转段共用此起点；劈斩刀光的位置、时序、尺寸与飞行速度不变。
+
+2026-10-16 动作接入：回旋镰斩统一使用 Skill1（已同步当前 Attack2 的横斩和连续回位）。SpineEffectsTest 默认值及持久化 Rig 的 sweepHeroAnimation 改为 Skill1；保留 sweepCastTime=.56、sweepHitTime=.69、sweepForwardOffset.x=1.8。
+正式战斗 Sinister_Stampede 触发分支改播 Skill1；Player.AnimationOnHit 将 Skill1 路由至原群伤逻辑，并保留 Skill5 兼容。施放刀光移至 Skill1 的 OnHit（.56 s），避免刚抬手就生成；Skill1 名称不会走 Attack 普攻伤害分支。技能概率、伤害计算、音效及存档键不变。
+
+2026-10-16 后续调整（替代上面的 Skill1 接入）：按用户要求，将当前 Skill1 完整复制到 Skill5，Skill1 保留原样。正式战斗回旋镰斩恢复调用 Skill5；群伤和施放刀光均由 Skill5 的 OnHit 触发，Skill1 不再绑定回旋镰斩的伤害逻辑。测试 Rig 与默认 sweepHeroAnimation 同步改为 Skill5，既有特效延迟、位置和大小不变。

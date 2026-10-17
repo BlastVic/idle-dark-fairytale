@@ -14,7 +14,7 @@ using Spine.Unity;
 public static class MonsterPreviewScaleValidation
 {
     const string Dir = "output/monster-preview-scale/";
-    static readonly string[] Ids = { "MobWaxcap", "MobWoodcap", "MobDreamcap", "MobGloomSpider", "MobRuneWolf", "MobHollowWolf", "MobRotleafChild", "MobBriarChild", "MobBarkSquirrel", "MobDrownedMoon", "MobDrownedKing" };
+    static readonly string[] Ids = { "MobTallowkin", "MobGnarlo", "MobDrowseed", "MobGloamweb", "MobHexmaw", "MobRivenfang", "MobVesperling", "MobBramblet", "MobSplinterjaw", "MobMurmlet", "MobStillmere" };
     static string[] ActiveIds => string.IsNullOrEmpty(SessionState.GetString("MONSTER_SCALE_TARGET", "")) ? Ids : new[]{SessionState.GetString("MONSTER_SCALE_TARGET", "")};
     static int index, phase, ratio, errors;
     static double next, started;
@@ -99,7 +99,7 @@ public static class MonsterPreviewScaleValidation
                 Check(sa.skeletonDataAsset.atlasAssets.All(a=>a!=null && a.Materials.All(m=>m && m.mainTexture)),id+" atlas/material/texture references");
                 int ix=Array.FindIndex(t.monsters,d=>d.name==id+"_SkeletonData"); Check(ix>=0,id+" catalog data");
                 var card=t.hud.cards.Single(c=>c.data==t.monsters[ix]);
-                Check(card.portrait.sprite && card.displayName.Contains(id),id+" persistent portrait and name");
+                Check(card.portrait.sprite && card.displayName == CreatureNames.DisplayName(id),id+" persistent portrait and name");
                 t.hud.searchField.text=id.ToLowerInvariant(); Check(t.hud.cards.Count(c=>c.gameObject.activeSelf)==1,id+" exact search");
                 card.button.onClick.Invoke();
                 Check(t.SelectedMonster==ix && t.character.valid && string.IsNullOrEmpty(t.Error),id+" real preview selection");
@@ -124,7 +124,7 @@ public static class MonsterPreviewScaleValidation
                 ratio=0;Resolution(Width[ratio],Height[ratio]);next=EditorApplication.timeSinceStartup+1;phase=3;return;
             }
             if(phase==3) {
-                Check(t.hud.selectedTitle.text.Contains(id),id+" selected label at "+Width[ratio]+"x"+Height[ratio]);
+                Check(t.hud.selectedTitle.text == CreatureNames.DisplayName(id),id+" selected label at "+Width[ratio]+"x"+Height[ratio]);
                 ScreenCapture.CaptureScreenshot(Dir+id+"-"+Width[ratio]+"x"+Height[ratio]+".png");
                 phase=7;next=EditorApplication.timeSinceStartup+.7;return;
             }

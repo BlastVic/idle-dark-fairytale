@@ -29,7 +29,7 @@ public static class StorybookNavigationAuthoring
             var template=nav.buttons[2].transform.Find("ReferenceBookmark").gameObject;
             // Use only the frame's border pixels; the original illustration/text live in the discarded center.
             var edge=template.transform.Find("BookmarkEdges").GetComponent<Image>();var old=edge.sprite;
-            var border=Sprite.Create(old.texture,old.rect,old.pivot/old.rect.size,old.pixelsPerUnit,0,SpriteMeshType.FullRect,new Vector4(15,41,15,29));border.name="NavigationBookmarkBorder";AssetDatabase.CreateAsset(border,"Assets/DarkFairytale/UI/Shared/NavigationBookmarkBorder.asset");
+            var border=ProductionUiArt.Create(old.texture,old.rect,old.pivot/old.rect.size,old.pixelsPerUnit,0,SpriteMeshType.FullRect,new Vector4(15,41,15,29));border.name="NavigationBookmarkBorder";AssetDatabase.CreateAsset(border,"Assets/DarkFairytale/UI/Shared/NavigationBookmarkBorder.asset");
             edge.sprite=border;edge.gameObject.SetActive(true);edge.fillCenter=false;
             foreach(Transform child in template.transform.Cast<Transform>().ToArray())if(child.name.StartsWith("OriginalBookmark"))UnityEngine.Object.DestroyImmediate(child.gameObject);
             nav.bookmarks=new GameObject[5];nav.captions=new Text[5];
@@ -43,7 +43,7 @@ public static class StorybookNavigationAuthoring
                 var r=icon.rectTransform;r.anchorMin=r.anchorMax=new Vector2(.5f,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(-50,27)*ShelterReferenceBuilder.S; r.anchoredPosition=new Vector2(r.anchoredPosition.x,-r.anchoredPosition.y);r.sizeDelta=new Vector2(100,98)*ShelterReferenceBuilder.S;
                 var c=nav.captions[i].rectTransform;c.anchorMin=c.anchorMax=new Vector2(.5f,1);c.pivot=new Vector2(0,1);c.anchoredPosition=new Vector2(-87.5f,-117)*ShelterReferenceBuilder.S;c.sizeDelta=new Vector2(175,50)*ShelterReferenceBuilder.S;
             }
-            nav.Refresh();PrefabUtility.SaveAsPrefabAsset(go,Path);
+            nav.Refresh();ProductionUiArt.SaveAsPrefabAsset(go,Path);
         }finally{UnityEngine.Object.DestroyImmediate(go);}
     }
     static Material MaterialAsset(string name,Material source){string path="Assets/DarkFairytale/UI/Shared/"+name+".mat";var m=AssetDatabase.LoadAssetAtPath<Material>(path);if(!m){m=new Material(source);m.name=name;AssetDatabase.CreateAsset(m,path);}return m;}
@@ -60,7 +60,7 @@ public static class StorybookNavigationAuthoring
             foreach(var b in nav.buttons){var icon=b.transform.Find("Icon").GetComponent<Image>();icon.material=b==nav.buttons[2]?tent:colour;}
             var mapIcon=nav.buttons[3].transform.Find("Icon").GetComponent<Image>();var mapArt=MaterialAsset("MapSilhouette",colour);mapArt.shader=Shader.Find("UI/Shared Navigation Art");mapArt.SetFloat("_MapShape",1);var rect=mapIcon.sprite.rect;var texture=mapIcon.sprite.texture;mapArt.SetVector("_SourceRect",new Vector4(rect.x/texture.width,rect.y/texture.height,rect.width/texture.width,rect.height/texture.height));EditorUtility.SetDirty(mapArt);mapIcon.material=mapArt;
             var bookmark=MaterialAsset("BookmarkFill",nav.bookmarks[0].GetComponent<Image>().material);bookmark.shader=Shader.Find("UI/Shared Navigation Art");bookmark.SetFloat("_Bookmark",1);EditorUtility.SetDirty(bookmark);foreach(var b in nav.bookmarks)b.GetComponent<Image>().material=bookmark;
-            nav.Refresh();PrefabUtility.SaveAsPrefabAsset(root,Path);
+            nav.Refresh();ProductionUiArt.SaveAsPrefabAsset(root,Path);
         }finally{PrefabUtility.UnloadPrefabContents(root);}
     }
     public static StorybookNavigation Instantiate(Transform parent,RectTransform page,int selected){
@@ -84,7 +84,7 @@ public static class StorybookNavigationAuthoring
             if(skills||shop){var layout=root.GetComponent<StorybookSkillsLayout>();layout.navigation=r;layout.navigationContent=null;}
             UnityEngine.Object.DestroyImmediate(old.gameObject);nav.Apply();nav.Refresh();
             PrefabUtility.RecordPrefabInstancePropertyModifications(nav);
-            PrefabUtility.SaveAsPrefabAsset(root,path);
+            ProductionUiArt.SaveAsPrefabAsset(root,path);
         }finally{PrefabUtility.UnloadPrefabContents(root);}
     }
 }

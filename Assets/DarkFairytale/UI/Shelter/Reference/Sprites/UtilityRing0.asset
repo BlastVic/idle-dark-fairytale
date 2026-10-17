@@ -10,8 +10,8 @@ Sprite:
   m_Name: UtilityRing0
   m_Rect:
     serializedVersion: 2
-    x: 788
-    y: 1173
+    x: 0
+    y: 0
     width: 116
     height: 124
   m_Offset: {x: 0, y: 0}
@@ -26,7 +26,7 @@ Sprite:
   m_SpriteAtlas: {fileID: 0}
   m_RD:
     serializedVersion: 4
-    texture: {fileID: 2800000, guid: 6ab5bc3128ed64f05b2f6695b490c955, type: 3}
+    texture: {fileID: 2800000, guid: aa762fdb8e1e64a50ae67ecfc6765659, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -102,7 +102,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: aa692abf552a363f00000000aa692a3f552a363f00000000aa692abf552a36bf00000000aa692a3f552a36bf000000004e60563f6f95463f22ef753f6f95463f4e60563f1c99333f22ef753f1c99333f
+      _typelessdata: aa692abf552a363f00000000aa692a3f552a363f00000000aa692abf552a36bf00000000aa692a3f552a36bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_BlendShapes:
       vertices: []
@@ -111,18 +111,18 @@ Sprite:
       fullWeights: []
     textureRect:
       serializedVersion: 2
-      x: 788
-      y: 1173
+      x: 0
+      y: 0
       width: 116
       height: 124
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 3072
-    uvTransform: {x: 87.12963, y: 846, z: 87.12963, w: 1235}
+    uvTransform: {x: 87.12963, y: 58, z: 87.12963, w: 62}
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 4
-    texture: {fileID: 2800000, guid: 6ab5bc3128ed64f05b2f6695b490c955, type: 3}
+    texture: {fileID: 2800000, guid: aa762fdb8e1e64a50ae67ecfc6765659, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -198,7 +198,7 @@ Sprite:
         format: 0
         dimension: 0
       m_DataSize: 80
-      _typelessdata: aa692abf552a363f00000000aa692a3f552a363f00000000aa692abf552a36bf00000000aa692a3f552a36bf000000004e60563f6f95463f22ef753f6f95463f4e60563f1c99333f22ef753f1c99333f
+      _typelessdata: aa692abf552a363f00000000aa692a3f552a363f00000000aa692abf552a36bf00000000aa692a3f552a36bf000000000000000000000000000000000000000000000000000000000000000000000000
     m_Bindpose: []
     m_BlendShapes:
       vertices: []
@@ -207,14 +207,14 @@ Sprite:
       fullWeights: []
     textureRect:
       serializedVersion: 2
-      x: 788
-      y: 1173
+      x: 0
+      y: 0
       width: 116
       height: 124
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 3072
-    uvTransform: {x: 87.12963, y: 846, z: 87.12963, w: 1235}
+    uvTransform: {x: 87.12963, y: 58, z: 87.12963, w: 62}
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []

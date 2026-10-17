@@ -84,7 +84,7 @@ namespace Assets.Scripts.Services.Ads
             else
             {
                 beforeAdShownCallback.SafeInvoke(false);
-                LoggerMethods.LogError("Ad is unavailable when trying to ShowRewardedAd");
+                LoggerMethods.Log("Rewarded ad is not ready for placement: " + adTag);
             }
         }
 
@@ -93,17 +93,7 @@ namespace Assets.Scripts.Services.Ads
             _mediationProxy.ShowTestSuit();
         }
 
-        public void IsVideoAdReady()
-        {
-            if (IsRewardedVideoAdReady)
-            {
-                LoggerMethods.LogError("Ad is available when trying to ShowRewardedAd");
-            }
-            else
-            {
-                LoggerMethods.LogError("Ad is unavailable when trying to ShowRewardedAd");
-            }
-        }
+        public bool IsVideoAdReady() => IsRewardedVideoAdReady;
 
     }
 }

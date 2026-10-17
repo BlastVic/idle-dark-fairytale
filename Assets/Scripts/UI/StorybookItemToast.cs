@@ -12,17 +12,24 @@ public sealed class StorybookItemToast : MonoBehaviour
     public Vector2 designSize=new Vector2(800,190);
     public float visualScale=.9f;
     public float topInset=460,enterDuration=.24f,holdDuration=2.1f,exitDuration=.22f;
+    public Vector2 textRewardLayout = new Vector2(0,650);
+    Vector2[] equipmentPositions, equipmentSizes;
+    void BindRewardLayout(bool reward)
+    {
+        var labels=new[]{heading,itemName,detail};
+        if(equipmentPositions==null){equipmentPositions=new Vector2[3];equipmentSizes=new Vector2[3];for(int i=0;i<3;i++){equipmentPositions[i]=labels[i].rectTransform.anchoredPosition;equipmentSizes[i]=labels[i].rectTransform.sizeDelta;}}
+        for(int i=0;i<3;i++){var r=labels[i].rectTransform;r.anchoredPosition=reward?new Vector2(textRewardLayout.x,equipmentPositions[i].y):equipmentPositions[i];r.sizeDelta=reward?new Vector2(textRewardLayout.y,equipmentSizes[i].y):equipmentSizes[i];}
+        var divider=card.Find("Divider");if(divider)divider.gameObject.SetActive(!reward);
+    }
     float motion;
     public bool Presenting {get;private set;}
     public void Present(Item item)
     {
-        bool reward=item.m_IconName=="Stat"||item.m_IconName=="Skill"||item.m_IconName=="Exp"||item.itemGrade==ItemGrade.UI_ONLY;
-        icon.sprite=InventoryManager.single.GetSpriteIcon(item.m_IconName);icon.enabled=icon.sprite;
+        bool reward=item.itemGrade==ItemGrade.UI_ONLY;
+        icon.sprite=reward?null:InventoryManager.single.GetSpriteIcon(item.m_IconName);icon.enabled=icon.sprite;
+        BindRewardLayout(reward);
         heading.text=reward?"获得奖励":"获得装备";
         string name=string.IsNullOrWhiteSpace(item.m_ItemFinalTitle)?item.m_ItemBasicTitle:item.m_ItemFinalTitle;
-        if(item.m_IconName=="Stat")name=(name??"").Replace("Stats","属性点");
-        if(item.m_IconName=="Skill")name=(name??"").Replace("Skills","技能点");
-        if(item.m_IconName=="Exp")name=(name??"").Replace("XP","经验");
         itemName.text=string.IsNullOrWhiteSpace(name)?"旅途收获":name;
         detail.text=reward?"奖励已获得":StorybookEquipmentUI.GradeName(item.itemGrade)+(item.baseStat!=null?"  ·  "+StorybookEquipmentUI.PrimaryText(item):"");
         qualityAccent.color=reward?new Color(.55f,.12f,.08f):StorybookEquipmentUI.GradeColor(item.itemGrade);

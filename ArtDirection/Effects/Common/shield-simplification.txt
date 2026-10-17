@@ -1,0 +1,6 @@
+2026-10-16 荆棘格挡简化
+按用户要求仅保留中央盾牌与蜡封，移除外围荆棘圆环、外部尖刺及飘带。替换 Shield.png，保留贴图 GUID、材质、正式粒子参数及测试场景引用。
+使用内置 image_gen 编辑。原贴图存档 Shield-before-simplification.png。
+Prompt: Use case: precise-object-edit. Edit target: supplied shield VFX texture. Remove the ENTIRE surrounding circular thorn wreath, all its outer spikes, ribbons, loose ornament and drops. Keep ONLY the existing central ivory cracked medieval shield with aged gold/dark ink edging and central dark red fleur-de-lis wax seal. Preserve the central shield design, silhouette, colors and hand painted cursed fairytale rendering faithfully; do not redesign or add motifs. Enlarge this isolated central shield to occupy approximately 80% of canvas height, centered, with comfortable transparent margins. Single upright frontal shield, no circle, no aura, no ground shadow, no background, no text. True transparent RGBA background. Clean readable game particle texture.
+
+验证：测试场景交互及 9:16、3:4、1:2 检查通过；正式战斗 Addressables 与三比例检查通过，零运行错误。Unity 实景已检查盾牌主体及窄屏完整轮廓，截图保留 output/。

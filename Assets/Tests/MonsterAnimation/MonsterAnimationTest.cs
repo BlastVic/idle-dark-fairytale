@@ -28,6 +28,59 @@ public class MonsterAnimationTest : MonoBehaviour
     public string Error { get; private set; }
     public float Zoom { get; private set; } = 1;
     float elapsed;
+    DropIn entranceSettings, entrancePreview;
+    bool entranceMode;
+    string lastEntranceStatus;
+    public bool CanTestEntrance => entranceSettings && character && character.gameObject.activeSelf;
+    public bool EntranceMode => entranceMode;
+    public string EntranceStatus => !entrancePreview ? "" : entrancePreview.Phase == DropIn.EntrancePhase.Running ? "跑步进场" : entrancePreview.Phase == DropIn.EntrancePhase.Falling ? "下落中" : entrancePreview.IsEntering ? "出场动画" : "完成 · 待机";
+
+    public void Replay()
+    {
+        if (entranceMode) TestEntrance(); else Play(SelectedAnimation);
+    }
+
+    public void TestEntrance()
+    {
+        if (!CanTestEntrance) return;
+        CancelEntrance();
+        autoCycle = false;
+        if (stage) stage.Apply();
+        var host = new GameObject("Entrance Preview (isolated)");
+        host.SetActive(false);
+        host.transform.SetParent(transform, false);
+        entrancePreview = host.AddComponent<DropIn>();
+        character.AnimationState.ClearTracks();
+        character.Skeleton.SetToSetupPose();
+        int idle = Array.FindIndex(AnimationNames, n => n == "Idle1" || string.Equals(n, "idle", StringComparison.OrdinalIgnoreCase));
+        if (idle >= 0) { SelectedAnimation = idle; character.AnimationState.SetAnimation(0, AnimationNames[idle], true); }
+        character.timeScale = Paused ? 0 : speed;
+        entrancePreview.InitializePreview(character, entranceSettings, stage ? stage.previewCamera : null);
+        host.SetActive(true);
+        entranceMode = true;
+        Changed?.Invoke();
+    }
+
+    void CancelEntrance()
+    {
+        entranceMode = false;
+        if (!entrancePreview) return;
+        entrancePreview.gameObject.SetActive(false);
+        Destroy(entrancePreview.gameObject);
+        entrancePreview = null;
+        if (stage) stage.Apply();
+    }
+
+    public void ApplyEntrancePreview()
+    {
+        if (!entrancePreview) return;
+        entrancePreview.ApplyPreview(Paused ? 0 : Time.deltaTime * speed);
+        if (!entrancePreview.IsEntering && AnimationNames.Length > 0 && character.AnimationState.GetCurrent(0)?.Animation.Name != AnimationNames[SelectedAnimation])
+        {
+            character.AnimationState.SetAnimation(0, AnimationNames[SelectedAnimation], true);
+        }
+        if (lastEntranceStatus != EntranceStatus) { lastEntranceStatus = EntranceStatus; Changed?.Invoke(); }
+    }
     public event Action Changed;
 
     public void RefreshCatalog()
@@ -65,6 +118,8 @@ public class MonsterAnimationTest : MonoBehaviour
     public void SelectMonster(int index)
     {
         if (index < 0 || index >= monsters.Length) return;
+        CancelEntrance();
+        entranceSettings = null;
         SelectedMonster = index;
         CombatDisplayScale = Vector3.one;
         CombatIsBoss = false;
@@ -85,8 +140,9 @@ public class MonsterAnimationTest : MonoBehaviour
                 if (display && display.skeletonDataAsset == data) { CombatDisplayScale = display.transform.lossyScale;
                     var lifebar = prefab.GetComponentInChildren<EnemyLifebar>(true);
                     CombatIsBoss = lifebar && (lifebar.isBoss || lifebar.isMiniBoss);
-                    var companion = prefab.GetComponent<BookSpineCompanion>();
+                    var companion = prefab.GetComponent<PetCindrelCompanion>();
                     if(companion) CompanionDisplaySize = companion.viewportSize;
+                    entranceSettings = prefab.GetComponent<DropIn>();
                     var enemy = prefab.GetComponent<Enemy>();
                     CombatSizeMultiplier = enemy ? Mathf.Max(.1f, enemy.displaySizeMultiplier) : 1f;
                     character.transform.localScale = CombatDisplayScale;
@@ -95,8 +151,8 @@ public class MonsterAnimationTest : MonoBehaviour
                         character.Skeleton.SetSkin(display.initialSkinName);
                         character.Skeleton.SetSlotsToSetupPose();
                     }
-                    var petEffects = prefab.GetComponent<BookSpinePetEffects>();
-                    if (petEffects) {var fx=character.gameObject.AddComponent<BookSpinePetEffects>();fx.previewCamera=previewCamera;fx.CopyFrom(petEffects, character);}
+                    var petEffects = prefab.GetComponent<PetCindrelEffects>();
+                    if (petEffects) {var fx=character.gameObject.AddComponent<PetCindrelEffects>();fx.previewCamera=previewCamera;fx.CopyFrom(petEffects, character);}
                     var blood = display.GetComponent<MonsterIdleBlood>();
                     if (blood) { var previewBlood = character.gameObject.AddComponent<MonsterIdleBlood>(); previewBlood.skeleton = character; previewBlood.CopySettingsFrom(blood); }
                     break; }
@@ -131,7 +187,7 @@ public class MonsterAnimationTest : MonoBehaviour
     {
         if (!character || !character.gameObject.activeSelf) return;
         character.timeScale = Paused ? 0 : speed;
-        if (Paused || !autoCycle || AnimationNames.Length == 0) return;
+        if (entranceMode || Paused || !autoCycle || AnimationNames.Length == 0) return;
         elapsed += Time.deltaTime * speed;
         float duration = character.Skeleton.Data.FindAnimation(AnimationNames[SelectedAnimation]).Duration;
         if (elapsed >= Mathf.Max(1f, duration) + .4f) Play((SelectedAnimation + 1) % AnimationNames.Length);
@@ -140,6 +196,7 @@ public class MonsterAnimationTest : MonoBehaviour
     public void Play(int index)
     {
         if (index < 0 || index >= AnimationNames.Length || !character) return;
+        CancelEntrance();
         SelectedAnimation = index; elapsed = 0;
         character.AnimationState.ClearTracks(); character.Skeleton.SetToSetupPose();
         character.AnimationState.SetAnimation(0, AnimationNames[index], loop && !autoCycle);

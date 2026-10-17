@@ -1,0 +1,899 @@
+fileFormatVersion: 2
+guid: 8dfd2985a816146ea984d20c691f5589
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5715751262797193060
+    second: MobHexmaw_0
+  - first:
+      213: -2701273234473090297
+    second: MobHexmaw_1
+  - first:
+      213: 1655772472345679681
+    second: MobHexmaw_2
+  - first:
+      213: 5110203497317633612
+    second: MobHexmaw_3
+  - first:
+      213: -304971695764516857
+    second: MobHexmaw_4
+  - first:
+      213: 2393941823222728496
+    second: MobHexmaw_5
+  - first:
+      213: 846942150726192461
+    second: MobHexmaw_6
+  - first:
+      213: -472272905612700790
+    second: MobHexmaw_7
+  - first:
+      213: 7697111135621882586
+    second: MobHexmaw_8
+  - first:
+      213: 4005052376350375768
+    second: MobHexmaw_9
+  - first:
+      213: -5731500516348656242
+    second: MobHexmaw_10
+  - first:
+      213: -1796466939844932710
+    second: MobHexmaw_11
+  - first:
+      213: -5764274180063761545
+    second: MobHexmaw_12
+  - first:
+      213: -738907548664471157
+    second: MobHexmaw_13
+  - first:
+      213: -5081619997482010908
+    second: MobHexmaw_14
+  - first:
+      213: 2772644057686254620
+    second: MobHexmaw_15
+  - first:
+      213: 8484210700120800552
+    second: MobHexmaw_16
+  - first:
+      213: -2985662124206502800
+    second: MobHexmaw_17
+  - first:
+      213: 7499933202698501582
+    second: MobHexmaw_18
+  - first:
+      213: -3865703132801802381
+    second: MobHexmaw_19
+  - first:
+      213: 7782170957861880518
+    second: MobHexmaw_20
+  - first:
+      213: -3715956234944426540
+    second: MobHexmaw_21
+  - first:
+      213: -4120746081558725050
+    second: MobHexmaw_22
+  - first:
+      213: -8990247665077607189
+    second: MobHexmaw_23
+  - first:
+      213: -6826953861093211840
+    second: MobHexmaw_24
+  - first:
+      213: -7696575887814008114
+    second: MobHexmaw_25
+  - first:
+      213: -6758214292971057776
+    second: MobHexmaw_26
+  - first:
+      213: 649916877134367252
+    second: MobHexmaw_27
+  - first:
+      213: 1104450450518129164
+    second: MobHexmaw_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MobHexmaw_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1883
+        width: 205
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46f548b7d7d625f40800000000000000
+      internalID: 5715751262797193060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_1
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 1883
+        width: 206
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70306f12e46238ad0800000000000000
+      internalID: -2701273234473090297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_2
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 1723
+        width: 252
+        height: 286
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 147d80b7a4c7af610800000000000000
+      internalID: 1655772472345679681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 1942
+        width: 208
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4e839b71071be640800000000000000
+      internalID: 5110203497317633612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_4
+      rect:
+        serializedVersion: 2
+        x: 1745
+        y: 1781
+        width: 182
+        height: 258
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7005867cbd584cbf0800000000000000
+      internalID: -304971695764516857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_5
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 1735
+        width: 276
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0374422976df83120800000000000000
+      internalID: 2393941823222728496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_6
+      rect:
+        serializedVersion: 2
+        x: 2221
+        y: 1731
+        width: 154
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4d07571661f0cb00800000000000000
+      internalID: 846942150726192461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1325
+        width: 577
+        height: 552
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83d9e76b462279f0800000000000000
+      internalID: -472272905612700790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_8
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 1325
+        width: 286
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad2227bfbc1a1da60800000000000000
+      internalID: 7697111135621882586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_9
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 1305
+        width: 504
+        height: 630
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85fb237aaedc49730800000000000000
+      internalID: 4005052376350375768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_10
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 1305
+        width: 332
+        height: 604
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e85021da5ae9570b0800000000000000
+      internalID: -5731500516348656242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_11
+      rect:
+        serializedVersion: 2
+        x: 1745
+        y: 1305
+        width: 180
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9b4fc716daa117e0800000000000000
+      internalID: -1796466939844932710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_12
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 1305
+        width: 322
+        height: 420
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77be7557c2f2100b0800000000000000
+      internalID: -5764274180063761545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 767
+        width: 577
+        height: 552
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b81eff7df7fdeb5f0800000000000000
+      internalID: -738907548664471157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_14
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 767
+        width: 298
+        height: 504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e6309e29857a79b0800000000000000
+      internalID: -5081619997482010908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_15
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 629
+        width: 934
+        height: 670
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c14acf294196a7620800000000000000
+      internalID: 2772644057686254620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_16
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 815
+        width: 348
+        height: 484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82db4443ea8fdb570800000000000000
+      internalID: 8484210700120800552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 889
+        height: 761
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c4553ed1cc096d0800000000000000
+      internalID: -2985662124206502800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_18
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 0
+        width: 1038
+        height: 623
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd7002f28d151860800000000000000
+      internalID: 7499933202698501582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_19
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 385
+        width: 398
+        height: 424
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37fdb3a6b734a5ac0800000000000000
+      internalID: -3865703132801802381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_20
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 253
+        width: 170
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c208b42143dffb60800000000000000
+      internalID: 7782170957861880518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_21
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 0
+        width: 448
+        height: 379
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd4d370e754e6cc0800000000000000
+      internalID: -3715956234944426540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_22
+      rect:
+        serializedVersion: 2
+        x: 2393
+        y: 0
+        width: 454
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64efb1f754b20d6c0800000000000000
+      internalID: -4120746081558725050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_23
+      rect:
+        serializedVersion: 2
+        x: 3179
+        y: 0
+        width: 220
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be4a34881693c3380800000000000000
+      internalID: -8990247665077607189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_24
+      rect:
+        serializedVersion: 2
+        x: 3331
+        y: 228
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041ce8352a9c141a0800000000000000
+      internalID: -6826953861093211840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_25
+      rect:
+        serializedVersion: 2
+        x: 2853
+        y: 0
+        width: 320
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec2620c1205403590800000000000000
+      internalID: -7696575887814008114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_26
+      rect:
+        serializedVersion: 2
+        x: 3405
+        y: 0
+        width: 231
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09d0e7738eff532a0800000000000000
+      internalID: -6758214292971057776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_27
+      rect:
+        serializedVersion: 2
+        x: 3643
+        y: 0
+        width: 286
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41a0023d4f7f40900800000000000000
+      internalID: 649916877134367252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobHexmaw_28
+      rect:
+        serializedVersion: 2
+        x: 3935
+        y: 0
+        width: 160
+        height: 169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0a372745dbc35f00800000000000000
+      internalID: 1104450450518129164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MobHexmaw_0: 5715751262797193060
+      MobHexmaw_1: -2701273234473090297
+      MobHexmaw_10: -5731500516348656242
+      MobHexmaw_11: -1796466939844932710
+      MobHexmaw_12: -5764274180063761545
+      MobHexmaw_13: -738907548664471157
+      MobHexmaw_14: -5081619997482010908
+      MobHexmaw_15: 2772644057686254620
+      MobHexmaw_16: 8484210700120800552
+      MobHexmaw_17: -2985662124206502800
+      MobHexmaw_18: 7499933202698501582
+      MobHexmaw_19: -3865703132801802381
+      MobHexmaw_2: 1655772472345679681
+      MobHexmaw_20: 7782170957861880518
+      MobHexmaw_21: -3715956234944426540
+      MobHexmaw_22: -4120746081558725050
+      MobHexmaw_23: -8990247665077607189
+      MobHexmaw_24: -6826953861093211840
+      MobHexmaw_25: -7696575887814008114
+      MobHexmaw_26: -6758214292971057776
+      MobHexmaw_27: 649916877134367252
+      MobHexmaw_28: 1104450450518129164
+      MobHexmaw_3: 5110203497317633612
+      MobHexmaw_4: -304971695764516857
+      MobHexmaw_5: 2393941823222728496
+      MobHexmaw_6: 846942150726192461
+      MobHexmaw_7: -472272905612700790
+      MobHexmaw_8: 7697111135621882586
+      MobHexmaw_9: 4005052376350375768
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

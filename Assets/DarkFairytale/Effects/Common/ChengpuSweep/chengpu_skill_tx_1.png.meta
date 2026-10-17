@@ -1,0 +1,1497 @@
+fileFormatVersion: 2
+guid: 9930983a9491f41a99efb0aefa881f24
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8446040499782851045
+    second: chengpu_skill_tx_1_0
+  - first:
+      213: -8217417271841253406
+    second: chengpu_skill_tx_1_1
+  - first:
+      213: -5004878362187306802
+    second: chengpu_skill_tx_1_2
+  - first:
+      213: -1176538620679386867
+    second: chengpu_skill_tx_1_3
+  - first:
+      213: -3776669935463018457
+    second: chengpu_skill_tx_1_4
+  - first:
+      213: 5599631038439764597
+    second: chengpu_skill_tx_1_5
+  - first:
+      213: -4274709829928788178
+    second: chengpu_skill_tx_1_6
+  - first:
+      213: -4732682238583218369
+    second: chengpu_skill_tx_1_7
+  - first:
+      213: -5274199833044921181
+    second: chengpu_skill_tx_1_8
+  - first:
+      213: -1480238374674218937
+    second: chengpu_skill_tx_1_9
+  - first:
+      213: 1610136282826798336
+    second: chengpu_skill_tx_1_10
+  - first:
+      213: -3144250109793098633
+    second: chengpu_skill_tx_1_11
+  - first:
+      213: 941342638664462973
+    second: chengpu_skill_tx_1_12
+  - first:
+      213: -6509627454091144695
+    second: chengpu_skill_tx_1_13
+  - first:
+      213: 5208731859554156055
+    second: chengpu_skill_tx_1_14
+  - first:
+      213: 7805372933698151448
+    second: chengpu_skill_tx_1_15
+  - first:
+      213: 6347562595709866589
+    second: chengpu_skill_tx_1_16
+  - first:
+      213: 8579626259525336094
+    second: chengpu_skill_tx_1_17
+  - first:
+      213: -5200737273154096873
+    second: chengpu_skill_tx_1_18
+  - first:
+      213: 6044334057575958455
+    second: chengpu_skill_tx_1_19
+  - first:
+      213: -4001619642753614622
+    second: chengpu_skill_tx_1_20
+  - first:
+      213: 7823075223950274101
+    second: chengpu_skill_tx_1_21
+  - first:
+      213: -4026288181495231929
+    second: chengpu_skill_tx_1_22
+  - first:
+      213: 2436037223435635759
+    second: chengpu_skill_tx_1_23
+  - first:
+      213: -4971322584840226868
+    second: chengpu_skill_tx_1_24
+  - first:
+      213: -8557691897206843404
+    second: chengpu_skill_tx_1_25
+  - first:
+      213: -5068786277170002925
+    second: chengpu_skill_tx_1_26
+  - first:
+      213: -8773219030705838154
+    second: chengpu_skill_tx_1_27
+  - first:
+      213: -2921875178318313636
+    second: chengpu_skill_tx_1_28
+  - first:
+      213: -7477701607629127136
+    second: chengpu_skill_tx_1_29
+  - first:
+      213: -1902264251482194381
+    second: chengpu_skill_tx_1_30
+  - first:
+      213: 3440324504993703305
+    second: chengpu_skill_tx_1_31
+  - first:
+      213: -8011237489371782271
+    second: chengpu_skill_tx_1_32
+  - first:
+      213: 8183373385785278653
+    second: chengpu_skill_tx_1_33
+  - first:
+      213: -9161749284660402507
+    second: chengpu_skill_tx_1_34
+  - first:
+      213: 1608928456730495920
+    second: chengpu_skill_tx_1_35
+  - first:
+      213: 8284349512386738513
+    second: chengpu_skill_tx_1_36
+  - first:
+      213: 9120366724570141452
+    second: chengpu_skill_tx_1_37
+  - first:
+      213: -1841627463328583584
+    second: chengpu_skill_tx_1_38
+  - first:
+      213: 8376703180025740694
+    second: chengpu_skill_tx_1_39
+  - first:
+      213: 1434504573350709079
+    second: chengpu_skill_tx_1_40
+  - first:
+      213: -90559402905101785
+    second: chengpu_skill_tx_1_41
+  - first:
+      213: -5293494071912436609
+    second: chengpu_skill_tx_1_42
+  - first:
+      213: 7177726313022464744
+    second: chengpu_skill_tx_1_43
+  - first:
+      213: 459416074997446113
+    second: chengpu_skill_tx_1_44
+  - first:
+      213: 6327339234752467351
+    second: chengpu_skill_tx_1_45
+  - first:
+      213: 6623383669282805852
+    second: chengpu_skill_tx_1_46
+  - first:
+      213: -5492740654985137282
+    second: chengpu_skill_tx_1_47
+  - first:
+      213: -4207211599108335662
+    second: chengpu_skill_tx_1_48
+  - first:
+      213: -2548926572644588432
+    second: chengpu_skill_tx_1_49
+  - first:
+      213: -1538118549141040756
+    second: chengpu_skill_tx_1_50
+  - first:
+      213: -4069373990084843631
+    second: chengpu_skill_tx_1_51
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 204
+        width: 92
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e99e14e51d563570800000000000000
+      internalID: 8446040499782851045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 204
+        width: 91
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e71ebc678ed5fd80800000000000000
+      internalID: -8217417271841253406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 251
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec869c585a91b8ab0800000000000000
+      internalID: -5004878362187306802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_3
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 205
+        width: 46
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0980e9ab581cafe0800000000000000
+      internalID: -1176538620679386867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_4
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 173
+        width: 80
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72054de04b2969bc0800000000000000
+      internalID: -3776669935463018457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_5
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 174
+        width: 85
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5723477e2c2e5bd40800000000000000
+      internalID: 5599631038439764597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_6
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 239
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f593dde0e2da4c0800000000000000
+      internalID: -4274709829928788178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_7
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 237
+        width: 31
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3f527e2492225eb0800000000000000
+      internalID: -4732682238583218369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_8
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 200
+        width: 75
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a4deec12374ec6b0800000000000000
+      internalID: -5274199833044921181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_9
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 185
+        width: 76
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74044a67a03257be0800000000000000
+      internalID: -1480238374674218937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_10
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 188
+        width: 78
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005fbd91b6a585610800000000000000
+      internalID: 1610136282826798336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_11
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 188
+        width: 76
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 774acc02f216d54d0800000000000000
+      internalID: -3144250109793098633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_12
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 199
+        width: 42
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7236857422501d00800000000000000
+      internalID: 941342638664462973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_13
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 237
+        width: 56
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90254cae15829a5a0800000000000000
+      internalID: -6509627454091144695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_14
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 235
+        width: 43
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e3cfa7702294840800000000000000
+      internalID: 5208731859554156055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_15
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 174
+        width: 32
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 814e68c1451425c60800000000000000
+      internalID: 7805372933698151448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_16
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 234
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52d7dacc82171850800000000000000
+      internalID: 6347562595709866589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_17
+      rect:
+        serializedVersion: 2
+        x: 345
+        y: 199
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1cfe9050a4f01770800000000000000
+      internalID: 8579626259525336094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_18
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 220
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7113487310543d7b0800000000000000
+      internalID: -5200737273154096873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_19
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 173
+        width: 90
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b74c951dc9c1e350800000000000000
+      internalID: 6044334057575958455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_20
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 209
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ecf17be2246778c0800000000000000
+      internalID: -4001619642753614622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_21
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 222
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53e27beb775219c60800000000000000
+      internalID: 7823075223950274101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_22
+      rect:
+        serializedVersion: 2
+        x: 766
+        y: 214
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74a8f9a2b30cf18c0800000000000000
+      internalID: -4026288181495231929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_23
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 225
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2c8282b2fa8ec120800000000000000
+      internalID: 2436037223435635759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_24
+      rect:
+        serializedVersion: 2
+        x: 781
+        y: 220
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc7b8b2c270520bb0800000000000000
+      internalID: -4971322584840226868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_25
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 202
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f75fb16f88fc3980800000000000000
+      internalID: -8557691897206843404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_26
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 208
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31448ea8cbd08a9b0800000000000000
+      internalID: -5068786277170002925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_27
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 204
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b7e41a26c34f3680800000000000000
+      internalID: -8773219030705838154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_28
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 199
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c574e4e810a6377d0800000000000000
+      internalID: -2921875178318313636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_29
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 210
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02206e4a10ed93890800000000000000
+      internalID: -7477701607629127136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_30
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 206
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33eba7dedbcc995e0800000000000000
+      internalID: -1902264251482194381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_31
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 1
+        width: 202
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 985a830e8ec7ebf20800000000000000
+      internalID: 3440324504993703305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_32
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 199
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 183e3b2e2fd52d090800000000000000
+      internalID: -8011237489371782271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_33
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 152
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db00e1cacbe219170800000000000000
+      internalID: 8183373385785278653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_34
+      rect:
+        serializedVersion: 2
+        x: 760
+        y: 164
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b6a0ae019dead080800000000000000
+      internalID: -9161749284660402507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_35
+      rect:
+        serializedVersion: 2
+        x: 805
+        y: 111
+        width: 90
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bb407c28ef045610800000000000000
+      internalID: 1608928456730495920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_36
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 1
+        width: 172
+        height: 172
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159fdf83dfbe7f270800000000000000
+      internalID: 8284349512386738513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_37
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 107
+        width: 130
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03db47d63d029e70800000000000000
+      internalID: 9120366724570141452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_38
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 148
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06032b754993176e0800000000000000
+      internalID: -1841627463328583584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_39
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 111
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69db15a1927004470800000000000000
+      internalID: 8376703180025740694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_40
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 144
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7570e332f4268e310800000000000000
+      internalID: 1434504573350709079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_41
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 109
+        width: 94
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72a15cee3b44ebef0800000000000000
+      internalID: -90559402905101785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_42
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 109
+        width: 79
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7ce50f003bb986b0800000000000000
+      internalID: -5293494071912436609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_43
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 123
+        width: 51
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2adae6d086c9360800000000000000
+      internalID: 7177726313022464744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_44
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 127
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e5b3527c7c206600800000000000000
+      internalID: 459416074997446113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_45
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 111
+        width: 38
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79110d4a2893fc750800000000000000
+      internalID: 6327339234752467351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_46
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 1
+        width: 162
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5899b2ea5cfaeb50800000000000000
+      internalID: 6623383669282805852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_47
+      rect:
+        serializedVersion: 2
+        x: 743
+        y: 1
+        width: 145
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e73b340e97dd5c3b0800000000000000
+      internalID: -5492740654985137282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_48
+      rect:
+        serializedVersion: 2
+        x: 888
+        y: 1
+        width: 129
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d79e34675bfc95c0800000000000000
+      internalID: -4207211599108335662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_49
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 1
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07427f679c460acd0800000000000000
+      internalID: -2548926572644588432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_50
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 101
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c815200345187aae0800000000000000
+      internalID: -1538118549141040756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chengpu_skill_tx_1_51
+      rect:
+        serializedVersion: 2
+        x: 1117
+        y: 1
+        width: 14
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19767ce9aeda687c0800000000000000
+      internalID: -4069373990084843631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      chengpu_skill_tx_1_0: 8446040499782851045
+      chengpu_skill_tx_1_1: -8217417271841253406
+      chengpu_skill_tx_1_10: 1610136282826798336
+      chengpu_skill_tx_1_11: -3144250109793098633
+      chengpu_skill_tx_1_12: 941342638664462973
+      chengpu_skill_tx_1_13: -6509627454091144695
+      chengpu_skill_tx_1_14: 5208731859554156055
+      chengpu_skill_tx_1_15: 7805372933698151448
+      chengpu_skill_tx_1_16: 6347562595709866589
+      chengpu_skill_tx_1_17: 8579626259525336094
+      chengpu_skill_tx_1_18: -5200737273154096873
+      chengpu_skill_tx_1_19: 6044334057575958455
+      chengpu_skill_tx_1_2: -5004878362187306802
+      chengpu_skill_tx_1_20: -4001619642753614622
+      chengpu_skill_tx_1_21: 7823075223950274101
+      chengpu_skill_tx_1_22: -4026288181495231929
+      chengpu_skill_tx_1_23: 2436037223435635759
+      chengpu_skill_tx_1_24: -4971322584840226868
+      chengpu_skill_tx_1_25: -8557691897206843404
+      chengpu_skill_tx_1_26: -5068786277170002925
+      chengpu_skill_tx_1_27: -8773219030705838154
+      chengpu_skill_tx_1_28: -2921875178318313636
+      chengpu_skill_tx_1_29: -7477701607629127136
+      chengpu_skill_tx_1_3: -1176538620679386867
+      chengpu_skill_tx_1_30: -1902264251482194381
+      chengpu_skill_tx_1_31: 3440324504993703305
+      chengpu_skill_tx_1_32: -8011237489371782271
+      chengpu_skill_tx_1_33: 8183373385785278653
+      chengpu_skill_tx_1_34: -9161749284660402507
+      chengpu_skill_tx_1_35: 1608928456730495920
+      chengpu_skill_tx_1_36: 8284349512386738513
+      chengpu_skill_tx_1_37: 9120366724570141452
+      chengpu_skill_tx_1_38: -1841627463328583584
+      chengpu_skill_tx_1_39: 8376703180025740694
+      chengpu_skill_tx_1_4: -3776669935463018457
+      chengpu_skill_tx_1_40: 1434504573350709079
+      chengpu_skill_tx_1_41: -90559402905101785
+      chengpu_skill_tx_1_42: -5293494071912436609
+      chengpu_skill_tx_1_43: 7177726313022464744
+      chengpu_skill_tx_1_44: 459416074997446113
+      chengpu_skill_tx_1_45: 6327339234752467351
+      chengpu_skill_tx_1_46: 6623383669282805852
+      chengpu_skill_tx_1_47: -5492740654985137282
+      chengpu_skill_tx_1_48: -4207211599108335662
+      chengpu_skill_tx_1_49: -2548926572644588432
+      chengpu_skill_tx_1_5: 5599631038439764597
+      chengpu_skill_tx_1_50: -1538118549141040756
+      chengpu_skill_tx_1_51: -4069373990084843631
+      chengpu_skill_tx_1_6: -4274709829928788178
+      chengpu_skill_tx_1_7: -4732682238583218369
+      chengpu_skill_tx_1_8: -5274199833044921181
+      chengpu_skill_tx_1_9: -1480238374674218937
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

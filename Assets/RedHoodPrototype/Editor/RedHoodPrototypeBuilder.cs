@@ -68,7 +68,8 @@ namespace RedHoodPrototype.Editor {
                 AssetDatabase.CreateAsset(data, Root + "RedHood_SkeletonData.asset");
             }
             data.skeletonJSON = AssetDatabase.LoadAssetAtPath<TextAsset>(Root + "RedHood.json");
-            data.atlasAssets = new AtlasAssetBase[] { atlas };
+            var weaponAtlas = AssetDatabase.LoadAssetAtPath<SpineAtlasAsset>(Root + "RedHoodWeaponViews_Atlas.asset");
+            data.atlasAssets = weaponAtlas ? new AtlasAssetBase[] { atlas, weaponAtlas } : new AtlasAssetBase[] { atlas };
             data.scale = 0.01f;
             data.defaultMix = 0.12f;
             data.Clear();
@@ -154,11 +155,11 @@ namespace RedHoodPrototype.Editor {
                     if (animation.Name == "Attack2" && character.Skeleton.FindBone("scythe_projection").ScaleX < .99f)
                         throw new Exception("Attack2 compressed or mirrored the rigid blade.");
                     maxBladeY = Mathf.Max(maxBladeY, bladeY);
-                    if (i == 25) sideBladeStart = bladeX;
-                    if (i == 33) sideBladeContact = bladeX;
+                    if (i == 25) sideBladeStart = grip.WorldX;
+                    if (i == 33) sideBladeContact = grip.WorldX;
                     if (i >= 25 && i <= 33) {
-                        cutMinY = Mathf.Min(cutMinY, bladeY);
-                        cutMaxY = Mathf.Max(cutMaxY, bladeY);
+                        cutMinY = Mathf.Min(cutMinY, grip.WorldY);
+                        cutMaxY = Mathf.Max(cutMaxY, grip.WorldY);
                     }
                     maxFootDrift = Mathf.Max(maxFootDrift, Vector2.Distance(initialFarFoot, new Vector2(farFoot.WorldX, farFoot.WorldY)), Vector2.Distance(initialNearFoot, new Vector2(nearFoot.WorldX, nearFoot.WorldY)));
                     float wristX, wristY;
@@ -175,15 +176,15 @@ namespace RedHoodPrototype.Editor {
                     throw new Exception("Attack1 lost overhead silhouette.");
                 if (attack && maxFootDrift > 0.001f)
                     throw new Exception("Attack lost planted stance: " + animation.Name);
-                if (animation.Name == "Attack2" && (sideBladeContact - sideBladeStart < 1.8f || cutMaxY-cutMinY > .40f || Mathf.Abs(animation.Duration - 1.18f) > .001f))
-                    throw new Exception("Attack2 lost horizontal cut: travel=" + (sideBladeContact-sideBladeStart) + ", height=" + (cutMaxY-cutMinY));
+                if (animation.Name == "Attack2" && (sideBladeContact - sideBladeStart < 1.3f || cutMaxY-cutMinY < .65f || Mathf.Abs(animation.Duration - 1.18f) > .001f))
+                    throw new Exception("Attack2 lost diagonal cross-body cut: grip travel=" + (sideBladeContact-sideBladeStart) + ", drop=" + (cutMaxY-cutMinY));
                 int expectedHits = attack || animation.Name == "Skill1" ? 1 : 0;
                 if (hits != expectedHits || completes != (attack || animation.Name == "Skill1" ? 1 : 0))
                     throw new Exception("Unexpected combat event count: " + animation.Name);
                 report += animation.Name + ": " + steps + " frames sampled, hits=" + hits + ", completes=" + completes + ", max grip error=" + maxGripError.ToString("F5") + "\n";
                 report += "  rear knee max signed cross=" + maxRearKneeCross.ToString("F5") + " (must be <= 0)\n";
                 if (attack) report += "  wrist lift=" + maxWristLift.ToString("F3") + ", blade apex=" + maxBladeY.ToString("F3") + ", foot target drift=" + maxFootDrift.ToString("F5") + " Unity units\n";
-                if (animation.Name == "Attack2") report += "  blade horizontal travel=" + (sideBladeContact-sideBladeStart).ToString("F3") + ", cutting height variation=" + (cutMaxY-cutMinY).ToString("F3") + " Unity units, duration=" + animation.Duration.ToString("F2") + " s\n";
+                if (animation.Name == "Attack2") report += "  grip horizontal travel=" + (sideBladeContact-sideBladeStart).ToString("F3") + ", diagonal drop=" + (cutMaxY-cutMinY).ToString("F3") + " Unity units, duration=" + animation.Duration.ToString("F2") + " s\n";
             }
             // Interrupted attacks must not leave the sweep pose or far-side
             // draw order on the next animation after the normal mix completes.

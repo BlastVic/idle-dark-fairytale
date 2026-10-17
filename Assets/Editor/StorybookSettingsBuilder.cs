@@ -65,10 +65,10 @@ public static class StorybookSettingsBuilder
             ui.skip.targetGraphic=ui.skipOff;var sealColors=ui.skip.colors;sealColors.pressedColor=new Color(.65f,.65f,.65f,1);sealColors.highlightedColor=Color.white;sealColors.fadeDuration=.08f;ui.skip.colors=sealColors;
             ui.skipValue=Txt(experience,"State","已关闭",22,136,420,30,19);
             var footer=Node(page,"Footer");Box(footer,26,906,488,54);layout.footer=footer;Txt(footer,"SavedHint","修改后自动保存",10,-4,300,36,18);ui.version=Txt(footer,"Version","版本 "+Application.version,300,-4,178,36,17,TextAnchor.MiddleRight);
-            layout.Apply();PrefabUtility.SaveAsPrefabAsset(root.gameObject,Path);
+            layout.Apply();ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
         }finally{UnityEngine.Object.DestroyImmediate(root.gameObject);}
         var home=PrefabUtility.LoadPrefabContents(ShelterHomeBuilder.Path);
-        try{var h=home.GetComponent<ShelterHomeUI>();if(h.settingsUI)UnityEngine.Object.DestroyImmediate(h.settingsUI.gameObject);var child=(GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Path),home.transform);Full((RectTransform)child.transform);child.SetActive(false);h.settingsUI=child.GetComponent<StorybookSettingsUI>();PrefabUtility.SaveAsPrefabAsset(home,ShelterHomeBuilder.Path);}finally{PrefabUtility.UnloadPrefabContents(home);}
+        try{var h=home.GetComponent<ShelterHomeUI>();if(h.settingsUI)UnityEngine.Object.DestroyImmediate(h.settingsUI.gameObject);var child=(GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Path),home.transform);Full((RectTransform)child.transform);child.SetActive(false);h.settingsUI=child.GetComponent<StorybookSettingsUI>();ProductionUiArt.SaveAsPrefabAsset(home,ShelterHomeBuilder.Path);}finally{PrefabUtility.UnloadPrefabContents(home);}
         AssetDatabase.SaveAssets();AssetDatabase.Refresh();
     }
 }

@@ -1,0 +1,9 @@
+本次 Android 构建成功，0 错误、96 警告。完整消息保留在 output/resource-audit/last-build-warnings.txt。
+
+仍需留意的项目既有配置：
+- 两个粒子网格 Circle / Icosphere 的 Read/Write 由当前 Unity 构建过程自动开启，未来 Unity 版本需要明确处理。
+- Unity Services / IAP 未关联云项目，Google Play 交易验证许可未配置；本轮只验证模拟购买回调，不代表真实支付验收。
+- Android Active Input Handling 为 Both，构建器提示可能存在输入/性能问题；本轮未擅自切换输入系统。
+- 其余包含旧 API、重复 using、继承方法隐藏、BinaryFormatter 与 IL2CPP 编译拆分提示。
+
+本轮资源拆分、功能回归与成功构建不能替代真机性能、真实支付、发布配置和长期稳定性验收。没有连接 Android 实机，未声称已完成上线放行。

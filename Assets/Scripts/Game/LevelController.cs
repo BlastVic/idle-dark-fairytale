@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Assets.Scripts.Extentions;
 using Assets.Scripts.Services;
 using Assets.Scripts.Services.Purchasing;
@@ -126,10 +126,6 @@ public class LevelController : MonoSingleton<LevelController>
             Player.single.ab.currentStat.hpNow = Player.single.ab.currentStat.hpMax;
         }
 
-        if (InventoryUI.single != null)
-        {
-            InventoryUI.single.RefreshStats();
-        }
         SaveManager.Instance.SaveStatAllocation();
         GameplayCanvas.single.RefreshCampUI();
     }

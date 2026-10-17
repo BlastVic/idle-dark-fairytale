@@ -1,0 +1,15 @@
+用户取消第三部分：已移除封页文字、卷页材质分支、相关Prefab节点和独立制作工具。当前流程仅保留死亡褪色、血墨下沉，染透停留0.15秒后0.35秒淡入失败UI。保留过渡期间点击拦截。此前death-page-validation.txt仅为已取消方案的历史记录。
+三种比例实机验证和返回流程通过，截图仅存本地output/death-two-stages。
+PASS Death final page before result (1080, 1920)
+PASS Ink precedes defeat UI (1080, 1920)
+PASS Result revealed and input unblocked (1080, 1920)
+PASS Return clears death effect (1080, 1920)
+PASS Death final page before result (768, 1024)
+PASS Ink precedes defeat UI (768, 1024)
+PASS Result revealed and input unblocked (768, 1024)
+PASS Return clears death effect (768, 1024)
+PASS Death final page before result (720, 1440)
+PASS Ink precedes defeat UI (720, 1440)
+PASS Result revealed and input unblocked (720, 1440)
+PASS Return clears death effect (720, 1440)
+DONE

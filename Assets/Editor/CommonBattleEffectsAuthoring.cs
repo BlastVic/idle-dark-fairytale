@@ -12,11 +12,17 @@ public static class CommonBattleEffectsAuthoring
     public const string Root="Assets/DarkFairytale/Effects/Common";
     public const string Out="output/common-effects/";
     public static readonly string[] Ids={"Hit","Shield","AOE","Heal","Res","Lightning","Absorb"};
-    public static readonly string[] Names={"墨痕命中","荆棘格挡","阴影践踏","灰叶治疗","残翼复生","裂隙雷霆","蜡封护佑"};
+    public static readonly string[] Names={"受击","荆棘格挡","回旋镰斩","灰叶治疗","残翼复生","裂隙雷霆","蜡封护佑"};
     public static readonly string[] Files={"Hit Particles","Shield Particles","AOE Particles","Particle System Heal","Ressurrection Particles","Lightning Particles","My Lucky Stars Particle"};
     public static string PathAt(int i)=>"Assets/Prefab/Addressable Prefabs/Particles/"+Files[i]+".prefab";
     static CommonBattleEffectsAuthoring(){EditorApplication.update+=()=>{
-        if(EditorApplication.isCompiling||EditorApplication.isUpdating||EditorApplication.isPlayingOrWillChangePlaymode||!File.Exists(Out+"build.request"))return;
+        if(EditorApplication.isCompiling||EditorApplication.isUpdating||EditorApplication.isPlayingOrWillChangePlaymode)return;
+        if(File.Exists(Out+"refresh-hit.request")){
+            File.Delete(Out+"refresh-hit.request");
+            try{RefreshHitPreview();File.WriteAllText(Out+"refresh-hit.txt","PASS");}catch(Exception e){File.WriteAllText(Out+"refresh-hit.txt",e.ToString());Debug.LogException(e);}
+            return;
+        }
+        if(!File.Exists(Out+"build.request"))return;
         File.Delete(Out+"build.request");try{Build();File.WriteAllText(Out+"build.txt","PASS");}catch(Exception e){File.WriteAllText(Out+"build.txt",e.ToString());Debug.LogException(e);}
     };}
     [MenuItem("Tools/Dark Fairytale/Effects/Apply Cursed Common Textures (Explicit)")]
@@ -25,7 +31,8 @@ public static class CommonBattleEffectsAuthoring
         if(EditorApplication.isPlaying)throw new Exception("Exit Play first");
         Directory.CreateDirectory(Out);Directory.CreateDirectory(Root+"/Materials");
         AssetDatabase.Refresh();
-        for(int i=0;i<Ids.Length;i++){
+        for(int i=1;i<Ids.Length;i++){ // Hit uses the user-selected Spine effect.
+            if(i==2||i==3||i==5)continue; // User-selected Spine healing and lightning effects.
             string path=Root+"/Textures/"+Ids[i]+".png";
             var ti=(TextureImporter)AssetImporter.GetAtPath(path);ti.textureType=TextureImporterType.Default;ti.alphaIsTransparency=true;ti.mipmapEnabled=false;ti.wrapMode=TextureWrapMode.Clamp;ti.maxTextureSize=1024;ti.textureCompression=TextureImporterCompression.Uncompressed;ti.SaveAndReimport();
             var tex=AssetDatabase.LoadAssetAtPath<Texture2D>(path);string mp=Root+"/Materials/"+Ids[i]+".mat";
@@ -63,10 +70,24 @@ public static class CommonBattleEffectsAuthoring
                 PrefabUtility.SaveAsPrefabAsset(root,PathAt(i));
             }finally{PrefabUtility.UnloadPrefabContents(root);}
         }
-        AssetDatabase.SaveAssets();InstallCatalog();
+        AssetDatabase.SaveAssets();CommonEffectsSizing.Apply();InstallCatalog();
+    }
+    // Explicit refresh updates only the restored hit entry, preserving the authored UI.
+    public static void RefreshHitPreview()
+    {
+        var root=PrefabUtility.LoadPrefabContents(SpineEffectsTestBuilder.Root+"/SpineEffectsTestRig.prefab");
+        try{
+            var t=root.GetComponent<SpineEffectsTest>();
+            t.particleBounds[0]=Measure(t.particleEffects[0],out t.particleDurations[0]);
+            t.displayNames[5]=Names[0];
+            t.selectionButtons[5].GetComponentInChildren<Text>().text=Names[0];
+            PrefabUtility.SaveAsPrefabAsset(root,SpineEffectsTestBuilder.Root+"/SpineEffectsTestRig.prefab");
+        }finally{PrefabUtility.UnloadPrefabContents(root);}
+        AssetDatabase.SaveAssets();
     }
     public static Bounds Measure(GameObject prefab,out float duration)
     {
+        var spine=prefab.GetComponent<CommonSpineBattleEffect>();if(spine){duration=spine.duration;return spine.motionBounds;}
         var go=UnityEngine.Object.Instantiate(prefab);go.transform.position=Vector3.zero;go.transform.rotation=Quaternion.identity;go.transform.localScale=Vector3.one;
         foreach(var t in go.GetComponentsInChildren<DisableDestroyOnTimer>(true)){t.CancelInvoke();t.enabled=false;}
         var systems=go.GetComponentsInChildren<ParticleSystem>(true);duration=0;

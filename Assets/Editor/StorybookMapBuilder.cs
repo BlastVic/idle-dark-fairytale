@@ -19,7 +19,7 @@ public static class StorybookMapBuilder
     static StorybookMapBuilder(){EditorApplication.update+=Poll;}
     static void Poll(){if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists(Output+"build.request"))return;File.Delete(Output+"build.request");try{Build();File.WriteAllText(Output+"build-result.txt","PASS");}catch(Exception e){File.WriteAllText(Output+"build-result.txt",e.ToString());Debug.LogException(e);}}
     static T Asset<T>(string path,Func<T> create)where T:UnityEngine.Object{var a=AssetDatabase.LoadAssetAtPath<T>(path);if(a)return a;a=create();AssetDatabase.CreateAsset(a,path);return a;}
-    static Sprite Slice(string name,float x,float y,float w,float h,Vector4 border=default,Texture2D texture=null){var t=texture?texture:reference;return Asset(Root+"/Sprites/"+name+".asset",()=>{var s=Sprite.Create(t,new Rect(x,t.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border);s.name=name;return s;});}
+    static Sprite Slice(string name,float x,float y,float w,float h,Vector4 border=default,Texture2D texture=null){var t=texture?texture:reference;return Asset(Root+"/Sprites/"+name+".asset",()=>{var s=ProductionUiArt.Create(t,new Rect(x,t.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border);s.name=name;return s;});}
     static RectTransform Node(Transform p,string name){var g=new GameObject(name,typeof(RectTransform));g.layer=5;g.transform.SetParent(p,false);return (RectTransform)g.transform;}
     static void Box(RectTransform r,float x,float y,float w,float h){r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(x,-y);r.sizeDelta=new Vector2(w,h);}
     static void Full(RectTransform r,float l=0,float t=0,float right=0,float bottom=0){r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=new Vector2(l,bottom);r.offsetMax=new Vector2(-right,-t);}
@@ -36,7 +36,7 @@ public static class StorybookMapBuilder
     public static void Build()
     {
         Directory.CreateDirectory(Root+"/Sprites");Directory.CreateDirectory(Output);
-        reference=ShelterRefinedBuilder.Import(Root+"/Art/ApprovedMap.png");forest=ShelterRefinedBuilder.Import(Root+"/Art/BlackForest.png");
+        reference=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Map/Art/ApprovedMap.png");forest=ShelterRefinedBuilder.Import(Root+"/Art/BlackForest.png");
         font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Black.otf");regular=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Regular.otf");
         paper=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/DarkFairytale/UI/Shelter/Reference/Sprites/BlankPaper.asset");red=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/DarkFairytale/UI/Shelter/Reference/Sprites/BlankRedV2.asset");
         ink=AssetDatabase.LoadAssetAtPath<Material>("Assets/DarkFairytale/UI/Shelter/Reference/ReferenceInk.mat");colour=AssetDatabase.LoadAssetAtPath<Material>("Assets/DarkFairytale/UI/Shelter/Reference/ReferenceColour.mat");
@@ -123,7 +123,7 @@ public static class StorybookMapBuilder
                 if(i<4){var line=Pic(b.transform,"Divider",Slice("MapNavDivider",183,1465,30,157),0,12,30,157,ink);Right(line.rectTransform,15,12,30,157);}
                 if(i==1){var badge=Pic(b.transform,"SkillBadge",Slice("SkillBadge",318,1462,41,42),0,13,41,42);Center(badge.rectTransform,57,13,41,42);badge.material=Surface("SkillBadgeRing",badge.sprite,1,41,42,.4f);var fill=Pic(badge.transform,"RedInterior",red,4,4,33,34,Surface("SkillBadgeFill",red,3,33,34));ui.skillBadge=Text(badge.transform,"Count","0",0,0,41,42,26,new Color(.99f,.94f,.82f));}
             }
-            StorybookMapInteractionUpgrade.Apply(root.gameObject);layout.Apply();PrefabUtility.SaveAsPrefabAsset(root.gameObject,Path);
+            StorybookMapInteractionUpgrade.Apply(root.gameObject);layout.Apply();ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
         }finally{UnityEngine.Object.DestroyImmediate(root.gameObject);}
         Attach();AssetDatabase.SaveAssets();
     }
@@ -140,7 +140,7 @@ public static class StorybookMapBuilder
             foreach(Transform child in package.mapCam.transform)child.gameObject.SetActive(false);
             var old=go.transform.Find("Chapter01Map");if(old)UnityEngine.Object.DestroyImmediate(old.gameObject);
             var map=(GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(Path),go.transform);map.name="Chapter01Map";map.SetActive(true);
-            PrefabUtility.SaveAsPrefabAsset(go,Package);
+            ProductionUiArt.SaveAsPrefabAsset(go,Package);
         }finally{PrefabUtility.UnloadPrefabContents(go);}
     }
 }

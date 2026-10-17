@@ -13,8 +13,8 @@ using UnityEngine.EventSystems;
 public static class MonsterPreviewValidation
 {
     public const string Dir="output/monster-preview-ui/";
-    static string Target => SessionState.GetString("MONSTER_QA_TARGET", "MobWaxcap");
-    static string Evidence => Target != "MobWaxcap" ? "output/monster-animation/" + Target + "/preview/" : Dir;
+    static string Target => SessionState.GetString("MONSTER_QA_TARGET", "MobTallowkin");
+    static string Evidence => Target != "MobTallowkin" ? "output/monster-animation/" + Target + "/preview/" : Dir;
     const string Key="MONSTER_PREVIEW_VALIDATION";
     static UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> prefabLoad;
     static int step, ratio, errors;
@@ -33,9 +33,9 @@ public static class MonsterPreviewValidation
         if(step>0 && (type==LogType.Error||type==LogType.Exception||type==LogType.Assert)) {errors++;Log("ERROR: "+message);}
     }
     [MenuItem("Tools/Dark Fairytale/Monsters/Validate Preview UGUI")]
-    public static void Begin() => BeginFor("MobWaxcap");
-    [MenuItem("Tools/Dark Fairytale/Monsters/Validate MobGloomSpider In Test Scene")]
-    public static void BeginMobGloomSpider() => BeginFor("MobGloomSpider");
+    public static void Begin() => BeginFor("MobTallowkin");
+    [MenuItem("Tools/Dark Fairytale/Monsters/Validate MobGloamweb In Test Scene")]
+    public static void BeginMobGloamweb() => BeginFor("MobGloamweb");
     public static void BeginFor(string target)
     {
         if(EditorApplication.isPlayingOrWillChangePlaymode)return;
@@ -70,7 +70,7 @@ public static class MonsterPreviewValidation
             if(step==1)
             {
                 Check(t.character && t.character.valid,"Default monster loads");
-                if(Target!="MobWaxcap")
+                if(Target!="MobTallowkin")
                 {
                     var entry=Scripts.Level.LevelDataDescriptions.EnemyDb.Single(e=>e.key==Target);
                     prefabLoad=UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<GameObject>(entry.assetRef.RuntimeKey);
@@ -88,7 +88,7 @@ public static class MonsterPreviewValidation
                 hud.resetButton.onClick.Invoke();Check(t.Zoom==1,"Reset fits the preview");
                 hud.catalogButton.onClick.Invoke();Check(hud.catalogPanel.activeSelf,"Expand catalog");
                 hud.searchField.text="符文狼";Check(hud.cards.Count(c=>c.gameObject.activeSelf)==1,"Search Chinese name");
-                hud.searchField.text="mobdreamcap";Check(hud.cards.Count(c=>c.gameObject.activeSelf)==1,"Search case-insensitive ID");
+                hud.searchField.text="mobdrowseed";Check(hud.cards.Count(c=>c.gameObject.activeSelf)==1,"Search case-insensitive ID");
                 hud.searchField.text="no-such-monster";Check(hud.emptyText.gameObject.activeSelf,"Empty search result feedback");
                 hud.searchField.text="";
                 Canvas.ForceUpdateCanvases();
@@ -112,7 +112,7 @@ public static class MonsterPreviewValidation
             }
             else if(step==2)
             {
-                if(Target!="MobWaxcap")
+                if(Target!="MobTallowkin")
                 {
                     if(!prefabLoad.IsDone) {Next(2,.1);return;}
                     Check(prefabLoad.Status==UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded && prefabLoad.Result.name==Target, "Runtime database / Addressables resolves target prefab");
@@ -148,7 +148,7 @@ public static class MonsterPreviewValidation
                     Check(safe.core.anchoredPosition.y-halfHeight>=-rootSize.y*.5f+rootSize.y*.04f-.1f &&
                         safe.core.anchoredPosition.y+halfHeight<=-rootSize.y*.5f+rootSize.y*.94f+.1f,"Simulated safe-area top and bottom insets respected");
                     safe.enabled=true;safe.Apply();
-                    if(Target!="MobWaxcap") {SetResolution(720,1280);Next(6,1);return;}
+                    if(Target!="MobTallowkin") {SetResolution(720,1280);Next(6,1);return;}
                     Log(errors==0?"PASS: runtime errors=0, all interactions and ratios validated.":"FAIL: runtime errors="+errors);
                     step=0;SessionState.SetInt(Key,0);EditorApplication.isPlaying=false;
                     SetSize(SessionState.GetInt("MONSTER_OLD_SIZE",0));
@@ -207,7 +207,7 @@ public static class MonsterPreviewValidation
     static void SetResolution(int w,int h)
     {
         var a=typeof(Editor).Assembly;var type=a.GetType("UnityEditor.GameViewSizes");var instance=type.BaseType.GetProperty("instance",BindingFlags.Public|BindingFlags.Static).GetValue(null);
-        var group=type.GetMethod("GetGroup").Invoke(instance,new[]{Enum.Parse(a.GetType("UnityEditor.GameViewSizeGroupType"),"Standalone")});
+        var group=type.GetMethod("GetGroup").Invoke(instance,new[]{type.GetProperty("currentGroupType",BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance).GetValue(instance)});
         var size=Activator.CreateInstance(a.GetType("UnityEditor.GameViewSize"),BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance,null,new object[]{Enum.Parse(a.GetType("UnityEditor.GameViewSizeType"),"FixedResolution"),w,h,"Monster QA "+w+"x"+h},null);
         group.GetType().GetMethod("AddCustomSize").Invoke(group,new[]{size});SetSize((int)group.GetType().GetMethod("GetTotalCount").Invoke(group,null)-1);
     }

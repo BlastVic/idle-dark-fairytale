@@ -1,10 +1,10 @@
 {
-  "monster_id": "MobDrownedKing",
+  "monster_id": "MobStillmere",
   "approved_design": "A-character-v1.png",
   "painting": "built-in image_gen; exact model not exposed",
   "source": "/Users/vic/Workshop/Spine/monster/mon_8020",
   "source_version": "3.8.75",
-  "native_project_status": "Original native project preserved; new native MobDrownedKing.spine pending",
+  "native_project_status": "Original native project preserved; new native MobStillmere.spine pending",
   "aliases": {
     "Idle1": "idle",
     "Attack1": "attack_1",

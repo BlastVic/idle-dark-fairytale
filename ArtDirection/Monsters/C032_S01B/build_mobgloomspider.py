@@ -1,4 +1,4 @@
-"""Explicit MobGloomSpider source-sheet preparation and deterministic Spine export.
+"""Explicit MobGloamweb source-sheet preparation and deterministic Spine export.
 
 Never modifies the external original. Generated paint uses original part alpha,
 canvas registration and geometry. Run prepare, then export after painting sheets.
@@ -13,9 +13,9 @@ from PIL import Image, ImageDraw, ImageChops
 BASE = Path(__file__).resolve().parent
 ROOT = BASE.parents[2]
 ORIGINAL = next((p for p in (ROOT.parent / 'Spine/monster2/动画/C032_S01B', ROOT.parent / 'Spine/monster2/C032_S01B') if p.is_dir()), ROOT.parent / 'Spine/monster2/C032_S01B')
-SOURCE = BASE / 'source/MobGloomSpider'
-UNITY = ROOT / 'Assets/DarkFairytale/Monsters/BlackForestSpider/MobGloomSpider'
-EXTERNAL = ROOT.parent / 'Spine/export/monster/MobGloomSpider'
+SOURCE = BASE / 'source/MobGloamweb'
+UNITY = ROOT / 'Assets/DarkFairytale/Monsters/BlackForestSpider/MobGloamweb'
+EXTERNAL = ROOT.parent / 'Spine/export/monster/MobGloamweb'
 
 
 def part_image(path):
@@ -79,7 +79,7 @@ def prepare():
 
 def export():
     if (SOURCE / 'repair-v2/registration.json').exists():
-        raise RuntimeError('MobGloomSpider now uses repaired transparent parts. Rebuild in Unity: Tools > Dark Fairytale > Monsters > Repack MobGloomSpider Repaired Parts. Legacy fixed-box export would reintroduce the clipping defect.')
+        raise RuntimeError('MobGloamweb now uses repaired transparent parts. Rebuild in Unity: Tools > Dark Fairytale > Monsters > Repack MobGloamweb Repaired Parts. Legacy fixed-box export would reintroduce the clipping defect.')
     layout = json.loads((SOURCE / 'layout.json').read_text())
     paints = {k: Image.open(SOURCE/(k+'-painted.png')).convert('RGB').resize((1024,1024),Image.Resampling.LANCZOS) for k in ['main','legs']}
     images = SOURCE / 'images'
@@ -106,7 +106,7 @@ def export():
         atlas.paste(im.crop((im.width-1,0,im.width,im.height)).resize((2,im.height)),(x+im.width,y))
         entries.append(f'{name}\n  rotate: false\n  xy: {x}, {y}\n  size: {im.width}, {im.height}\n  orig: {im.width}, {im.height}\n  offset: 0, 0\n  index: -1\n')
         x+=im.width+16; row=max(row,im.height)
-    atlas_text='\nMobGloomSpider.png\nsize: 1024,1024\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n'+''.join(entries)
+    atlas_text='\nMobGloamweb.png\nsize: 1024,1024\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n'+''.join(entries)
     original=json.loads((ORIGINAL/'C032_S01B.json').read_text())
     rig=copy.deepcopy(original)
     # Source JSON already uses 3.8 mesh/skin/timeline schema. Keep its honest version
@@ -127,9 +127,9 @@ def export():
     for name, value in original['animations'].items(): assert rig['animations'][name]==value
     for dest in [UNITY, EXTERNAL, SOURCE]:
         dest.mkdir(parents=True,exist_ok=True)
-        (dest/'MobGloomSpider.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
-        (dest/'MobGloomSpider.atlas.txt').write_text(atlas_text,encoding='utf8')
-        atlas.save(dest/'MobGloomSpider.png')
+        (dest/'MobGloamweb.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+        (dest/'MobGloamweb.atlas.txt').write_text(atlas_text,encoding='utf8')
+        atlas.save(dest/'MobGloamweb.png')
     report=dict(source=str(ORIGINAL),source_sha256=hashlib.sha256((ORIGINAL/'C032_S01B.json').read_bytes()).hexdigest(),
         bones=len(rig['bones']),slots=len(rig['slots']),parts=len(parts),model='gpt-image-2.5-flare',
         preserved=['bones','slots','IK','mesh UVs and weights','all ten original animations','original part alpha/canvas'],

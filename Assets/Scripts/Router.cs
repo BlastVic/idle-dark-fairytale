@@ -359,7 +359,6 @@ public class Router : MonoBehaviour
             TransitionCanvas.single.ToClear("Gm to camp");
         });
 
-        Assets.Scripts.Services.Ads.AdManager.Instance.IsVideoAdReady();
     }
 
     bool loadingCampFromSkills = false;
@@ -571,17 +570,15 @@ public class Router : MonoBehaviour
         if (death != null && death.Animation.Name.Contains("Death"))
             delay = Mathf.Max(delay, death.Animation.Duration / Mathf.Max(.01f, death.TimeScale * skeleton.timeScale * Time.timeScale) + .25f);
         yield return new WaitForSecondsRealtime(delay);
+        var deathFade = TransitionCanvas.single ? TransitionCanvas.single.GetComponent<StorybookDeathFade>() : null;
+        if (deathFade) yield return deathFade.CloseLife();
         gc.defeatPanel.SetActive(true);
+        if (deathFade) yield return deathFade.RevealDefeat();
         //gc.ToggleMonetizeBottom(false);
         LevelController.Instance.AssetManager.battleCampCamera.SetActive(true);
-        //am.SpawnGeneralObj("ChestDropIn");
         gm.EnemyCleanup();
         gm.MapCleanup();
 
-        if (!gc.defeatPanel.GetComponent<StorybookBattleResultUI>()) {
-            LevelController.Instance.AssetManager.nextDropInGrade = ChestGrade.TURD;
-            LevelController.Instance.AssetManager.SpawnGeneralObj("ChestDropIn");
-        }
 
         yield return new WaitForSeconds(.5f);
         waitingForBattleCleanup = false;
@@ -595,6 +592,7 @@ public class Router : MonoBehaviour
     public bool waitingForBattleCleanup = false;
     public IEnumerator GoToVictory()
     {
+        float victoryDuration=Player.single ? Player.single.BeginVictoryRelaxation() : 0;
         if (gc.battleHud) gc.ToggleBattleUi(false);
         waitingForBattleCleanup = true;
         gc.ToggleButtonGrid(false);
@@ -617,15 +615,13 @@ public class Router : MonoBehaviour
         GameManager.single.crystals += (int)rewardCrystals;
         //gc.victoryCrystals.text = "+ " + (int)rewardCrystals;
 
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(Mathf.Max(.3f,victoryDuration+.2f));
         gc.victoryPanel.SetActive(true);
 
         //gc.ToggleMonetizeBottom(false);
-        //am.nextDropInGrade = chestGradeChosen;
 
 
         yield return new WaitForSeconds(.3f);
-        if (!gc.victoryPanel.GetComponent<StorybookBattleResultUI>()) LevelController.Instance.AssetManager.SpawnGeneralObj("ChestDropIn");
         gm.BattleCleanup();
 
         //let it get dark, then clean objects away

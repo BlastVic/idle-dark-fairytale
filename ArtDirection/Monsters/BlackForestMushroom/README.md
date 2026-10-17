@@ -2,13 +2,13 @@
 
 | 配置键 / Prefab | 怪物 | Spine 模板 |
 | --- | --- | --- |
-| MobWaxcap | 蜡斑菇 | mon_7080 |
-| MobWoodcap | 木纹菇 | mon_7081 |
-| MobDreamcap | 梦眼菇 | mon_7082 |
+| MobTallowkin | 蜡拳菇 | mon_7080 |
+| MobGnarlo | 枯笑菇 | mon_7081 |
+| MobDrowseed | 梦斑菇 | mon_7082 |
 
-Unity 目录在 `Assets/DarkFairytale/Monsters/BlackForestMushroom/` 下，三个子目录分别为 `MobWaxcap/`、`MobWoodcap/`、`MobDreamcap/`；`source/` 分件和同级 `Spine/export/monster/` 使用相同名称。原 Prefab、贴图、SkeletonData 的 GUID 保留，资源文件名、Addressables 地址、敌人数据库键和现有蘑菇波次配置同步改名。
+Unity 目录在 `Assets/DarkFairytale/Monsters/BlackForestMushroom/` 下，三个子目录分别为 `MobTallowkin/`、`MobGnarlo/`、`MobDrowseed/`；`source/` 分件和同级 `Spine/export/monster/` 使用相同名称。原 Prefab、贴图、SkeletonData 的 GUID 保留，资源文件名、Addressables 地址、敌人数据库键和现有蘑菇波次配置同步改名。
 
-原版 `Mob1`、`Mob2`、`Mob4` 已恢复为 Slime、Slime2、Slime3；ItemDrop、Map1、Map2、Map3 中先前被替换的史莱姆也恢复。原版资源仅作参照，后续不得覆盖。通过 Gameplay 中 WaveManager 的波次 enemies 配置选择 `MobWaxcap`、`MobWoodcap`、`MobDreamcap` 使用新怪物，旧关卡的原版键保持有效。注意 `Mob1` 与 `MobWaxcap` 是两个独立键。
+原版 `Mob1`、`Mob2`、`Mob4` 已恢复为 Slime、Slime2、Slime3；ItemDrop、Map1、Map2、Map3 中先前被替换的史莱姆也恢复。原版资源仅作参照，后续不得覆盖。通过 Gameplay 中 WaveManager 的波次 enemies 配置选择 `MobTallowkin`、`MobGnarlo`、`MobDrowseed` 使用新怪物，旧关卡的原版键保持有效。注意 `Mob1` 与 `MobTallowkin` 是两个独立键。
 
 构建器已删除覆盖原版 Prefab 和场景史莱姆的入口。动画出场测试只针对新编号；`Validate Black Forest Mushrooms` 同时检查六个新旧资源的数据库、Addressables 与 Spine 来源。旧版报告中的“全游戏替换”和旧键加载蘑菇已废止，以下仅保留历史。
 
@@ -22,11 +22,11 @@ Unity 目录在 `Assets/DarkFairytale/Monsters/BlackForestMushroom/` 下，三�
 
 | 外观 | 来源模板 | 骨骼 | Unity 资源／旧键 |
 | --- | --- | --- | --- |
-| 蜡斑菇 | mon_7080 | 27 | BF_Mushroom_Wine / Mob1（本次未改） |
-| 木纹菇 | mon_7081 | 26 | BF_Mushroom_Moss / Mob2 |
-| 梦眼菇 | mon_7082 | 26 | BF_Mushroom_Moon / Mob4 |
+| 蜡拳菇 | mon_7080 | 27 | BF_Mushroom_Wine / Mob1（本次未改） |
+| 枯笑菇 | mon_7081 | 26 | BF_Mushroom_Moss / Mob2 |
+| 梦斑菇 | mon_7082 | 26 | BF_Mushroom_Moon / Mob4 |
 
-木纹菇、梦眼菇依据各自新概念图与原始 UV 分件参考重新绘制。扁斜木纹帽与圆拱月白帽使用各自的原始网格、权重和动画，不再套用 mon_7080。梦眼菇的下颚追加了一次平滑边缘修正，避免原尖齿遮住细齿笑脸。所有图像由内置 imagegen 绘制；原始分件和修订提示词在 `source/original-rig/separate-rigs-prompts.txt` 及 `mon_7082/jaw-correction-prompt.txt`。
+枯笑菇、梦斑菇依据各自新概念图与原始 UV 分件参考重新绘制。扁斜木纹帽与圆拱月白帽使用各自的原始网格、权重和动画，不再套用 mon_7080。梦斑菇的下颚追加了一次平滑边缘修正，避免原尖齿遮住细齿笑脸。所有图像由内置 imagegen 绘制；原始分件和修订提示词在 `source/original-rig/separate-rigs-prompts.txt` 及 `mon_7082/jaw-correction-prompt.txt`。
 
 ## 可用交付
 
@@ -54,7 +54,7 @@ Unity 目录在 `Assets/DarkFairytale/Monsters/BlackForestMushroom/` 下，三�
 
 # 历史交付：差异化蘑菇 v9（2026-10-09）
 
-以 `concepts/mushroom-trio-redesign-v4-fists.png` 为已选方案：蜡斑菇（酒红粗牙脸／菌瘤拳）、木纹菇（苔绿木脸／木节拳）、梦眼菇（月白面具／孢子壳拳）。内置 imagegen 重绘的三套透明分件位于 `source/original-rig/`，提示词在 `redesign-v4-prompts.txt`，旧图保存在 `before-v4-redesign/`。当前为 Unity JSON／atlas／PNG／Prefab 交付，未制作新的原生 .spine 编辑工程。
+以 `concepts/mushroom-trio-redesign-v4-fists.png` 为已选方案：蜡拳菇（酒红粗牙脸／菌瘤拳）、枯笑菇（苔绿木脸／木节拳）、梦斑菇（月白面具／孢子壳拳）。内置 imagegen 重绘的三套透明分件位于 `source/original-rig/`，提示词在 `redesign-v4-prompts.txt`，旧图保存在 `before-v4-redesign/`。当前为 Unity JSON／atlas／PNG／Prefab 交付，未制作新的原生 .spine 编辑工程。
 
 ## 骨架与网格适配
 

@@ -14,7 +14,7 @@ public static class StorybookChestBuilder
     static void Poll(){if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists(Out+"build.request"))return;File.Delete(Out+"build.request");try{Build();File.WriteAllText(Out+"build.txt","PASS");}catch(Exception e){File.WriteAllText(Out+"build.txt",e.ToString());Debug.LogException(e);}}
     static T Asset<T>(string path,Func<T> make) where T:UnityEngine.Object {var old=AssetDatabase.LoadAssetAtPath<T>(path);if(old)return old;var a=make();AssetDatabase.CreateAsset(a,path);return a;}
     static Sprite Slice(string name,float x,float y,float w,float h,bool original=false,Vector4 border=default)
-    {var texture=original?art:clean;return Asset(Root+"/Sprites/"+name+".asset",()=>Sprite.Create(texture,new Rect(x,texture.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border));}
+    {var texture=original?art:clean;return Asset(Root+"/Sprites/"+name+".asset",()=>ProductionUiArt.Create(texture,new Rect(x,texture.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border));}
     static Sprite Polygon(string name,float x,float y,float w,float h,Vector2[] outline)
     {
         if(name=="CrystalRewardMesh"||name=="EquipmentRewardMesh"){
@@ -43,7 +43,7 @@ public static class StorybookChestBuilder
     public static void Build()
     {
         Directory.CreateDirectory(Root+"/Sprites");Directory.CreateDirectory(Out);AssetDatabase.Refresh();
-        art=ShelterRefinedBuilder.Import(Root+"/Art/ApprovedChest.png");clean=ShelterRefinedBuilder.Import(Root+"/Art/ChestBlankLabels.png");
+        art=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Chest/Art/ApprovedChest.png");clean=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Chest/Art/ChestBlankLabels.png");
         font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Black.otf");
         ink=Asset(Root+"/ColourCutout.mat",()=>new Material(Shader.Find("UI/Reference Ink Cutout")));ink.SetFloat("_Mode",0);ink.SetFloat("_InkOnly",0);ink.SetFloat("_Cutoff",.47f);ink.SetFloat("_Feather",.12f);EditorUtility.SetDirty(ink);
         frameInk=Asset(Root+"/FrameCutout.mat",()=>new Material(Shader.Find("UI/Reference Ink Cutout")));frameInk.SetFloat("_Mode",0);frameInk.SetFloat("_InkOnly",0);frameInk.SetFloat("_Cutoff",.42f);frameInk.SetFloat("_Feather",.14f);EditorUtility.SetDirty(frameInk);
@@ -99,7 +99,7 @@ public static class StorybookChestBuilder
             ui.hint=Txt(free,"Hint","点击开启，领取战利品",10,81,450,30,21);
             ui.notice=Txt(page.transform,"Notice","",44,690,452,20,16);ui.notice.color=new Color(.46f,.055f,.035f);
             ready.gameObject.SetActive(false);free.gameObject.SetActive(false);
-            layout.Apply();PrefabUtility.SaveAsPrefabAsset(root.gameObject,Path);
+            layout.Apply();ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
         }finally{UnityEngine.Object.DestroyImmediate(root.gameObject);}
         AssetDatabase.SaveAssets();AssetDatabase.Refresh();
     }

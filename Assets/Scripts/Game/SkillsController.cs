@@ -20,7 +20,8 @@ public class SkillsController : MonoSingleton<SkillsController>
     public int luckyBastardLevel = 0;
     public int lastButNotLeastLevel = 0;
     public int twiceTheFunLevel = 0;
-    public int taironTheDragonLevel = 0;
+    [UnityEngine.Serialization.FormerlySerializedAs("taironTheDragonLevel")]
+    public int cindrelLevel = 0;
     public int lightningDemiGodlevel = 0;
     public int bossKillerLevel = 0;
     public int myLuckyStarsLevel = 0;
@@ -56,8 +57,8 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Last_But_Not_Least:
                 levelFound = lastButNotLeastLevel;
                 break;
-            case SkillsTypeEnum.Tairon_The_Dragon:
-                levelFound = taironTheDragonLevel;
+            case SkillsTypeEnum.PetCindrel:
+                levelFound = cindrelLevel;
                 break;
             case SkillsTypeEnum.Twice_The_Fun:
                 levelFound = twiceTheFunLevel;
@@ -111,8 +112,8 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Last_But_Not_Least:
                 lastButNotLeastLevel++;
                 break;
-            case SkillsTypeEnum.Tairon_The_Dragon:
-                taironTheDragonLevel++;
+            case SkillsTypeEnum.PetCindrel:
+                cindrelLevel++;
                 break;
             case SkillsTypeEnum.Twice_The_Fun:
                 twiceTheFunLevel++;
@@ -213,7 +214,7 @@ public class SkillsController : MonoSingleton<SkillsController>
                 val[0] *= 100;
                 desc = sd.desc.Replace(VAL1, val[0].ToString());
                 break;
-            case SkillsTypeEnum.Tairon_The_Dragon:
+            case SkillsTypeEnum.PetCindrel:
                 val[0] = GetSkillValues(levelWanted, type)[0];
                 val[0] *= 100;
                 desc = sd.desc.Replace(VAL1, val[0].ToString());
@@ -287,7 +288,7 @@ public class SkillsController : MonoSingleton<SkillsController>
             case SkillsTypeEnum.Last_But_Not_Least:
                 val[0] = SkillsDataDescriptions.SkillDataArr.Where(x => x.skillsType == type).FirstOrDefault().value1[level];
                 break;
-            case SkillsTypeEnum.Tairon_The_Dragon:
+            case SkillsTypeEnum.PetCindrel:
                 val[0] = SkillsDataDescriptions.SkillDataArr.Where(x => x.skillsType == type).FirstOrDefault().value1[level];
                 break;
             case SkillsTypeEnum.Twice_The_Fun:
@@ -322,7 +323,7 @@ public class SkillsController : MonoSingleton<SkillsController>
         ressurrectionLevel = 0;
         luckyBastardLevel = 0;
         twiceTheFunLevel = 0;
-        taironTheDragonLevel = 0;
+        cindrelLevel = 0;
         lastButNotLeastLevel = 0;
         lightningDemiGodlevel = 0;
         bossKillerLevel = 0;

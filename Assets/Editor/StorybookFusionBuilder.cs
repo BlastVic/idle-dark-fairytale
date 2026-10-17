@@ -24,9 +24,9 @@ public static class StorybookFusionBuilder
     static T Asset<T>(string path,Func<T> make) where T:UnityEngine.Object
     { var old=AssetDatabase.LoadAssetAtPath<T>(path); if(old)return old; var asset=make();AssetDatabase.CreateAsset(asset,path);return asset; }
     static Sprite Slice(string name,float x,float y,float w,float h,Vector4 border=default)
-    { return Asset(Root+"/Sprites/"+name+".asset",()=>Sprite.Create(source,new Rect(x,source.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border)); }
+    { return Asset(Root+"/Sprites/"+name+".asset",()=>ProductionUiArt.Create(source,new Rect(x,source.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border)); }
     static Sprite CleanSlice(string name,float x,float y,float w,float h,Vector4 border=default)
-    { return Asset(Root+"/Sprites/"+name+".asset",()=>Sprite.Create(clean,new Rect(x,clean.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border)); }
+    { return Asset(Root+"/Sprites/"+name+".asset",()=>ProductionUiArt.Create(clean,new Rect(x,clean.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border)); }
     static RectTransform Node(Transform parent,string name)
     {var go=new GameObject(name,typeof(RectTransform));go.layer=5;go.transform.SetParent(parent,false);return (RectTransform)go.transform;}
     static void Box(RectTransform rt,float x,float y,float w,float h)=>StorybookEquipmentLayout.Box(rt,x,y,w,h);
@@ -54,7 +54,7 @@ public static class StorybookFusionBuilder
     public static void Build()
     {
         Directory.CreateDirectory(Root+"/Sprites");Directory.CreateDirectory(Out);AssetDatabase.Refresh();
-        source=ShelterRefinedBuilder.Import(Root+"/Art/ApprovedFusion.png");clean=ShelterRefinedBuilder.Import(Root+"/Art/FusionBlankLabels.png");
+        source=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Fusion/Art/ApprovedFusion.png");clean=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Fusion/Art/FusionBlankLabels.png");
         font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Black.otf");
         paper=CleanSlice("PaperContinuous",285,579,235,48);frame=CleanSlice("ThinPanelFrameClean",80,571,532,166,new Vector4(13,13,13,13));
         cutout=Asset(Root+"/InkCutout.mat",()=>new Material(Shader.Find("UI/Reference Ink Cutout")));
@@ -117,7 +117,7 @@ public static class StorybookFusionBuilder
             ui.actionCaption.color=new Color(.99f,.94f,.83f);
             ui.hint=Txt(lower,"Hint","消耗水晶，补满融合进度",16,292,501,28,19);
             ui.returnToShelter=Button(lower,"ReturnToShelter",null,120,322,293,34,"返回庇护所",21,out _);ui.returnToShelter.GetComponent<Image>().color=new Color(1,1,1,.001f);
-            layout.Apply();PrefabUtility.SaveAsPrefabAsset(root.gameObject,Path);
+            layout.Apply();ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
         }
         finally {UnityEngine.Object.DestroyImmediate(root.gameObject);}
         AssetDatabase.SaveAssets();AssetDatabase.Refresh();

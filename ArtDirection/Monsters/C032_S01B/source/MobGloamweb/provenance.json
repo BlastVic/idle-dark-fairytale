@@ -1,0 +1,73 @@
+{
+  "source": "D:\\Workspace\\Spine\\monster2\\C032_S01B",
+  "source_sha256": "2ceb45cc24489371c721d53ba65454c65511a9d9b973ed5f9e5fa849241a2d74",
+  "bones": 30,
+  "slots": 22,
+  "parts": 26,
+  "model": "built-in image_gen; exact model identifier not exposed",
+  "preserved": [
+    "bones",
+    "slots",
+    "IK",
+    "mesh UVs and weights",
+    "all ten original animations"
+  ],
+  "aliases": {
+    "Idle1": {
+      "source": "Idle_Battle_00",
+      "duration": 1.3333,
+      "events": []
+    },
+    "Attack1": {
+      "source": "Atk1_00",
+      "duration": 1.3,
+      "events": [
+        {
+          "time": 0.6667,
+          "name": "OnHit"
+        },
+        {
+          "time": 1.3,
+          "name": "OnComplete"
+        }
+      ]
+    },
+    "Hit": {
+      "source": "Hit_00",
+      "duration": 0.4,
+      "events": [
+        {
+          "time": 0.4,
+          "name": "OnComplete"
+        }
+      ]
+    },
+    "Death1": {
+      "source": "Death_00",
+      "duration": 1.3333,
+      "events": [
+        {
+          "time": 1.3333,
+          "name": "OnComplete"
+        }
+      ]
+    }
+  },
+  "alpha": "straight; repaired generated alpha retained, no RGB conversion followed by original-alpha replacement",
+  "native_source": "Original .spine unchanged; adapted aliases supplied in editable JSON, not a newly saved .spine project",
+  "initial_model": "gpt-image-2.5-flare",
+  "repair_v2": {
+    "date": "2026-10-11",
+    "source_sheets": [
+      "repair-v2/main.png",
+      "repair-v2/legs.png",
+      "repair-v2/blink.png"
+    ],
+    "exporter": "Assets/Editor/MobGloamwebTextureRepair.cs",
+    "registration": "repair-v2/registration.json",
+    "preserved": "All existing JSON bytes, bones, slots, weights, UVs, original animations and game events unchanged",
+    "parts": "26; body/head artwork retained, eye/mouth/legs registered using nontransparent bounds; sparse closed-eye marks retain full-eye canvas",
+    "runtime_atlas": "1024x1024",
+    "backup": "before-repair-v2"
+  }
+}

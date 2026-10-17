@@ -29,9 +29,19 @@ namespace Assets.Scripts.Services
         private String _data;
         private String _dataLastBattle;
 
+#if UNITY_EDITOR
+        // Keep the no-save decision for the entire Play session, including OnApplicationQuit.
+        // Persistence tests using an explicitly isolated key may still opt into writes.
+        bool editorValidationSession;
+#endif
         protected override void Awake()
         {
             base.Awake();
+#if UNITY_EDITOR
+            editorValidationSession = SaveKey == saveFileName &&
+                (UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false) ||
+                 !string.IsNullOrEmpty(UnityEditor.SessionState.GetString("UI_PRODUCTION_FLOW", "")));
+#endif
             _userData = new UserData();
         }
 
@@ -51,7 +61,7 @@ namespace Assets.Scripts.Services
         {
 #if UNITY_EDITOR
             // Explicit monster integration tests must never persist temporary waves or rewards.
-            if (UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false)) return;
+            if (editorValidationSession || UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false)) return;
 #endif
             LoggerMethods.Log("--- Saved File ---");
             GameManager gm = GameManager.single;
@@ -110,7 +120,7 @@ namespace Assets.Scripts.Services
             _userData.ressurrectionLevel = SkillsController.Instance.ressurrectionLevel;
             _userData.twiceTheFunLevel = SkillsController.Instance.twiceTheFunLevel;
             _userData.lastButNotLeastLevel = SkillsController.Instance.lastButNotLeastLevel;
-            _userData.taironTheDragonLevel = SkillsController.Instance.taironTheDragonLevel;
+            _userData.cindrelLevel = SkillsController.Instance.cindrelLevel;
             _userData.lightningDemiGodlevel = SkillsController.Instance.lightningDemiGodlevel;
             _userData.bossKillerLevel = SkillsController.Instance.bossKillerLevel;
             _userData.myLuckyStarsLevel = SkillsController.Instance.myLuckyStarsLevel;
@@ -142,7 +152,7 @@ namespace Assets.Scripts.Services
         public void SaveDeathProgress()
         {
 #if UNITY_EDITOR
-            if (UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false)) return;
+            if (editorValidationSession || UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false)) return;
 #endif
             Save();
             PlayerPrefs.Save(); // Persist before the death presentation can be interrupted.
@@ -151,7 +161,7 @@ namespace Assets.Scripts.Services
         public void SaveStatAllocation()
         {
 #if UNITY_EDITOR
-            if (UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false)) return;
+            if (editorValidationSession || UnityEditor.SessionState.GetBool("MONSTER_QA_DISABLE_SAVE", false)) return;
 #endif
             Save();
             PlayerPrefs.Save(); // Allocation and its repeat restriction survive immediate shutdown.
@@ -225,7 +235,7 @@ namespace Assets.Scripts.Services
             SkillsController.Instance.luckyBastardLevel = _userData.luckyBastardLevel;
             SkillsController.Instance.ressurrectionLevel = _userData.ressurrectionLevel;
             SkillsController.Instance.twiceTheFunLevel = _userData.twiceTheFunLevel;
-            SkillsController.Instance.taironTheDragonLevel = _userData.taironTheDragonLevel;
+            SkillsController.Instance.cindrelLevel = _userData.cindrelLevel;
             SkillsController.Instance.lastButNotLeastLevel = _userData.lastButNotLeastLevel;
             SkillsController.Instance.lightningDemiGodlevel = _userData.lightningDemiGodlevel;
             SkillsController.Instance.bossKillerLevel = _userData.bossKillerLevel;
@@ -251,7 +261,10 @@ namespace Assets.Scripts.Services
 
             if (!string.IsNullOrEmpty(_dataLastBattle))
             {
-                gm.lastBattleKey = _dataLastBattle;
+                // Retired legacy chapters no longer have monster/map assets.
+                // Keep old progression data, but return replay navigation to chapter one.
+                gm.lastBattleKey = WaveManager.single.GetWavesetByKey(_dataLastBattle) != null
+                    ? _dataLastBattle : "Khorasan Ruins I";
             }
 
             EventManager.single.CallLoadComplete();
@@ -338,6 +351,15 @@ namespace Assets.Scripts.Services
         }
 
         // public UserData userData;
+        // JsonUtility's runtime JSON reader does not honor FormerlySerializedAs.
+        // Preserve already-learned pet levels from pre-rename saves; a new field wins if both exist.
+        public static UserData DeserializeUserData(string json)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(json, @"""cindrelLevel""\s*:"))
+                json = System.Text.RegularExpressions.Regex.Replace(json, @"""taironTheDragonLevel""\s*:", "\"cindrelLevel\":");
+            return JsonUtility.FromJson<UserData>(json);
+        }
+
         void LoadJSON()
         {
             string _info = "";
@@ -345,7 +367,7 @@ namespace Assets.Scripts.Services
             {
                 _info = PlayerPrefs.GetString(SaveKey);
 
-                _userData = JsonUtility.FromJson<UserData>(_info);
+                _userData = DeserializeUserData(_info);
 
                 //_data = _info;
                 LoggerMethods.Log("File Read Success");
@@ -421,7 +443,8 @@ namespace Assets.Scripts.Services
         public int luckyBastardLevel = 0;
         public int ressurrectionLevel = 0;
         public int twiceTheFunLevel = 0;
-        public int taironTheDragonLevel = 0;
+        [UnityEngine.Serialization.FormerlySerializedAs("taironTheDragonLevel")]
+        public int cindrelLevel = 0;
         public int lastButNotLeastLevel = 0;
         public int lightningDemiGodlevel = 0;
         public int bossKillerLevel = 0;

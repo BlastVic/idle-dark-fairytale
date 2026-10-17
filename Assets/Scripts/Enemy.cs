@@ -54,9 +54,18 @@ public class Enemy : AnimationController
         attackRoutine = null;
     }
 
+    // Cancel both the scheduled attack and the currently playing attack track.
+    public void PauseForPlayerDeath()
+    {
+        StopAttacking();
+        if (!ab.isDying && !IsEntering) SetAnimation("Idle1", true, false);
+    }
+
+    bool PlayerIsDying => Player.single && Player.single.ab && Player.single.ab.isDying;
+
     public void StartAttacking(bool instant = false)
     {
-        if (IsEntering || ab.isDying) return;
+        if (IsEntering || ab.isDying || PlayerIsDying) return;
         if (attackRoutine != null)
         {
             StopCoroutine(attackRoutine);
@@ -91,7 +100,7 @@ public class Enemy : AnimationController
         {
             return;
         }
-        if (ab.isDying) return;//cant attack when dying
+        if (ab.isDying || PlayerIsDying) return;//cant attack when either combatant is dying
         SetAnimation("Attack" + Random.Range(1, maxAttacks), true, false, Random.RandomRange(.9f, 1.1f));
         StartAttacking();
     }
@@ -113,7 +122,7 @@ public class Enemy : AnimationController
 
     public override void AnimationOnHit(string animation)
     {
-        if (IsEntering || ab.isDying) return;
+        if (IsEntering || ab.isDying || PlayerIsDying) return;
         if (animation.Contains("Attack"))
         {
             SoundManager.Instance.PlayClip(attackAudio, false, false);
@@ -126,10 +135,6 @@ public class Enemy : AnimationController
                 if (critChance < ab.currentStat.crit) isCrit = true;
                 Player.single.ab.Hit(dmgRandomized, isCrit, ab.currentStat.pierce);
                 StartCoroutine(CameraEffects.single.Shake());
-            }
-            else
-            {
-                Player.single.GetComponentInChildren<MaterialSwapper>().CallWhiteFlash();
             }
         }
     }

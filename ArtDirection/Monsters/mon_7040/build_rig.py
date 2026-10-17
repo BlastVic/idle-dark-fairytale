@@ -33,12 +33,12 @@ def build():
         if name in EVENTS:rig['animations'][name]['events']=EVENTS[name]
     rig['animations']['Hit']=hit_animation(original)
     SOURCE.mkdir(exist_ok=True)
-    (SOURCE/'MobBarkSquirrel.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
-    manifest={'monster_id':'MobBarkSquirrel','approved_design':'B-character-v1.png','painting':'built-in image_gen; exact model not exposed','source':str(ORIGINAL),'source_version':original['skeleton']['spine'],'native_project_status':'Original native project preserved; new native MobBarkSquirrel.spine pending','aliases':ALIASES,'events':EVENTS,'authored_Hit':'0.4s recoil on original center/head/jaw/tail from idle first pose; no source curve changes','original_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ORIGINAL.iterdir() if p.is_file()},'original_images_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ORIGINAL/'images').glob('*.png')},'atlas':'straight alpha, nonrotated, 8px padding, max4096, 2x source canvas; generated alpha retained','registration':'UV-visible source bounds; measured cell borders and uniform registration.json transforms; no UV/weight edits'}
+    (SOURCE/'MobSplinterjaw.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
+    manifest={'monster_id':'MobSplinterjaw','approved_design':'B-character-v1.png','painting':'built-in image_gen; exact model not exposed','source':str(ORIGINAL),'source_version':original['skeleton']['spine'],'native_project_status':'Original native project preserved; new native MobSplinterjaw.spine pending','aliases':ALIASES,'events':EVENTS,'authored_Hit':'0.4s recoil on original center/head/jaw/tail from idle first pose; no source curve changes','original_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ORIGINAL.iterdir() if p.is_file()},'original_images_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ORIGINAL/'images').glob('*.png')},'atlas':'straight alpha, nonrotated, 8px padding, max4096, 2x source canvas; generated alpha retained','registration':'UV-visible source bounds; measured cell borders and uniform registration.json transforms; no UV/weight edits'}
     (SOURCE/'provenance.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n');verify(rig,original)
 def verify(rig=None,original=None):
     if original is None:original=json.loads((ORIGINAL/'mon_7040.json').read_text())
-    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobBarkSquirrel/MobBarkSquirrel.json').read_text())
+    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobSplinterjaw/MobSplinterjaw.json').read_text())
     for k,v in original.items():
         if k not in ('skins','animations','events'):assert rig[k]==v,k
     assert rig['skins'][0]==original['skins'][0]

@@ -22,8 +22,8 @@ def build():
         rig['animations'][name]=copy.deepcopy(original['animations'][source])
         if name in EVENTS:rig['animations'][name]['events']=EVENTS[name]
     SOURCE.mkdir(parents=True,exist_ok=True)
-    (SOURCE/'MobRotleafChild.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
-    manifest={'monster_id':'MobRotleafChild','approved_design':'A-character-v1.png','painting':'built-in image_gen; exact model identifier not exposed','painting_prompts':'painting-prompts.json','native_project_status':'Original C031_Dummy_G.spine preserved; new skin delivered as JSON and part PNGs, no new native .spine saved','source':str(ORIGINAL),'source_version':original['skeleton']['spine'],'changes':['Added linked skin 1 inheriting default deform','Added four game animation aliases and events; no changes to original timelines or rig','Repacked nonrotated straight-alpha atlas from repainted source parts'], 'aliases':ALIASES,'events':EVENTS,'original_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ORIGINAL.iterdir() if p.is_file()}}
+    (SOURCE/'MobVesperling.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
+    manifest={'monster_id':'MobVesperling','approved_design':'A-character-v1.png','painting':'built-in image_gen; exact model identifier not exposed','painting_prompts':'painting-prompts.json','native_project_status':'Original C031_Dummy_G.spine preserved; new skin delivered as JSON and part PNGs, no new native .spine saved','source':str(ORIGINAL),'source_version':original['skeleton']['spine'],'changes':['Added linked skin 1 inheriting default deform','Added four game animation aliases and events; no changes to original timelines or rig','Repacked nonrotated straight-alpha atlas from repainted source parts'], 'aliases':ALIASES,'events':EVENTS,'original_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ORIGINAL.iterdir() if p.is_file()}}
     manifest['original_images_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ORIGINAL/'images').glob('*.png')}
     manifest['registration']='2x original canvas; UV-visible source alpha bounds; cap inset 5% canvas width and 2.5% height total to avoid original mesh clipping; generated alpha retained'
     manifest['atlas']='Unity PackTextures; 8 px padding; 4096 maximum; straight alpha; no rotation; verify packed dimensions equal part canvas'
@@ -31,7 +31,7 @@ def build():
     verify(rig,original)
 
 def verify(rig=None,original=None):
-    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobRotleafChild/MobRotleafChild.json').read_text())
+    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobVesperling/MobVesperling.json').read_text())
     if original is None:original=json.loads((ORIGINAL/'C031_Dummy_G.json').read_text())
     for field in ('skeleton','bones','slots','ik','transform'):assert rig.get(field)==original.get(field),field
     assert rig['skins'][0]==original['skins'][0]

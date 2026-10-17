@@ -1,0 +1,345 @@
+Spine effects test scene
+PASS test controller active
+PASS visible geometry 0
+PASS test controller active
+PASS pet width equals battle config 0
+PASS test controller active
+PASS width control 0
+PASS test controller active
+PASS playback 0
+PASS pause 0
+PASS step 0
+PASS loop off
+PASS test controller active
+PASS visible geometry 1
+PASS test controller active
+PASS pet width equals battle config 1
+PASS test controller active
+PASS width control 1
+PASS test controller active
+PASS playback 1
+PASS pause 1
+PASS step 1
+PASS loop off
+PASS test controller active
+PASS visible geometry 2
+PASS test controller active
+PASS pet width equals battle config 2
+PASS test controller active
+PASS width control 2
+PASS test controller active
+PASS playback 2
+PASS pause 2
+PASS step 2
+PASS loop off
+PASS test controller active
+PASS visible geometry 3
+PASS test controller active
+PASS pet width equals battle config 3
+PASS test controller active
+PASS width control 3
+PASS test controller active
+PASS playback 3
+PASS pause 3
+PASS step 3
+PASS loop off
+PASS test controller active
+PASS visible geometry 4
+PASS test controller active
+PASS pet width equals battle config 4
+PASS test controller active
+PASS width control 4
+PASS test controller active
+PASS playback 4
+PASS pause 4
+PASS step 4
+PASS loop off
+PASS test controller active
+PASS visible geometry 5
+PASS test controller active
+PASS test controller active
+PASS width control 5
+PASS test controller active
+PASS playback 5
+PASS pause 5
+PASS step 5
+PASS loop off
+PASS test controller active
+PASS visible geometry 6
+PASS test controller active
+PASS test controller active
+PASS width control 6
+PASS test controller active
+PASS playback 6
+PASS pause 6
+PASS step 6
+PASS loop off
+PASS test controller active
+PASS visible geometry 7
+PASS test controller active
+PASS test controller active
+PASS sweep uses Skill5
+PASS windup before effects
+PASS slash and impact aligned
+PASS no effects before downstroke
+PASS main effect waits for delayed hit
+PASS scrub reconstructs same hero pose
+PASS recover to idle
+PASS sweep ignores enemy position
+PASS blade travels right
+PASS blade exits screen
+PASS width control 7
+PASS test controller active
+PASS playback 7
+PASS pause 7
+PASS step 7
+PASS loop off
+PASS test controller active
+PASS visible geometry 8
+PASS test controller active
+PASS test controller active
+PASS width control 8
+PASS test controller active
+PASS playback 8
+PASS pause 8
+PASS step 8
+PASS loop off
+PASS test controller active
+PASS visible geometry 9
+PASS test controller active
+PASS test controller active
+PASS width control 9
+PASS test controller active
+PASS playback 9
+PASS pause 9
+PASS step 9
+PASS loop off
+PASS test controller active
+PASS visible geometry 10
+PASS test controller active
+PASS test controller active
+PASS width control 10
+PASS test controller active
+PASS playback 10
+PASS pause 10
+PASS step 10
+PASS loop off
+PASS test controller active
+PASS visible geometry 11
+PASS test controller active
+PASS test controller active
+PASS width control 11
+PASS test controller active
+PASS playback 11
+PASS pause 11
+PASS step 11
+PASS loop off
+PASS test controller active
+PASS test controller active
+PASS rendered canvas aspect ratio
+PASS control in viewport Time 2382x492 (22.00, 250.00, 0.00) / (698.00, 278.00, 0.00)
+PASS control in viewport Width 2382x492 (22.00, 107.00, 0.00) / (698.00, 135.00, 0.00)
+PASS control in viewport Speed 2382x492 (22.00, 17.00, 0.00) / (698.00, 45.00, 0.00)
+PASS control in viewport EmberBolt 2382x492 (22.00, 1127.00, 0.00) / (185.00, 1178.00, 0.00)
+PASS control in viewport Common_Absorb 2382x492 (535.00, 1009.00, 0.00) / (698.00, 1060.00, 0.00)
+PASS control in viewport Replay 2382x492 (22.00, 192.00, 0.00) / (148.00, 238.00, 0.00)
+PASS control in viewport Background 2382x492 (566.00, 192.00, 0.00) / (698.00, 238.00, 0.00)
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1280 index 0
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1280 index 1
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1280 index 2
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1280 index 3
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1280 index 4
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS cast preview visible
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS rendered canvas aspect ratio
+PASS control in viewport Time 2382x492 (113.60, 200.00, 0.00) / (654.40, 222.40, 0.00)
+PASS control in viewport Width 2382x492 (113.60, 85.60, 0.00) / (654.40, 108.00, 0.00)
+PASS control in viewport Speed 2382x492 (113.60, 13.60, 0.00) / (654.40, 36.00, 0.00)
+PASS control in viewport EmberBolt 2382x492 (113.60, 901.60, 0.00) / (244.00, 942.40, 0.00)
+PASS control in viewport Common_Absorb 2382x492 (524.00, 807.20, 0.00) / (654.40, 848.00, 0.00)
+PASS control in viewport Replay 2382x492 (113.60, 153.60, 0.00) / (214.40, 190.40, 0.00)
+PASS control in viewport Background 2382x492 (548.80, 153.60, 0.00) / (654.40, 190.40, 0.00)
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 768x1024 index 0
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 768x1024 index 1
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 768x1024 index 2
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 768x1024 index 3
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 768x1024 index 4
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS cast preview visible
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS rendered canvas aspect ratio
+PASS control in viewport Time 2382x492 (22.00, 250.00, 0.00) / (698.00, 278.00, 0.00)
+PASS control in viewport Width 2382x492 (22.00, 107.00, 0.00) / (698.00, 135.00, 0.00)
+PASS control in viewport Speed 2382x492 (22.00, 17.00, 0.00) / (698.00, 45.00, 0.00)
+PASS control in viewport EmberBolt 2382x492 (22.00, 1287.00, 0.00) / (185.00, 1338.00, 0.00)
+PASS control in viewport Common_Absorb 2382x492 (535.00, 1169.00, 0.00) / (698.00, 1220.00, 0.00)
+PASS control in viewport Replay 2382x492 (22.00, 192.00, 0.00) / (148.00, 238.00, 0.00)
+PASS control in viewport Background 2382x492 (566.00, 192.00, 0.00) / (698.00, 238.00, 0.00)
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1440 index 0
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1440 index 1
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1440 index 2
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1440 index 3
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS pet battle size at 720x1440 index 4
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS cast preview visible
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS preview actors present
+PASS test controller active
+PASS test controller active
+PASS plain background
+PASS battle background
+PASS no runtime errors
+COMPLETE

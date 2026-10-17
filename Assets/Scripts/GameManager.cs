@@ -306,7 +306,6 @@ public class GameManager : MonoBehaviour
             gc.ToggleFusionButton(true);
         }
         gc.RefreshFusion();
-        //if (InventoryUI.single != null) InventoryUI.single.RefreshFusion();
     }
 
     public void DebugAddTenLevels()
@@ -385,12 +384,12 @@ public class GameManager : MonoBehaviour
         if (flData.statPointsGiven > 0)
         {
             statPoints += flData.statPointsGiven;
-            GameplayCanvas.single.ShowItemPopUp(new Item { m_IconName = "Stat", m_ItemFinalTitle = "Stats +" + flData.statPointsGiven });
+            GameplayCanvas.single.ShowItemPopUp(new Item { itemGrade = ItemGrade.UI_ONLY, m_ItemFinalTitle = "属性点 +" + flData.statPointsGiven });
         }
         if (flData.skillPointsGiven > 0)
         {
             skillPoints += flData.skillPointsGiven;
-            GameplayCanvas.single.ShowItemPopUp(new Item { m_IconName = "Skill", m_ItemFinalTitle = "Skills +" + flData.skillPointsGiven });
+            GameplayCanvas.single.ShowItemPopUp(new Item { itemGrade = ItemGrade.UI_ONLY, m_ItemFinalTitle = "技能点 +" + flData.skillPointsGiven });
 
         }
 
@@ -399,13 +398,9 @@ public class GameManager : MonoBehaviour
 
         if (flData.expGiven > 0)
         {
-            GameplayCanvas.single.ShowItemPopUp(new Item { m_IconName = "Exp", m_ItemFinalTitle = "XP +" + flData.expGiven });
+            GameplayCanvas.single.ShowItemPopUp(new Item { itemGrade = ItemGrade.UI_ONLY, m_ItemFinalTitle = "经验 +" + flData.expGiven });
         }
         //we should always be on inventory screen when fusing things
-        if (InventoryUI.single != null && InventoryUI.single.gameObject.activeSelf)
-        {
-            InventoryUI.single.RefreshStats();
-        }
 
         fxpNow += rolloverFusion;
         if (fxpNow > fxpMax)

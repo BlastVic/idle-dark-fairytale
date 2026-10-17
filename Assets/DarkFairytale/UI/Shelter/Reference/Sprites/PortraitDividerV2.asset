@@ -10,8 +10,8 @@ Sprite:
   m_Name: PortraitDividerV2
   m_Rect:
     serializedVersion: 2
-    x: 207
-    y: 1493
+    x: 0
+    y: 0
     width: 14
     height: 147
   m_Offset: {x: 0, y: 0}
@@ -21,12 +21,12 @@ Sprite:
   m_Extrude: 0
   m_PackingTag: 
   m_RenderDataKey:
-    00000000000000000000000000000000: 0
+    d8e92cb8023e6474f9775f993f2f06a3: 21300000
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
     serializedVersion: 4
-    texture: {fileID: 2800000, guid: 6ab5bc3128ed64f05b2f6695b490c955, type: 3}
+    texture: {fileID: 2800000, guid: e1c0deba147704bfeac25c5cec6b2ffe, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -111,18 +111,18 @@ Sprite:
       fullWeights: []
     textureRect:
       serializedVersion: 2
-      x: 207
-      y: 1493
+      x: 0
+      y: 0
       width: 14
       height: 147
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 3072
-    uvTransform: {x: 87.12963, y: 214, z: 87.12963, w: 1566.5}
+    uvTransform: {x: 87.12963, y: 7, z: 87.12963, w: 73.5}
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 4
-    texture: {fileID: 2800000, guid: 6ab5bc3128ed64f05b2f6695b490c955, type: 3}
+    texture: {fileID: 2800000, guid: e1c0deba147704bfeac25c5cec6b2ffe, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -207,14 +207,14 @@ Sprite:
       fullWeights: []
     textureRect:
       serializedVersion: 2
-      x: 207
-      y: 1493
+      x: 0
+      y: 0
       width: 14
       height: 147
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 3072
-    uvTransform: {x: 87.12963, y: 214, z: 87.12963, w: 1566.5}
+    uvTransform: {x: 87.12963, y: 7, z: 87.12963, w: 73.5}
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []

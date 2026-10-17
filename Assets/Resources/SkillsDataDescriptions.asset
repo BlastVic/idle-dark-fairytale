@@ -16,8 +16,8 @@ MonoBehaviour:
   - key: Regen
     skillsType: 1
     desc: Restore [VAL1]% of HP every 2 seconds
-    icon: {fileID: 21300000, guid: 82dcc92db54c9734db534269846c2fb5, type: 3}
-    iconGray: {fileID: 21300000, guid: d618c64bf36cc114f849fe096a74d772, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.02
@@ -37,8 +37,8 @@ MonoBehaviour:
   - key: Path Cleaner
     skillsType: 2
     desc: '[VAL1]% Chance to perform a quick 3 hit combo'
-    icon: {fileID: 21300000, guid: 854372ab39572ef4c9b290a968836b09, type: 3}
-    iconGray: {fileID: 21300000, guid: fe0f83caa48359d4b91fb2b70c73d065, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.05
@@ -58,8 +58,8 @@ MonoBehaviour:
   - key: Sinister Stampede
     skillsType: 3
     desc: '[VAL1]% Chance to perform an AOE (have to have more than 1 enemy)'
-    icon: {fileID: 21300000, guid: 9f8f16c1f9045ed4a922cadc502efa2a, type: 3}
-    iconGray: {fileID: 21300000, guid: 41c0a4e893b3a754e8e2730a1bf4cc33, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.06
@@ -79,8 +79,8 @@ MonoBehaviour:
   - key: Angel On My Shoulder
     skillsType: 4
     desc: Increases HP+[VAL1]%, DEF+[VAL2]%
-    icon: {fileID: 21300000, guid: 748cd0f4d3f6b3d41993c302c9c24e1b, type: 3}
-    iconGray: {fileID: 21300000, guid: ea343db2dc5c96d43840120cdc99281d, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.03
@@ -121,9 +121,9 @@ MonoBehaviour:
     value5: []
   - key: Devil On My Shoulder
     skillsType: 5
-    desc: Increase DMG+[VAL1]%, ATK SPD+[VAL2], CRIT+[VAL3]% & CRIT DMG+[VAL4]
-    icon: {fileID: 21300000, guid: 461a8461db9bd0340bc2046afce257c5, type: 3}
-    iconGray: {fileID: 21300000, guid: dba8113de4c80cd4491ca2ddf57908cd, type: 3}
+    desc: 'Increase DMG+[VAL1]%, ATK SPD+[VAL2], CRIT+[VAL3]% & CRIT DMG+[VAL4]'
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.03
@@ -176,8 +176,8 @@ MonoBehaviour:
   - key: Ressurrection
     skillsType: 6
     desc: '[VAL1]% chance to come back to life after dying with 40% HP'
-    icon: {fileID: 21300000, guid: 16f877aa799841242a1bd5b02434097c, type: 3}
-    iconGray: {fileID: 21300000, guid: c5972fce312a98944899f7207def3c6a, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.1
@@ -230,8 +230,8 @@ MonoBehaviour:
   - key: Lucky Bastard
     skillsType: 7
     desc: '[VAL1]% Chance to restore 20% HP upon killing an enemy'
-    icon: {fileID: 21300000, guid: 2c938173a3cd77b43af7ea5fe34c881b, type: 3}
-    iconGray: {fileID: 21300000, guid: e1dc015dcba12904ab940510bc41fb9f, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.05
@@ -284,8 +284,8 @@ MonoBehaviour:
   - key: Twice The Fun
     skillsType: 10
     desc: '[VAL1]% Chance to receive double XP on kills'
-    icon: {fileID: 21300000, guid: 4c078ceace34c7d499fc7040818f4d84, type: 3}
-    iconGray: {fileID: 21300000, guid: 45d767828825a644faf0e7d9b567a8bc, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.1
@@ -338,8 +338,8 @@ MonoBehaviour:
   - key: Last But Not Least
     skillsType: 8
     desc: Every 3rd strike deals [VAL1]% more DMG
-    icon: {fileID: 21300000, guid: efb3f59414014e24dbcca255c881abe0, type: 3}
-    iconGray: {fileID: 21300000, guid: 3aaab6b745c4f5d4bac603394ab14480, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.15
@@ -389,11 +389,11 @@ MonoBehaviour:
     - 18
     - 22
     value5: []
-  - key: Tairon The Dragon
+  - key: Cindrel
     skillsType: 9
-    desc: Small Helper Dragon deals [VAL1]% DMG intermittently
-    icon: {fileID: 21300000, guid: 062331ee2fcb6454d9710b87a50a25a3, type: 3}
-    iconGray: {fileID: 21300000, guid: fdedbca3a26841a41a8192641dc5020b, type: 3}
+    desc: Cindrel deals [VAL1]% DMG intermittently
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 1.5
@@ -445,10 +445,9 @@ MonoBehaviour:
     value5: []
   - key: Lightning Demi God
     skillsType: 11
-    desc: Enemies less than 50% HP will be struck by lightning for [VAL1]% of your
-      DMG
-    icon: {fileID: 21300000, guid: 3ea7fd4980f5ebd4a96dded6164dcc25, type: 3}
-    iconGray: {fileID: 21300000, guid: d895ef9464cc00b409771b8f34a071ef, type: 3}
+    desc: Enemies less than 50% HP will be struck by lightning for [VAL1]% of your DMG
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.5
@@ -501,8 +500,8 @@ MonoBehaviour:
   - key: Boss Killer
     skillsType: 12
     desc: '[VAL1]% Chance to do a 6 hit combo for 150% DMG (Only on bosses)'
-    icon: {fileID: 21300000, guid: a1d3244c7d04aa14182f22a5600da462, type: 3}
-    iconGray: {fileID: 21300000, guid: 4b20df62632555744ac0c67364ebf671, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.1
@@ -555,8 +554,8 @@ MonoBehaviour:
   - key: My Lucky Stars
     skillsType: 13
     desc: Taking a critical hit has a [VAL1]% chance of granting you a 10% HP absorb
-    icon: {fileID: 21300000, guid: 49222b932a46d834baafb5bc8842db62, type: 3}
-    iconGray: {fileID: 21300000, guid: dda282c8992970e4ab6f6bd87374b84a, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.1
@@ -609,8 +608,8 @@ MonoBehaviour:
   - key: Battlefield Tactician
     skillsType: 14
     desc: DMG increased by [VAL1]% when fighting more than one enemy
-    icon: {fileID: 21300000, guid: 98dc826f294deb64f97d785a011a8037, type: 3}
-    iconGray: {fileID: 21300000, guid: a4962aa3937e0ce4e939f7c8168d897c, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.1
@@ -663,8 +662,8 @@ MonoBehaviour:
   - key: Breath Of Hell
     skillsType: 15
     desc: Dragon now has [VAL1]% chance to strike twice and even thrice!
-    icon: {fileID: 21300000, guid: 64addb3219c1a4c479a8e74d11c063af, type: 3}
-    iconGray: {fileID: 21300000, guid: 96663c43d4712ec45a353edb42715bfd, type: 3}
+    icon: {fileID: 0}
+    iconGray: {fileID: 0}
     value1:
     - 0
     - 0.04

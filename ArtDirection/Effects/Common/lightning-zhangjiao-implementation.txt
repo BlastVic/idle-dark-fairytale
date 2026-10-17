@@ -1,0 +1,9 @@
+裂隙雷霆 / 雷霆裁决：改用 zhangjiao_skill_beaten_1。
+来源：/Users/vic/Workshop/Spine/effect/zhangjiao_skill_beaten_1
+JSON、atlas、PNG 与来源逐字节一致；texiao 动画 0.8 秒。
+Spine 数据 scale=0.01，Prefab 根缩放=2.2（较初次接入整体放大 2.2 倍）；正式战斗和测试场景共用 Lightning Particles.prefab，保留原 GUID 与 Lightning_Particle 资源键。
+落点对齐目标敌人脚下，显示在目标身体前方；测试场景 100% 与正式战斗一致，不做独立包围盒缩放。
+保留灰叶治疗、原版受击、盾牌和残翼复生现有设置。
+实景截图位于已忽略 output/，不提交 Git。
+
+尺寸修订：按用户反馈放大主雷柱与落地爆闪，保留原动画比例、脚下落点和 0.8 秒时长；测试场景 100% 即正式战斗的 2.2 根缩放。

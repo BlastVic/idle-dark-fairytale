@@ -1,0 +1,8 @@
+群攻起手：dongzhuo_atk_tx_1。
+正式技能在 Player 的 Sinister Stampede 分支选择 Skill5 后生成一次；敌群命中特效 chengpu_skill_tx_1 及全体伤害逻辑保持不变。
+独立 Prefab：Assets/Resources/Effects/DongzhuoCast.prefab；Spine 数据 scale=0.01，根缩放=2.5。
+在小红帽身体中心向前 0.8 世界单位释放；正式战斗和测试场景通过 CursedSweepCast 共用位置与 Prefab。
+原 texiao 动画跳过开头 0.3 秒空白，播放余下 0.4667 秒。
+原 PNG、JSON、atlas 未改动。独立 Golden Spine 材质按明度和饱和度映射橙金色，保留白亮刀刃、暗色尾部、透明轮廓，不影响其他特效材质。
+测试场景选择阴影践踏后，重播即可看到起手刀光及敌群横扫；100% 使用正式尺寸。
+实景验证：三种比例分别捕获横扫阶段和起手阶段，截图保留 output/，不入 Git。

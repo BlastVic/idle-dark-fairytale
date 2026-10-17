@@ -19,7 +19,7 @@ public static class StorybookSkillsBuilder
     static StorybookSkillsBuilder(){EditorApplication.update+=Poll;}
     static void Poll(){if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists(Output+"build.request"))return;File.Delete(Output+"build.request");try{Build();File.WriteAllText(Output+"build-result.txt","PASS");}catch(Exception e){File.WriteAllText(Output+"build-result.txt",e.ToString());Debug.LogException(e);}}
     static T Asset<T>(string p,Func<T> make) where T:UnityEngine.Object{var a=AssetDatabase.LoadAssetAtPath<T>(p);if(a)return a;a=make();AssetDatabase.CreateAsset(a,p);return a;}
-    static Sprite Slice(string name,float x,float y,float w,float h){return Asset(Root+"/Sprites/"+name+".asset",()=>{var s=Sprite.Create(source,new Rect(x,source.height-y-h,w,h),Vector2.one*.5f,100);s.name=name;return s;});}
+    static Sprite Slice(string name,float x,float y,float w,float h){return Asset(Root+"/Sprites/"+name+".asset",()=>{var s=ProductionUiArt.Create(source,new Rect(x,source.height-y-h,w,h),Vector2.one*.5f,100);s.name=name;return s;});}
     static RectTransform Node(Transform parent,string name){var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.gameObject.layer=5;r.SetParent(parent,false);return r;}
     static Material illustration;
     static void Box(RectTransform r,float x,float y,float w,float h)=>StorybookEquipmentLayout.Box(r,x,y,w,h);
@@ -52,7 +52,7 @@ public static class StorybookSkillsBuilder
         foreach(var n in oldNodes){var so=new SerializedObject(n);prerequisites[so.FindProperty("skillKey").intValue]=new Vector2Int(so.FindProperty("prerequisiteKey").intValue,so.FindProperty("prerequisiteKey2").intValue);}
         if(prerequisites.Count!=15)throw new InvalidOperationException("Expected original 15 skill definitions; found "+prerequisites.Count);
         Directory.CreateDirectory(Root+"/Sprites");Directory.CreateDirectory(Output);AssetDatabase.Refresh();
-        source=ShelterRefinedBuilder.Import(Root+"/Art/ApprovedTree.png");
+        source=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Skills/Art/ApprovedTree.png");
         illustration=Asset(Root+"/CleanIllustration.mat",()=>{var m=new Material(Shader.Find("UI/Reference Ink Cutout"));m.SetFloat("_Mode",0);m.SetFloat("_InkOnly",0);m.SetFloat("_Cutoff",.69f);m.SetFloat("_Feather",.085f);return m;});
         font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Black.otf");regular=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Regular.otf");
         paper=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/DarkFairytale/UI/Equipment/Sprites/CleanPaperV3.asset");red=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/DarkFairytale/UI/Shelter/Reference/Sprites/BlankRedV2.asset");frame=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/DarkFairytale/UI/Equipment/Sprites/PanelFrameV3.asset");
@@ -79,8 +79,8 @@ public static class StorybookSkillsBuilder
             content.sizeDelta=new Vector2(0,1400);
             for(int row=1;row<5;row++)Line(content,"RowDivider",new Vector2(20,row*268-46),new Vector2(882,row*268-46),new Color(.22f,.18f,.13f,.13f),1);
             var pathRoot=Node(content,"DependencyPaths");Box(pathRoot,0,0,901,1400);
-            string[] names={"","生命复苏","三连斩","阴影践踏","天使庇护","恶魔低语","死而复生","幸运收割","第三重击","幼龙伙伴","双倍馈赠","雷霆裁决","首领猎手","幸运之星","战场谋略","地狱吐息"};
-            string[] desc={"","每2秒恢复生命。","{0}%概率发动快速三连击。","{0}%概率触发范围攻击。\n敌人多于1名时生效。","提升生命与防御。","提升攻击与攻速，\n增加暴击与暴伤。","阵亡时有{0}%概率复活。\n复活后恢复40%生命。","击败敌人时，有{0}%概率恢复20%生命。","每第三次攻击额外造成{0}%伤害。","幼龙伙伴间歇造成{0}%攻击伤害。","击败敌人时，有{0}%概率获得双倍经验。","生命低于50%的敌人受到雷击，造成{0}%攻击伤害。","对首领有{0}%概率发动六连击，造成150%伤害。","受到暴击时，有{0}%概率获得10%生命吸收。","面对多个敌人时，伤害增加{0}%。","幼龙有{0}%概率发动二连或三连攻击。"};
+            string[] names={"","生命复苏","三连斩","回旋镰斩","天使庇护","恶魔低语","死而复生","幸运收割","第三重击","书脊龙","双倍馈赠","雷霆裁决","首领猎手","幸运之星","战场谋略","地狱吐息"};
+            string[] desc={"","每2秒恢复生命。","{0}%概率发动快速三连击。","{0}%概率触发范围攻击。\n敌人多于1名时生效。","提升生命与防御。","提升攻击与攻速，\n增加暴击与暴伤。","阵亡时有{0}%概率复活。\n复活后恢复40%生命。","击败敌人时，有{0}%概率恢复20%生命。","每第三次攻击额外造成{0}%伤害。","书脊龙间歇造成{0}%攻击伤害。","击败敌人时，有{0}%概率获得双倍经验。","生命低于50%的敌人受到雷击，造成{0}%攻击伤害。","对首领有{0}%概率发动六连击，造成150%伤害。","受到暴击时，有{0}%概率获得10%生命吸收。","面对多个敌人时，伤害增加{0}%。","书脊龙有{0}%概率发动二连或三连攻击。"};
             string[][] effect={null,new[]{"恢复生命"},new[]{"触发概率"},new[]{"触发概率"},new[]{"生命","防御"},new[]{"攻击","攻速","暴击","暴伤"},new[]{"复活概率"},new[]{"触发概率"},new[]{"额外伤害"},new[]{"攻击伤害"},new[]{"触发概率"},new[]{"攻击伤害"},new[]{"触发概率"},new[]{"触发概率"},new[]{"额外伤害"},new[]{"触发概率"}};
             Vector2[] positions={default,new Vector2(284,78),new Vector2(798,286),new Vector2(630,78),new Vector2(284,286),new Vector2(630,286),new Vector2(457,494),new Vector2(116,286),new Vector2(630,494),new Vector2(457,702),new Vector2(284,494),new Vector2(630,702),new Vector2(798,494),new Vector2(116,494),new Vector2(284,702),new Vector2(457,910)};
             Rect[] crops={default,new Rect(241,272,132,101),new Rect(752,438,132,106),new Rect(578,270,128,106),new Rect(246,438,137,105),new Rect(576,438,132,105),new Rect(403,625,148,109),new Rect(83,438,132,106),new Rect(576,628,132,106),new Rect(409,818,138,110),new Rect(246,628,137,105),new Rect(576,818,132,112),new Rect(752,628,132,106),new Rect(83,628,132,105),new Rect(247,818,135,112),new Rect(408,991,140,106)};
@@ -115,7 +115,7 @@ public static class StorybookSkillsBuilder
             Text(content,"Legend","实线：前置已满足     虚线：前置未满足",28,1330,850,40,22);
             ui.overlay=Node(layout.tree,"DetailsOverlay");Full(ui.overlay,12,12,12,12);ui.overlay.gameObject.AddComponent<RectMask2D>();
             BuildDrawer(ui);
-            layout.Apply();PrefabUtility.SaveAsPrefabAsset(root.gameObject,Path);
+            layout.Apply();ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
         }finally{UnityEngine.Object.DestroyImmediate(root.gameObject);}
         var gc=UnityEngine.Object.FindFirstObjectByType<GameplayCanvas>(FindObjectsInactive.Include);var old=gc.skillsPanel;
         if(old&&!old.GetComponent<StorybookSkillsUI>()){old.SetActive(false);old.name="LegacySkillsPanel_Reference";}

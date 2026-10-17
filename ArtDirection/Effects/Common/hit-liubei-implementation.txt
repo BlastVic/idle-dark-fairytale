@@ -1,0 +1,14 @@
+按用户最新要求，敌人受击改用 liubei_atk_beaten_1，替代此前保留原版受击的约定。
+原 JSON、atlas、PNG 原样导入 LiubeiHit；保留 Hit Particles.prefab GUID 和 Hit_Particle 资源键。
+Spine scale=0.01，Prefab 根缩放=3；texiao 动画 0.4667 秒，不改原配色、节奏或伤害逻辑。
+按原受击生成点匹配最近敌人的 rootPos，并放在目标身体中心。允许命中刚进入死亡状态的目标，避免致命一击跳到旁边敌人。
+正式战斗与测试场景 100% 共用固定尺寸。测试按钮名称由受击（原版）更新为受击。
+旧 Prefab 备份：ArtDirection/Effects/Common/Hit-before-liubei.prefab；其贴图、材质等原资源仍保留。
+9:16、3:4、1:2 实景截图位于已忽略的 output/，不提交 Git。
+
+后续用户修订：骨架子节点 X 缩放=-1，水平镜像；根缩放仍为3。
+Hit.mat 使用独立 YellowWhiteHit.shader，按 atlas UV 排除全部 bd2 中央劈斩帧，保留原 RGB；bd1/bd3 周边爆闪从黄到暗红映射为黄到白，光晕保留明暗衰减与原透明度。PNG、骨架、atlas 未重绘，原帧布局和时序保持一致。
+
+透明度修订：周边白色不透明度乘 0.30、黄色乘 0.75，按颜色连续过渡；中央 bd2 不透明度和 RGB 保持原样。保留预乘 Alpha 渲染，避免透明后仍有过亮叠加。参数保存于 Hit.mat 的 _WhiteOpacity / _YellowOpacity。
+
+再次降低周边不透明度：白色 0.30 → 0.15，黄色 0.75 → 0.45；中央劈斩、镜像、尺寸和时序保持不变。当前材质与显式制作工具的默认值同步。

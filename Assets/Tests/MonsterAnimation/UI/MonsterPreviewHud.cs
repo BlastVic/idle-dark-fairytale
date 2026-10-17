@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public sealed class MonsterPreviewHud : MonoBehaviour
 {
     public GameObject catalogPanel;
-    public Button catalogButton, resetButton, pauseButton, replayButton;
+    public Button catalogButton, resetButton, pauseButton, replayButton, entranceButton;
     public Toggle redHoodToggle, loopToggle, cycleToggle;
     public Slider speedSlider, zoomSlider;
     public InputField searchField;
@@ -34,7 +34,8 @@ public sealed class MonsterPreviewHud : MonoBehaviour
         catalogButton.onClick.AddListener(() => SetCatalogOpen(!catalogPanel.activeSelf));
         resetButton.onClick.AddListener(model.FitCamera);
         pauseButton.onClick.AddListener(() => model.SetPaused(!model.Paused));
-        replayButton.onClick.AddListener(() => model.Play(model.SelectedAnimation));
+        replayButton.onClick.AddListener(model.Replay);
+        if (entranceButton) entranceButton.onClick.AddListener(model.TestEntrance);
         redHoodToggle.onValueChanged.AddListener(v => { if (model.stage) model.stage.ShowRedHood(v); });
         loopToggle.onValueChanged.AddListener(model.SetLoop);
         cycleToggle.onValueChanged.AddListener(model.SetAutoCycle);
@@ -50,7 +51,7 @@ public sealed class MonsterPreviewHud : MonoBehaviour
             if (!card)
             {
                 card = Instantiate(cardTemplate, cardContent);
-                card.data = data; card.displayName = data.name.Replace("_SkeletonData", "");
+                card.data = data; card.displayName = CreatureNames.DisplayName(data.name);
                 card.title.text = card.displayName;
                 liveCards.Add(card);
             }
@@ -93,6 +94,8 @@ public sealed class MonsterPreviewHud : MonoBehaviour
         bool hasAnimations = model.AnimationNames.Length > 0;
         pauseButton.interactable = replayButton.interactable = loopToggle.interactable = cycleToggle.interactable = hasAnimations;
         statusText.text = model.Error ?? (hasAnimations ? "动画  /  " + model.AnimationNames[model.SelectedAnimation] : "无动画 · 显示初始姿态");
+        if (model.EntranceMode) statusText.text = "出场测试  /  " + model.EntranceStatus;
+        if (entranceButton) entranceButton.interactable = model.CanTestEntrance;
         statusText.color = model.Error == null ? new Color(.79f,.75f,.66f) : new Color(1,.45f,.4f);
         foreach (var c in liveCards)
         {

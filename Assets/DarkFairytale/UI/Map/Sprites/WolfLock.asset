@@ -10,8 +10,8 @@ Sprite:
   m_Name: WolfLock
   m_Rect:
     serializedVersion: 2
-    x: 816
-    y: 1201
+    x: 0
+    y: 0
     width: 46
     height: 47
   m_Offset: {x: 0, y: 0}
@@ -21,12 +21,12 @@ Sprite:
   m_Extrude: 0
   m_PackingTag: 
   m_RenderDataKey:
-    00000000000000000000000000000000: 0
+    5b1f279c4ce3045098666c9ac6e74d33: 21300000
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
     serializedVersion: 4
-    texture: {fileID: 2800000, guid: 79287dc4271d5449191fce692ad3ba03, type: 3}
+    texture: {fileID: 2800000, guid: d7ab1d7a96c0d4a4590e9c92e34af924, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -111,18 +111,18 @@ Sprite:
       fullWeights: []
     textureRect:
       serializedVersion: 2
-      x: 816
-      y: 1201
+      x: 0
+      y: 0
       width: 46
       height: 47
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 3072
-    uvTransform: {x: 100, y: 839, z: 100, w: 1224.5}
+    uvTransform: {x: 100, y: 23, z: 100, w: 23.5}
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 4
-    texture: {fileID: 2800000, guid: 79287dc4271d5449191fce692ad3ba03, type: 3}
+    texture: {fileID: 2800000, guid: d7ab1d7a96c0d4a4590e9c92e34af924, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -207,14 +207,14 @@ Sprite:
       fullWeights: []
     textureRect:
       serializedVersion: 2
-      x: 816
-      y: 1201
+      x: 0
+      y: 0
       width: 46
       height: 47
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 3072
-    uvTransform: {x: 100, y: 839, z: 100, w: 1224.5}
+    uvTransform: {x: 100, y: 23, z: 100, w: 23.5}
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []

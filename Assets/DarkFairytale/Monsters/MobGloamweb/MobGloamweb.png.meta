@@ -1,0 +1,873 @@
+fileFormatVersion: 2
+guid: 4cfaaf91d8a3d534bb85d19e7004eb7b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3284722324332930429
+    second: MobGloamweb_0
+  - first:
+      213: -1398064222544124273
+    second: MobGloamweb_1
+  - first:
+      213: 5994243556962797280
+    second: MobGloamweb_2
+  - first:
+      213: -4742903962109970350
+    second: MobGloamweb_3
+  - first:
+      213: -380261569702596675
+    second: MobGloamweb_4
+  - first:
+      213: 8160830201263384774
+    second: MobGloamweb_5
+  - first:
+      213: 6052154161758121298
+    second: MobGloamweb_6
+  - first:
+      213: 8971805922048721036
+    second: MobGloamweb_7
+  - first:
+      213: -8807566473376408942
+    second: MobGloamweb_8
+  - first:
+      213: -684889410794072012
+    second: MobGloamweb_9
+  - first:
+      213: 9049520074359497682
+    second: MobGloamweb_10
+  - first:
+      213: -7895522728223931102
+    second: MobGloamweb_11
+  - first:
+      213: 5949922800540876691
+    second: MobGloamweb_12
+  - first:
+      213: 8852288257242175930
+    second: MobGloamweb_13
+  - first:
+      213: -2578256014341502862
+    second: MobGloamweb_14
+  - first:
+      213: 2684828156872733771
+    second: MobGloamweb_15
+  - first:
+      213: 4548287711743558088
+    second: MobGloamweb_16
+  - first:
+      213: -33601251623239725
+    second: MobGloamweb_17
+  - first:
+      213: -8875212210733468913
+    second: MobGloamweb_18
+  - first:
+      213: -5347209604415578376
+    second: MobGloamweb_19
+  - first:
+      213: -3634232172242609781
+    second: MobGloamweb_20
+  - first:
+      213: 2391614187967097299
+    second: MobGloamweb_21
+  - first:
+      213: -3288147359614950357
+    second: MobGloamweb_22
+  - first:
+      213: 4582227327506043178
+    second: MobGloamweb_23
+  - first:
+      213: -6474080827742416734
+    second: MobGloamweb_24
+  - first:
+      213: -7451491295532691003
+    second: MobGloamweb_25
+  - first:
+      213: 7037535127726245486
+    second: MobGloamweb_26
+  - first:
+      213: 4955732210868330684
+    second: MobGloamweb_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MobGloamweb_0
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 705
+        width: 297
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75e8affc8da59d20800000000000000
+      internalID: 3284722324332930429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_1
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 851
+        width: 172
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8623123ff3199ce0800000000000000
+      internalID: -1398064222544124273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_2
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 859
+        width: 68
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e601f591c4df2350800000000000000
+      internalID: 5994243556962797280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_3
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 865
+        width: 86
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25874a6b9f1dd2eb0800000000000000
+      internalID: -4742903962109970350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_4
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 878
+        width: 76
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbfe428fd1a09baf0800000000000000
+      internalID: -380261569702596675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_5
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 899
+        width: 84
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c8659284d7114170800000000000000
+      internalID: 8160830201263384774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_6
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 901
+        width: 121
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25dae79f4229df350800000000000000
+      internalID: 6052154161758121298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_7
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 576
+        width: 66
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c80c57193f1428c70800000000000000
+      internalID: 8971805922048721036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_8
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 586
+        width: 81
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29a52caf4fc35c580800000000000000
+      internalID: -8807566473376408942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_9
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 623
+        width: 120
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4385137a5b8ce76f0800000000000000
+      internalID: -684889410794072012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_10
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 625
+        width: 110
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d3e6fbaf8a569d70800000000000000
+      internalID: 9049520074359497682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_11
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 626
+        width: 79
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 225803439e77d6290800000000000000
+      internalID: -7895522728223931102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_12
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 629
+        width: 39
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f7c37534f529250800000000000000
+      internalID: 5949922800540876691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_13
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 633
+        width: 139
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab9184eb445a9da70800000000000000
+      internalID: 8852288257242175930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_14
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 639
+        width: 49
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 278092da0d1383cd0800000000000000
+      internalID: -2578256014341502862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_15
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 642
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b44bd5ddbfc624520800000000000000
+      internalID: 2684828156872733771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_16
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 643
+        width: 52
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c1cfb27393ce1f30800000000000000
+      internalID: 4548287711743558088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_17
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 669
+        width: 20
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dffcf4f6df988ff0800000000000000
+      internalID: -33601251623239725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_18
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 652
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f03b5096489e4d480800000000000000
+      internalID: -8875212210733468913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_19
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 648
+        width: 47
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe904d0235eac5b0800000000000000
+      internalID: -5347209604415578376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_20
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 646
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89de26281d909dc0800000000000000
+      internalID: -3634232172242609781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_21
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 521
+        width: 94
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d92091ce68b03120800000000000000
+      internalID: 2391614187967097299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_22
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 522
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b242305d5672e52d0800000000000000
+      internalID: -3288147359614950357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_23
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 524
+        width: 29
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a21d5180a77579f30800000000000000
+      internalID: 4582227327506043178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_24
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 526
+        width: 166
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a01f3fc9c17726a0800000000000000
+      internalID: -6474080827742416734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_25
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 527
+        width: 30
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c1dbda752cf69890800000000000000
+      internalID: -7451491295532691003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_26
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 529
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e66c47689e85aa160800000000000000
+      internalID: 7037535127726245486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobGloamweb_27
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 529
+        width: 42
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb0a4ce603c46c440800000000000000
+      internalID: 4955732210868330684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MobGloamweb_0: 3284722324332930429
+      MobGloamweb_1: -1398064222544124273
+      MobGloamweb_10: 9049520074359497682
+      MobGloamweb_11: -7895522728223931102
+      MobGloamweb_12: 5949922800540876691
+      MobGloamweb_13: 8852288257242175930
+      MobGloamweb_14: -2578256014341502862
+      MobGloamweb_15: 2684828156872733771
+      MobGloamweb_16: 4548287711743558088
+      MobGloamweb_17: -33601251623239725
+      MobGloamweb_18: -8875212210733468913
+      MobGloamweb_19: -5347209604415578376
+      MobGloamweb_2: 5994243556962797280
+      MobGloamweb_20: -3634232172242609781
+      MobGloamweb_21: 2391614187967097299
+      MobGloamweb_22: -3288147359614950357
+      MobGloamweb_23: 4582227327506043178
+      MobGloamweb_24: -6474080827742416734
+      MobGloamweb_25: -7451491295532691003
+      MobGloamweb_26: 7037535127726245486
+      MobGloamweb_27: 4955732210868330684
+      MobGloamweb_3: -4742903962109970350
+      MobGloamweb_4: -380261569702596675
+      MobGloamweb_5: 8160830201263384774
+      MobGloamweb_6: 6052154161758121298
+      MobGloamweb_7: 8971805922048721036
+      MobGloamweb_8: -8807566473376408942
+      MobGloamweb_9: -684889410794072012
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

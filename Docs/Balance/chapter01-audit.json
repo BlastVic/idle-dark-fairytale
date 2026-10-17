@@ -39,14 +39,14 @@
       "key": "Khorasan Ruins I",
       "waves": [
         [
-          "MobGloomSpider"
+          "MobGloamweb"
         ],
         [
-          "MobBarkSquirrel"
+          "MobSplinterjaw"
         ],
         [
-          "MobGloomSpider",
-          "MobGloomSpider"
+          "MobGloamweb",
+          "MobGloamweb"
         ]
       ],
       "count": 4,
@@ -59,20 +59,20 @@
       "key": "Khorasan Ruins II",
       "waves": [
         [
-          "MobBarkSquirrel",
-          "MobBarkSquirrel"
+          "MobSplinterjaw",
+          "MobSplinterjaw"
         ],
         [
-          "MobBriarChild"
+          "MobBramblet"
         ],
         [
-          "MobWaxcap",
-          "MobBarkSquirrel"
+          "MobTallowkin",
+          "MobSplinterjaw"
         ],
         [
-          "MobBriarChild",
-          "MobWaxcap",
-          "MobGloomSpider"
+          "MobBramblet",
+          "MobTallowkin",
+          "MobGloamweb"
         ]
       ],
       "count": 8,
@@ -85,23 +85,23 @@
       "key": "test01",
       "waves": [
         [
-          "MobWaxcap",
-          "MobBriarChild"
+          "MobTallowkin",
+          "MobBramblet"
         ],
         [
-          "MobDrownedMoon"
+          "MobMurmlet"
         ],
         [
-          "MobWaxcap",
-          "MobDrownedMoon"
+          "MobTallowkin",
+          "MobMurmlet"
         ],
         [
-          "MobDrownedMoon",
-          "MobBriarChild",
-          "MobWaxcap"
+          "MobMurmlet",
+          "MobBramblet",
+          "MobTallowkin"
         ],
         [
-          "MobDrownedKing"
+          "MobStillmere"
         ]
       ],
       "count": 9,
@@ -114,20 +114,20 @@
       "key": "test02",
       "waves": [
         [
-          "MobDrownedMoon",
-          "MobWaxcap"
+          "MobMurmlet",
+          "MobTallowkin"
         ],
         [
-          "MobRuneWolf"
+          "MobHexmaw"
         ],
         [
-          "MobDrownedMoon",
-          "MobRuneWolf"
+          "MobMurmlet",
+          "MobHexmaw"
         ],
         [
-          "MobRuneWolf",
-          "MobDrownedMoon",
-          "MobWaxcap"
+          "MobHexmaw",
+          "MobMurmlet",
+          "MobTallowkin"
         ]
       ],
       "count": 8,
@@ -140,28 +140,28 @@
       "key": "Mount Zion",
       "waves": [
         [
-          "MobRuneWolf"
+          "MobHexmaw"
         ],
         [
-          "MobWaxcap",
-          "MobWaxcap",
-          "MobRuneWolf"
+          "MobTallowkin",
+          "MobTallowkin",
+          "MobHexmaw"
         ],
         [
-          "MobRuneWolf",
-          "MobRuneWolf"
+          "MobHexmaw",
+          "MobHexmaw"
         ],
         [
-          "MobWaxcap",
-          "MobBriarChild",
-          "MobRuneWolf"
+          "MobTallowkin",
+          "MobBramblet",
+          "MobHexmaw"
         ],
         [
-          "MobRuneWolf",
-          "MobRuneWolf"
+          "MobHexmaw",
+          "MobHexmaw"
         ],
         [
-          "MobHollowWolf"
+          "MobRivenfang"
         ]
       ],
       "count": 12,

@@ -1,0 +1,12 @@
+2026-10-16 制作源素材归档
+统一目录：Assets/ArtSources。
+迁移 97 个文件：51 个 UI 原稿/中间贴图、33 个角色拆件、13 个补绘源文件/记录。旧 Assets 文件原 .meta 与 GUID 原样迁移；文件 SHA256 一致。原项目外层 ArtSources 已并入此目录。
+分类及逐项路径见 Assets/ArtSources/README.txt、迁移清单.csv。
+ApprovedEquipment 新位置：Assets/ArtSources/UI/Equipment/Art/ApprovedEquipment.png。
+正式运行贴图、字体、Spine 图集、Prefab、功能测试场景及插件界面资源保留原目录。
+制作工具及 ProductionUiArtCatalog 更新为新路径；动态构造的旧路径由 ArtSourcePaths.Resolve 兼容，避免重新生成到旧目录。
+Unity 校验通过：文件原内容、GUID、贴图导入均保持有效；启用场景、Resources、项目设置及随包 Addressables 的依赖不包含 Assets/ArtSources。
+构建前自动执行 ArtSourceBuildGuard，拒绝将制作源图引入正式构建。Assets 下普通文件夹本身不是排包机制。
+AGENTS.md 已规定以后新增制作与视觉对照素材统一进入该目录。
+本次仅移动文件及更新编辑器工具路径，不修改运行布局/数值/图片内容，未重新构建 APK。
+历史审计报告保留当时路径，使用迁移清单追溯。

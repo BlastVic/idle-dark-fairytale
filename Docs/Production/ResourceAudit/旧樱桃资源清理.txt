@@ -1,0 +1,4 @@
+2026-10-17
+Grfx/Cherry 原为旧樱桃宝箱使用的 3D 模型、材质、贴图和预览场景。旧宝箱删除后仅剩目录内部引用；无外部场景/Prefab/配置 GUID 引用，无制作代码路径引用。Cherry.unity 未列入构建场景。
+按用户已有的旧资源清理授权删除目录及 meta，共 4 个资源，源文件 997901 字节；未修改 Audio 中同名音效。
+本地备份 output/legacy-cherry-cleanup/before.zip。本次未打 APK。

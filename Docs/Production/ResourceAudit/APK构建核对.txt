@@ -1,0 +1,28 @@
+构建核对（相同 Android 目标与 LZ4 配置）
+此前 APK：IdleDarkFairytale-1.0.0-202610161846.apk，576105112 字节，549.42 MiB
+本次 APK：IdleDarkFairytale-1.0.0-202610162144.apk，516253940 字节，492.34 MiB
+减少：57.08 MiB（10.39%）
+构建成功，0 错误、96 警告；完整日志保留本地 output/apk-comparison/。
+
+APK ZIP 中压缩后的文件分类（ZIP 目录/签名开销不在各项内）：
+Unity场景与资源数据: 354.93 MiB，约占 APK 72.09%
+音频外置资源流 sharedassets0.resource: 86.65 MiB，约占 APK 17.60%
+其他文件: 6.51 MiB，约占 APK 1.32%
+原生库: 44.22 MiB，约占 APK 8.98%
+
+Unity 资源容器不等于纯贴图；其中包含纹理、字体、动画、场景、Prefab 等。不能把源 PNG 字节数作为 APK 中资源占用。
+本轮仍未达到 150 MB 预期。字体保持不变，角色与特效没有统一缩图；后续需另做平台纹理压缩、音频编码及真机画质/兼容性验证。
+编辑器验证隔离修复仅在 UNITY_EDITOR 中生效；本地编辑器 PlayerPrefs 不作为 APK 资源打包。
+
+音频外置流与上一包的 CRC 和未压缩长度一致；本轮未改音频编码。
+
+2026-10-16 22:03 完成后重新构建核对
+最新 APK：IdleDarkFairytale-1.0.0-202610162203.apk
+实际大小：513276608 字节（489.50 MiB）
+相对整改前 18:46 包减少 59.92 MiB（10.91%）。
+相对 21:44 包减少 2.84 MiB。
+构建沿用 Android/LZ4，非 Development；0 错误、96 警告。
+ZIP 完整性、APK 签名及签名证书一致性通过；包名 com.vicyang.redidle，版本 1.0.0（1），ARM64 与 ARMv7，最低 Android API 26。
+与上一包仅 3 个 ZIP 条目改变：unity_app_guid、boot.config 与 data.unity3d；后者减少 2,977,333 字节。音频及原生库条目完全一致。此额外差异尚未逐项归因到 Unity 容器内部资源，不将其全部归为新增美术优化收益。
+完整对比记录：output/apk-comparison/rebuild-comparison.json。
+当前 adb 无连接设备，未进行真机安装/运行测试；仍未达到 150 MB。

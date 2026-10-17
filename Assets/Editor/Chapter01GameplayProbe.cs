@@ -55,7 +55,7 @@ public static class Chapter01GameplayProbe
                     var catalog=Resources.Load<ChapterEnvironmentCatalog>("Chapter01Environments");
                     if(!catalog || catalog.Find(wave.mapGraphicKey,key)!=catalog.entries[i].prefab)throw new Exception("Wrong saved node binding "+key);
                     // Only this play-session replaces encounters with a three-enemy layout fixture.
-                    wave.waves=new[]{new Wave{enemies=new[]{"MobWaxcap","MobWoodcap","MobDreamcap"}}};
+                    wave.waves=new[]{new Wave{enemies=new[]{"MobTallowkin","MobGnarlo","MobDrowseed"}}};
                     wave.isBoss=false;wave.isMiniBoss=false;
                 }
                 StartNode();return;

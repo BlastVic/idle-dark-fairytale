@@ -14,10 +14,10 @@ public static class ShelterRefinedBuilder
     static Color ink=new Color(.12f,.09f,.07f),ivory=new Color(.97f,.91f,.79f);
     static ShelterRefinedBuilder(){EditorApplication.update+=Poll;}
     static void Poll(){if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists("output/home-refined/build.request"))return;File.Delete("output/home-refined/build.request");try{Build();File.WriteAllText("output/home-refined/build-result.txt","PASS");}catch(Exception e){File.WriteAllText("output/home-refined/build-result.txt",e.ToString());Debug.LogException(e);}}
-    public static Texture2D Import(string path){AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceSynchronousImport);var i=(TextureImporter)AssetImporter.GetAtPath(path);i.textureType=TextureImporterType.Default;i.isReadable=true;i.mipmapEnabled=false;i.alphaIsTransparency=true;i.textureCompression=TextureImporterCompression.Uncompressed;i.maxTextureSize=4096;i.wrapMode=TextureWrapMode.Clamp;i.SaveAndReimport();return AssetDatabase.LoadAssetAtPath<Texture2D>(path);}
+    public static Texture2D Import(string path){path=ArtSourcePaths.Resolve(path);AssetDatabase.ImportAsset(path,ImportAssetOptions.ForceSynchronousImport);var i=(TextureImporter)AssetImporter.GetAtPath(path);i.textureType=TextureImporterType.Default;i.isReadable=true;i.mipmapEnabled=false;i.alphaIsTransparency=true;i.textureCompression=TextureImporterCompression.Uncompressed;i.maxTextureSize=4096;i.wrapMode=TextureWrapMode.Clamp;i.SaveAndReimport();return AssetDatabase.LoadAssetAtPath<Texture2D>(path);}
     public static Rect Trim(Texture2D t,RectInt cell){var c=t.GetPixels32();int l=cell.xMax,b=cell.yMax,r=cell.x,y=cell.y;for(int j=cell.y;j<cell.yMax;j++)for(int x=cell.x;x<cell.xMax;x++)if(c[j*t.width+x].a>8){l=Math.Min(l,x);r=Math.Max(r,x);b=Math.Min(b,j);y=Math.Max(y,j);}return new Rect(l,b,Math.Max(1,r-l+1),Math.Max(1,y-b+1));}
     static Sprite[] Sheet(string file,int cols,int rows,Vector4 border){var t=Import(Root+"/"+file+".png");return Enumerable.Range(0,cols*rows).Select(n=>SpriteAsset(t,file+"_"+n,Trim(t,new RectInt(n%cols*t.width/cols,(rows-1-n/cols)*t.height/rows,t.width/cols,t.height/rows)),border)).ToArray();}
-    static Sprite SpriteAsset(Texture2D t,string name,Rect rect,Vector4 border){string p=Root+"/Sprites/"+name+".asset";var existing=AssetDatabase.LoadAssetAtPath<Sprite>(p);if(existing)return existing;var s=Sprite.Create(t,rect,new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,border);s.name=name;AssetDatabase.CreateAsset(s,p);return s;}
+    static Sprite SpriteAsset(Texture2D t,string name,Rect rect,Vector4 border){string p=Root+"/Sprites/"+name+".asset";var existing=AssetDatabase.LoadAssetAtPath<Sprite>(p);if(existing)return existing;var s=ProductionUiArt.Create(t,rect,new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,border);s.name=name;AssetDatabase.CreateAsset(s,p);return s;}
     public static RectTransform Node(Transform p,string name){var t=p.Find(name);if(t)return (RectTransform)t;var go=new GameObject(name,typeof(RectTransform));go.layer=5;go.transform.SetParent(p,false);return (RectTransform)go.transform;}
     public static void Box(RectTransform r,float x,float y,float w,float h){r.anchorMin=r.anchorMax=new Vector2(0,1);r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(x,-y);r.sizeDelta=new Vector2(w,h);}
     static void Right(RectTransform r,float right,float y,float w,float h){Box(r,-right,-0+y,w,h);r.anchorMin=r.anchorMax=new Vector2(1,1);}
@@ -35,8 +35,8 @@ public static class ShelterRefinedBuilder
         Directory.CreateDirectory(Root+"/Sprites");AssetDatabase.Refresh();
         font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Bold.otf");
         var panels=Sheet("Panels",1,4,new Vector4(48,42,48,42));var icons=Sheet("Icons",4,4,Vector4.zero);var controls=Sheet("Controls",2,2,Vector4.zero);
-        var old=Import("Assets/DarkFairytale/UI/Shelter/ShelterIcons.png");var loot=new Sprite[5];for(int i=0;i<5;i++)loot[i]=SpriteAsset(old,"Loot_"+i,Trim(old,new RectInt(i%4*old.width/4,(3-i/4)*old.height/4,old.width/4,old.height/4)),Vector4.zero);
-        var roomTex=Import(Root+"/RoomTall.png");var roomSprite=SpriteAsset(roomTex,"RoomTall",new Rect(0,0,roomTex.width,roomTex.height),Vector4.zero);
+        var old=Import("Assets/ArtSources/UI/Shelter/ShelterIcons.png");var loot=new Sprite[5];for(int i=0;i<5;i++)loot[i]=SpriteAsset(old,"Loot_"+i,Trim(old,new RectInt(i%4*old.width/4,(3-i/4)*old.height/4,old.width/4,old.height/4)),Vector4.zero);
+        var roomTex=Import("Assets/ArtSources/UI/Shelter/Refined/RoomTall.png");var roomSprite=SpriteAsset(roomTex,"RoomTall",new Rect(0,0,roomTex.width,roomTex.height),Vector4.zero);
         var home=PrefabUtility.LoadPrefabContents(ShelterHomeBuilder.Path);
         try{
             var ui=home.GetComponent<ShelterHomeUI>();foreach(var t in home.GetComponentsInChildren<Text>(true))TextStyle(t,t.fontSize,t.color);
@@ -100,7 +100,7 @@ public static class ShelterRefinedBuilder
             }
             var modal=(RectTransform)ui.modal.transform;Stretch(modal,0,0,0,0);Stretch((RectTransform)modal.Find("InputBlocker"),0,0,0,0);
             var paper=(RectTransform)modal.Find("DetailsPaper");paper.anchorMin=paper.anchorMax=paper.pivot=new Vector2(.5f,.5f);paper.anchoredPosition=Vector2.zero;Frame(paper.GetComponent<Image>(),panels[0]);
-            layout.Apply();PrefabUtility.SaveAsPrefabAsset(home,ShelterHomeBuilder.Path);
+            layout.Apply();ProductionUiArt.SaveAsPrefabAsset(home,ShelterHomeBuilder.Path);
         }finally{PrefabUtility.UnloadPrefabContents(home);}AssetDatabase.SaveAssets();
     }
 }

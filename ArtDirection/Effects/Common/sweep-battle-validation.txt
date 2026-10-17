@@ -1,0 +1,12 @@
+Common FX live Gameplay; no save writes. Explicit VFX invocation, not skill-probability testing.
+PASS Addressables AOE_Particle
+PASS Spine visible
+PASS native scale 100%
+PASS Addressables AOE_Particle
+PASS Spine visible
+PASS native scale 100%
+PASS Addressables AOE_Particle
+PASS Spine visible
+PASS native scale 100%
+PASS zero runtime errors
+COMPLETE: AOE_Particle x 3 aspect ratios, production Addressables.

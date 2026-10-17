@@ -1,0 +1,12 @@
+第一阶段试做：保留死亡动作及声音等待时间，定格后停留0.3秒，1.1秒褪色，红色延后消退，再停留0.15秒，0.35秒淡入现有失败UI。没有血幕、封页文字或翻页。
+持久化Transition Prefab内FinalLifePage RawImage与CanvasGroup，材质DeathPage。运行时仅绑定最终画面并播放材质参数。截图仅本地output/death-fade。
+PASS Death final page before result (1080, 1920)
+PASS Result revealed and input unblocked (1080, 1920)
+PASS Return clears death effect (1080, 1920)
+PASS Death final page before result (768, 1024)
+PASS Result revealed and input unblocked (768, 1024)
+PASS Return clears death effect (768, 1024)
+PASS Death final page before result (720, 1440)
+PASS Result revealed and input unblocked (720, 1440)
+PASS Return clears death effect (720, 1440)
+DONE

@@ -2,7 +2,7 @@ from pathlib import Path
 import json,hashlib,shutil
 root=Path(__file__).resolve().parents[4]
 src=root.parent/'Spine/effect'
-out=root/'Assets/DarkFairytale/Companions/MobBookSpineDragon/Effects'
+out=root/'Assets/DarkFairytale/Companions/PetCindrel/Effects'
 archive=Path(__file__).parent/'source'
 names={'EmberBolt':'kongmingdeng_attack_dd','EmberImpact':'kongmingdeng_attack_baodian','ClawArc':'xiaopangmao_atk_tx_1','AshDust':'xuchu_skill_tx_2','EmberBreath':'S_S_zhouyu_skill_1'}
 manifest={}
@@ -22,3 +22,6 @@ print('Imported 5 original animated effects, 6 atlas pages; original sources unc
 # The original second EmberBreath page does not match its atlas. Restore the verified matching frames.
 import runpy
 runpy.run_path(str(Path(__file__).parent/"repair_breath_atlas.py"))
+
+# Keep the approved claw-only replacement when reimporting the full collection.
+runpy.run_path(str(Path(__file__).parent/"import_claw.py"))

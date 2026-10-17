@@ -45,13 +45,13 @@ for i, node in enumerate(config["nodes"]):
         assert rewards[key] and all(0 < item["m_ChanceDrop"] <= 1 for item in rewards[key])
     actual = waves(blocks[i])
     if node["index"] == 5:
-        assert all("MobDrownedMoon" not in wave for wave in actual), "Node 5 must not include MobDrownedMoon"
+        assert all("MobMurmlet" not in wave for wave in actual), "Node 5 must not include MobMurmlet"
     assert actual == [w["enemies"] for w in node["waves"]]
     for wave in actual:
         assert 1 <= len(wave) <= 3
         assert all(k in monsters and first[k] <= i + 1 for k in wave)
     if i in [2, 4]:
-        key = "MobDrownedKing" if i == 2 else "MobHollowWolf"
+        key = "MobStillmere" if i == 2 else "MobRivenfang"
         assert actual[-1] == [key]
         assert sum(w.count(key) for b in blocks for w in waves(b)) == 1
     flat = [monsters[k] for w in actual for k in w]

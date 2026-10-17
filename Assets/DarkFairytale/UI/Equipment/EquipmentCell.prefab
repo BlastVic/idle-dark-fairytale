@@ -67,7 +67,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: cb4172e2e88cd4ee6bf345f090a88d22, type: 2}
-  m_Type: 1
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 2100000, guid: da8c7adea64fb4e609c0f77459ecacfc, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -927,7 +927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 2100000, guid: fe1ec218736a548f5aa24853d53eb4e9, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -1005,6 +1005,7 @@ MonoBehaviour:
   quality: {fileID: 2961915527860577284}
   selectedFrame: {fileID: 5500026594744484740}
   cardBackground: {fileID: 5960384379510202780}
+  detailedArtworkAlpha: 0.7
   normalBackground: {r: 1, g: 1, b: 1, a: 1}
   selectedBackground: {r: 1, g: 0.76, b: 0.66, a: 1}
   stateRibbon: {fileID: 9028003952715923865}
@@ -1015,7 +1016,6 @@ MonoBehaviour:
   detailLabels: {fileID: 7487668457457094756}
   detailValues: {fileID: 5512222026446122644}
   detailedBody: {fileID: 3831203351508273819}
-  detailedArtworkAlpha: 0.7
   compactIconPose: {fileID: 7524794838655663267}
   detailedIconPose: {fileID: 38727064019387609}
   visual: {fileID: 8670671344885577901}
@@ -1114,6 +1114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShelterButtonFeedback
   pressedScale: 0.96
+  animationTarget: {fileID: 0}
 --- !u!225 &1067119507330362730
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1367,7 +1368,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: cb4172e2e88cd4ee6bf345f090a88d22, type: 2}
-  m_Type: 1
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

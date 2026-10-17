@@ -6,7 +6,7 @@ from PIL import Image
 import hashlib, json, shutil
 here=Path(__file__).resolve().parent
 root=here.parents[3]
-folder=root/'Assets/DarkFairytale/Companions/MobBookSpineDragon/Effects/EmberBreath'
+folder=root/'Assets/DarkFairytale/Companions/PetCindrel/Effects/EmberBreath'
 backup=here/'repaired-breath-source'
 backup.mkdir(exist_ok=True)
 source=root.parent/'Spine/effect/S_S_zhouyu_skill_beaten_1/images'

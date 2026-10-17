@@ -22,16 +22,16 @@ def build():
         rig['animations'][name]=copy.deepcopy(original['animations'][source])
         if name in EVENTS:rig['animations'][name]['events']=EVENTS[name]
     SOURCE.mkdir(parents=True,exist_ok=True)
-    (SOURCE/'MobBriarChild.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
-    manifest={'monster_id':'MobBriarChild','approved_design':'A-character-v1.png','painting':'built-in image_gen; exact model identifier not exposed','painting_prompts':'painting-prompts.json','native_project_status':'Original C031_S01R.spine preserved; new skin delivered as JSON and part PNGs, no new native .spine saved','source':str(ORIGINAL),'source_version':original['skeleton']['spine'],'changes':['Added linked skin 1 inheriting default deform','Added four game animation aliases and events; no changes to original timelines or rig','Repacked nonrotated straight-alpha atlas from repainted source parts'], 'aliases':ALIASES,'events':EVENTS,'original_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ORIGINAL.iterdir() if p.is_file()}}
+    (SOURCE/'MobBramblet.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
+    manifest={'monster_id':'MobBramblet','approved_design':'A-character-v1.png','painting':'built-in image_gen; exact model identifier not exposed','painting_prompts':'painting-prompts.json','native_project_status':'Original C031_S01R.spine preserved; new skin delivered as JSON and part PNGs, no new native .spine saved','source':str(ORIGINAL),'source_version':original['skeleton']['spine'],'changes':['Added linked skin 1 inheriting default deform','Added four game animation aliases and events; no changes to original timelines or rig','Repacked nonrotated straight-alpha atlas from repainted source parts'], 'aliases':ALIASES,'events':EVENTS,'original_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ORIGINAL.iterdir() if p.is_file()}}
     manifest['original_images_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ORIGINAL/'images').glob('*.png')}
-    manifest['registration']='2x original canvas; measured uneven generated cell boundaries in MobBriarChildBuilder; UV-visible source alpha bounds; cap inset plus per-part uniform fit in registration.json; generated alpha retained; no mesh or UV edits'
+    manifest['registration']='2x original canvas; measured uneven generated cell boundaries in MobBrambletBuilder; UV-visible source alpha bounds; cap inset plus per-part uniform fit in registration.json; generated alpha retained; no mesh or UV edits'
     manifest['atlas']='Unity PackTextures; 8 px padding; 4096 maximum; straight alpha; no rotation; verify packed dimensions equal part canvas'
     (SOURCE/'provenance.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     verify(rig,original)
 
 def verify(rig=None,original=None):
-    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobBriarChild/MobBriarChild.json').read_text())
+    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobBramblet/MobBramblet.json').read_text())
     if original is None:original=json.loads((ORIGINAL/'C031_S01R.json').read_text())
     for field in ('skeleton','bones','slots','ik','transform'):assert rig.get(field)==original.get(field),field
     assert rig['skins'][0]==original['skins'][0]

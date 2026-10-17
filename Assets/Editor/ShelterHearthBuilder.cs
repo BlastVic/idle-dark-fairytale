@@ -19,7 +19,7 @@ public static class ShelterHearthBuilder
     [MenuItem("Tools/Dark Fairytale/UI/Build Hearth Spine (Explicit)")]
     public static void Build(){
         Directory.CreateDirectory(Root);Directory.CreateDirectory("ArtDirection/UI/CursedStorybook/Home/Refined/HearthSource/images");
-        var f=ShelterRefinedBuilder.Import(ShelterRefinedBuilder.Root+"/Flames.png");var g=ShelterRefinedBuilder.Import(ShelterRefinedBuilder.Root+"/Fireguard.png");
+        var f=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Shelter/Refined/Flames.png");var g=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Shelter/Refined/Fireguard.png");
         var parts=new Texture2D[5];for(int i=0;i<4;i++)parts[i]=Crop(f,ShelterRefinedBuilder.Trim(f,new RectInt(i%2*f.width/2,(1-i/2)*f.height/2,f.width/2,f.height/2)));parts[4]=Crop(g,ShelterRefinedBuilder.Trim(g,new RectInt(0,0,g.width,g.height)));
         var atlas=new Texture2D(2048,2048,TextureFormat.RGBA32,false);var rects=atlas.PackTextures(parts,4,2048,false);File.WriteAllBytes(Root+"/Hearth.png",atlas.EncodeToPNG());
         var text=new StringBuilder("Hearth.png\nsize: "+atlas.width+","+atlas.height+"\nformat: RGBA8888\nfilter: Linear,Linear\nrepeat: none\n");

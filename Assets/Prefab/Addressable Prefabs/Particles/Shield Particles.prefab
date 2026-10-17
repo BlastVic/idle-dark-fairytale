@@ -200,7 +200,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 3
       minMaxState: 0
-      scalar: 1.65
+      scalar: 4.8
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2398,7 +2398,7 @@ ParticleSystemRenderer:
   m_NormalDirection: 1
   m_ShadowBias: 0
   m_RenderAlignment: 0
-  m_Pivot: {x: 0, y: -1, z: 0}
+  m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
@@ -2427,7 +2427,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b6b591da2b867144abfb10b46448495, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: 
   options: 0
   timer: 3
@@ -2441,9 +2441,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59cf2ee3a6f9945a098221f4e92aacb9, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CursedBattleParticleLayer
   alignToPlayer: 1
+  placement: 1
 --- !u!1 &5337366123291104399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2641,7 +2642,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 3
       minMaxState: 0
-      scalar: 1.419
+      scalar: 4.1280003
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4857,7 +4858,7 @@ ParticleSystemRenderer:
   m_NormalDirection: 1
   m_ShadowBias: 0
   m_RenderAlignment: 0
-  m_Pivot: {x: 0, y: -1, z: 0}
+  m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1

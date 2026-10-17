@@ -11,7 +11,7 @@
         Ressurrection,
         Lucky_Bastard,
         Last_But_Not_Least,
-        Tairon_The_Dragon,
+        PetCindrel,
         Twice_The_Fun,
         Lightning_Demi_God,
         Boss_Killer,

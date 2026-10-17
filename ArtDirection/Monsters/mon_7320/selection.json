@@ -1,7 +1,7 @@
 {
   "source_id": "mon_7320",
   "selected": "B",
-  "name": "溺月水团",
+  "name": "抱月滴",
   "date": "2026-10-12",
   "usage": "水边怪物",
   "user_change": "去掉头顶悬浮小水珠；腹内弯月替换为世界观闭眼月，虚化为低对比水中倒影",
@@ -9,5 +9,5 @@
   "battle": "B-battle-v3.png",
   "status": "Unity 运行资源、动画、三比例预览和临时实战通过；新原生 .spine 待补",
   "production_note": "新怪物隐藏 top 顶珠附件，保留其骨骼及原动画曲线；检查所有皮肤、附件切换和死亡动画均不恢复顶珠。不要删除驱动躯体的骨骼，也不要修改原版资源。",
-  "resource_key": "MobDrownedMoon"
+  "resource_key": "MobMurmlet"
 }

@@ -54,7 +54,7 @@ public static class MonsterPreviewUiBuilder
             stage.battleStyle = style;
             // Default preview is the first independent monster, while preserving all catalog references.
             if (tester.character) Object.DestroyImmediate(tester.character.gameObject);
-            var first = tester.monsters.FirstOrDefault(d=>d.name.StartsWith("MobWaxcap")) ?? tester.monsters.First();
+            var first = tester.monsters.FirstOrDefault(d=>d.name.StartsWith("MobTallowkin")) ?? tester.monsters.First();
             tester.character = SkeletonAnimation.NewSkeletonAnimationGameObject(first);
             tester.character.name = "Monster Preview";
             tester.character.transform.SetParent(tester.transform);
@@ -90,7 +90,7 @@ public static class MonsterPreviewUiBuilder
                 card.portrait.sprite = MakePortrait(data, tester); cards.Add(card);
             }
             hud.cards = cards.ToArray();
-            PrefabUtility.SaveAsPrefabAsset(root, HudPath);
+            ProductionUiArt.SaveAsPrefabAsset(root, HudPath);
         }
         finally { PrefabUtility.UnloadPrefabContents(root); }
     }
@@ -116,7 +116,7 @@ public static class MonsterPreviewUiBuilder
             hud.resetButton=Button(top,"ResetView","重置视角",522,23,147,49);
             hud.catalogButton=Button(core,"CatalogSelector","",16,120,688,64);
             hud.selectedPortrait=Image(hud.catalogButton.transform,"SelectedPortrait",8,3,60,58,Color.white); hud.selectedPortrait.preserveAspect=true;
-            hud.selectedTitle=Label(hud.catalogButton.transform,"SelectedName","MobWaxcap · 蜡斑菇",84,9,415,44,24);
+            hud.selectedTitle=Label(hud.catalogButton.transform,"SelectedName","红帽菇",84,9,415,44,24);
             hud.catalogArrow=Label(hud.catalogButton.transform,"ExpandLabel","怪物库  +",525,13,142,38,21);
             var dropdown=Panel(core,"MonsterCatalog",16,194,688,390); hud.catalogPanel=dropdown.gameObject;
             var inputBg=Image(dropdown,"Search",18,16,652,52,new Color(.045f,.055f,.065f,1)); Outline(inputBg);
@@ -130,7 +130,7 @@ public static class MonsterPreviewUiBuilder
             var grid=content.gameObject.AddComponent<GridLayoutGroup>(); grid.cellSize=new Vector2(311,117); grid.spacing=new Vector2(12,12); grid.constraint=GridLayoutGroup.Constraint.FixedColumnCount; grid.constraintCount=2;
             var fitter=content.gameObject.AddComponent<ContentSizeFitter>(); fitter.verticalFit=ContentSizeFitter.FitMode.PreferredSize;
             var template=CreateCard(null,"",null);
-            hud.cardTemplate=PrefabUtility.SaveAsPrefabAsset(template.gameObject,Root+"/MonsterCard.prefab").GetComponent<MonsterPreviewCard>(); Object.DestroyImmediate(template.gameObject);
+            hud.cardTemplate=ProductionUiArt.SaveAsPrefabAsset(template.gameObject,Root+"/MonsterCard.prefab").GetComponent<MonsterPreviewCard>(); Object.DestroyImmediate(template.gameObject);
             var cards=new List<MonsterPreviewCard>();
             foreach(var data in tester.monsters)
             {
@@ -148,7 +148,7 @@ public static class MonsterPreviewUiBuilder
             var ag=animations.gameObject.AddComponent<GridLayoutGroup>(); ag.cellSize=new Vector2(150,40); ag.spacing=new Vector2(10,7); ag.constraint=GridLayoutGroup.Constraint.FixedColumnCount; ag.constraintCount=4;
             animations.gameObject.AddComponent<ContentSizeFitter>().verticalFit=ContentSizeFitter.FitMode.PreferredSize;
             var ab=Button(null,"AnimationButton","Idle1",0,0,150,40); ab.GetComponentInChildren<Text>().fontSize=18;
-            hud.animationTemplate=PrefabUtility.SaveAsPrefabAsset(ab.gameObject,Root+"/AnimationButton.prefab").GetComponent<Button>(); Object.DestroyImmediate(ab.gameObject);
+            hud.animationTemplate=ProductionUiArt.SaveAsPrefabAsset(ab.gameObject,Root+"/AnimationButton.prefab").GetComponent<Button>(); Object.DestroyImmediate(ab.gameObject);
             var buttons=new List<Button>();
             // Persist enough controls for every current animation; future entries reuse the template.
             int count=Mathf.Max(4,tester.monsters.Max(d=>d.GetSkeletonData(false).Animations.Count));
@@ -170,24 +170,11 @@ public static class MonsterPreviewUiBuilder
             hud.zoomSlider=Slider(dock,"Zoom",100,230,435,.3f,2,1);
             hud.zoomText=Label(dock,"ZoomValue","1.00×",550,223,115,31,21); hud.zoomText.alignment=TextAnchor.MiddleRight;
             dropdown.gameObject.SetActive(false);
-            PrefabUtility.SaveAsPrefabAsset(go,HudPath);
+            ProductionUiArt.SaveAsPrefabAsset(go,HudPath);
         }
         finally { Object.DestroyImmediate(go); }
     }
-    public static string DisplayName(string name)
-    {
-        string id=name.Replace("_SkeletonData","");
-        if(id=="MobWaxcap")return "MobWaxcap\n蜡斑菇";
-        if(id=="MobWoodcap")return "MobWoodcap\n木纹菇";
-        if(id=="MobDreamcap")return "MobDreamcap\n梦眼菇";
-        if(id=="MobRuneWolf")return "MobRuneWolf\n猩红符文狼";
-        if(id=="MobRotleafChild")return "MobRotleafChild\n腐叶祈童";
-        if(id=="MobBriarChild")return "MobBriarChild\n荆棘莓童";
-        if(id=="MobBarkSquirrel")return "MobBarkSquirrel\n枯壳啮木鼠";
-        if(id=="MobGloomSpider")return "MobGloomSpider\n黑森林蜘蛛";
-        if(id=="MobHollowWolf")return "MobHollowWolf\n空壳瓷狼";
-        return id;
-    }
+    public static string DisplayName(string name) => CreatureNames.DisplayName(name);
     static MonsterPreviewCard CreateCard(Transform parent,string name,Sprite sprite)
     {
         var b=Button(parent,"MonsterCard","",0,0,311,117);

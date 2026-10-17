@@ -47,6 +47,10 @@ public static class ShelterHomeValidation
             var ui=gc.homeUI;
             if(stage==1) {
                 if(gm.gameState!=GameStateType.CAMP)return;
+                var intro=UnityEngine.Object.FindAnyObjectByType<CursedBookIntro>();if(intro&&!intro.Finished)return;
+                gc.CancelInvoke("TryShowingXpBoosterNotification");gc.xpBoosterNotification.SetActive(false);
+                if(!StorybookDailyReward.ClaimedToday)gm.thingsSeenPermanent.Add(StorybookDailyReward.ClaimKey(DateTime.Today));gc.dailyCherriesPop.SetActive(false);
+                if(TutorialManager.single){TutorialManager.single.automatic=false;if(TutorialManager.single.view)TutorialManager.single.view.Hide();}
                 Check(ui.gameObject.activeInHierarchy,"Camp displays saved home prefab");
                 Check(AssetDatabase.LoadAssetAtPath<GameObject>(ShelterHomeBuilder.Path)!=null,"Saved editable prefab exists");
                 foreach(var t in ui.GetComponentsInChildren<Transform>(true))Check(GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)==0,"Script binding "+t.name);
@@ -92,11 +96,11 @@ public static class ShelterHomeValidation
                 Check(ui.modal.activeSelf&&ui.modalGroup.alpha==1,"Function details open with fade");Shot("rebirth-details");Next(106);
             } else if(stage==106) {ui.CloseModal();ui.OpenSettings();Next(7);
             } else if(stage==7) {
-                Check(ui.audioControls.activeInHierarchy,"Settings opens actual audio controls");music=IdleKnightHero.UI.SoundManager.Instance.musicLevel;sound=IdleKnightHero.UI.SoundManager.Instance.soundLevel;
-                ui.musicSlider.value=.3f;ui.soundSlider.value=.4f;
+                Check(ui.settingsUI&&ui.settingsUI.IsOpen,"Settings opens actual audio controls");music=IdleKnightHero.UI.SoundManager.Instance.musicLevel;sound=IdleKnightHero.UI.SoundManager.Instance.soundLevel;
+                ui.settingsUI.music.value=.3f;ui.settingsUI.sound.value=.4f;
                 Check(Mathf.Abs(IdleKnightHero.UI.SoundManager.Instance.musicLevel-.3f)<.001f&&Mathf.Abs(IdleKnightHero.UI.SoundManager.Instance.soundLevel-.4f)<.001f,"Audio sliders bind to sound manager");
                 Shot("settings");Next(107);
-            } else if(stage==107) {ui.musicSlider.value=music;ui.soundSlider.value=sound;ui.CloseModal();
+            } else if(stage==107) {ui.settingsUI.music.value=music;ui.settingsUI.sound.value=sound;ui.settingsUI.Close();
                 if(SessionState.GetBool("SHELTER_QA_VISUAL",false)){Log("PASS final visual + interaction regression; errors="+errors);stage=0;EditorApplication.isPlaying=false;EditorApplication.delayCall+=()=>SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",false);return;}
                 ui.navigationButtons[0].onClick.Invoke();Next(8,3);
             } else if(stage==8) {
@@ -155,11 +159,5 @@ public static class ShelterHomeValidation
             }
         } catch(Exception e) {Log("FAIL "+e);stage=0;EditorApplication.isPlaying=false;EditorApplication.delayCall+=()=>SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",false);}
     }
-    static void Resolution(int w,int h) {
-        var asm=typeof(Editor).Assembly;var type=asm.GetType("UnityEditor.GameViewSizes");var instance=type.BaseType.GetProperty("instance",BindingFlags.Public|BindingFlags.Static).GetValue(null);
-        var group=type.GetMethod("GetGroup").Invoke(instance,new[]{Enum.Parse(asm.GetType("UnityEditor.GameViewSizeGroupType"),"Standalone")});
-        var size=Activator.CreateInstance(asm.GetType("UnityEditor.GameViewSize"),BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance,null,new object[]{Enum.Parse(asm.GetType("UnityEditor.GameViewSizeType"),"FixedResolution"),w,h,"Shelter QA "+w+"x"+h},null);
-        group.GetType().GetMethod("AddCustomSize").Invoke(group,new[]{size});
-        var view=EditorWindow.GetWindow(asm.GetType("UnityEditor.GameView"));view.GetType().GetProperty("selectedSizeIndex",BindingFlags.Public|BindingFlags.NonPublic|BindingFlags.Instance).SetValue(view,(int)group.GetType().GetMethod("GetTotalCount").Invoke(group,null)-1);view.Focus();view.Repaint();
-    }
+    static void Resolution(int w,int h)=>StorybookEquipmentValidation.Resolution(w,h);
 }

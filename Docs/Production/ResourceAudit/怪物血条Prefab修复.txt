@@ -1,0 +1,7 @@
+2026-10-17
+原因：旧血条保存于怪物 Prefab，DarkFairytaleBattleStyle.PlaceEnemy 在运行中实例化新版并销毁旧版，导致预览和运行差异。
+修复：11 个 EnemyDb 正式怪物改为嵌套 CursedStorybookEnemyBar Prefab，持久化 Actor_Base 引用、普通怪脚下位置及 Boss 顶部位置。移除运行时替换逻辑，保留正式相机布局、深度和血量更新。
+Prefab 血量仅为基础属性预览；战斗按关卡计算数值。动画姿势、相机和环境仍可能不同，不宣称整个场景预览完全一致。
+验证：所有正式怪物恰好一个新版血条且绑定正确；三种比例 9:16、3:4、1:2 的 Unity 战斗截图已检查，实例未被替换；胜利、失败和返回营地通过，无运行错误。测试开启 MONSTER_QA_DISABLE_SAVE，未执行存档回滚。本次未打 APK。
+显式制作/验证工具：EnemyBarPrefabAuthoring，仅在请求文件存在时执行，不在导入时自动改写资产。
+截图和备份：output/enemy-bar-prefabs/。

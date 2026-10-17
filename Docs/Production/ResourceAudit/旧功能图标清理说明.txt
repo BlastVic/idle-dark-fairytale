@@ -1,0 +1,9 @@
+2026-10-17
+按用户要求，不以旧代码和场景登记作为旧 UI 图片保留理由。本次范围为前述 3 张奖励图标及 5 张装备品质图。
+删除 Skill_Point.png、Stat_Point_Icon.png、XP_Icon.png，以及 Color Icons 中的 Oridinary、Rare、Very Rare、Epic、Legendary。
+移除 Gameplay 中 m_ItemIcons 的 Stat/Skill/Exp 登记和 gradeIcons 数组；删除 GetGradeIcon。
+删除未被任何场景或 Prefab 挂载的 InventoryUI、InventoryMenuItem、ScaleItemScrollingMenu 旧脚本，并清理 GameManager、LevelController 中旧 UI 刷新调用。
+融合奖励仍按原配置发放，改用 UI_ONLY 中文文字提示，不再通过旧图片键查图；装备提示仍显示实际装备图标。文字奖励收拢图标占位和分隔线，装备提示恢复原布局。相关验证工具同步更新。
+删除总计 8 图片、3 脚本及对应 meta。源文件合计 176889 字节，不等于 APK 减少量。
+验证：删除 GUID 无残留；旧脚本名称及品质读取接口无代码残留；Unity 新版奖励提示测试通过（包含三种屏幕比例、队列、文字奖励无旧图依赖、装备图标、转场与战斗提示）；融合测试通过 failures=0 errors=0，包含升级/重复操作/消耗/奖励/返回与战斗；存档关键内容测试前后相同。本次未重打 APK。
+备份与验证：output/legacy-icons-cleanup/；截图：output/item-toast/、output/fusion-ui/（本地忽略）。

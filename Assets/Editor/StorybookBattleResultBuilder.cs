@@ -21,13 +21,13 @@ public static class StorybookBattleResultBuilder
         // Frame sprites contain their original textured centre.
         Text(b.transform,"Caption",title,6,0,w-12,h,size,red?new Color(.98f,.94f,.82f):(Color?)null);return b;
     }
-    static Sprite Slice(Texture2D t,string n,Rect rect){string path=Root+"/"+n+".asset";var s=AssetDatabase.LoadAssetAtPath<Sprite>(path);if(!s){s=Sprite.Create(t,rect,new Vector2(.5f,.5f),100);AssetDatabase.CreateAsset(s,path);}return s;}
+    static Sprite Slice(Texture2D t,string n,Rect rect){string path=Root+"/"+n+".asset";var s=AssetDatabase.LoadAssetAtPath<Sprite>(path);if(!s){s=ProductionUiArt.Create(t,rect,new Vector2(.5f,.5f),100);AssetDatabase.CreateAsset(s,path);}return s;}
     [MenuItem("Tools/Dark Fairytale/UI/Build Battle Results (Explicit)")]
     public static void Build(){
         font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Regular.otf");
         var bi=(TextureImporter)AssetImporter.GetAtPath(Root+"/ResultButtons.png");bi.textureType=TextureImporterType.Sprite;bi.spriteImportMode=SpriteImportMode.Single;bi.alphaIsTransparency=true;bi.maxTextureSize=2048;bi.textureCompression=TextureImporterCompression.Uncompressed;bi.mipmapEnabled=false;bi.SaveAndReimport();
         var bt=AssetDatabase.LoadAssetAtPath<Texture2D>(Root+"/ResultButtons.png");
-        for(int k=0;k<2;k++){string path=Root+(k==0?"/CrimsonButton.asset":"/IvoryButton.asset");if(!AssetDatabase.LoadAssetAtPath<Sprite>(path)){var s=Sprite.Create(bt,new Rect(46,k==0?bt.height-387:bt.height-737,1682,234),new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,new Vector4(96,35,96,35));AssetDatabase.CreateAsset(s,path);}}
+        for(int k=0;k<2;k++){string path=Root+(k==0?"/CrimsonButton.asset":"/IvoryButton.asset");if(!AssetDatabase.LoadAssetAtPath<Sprite>(path)){var s=ProductionUiArt.Create(bt,new Rect(46,k==0?bt.height-387:bt.height-737,1682,234),new Vector2(.5f,.5f),100,0,SpriteMeshType.FullRect,new Vector4(96,35,96,35));AssetDatabase.CreateAsset(s,path);}}
 
         for(int side=0;side<2;side++){
             var go=new GameObject(side==0?"StorybookVictory":"StorybookDefeat",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));
@@ -57,7 +57,7 @@ public static class StorybookBattleResultBuilder
                 ui.replaySmall=Button(ui.nextActions.transform,"Replay","再次挑战",159,996,180,60,false,23);ui.homeSmall=Button(ui.nextActions.transform,"Home","返回庇护所",349,996,186,60,false,23);ui.nextActions.SetActive(false);ui.rewardOptions.SetActive(side==0);
                 ui.chapterMap=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DarkFairytale/UI/Map/Chapter01Map.prefab").GetComponent<StorybookMapUI>();
                 StorybookResultChestAuthoring.Apply(go);
-                PrefabUtility.SaveAsPrefabAsset(go,Root+"/"+go.name+".prefab");
+                ProductionUiArt.SaveAsPrefabAsset(go,Root+"/"+go.name+".prefab");
             }finally{Object.DestroyImmediate(go);}
         }
         var scene=EditorSceneManager.GetActiveScene();if(scene.path!="Assets/Scenes/MainScenes/Gameplay.unity")scene=EditorSceneManager.OpenScene("Assets/Scenes/MainScenes/Gameplay.unity");

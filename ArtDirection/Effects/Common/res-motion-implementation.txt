@@ -1,0 +1,9 @@
+2026-10-16 残翼复生分段动画
+保持正式主粒子 startSize 5.2，最大尺寸倍率 1.12。粒子寿命调整为 2 秒。
+0–0.4 秒：从 .65 倍展开至 1.12 倍，同时显现。
+0.4–1.3 秒：保持最大尺寸，垂直上移。
+1.3–2.0 秒：继续上移，透明度降至 0。碎翼与主体使用相同阶段。
+使用正式 Prefab 的 Size/Velocity/Color over Lifetime 曲线；测试场景无独立动画补丁，暂停/拖动/单步仍可采样。原 4 秒销毁计时器足以覆盖完整动画。
+数值检查：0.4 秒 y=0，1.1 秒 y=.885，1.85 秒 y=1.825，淡出末段 alpha=.227，2.1 秒无存活粒子。
+实际 Unity：测试场景交互、分阶段截图、正式 Res_Particle Addressables 及 9:16、3:4、1:2 三比例检查通过，零运行错误。
+截图：output/spine-effects-test/actors-9-*-rise-*.png、output/common-effects/battle-Res-*-rise-*.png。

@@ -33,14 +33,14 @@ def build():
         if name in EVENTS:rig['animations'][name]['events']=EVENTS[name]
     rig['animations']['Hit']=hit_animation(original)
     SOURCE.mkdir(exist_ok=True)
-    (SOURCE/'MobDrownedKing.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
-    manifest={'monster_id':'MobDrownedKing','approved_design':'A-character-v1.png','painting':'built-in image_gen; exact model not exposed','source':str(ORIGINAL),'source_version':original['skeleton']['spine'],'native_project_status':'Original native project preserved; new native MobDrownedKing.spine pending','aliases':ALIASES,'events':EVENTS,'authored_Hit':'0.4s recoil on original center/body from idle first pose; no source curve changes','original_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ORIGINAL.iterdir() if p.is_file()},'original_images_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ORIGINAL/'images').glob('*.png')},'atlas':'straight alpha, nonrotated, 8px padding, max4096, 2x source canvas; generated alpha retained','registration':'UV-visible source bounds; x cell boundaries 0/.39/.70/1, y 0/.40/.64/1; expressions use original canvas and registration.json; no UV/weight edits'}
+    (SOURCE/'MobStillmere.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
+    manifest={'monster_id':'MobStillmere','approved_design':'A-character-v1.png','painting':'built-in image_gen; exact model not exposed','source':str(ORIGINAL),'source_version':original['skeleton']['spine'],'native_project_status':'Original native project preserved; new native MobStillmere.spine pending','aliases':ALIASES,'events':EVENTS,'authored_Hit':'0.4s recoil on original center/body from idle first pose; no source curve changes','original_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ORIGINAL.iterdir() if p.is_file()},'original_images_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ORIGINAL/'images').glob('*.png')},'atlas':'straight alpha, nonrotated, 8px padding, max4096, 2x source canvas; generated alpha retained','registration':'UV-visible source bounds; x cell boundaries 0/.39/.70/1, y 0/.40/.64/1; expressions use original canvas and registration.json; no UV/weight edits'}
     manifest['approved_changes']=['A: corroded crown, smoky water, hazy closed-eye moon; original rig/curves unchanged']
     manifest['utility_parts']='shadow: original; other nine parts generated with native alpha'
     (SOURCE/'provenance.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n');verify(rig,original)
 def verify(rig=None,original=None):
     if original is None:original=json.loads((ORIGINAL/'boss_8020.json').read_text())
-    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobDrownedKing/MobDrownedKing.json').read_text())
+    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobStillmere/MobStillmere.json').read_text())
     for k,v in original.items():
         if k not in ('skins','animations','events'):assert rig[k]==v,k
     assert rig['skins'][0]==original['skins'][0]

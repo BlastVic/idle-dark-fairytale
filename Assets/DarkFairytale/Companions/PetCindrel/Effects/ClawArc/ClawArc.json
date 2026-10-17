@@ -1,0 +1,510 @@
+{
+  "skeleton": {
+    "hash": "UzQm6gHx5Ek",
+    "spine": "3.8-from-4.0.64",
+    "images": "./images/",
+    "audio": "C:\\Users\\Administrator.DESKTOP-TUVAP91\\Desktop\\新建文件夹 (10)\\diaochan_skill_beaten_2"
+  },
+  "bones": [
+    {
+      "name": "root",
+      "rotation": -0.11,
+      "scaleX": 0.74,
+      "scaleY": 0.74
+    },
+    {
+      "name": "effect",
+      "parent": "root"
+    },
+    {
+      "name": "dao3",
+      "parent": "effect"
+    },
+    {
+      "name": "dao4",
+      "parent": "effect"
+    },
+    {
+      "name": "dao3_add",
+      "parent": "effect"
+    },
+    {
+      "name": "dao4_add",
+      "parent": "effect"
+    }
+  ],
+  "slots": [
+    {
+      "name": "dao3",
+      "bone": "dao3"
+    },
+    {
+      "name": "dao3_add",
+      "bone": "dao3_add",
+      "blend": "additive"
+    },
+    {
+      "name": "dao4",
+      "bone": "dao4"
+    },
+    {
+      "name": "dao4_add",
+      "bone": "dao4_add",
+      "blend": "additive"
+    }
+  ],
+  "skins": [
+    {
+      "name": "default",
+      "attachments": {
+        "dao3": {
+          "chutu/dao/dao_000": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_001": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_002": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_003": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_004": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_005": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_006": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          }
+        },
+        "dao3_add": {
+          "chutu/dao/dao_000": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_001": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_002": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_003": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_004": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_005": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_006": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          }
+        },
+        "dao4": {
+          "chutu/dao/dao_000": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_001": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_002": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_003": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_004": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_005": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_006": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          }
+        },
+        "dao4_add": {
+          "chutu/dao/dao_000": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_001": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_002": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_003": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_004": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_005": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          },
+          "chutu/dao/dao_006": {
+            "x": 0.23,
+            "width": 229,
+            "height": 252
+          }
+        }
+      }
+    }
+  ],
+  "animations": {
+    "texiao": {
+      "slots": {
+        "dao3": {
+          "color": [
+            {
+              "time": 0.2,
+              "color": "ffffffff"
+            },
+            {
+              "time": 0.2667,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "time": 0,
+              "name": "chutu/dao/dao_000"
+            },
+            {
+              "time": 0.0333,
+              "name": "chutu/dao/dao_001"
+            },
+            {
+              "time": 0.0667,
+              "name": "chutu/dao/dao_002"
+            },
+            {
+              "time": 0.1,
+              "name": "chutu/dao/dao_003"
+            },
+            {
+              "time": 0.1333,
+              "name": "chutu/dao/dao_004"
+            },
+            {
+              "time": 0.1667,
+              "name": "chutu/dao/dao_005"
+            },
+            {
+              "time": 0.2,
+              "name": "chutu/dao/dao_006"
+            },
+            {
+              "time": 0.2667,
+              "name": null
+            }
+          ]
+        },
+        "dao3_add": {
+          "color": [
+            {
+              "time": 0,
+              "color": "ffffffbd",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.2,
+              "color": "ffffffbd"
+            },
+            {
+              "time": 0.2667,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "time": 0,
+              "name": "chutu/dao/dao_000"
+            },
+            {
+              "time": 0.0333,
+              "name": "chutu/dao/dao_001"
+            },
+            {
+              "time": 0.0667,
+              "name": "chutu/dao/dao_002"
+            },
+            {
+              "time": 0.1,
+              "name": "chutu/dao/dao_003"
+            },
+            {
+              "time": 0.1333,
+              "name": "chutu/dao/dao_004"
+            },
+            {
+              "time": 0.1667,
+              "name": "chutu/dao/dao_005"
+            },
+            {
+              "time": 0.2,
+              "name": "chutu/dao/dao_006"
+            },
+            {
+              "time": 0.2667,
+              "name": null
+            }
+          ]
+        },
+        "dao4": {
+          "color": [
+            {
+              "time": 0.2333,
+              "color": "ffffffff"
+            },
+            {
+              "time": 0.3,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "chutu/dao/dao_000"
+            },
+            {
+              "time": 0.0667,
+              "name": "chutu/dao/dao_001"
+            },
+            {
+              "time": 0.1,
+              "name": "chutu/dao/dao_002"
+            },
+            {
+              "time": 0.1333,
+              "name": "chutu/dao/dao_003"
+            },
+            {
+              "time": 0.1667,
+              "name": "chutu/dao/dao_004"
+            },
+            {
+              "time": 0.2,
+              "name": "chutu/dao/dao_005"
+            },
+            {
+              "time": 0.2333,
+              "name": "chutu/dao/dao_006"
+            },
+            {
+              "time": 0.3,
+              "name": null
+            }
+          ]
+        },
+        "dao4_add": {
+          "color": [
+            {
+              "time": 0.0333,
+              "color": "ffffffc4",
+              "curve": "stepped"
+            },
+            {
+              "time": 0.2333,
+              "color": "ffffffc4"
+            },
+            {
+              "time": 0.3,
+              "color": "ffffff00"
+            }
+          ],
+          "attachment": [
+            {
+              "time": 0.0333,
+              "name": "chutu/dao/dao_000"
+            },
+            {
+              "time": 0.0667,
+              "name": "chutu/dao/dao_001"
+            },
+            {
+              "time": 0.1,
+              "name": "chutu/dao/dao_002"
+            },
+            {
+              "time": 0.1333,
+              "name": "chutu/dao/dao_003"
+            },
+            {
+              "time": 0.1667,
+              "name": "chutu/dao/dao_004"
+            },
+            {
+              "time": 0.2,
+              "name": "chutu/dao/dao_005"
+            },
+            {
+              "time": 0.2333,
+              "name": "chutu/dao/dao_006"
+            },
+            {
+              "time": 0.3,
+              "name": null
+            }
+          ]
+        }
+      },
+      "bones": {
+        "dao3": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 62.04
+            }
+          ],
+          "translate": [
+            {
+              "time": 0,
+              "x": 111.52,
+              "y": -15.76
+            }
+          ],
+          "scale": [
+            {
+              "time": 0,
+              "x": 2.59,
+              "y": 2.2
+            }
+          ]
+        },
+        "dao3_add": {
+          "rotate": [
+            {
+              "time": 0,
+              "angle": 62.04
+            }
+          ],
+          "translate": [
+            {
+              "time": 0,
+              "x": 111.52,
+              "y": -15.76
+            }
+          ],
+          "scale": [
+            {
+              "time": 0,
+              "x": 2.59,
+              "y": 2.2
+            }
+          ]
+        },
+        "dao4": {
+          "rotate": [
+            {
+              "time": 0.0333,
+              "angle": -4.64
+            }
+          ],
+          "translate": [
+            {
+              "time": 0.0333,
+              "x": 129.89,
+              "y": 4.84
+            }
+          ],
+          "scale": [
+            {
+              "time": 0.0333,
+              "x": 2.59,
+              "y": 2.2
+            }
+          ]
+        },
+        "dao4_add": {
+          "rotate": [
+            {
+              "time": 0.0333,
+              "angle": -4.64
+            }
+          ],
+          "translate": [
+            {
+              "time": 0.0333,
+              "x": 129.89,
+              "y": 4.84
+            }
+          ],
+          "scale": [
+            {
+              "time": 0.0333,
+              "x": 2.59,
+              "y": 2.2
+            }
+          ]
+        },
+        "effect": {
+          "translate": [
+            {
+              "x": -184.47,
+              "y": 28.36,
+              "time": 0
+            }
+          ]
+        }
+      }
+    }
+  }
+}

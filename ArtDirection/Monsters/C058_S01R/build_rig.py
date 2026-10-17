@@ -3,7 +3,7 @@ import copy,json,hashlib
 from pathlib import Path
 from PIL import Image
 BASE=Path(__file__).resolve().parent; SRC=BASE/'source'; ORIG=SRC/'original-rig'; ROOT=BASE.parents[2]
-OUT=ROOT/'Assets/DarkFairytale/Companions/MobBookSpineDragon'; ID='MobBookSpineDragon'
+OUT=ROOT/'Assets/DarkFairytale/Companions/PetCindrel'; ID='PetCindrel'
 ALIASES={'Idle1':'Idle_Battle_00','CampIdle':'Idle_Down_00','Attack1':'Atk1_00','Attack2':'Atk_E_00','Attack3':'LinkSkill_00','Hit':'Hit_00','Death1':'Death_00','Exit':'Run_Battle_00'}
 HITS={'Attack1':1.10,'Attack2':1.1667,'Attack3':2.43}
 def duration(o):
@@ -51,6 +51,6 @@ def main():
  assert d['skins'][0]==original['skins'][0]
  for name,a in original['animations'].items():assert d['animations'][name]==a,name
  for p,h in json.loads((SRC/'original-hashes.json').read_text()).items():assert hashlib.sha256((ORIG/p).read_bytes()).hexdigest()==h
- (BASE/'selection.json').write_text(json.dumps({'selected':'C','design':'C-character-v1.png','id':ID,'role':'Tairon The Dragon companion','aliases':ALIASES,'hit_times_initial':HITS},ensure_ascii=False,indent=2)+'\n')
+ (BASE/'selection.json').write_text(json.dumps({'selected':'C','design':'C-character-v1.png','id':ID,'role':'Cindrel companion','aliases':ALIASES,'hit_times_initial':HITS},ensure_ascii=False,indent=2)+'\n')
  print('PASS original rig/meshes/UV/weights/15 animations and backup hashes preserved; 9 aliases; 45 texture parts; 4096 atlas.')
 if __name__=='__main__':main()

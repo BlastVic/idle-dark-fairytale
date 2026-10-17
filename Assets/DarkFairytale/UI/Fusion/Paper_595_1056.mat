@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Paper_595_1056
-  m_Shader: {fileID: 4800000, guid: 57601620655a04af1aa9106a8635ed26, type: 3}
+  m_Shader: {fileID: 4800000, guid: de88ac10c7afd4c6c9dfa64098e5ffe0, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -29,13 +29,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Bookmark: 0
     - _ColorMask: 15
     - _Cutoff: 0.55
     - _DisabledUI: 0
     - _Feather: 0.12
     - _InkOnly: 1
     - _Inner: 0
+    - _MapShape: 0
     - _Mode: 2
+    - _RemoveRed: 0
     - _Stencil: 0
     - _StencilComp: 8
     - _StencilOp: 0
@@ -44,7 +47,7 @@ Material:
     - _UseUIAlphaClip: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _SourceRect: {r: 0.21428572, g: 0.46954316, b: 0.17669173, a: 0.040609136}
+    - _SourceRect: {r: 0, g: 0, b: 1, a: 1}
     - _Tiles: {r: 2.531915, g: 22, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -75,7 +75,7 @@ public static class CursedStorybookUiBuilder
             string path = Root + "/Sprites/" + slice.name + ".asset";
             var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
             if (!sprite) {
-                sprite = Sprite.Create(texture, slice.rect, slice.pivot, 100, 0, SpriteMeshType.FullRect, slice.border);
+                sprite = ProductionUiArt.Create(texture, slice.rect, slice.pivot, 100, 0, SpriteMeshType.FullRect, slice.border);
                 sprite.name = slice.name;
                 AssetDatabase.CreateAsset(sprite, path);
             }
@@ -187,7 +187,7 @@ public static class CursedStorybookUiBuilder
             hud.xpFill = Fill("ExperienceFill", panel.transform, "ExperienceInk", Vector2.zero, new Vector2(562,106), new Vector2(400,26), .44f);
             hud.xpText = Label("ExperienceText", panel.transform, "44%", Vector2.zero, new Vector2(819,106), new Vector2(70,51), 30, Ink);
             hud.SetWave(2,3);
-            PrefabUtility.SaveAsPrefabAsset(root.gameObject, HudPath);
+            ProductionUiArt.SaveAsPrefabAsset(root.gameObject, HudPath);
         }
         finally { UnityEngine.Object.DestroyImmediate(root.gameObject); }
     }
@@ -207,7 +207,7 @@ public static class CursedStorybookUiBuilder
             var outline = bar.hpText.gameObject.AddComponent<Outline>(); outline.effectDistance = new Vector2(1.3f,-1.3f); outline.effectColor = new Color(.06f,.05f,.06f);
             bar.miniBossName = Label("BossName", root, "", new Vector2(.5f,.5f), new Vector2(0,83), new Vector2(540,44), 32, Ivory);
             // Presentation is configured by the battle style after instantiation.
-            PrefabUtility.SaveAsPrefabAsset(root.gameObject, EnemyPath);
+            ProductionUiArt.SaveAsPrefabAsset(root.gameObject, EnemyPath);
         }
         finally { UnityEngine.Object.DestroyImmediate(root.gameObject); }
     }

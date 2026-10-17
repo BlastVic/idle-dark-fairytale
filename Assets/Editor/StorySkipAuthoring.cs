@@ -25,7 +25,7 @@ public static class StorySkipAuthoring {
  static void StylePanel(StorySkipUI ui){
   var image=ui.panel.GetComponent<Image>();image.sprite=null;image.material=null;image.type=Image.Type.Simple;image.color=new Color(.88f,.83f,.72f,1);
   var edge=ui.panel.GetComponent<Outline>();if(!edge)edge=ui.panel.gameObject.AddComponent<Outline>();edge.effectColor=new Color(.38f,.29f,.18f,1);edge.effectDistance=new Vector2(3,-3);
-  var sr=(RectTransform)ui.skip.transform;sr.sizeDelta=new Vector2(172,76);sr.anchorMin=sr.anchorMax=new Vector2(1,0);sr.anchoredPosition=new Vector2(-116,68);
+  var sr=(RectTransform)ui.skip.transform;sr.sizeDelta=new Vector2(172,76);sr.anchorMin=sr.anchorMax=new Vector2(1,1);sr.anchoredPosition=new Vector2(-116,-68);
   var label=ui.skip.GetComponentInChildren<Text>();label.rectTransform.sizeDelta=sr.sizeDelta;
  }
  [MenuItem("Tools/Dark Fairytale/Install Story Skip Controls")]

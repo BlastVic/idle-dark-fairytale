@@ -1,0 +1,8 @@
+2026-10-16 灰叶治疗替换
+采用用户指定 caiwenji_skill_beaten_2，原 JSON、atlas、贴图逐字节保留；不重绘、不改颜色。
+Heal_Particle 保留原 GUID 和 Prefab 根 fileID，原回血触发及数值不变。播放 texiao（1.1333 秒），脚底定位，完成后销毁。
+正式资源根缩放 3.2，SkeletonData.scale 0.01；测试 100% 使用同一缩放，不归一化。
+测试相机可见高度对应 Gameplay 实际相机 z=-15、FOV=66°（不使用 CameraEffects 中备用的 z=-24 配置）；角色尺寸使用 DarkFairytaleBattleStyle 共用公式。
+Unity 已核对同为 720x1280、动画 0.4 秒的战斗/测试截图，治疗光环相对角色尺寸一致。9:16、3:4、1:2 播放/布局检查和生产 Addressables 治疗调用通过，无运行错误。
+截图保留 output/spine-effects-test/actors-8-*.png 和 output/common-effects/battle-Heal-*.png，均为 Git 忽略路径。
+本次战斗验证显式调用 Heal_Particle，不测试回血技能随机概率。

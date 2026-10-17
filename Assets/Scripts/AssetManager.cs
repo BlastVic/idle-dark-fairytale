@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Game.Enum;
@@ -109,7 +109,7 @@ public class AssetManager : MonoBehaviour
     public void SpawnParticle(string assetKey, Vector3 position)
     {
         nextParticle = GetAssetByKey(AssetType.PARTICLE, assetKey);
-        Addressables.InstantiateAsync(nextParticle, position, Quaternion.identity);
+        LocalPrefabLoader.InstantiateAsync(nextParticle, position, Quaternion.identity).Completed += LocalPrefabLoader.Release;
     }
 
     //private void SpawnEnemy_Complete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj)
@@ -133,13 +133,16 @@ public class AssetManager : MonoBehaviour
     {
         spawningEnemy = true;
         nextEnemy = GetAssetByKey(AssetType.ENEMY, assetKey);
-        Addressables.InstantiateAsync(nextEnemy, position, Quaternion.identity).Completed += SpawnEnemy_Complete;
+        LocalPrefabLoader.InstantiateAsync(nextEnemy, position, Quaternion.identity).Completed += SpawnEnemy_Complete;
     }
 
     private void SpawnEnemy_Complete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj)
     {
         spawningEnemy = false;
-        Enemy nextEnemy = obj.Result.GetComponent<Enemy>();
+        var instance = obj.Result;
+        LocalPrefabLoader.Release(obj);
+        if (!instance) return;
+        Enemy nextEnemy = instance.GetComponent<Enemy>();
         if (battleStyle)
         {
             battleStyle.PlaceEnemy(nextEnemy, battleCampCamera.GetComponent<Camera>(), nextEnemySlot);
@@ -199,13 +202,15 @@ public class AssetManager : MonoBehaviour
         }
         spawningMap = true;
         nextMap = GetAssetByKey(AssetType.MAP, assetKey);
-        Addressables.InstantiateAsync(nextMap, Vector3.zero, Quaternion.identity).Completed += SpawnMap_Complete;
+        LocalPrefabLoader.InstantiateAsync(nextMap, Vector3.zero, Quaternion.identity).Completed += SpawnMap_Complete;
     }
 
     private void SpawnMap_Complete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj)
     {
         spawningMap = false;
-        obj.Result.tag = "MapGraphics";
+        var instance = obj.Result;
+        LocalPrefabLoader.Release(obj);
+        if (instance) instance.tag = "MapGraphics";
     }
 
     #endregion
@@ -214,47 +219,29 @@ public class AssetManager : MonoBehaviour
     #region SPAWN General Object
     private AssetReference nextGeneralObj;
     public bool spawningGeneralObj = false;
-    private string lastGeneralAsset;
-    public GameObject chestDropInObj;
-    public ChestGrade nextDropInGrade;
     public void SpawnGeneralObj(string assetKey)
     {
         //Debug.Log(assetKey);
-        lastGeneralAsset = assetKey;
         spawningGeneralObj = true;
         nextGeneralObj = GetAssetByKey(AssetType.GENERAL, assetKey);
-        Addressables.InstantiateAsync(nextGeneralObj, Vector3.zero, Quaternion.identity).Completed += SpawnGeneral_Complete;
+        LocalPrefabLoader.InstantiateAsync(nextGeneralObj, Vector3.zero, Quaternion.identity).Completed += result => SpawnGeneral_Complete(result, assetKey);
     }
 
 
 
-    private void SpawnGeneral_Complete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj)
+    private void SpawnGeneral_Complete(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle<GameObject> obj, string lastGeneralAsset)
     {
+        var instance = obj.Result;
+        LocalPrefabLoader.Release(obj);
+        spawningGeneralObj = false;
+        if (!instance) return;
         Debug.Log("Last general asset:" + lastGeneralAsset);
         spawningGeneralObj = false;
-        if (lastGeneralAsset == "RebirthPackage") rebirthPackageObj = obj.Result;
+        if (lastGeneralAsset == "RebirthPackage") rebirthPackageObj = instance;
 
-        if (lastGeneralAsset == "MapPackage") mapPackageObj = obj.Result;
-        if (lastGeneralAsset == "ChestDropIn")
-        {
-            chestDropInObj = obj.Result;
-
-            chestDropInObj.GetComponent<ChestDropInSwapper>().SetMe(nextDropInGrade);
-
-        }
-        if (lastGeneralAsset == "CherriesChestDropIn")
-        {
-            chestDropInObj = obj.Result;
-            chestDropInObj.transform.localPosition = new Vector3(0, 0, 0);
-            SoundManager.Instance.PlayClip("CHERRY_CHEST");
-            //premium chests will use cherries particles
-
-        }
-
-
-
+        if (lastGeneralAsset == "MapPackage") mapPackageObj = instance;
         if (lastGeneralAsset == "ChestPackage") ChestPackage.single.SetMe(GameplayCanvas.single.lastChestClicked);
-        if (lastGeneralAsset == "FusionPackage") fusionPackageObj = obj.Result;
+        if (lastGeneralAsset == "FusionPackage") fusionPackageObj = instance;
 
 
     }

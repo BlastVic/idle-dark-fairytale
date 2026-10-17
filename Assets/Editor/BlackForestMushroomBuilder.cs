@@ -16,7 +16,7 @@ public static class BlackForestMushroomBuilder
 {
     public const string Root = "Assets/DarkFairytale/Monsters/BlackForestMushroom";
     const string Source = "ArtDirection/Monsters/BlackForestMushroom/source";
-    public static readonly string[] Ids = { "MobWaxcap", "MobWoodcap", "MobDreamcap" };
+    public static readonly string[] Ids = { "MobTallowkin", "MobGnarlo", "MobDrowseed" };
     static readonly string[] Sheets = { "wine-red", "moss-green", "moon-violet" };
     static readonly string[] SourceIds = { "mon_7080", "mon_7081", "mon_7082" };
     static string SheetPath(int i) => Source + "/original-rig/" + (i == 0 ? Sheets[i] : SourceIds[i] + "/painted") + ".png";
@@ -161,7 +161,7 @@ public static class BlackForestMushroomBuilder
 
     static void BuildPrefab(string dir, string id, SkeletonDataAsset data, Material mat, Material flash, int variant)
     {
-        var go = PrefabUtility.LoadPrefabContents("Assets/Prefab/Addressable Prefabs/Enemies/Mob1.prefab");
+        var go = PrefabUtility.LoadPrefabContents(Root + "/MobTallowkin/MobTallowkin.prefab");
         try
         {
             go.name = id; go.transform.localScale = Vector3.one;
@@ -361,12 +361,11 @@ public static class BlackForestMushroomBuilder
     {
         var db = new SerializedObject(AssetDatabase.LoadAssetAtPath<UnityEngine.Object>("Assets/Resources/LevelDataDescriptions.asset"));
         var entries = db.FindProperty("_enemyDb");
-        var keys = new[] { "Mob1", "Mob2", "Mob4" }.Concat(Ids).ToArray();
-        var originals = new[] { "Slime", "Slime2", "Slime3" };
+        var keys = Ids;
         for (int i = 0; i < keys.Length; i++)
         {
             string key = keys[i];
-            string path = i < 3 ? "Assets/Prefab/Addressable Prefabs/Enemies/" + key + ".prefab" : Root + "/" + key + "/" + key + ".prefab";
+            string path = Root + "/" + key + "/" + key + ".prefab";
             string guid = AssetDatabase.AssetPathToGUID(path);
             int matches = 0;
             for (int j = 0; j < entries.arraySize; j++)
@@ -377,11 +376,11 @@ public static class BlackForestMushroomBuilder
                 if (entry.FindPropertyRelative("assetRef").FindPropertyRelative("m_AssetGUID").stringValue != guid)
                     throw new Exception("Wrong enemy DB GUID: " + key);
             }
-            if (matches != 1 || AddressableAssetSettingsDefaultObject.Settings.FindAssetEntry(guid)?.address != (i < 3 ? path : key))
+            if (matches != 1 || AddressableAssetSettingsDefaultObject.Settings.FindAssetEntry(guid)?.address != key)
                 throw new Exception("Missing/duplicate key or wrong address: " + key);
             var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
             var skeleton = prefab.GetComponentInChildren<SkeletonAnimation>(true);
-            string expected = i < 3 ? "Assets/Grfx/Enemies/" + originals[i] + "/skeleton_SkeletonData.asset" : Root + "/" + key + "/" + key + "_SkeletonData.asset";
+            string expected = Root + "/" + key + "/" + key + "_SkeletonData.asset";
             if (AssetDatabase.GetAssetPath(skeleton.skeletonDataAsset) != expected || skeleton.skeletonDataAsset.GetSkeletonData(false) == null)
                 throw new Exception("Wrong or unreadable skeleton: " + key);
             report.AppendLine(key + ": PASS distinct DB/address key and original/new skeleton: " + expected);

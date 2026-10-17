@@ -10,11 +10,11 @@ public class DarkFairytaleBackdrop : MonoBehaviour
     public void Initialize(Camera camera)
     {
         battleCamera = camera;
-        // The old chromatic warp and saturated bloom obscure the painted artwork.
+        // Legacy bloom and post-processing obscure the painted artwork.
         foreach (var effect in camera.GetComponents<Behaviour>())
         {
             string type = effect.GetType().Name;
-            if (effect.enabled && (type == "ChromaticAberration" || type == "BloomOptimized" || type == "PostProcessLayer"))
+            if (effect.enabled && (type == "BloomOptimized" || type == "PostProcessLayer"))
             {
                 disabledEffects.Add(effect);
                 effect.enabled = false;

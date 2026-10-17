@@ -1,12 +1,12 @@
 mon_7040 · 发狂的松鼠 · A/B/C 概念设计
-状态：用户已选择 B · 枯壳啮木鼠，已制作为独立 MobBarkSquirrel；交付与测试见 DELIVERY.txt。
+状态：用户已选择 B · 啮木鼠，已制作为独立 MobSplinterjaw；交付与测试见 DELIVERY.txt。
 三套为备选方向，不是已批准的三种皮肤。战斗图为 AI 概念合成，不是 Unity 实景。
 
 依据与结构
 原生工程/导出/图集/分件：../Spine/monster/mon_7040/。
 目录参考：../Spine/monster/muenu/mon_7040.png。
 查看了目录形象、图集、头部/下颌/尾巴/颈部图片，并读取全部导出结构与动作时间线；原生工程已定位，未在 Spine 编辑器打开，本阶段未做 Unity 动态验收。
-风格：AGENTS.md、monster-production-manual.md；绘画参考已选荆棘莓童 A-character-v1.png，仅用于笔触，不沿用蘑菇元素。
+风格：AGENTS.md、monster-production-manual.md；绘画参考已选刺帽童 A-character-v1.png，仅用于笔触，不沿用蘑菇元素。
 战斗背景：ArtDirection/Environment/Chapter01/04-riverside-cabin.png，已核对当前节点4。
 内置 image_gen，具体模型未暴露。真实提示词、参考路径及生成来源见 prompts-v1.json。
 
@@ -30,7 +30,7 @@ A · 囤食狂栗鼠
 适配：毛领代钉圈，柔软毛尾最容易沿用原摆动；腮帮是头部形状，不承诺独立鼓动。果浆是静态纹理，动态滴落需另做。
 推荐理由：最直接满足“发狂的松鼠”，可爱与失控同时清楚，且材质容易适应原弹性动作。
 
-B · 枯壳啮木鼠
+B · 啮木鼠
 主材质/配色：灰褐毛、赭黄腹部、尾部木鳞和局部树皮。
 可爱来源：圆鼓脸、短吻与粗壮毛身；异常为门牙/尾巴逐渐木质化，仿佛变成了自己啃食的木头。
 污染：局部木纹与细树脂裂缝，非血肉创口。

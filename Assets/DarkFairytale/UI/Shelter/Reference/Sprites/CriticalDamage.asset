@@ -10,8 +10,8 @@ Sprite:
   m_Name: CriticalDamage
   m_Rect:
     serializedVersion: 2
-    x: 630
-    y: 419
+    x: 0
+    y: 0
     width: 68
     height: 66
   m_Offset: {x: 0, y: 0}
@@ -21,12 +21,12 @@ Sprite:
   m_Extrude: 0
   m_PackingTag: 
   m_RenderDataKey:
-    00000000000000000000000000000000: 0
+    7b9da4b74f6cf4fe0a74809ae5fc7e4f: 21300000
   m_AtlasTags: []
   m_SpriteAtlas: {fileID: 0}
   m_RD:
     serializedVersion: 4
-    texture: {fileID: 2800000, guid: 6ab5bc3128ed64f05b2f6695b490c955, type: 3}
+    texture: {fileID: 2800000, guid: 88bcc2b4736c34a4095a019690bf2802, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -111,18 +111,18 @@ Sprite:
       fullWeights: []
     textureRect:
       serializedVersion: 2
-      x: 630
-      y: 419
+      x: 0
+      y: 0
       width: 68
       height: 66
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 3072
-    uvTransform: {x: 87.12963, y: 664, z: 87.12963, w: 452}
+    uvTransform: {x: 87.12963, y: 34, z: 87.12963, w: 33}
     downscaleMultiplier: 1
   m_AtlasRD:
     serializedVersion: 4
-    texture: {fileID: 2800000, guid: 6ab5bc3128ed64f05b2f6695b490c955, type: 3}
+    texture: {fileID: 2800000, guid: 88bcc2b4736c34a4095a019690bf2802, type: 3}
     alphaTexture: {fileID: 0}
     secondaryTextures: []
     m_SubMeshes:
@@ -207,14 +207,14 @@ Sprite:
       fullWeights: []
     textureRect:
       serializedVersion: 2
-      x: 630
-      y: 419
+      x: 0
+      y: 0
       width: 68
       height: 66
     textureRectOffset: {x: 0, y: 0}
     atlasRectOffset: {x: -1, y: -1}
     settingsRaw: 3072
-    uvTransform: {x: 87.12963, y: 664, z: 87.12963, w: 452}
+    uvTransform: {x: 87.12963, y: 34, z: 87.12963, w: 33}
     downscaleMultiplier: 1
   m_PhysicsShape: []
   m_Bones: []

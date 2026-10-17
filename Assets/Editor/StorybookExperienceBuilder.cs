@@ -11,7 +11,7 @@ public static class StorybookExperienceBuilder
     static Font font;static Texture2D source;
     static StorybookExperienceBuilder(){EditorApplication.update+=()=>{if(!EditorApplication.isPlayingOrWillChangePlaymode&&!EditorApplication.isCompiling&&!EditorApplication.isUpdating&&File.Exists(Out+"build.request")){File.Delete(Out+"build.request");Build();}};}
     static Sprite Import(string name){string path=Root+"/"+name+".png";var t=(TextureImporter)AssetImporter.GetAtPath(path);t.textureType=TextureImporterType.Sprite;t.spriteImportMode=SpriteImportMode.Single;t.alphaIsTransparency=true;t.npotScale=TextureImporterNPOTScale.None;t.mipmapEnabled=false;t.maxTextureSize=2048;t.textureCompression=TextureImporterCompression.Uncompressed;t.SaveAndReimport();return AssetDatabase.LoadAssetAtPath<Sprite>(path);}
-    static Sprite Slice(string name,int x,int y,int w,int h,Vector4 border=default){string path=Root+"/"+name+".asset";var s=AssetDatabase.LoadAssetAtPath<Sprite>(path);if(!s){s=Sprite.Create(source,new Rect(x,source.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border);AssetDatabase.CreateAsset(s,path);}return s;}
+    static Sprite Slice(string name,int x,int y,int w,int h,Vector4 border=default){string path=Root+"/"+name+".asset";var s=AssetDatabase.LoadAssetAtPath<Sprite>(path);if(!s){s=ProductionUiArt.Create(source,new Rect(x,source.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border);AssetDatabase.CreateAsset(s,path);}return s;}
     static RectTransform Node(Transform parent,string name,float x,float y,float w,float h){var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.gameObject.layer=5;r.SetParent(parent,false);r.anchorMin=r.anchorMax=r.pivot=new Vector2(0,1);r.anchoredPosition=new Vector2(x,-y);r.sizeDelta=new Vector2(w,h);return r;}
     static Image Pic(Transform p,string n,Sprite s,float x,float y,float w,float h){var im=Node(p,n,x,y,w,h).gameObject.AddComponent<Image>();im.sprite=s;im.raycastTarget=false;return im;}
     static void Full(RectTransform r){r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=r.offsetMax=Vector2.zero;}
@@ -20,7 +20,7 @@ public static class StorybookExperienceBuilder
     [MenuItem("Tools/Dark Fairytale/UI/Build Experience Page (Explicit)")]
     public static void Build(){
         Directory.CreateDirectory(Out);AssetDatabase.Refresh();font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Regular.otf");
-        var paper=Import("Paper");var idle=Import("BookIdle");var active=Import("BookActive");Import("ApprovedPopup");source=AssetDatabase.LoadAssetAtPath<Texture2D>(Root+"/ApprovedPopup.png");
+        var paper=Import("Paper");var idle=Import("BookIdle");var active=Import("BookActive");Import("ApprovedPopup");source=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/ArtSources/UI/Experience/ApprovedPopup.png");
         var red=Slice("RedFrame",35,652,375,82,new Vector4(22,12,22,12));var ivory=Slice("IvoryFrame",35,573,375,70,new Vector4(22,12,22,12));
         var paperFill=Slice("PaperFill",300,554,20,10);var redFill=Slice("RedFill",170,660,20,10);
         var go=new GameObject("StorybookExperience",typeof(RectTransform),typeof(Canvas),typeof(CanvasScaler),typeof(GraphicRaycaster));
@@ -48,7 +48,7 @@ public static class StorybookExperienceBuilder
             ui.balance=Text(panel.transform,"Balance","",65,735,315,33,21);Pic(panel.transform,"WalletIcon",crystal,107,734,25,33).preserveAspect=true;
             ui.notice=Text(panel.transform,"Feedback","",25,776,390,25,15);ui.notice.color=new Color(.5f,.06f,.05f);
             StorybookExperienceFullscreen.Apply(go);
-            PrefabUtility.SaveAsPrefabAsset(go,Root+"/StorybookExperience.prefab");
+            ProductionUiArt.SaveAsPrefabAsset(go,Root+"/StorybookExperience.prefab");
         }finally{Object.DestroyImmediate(go);}
         var scene=EditorSceneManager.GetActiveScene();if(scene.path!="Assets/Scenes/MainScenes/Gameplay.unity")throw new System.InvalidOperationException("Open Gameplay to install.");
         var gc=Object.FindFirstObjectByType<GameplayCanvas>(FindObjectsInactive.Include);if(gc.experienceUI)Object.DestroyImmediate(gc.experienceUI.gameObject);

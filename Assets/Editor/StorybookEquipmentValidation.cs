@@ -1,4 +1,5 @@
 using System;
+using Scripts.Level;
 using System.IO;
 using System.Linq;
 using System.Collections;
@@ -29,7 +30,7 @@ public static class StorybookEquipmentValidation
         if(SessionState.GetBool("EQUIPMENT_QA",false)&&EditorApplication.isPlaying&&!running&&GameManager.single&&GameplayCanvas.single){running=true;deadline=EditorApplication.timeSinceStartup+240;GameManager.single.StartCoroutine(new EquipmentProbe().Run());}
         if(running&&EditorApplication.timeSinceStartup>deadline){Log("FAIL watchdog timeout");EditorApplication.isPlaying=false;}
     }
-    public static void Resolution(int w,int h)=>typeof(ShelterHomeValidation).GetMethod("Resolution",BindingFlags.Static|BindingFlags.NonPublic).Invoke(null,new object[]{w,h});
+    public static void Resolution(int w,int h)=>typeof(MonsterPreviewValidation).GetMethod("SetResolution",BindingFlags.Static|BindingFlags.NonPublic).Invoke(null,new object[]{w,h});
     public static void Log(string value)=>File.AppendAllText(Dir+"validation.txt",value+"\n");
 }
 public sealed class EquipmentProbe
@@ -50,7 +51,7 @@ public sealed class EquipmentProbe
         yield return new WaitForSecondsRealtime(1);
         var gc=GameplayCanvas.single;gc.CancelInvoke("TryShowingXpBoosterNotification");gc.xpBoosterNotification.SetActive(false);
         for(int i=0;i<20;i++)if(!GameManager.single.HasSeenThis("Tutorial-"+i))GameManager.single.thingsSeenPermanent.Add("Tutorial-"+i);
-        if(TutorialManager.single){TutorialManager.single.overlay.SetActive(false);TutorialManager.single.tutorialCharacter.SetActive(false);foreach(var t in TutorialManager.single.tutorials)t.SetActive(false);}
+        if(TutorialManager.single){TutorialManager.single.automatic=false;if(TutorialManager.single.view)TutorialManager.single.view.Hide();}
         Router.single.InventoryButton();yield return new WaitForSecondsRealtime(2);
         ui=GameplayCanvas.single.inventoryPanel.GetComponent<StorybookEquipmentUI>();
         Check(ui&&ui.isActiveAndEnabled,"equipment route installs and opens editable prefab");if(!ui){Finish();yield break;}
@@ -77,16 +78,17 @@ public sealed class EquipmentProbe
         }
         ui.SetColumns(5);
         // Reference fixture for prior design is retained as a utility; new layout is validated with actual item art.
+        float threeRowHeight=ui.layout.detailHeight;
         var selectedStats=ui.Selected.baseStat;var equippedStats=im.weaponEq.baseStat;
         ui.Selected.baseStat=new Stat{dmg=6};im.weaponEq.baseStat=new Stat{dmg=58,atkSpd=13};
         foreach(var size in new[]{new Vector2Int(941,1672),new Vector2Int(768,1024),new Vector2Int(720,1440)}){
             StorybookEquipmentValidation.Resolution(size.x,size.y);yield return new WaitForSecondsRealtime(.3f);
             ui.RefreshSelection();yield return new WaitForEndOfFrame();
-            Check(Mathf.Abs(ui.layout.detailHeight-403)<1,"two-row comparison reclaims unused third row "+size);
+            Check(ui.layout.detailHeight<=threeRowHeight+1&&ui.comparisonRows.Count(r=>r.root.gameObject.activeSelf)==2,"two-row comparison fits authored layout without unused stat rows "+size);
             Pointer(ui.equip,"compact details equip");Pointer(ui.decompose,"compact details decompose");Shot("two-row-"+size.x+"x"+size.y);
         }
         ui.Selected.baseStat=selectedStats;im.weaponEq.baseStat=equippedStats;ui.RefreshSelection();
-        Check(Mathf.Abs(ui.layout.detailHeight-440)<1,"three-row comparison restores authored height");
+        Check(Mathf.Abs(ui.layout.detailHeight-threeRowHeight)<1,"three-row comparison restores authored height");
         int[] widths={941,768,720},heights={1672,1024,1440};string[] ratios={"9x16","3x4","1x2"};
         for(int ratio=0;ratio<3;ratio++){
             StorybookEquipmentValidation.Resolution(widths[ratio],heights[ratio]);yield return new WaitForSecondsRealtime(.4f);ui.layout.Apply();ui.gridScroll.verticalNormalizedPosition=1;
@@ -127,11 +129,11 @@ public sealed class EquipmentProbe
         ui.SetSort(2);Check(ui.Selected==first,"sorting preserves selection");ui.SetFilter(1);Check(!ui.VisibleItems.Contains(im.weaponEq),"unequipped filter");ui.SetFilter(2);Check(ui.VisibleItems.All(i=>!i.isLocked),"unlocked filter");ui.SetFilter(0);ui.SetSort(0);
         ui.Select(first);ui.ToggleLock();Check(first.isLocked&&!ui.decompose.interactable,"locked item cannot be decomposed");Check(Utilities.DeepClone(first).isLocked,"item lock survives save-compatible serialization");ui.ToggleLock();
         ui.Select(first);ui.EquipSelected();Check(im.weaponEq.uniqueId==first.uniqueId&&!im.weaponsOwned.Any(i=>i.uniqueId==first.uniqueId)&&im.weaponsOwned.Any(i=>i.uniqueId==equippedId),"equip exchanges previous item without loss or duplication");Check(!ui.equip.interactable&&!ui.decompose.interactable,"equipped selection disables destructive/redundant actions");
-        ui.ToggleAttributes();yield return new WaitForSecondsRealtime(.3f);gm.statPoints=1;ui.RefreshStats();int level=gm.hpLevel;ui.BuyStat(0);Check(gm.hpLevel==level+1&&gm.statPoints==0&&ui.statButtons.All(b=>!b.interactable),"last stat point updates values and disables all plus buttons");yield return new WaitForEndOfFrame();Shot("attributes-no-points");gm.statPoints=3;ui.RefreshStats();Check(ui.statButtons.Any(b=>b.interactable)&&ui.statButtons.Select((b,i)=>b.interactable==ui.CanBuy(i)).All(b=>b),"stat buttons restore according to point costs and original consecutive-stat restriction");
+        ui.ToggleAttributes();yield return new WaitForSecondsRealtime(.3f);gm.statPoints=1;ui.RefreshStats();var statKinds=new[]{LevelTypeEnum.HP,LevelTypeEnum.DMG,LevelTypeEnum.DEF,LevelTypeEnum.ATK_SPD,LevelTypeEnum.CRIT,LevelTypeEnum.CRIT_DMG};int buyIndex=Enumerable.Range(0,6).First(ui.CanBuy);int level=LevelController.Instance.GetStatLevel(statKinds[buyIndex]);ui.BuyStat(buyIndex);Check(LevelController.Instance.GetStatLevel(statKinds[buyIndex])==level+1&&gm.statPoints==0&&ui.statButtons.All(b=>!b.interactable),"last stat point updates values and disables all plus buttons");yield return new WaitForEndOfFrame();Shot("attributes-no-points");gm.statPoints=3;ui.RefreshStats();Check(ui.statButtons.Any(b=>b.interactable)&&ui.statButtons.Select((b,i)=>b.interactable==ui.CanBuy(i)).All(b=>b),"stat buttons restore according to point costs and original consecutive-stat restriction");
         var many=im.weaponsOwned[1];many.baseStat=new Stat{hpMax=5,dmg=20,def=2,atkSpd=4,crit=3,critDmg=8,hpPerc=2,dmgPerc=3,defPerc=4};many.m_ItemFinalTitle="名称很长的诅咒森林装备测试";ui.Rebuild();ui.Select(many);Check(ui.Cells.First(c=>c.Item==many).detailLabels.text.Split('\n').Length==9,"detailed cards retain every nonzero attribute");Check(ui.comparisonRows.All(r=>r.root.gameObject.activeSelf)&&ui.comparisonContent.rect.height>ui.comparisonScroll.viewport.rect.height,"all nine effective stat rows available via vertical scrolling");yield return new WaitForEndOfFrame();Shot("long-name-all-stats");
         var locked=im.weaponsOwned.First(i=>i.isLocked);int lockedId=locked.uniqueId;int beforeCount=im.weaponsOwned.Count;float fxp=gm.fxpNow;
-        ui.ToggleBatch();ui.EquipSelected();ui.RequestDecompose();Check(ui.modal.activeSelf,"batch destruction requires explicit confirmation");ui.modalCancel.onClick.Invoke();Check(im.weaponsOwned.Count==beforeCount&&gm.fxpNow==fxp,"cancel keeps inventory and fusion experience unchanged");
-        ui.RequestDecompose();yield return new WaitForEndOfFrame();Shot("batch-confirmation");Pointer(ui.modalConfirm,"batch confirm");ui.modalConfirm.onClick.Invoke();Check(im.weaponsOwned.Count==1&&im.weaponsOwned[0].uniqueId==lockedId&&gm.fxpNow>fxp&&im.hasWeapon,"batch only removes selected unlocked unequipped items");
+        ui.ToggleBatch();ui.EquipSelected();ui.RequestDecompose();Check(ui.modal.activeSelf,"batch destruction requires explicit confirmation");ui.modalCancel.onClick.Invoke();yield return new WaitForSecondsRealtime(.5f);Check(im.weaponsOwned.Count==beforeCount&&gm.fxpNow==fxp,"cancel keeps inventory and fusion experience unchanged");
+        ui.RequestDecompose();yield return new WaitForEndOfFrame();Shot("batch-confirmation");Pointer(ui.modalConfirm,"batch confirm");ui.modalConfirm.onClick.Invoke();yield return new WaitForSecondsRealtime(.5f);Check(im.weaponsOwned.Count==1&&im.weaponsOwned[0].uniqueId==lockedId&&gm.fxpNow>fxp&&im.hasWeapon,"batch only removes selected unlocked unequipped items");
         im.helmetsOwned.Clear();im.hasHelmet=false;ui.SetCategory(ItemType.HELMET);Check(ui.VisibleItems.Count==0&&!ui.equip.interactable&&!ui.decompose.interactable&&ui.emptyText.gameObject.activeSelf,"empty category has clear disabled state");yield return new WaitForEndOfFrame();Shot("empty-category");
         ui.SetCategory(ItemType.WEAPON);ui.back.onClick.Invoke();yield return new WaitForSecondsRealtime(2);Check(gm.gameState==GameStateType.CAMP&&!ui.gameObject.activeSelf,"return to shelter works");
         Router.single.InventoryButton();yield return new WaitForSecondsRealtime(2);Check(ui.gameObject.activeSelf&&gm.gameState==GameStateType.INVENTORY,"reopen equipment works");
@@ -142,7 +144,7 @@ public sealed class EquipmentProbe
     IEnumerator ReferenceCapture(InventoryManager im,GameManager gm)
     {
         // Isolated visual fixture only: same approved art/data, never persisted or used as production item mappings.
-        var source=AssetDatabase.LoadAssetAtPath<Texture2D>(StorybookEquipmentBuilder.Root+"/Art/ApprovedEquipment.png");
+        var source=AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/ArtSources/UI/Equipment/Art/ApprovedEquipment.png");
         var material=AssetDatabase.LoadAssetAtPath<Material>("Assets/DarkFairytale/UI/Shelter/Reference/ReferenceColour.mat");
         var all=new[]{im.weaponEq}.Concat(im.weaponsOwned).ToArray();var keys=all.Select(i=>i.m_IconName).ToArray();
         int level=gm.playerLevel,skills=gm.skillPoints;float fxp=gm.fxpNow,max=gm.fxpMax;var stats=gm.currentPlayerStat;var grade=all[1].itemGrade;

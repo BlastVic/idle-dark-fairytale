@@ -1,0 +1,11 @@
+2026-10-16 Android 输入设置修复
+原因：activeInputHandler=2（Both）不受 Android 支持。
+修复：改为 0（Input Manager Old），重启编辑器生效。
+依据：Gameplay、MonsterAnimationTest、SpineEffectsTestRig 均引用 StandaloneInputModule；所有业务输入使用 UnityEngine.Input；无 PlayerInput 或 InputSystemUIInputModule 序列化引用。NiceVibrations 的 InputSystem 引用为可选手柄震动，Android 震动走原生 MMNVAndroid；保留包及插件代码。
+打包入口新增配置检查，不允许将此项目的输入处理误改为 Both 或 New 后继续打包。
+验证：运行时 StandaloneInputModule 激活，鼠标、触摸、Escape API 可调用；本地资源加载、营地/融合/转生/商店、战斗、胜利/失败返回流程通过，无运行错误。日志 output/input-handling-fix/validation.txt。
+新 APK：Build/Android/IdleDarkFairytale-1.0.0-202610162216.apk
+512542564 字节，488.80 MiB；比 22:03 包减少 0.70 MiB。
+Android/LZ4，ARMv7+ARM64，构建成功，0 错误、130 警告；本次日志未出现 Both 输入警告。完整重新编译仍有已有弃用 API、第三方库等警告，未声称构建零警告。
+ZIP 完整性、签名验证通过，包名/版本/签名证书保持一致。
+尚无 Android 真机安装、触摸及系统返回手势验证。

@@ -91,7 +91,7 @@ public static class CursedBookPrologueSetup
                 var core = root.transform.Find("Core_9x16");
                 var rt = Node("PrologueSubtitle", core, new Vector2(960,150), new Vector2(0,-770));
                 prologue.subtitle = rt.gameObject.AddComponent<Text>();
-                prologue.subtitle.font = AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/Tinos-Regular.ttf");
+                prologue.subtitle.font = AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Regular.otf");
                 if (!prologue.subtitle.font) prologue.subtitle.font = intro.status.font;
                 prologue.subtitle.fontSize = 34; prologue.subtitle.alignment = TextAnchor.MiddleCenter;
                 prologue.subtitle.color = new Color(.9f,.87f,.8f); prologue.subtitle.raycastTarget = false;

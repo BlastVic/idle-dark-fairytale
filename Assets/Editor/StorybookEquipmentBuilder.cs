@@ -18,7 +18,7 @@ public static class StorybookEquipmentBuilder
     static StorybookEquipmentBuilder(){EditorApplication.update+=Poll;}
     static void Poll(){if(Application.isPlaying||EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists(Output+"build.request"))return;File.Delete(Output+"build.request");try{Build();File.WriteAllText(Output+"build-result.txt","PASS");}catch(Exception e){File.WriteAllText(Output+"build-result.txt",e.ToString());Debug.LogException(e);}}
     static T Asset<T>(string path,Func<T> make) where T:UnityEngine.Object {var a=AssetDatabase.LoadAssetAtPath<T>(path);if(a)return a;a=make();AssetDatabase.CreateAsset(a,path);return a;}
-    static Sprite Slice(string n,float x,float y,float w,float h,Vector4 border=default,bool exp=false){var tex=exp?expanded:source;return Asset(Root+"/Sprites/"+n+".asset",()=>{var s=Sprite.Create(tex,new Rect(x,tex.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border);s.name=n;return s;});}
+    static Sprite Slice(string n,float x,float y,float w,float h,Vector4 border=default,bool exp=false){var tex=exp?expanded:source;return Asset(Root+"/Sprites/"+n+".asset",()=>{var s=ProductionUiArt.Create(Root+"/Sprites/"+n+".asset",tex,new Rect(x,tex.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border);s.name=n;return s;});}
     static RectTransform Node(Transform p,string n){var r=new GameObject(n,typeof(RectTransform)).GetComponent<RectTransform>();r.gameObject.layer=5;r.SetParent(p,false);return r;}
     static void Box(RectTransform r,float x,float y,float w,float h)=>StorybookEquipmentLayout.Box(r,x,y,w,h);
     static void Full(RectTransform r,float l=0,float t=0,float right=0,float bottom=0){r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=new Vector2(l,bottom);r.offsetMax=new Vector2(-right,-t);}
@@ -39,7 +39,7 @@ public static class StorybookEquipmentBuilder
     {
         if(Application.isPlaying||EditorApplication.isPlayingOrWillChangePlaymode)throw new InvalidOperationException("Exit Play mode before authoring equipment assets.");
         Directory.CreateDirectory(Root+"/Sprites");Directory.CreateDirectory(Output);AssetDatabase.Refresh();
-        source=ShelterRefinedBuilder.Import(Root+"/Art/ApprovedEquipment.png");expanded=ShelterRefinedBuilder.Import(Root+"/Art/ApprovedExpanded.png");
+        source=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Equipment/Art/ApprovedEquipment.png");expanded=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Equipment/Art/ApprovedExpanded.png");
         font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Black.otf");regular=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Regular.otf");
         ink=AssetDatabase.LoadAssetAtPath<Material>("Assets/DarkFairytale/UI/Shelter/Reference/ReferenceInk.mat");colour=AssetDatabase.LoadAssetAtPath<Material>("Assets/DarkFairytale/UI/Shelter/Reference/ReferenceColour.mat");
         paper=Slice("CleanPaperV3",370,345,40,35);red=AssetDatabase.LoadAssetAtPath<Sprite>("Assets/DarkFairytale/UI/Shelter/Reference/Sprites/BlankRedV2.asset");
@@ -178,14 +178,14 @@ public static class StorybookEquipmentBuilder
                 Txt(b.transform,"Caption",nav[i],0,109,185,47,31,i==0?new Color(.98f,.94f,.81f):Color.black);if(i<4)Rule(b.transform,183,18,1,124);
                 if(i==1){var badge=Pic(b.transform,"SkillBadge",Slice("SkillBadgeV4",320,1514,42,43),125,11,36,38);var badgeMat=Asset(Root+"/EquipmentBadgeRing.mat",()=>{var m=new Material(Shader.Find("UI/Reference Ink Cutout"));var r=badge.sprite.rect;m.SetFloat("_Mode",1);m.SetFloat("_Inner",.39f);m.SetVector("_SourceRect",new Vector4(r.x/source.width,r.y/source.height,r.width/source.width,r.height/source.height));return m;});badge.material=badgeMat;var fill=Fill(badge.transform,"BadgeInterior",6,6,24,25,true);ui.skillBadge=Txt(badge.transform,"Count","3",0,0,36,37,24,new Color(.98f,.94f,.82f));}
             }
-            BuildOverlays(ui,l.core);l.Apply();PrefabUtility.SaveAsPrefabAsset(root.gameObject,Path);
+            BuildOverlays(ui,l.core);l.Apply();ProductionUiArt.SaveAsPrefabAsset(root.gameObject,Path);
         }finally{UnityEngine.Object.DestroyImmediate(root.gameObject);}
         Attach();AssetDatabase.SaveAssets();
     }
     static Sprite ChangeSymbol()
     {
-        var texture=ShelterRefinedBuilder.Import(Root+"/Art/ApprovedCompactDetails.png");
-        return Asset(Root+"/Sprites/ChangeSymbolV4.asset",()=>{var s=Sprite.Create(texture,new Rect(1486,texture.height-316,145,139),Vector2.one*.5f,100);s.name="ChangeSymbolV4";return s;});
+        var texture=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Equipment/Art/ApprovedCompactDetails.png");
+        return Asset(Root+"/Sprites/ChangeSymbolV4.asset",()=>{var s=ProductionUiArt.Create(texture,new Rect(1486,texture.height-316,145,139),Vector2.one*.5f,100);s.name="ChangeSymbolV4";return s;});
     }
     static Sprite SkillGlyph()
     {
@@ -218,7 +218,7 @@ public static class StorybookEquipmentBuilder
             ui.lockIcon=Pic(visual,"Locked",Slice("LockGlyph",626,687,32,41),130,76,20,26,ink).gameObject;
             ui.multiMark=Txt(visual,"BatchCheck","✓",115,66,38,38,30,new Color(.6f,.08f,.06f)).gameObject;
             ui.multiMark.SetActive(false);ui.lockIcon.SetActive(false);ui.selectedFrame.gameObject.SetActive(false);ui.stateRibbon.SetActive(false);
-            PrefabUtility.SaveAsPrefabAsset(root.gameObject,CellPath);
+            ProductionUiArt.SaveAsPrefabAsset(root.gameObject,CellPath);
         }finally{UnityEngine.Object.DestroyImmediate(root.gameObject);}
     }
     static void BuildOverlays(StorybookEquipmentUI ui,Transform parent)

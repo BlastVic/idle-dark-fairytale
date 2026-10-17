@@ -40,6 +40,7 @@ public sealed class MonsterPreviewStage : MonoBehaviour
     void LateUpdate()
     {
         Apply();
+        if (tester) tester.ApplyEntrancePreview();
     }
     public void ShowRedHood(bool show) { if (redHood) redHood.gameObject.SetActive(show); }
     public void MeasureMonster()

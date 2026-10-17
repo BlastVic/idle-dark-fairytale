@@ -21,7 +21,7 @@ public sealed class StorybookEquipmentUI : MonoBehaviour
     public Button[] columnButtons;
     public const string ColumnsPreference="StorybookEquipment.Columns";
     public int Columns {get;private set;}=4;
-    public bool detailedMode=true;
+    public bool detailedMode=false;
     public Button back, equip, decompose, previous, next, foldButton, sortButton, filterButton, batchButton, lockButton;
     public Button[] categoryButtons, navigationButtons, statButtons;
     public Image[] categoryBackgrounds, categoryIcons;

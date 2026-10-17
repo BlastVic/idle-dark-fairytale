@@ -1,0 +1,60 @@
+{
+  "tool": "built-in image_gen",
+  "usage": "Use only the repaired lower-right corner. Preserve all source pixels outside the approved patch.",
+  "items": [
+    {
+      "skill": 2,
+      "generated": "/Users/vic/.codex/generated_images/01a143f8-b5c5-7f01-908e-295c52d4ea35/exec-013c8625-1a38-4872-8864-8571b2d25719.png",
+      "source": "output/ui-production-audit/skills-original/CleanSkill2.png",
+      "prompt": "Precise tiny inpainting, NOT illustration generation. Edit the INPUT bitmap, keep its original framing and aspect ratio. The ONLY change is erasing the dark padlock at the extreme lower-right corner and continuing the fine scratched black thorn-circle line and beige paper into the erased area. Keep the three slashing black blades with red streaks, every other existing edge, all existing grey shading and muted colors and the low-resolution hand-painted original COMPLETELY unchanged. No improvement, embellishment, metallic rim, extra detail, sharpening or style change. Maintain the original thin uneven two-line thorn ring. Keep the beige paper background exactly as supplied. Do not zoom, crop, recenter or add margin. Do not reconstruct or redesign the subject. Only modify the tiny padlock corner, about the rightmost 22% by bottom 32% of this image. The circle has a naturally open lower edge, preserve that. No new symbols or text."
+    },
+    {
+      "skill": 5,
+      "generated": "/Users/vic/.codex/generated_images/01a143f8-b5c5-7f01-908e-295c52d4ea35/exec-5ee9e48c-445e-4797-8843-a8bf0697c420.png",
+      "source": "output/ui-production-audit/skills-original/CleanSkill5.png",
+      "prompt": "Precise tiny inpainting: erase only lower-right padlock; preserve subject and beige paper; continue original thin thorn circle. No redesign, sharpening, recentering or added detail."
+    },
+    {
+      "skill": 8,
+      "generated": "/Users/vic/.codex/generated_images/01a143f8-b5c5-7f01-908e-295c52d4ea35/exec-eec2e428-fb03-4da6-8ebf-8a5174398a98.png",
+      "source": "output/ui-production-audit/skills-original/CleanSkill8.png",
+      "prompt": "Precise tiny inpainting, NOT illustration generation. Edit the INPUT bitmap, keep its original framing and aspect ratio. The ONLY change is erasing the dark padlock at the extreme lower-right corner and continuing the fine scratched black thorn-circle line and beige paper into the erased area. Keep the black spiked war hammer, every other existing edge, all existing grey shading and muted colors and the low-resolution hand-painted original COMPLETELY unchanged. No improvement, embellishment, metallic rim, extra detail, sharpening or style change. Maintain the original thin uneven two-line thorn ring. Keep the beige paper background exactly as supplied. Do not zoom, crop, recenter or add margin. Do not reconstruct or redesign the subject. Only modify the tiny padlock corner, about the rightmost 22% by bottom 32% of this image. The circle has a naturally open lower edge, preserve that. No new symbols or text."
+    },
+    {
+      "skill": 9,
+      "generated": "/Users/vic/.codex/generated_images/01a143f8-b5c5-7f01-908e-295c52d4ea35/exec-70e982b8-ca57-4bde-8072-cbe098b649c2.png",
+      "source": "output/ui-production-audit/skills-original/CleanSkill9.png",
+      "prompt": "Precise tiny inpainting, NOT illustration generation. Edit the INPUT bitmap, keep its original framing and aspect ratio. The ONLY change is erasing the dark padlock at the extreme lower-right corner and continuing the fine scratched black thorn-circle line and beige paper into the erased area. Keep the small seated grey baby dragon, every other existing edge, all existing grey shading and muted colors and the low-resolution hand-painted original COMPLETELY unchanged. No improvement, embellishment, metallic rim, extra detail, sharpening or style change. Maintain the original thin uneven two-line thorn ring. Keep the beige paper background exactly as supplied. Do not zoom, crop, recenter or add margin. Do not reconstruct or redesign the subject. Only modify the tiny padlock corner, about the rightmost 22% by bottom 32% of this image. The circle has a naturally open lower edge, preserve that. No new symbols or text."
+    },
+    {
+      "skill": 11,
+      "generated": "/Users/vic/.codex/generated_images/01a143f8-b5c5-7f01-908e-295c52d4ea35/exec-1e0a446d-718e-4661-aa21-be40c906a629.png",
+      "source": "output/ui-production-audit/skills-original/CleanSkill11.png",
+      "prompt": "Precise tiny inpainting, NOT illustration generation. Edit the INPUT bitmap, keep its original framing and aspect ratio. The ONLY change is erasing the dark padlock at the extreme lower-right corner and continuing the fine scratched black thorn-circle line and beige paper into the erased area. Keep the jagged white lightning, every other existing edge, all existing grey shading and muted colors and the low-resolution hand-painted original COMPLETELY unchanged. No improvement, embellishment, metallic rim, extra detail, sharpening or style change. Maintain the original thin uneven two-line thorn ring. Keep the beige paper background exactly as supplied. Do not zoom, crop, recenter or add margin. Do not reconstruct or redesign the subject. Only modify the tiny padlock corner, about the rightmost 22% by bottom 32% of this image. The circle has a naturally open lower edge, preserve that. No new symbols or text."
+    },
+    {
+      "skill": 12,
+      "generated": "/Users/vic/.codex/generated_images/01a143f8-b5c5-7f01-908e-295c52d4ea35/exec-43af4987-ba7d-4c03-b3c4-f42707ecf41d.png",
+      "source": "output/ui-production-audit/skills-original/CleanSkill12.png",
+      "prompt": "Precise tiny inpainting, NOT illustration generation. Edit the INPUT bitmap, keep its original framing and aspect ratio. The ONLY change is erasing the dark padlock at the extreme lower-right corner and continuing the fine scratched black thorn-circle line and beige paper into the erased area. Keep the crowned grey skull, every other existing edge, all existing grey shading and muted colors and the low-resolution hand-painted original COMPLETELY unchanged. No improvement, embellishment, metallic rim, extra detail, sharpening or style change. Maintain the original thin uneven two-line thorn ring. Keep the beige paper background exactly as supplied. Do not zoom, crop, recenter or add margin. Do not reconstruct or redesign the subject. Only modify the tiny padlock corner, about the rightmost 22% by bottom 32% of this image. The circle has a naturally open lower edge, preserve that. No new symbols or text."
+    },
+    {
+      "skill": 13,
+      "generated": "/Users/vic/.codex/generated_images/01a143f8-b5c5-7f01-908e-295c52d4ea35/exec-b79fb5ce-f543-48bd-b073-a403b2682ef3.png",
+      "source": "output/ui-production-audit/skills-original/CleanSkill13.png",
+      "prompt": "Precise tiny inpainting, NOT illustration generation. Edit the INPUT bitmap, keep its original framing and aspect ratio. The ONLY change is erasing the dark padlock at the extreme lower-right corner and continuing the fine scratched black thorn-circle line and beige paper into the erased area. Keep the black shield with an ivory cross and grey feather wings, every other existing edge, all existing grey shading and muted colors and the low-resolution hand-painted original COMPLETELY unchanged. No improvement, embellishment, metallic rim, extra detail, sharpening or style change. Maintain the original thin uneven two-line thorn ring. Keep the beige paper background exactly as supplied. Do not zoom, crop, recenter or add margin. Do not reconstruct or redesign the subject. Only modify the tiny padlock corner, about the rightmost 22% by bottom 32% of this image. The circle has a naturally open lower edge, preserve that. No new symbols or text."
+    },
+    {
+      "skill": 14,
+      "generated": "/Users/vic/.codex/generated_images/01a143f8-b5c5-7f01-908e-295c52d4ea35/exec-0f75c596-8f66-4f4f-aff7-90123c3901a1.png",
+      "source": "output/ui-production-audit/skills-original/CleanSkill14.png",
+      "prompt": "Precise tiny inpainting, NOT illustration generation. Edit the INPUT bitmap, keep its original framing and aspect ratio. The ONLY change is erasing the dark padlock at the extreme lower-right corner and continuing the fine scratched black thorn-circle line and beige paper into the erased area. Keep the crossed red and black battle standards, every other existing edge, all existing grey shading and muted colors and the low-resolution hand-painted original COMPLETELY unchanged. No improvement, embellishment, metallic rim, extra detail, sharpening or style change. Maintain the original thin uneven two-line thorn ring. Keep the beige paper background exactly as supplied. Do not zoom, crop, recenter or add margin. Do not reconstruct or redesign the subject. Only modify the tiny padlock corner, about the rightmost 22% by bottom 32% of this image. The circle has a naturally open lower edge, preserve that. No new symbols or text."
+    },
+    {
+      "skill": 15,
+      "generated": "/Users/vic/.codex/generated_images/01a143f8-b5c5-7f01-908e-295c52d4ea35/exec-15e89646-52f3-4fb5-ab69-1940bdf2b2e0.png",
+      "source": "output/ui-production-audit/skills-original/CleanSkill15.png",
+      "prompt": "Precise tiny inpainting, NOT illustration generation. Edit the INPUT bitmap, keep its original framing and aspect ratio. The ONLY change is erasing the dark padlock at the extreme lower-right corner and continuing the fine scratched black thorn-circle line and beige paper into the erased area. Keep the black dragon head breathing red fire, every other existing edge, all existing grey shading and muted colors and the low-resolution hand-painted original COMPLETELY unchanged. No improvement, embellishment, metallic rim, extra detail, sharpening or style change. Maintain the original thin uneven two-line thorn ring. Keep the beige paper background exactly as supplied. Do not zoom, crop, recenter or add margin. Do not reconstruct or redesign the subject. Only modify the tiny padlock corner, about the rightmost 22% by bottom 32% of this image. The circle has a naturally open lower edge, preserve that. No new symbols or text."
+    }
+  ]
+}

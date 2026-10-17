@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -72,31 +72,6 @@ public class InventoryManager : MonoBehaviour
                 _instance = GameObject.FindObjectOfType<InventoryManager>();
             return _instance;
         }
-    }
-
-    public Sprite[] gradeIcons;
-    public Sprite GetGradeIcon(ItemGrade itemGrade)
-    {
-        Sprite sprite = null;
-        switch (itemGrade)
-        {
-            case ItemGrade.LEGENDARY:
-                sprite = gradeIcons[0];
-                break;
-            case ItemGrade.EPIC:
-                sprite = gradeIcons[1];
-                break;
-            case ItemGrade.VERY_RARE:
-                sprite = gradeIcons[2];
-                break;
-            case ItemGrade.RARE:
-                sprite = gradeIcons[3];
-                break;
-            case ItemGrade.ORDINARY:
-                sprite = gradeIcons[4];
-                break;
-        }
-        return sprite;
     }
 
     public Color GetGradeColor(ItemGrade itemGrade)

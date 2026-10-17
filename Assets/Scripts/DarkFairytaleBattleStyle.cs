@@ -47,7 +47,27 @@ public class DarkFairytaleBattleStyle : ScriptableObject
     public void PlacePlayer(Player player, Camera camera)
     {
         Fit(player.transform, player.skeletonAnimation, camera, playerFeet, playerSize);
-        SetShadow(player.transform, player.skeletonAnimation, camera, playerFeet);
+        // Reserve the retreating victory silhouette before combat starts, so the
+        // planted rear foot never has to slide away from the foreground branches.
+        var skeleton = player.skeletonAnimation;
+        var victory = skeleton.Skeleton.Data.FindAnimation("Victory");
+        if (victory != null)
+        {
+            var entry = skeleton.AnimationState.SetAnimation(0, "Victory", false);
+            entry.TrackTime = victory.Duration;
+            skeleton.Update(0);
+            skeleton.LateUpdate();
+            float left = skeleton.GetComponent<MeshRenderer>().bounds.min.x;
+            float safeLeft = ViewportPoint(camera, new Vector2(.14f, playerFeet.y)).x;
+            player.transform.position += Vector3.right * Mathf.Max(0, safeLeft - left);
+            skeleton.AnimationState.ClearTracks();
+            skeleton.Skeleton.SetToSetupPose();
+            skeleton.Update(0);
+            skeleton.LateUpdate();
+        }
+        var placedFeet = camera.WorldToViewportPoint(new Vector3(skeleton.GetComponent<MeshRenderer>().bounds.center.x,
+            skeleton.GetComponent<MeshRenderer>().bounds.min.y, 0));
+        SetShadow(player.transform, skeleton, camera, new Vector2(placedFeet.x, placedFeet.y));
     }
 
     public void PlaceEnemy(Enemy enemy, Camera camera, int index)
@@ -60,21 +80,6 @@ public class DarkFairytaleBattleStyle : ScriptableObject
         if (drop) drop.ResetForLayout();
         var bar = enemy.ab.enemyLifebar;
         bool boss = bar && (bar.isBoss || bar.isMiniBoss);
-        if (bar && enemyHealthBarPrefab && bar.name != "CursedStorybookEnemyBar")
-        {
-            var oldBar = bar;
-            // Instantiate an editable prefab, not generated UI. Keep child 0 for Actor_Base.Start.
-            bar = Instantiate(enemyHealthBarPrefab, enemy.transform, false);
-            bar.name = "CursedStorybookEnemyBar";
-            bar.isBoss = oldBar.isBoss;
-            bar.isMiniBoss = oldBar.isMiniBoss;
-            bar.miniBossName.text = boss ? enemy.bossName : "";
-            bar.transform.SetSiblingIndex(0);
-            enemy.ab.enemyLifebar = bar;
-            if (drop) drop.ReplaceLifebar(bar.gameObject);
-            oldBar.gameObject.SetActive(false);
-            Destroy(oldBar.gameObject);
-        }
         var feet = boss ? new Vector2(.72f, .33f) : enemyFeet[index];
         var size = EnemyDisplaySize(index, boss) * Mathf.Max(.1f, enemy.displaySizeMultiplier);
         Fit(enemy.transform, enemy.skeletonAnimation, camera, feet, size);

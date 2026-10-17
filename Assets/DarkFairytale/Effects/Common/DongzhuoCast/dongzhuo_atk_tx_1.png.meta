@@ -1,0 +1,613 @@
+fileFormatVersion: 2
+guid: 9b39f4ff52bb54eb19c5f68c41de7f38
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3963799806828792724
+    second: dongzhuo_atk_tx_1_0
+  - first:
+      213: 665381988072121402
+    second: dongzhuo_atk_tx_1_1
+  - first:
+      213: 2190067861914139321
+    second: dongzhuo_atk_tx_1_2
+  - first:
+      213: -2039010250026132898
+    second: dongzhuo_atk_tx_1_3
+  - first:
+      213: -7084972127185465572
+    second: dongzhuo_atk_tx_1_4
+  - first:
+      213: -3989058146558125177
+    second: dongzhuo_atk_tx_1_5
+  - first:
+      213: -6492707963771836807
+    second: dongzhuo_atk_tx_1_6
+  - first:
+      213: 1940641989623004562
+    second: dongzhuo_atk_tx_1_7
+  - first:
+      213: -2134354987087939537
+    second: dongzhuo_atk_tx_1_8
+  - first:
+      213: -1023797758697299837
+    second: dongzhuo_atk_tx_1_9
+  - first:
+      213: 6723852661044624336
+    second: dongzhuo_atk_tx_1_10
+  - first:
+      213: -7996994909465239266
+    second: dongzhuo_atk_tx_1_11
+  - first:
+      213: -7255286169776425351
+    second: dongzhuo_atk_tx_1_12
+  - first:
+      213: -8019536672111473898
+    second: dongzhuo_atk_tx_1_13
+  - first:
+      213: -6276369414111601959
+    second: dongzhuo_atk_tx_1_14
+  - first:
+      213: 5722404652217570456
+    second: dongzhuo_atk_tx_1_15
+  - first:
+      213: -699245082531679167
+    second: dongzhuo_atk_tx_1_16
+  - first:
+      213: 4130678425565933332
+    second: dongzhuo_atk_tx_1_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_0
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 833
+        width: 216
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c643539a311cdf8c0800000000000000
+      internalID: -3963799806828792724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_1
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 1023
+        width: 27
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a346bfe8469eb3900800000000000000
+      internalID: 665381988072121402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_2
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 969
+        width: 59
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ba346fed1fa46e10800000000000000
+      internalID: 2190067861914139321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_3
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 777
+        width: 277
+        height: 245
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5adfc11bfaf3b3e0800000000000000
+      internalID: -2039010250026132898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_4
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 858
+        width: 209
+        height: 143
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f019b536f1dad90800000000000000
+      internalID: -7084972127185465572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_5
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 642
+        width: 190
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b560a20c404a8c0800000000000000
+      internalID: -3989058146558125177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 530
+        width: 286
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 976a70db18445e5a0800000000000000
+      internalID: -6492707963771836807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_7
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 642
+        width: 224
+        height: 191
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29dbfab8b9b8eea10800000000000000
+      internalID: 1940641989623004562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_8
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 421
+        width: 232
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f283a02927f3162e0800000000000000
+      internalID: -2134354987087939537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_9
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 564
+        width: 34
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 380a10fdc5dbac1f0800000000000000
+      internalID: -1023797758697299837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_10
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 452
+        width: 120
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0db31a7ee5cef4d50800000000000000
+      internalID: 6723852661044624336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_11
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 273
+        width: 315
+        height: 257
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e11a7beef77f40190800000000000000
+      internalID: -7996994909465239266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_12
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 248
+        width: 325
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 976fba23bab005b90800000000000000
+      internalID: -7255286169776425351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_13
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 421
+        width: 17
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61bc393d2e1e4b090800000000000000
+      internalID: -8019536672111473898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_14
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 1
+        width: 332
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da50c0854bd5e8a0800000000000000
+      internalID: -6276369414111601959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_15
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 273
+        width: 12
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 894987c66b01a6f40800000000000000
+      internalID: 5722404652217570456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_16
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 1
+        width: 297
+        height: 247
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 144b2cc5d48cb46f0800000000000000
+      internalID: -699245082531679167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dongzhuo_atk_tx_1_17
+      rect:
+        serializedVersion: 2
+        x: 630
+        y: 1
+        width: 47
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f2a3d842e135930800000000000000
+      internalID: 4130678425565933332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      dongzhuo_atk_tx_1_0: -3963799806828792724
+      dongzhuo_atk_tx_1_1: 665381988072121402
+      dongzhuo_atk_tx_1_10: 6723852661044624336
+      dongzhuo_atk_tx_1_11: -7996994909465239266
+      dongzhuo_atk_tx_1_12: -7255286169776425351
+      dongzhuo_atk_tx_1_13: -8019536672111473898
+      dongzhuo_atk_tx_1_14: -6276369414111601959
+      dongzhuo_atk_tx_1_15: 5722404652217570456
+      dongzhuo_atk_tx_1_16: -699245082531679167
+      dongzhuo_atk_tx_1_17: 4130678425565933332
+      dongzhuo_atk_tx_1_2: 2190067861914139321
+      dongzhuo_atk_tx_1_3: -2039010250026132898
+      dongzhuo_atk_tx_1_4: -7084972127185465572
+      dongzhuo_atk_tx_1_5: -3989058146558125177
+      dongzhuo_atk_tx_1_6: -6492707963771836807
+      dongzhuo_atk_tx_1_7: 1940641989623004562
+      dongzhuo_atk_tx_1_8: -2134354987087939537
+      dongzhuo_atk_tx_1_9: -1023797758697299837
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

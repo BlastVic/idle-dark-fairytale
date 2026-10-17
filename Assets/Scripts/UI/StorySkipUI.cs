@@ -8,7 +8,7 @@ public sealed class StorySkipUI : MonoBehaviour
     public RectTransform core, panel;
     public Button skip, cancel, confirm;
     public GameObject confirmation;
-    public Vector2 normalSkipPosition=new Vector2(-116,68);
+    public Vector2 normalSkipPosition=new Vector2(-116,-68);
     public Vector2 replaySkipPosition=new Vector2(-116,-68);
     public bool IsReplay => intro.mapStory || intro.returnToMapAfterEnding;
     public bool IsConfirming => confirmation.activeSelf;
@@ -20,7 +20,7 @@ public sealed class StorySkipUI : MonoBehaviour
         skip.gameObject.SetActive(!intro.Finished && intro.prologue && intro.prologue.IsPlaying && !IsConfirming);
         panel.localScale=core.localScale;
         var rect=(RectTransform)skip.transform;
-        rect.anchorMin=rect.anchorMax=new Vector2(1,IsReplay?1:0);
+        rect.anchorMin=rect.anchorMax=new Vector2(1,1);
         rect.anchoredPosition=IsReplay?replaySkipPosition:normalSkipPosition;
     }
     public void Open() {

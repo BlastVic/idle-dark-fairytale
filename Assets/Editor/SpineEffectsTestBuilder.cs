@@ -25,6 +25,14 @@ public static class SpineEffectsTestBuilder
                 e.RaycastAll(new PointerEventData(e){position=RectTransformUtility.WorldToScreenPoint(null,t.selectionButtons[1].transform.position+new Vector3(100,-20,0))},hits);
                 File.WriteAllText("output/spine-effects-test/inspect.txt","selected="+t.Selected+" module="+e.currentInputModule+" input="+Input.mousePosition+" hits="+string.Join(",",hits.ConvertAll(h=>h.gameObject.name)));
             }
+            else if(command=="res-motion")ResurrectionMotionAuthoring.Apply();
+            else if(command=="size")CommonEffectsSizing.Apply();
+            else if(command=="hit")CommonHitAuthoring.Build();
+            else if(command=="cast")CommonCastAuthoring.Build();
+            else if(command=="sweep")CommonSweepAuthoring.Build();
+            else if(command=="lightning")CommonLightningAuthoring.Build();
+            else if(command=="heal")CommonHealAuthoring.Build();
+            else if(command=="stage")SpineEffectsStageAuthoring.Install();
             else if(command=="build")Build();
             else if(command=="play"){EditorSceneManager.OpenScene(ScenePath);EditorApplication.isPlaying=true;}
             else if(command=="validate")SpineEffectsTestValidation.Begin();
@@ -42,7 +50,7 @@ public static class SpineEffectsTestBuilder
         if(EditorSceneManager.GetActiveScene().isDirty)throw new Exception("Current scene has unsaved edits; save before creating test scene.");
         Directory.CreateDirectory(Root);
         var scene=EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Single);
-        var root=new GameObject("Spine Effects Test");var model=root.AddComponent<SpineEffectsTest>();
+        var root=new GameObject("Spine Effects Test");var model=root.AddComponent<SpineEffectsTest>();model.petBattleEffects=AssetDatabase.LoadAssetAtPath<GameObject>("Assets/DarkFairytale/Companions/PetCindrel/PetCindrel.prefab").GetComponent<PetCindrelEffects>();
         var cameraGo=new GameObject("Preview Camera");cameraGo.transform.SetParent(root.transform);cameraGo.transform.position=new Vector3(0,0,-20);
         var cam=cameraGo.AddComponent<Camera>();cam.orthographic=true;cam.orthographicSize=9;cam.clearFlags=CameraClearFlags.SolidColor;cam.backgroundColor=new Color(.055f,.068f,.085f);model.previewCamera=cam;
         var bg=new GameObject("Battle Background").AddComponent<SpriteRenderer>();bg.transform.SetParent(root.transform);bg.sortingLayerName="BG";bg.sortingOrder=-100;bg.sprite=AssetDatabase.LoadAssetAtPath<DarkFairytaleBattleStyle>("Assets/DarkFairytale/MoonlitCastleBattleStyle.asset").background;model.backdrop=bg;
@@ -54,8 +62,8 @@ public static class SpineEffectsTestBuilder
         var top=Panel(model.safeRoot,"Catalog",new Vector2(0,1),new Vector2(1,1),new Vector2(0,-220),Vector2.zero);
         Label(top,"Heading","特效测试室",22,12,676,46,28);
         model.title=Label(top,"Selected","",22,58,676,38,21);
-        string[] names={"火球","命中爆炸","爪击","扬尘","火焰爆发"};model.displayNames=names;model.effects=new BookPetSpineEffect[5];model.selectionButtons=new Button[5];
-        for(int i=0;i<5;i++){var id=BookPetEffectsBuilder.Names[i];model.effects[i]=AssetDatabase.LoadAssetAtPath<BookPetSpineEffect>(BookPetEffectsBuilder.Root+"/"+id+"/"+id+".prefab");model.selectionButtons[i]=Button(top,id,names[i],22+(i%3)*226,102+(i/3)*55,218,48);}
+        string[] names={"火球","命中爆炸","爪击","扬尘","火焰爆发"};model.displayNames=names;model.effects=new PetCindrelSpineEffect[5];model.selectionButtons=new Button[5];
+        for(int i=0;i<5;i++){var id=PetCindrelEffectsBuilder.Names[i];model.effects[i]=AssetDatabase.LoadAssetAtPath<PetCindrelSpineEffect>(PetCindrelEffectsBuilder.Root+"/"+id+"/"+id+".prefab");model.selectionButtons[i]=Button(top,id,names[i],22+(i%3)*226,102+(i/3)*55,218,48);}
         var bottom=Panel(model.safeRoot,"Controls",Vector2.zero,new Vector2(1,0),Vector2.zero,new Vector2(0,350));
         model.status=Label(bottom,"Status","",22,8,676,62,20);
         model.timeSlider=Slider(bottom,"Time",22,72,676,0,2,0);

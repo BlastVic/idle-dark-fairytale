@@ -1,0 +1,16 @@
+第二阶段血墨下沉接入：褪色后停留0.15秒，1.1秒自上向下覆盖，染透停留0.15秒，然后沿用0.35秒淡入现有失败UI。无封页文案、印章或翻页。
+复用批准分镜第四格纹理，运行时采样内部区域避免边框文字。材质噪声生成动态洇染边缘，轮廓与分镜不同，未宣称逐像素还原。
+参数保存于StorybookTransition Prefab，原有死亡动作等待保留。实际截图与GIF仅保留output/death-ink。
+PASS Death final page before result (1080, 1920)
+PASS Ink precedes defeat UI (1080, 1920)
+PASS Result revealed and input unblocked (1080, 1920)
+PASS Return clears death effect (1080, 1920)
+PASS Death final page before result (768, 1024)
+PASS Ink precedes defeat UI (768, 1024)
+PASS Result revealed and input unblocked (768, 1024)
+PASS Return clears death effect (768, 1024)
+PASS Death final page before result (720, 1440)
+PASS Ink precedes defeat UI (720, 1440)
+PASS Result revealed and input unblocked (720, 1440)
+PASS Return clears death effect (720, 1440)
+DONE

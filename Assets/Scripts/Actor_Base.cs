@@ -71,6 +71,7 @@ public class Actor_Base : MonoBehaviour
     }
     public void Hit(float dmg, bool isCrit = false, float incomingPierce = 0, float critDmg = 150, bool isPet = false, bool isLightning = false, bool suppressDefaultHitVfx = false)
     {
+        if (isDying) return;
         // Covers direct hits, splash, pets and lightning before any damage or feedback.
         if (!isPlayer && TryGetComponent<DropIn>(out var drop) && drop.IsEntering) return;
 
@@ -201,8 +202,11 @@ public class Actor_Base : MonoBehaviour
             isDying = true; // Lock before effects/callbacks so one death is counted once.
             GameManager.single.RecordPlayerDeath();
             Player.single.StopAllCoroutines();
+            Player.single.isAttacking = false;
+            foreach (var actor in GameManager.single.GetLivingEnemies())
+                actor.GetComponent<Enemy>().PauseForPlayerDeath();
             SoundManager.Instance.PlayClip("PLAYER_DEATH", false, false);
-            if (PetDragon.single != null) PetDragon.single.FlyOff();
+            if (PetCindrel.single != null) PetCindrel.single.FlyOff();
             #region ROLL FOR RESSURRECTIOn
             float resChance = SkillsController.Instance.GetSkillValues(SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Ressurrection), SkillsTypeEnum.Ressurrection)[0];
             float rand = Random.Range(0, 1f);
@@ -221,7 +225,6 @@ public class Actor_Base : MonoBehaviour
 
 
             Player.single.SetAnimation("Death1", false, false);
-            isDying = true;
 
         }
         else

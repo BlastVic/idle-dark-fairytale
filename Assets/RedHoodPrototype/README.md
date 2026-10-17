@@ -1,5 +1,21 @@
 # 小红帽侧面 Spine 动画测试 · V4 动作样片
 
+## 横劈武器视角试作
+
+Attack2 新增两张镰刀视角：0.16 秒切至蓄力侧后视，0.485 秒以原图过渡，0.52 秒切至斜前视，0.85 秒恢复原图。挂灯保持独立；切换不改变身体时间线或命中时点。
+
+原图集不覆盖。新增资源在 `RedHoodWeaponViews.png` / `.atlas.txt` / `_Atlas.asset`，两个 SkeletonData 同时引用原图集与新图集。正式 Player 的受击闪白映射补齐新材质。
+
+原始生成图与完整提示词在 `ArtDirection/Characters/RedHood/WeaponViews/`，使用内置 image_gen，参考 `Parts/scythe.png`。用带 Pillow 的 Python 显式运行 `ArtDirection/Characters/RedHood/build_weapon_views.py` 进行等比缩放、图集打包和附件安装，再在 Unity 执行 **Tools > Red Hood > Install Weapon Views (Explicit)**。生成工具不会自动运行；`refine_sweep.py` 会保留已安装的附件时间线。
+
+**Review Weapon Views** 输出实际 Unity 对比到 `output/red-hood-motion/weapon-views/`。这是两张离散视角的试作，非连续三维旋转；攻击阶段的 `blade_tip` 是原有逻辑参考点，不代表不同透视贴图的每一处视觉刀刃位置。
+
+## 2026-10-16 横劈发力调整
+
+Attack2 加大抬手后拉与转腰幅度，0.32–0.46 秒保持蓄力姿势，0.46–0.56 秒快速横斩，随后短暂定住并顺势收招。刀尖在横斩阶段保持水平，肩部跟随前送保持握持。OnHit 仍为 0.56 秒，OnComplete 仍为 1.18 秒。
+
+显式运行 `python3 ArtDirection/Characters/RedHood/refine_sweep.py` 只更新原型与战斗数据的 Attack2，不修改其他动作、骨架、网格或服装。Unity 菜单 **Tools > Red Hood > Review Sweep Power** 渲染前后对比，结果保存在 `output/red-hood-motion/sweep-power/`；前版数据须保存在该目录的 `before/` 下。
+
 ## V4：待机与镰刀下斩
 
 - 骨骼从 22 根增至 28 根：披风和裙摆各增加 3 个控制骨；裙摆从整块图片改为加权网格。
@@ -18,7 +34,7 @@
 ## 原 V3 预览说明
 
 打开 `RedHoodAnimationTest.unity`，Game 视图选择 **9:16**，点击 Play。
-默认交替播放 Attack1（蓄力下斩）与 Attack2（上挑）；可暂停、调整速度、单独选择动作、拖动时间轴和逐帧检查。
+默认交替播放 Attack1（蓄力下斩）与 Attack2（蓄力横劈）；可暂停、调整速度、单独选择动作、拖动时间轴和逐帧检查。
 
 ## 本次修正
 
@@ -59,3 +75,12 @@
 披风与挂灯为关键帧动画，不是物理模拟。自动验证不代表视觉质量验收。
 交付包含可导入 Spine 的 JSON / atlas / 分件图片，没有原生 `.spine` 编辑工程。
 旧版 Skill4 / Skill5 / Skill7 未迁移；正式接入游戏时需单独制作和映射。
+
+## 最新横劈版本（2026-10-16）
+
+Attack2 已改为抬手 0.32 秒、停顿 0.14 秒、快速斩击 0.10 秒，再短暂停留及收势，总时长 1.18 秒。右手由左上向右下带刀；命中阶段采用内弧开刃、刀尖朝镜头的独立倾斜贴图，中间角度用于翻腕衔接，不强行压扁原竖刀。
+
+显式更新流程：运行 `ArtDirection/Characters/RedHood/refine_sweep.py` 和 `build_weapon_views.py`；Unity 执行 Tools > Red Hood > Install Weapon Views (Explicit)，然后 Review Sweep Perspective。不会自动重建场景或界面。
+也可以在编辑模式向 `output/red-hood-motion/sweep-perspective/review.request` 写入 `install`：一次性安装、逐帧渲染、正式 Prefab 检查；空文件只触发验证，不重建资产。结果在同目录 `result.txt`。
+
+正式与原型骨架均已接入两张新视角；1×/1.5×/2× 连续播放、命中与结束事件、中断恢复、握持和正式材质映射已检查。实际 Unity 动图见 `output/red-hood-motion/sweep-perspective/playback-1.0.gif`。上文为早期记录；正式骨架已保留 Skill4/5/7 的现有映射，本轮没有重做这些技能。

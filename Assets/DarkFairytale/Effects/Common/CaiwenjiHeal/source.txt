@@ -1,0 +1,5 @@
+Source: /Users/vic/Workshop/Spine/effect/caiwenji_skill_beaten_2
+JSON and atlas PNG copied unchanged; atlas renamed to .atlas.txt for Unity.
+Original texiao animation and green colors preserved.
+Runtime: Heal_Particle -> existing Particle System Heal.prefab GUID; CommonSpineBattleEffect plays once and destroys after completion.
+Shared authored scale: 4.0. No preview-only bounds normalization.

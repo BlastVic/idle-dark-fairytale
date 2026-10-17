@@ -16,7 +16,7 @@ namespace RedHoodPrototype {
         private float timeline;
         private bool inspecting;
         private Spine.TrackEntry Current { get { return character && character.AnimationState != null ? character.AnimationState.GetCurrent(0) : null; } }
-        private readonly string[] animations = { "Idle1", "Attack1", "Attack2", "Hit", "Skill1", "Death1", "Victory", "Rebirth" };
+        private readonly string[] animations = { "Idle1", "Attack1", "Attack2", "Hit", "Skill1", "Skill2", "Skill3", "Death1", "Revive", "Victory", "Rebirth" };
 
         void Start() {
             if (!character) { enabled = false; return; }
@@ -45,6 +45,8 @@ namespace RedHoodPrototype {
             paused = false;
             character.timeScale = speed;
             character.AnimationState.SetAnimation(0, animation, animation == "Idle1");
+            if(animation=="Victory" && character.Skeleton.Data.FindAnimation("VictoryIdle")!=null)
+                character.AnimationState.AddAnimation(0,"VictoryIdle",true,character.Skeleton.Data.FindAnimation("Victory").Duration);
             character.Update(0);
         }
 

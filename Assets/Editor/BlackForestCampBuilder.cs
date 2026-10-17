@@ -17,7 +17,7 @@ public static class BlackForestCampBuilder
     static BlackForestCampBuilder(){EditorApplication.update+=Poll;}
     static void Poll(){if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists(Out+"build.request"))return;File.Delete(Out+"build.request");try{Build();File.WriteAllText(Out+"build-result.txt","PASS");}catch(Exception e){File.WriteAllText(Out+"build-result.txt",e.ToString());Debug.LogException(e);}}
     static T Asset<T>(string p,Func<T> create) where T:UnityEngine.Object {var a=AssetDatabase.LoadAssetAtPath<T>(p);if(!a){a=create();AssetDatabase.CreateAsset(a,p);}return a;}
-    static Texture2D Read(string name){var t=new Texture2D(2,2,TextureFormat.RGBA32,false);t.LoadImage(File.ReadAllBytes(Root+"/"+name+".png"));return t;}
+    static Texture2D Read(string name){var t=new Texture2D(2,2,TextureFormat.RGBA32,false);t.LoadImage(File.ReadAllBytes(ArtSourcePaths.Resolve(Root+"/"+name+".png")));return t;}
     static RectInt Bounds(Texture2D t,RectInt r){var c=t.GetPixels32();int x0=r.xMax,y0=r.yMax,x1=r.x,y1=r.y;for(int y=r.y;y<r.yMax;y++)for(int x=r.x;x<r.xMax;x++)if(c[(t.height-1-y)*t.width+x].a>24){x0=Math.Min(x0,x);x1=Math.Max(x1,x);y0=Math.Min(y0,y);y1=Math.Max(y1,y);}return new RectInt(x0,y0,x1-x0+1,y1-y0+1);}
     static Texture2D Crop(Texture2D t,RectInt r,bool feather=false){var n=new Texture2D(r.width,r.height,TextureFormat.RGBA32,false);var c=t.GetPixels(r.x,t.height-r.yMax,r.width,r.height);if(feather)for(int y=0;y<r.height;y++)for(int x=0;x<r.width;x++)c[y*r.width+x].a*=Mathf.Clamp01(Mathf.Min(x,y,r.width-1-x,r.height-1-y)/6f);n.SetPixels(c);n.Apply();return n;}
     static Texture2D Import(string p){AssetDatabase.ImportAsset(p,ImportAssetOptions.ForceSynchronousImport);var i=(TextureImporter)AssetImporter.GetAtPath(p);i.textureType=TextureImporterType.Default;i.alphaIsTransparency=true;i.mipmapEnabled=false;i.wrapMode=TextureWrapMode.Clamp;i.maxTextureSize=4096;i.textureCompression=TextureImporterCompression.Uncompressed;i.SaveAndReimport();return AssetDatabase.LoadAssetAtPath<Texture2D>(p);}
@@ -73,7 +73,7 @@ public static class BlackForestCampBuilder
         }
         for(int a=0;a<3;a++)animations["Burn"+(char)('A'+a)]=new JObject{["deform"]=new JObject{["default"]=deformClips[a]},["bones"]=boneClips[a],["slots"]=colors[a]};
         var fire=Rig("ForestCampfire",parts,new[]{"base","flame0","flame1","flame2"},Json("forest-campfire",bones,slots,attachments,animations),.01f*pixel);
-        var background=Import(Root+"/Background.png");
+        var background=Import("Assets/ArtSources/UI/Shelter/BlackForestCamp/Background.png");
         string scenePath=Root+"/BlackForestCamp.prefab";
         if(!File.Exists(scenePath)){
             var scene=Node("BlackForestCamp",null,new Vector2(1080,1920),Vector2.zero);try{var image=scene.gameObject.AddComponent<RawImage>();image.texture=background;image.raycastTarget=false;Actor("ForestRedHood",scene,character,new Vector2(305,-630)*pixel,"Idle",false);Actor("ForestCampfire",scene,fire,new Vector2(596,-972)*pixel,"BurnA",true);PrefabUtility.SaveAsPrefabAsset(scene.gameObject,scenePath);}finally{UnityEngine.Object.DestroyImmediate(scene.gameObject);}}

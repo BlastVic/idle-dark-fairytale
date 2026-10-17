@@ -1,0 +1,83 @@
+
+MobMurmlet.png
+size: 1024,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 0, 1306
+  size: 820, 742
+  orig: 820, 742
+  offset: 0, 0
+  index: -1
+hand_left
+  rotate: false
+  xy: 436, 1110
+  size: 232, 188
+  orig: 232, 188
+  offset: 0, 0
+  index: -1
+hand_right
+  rotate: false
+  xy: 828, 1638
+  size: 184, 162
+  orig: 184, 162
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 0, 988
+  size: 428, 310
+  orig: 428, 310
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: false
+  xy: 436, 1006
+  size: 110, 96
+  orig: 110, 96
+  offset: 0, 0
+  index: -1
+hand_left_shadow
+  rotate: false
+  xy: 676, 1176
+  size: 120, 122
+  orig: 120, 122
+  offset: 0, 0
+  index: -1
+death1
+  rotate: false
+  xy: 828, 1808
+  size: 168, 240
+  orig: 168, 240
+  offset: 0, 0
+  index: -1
+death3
+  rotate: false
+  xy: 828, 1370
+  size: 130, 132
+  orig: 130, 132
+  offset: 0, 0
+  index: -1
+death4
+  rotate: false
+  xy: 828, 1510
+  size: 154, 120
+  orig: 154, 120
+  offset: 0, 0
+  index: -1
+top
+  rotate: false
+  xy: 828, 1307
+  size: 71, 55
+  orig: 71, 55
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 554, 1004
+  size: 98, 98
+  orig: 98, 98
+  offset: 0, 0
+  index: -1

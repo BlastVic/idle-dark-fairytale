@@ -12,7 +12,7 @@ using Scripts.Level;
 public static class Chapter01BalanceTools
 {
     const string Design = "Docs/Balance/chapter01.json";
-    const string ScenePath = "Assets/Scenes/MainScenes/Gameplay.unity";
+    const string ScenePath = "Assets/Scenes/Gameplay.unity";
     const string Output = "output/chapter01-balance/";
     const string SmokeKey = "CH1_BALANCE_SMOKE";
     [Serializable] public class Config { public int version; public string[] notes; public Monster[] monsters; public Node[] nodes; }
@@ -308,7 +308,7 @@ public static class Chapter01BalanceTools
             Player.single.StopAllCoroutines();
             Player.single.ForceAnimation("Idle1", true);
             Player.single.ab.currentStat.hpNow = Player.single.ab.currentStat.hpMax = 100000;
-            if (PetDragon.single) PetDragon.single.StopAllCoroutines();
+            if (PetCindrel.single) PetCindrel.single.StopAllCoroutines();
             var wm = WaveManager.single;
             if (stage == 1)
             {
@@ -321,7 +321,7 @@ public static class Chapter01BalanceTools
             }
             if (wm.victoryCalled && GameplayCanvas.single.victoryPanel.activeInHierarchy &&
                 GameManager.single.gameState == Assets.Scripts.Game.Enum.GameStateType.VICTORY &&
-                !LevelController.Instance.AssetManager.spawningGeneralObj && LevelController.Instance.AssetManager.chestDropInObj)
+                !LevelController.Instance.AssetManager.spawningGeneralObj && GameplayCanvas.single.victoryPanel.GetComponent<StorybookBattleResultUI>())
             {
                 var reward=smoke.nodes[node].rewards;
                 var chest=Router.single.newChest;

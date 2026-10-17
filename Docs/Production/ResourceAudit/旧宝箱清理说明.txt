@@ -1,0 +1,15 @@
+2026-10-17 旧宝箱清理
+
+删除 27 项旧资源及对应 meta，源文件合计 10,832,784 字节（约 10.33 MiB），不代表 APK 减少量。
+包含 ChestDropIn、CherriesChestDropIn，Cherry Chest / ChestOpenOnly / ChestDropOnly / Chest 动画，旧动画控制器、专用模型/材质/贴图、两个专用脚本及 LocalPrefabs 条目。
+同步移除 GeneralObjectsDb、Addressables 登记、Gameplay 场景旧引用，以及胜利/失败的旧界面回退入口。Chapter01BalanceTools 改为等待新版胜利面板，不再等待旧宝箱实例。
+新版 ChestPackage、StorybookChestOpening、Spine 宝箱资源保留。共享樱桃与水晶资源保留。
+
+验证：
+- 删除 GUID 在 Assets / ProjectSettings 序列化资源与代码中无残留引用。
+- Unity 运行验证：资源加载、战斗、胜利/失败、返回营地通过，无运行错误。
+- 新版宝箱验证：三种屏幕比例、付费/免费/广告领取、取消广告、重复操作保护、返回营地全部通过，failures=0 errors=0。
+- savedata_v3 与 savedata_lastbattle 测试前后内容一致，未回滚存档。
+- 本次未重新打 APK。
+
+本地备份及验证记录：output/legacy-chest-cleanup/。截图保留于已忽略的 output/chest-ui/。

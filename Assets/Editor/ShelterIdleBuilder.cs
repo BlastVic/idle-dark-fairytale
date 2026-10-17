@@ -22,7 +22,7 @@ public static class ShelterIdleBuilder
         try{Install();File.WriteAllText(Output+"install-result.txt","PASS");}
         catch(Exception e){File.WriteAllText(Output+"install-result.txt",e.ToString());Debug.LogException(e);}
     }
-    static Texture2D Read(string file){var t=new Texture2D(2,2,TextureFormat.RGBA32,false);t.LoadImage(File.ReadAllBytes(Root+"/"+file));return t;}
+    static Texture2D Read(string file){var t=new Texture2D(2,2,TextureFormat.RGBA32,false);t.LoadImage(File.ReadAllBytes(ArtSourcePaths.Resolve(Root+"/"+file)));return t;}
     static Texture2D Crop(Texture2D input,RectInt rect)
     {
         var t=new Texture2D(rect.width,rect.height,TextureFormat.RGBA32,false);
@@ -49,7 +49,7 @@ public static class ShelterIdleBuilder
     {
         if(EditorApplication.isPlayingOrWillChangePlaymode)throw new Exception("Exit play mode before explicit authoring.");
         Directory.CreateDirectory(Output);
-        var body=new Texture2D(2,2,TextureFormat.RGBA32,false);body.LoadImage(File.ReadAllBytes("Assets/DarkFairytale/UI/Shelter/Refined/RedHoodShortCape.png"));var blink=Read("RedHoodBlink.png");var steamSource=Read("TeaSteam.png");
+        var body=new Texture2D(2,2,TextureFormat.RGBA32,false);body.LoadImage(File.ReadAllBytes("Assets/ArtSources/UI/Shelter/Refined/RedHoodShortCape.png"));var blink=Read("RedHoodBlink.png");var steamSource=Read("TeaSteam.png");
         var eyes=Crop(blink,new RectInt(588,140,144,94));var steam=Crop(steamSource,Bounds(steamSource));
         var textures=new[]{body,eyes,steam};var names=new[]{"body","eyes","steam"};
         string source="ArtDirection/Characters/RedHoodShelter/SpineSource";
@@ -66,7 +66,7 @@ public static class ShelterIdleBuilder
             if(w!=textures[j].width||h!=textures[j].height)throw new Exception("Atlas unexpectedly downscaled "+names[j]);
             text.Append(names[j]+"\n  rotate: false\n  xy: "+x+", "+y+"\n  size: "+w+", "+h+"\n  orig: "+w+", "+h+"\n  offset: 0, 0\n  index: -1\n");
         }
-        var texture=Import(Root+"/RedHoodShelter.png");var bg=Import(Root+"/ShelterEmpty.png");
+        var texture=Import(Root+"/RedHoodShelter.png");var bg=Import("Assets/ArtSources/UI/Shelter/RedHoodIdle/ShelterEmpty.png");
         var material=Asset(Root+"/RedHoodShelter_UI.mat",()=>new Material(Shader.Find("Spine/SkeletonGraphic")));
         material.mainTexture=texture;material.SetFloat("_StraightAlphaInput",1);material.EnableKeyword("_STRAIGHT_ALPHA_INPUT");EditorUtility.SetDirty(material);
         AssetDatabase.SaveAssets();

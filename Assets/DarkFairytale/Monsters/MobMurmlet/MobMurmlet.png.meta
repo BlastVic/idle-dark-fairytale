@@ -1,0 +1,743 @@
+fileFormatVersion: 2
+guid: 0530ec23b90d144e591e37d590b0a299
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3390705874199420773
+    second: MobMurmlet_0
+  - first:
+      213: 8201481317899509679
+    second: MobMurmlet_1
+  - first:
+      213: 5838576713802264150
+    second: MobMurmlet_2
+  - first:
+      213: -2079882334802987966
+    second: MobMurmlet_3
+  - first:
+      213: 4648437935962538018
+    second: MobMurmlet_4
+  - first:
+      213: 8316189183688860144
+    second: MobMurmlet_5
+  - first:
+      213: 7988126923939576632
+    second: MobMurmlet_6
+  - first:
+      213: 5691751084233723986
+    second: MobMurmlet_7
+  - first:
+      213: 8118621413879855085
+    second: MobMurmlet_8
+  - first:
+      213: 8054172736258247664
+    second: MobMurmlet_9
+  - first:
+      213: -4227926396174738942
+    second: MobMurmlet_10
+  - first:
+      213: 292423242622607977
+    second: MobMurmlet_11
+  - first:
+      213: 3069123460040072339
+    second: MobMurmlet_12
+  - first:
+      213: -5722350230906207011
+    second: MobMurmlet_13
+  - first:
+      213: 5130296028711575893
+    second: MobMurmlet_14
+  - first:
+      213: 8621384259077297079
+    second: MobMurmlet_15
+  - first:
+      213: -6226681197374891270
+    second: MobMurmlet_16
+  - first:
+      213: -8318864928689399226
+    second: MobMurmlet_17
+  - first:
+      213: 4223143362474291063
+    second: MobMurmlet_18
+  - first:
+      213: 5176923893028739316
+    second: MobMurmlet_19
+  - first:
+      213: 3171292829742035498
+    second: MobMurmlet_20
+  - first:
+      213: -8686791131031124223
+    second: MobMurmlet_21
+  - first:
+      213: -4249452610482826243
+    second: MobMurmlet_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MobMurmlet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 752
+        width: 279
+        height: 303
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56f9c7127053e0f20800000000000000
+      internalID: 3390705874199420773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_1
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 1026
+        width: 54
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faf17692ec381d170800000000000000
+      internalID: 8201481317899509679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_2
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 851
+        width: 165
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65e2d0c469ac60150800000000000000
+      internalID: 5838576713802264150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_3
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 945
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24435734906c223e0800000000000000
+      internalID: -2079882334802987966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_4
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 991
+        width: 56
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2204f7d9ca1928040800000000000000
+      internalID: 4648437935962538018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_5
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 987
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f168b2600a096370800000000000000
+      internalID: 8316189183688860144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_6
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 966
+        width: 66
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83bf62a4d178bde60800000000000000
+      internalID: 7988126923939576632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_7
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 978
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25012b574792dfe40800000000000000
+      internalID: 5691751084233723986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_8
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 966
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de7303069232ba070800000000000000
+      internalID: 8118621413879855085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_9
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 856
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fb0f484e6b26cf60800000000000000
+      internalID: 8054172736258247664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_10
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 858
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ad18bd7536355c0800000000000000
+      internalID: -4227926396174738942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_11
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 750
+        width: 248
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 962a69cc365ee0400800000000000000
+      internalID: 292423242622607977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_12
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 749
+        width: 122
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39c9187a687b79a20800000000000000
+      internalID: 3069123460040072339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_13
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 824
+        width: 45
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd4067688c02690b0800000000000000
+      internalID: -5722350230906207011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_14
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 757
+        width: 31
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55163ff7e09723740800000000000000
+      internalID: 5130296028711575893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_15
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 764
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b3527a3e4f45a770800000000000000
+      internalID: 8621384259077297079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_16
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 766
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afa9ddcf0726699a0800000000000000
+      internalID: -6226681197374891270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 821
+        height: 756
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64a530f2c647d8c80800000000000000
+      internalID: -8318864928689399226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_18
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 749
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77f24d3538e9b9a30800000000000000
+      internalID: 4223143362474291063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_19
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 545
+        width: 132
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f8d5392ad028d740800000000000000
+      internalID: 5176923893028739316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_20
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 417
+        width: 156
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a227483c602b20c20800000000000000
+      internalID: 3171292829742035498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_21
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 238
+        width: 186
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10740ecad71527780800000000000000
+      internalID: -8686791131031124223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MobMurmlet_22
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 0
+        width: 170
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df390568d59e605c0800000000000000
+      internalID: -4249452610482826243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MobMurmlet_0: 3390705874199420773
+      MobMurmlet_1: 8201481317899509679
+      MobMurmlet_10: -4227926396174738942
+      MobMurmlet_11: 292423242622607977
+      MobMurmlet_12: 3069123460040072339
+      MobMurmlet_13: -5722350230906207011
+      MobMurmlet_14: 5130296028711575893
+      MobMurmlet_15: 8621384259077297079
+      MobMurmlet_16: -6226681197374891270
+      MobMurmlet_17: -8318864928689399226
+      MobMurmlet_18: 4223143362474291063
+      MobMurmlet_19: 5176923893028739316
+      MobMurmlet_2: 5838576713802264150
+      MobMurmlet_20: 3171292829742035498
+      MobMurmlet_21: -8686791131031124223
+      MobMurmlet_22: -4249452610482826243
+      MobMurmlet_3: -2079882334802987966
+      MobMurmlet_4: 4648437935962538018
+      MobMurmlet_5: 8316189183688860144
+      MobMurmlet_6: 7988126923939576632
+      MobMurmlet_7: 5691751084233723986
+      MobMurmlet_8: 8118621413879855085
+      MobMurmlet_9: 8054172736258247664
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

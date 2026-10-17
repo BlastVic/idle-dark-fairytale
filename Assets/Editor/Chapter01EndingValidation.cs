@@ -22,7 +22,7 @@ public static class Chapter01EndingValidation
         SessionState.SetBool("CH1_QA",true);SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",true);SessionState.SetBool("PROLOGUE_QA_FORCE",false);SessionState.SetInt("SETTINGS_QA_SKIP",1);
         Size(720,1280);EditorApplication.isPlaying=true;
     }
-    static void Size(int w,int h){typeof(CursedBookIntroValidation).GetMethod("Resolution",BindingFlags.Static|BindingFlags.NonPublic).Invoke(null,new object[]{w,h});}
+    static void Size(int w,int h){CreatureNameMigrationValidation.Resolution(w,h);}
     static void Check(bool b,string msg){File.AppendAllText(Dir+"validation.txt",(b?"PASS ":"FAIL ")+msg+"\n");}
     static void Shot(string name){var t=ScreenCapture.CaptureScreenshotAsTexture();File.WriteAllBytes(Dir+name+".png",t.EncodeToPNG());UnityEngine.Object.Destroy(t);}
     static IEnumerator Run(){

@@ -1,0 +1,9 @@
+2026-10-17 用户授权替换并删除旧字体。
+
+保留新版字体：NotoSerifCJKsc-Regular/Bold/Black 与 Tinos-Bold（新版已采用的数字/拉丁字体）。
+删除 Assets/Fonts 下 9 个旧字体及 TMP 默认 LiberationSans.ttf、SDF/后备字体、Outline/Drop Shadow 材质和随附旧字体许可文件，共 10 个旧字体源文件。
+Gameplay/version 的 Roboto-Light 改为 NotoSerifCJKsc-Regular；新建动态 NotoSerifCJKsc-Regular SDF，并设为 TMP 默认字体，启用多图集，无需引入新字体源文件。
+制作工具修正：序章字体指向现存新版 Regular；庇护所加号不再使用内置 LegacyRuntime；保留新版 Tinos-Bold。AGENTS 已更新，防止再次导入旧字体。
+
+验证：旧字体 GUID 在场景/Prefab/配置/材质中无残留；Unity 迁移成功，TMP 中文与数字样例字形生成通过；新版奖励 UI 测试通过，三种比例实际 Unity 截图已查看，中文/数字与长文本显示正常；测试期间存档关键内容保持一致。未执行 APK 构建或全字库逐字验收。
+备份、删除清单、验证截图：output/font-migration/。

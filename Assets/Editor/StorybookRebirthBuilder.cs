@@ -15,7 +15,7 @@ public static class StorybookRebirthBuilder
     static void Poll(){if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists(Out+"build.request"))return;File.Delete(Out+"build.request");try{Build();File.WriteAllText(Out+"build.txt","PASS");}catch(Exception e){File.WriteAllText(Out+"build.txt",e.ToString());Debug.LogException(e);}}
     static RectTransform Node(Transform parent,string name){var g=new GameObject(name,typeof(RectTransform));g.layer=5;g.transform.SetParent(parent,false);return(RectTransform)g.transform;}
     static void Box(RectTransform r,float x,float y,float w,float h)=>StorybookEquipmentLayout.Box(r,x,y,w,h);
-    static Sprite Slice(Texture2D source,string name,float x,float y,float w,float h,Vector4 border=default){var p=Root+"/Sprites/"+name+".asset";var old=AssetDatabase.LoadAssetAtPath<Sprite>(p);if(old)return old;var s=Sprite.Create(source,new Rect(x,source.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border);s.name=name;AssetDatabase.CreateAsset(s,p);return s;}
+    static Sprite Slice(Texture2D source,string name,float x,float y,float w,float h,Vector4 border=default){var p=Root+"/Sprites/"+name+".asset";var old=AssetDatabase.LoadAssetAtPath<Sprite>(p);if(old)return old;var s=ProductionUiArt.Create(source,new Rect(x,source.height-y-h,w,h),Vector2.one*.5f,100,0,SpriteMeshType.FullRect,border);s.name=name;AssetDatabase.CreateAsset(s,p);return s;}
     static Image Pic(Transform parent,string name,Sprite sprite,float x,float y,float w,float h,Material material=null){var r=Node(parent,name);Box(r,x,y,w,h);var im=r.gameObject.AddComponent<Image>();im.sprite=sprite;im.material=material;im.raycastTarget=false;return im;}
     static Text Txt(Transform parent,string name,string value,float x,float y,float w,float h,int size,TextAnchor align=TextAnchor.MiddleCenter){var r=Node(parent,name);Box(r,x,y,w,h);var t=r.gameObject.AddComponent<Text>();t.font=font;t.text=value;t.fontSize=size;t.color=new Color(.035f,.025f,.014f);t.alignment=align;t.horizontalOverflow=HorizontalWrapMode.Wrap;t.verticalOverflow=VerticalWrapMode.Overflow;t.raycastTarget=false;return t;}
     static Button Button(Transform p,string name,Sprite sprite,float x,float y,float w,float h,string caption,int size,out Text text){var im=Pic(p,name,sprite,x,y,w,h,sprite?cutout:null);im.raycastTarget=true;if(!sprite)im.color=new Color(1,1,1,.001f);var b=im.gameObject.AddComponent<Button>();b.targetGraphic=im;b.navigation=new Navigation{mode=Navigation.Mode.None};var colors=b.colors;colors.pressedColor=new Color(.68f,.58f,.48f);colors.disabledColor=Color.white;b.colors=colors;im.gameObject.AddComponent<ShelterButtonFeedback>();im.gameObject.AddComponent<StorybookEquipmentButtonState>().grayscaleShader=Shader.Find("UI/Storybook Disabled");text=Txt(im.transform,"Caption",caption,10,0,w-20,h,size);if(sprite)text.color=new Color(.99f,.94f,.82f);return b;}
@@ -24,7 +24,7 @@ public static class StorybookRebirthBuilder
     public static void Build()
     {
         Directory.CreateDirectory(Root+"/Sprites");Directory.CreateDirectory(Out);AssetDatabase.Refresh();
-        art=ShelterRefinedBuilder.Import(Root+"/Art/ApprovedRebirth.png");blank=ShelterRefinedBuilder.Import(Root+"/Art/RebirthBlankLabels.png");plate=ShelterRefinedBuilder.Import(Root+"/Art/RebirthBasePlate.png");font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Black.otf");
+        art=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Rebirth/Art/ApprovedRebirth.png");blank=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Rebirth/Art/RebirthBlankLabels.png");plate=ShelterRefinedBuilder.Import(Root+"/Art/RebirthBasePlate.png");font=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Black.otf");
         cutout=AssetDatabase.LoadAssetAtPath<Material>(Root+"/AuthoredCutout.mat");if(!cutout){cutout=new Material(Shader.Find("UI/Chest Authored Cutout"));AssetDatabase.CreateAsset(cutout,Root+"/AuthoredCutout.mat");}cutout.SetFloat("_Mode",0);cutout.SetFloat("_InkOnly",0);cutout.SetFloat("_Cutoff",.62f);cutout.SetFloat("_Feather",.07f);EditorUtility.SetDirty(cutout);
         var package=PrefabUtility.LoadPrefabContents(Path);
         try{
@@ -49,7 +49,7 @@ public static class StorybookRebirthBuilder
             ui.cancel=Button(panel.transform,"Cancel",primary,50,421,320,83,"继续冒险",31,out _);ui.confirm=Button(panel.transform,"ConfirmRebirth",primary,429,421,320,83,"确认转生",31,out _);ui.cancel.GetComponent<Image>().type=ui.confirm.GetComponent<Image>().type=Image.Type.Sliced;
             Txt(panel.transform,"Hint","确认后将开始新的旅途",110,522,579,42,24);ui.confirmation.SetActive(false);
             owner.view=ui;owner.rebirthCanvas=root.gameObject;owner.rebirthButton=ui.rebirth.gameObject;owner.closeButton=ui.back.gameObject;owner.AreYouSurePanel=ui.confirmation;owner.cutsceneObj.SetActive(false);
-            layout.Apply();PrefabUtility.SaveAsPrefabAsset(package,Path);
+            layout.Apply();ProductionUiArt.SaveAsPrefabAsset(package,Path);
         }finally{PrefabUtility.UnloadPrefabContents(package);}
         AssetDatabase.SaveAssets();AssetDatabase.Refresh();
     }

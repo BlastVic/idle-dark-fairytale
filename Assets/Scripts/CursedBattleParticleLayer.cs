@@ -4,6 +4,14 @@ using UnityEngine;
 public sealed class CursedBattleParticleLayer : MonoBehaviour
 {
     public bool alignToPlayer;
+    public enum Placement { Authored, Body, Ground, AboveBody }
+    public Placement placement;
+    public Vector3 PositionFor(Bounds body)
+    {
+        if(placement==Placement.Ground)return new Vector3(body.center.x,body.min.y+.2f,0);
+        if(placement==Placement.AboveBody)return new Vector3(body.center.x,body.center.y+1.4f,0);
+        return new Vector3(body.center.x,body.center.y,0);
+    }
     void Start()
     {
         Renderer body=null;
@@ -17,6 +25,7 @@ public sealed class CursedBattleParticleLayer : MonoBehaviour
             }
         }
         if(!body)return; // Standalone preview uses its authored layer.
+        if(placement!=Placement.Authored)transform.position=PositionFor(body.bounds);
         foreach(var renderer in GetComponentsInChildren<ParticleSystemRenderer>()){
             renderer.sortingLayerID=body.sortingLayerID;
             renderer.sortingOrder=body.sortingOrder;

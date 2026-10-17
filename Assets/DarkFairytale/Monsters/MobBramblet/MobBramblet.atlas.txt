@@ -1,0 +1,132 @@
+
+MobBramblet.png
+size: 1024,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Front_hat_01
+  rotate: false
+  xy: 0, 1378
+  size: 944, 670
+  orig: 944, 670
+  offset: 0, 0
+  index: -1
+Front_hat_02
+  rotate: false
+  xy: 676, 1286
+  size: 202, 84
+  orig: 202, 84
+  offset: 0, 0
+  index: -1
+Front_Body
+  rotate: false
+  xy: 0, 918
+  size: 426, 452
+  orig: 426, 452
+  offset: 0, 0
+  index: -1
+Front_arm
+  rotate: false
+  xy: 434, 1160
+  size: 118, 210
+  orig: 118, 210
+  offset: 0, 0
+  index: -1
+Front_Leg_01
+  rotate: false
+  xy: 560, 1208
+  size: 108, 162
+  orig: 108, 162
+  offset: 0, 0
+  index: -1
+Front_Leg_02
+  rotate: false
+  xy: 434, 962
+  size: 112, 190
+  orig: 112, 190
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 842, 1057
+  size: 163, 35
+  orig: 163, 35
+  offset: 0, 0
+  index: -1
+Front_Mouth_01
+  rotate: false
+  xy: 560, 990
+  size: 102, 40
+  orig: 102, 40
+  offset: 0, 0
+  index: -1
+Front_Eye_01
+  rotate: false
+  xy: 862, 1198
+  size: 160, 80
+  orig: 160, 80
+  offset: 0, 0
+  index: -1
+Front_Eye_02
+  rotate: false
+  xy: 842, 1017
+  size: 164, 32
+  orig: 164, 32
+  offset: 0, 0
+  index: -1
+Front_Eye_03
+  rotate: false
+  xy: 850, 1102
+  size: 162, 74
+  orig: 162, 74
+  offset: 0, 0
+  index: -1
+Front_Eye_04
+  rotate: false
+  xy: 676, 1100
+  size: 166, 76
+  orig: 166, 76
+  offset: 0, 0
+  index: -1
+Front_Eye_05
+  rotate: false
+  xy: 676, 1184
+  size: 178, 94
+  orig: 178, 94
+  offset: 0, 0
+  index: -1
+Front_Eye_06
+  rotate: false
+  xy: 676, 1046
+  size: 158, 46
+  orig: 158, 46
+  offset: 0, 0
+  index: -1
+Front_Mouth_02
+  rotate: false
+  xy: 434, 920
+  size: 102, 34
+  orig: 102, 34
+  offset: 0, 0
+  index: -1
+Front_Mouth_03
+  rotate: false
+  xy: 560, 1092
+  size: 98, 108
+  orig: 98, 108
+  offset: 0, 0
+  index: -1
+Front_Mouth_04
+  rotate: false
+  xy: 560, 946
+  size: 80, 36
+  orig: 80, 36
+  offset: 0, 0
+  index: -1
+Front_Mouth_05
+  rotate: false
+  xy: 560, 1038
+  size: 98, 46
+  orig: 98, 46
+  offset: 0, 0
+  index: -1

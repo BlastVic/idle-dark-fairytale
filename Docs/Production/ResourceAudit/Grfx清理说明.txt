@@ -1,0 +1,12 @@
+2026-10-16 Grfx 清理结果
+删除 50 个源资源及对应 .meta；清除空目录。
+删除源文件总计 5.179 MiB；上一版构建中对应未压缩资源数据 9.902 MiB。未重新打 APK，不把此数据当作 APK 下载体积节省。
+删除：28 张旧技能图标；4 个旧 Logo 图片/动画/控制器；5 张旧宝箱/货币 UI 图片；闲置的 Wep25、Necklace2；旧相机动画控制器和 SmoothFollow 脚本；Planet 动画；PPP2；shop2/shop3/xr mockup；误命名为 index.html 的 PNG。
+技能数据库保留全部技能键、等级效果数值和描述，仅清空不再使用的 icon/iconGray 字段，包括其中两个原有失效引用。当前 StorybookSkillsUI 使用独立正式素材，不读取这些字段。
+库存 NORMAL_CHEST/GOLD_CHEST/DIAMOND_CHEST 查询键保留，改为复用当前 ShelterHomeUI 的正式宝箱图片。
+旧 Intro (KEEP ON) 本来即为停用状态。清空其中旧 Logo Image 和 Animator 的美术引用并禁用这些组件，保留 IntroScript 完成回调及关联启动对象，未修改当前故事书开场。
+剩余 178 个 Grfx 文件：177 个在当前场景/Resources/设置依赖链上，1 个 Cherry.unity 保留为现用樱桃模型的制作预览场景。详见 Grfx保留明细.csv。
+静态扫描：删除的 GUID 不再出现在 Assets/ProjectSettings 的序列化资源中。StorybookShopBuilder 中保留两个旧 GUID 作为货币迁移匹配字符串，它们不加载旧资源、不构成资源依赖。
+验证：技能学习/升级/详情/导航，三种比例；本地资源加载、融合/转生/商店返回、战斗特效、胜利与失败返回全部通过。无运行时错误。真实 savedata_v3 / savedata_lastbattle 与验证前逐字一致。
+回归工具修复：每次重新开始清空残留 started 标记；明确支持 restart.request；资源路由测试在临时运行数据中跳过交互章节结尾并保护玩家生命，避免自动死亡与显式胜败检查竞争。不改变正式游戏规则。
+本地回滚备份 output/grfx-cleanup/before.zip；验证记录在同目录，均不提交。

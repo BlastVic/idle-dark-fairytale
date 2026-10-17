@@ -1,10 +1,10 @@
-MobBookSpineDragon · 旧书脊龙伙伴
-已选 C-character-v1.png，用户授权替换 Tairon The Dragon；没有对应吐息动作时沿用原生攻击。
+PetCindrel · 烬页伙伴
+已选 C-character-v1.png，用户授权替换 Cindrel；没有对应吐息动作时沿用原生攻击。
 
 重建顺序（项目根目录）
 1. 使用含 Pillow 的 Python 运行 ArtDirection/Monsters/C058_S01R/build_rig.py。
 2. Unity 编译后，编辑模式执行 Tools/Dark Fairytale/Companions/Build Book Spine Dragon。
-3. 显式请求 output/monster-animation/MobBookSpineDragon/command.request，写入 bind，将 General DB 的 PetDragon 指向独立 MobBookSpineDragon Prefab。
+3. 显式请求 output/monster-animation/PetCindrel/command.request，写入 bind，将 General DB 的 PetCindrel 指向独立 PetCindrel Prefab。
 构建不会覆盖已有 Prefab 的 Inspector 调整。原 Pet_Dragon.prefab 和原皮肤始终保留。
 可用命令：build、bind、validate、preview、combat、setup、play、stop。
 命令受理成功不代表验收完成，检查对应最终报告。

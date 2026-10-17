@@ -1,0 +1,12 @@
+Common FX live Gameplay; no save writes. Explicit VFX invocation, not skill-probability testing.
+PASS Addressables Res_Particle
+PASS new texture/material Res_Particle
+PASS new texture/material Res_Particle
+PASS Addressables Res_Particle
+PASS new texture/material Res_Particle
+PASS new texture/material Res_Particle
+PASS Addressables Res_Particle
+PASS new texture/material Res_Particle
+PASS new texture/material Res_Particle
+PASS zero runtime errors
+COMPLETE: Res_Particle x 3 aspect ratios, production Addressables.

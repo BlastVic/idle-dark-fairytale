@@ -1,0 +1,34 @@
+
+RedHoodWeaponViews.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+scythe_rear_v2
+  rotate: false
+  xy: 4, 4
+  size: 220, 183
+  orig: 220, 183
+  offset: 0, 0
+  index: -1
+scythe_front_v2
+  rotate: false
+  xy: 234, 4
+  size: 271, 188
+  orig: 271, 188
+  offset: 0, 0
+  index: -1
+scythe_oblique_v2
+  rotate: false
+  xy: 4, 256
+  size: 284, 142
+  orig: 284, 142
+  offset: 0, 0
+  index: -1
+scythe_sweep_v2
+  rotate: false
+  xy: 4, 412
+  size: 228, 76
+  orig: 228, 76
+  offset: 0, 0
+  index: -1

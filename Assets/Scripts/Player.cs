@@ -25,6 +25,7 @@ public class Player : AnimationController
 
     [Tooltip("Disable for characters with a fixed costume, such as Red Hood. Equipment stats still apply.")]
     public bool useEquipmentAppearance = true;
+    public bool IsVictoryRelaxing { get; private set; }
     private Vector3 originalVisualPosition, originalVisualScale;
 
     private void Awake()
@@ -45,6 +46,11 @@ public class Player : AnimationController
 
     public void InitPlayer()
     {
+        if (IsVictoryRelaxing && skeletonAnimation && skeletonAnimation.Skeleton != null) {
+            skeletonAnimation.AnimationState.ClearTracks();
+            skeletonAnimation.Skeleton.SetToSetupPose();
+        }
+        IsVictoryRelaxing = false;
         skeletonAnimation.transform.localPosition = originalVisualPosition;
         skeletonAnimation.transform.localScale = originalVisualScale;
         var shadow = transform.Find("Battle Contact Shadow");
@@ -66,15 +72,16 @@ public class Player : AnimationController
             if (assets.battleStyle)
                 assets.battleStyle.PlacePlayer(this, assets.battleCampCamera.GetComponent<Camera>());
 
-            if (SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.Tairon_The_Dragon) > 0)
+            if (SkillsController.Instance.GetSkillLevel(SkillsTypeEnum.PetCindrel) > 0)
             {
-                LevelController.Instance.AssetManager.SpawnGeneralObj("PetDragon");
+                LevelController.Instance.AssetManager.SpawnGeneralObj("PetCindrel");
             }
 
 
         }
 
         ab.isDying = false;
+        ab.ressurrectionWaiting = false;
 
         ab.currentStat = GameManager.single.CalcPlayer();
         ab.currentStat.hpNow = ab.currentStat.hpMax;//fill hp
@@ -168,7 +175,7 @@ public class Player : AnimationController
 
     void Attack()
     {
-        if (isCampPlayer) return;//skip the attack we are not in battle
+        if (isCampPlayer || ab.isDying || IsVictoryRelaxing) return;//skip attacks outside active combat
 
         if (GameManager.single.GetLivingEnemies(false).Count == 0)
         {
@@ -224,12 +231,6 @@ public class Player : AnimationController
             return;
         }
         #endregion
-
-        if (ab.isDying)
-        {
-            AttackComplete();
-            return;
-        }
 
         int attackNum = Random.Range(1, 3);
         //Debug.Log("attackspeed formatted:" + (ab.currentStat.atkSpd * .01f));
@@ -341,7 +342,8 @@ public class Player : AnimationController
     public string currentAnimation = "";
     public override void SetAnimation(string animation, bool isLoop, bool isOnComplete, float speed = 1)
     {
-        if (ab.isDying) return;
+        if (IsVictoryRelaxing && !animation.Contains("Death")) return;
+        if (ab.isDying && !animation.Contains("Death")) return;
         if (isAttacking && !animation.Contains("Death")) return;//dont let anything happen until attack finishes
         if (animation == currentAnimation) return;//dont let anything overwrite identical animation
 
@@ -351,6 +353,7 @@ public class Player : AnimationController
 
     public override void AnimationOnHit(string animation)
     {
+        if (ab.isDying || IsVictoryRelaxing) return;
         if (animation.Contains("Attack") || animation.Contains("Skill4")/*path cleaner*/)
         {
             SoundManager.Instance.PlayClip("ATTACK1");
@@ -361,9 +364,10 @@ public class Player : AnimationController
             }
         }
 
-        if (animation.Contains("Skill5"))
+        if (animation == "Skill5")
         {
-            //sinister stampede
+            // 回旋镰斩: keep damage routed through the skill, not normal Attack2.
+            CursedSweepCast.Spawn(skeletonAnimation.GetComponent<Renderer>());
             //SoundManager.Instance.PlayClip("JUMP_SKILL");
 
             var assets = LevelController.Instance.AssetManager;
@@ -422,6 +426,7 @@ public class Player : AnimationController
 
     public void ProcessDmg_AOE(float perc = 1)
     {
+        if (ab.isDying) return;
         //default     public IEnumerator Shake (float duration=.15f, float magnitude=.07f)
         StartCoroutine(CameraEffects.single.Shake(.45f, .2f));
         VibrationsManager.Instance.CallVibe(MoreMountains.NiceVibrations.HapticTypes.MediumImpact);
@@ -444,20 +449,41 @@ public class Player : AnimationController
 
     public override void AnimationComplete(int trackIndex, string animationName)
     {
-        if (animationName.Contains("Death") && ab.ressurrectionWaiting)
+        if (IsVictoryRelaxing) return;
+        if (animationName.Contains("Death") && ab.ressurrectionWaiting &&
+            skeletonAnimation.Skeleton.Data.FindAnimation("Revive") != null)
+        {
+            // Keep combat locked until the character has risen and planted her feet.
+            currentAnimation = "Revive";
+            skeletonAnimation.timeScale = 1;
+            var revive = skeletonAnimation.AnimationState.SetAnimation(0, "Revive", false);
+            revive.MixDuration = 0; // Revive starts at the exact seated death pose.
+            LevelController.Instance.AssetManager.SpawnParticle("Res_Particle", rootPos.transform.position);
+            return;
+        }
+        if ((animationName == "Revive" || animationName.Contains("Death")) && ab.ressurrectionWaiting)
         {
             ab.currentStat.hpNow = ab.currentStat.hpMax * .4f;
-            LevelController.Instance.AssetManager.SpawnParticle("Res_Particle", rootPos.transform.position);
+            if (animationName != "Revive")
+                LevelController.Instance.AssetManager.SpawnParticle("Res_Particle", rootPos.transform.position);
             GameplayCanvas.single.RefreshHp();
             ab.isDying = false;
             ab.ressurrectionWaiting = false;
-            ForceAnimation("Attack1", false);
-            currentAnimation = "Idle1";
             isAttacking = false;
-
+            // Death fades weapon slots; restore them even when no target is available.
+            skeletonAnimation.AnimationState.ClearTracks();
+            skeletonAnimation.Skeleton.SetToSetupPose();
+            currentAnimation = "";
+            SetAnimation("Idle1", true, false);
+            if (regenVal > 0) StartCoroutine(RegenLoop());
+            if (lightningVal > 0) StartCoroutine(LightningLoop());
+            foreach (var actor in GameManager.single.GetLivingEnemies())
+                actor.GetComponent<Enemy>().StartAttacking();
+            Attack();
+            return;
         }
 
-
+        if (ab.isDying) return;
 
         if (animationName.Contains("Attack") || animationName.Contains("Skill"))
         {
@@ -473,6 +499,26 @@ public class Player : AnimationController
         yield return new WaitForSeconds(.2f);
         isAttacking = false;
         Attack();
+    }
+
+    // One-shot relief followed by a low-weapon rest, independent of attack speed.
+    public float BeginVictoryRelaxation()
+    {
+        if (isCampPlayer || ab.isDying || !skeletonAnimation) return 0;
+        skeletonAnimation.Initialize(false);
+        var data=skeletonAnimation.Skeleton.Data;
+        var victory=data.FindAnimation("Victory");
+        if (victory==null || data.FindAnimation("VictoryIdle")==null) return 0;
+        StopAllCoroutines();
+        IsVictoryRelaxing=true;
+        isAttacking=false;
+        currentAnimation="Victory";
+        skeletonAnimation.timeScale=1;
+        var entry=skeletonAnimation.AnimationState.SetAnimation(0,"Victory",false);
+        entry.MixDuration=.20f;
+        var rest=skeletonAnimation.AnimationState.AddAnimation(0,"VictoryIdle",true,victory.Duration);
+        rest.MixDuration=.12f;
+        return victory.Duration;
     }
     #endregion
 

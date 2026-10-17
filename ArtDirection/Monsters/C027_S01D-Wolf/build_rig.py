@@ -22,13 +22,13 @@ def build():
         rig['animations'][name]=copy.deepcopy(original['animations'][source])
         if name in EVENTS:rig['animations'][name]['events']=EVENTS[name]
     SOURCE.mkdir(parents=True,exist_ok=True)
-    (SOURCE/'MobRuneWolf.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
+    (SOURCE/'MobHexmaw.json').write_text(json.dumps(rig,ensure_ascii=False,indent=2)+'\n')
     manifest={'source':str(ORIGINAL),'source_version':original['skeleton']['spine'],'changes':['Added linked skin 1 inheriting default deform','Added four game animation aliases and events; no changes to original timelines or rig','Repacked nonrotated straight-alpha atlas from repainted source parts'], 'aliases':ALIASES,'events':EVENTS,'original_sha256':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in ORIGINAL.iterdir() if p.is_file()}}
     (SOURCE/'provenance.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     verify(rig,original)
 
 def verify(rig=None,original=None):
-    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobRuneWolf/MobRuneWolf.json').read_text())
+    if rig is None:rig=json.loads((ROOT/'Assets/DarkFairytale/Monsters/MobHexmaw/MobHexmaw.json').read_text())
     if original is None:original=json.loads((ORIGINAL/'C027_S01D.json').read_text())
     for field in ('skeleton','bones','slots','ik','transform'):assert rig[field]==original[field],field
     assert rig['skins'][0]==original['skins'][0]

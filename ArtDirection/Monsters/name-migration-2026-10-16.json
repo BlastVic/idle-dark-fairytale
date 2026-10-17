@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-16",
+  "entries": [
+    {
+      "oldKey": "MobWaxcap",
+      "key": "MobTallowkin",
+      "oldDisplayName": "蜡斑菇",
+      "displayName": "蜡拳菇",
+      "prefab": "Assets/DarkFairytale/Monsters/BlackForestMushroom/MobTallowkin/MobTallowkin.prefab",
+      "guid": "9d3cca2ce51594e138f63660a4501407",
+      "englishName": "Tallowkin"
+    },
+    {
+      "oldKey": "MobWoodcap",
+      "key": "MobGnarlo",
+      "oldDisplayName": "木纹菇",
+      "displayName": "枯笑菇",
+      "prefab": "Assets/DarkFairytale/Monsters/BlackForestMushroom/MobGnarlo/MobGnarlo.prefab",
+      "guid": "b76adce60ab5c4a2da034d0fad878894",
+      "englishName": "Gnarlo"
+    },
+    {
+      "oldKey": "MobDreamcap",
+      "key": "MobDrowseed",
+      "oldDisplayName": "梦眼菇",
+      "displayName": "梦斑菇",
+      "prefab": "Assets/DarkFairytale/Monsters/BlackForestMushroom/MobDrowseed/MobDrowseed.prefab",
+      "guid": "447803f4cf03f4e24a04808c66e84f64",
+      "englishName": "Drowseed"
+    },
+    {
+      "oldKey": "MobRuneWolf",
+      "key": "MobHexmaw",
+      "oldDisplayName": "猩红符文狼",
+      "displayName": "赤咒狼",
+      "prefab": "Assets/DarkFairytale/Monsters/MobHexmaw/MobHexmaw.prefab",
+      "guid": "37ba5dfecfa7c4fc2a49ead744e9ea2b",
+      "englishName": "Hexmaw"
+    },
+    {
+      "oldKey": "MobRotleafChild",
+      "key": "MobVesperling",
+      "oldDisplayName": "腐叶祈童",
+      "displayName": "泣叶童",
+      "prefab": "Assets/DarkFairytale/Monsters/MobVesperling/MobVesperling.prefab",
+      "guid": "707a857816f4549cbbc3a89ff67faa5a",
+      "englishName": "Vesperling"
+    },
+    {
+      "oldKey": "MobBriarChild",
+      "key": "MobBramblet",
+      "oldDisplayName": "荆棘莓童",
+      "displayName": "刺帽童",
+      "prefab": "Assets/DarkFairytale/Monsters/MobBramblet/MobBramblet.prefab",
+      "guid": "8865c078456a74b26aa6f6374dfff255",
+      "englishName": "Bramblet"
+    },
+    {
+      "oldKey": "MobBarkSquirrel",
+      "key": "MobSplinterjaw",
+      "oldDisplayName": "枯壳啮木鼠",
+      "displayName": "啮木鼠",
+      "prefab": "Assets/DarkFairytale/Monsters/MobSplinterjaw/MobSplinterjaw.prefab",
+      "guid": "5f565a36561f6403fa24bd7d7c8507a3",
+      "englishName": "Splinterjaw"
+    },
+    {
+      "oldKey": "MobGloomSpider",
+      "key": "MobGloamweb",
+      "oldDisplayName": "黑森林蜘蛛",
+      "displayName": "织魇蛛",
+      "prefab": "Assets/DarkFairytale/Monsters/BlackForestSpider/MobGloamweb/MobGloamweb.prefab",
+      "guid": "837af218c1114e0181b86173f958041f",
+      "englishName": "Gloamweb"
+    },
+    {
+      "oldKey": "MobHollowWolf",
+      "key": "MobRivenfang",
+      "oldDisplayName": "空壳瓷狼",
+      "displayName": "瓷骸卫",
+      "prefab": "Assets/DarkFairytale/Monsters/MobRivenfang/MobRivenfang.prefab",
+      "guid": "6b8a7e771742b482ab14f9fb7dbdc1db",
+      "englishName": "Rivenfang"
+    },
+    {
+      "oldKey": "MobDrownedMoon",
+      "key": "MobMurmlet",
+      "oldDisplayName": "溺月水团",
+      "displayName": "抱月滴",
+      "prefab": "Assets/DarkFairytale/Monsters/MobMurmlet/MobMurmlet.prefab",
+      "guid": "5aeba921afc4d42678cb57c59cdff13d",
+      "englishName": "Murmlet"
+    },
+    {
+      "oldKey": "MobDrownedKing",
+      "key": "MobStillmere",
+      "oldDisplayName": "沉冠溺月王",
+      "displayName": "沉冠王",
+      "prefab": "Assets/DarkFairytale/Monsters/MobStillmere/MobStillmere.prefab",
+      "guid": "996f8ad233cda461fb8cfacaa49548a6",
+      "englishName": "Stillmere"
+    },
+    {
+      "oldKey": "MobBookSpineDragon",
+      "key": "PetCindrel",
+      "oldDisplayName": "旧书脊龙",
+      "displayName": "烬页",
+      "prefab": "Assets/DarkFairytale/Companions/PetCindrel/PetCindrel.prefab",
+      "guid": "0d86f8e451a414a8a917ed2318d715a3",
+      "englishName": "Cindrel"
+    }
+  ],
+  "notes": [
+    "Unity asset and script GUIDs preserved. Original reference resources retained.",
+    "Historical acceptance reports and prompts retain the names used when they were recorded.",
+    "PetDragon general DB key and controller migrated to PetCindrel. Skill enum numeric value 9 preserved."
+  ]
+}

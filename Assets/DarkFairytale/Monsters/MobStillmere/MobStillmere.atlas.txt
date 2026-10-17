@@ -1,0 +1,76 @@
+
+MobStillmere.png
+size: 2048,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 0, 356
+  size: 738, 668
+  orig: 738, 668
+  offset: 0, 0
+  index: -1
+hand_left
+  rotate: false
+  xy: 528, 178
+  size: 208, 170
+  orig: 208, 170
+  offset: 0, 0
+  index: -1
+hand_right
+  rotate: false
+  xy: 528, 24
+  size: 166, 146
+  orig: 166, 146
+  offset: 0, 0
+  index: -1
+eye
+  rotate: false
+  xy: 746, 264
+  size: 386, 280
+  orig: 386, 280
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: false
+  xy: 0, 14
+  size: 100, 86
+  orig: 100, 86
+  offset: 0, 0
+  index: -1
+eye2
+  rotate: false
+  xy: 746, 32
+  size: 414, 224
+  orig: 414, 224
+  offset: 0, 0
+  index: -1
+cr1
+  rotate: false
+  xy: 746, 552
+  size: 476, 472
+  orig: 476, 472
+  offset: 0, 0
+  index: -1
+cr2
+  rotate: false
+  xy: 0, 108
+  size: 520, 240
+  orig: 520, 240
+  offset: 0, 0
+  index: -1
+mouth2
+  rotate: false
+  xy: 108, 30
+  size: 114, 70
+  orig: 114, 70
+  offset: 0, 0
+  index: -1
+shadow
+  rotate: false
+  xy: 230, 12
+  size: 88, 88
+  orig: 88, 88
+  offset: 0, 0
+  index: -1

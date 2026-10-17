@@ -16,7 +16,7 @@ public static class ShelterReferenceBuilder
     static void Poll(){if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists("output/home-fidelity/build.request"))return;File.Delete("output/home-fidelity/build.request");try{Build();File.WriteAllText("output/home-fidelity/build-result.txt","PASS");}catch(Exception e){File.WriteAllText("output/home-fidelity/build-result.txt",e.ToString());Debug.LogException(e);}}
     static T Asset<T>(string path,Func<T> create)where T:UnityEngine.Object{var a=AssetDatabase.LoadAssetAtPath<T>(path);if(!a){a=create();AssetDatabase.CreateAsset(a,path);}return a;}
     // The source texture is unchanged. Rects and meshes select its original pixels.
-    static Sprite Slice(string name,float x,float y,float w,float h,Vector4 border=default){return Asset(Root+"/Sprites/"+name+".asset",()=>{var s=Sprite.Create(source,new Rect(x,source.height-y-h,w,h),new Vector2(.5f,.5f),100/S,0,SpriteMeshType.FullRect,border);s.name=name;return s;});}
+    static Sprite Slice(string name,float x,float y,float w,float h,Vector4 border=default){return Asset(Root+"/Sprites/"+name+".asset",()=>{var s=ProductionUiArt.Create(source,new Rect(x,source.height-y-h,w,h),new Vector2(.5f,.5f),100/S,0,SpriteMeshType.FullRect,border);s.name=name;return s;});}
     static Sprite SkillBook(){var s=Slice("Skills",238,1473,95,100);TrimSkillBook(s);return s;}
     public static void TrimSkillBook(Sprite s){
         // Source-space silhouette excludes the adjacent badge, retaining the original book pixels.
@@ -41,7 +41,7 @@ public static class ShelterReferenceBuilder
     static void Cross(Transform p,string n,float x,float y){var im=Pic(p,n,Slice("RuleCross",316,1085,19,18),ink);Box(im.rectTransform,x-9.5f,y-9,19,18);}
     [MenuItem("Tools/Dark Fairytale/UI/Apply Measured Reference Fidelity (Explicit)")]
     public static void Build(){
-        Directory.CreateDirectory(Root+"/Sprites");source=ShelterRefinedBuilder.Import(Root+"/ApprovedHome.png");
+        Directory.CreateDirectory(Root+"/Sprites");source=ShelterRefinedBuilder.Import("Assets/ArtSources/UI/Shelter/Reference/ApprovedHome.png");
         chinese=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/NotoSerifCJKsc-Black.otf");latin=AssetDatabase.LoadAssetAtPath<Font>("Assets/DarkFairytale/UI/CursedStorybook/Fonts/Tinos-Bold.ttf");if(!latin)latin=chinese;
         ink=Asset(Root+"/ReferenceInk.mat",()=>new Material(Shader.Find("UI/Reference Ink Cutout")));ink.SetFloat("_InkOnly",0);ink.SetFloat("_Cutoff",.40f);ink.SetFloat("_Feather",.17f);EditorUtility.SetDirty(ink);
         colour=Asset(Root+"/ReferenceColour.mat",()=>new Material(Shader.Find("UI/Reference Ink Cutout")));colour.SetFloat("_InkOnly",0);colour.SetFloat("_Cutoff",.58f);colour.SetFloat("_Feather",.16f);EditorUtility.SetDirty(colour);
@@ -53,12 +53,12 @@ public static class ShelterReferenceBuilder
             l.attributeBottom=(1672-1279)*S;l.battleBottom=(1672-1417)*S;l.battleHeight=126*S;l.battleSide=59*S;
             l.functionTop=375*S;l.functionGap=135*S;l.functionSize=116*S;l.functionHeight=124*S;l.functionRight=37*S;
             ui.expandedHeight=262*S;ui.collapsedHeight=77*S;l.roomSize=new Vector2(1080,1920);l.feetInArtwork=1091;l.feetClearance=75;l.wideFeetClearance=20;
-            var rt=ShelterRefinedBuilder.Import(Root+"/RoomReference.png");var roomSprite=Asset(Root+"/Sprites/RoomReference.asset",()=>Sprite.Create(rt,new Rect(0,0,rt.width,rt.height),new Vector2(.5f,1),100));l.room.GetComponent<Image>().sprite=roomSprite;
+            var rt=ShelterRefinedBuilder.Import(Root+"/RoomReference.png");var roomSprite=Asset(Root+"/Sprites/RoomReference.asset",()=>ProductionUiArt.Create(rt,new Rect(0,0,rt.width,rt.height),new Vector2(.5f,1),100));l.room.GetComponent<Image>().sprite=roomSprite;
             var actor=(RectTransform)l.room.Find("RedHoodShelter");actor.localScale=Vector3.one*.92f;actor.anchoredPosition=new Vector2(426,-1110);
             var fire=(RectTransform)l.room.Find("Hearth");fire.localScale=Vector3.one*.85f;fire.anchoredPosition=new Vector2(115,-923);
             var outer=Pic(core,"BookOuterFrame",Slice("OuterFrameV2",0,0,941,1672,new Vector4(10,17,10,9)));Full(outer.rectTransform);outer.type=Image.Type.Sliced;outer.fillCenter=false;outer.transform.SetAsFirstSibling();
             Panel(l.top,Slice("HeaderBorder",8,22,923,162,new Vector4(24,17,24,17)));
-            var top=l.top;var repair=Pic(top,"RemovedBookmarkRepair",Slice("HeaderRepair",245,22,74,22));Box(repair.rectTransform,24,0,74,22);var lowerRepair=Pic(top,"RemovedBookmarkLowerRepair",Slice("HeaderLowerRepair",250,158,80,26));Box(lowerRepair.rectTransform,22,136,80,26);lowerRepair.transform.SetSiblingIndex(repair.transform.GetSiblingIndex()+1);var portrait=top.Find("Portrait").GetComponent<Image>();portrait.sprite=Slice("Portrait",105,51,101,100);portrait.material=null;Box(portrait.rectTransform,19,29,101,100);
+            var top=l.top;var portrait=top.Find("Portrait").GetComponent<Image>();portrait.sprite=Slice("Portrait",105,51,101,100);portrait.material=null;Box(portrait.rectTransform,19,29,101,100);
             Box(ui.numberText.rectTransform,13,127,114,30);Style(ui.numberText,23,true);
             Box(ui.levelText.rectTransform,132,54,196,74);Style(ui.levelText,50,true);
             var hp=top.Find("HealthFrame").GetComponent<Image>();hp.sprite=Slice("HealthFrame",353,75,225,40,new Vector4(17,7,17,7));hp.type=Image.Type.Sliced;hp.fillCenter=false;hp.pixelsPerUnitMultiplier=1;hp.color=Color.white;hp.material=Surface("HealthOutline",hp.sprite,4,225,40);Width(hp.rectTransform,345,53,353,40);
@@ -105,7 +105,7 @@ public static class ShelterReferenceBuilder
                 var label=cell.Find("StatLabel_"+i).GetComponent<Text>();Box(label.rectTransform,68,17,69,47);Style(label,27);
                 Right(ui.statValues[i].rectTransform,new[]{151f,135.5f,132f,149f,133f,146f}[i],20,70,47);Style(ui.statValues[i],30,true);if(i==0||i==3||i==5)ui.statValues[i].alignment=TextAnchor.MiddleRight;
                 Right((RectTransform)ui.statButtons[i].transform,61,17,45,50);var add=ui.statButtons[i].GetComponent<Image>();add.sprite=Slice("AddButton",264,1110,47,53,new Vector4(9,9,9,9));add.type=Image.Type.Sliced;add.fillCenter=false;add.pixelsPerUnitMultiplier=1;add.color=Color.white;var bg=Pic(add.transform,"AddPaper",Slice("AddPaper",274,1115,29,7));Full(bg.rectTransform,6,6,6,6);bg.transform.SetAsFirstSibling();
-                var plus=ui.statButtons[i].GetComponentInChildren<Text>();Full(plus.rectTransform);Style(plus,44,true);plus.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");plus.fontStyle=FontStyle.Bold;plus.fontSize=Mathf.RoundToInt(51*S);plus.rectTransform.anchoredPosition+=Vector2.down*S;
+                var plus=ui.statButtons[i].GetComponentInChildren<Text>();Full(plus.rectTransform);Style(plus,44,true);plus.font=chinese;plus.fontStyle=FontStyle.Bold;plus.fontSize=Mathf.RoundToInt(51*S);plus.rectTransform.anchoredPosition+=Vector2.down*S;
                 var icon=cell.Find("StatIcon").GetComponent<Image>();icon.sprite=statSprites[i];icon.material=ink;var sr=icon.sprite.rect;Box(icon.rectTransform,sr.x-(33+i%3*874f/3),source.height-sr.yMax-(1093+i/3*82),sr.width,sr.height);icon.preserveAspect=true;
             }
             for(int row=0;row<3;row++)Line(body,"ReferenceRow"+row,row*82,0,0);
@@ -131,7 +131,7 @@ public static class ShelterReferenceBuilder
                 if(i==1){var badge=(RectTransform)ui.skillBadge.transform.parent;badge.GetComponent<Image>().sprite=Ring("SkillBadge",317,1463,42,44,0);badge.GetComponent<Image>().useSpriteMesh=false;badge.GetComponent<Image>().material=Surface("BadgeRing",badge.GetComponent<Image>().sprite,1,42,44,.42f);var badgeFill=Pic(badge,"BadgeFill",redPaper);Full(badgeFill.rectTransform,3,3,3,3);Paper(badgeFill,redPaper,36,38,"BadgeFill",true);badgeFill.transform.SetAsFirstSibling();Center(badge,54,17,42,44);Style(ui.skillBadge,29,true,new Color(.99f,.96f,.88f));Full(ui.skillBadge.rectTransform);}
             }
             foreach(var modalText in ui.modal.GetComponentsInChildren<Text>(true))Style(modalText,modalText.fontSize/S);
-            ui.numberText.transform.SetAsLastSibling();l.Apply();PrefabUtility.SaveAsPrefabAsset(home,ShelterHomeBuilder.Path);
+            ui.numberText.transform.SetAsLastSibling();l.Apply();ProductionUiArt.SaveAsPrefabAsset(home,ShelterHomeBuilder.Path);
         }finally{PrefabUtility.UnloadPrefabContents(home);}AssetDatabase.SaveAssets();
     }
 }

@@ -1,0 +1,26 @@
+第三阶段接入：血墨完成后，文案“她的故事，止于此页。”淡入0.35秒、停留1.1秒、淡出0.35秒；旧页从底部卷起1.15秒，带纸背、曲面明暗与投影，露出原失败UI。
+文案为持久化UGUI Text，时间为StorybookDeathFade序列化参数；页卷在已有RawImage材质内完成，无运行时创建整套UI。
+补充嵌套Canvas的GraphicRaycaster，已验证动画期间阻挡点击、结束后清除遮罩，并通过三种比例及返回营地流程。
+截图与动画预览仅本地output/death-page。
+PASS Death final page before result (1080, 1920)
+PASS Ink precedes defeat UI (1080, 1920)
+PASS Closing caption before defeat (1080, 1920)
+PASS Final page intercepts input (1080, 1920)
+PASS Curl reveals rendered defeat under opaque page (1080, 1920)
+PASS Result revealed and input unblocked (1080, 1920)
+PASS Return clears death effect (1080, 1920)
+PASS Death final page before result (768, 1024)
+PASS Ink precedes defeat UI (768, 1024)
+PASS Closing caption before defeat (768, 1024)
+PASS Final page intercepts input (768, 1024)
+PASS Curl reveals rendered defeat under opaque page (768, 1024)
+PASS Result revealed and input unblocked (768, 1024)
+PASS Return clears death effect (768, 1024)
+PASS Death final page before result (720, 1440)
+PASS Ink precedes defeat UI (720, 1440)
+PASS Closing caption before defeat (720, 1440)
+PASS Final page intercepts input (720, 1440)
+PASS Curl reveals rendered defeat under opaque page (720, 1440)
+PASS Result revealed and input unblocked (720, 1440)
+PASS Return clears death effect (720, 1440)
+DONE

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Game.Enum;
@@ -154,7 +154,6 @@ public class WaveManager : MonoBehaviour
                 crystMax *= 10;
             }
 
-            LevelController.Instance.AssetManager.nextDropInGrade = chestGradeChosen;
 
             //create and try add a chest
             Chest newChest = new Chest

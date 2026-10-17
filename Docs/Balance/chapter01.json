@@ -13,8 +13,8 @@
     ],
     "monsters": [
         {
-            "key": "MobGloomSpider",
-            "path": "Assets/DarkFairytale/Monsters/BlackForestSpider/MobGloomSpider/MobGloomSpider.prefab",
+            "key": "MobGloamweb",
+            "path": "Assets/DarkFairytale/Monsters/BlackForestSpider/MobGloamweb/MobGloamweb.prefab",
             "dropSource": "Assets/Prefab/Addressable Prefabs/Enemies/Mob1.prefab",
             "bossName": "",
             "hp": 3.0,
@@ -89,8 +89,8 @@
             ]
         },
         {
-            "key": "MobBarkSquirrel",
-            "path": "Assets/DarkFairytale/Monsters/MobBarkSquirrel/MobBarkSquirrel.prefab",
+            "key": "MobSplinterjaw",
+            "path": "Assets/DarkFairytale/Monsters/MobSplinterjaw/MobSplinterjaw.prefab",
             "dropSource": "Assets/Prefab/Addressable Prefabs/Enemies/Mob1.prefab",
             "bossName": "",
             "hp": 6.0,
@@ -165,8 +165,8 @@
             ]
         },
         {
-            "key": "MobBriarChild",
-            "path": "Assets/DarkFairytale/Monsters/MobBriarChild/MobBriarChild.prefab",
+            "key": "MobBramblet",
+            "path": "Assets/DarkFairytale/Monsters/MobBramblet/MobBramblet.prefab",
             "dropSource": "Assets/Prefab/Addressable Prefabs/Enemies/Mob2.prefab",
             "bossName": "",
             "hp": 12.0,
@@ -241,8 +241,8 @@
             ]
         },
         {
-            "key": "MobWaxcap",
-            "path": "Assets/DarkFairytale/Monsters/BlackForestMushroom/MobWaxcap/MobWaxcap.prefab",
+            "key": "MobTallowkin",
+            "path": "Assets/DarkFairytale/Monsters/BlackForestMushroom/MobTallowkin/MobTallowkin.prefab",
             "dropSource": "Assets/Prefab/Addressable Prefabs/Enemies/Mob2.prefab",
             "bossName": "",
             "hp": 18.0,
@@ -317,8 +317,8 @@
             ]
         },
         {
-            "key": "MobDrownedMoon",
-            "path": "Assets/DarkFairytale/Monsters/MobDrownedMoon/MobDrownedMoon.prefab",
+            "key": "MobMurmlet",
+            "path": "Assets/DarkFairytale/Monsters/MobMurmlet/MobMurmlet.prefab",
             "dropSource": "Assets/Prefab/Addressable Prefabs/Enemies/Mob3.prefab",
             "bossName": "",
             "hp": 45.0,
@@ -444,10 +444,10 @@
             ]
         },
         {
-            "key": "MobDrownedKing",
-            "path": "Assets/DarkFairytale/Monsters/MobDrownedKing/MobDrownedKing.prefab",
+            "key": "MobStillmere",
+            "path": "Assets/DarkFairytale/Monsters/MobStillmere/MobStillmere.prefab",
             "dropSource": "Assets/Prefab/Addressable Prefabs/Enemies/Mob3.prefab",
-            "bossName": "沉冠溺月王",
+            "bossName": "史莱姆之王",
             "hp": 150.0,
             "damage": 12.0,
             "interval": 2.200000047683716,
@@ -571,8 +571,8 @@
             ]
         },
         {
-            "key": "MobRuneWolf",
-            "path": "Assets/DarkFairytale/Monsters/MobRuneWolf/MobRuneWolf.prefab",
+            "key": "MobHexmaw",
+            "path": "Assets/DarkFairytale/Monsters/MobHexmaw/MobHexmaw.prefab",
             "dropSource": "Assets/Prefab/Addressable Prefabs/Enemies/Mob4.prefab",
             "bossName": "",
             "hp": 177.0,
@@ -647,10 +647,10 @@
             ]
         },
         {
-            "key": "MobHollowWolf",
-            "path": "Assets/DarkFairytale/Monsters/MobHollowWolf/MobHollowWolf.prefab",
+            "key": "MobRivenfang",
+            "path": "Assets/DarkFairytale/Monsters/MobRivenfang/MobRivenfang.prefab",
             "dropSource": "Assets/Prefab/Addressable Prefabs/Enemies/Mini Bosses/MiniBoss1.prefab",
-            "bossName": "空骸狼王",
+            "bossName": "霜牙狼王",
             "hp": 999.0,
             "damage": 40.0,
             "interval": 2.200000047683716,
@@ -936,18 +936,18 @@
             "waves": [
                 {
                     "enemies": [
-                        "MobGloomSpider"
+                        "MobGloamweb"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobBarkSquirrel"
+                        "MobSplinterjaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobGloomSpider",
-                        "MobGloomSpider"
+                        "MobGloamweb",
+                        "MobGloamweb"
                     ]
                 }
             ],
@@ -1329,26 +1329,26 @@
             "waves": [
                 {
                     "enemies": [
-                        "MobBarkSquirrel",
-                        "MobBarkSquirrel"
+                        "MobSplinterjaw",
+                        "MobSplinterjaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobBriarChild"
+                        "MobBramblet"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobWaxcap",
-                        "MobBarkSquirrel"
+                        "MobTallowkin",
+                        "MobSplinterjaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobBriarChild",
-                        "MobWaxcap",
-                        "MobGloomSpider"
+                        "MobBramblet",
+                        "MobTallowkin",
+                        "MobGloamweb"
                     ]
                 }
             ],
@@ -1730,31 +1730,31 @@
             "waves": [
                 {
                     "enemies": [
-                        "MobWaxcap",
-                        "MobBriarChild"
+                        "MobTallowkin",
+                        "MobBramblet"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobDrownedMoon"
+                        "MobMurmlet"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobWaxcap",
-                        "MobDrownedMoon"
+                        "MobTallowkin",
+                        "MobMurmlet"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobDrownedMoon",
-                        "MobBriarChild",
-                        "MobWaxcap"
+                        "MobMurmlet",
+                        "MobBramblet",
+                        "MobTallowkin"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobDrownedKing"
+                        "MobStillmere"
                     ]
                 }
             ],
@@ -2136,26 +2136,26 @@
             "waves": [
                 {
                     "enemies": [
-                        "MobDrownedMoon",
-                        "MobWaxcap"
+                        "MobMurmlet",
+                        "MobTallowkin"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobRuneWolf"
+                        "MobHexmaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobDrownedMoon",
-                        "MobRuneWolf"
+                        "MobMurmlet",
+                        "MobHexmaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobRuneWolf",
-                        "MobDrownedMoon",
-                        "MobWaxcap"
+                        "MobHexmaw",
+                        "MobMurmlet",
+                        "MobTallowkin"
                     ]
                 }
             ],
@@ -2537,38 +2537,38 @@
             "waves": [
                 {
                     "enemies": [
-                        "MobRuneWolf"
+                        "MobHexmaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobWaxcap",
-                        "MobWaxcap",
-                        "MobRuneWolf"
+                        "MobTallowkin",
+                        "MobTallowkin",
+                        "MobHexmaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobRuneWolf",
-                        "MobRuneWolf"
+                        "MobHexmaw",
+                        "MobHexmaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobWaxcap",
-                        "MobBriarChild",
-                        "MobRuneWolf"
+                        "MobTallowkin",
+                        "MobBramblet",
+                        "MobHexmaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobRuneWolf",
-                        "MobRuneWolf"
+                        "MobHexmaw",
+                        "MobHexmaw"
                     ]
                 },
                 {
                     "enemies": [
-                        "MobHollowWolf"
+                        "MobRivenfang"
                     ]
                 }
             ],

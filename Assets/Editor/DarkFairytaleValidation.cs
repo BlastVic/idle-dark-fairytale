@@ -52,9 +52,15 @@ public static class DarkFairytaleValidation
             skeleton.Update(0);
             skeleton.LateUpdate();
             var flash = go.GetComponentInChildren<MaterialSwapper>();
-            if (flash.origMats.Count != 1 || flash.whiteMats.Length != 1 ||
-                flash.origMats[0].mainTexture != flash.whiteMats[0].mainTexture)
-                throw new Exception("Flash material must use the Red Hood atlas");
+            if (flash.origMats.Count == 0 || flash.origMats.Count != flash.whiteMats.Length)
+                throw new Exception("Flash material mapping is incomplete");
+            for (int i=0;i<flash.origMats.Count;i++)
+                if (!flash.origMats[i] || !flash.whiteMats[i] || flash.origMats[i].mainTexture!=flash.whiteMats[i].mainTexture)
+                    throw new Exception("Flash material must use its matching Red Hood atlas");
+            foreach (var atlasAsset in skeleton.skeletonDataAsset.atlasAssets)
+                foreach (var material in atlasAsset.Materials)
+                    if (!flash.origMats.Contains(material))
+                        throw new Exception("Missing flash mapping for "+material.name);
             var camObject = new GameObject("Preview Camera");
             SceneManager.MoveGameObjectToScene(camObject, scene);
             var camera = camObject.AddComponent<Camera>();

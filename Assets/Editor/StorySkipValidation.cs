@@ -18,7 +18,7 @@ public static class StorySkipValidation {
  yield return null;var gm=GameManager.single;for(int n=0;n<20;n++)if(!gm.HasSeenThis("Tutorial-"+n))gm.thingsSeenPermanent.Add("Tutorial-"+n);
  var intro=Object.FindAnyObjectByType<CursedBookIntro>();yield return Ready(intro);yield return new WaitForSecondsRealtime(.5f);
  var ui=intro.GetComponent<StorySkipUI>();Check(ui&&ui.skip.gameObject.activeInHierarchy,"skip visible in prologue");
- Check(!ui.IsReplay&&((RectTransform)ui.skip.transform).anchorMin.y==0,"normal story skip at bottom right");
+ Check(!ui.IsReplay&&((RectTransform)ui.skip.transform).anchorMin.y==1,"normal story skip at top right");
  ui.skip.onClick.Invoke();float time=intro.prologue.narration.time;yield return new WaitForSecondsRealtime(.5f);Check(intro.prologue.Paused&&Mathf.Abs(time-intro.prologue.narration.time)<.05f&&!intro.Finished,"confirmation pauses without finishing story");
  int[] w={720,768,720},h={1280,1024,1440};string[] ratio={"9x16","3x4","1x2"};
  for(int k=0;k<3;k++){

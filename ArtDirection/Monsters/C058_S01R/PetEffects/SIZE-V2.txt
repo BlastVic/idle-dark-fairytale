@@ -19,7 +19,7 @@ Attack3 的爆炸跳过空白前摇，从 0.34 秒开始、0.85 倍速播放，�
 
 实际战斗截图和采样帧：output/pet-effects-v2/
 原受击参照：reference-enemy-hit.png
-功能回归：output/monster-animation/MobBookSpineDragon/effects-validation.txt
+功能回归：output/monster-animation/PetCindrel/effects-validation.txt
 三比例截图：同目录 effects-720x1280.png / effects-768x1024.png / effects-720x1440.png
 
 实战回归通过：三种攻击各一次伤害与完成事件，回到 Idle，技能派生攻击、两波胜利、失败退场、所有特效清理通过。已查看三种屏幕比例的实际命中图。实景采样帧另汇成 Attack1/2/3-review.gif，作为快速对比，不代替原始实时录像。

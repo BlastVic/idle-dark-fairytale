@@ -1,0 +1,8 @@
+书脊龙爪击（ClawArc）
+基底：diaochan_skill_beaten_2，原始素材保持不变。
+派生脚本：import_claw.py。保留 dao3、dao3_add、dao4、dao4_add，移除小猫残影、星形爆点与粒子，只保留交错爪痕。
+移除前 0.3 秒的小猫前摇，资源时长 0.3 秒。正式战斗 Attack2 命中时从 0 秒播放，速度沿用 0.7；不改变伤害回调。
+配色：Book Ember Spine 材质，炭褐 (0.12,0.075,0.055)、旧金 (0.56,0.32,0.12)、羊皮纸亮色 (0.94,0.76,0.43)，不透明度 0.85。
+大小：沿用 PetCindrel.prefab 的 clawWidth=0.72。测试场景直接读取正式资源和尺寸；移除小猫后的运动范围由资源导入时重新测量，测试场景不单独归一化。
+更新 Unity 资源：PetCindrelEffectsBuilder.Build("ClawArc")，仅显式执行时更新爪击材质、骨架与 Prefab 运动范围，保留 Prefab GUID 和节点引用。
+截图保留于 output/pet-effects、output/spine-effects-test、output/pet-barrage-v2，不提交 Git。

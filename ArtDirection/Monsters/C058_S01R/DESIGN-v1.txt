@@ -1,4 +1,4 @@
-C058_S01R · 小红帽伙伴 / Tairon The Dragon 替换设计
+C058_S01R · 小红帽伙伴 / Cindrel 替换设计
 2026-10-14；状态：A/B/C备选，尚未选定。仅概念设计，未替换技能或导入新资源。
 工具：内置 image_gen，具体模型未暴露。完整提示词见 generation-prompts-complete-v1.json。
 
@@ -16,7 +16,7 @@ B 眠月幼龙
 可爱来自困倦眼神；主要异常是体内月雾。无头顶悬浮点，不到处加眼睛。
 闭眼图案与透明喉部需检查颈部变形、网格和绘制顺序。冷焰/月雾只是视觉候选，不代表改变伤害机制。
 
-C 旧书脊龙
+C 烬页
 棕色皮革般鳞皮、羊皮纸腹部、书页状背棘与少量喉部墨迹、短红书签。
 可爱来自温和大眼；主要异常是活化旧书的材质。
 书页轮廓需适配原背棘网格。真正逐页翻动需要新增附件/动画，当前不承诺。
@@ -30,11 +30,11 @@ Idle_Normal_00 1秒；Idle_Battle_00 0.6667秒；Atk1_00 1.5秒；Atk_E_00 2.466
 面部有附件切换，长颈口部、远近腿、背棘和尾巴需逐帧验收。整图不能直接充当Spine皮肤。
 
 伙伴接口适配
-Player在Tairon_The_Dragon等级>0时生成PetDragon。
-PetDragon按玩家攻击与技能系数计算伤害；基础Attack1，Breath Of Hell联动Attack2/Attack3。
+Player在PetCindrel等级>0时生成PetCindrel。
+PetCindrel按玩家攻击与技能系数计算伤害；基础Attack1，Breath Of Hell联动Attack2/Attack3。
 AnimationOnHit进行伤害结算；动作完成后回Idle1并继续攻击；FlyOff依赖Exit。
 源没有飞行动作，建议地面离场，不凭空添加翅膀。
 后续检查完整AnimationController事件链，制作Idle1/Attack1/Attack2/Attack3/Exit适配及独立吐息特效；不能直接套敌人四动作模板。
-保留原PetDragon作参照，使用独立伙伴资源与可切换绑定，不覆盖原骨架。
+保留原PetCindrel作参照，使用独立伙伴资源与可切换绑定，不覆盖原骨架。
 需验证未学/已学技能、普通/强化吐息、波次切换、胜负退场、营地睡眠显示、遮挡及三种屏幕比例。
 

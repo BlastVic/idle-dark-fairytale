@@ -30,7 +30,7 @@ public static class StorybookFusionValidation
     {
         if(EditorApplication.isCompiling||EditorApplication.isUpdating)return;
         if(!EditorApplication.isPlayingOrWillChangePlaymode && File.Exists(Dir+"validate.request")){
-            File.Delete(Dir+"validate.request");EditorSceneManager.OpenScene("Assets/Scenes/MainScenes/Gameplay.unity");
+            File.Delete(Dir+"validate.request");EditorSceneManager.OpenScene("Assets/Scenes/Gameplay.unity");
             File.WriteAllText(Dir+"validation.txt","Fusion actual Unity validation. Isolated project; persistence disabled.\n");
             SessionState.SetBool("FUSION_QA",true);SessionState.SetBool("MONSTER_QA_DISABLE_SAVE",true);started=false;
             deadline=EditorApplication.timeSinceStartup+240;StorybookEquipmentValidation.Resolution(941,1672);EditorApplication.isPlaying=true;
@@ -75,7 +75,7 @@ public class FusionProbe
         yield return new WaitForSecondsRealtime(1);
         gc.CancelInvoke("TryShowingXpBoosterNotification");gc.xpBoosterNotification.SetActive(false);gc.dailyCherriesPop.SetActive(false);
         for(int i=0;i<20;i++)if(!gm.HasSeenThis("Tutorial-"+i))gm.thingsSeenPermanent.Add("Tutorial-"+i);
-        if(TutorialManager.single){TutorialManager.single.overlay.SetActive(false);TutorialManager.single.tutorialCharacter.SetActive(false);foreach(var tutorial in TutorialManager.single.tutorials)tutorial.SetActive(false);}
+        if(TutorialManager.single){TutorialManager.single.automatic=false;if(TutorialManager.single.view)TutorialManager.single.view.Hide();}
         Seed();yield return Open();if(!ui){Finish();yield break;}
         int nodeCount=ui.GetComponentsInChildren<Transform>(true).Length;
         Check(ui.GetComponentsInChildren<Transform>(true).All(t=>GameObjectUtility.GetMonoBehavioursWithMissingScriptCount(t.gameObject)==0),"no missing scripts");

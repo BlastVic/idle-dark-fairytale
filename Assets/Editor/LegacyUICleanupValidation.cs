@@ -15,7 +15,7 @@ using System.Collections.Generic;
  Check(System.Array.TrueForAll(Object.FindObjectsByType<Transform>(FindObjectsInactive.Include,FindObjectsSortMode.None),t=>!t.name.StartsWith("Legacy")),"Legacy roots absent");
  yield return Router.single.GoToSkills();Check(gc.skillsPanel.activeSelf&&gc.skillsPanel.GetComponent<StorybookSkillsUI>(),"New skills route");yield return Router.single.GoToCampFromSkills();
  gc.PlayLevelUp();yield return new WaitForSecondsRealtime(.6f);Check(gc.levelUpUI.Presenting,"New level-up presentation");yield return new WaitForSecondsRealtime(2.5f);
- gc.ShowItemPopUp(new Item{m_IconName="Stat",m_ItemFinalTitle="Stats +1"});yield return new WaitForSecondsRealtime(.6f);Check(gc.itemToast.Presenting,"New item toast");yield return new WaitForSecondsRealtime(3);
+ gc.ShowItemPopUp(new Item{itemGrade=ItemGrade.UI_ONLY,m_ItemFinalTitle="属性点 +1"});yield return new WaitForSecondsRealtime(.6f);Check(gc.itemToast.Presenting,"New item toast");yield return new WaitForSecondsRealtime(3);
  var wm=WaveManager.single;wm.currentWaveset=wm.GetWavesetByKey("Khorasan Ruins II");Router.single.newChest=new Chest{crystalsMin=10,crystalsMax=20};
  gc.ToggleHpXpLevelUi(true);gc.ToggleBattleUi(true);
  var victory=Router.single.GoToVictory();Check(victory.MoveNext(),"Victory starts");Check(!gc.hpXpLevelUI.activeSelf,"Legacy HP hidden immediately before victory presentation");yield return victory.Current;yield return victory;Check(gc.victoryPanel.activeSelf,"Victory route after removing old bindings");yield return Router.single.GoToCampFromBattle();Check(gc.homeUI.gameObject.activeSelf&&!gc.hpXpLevelUI.activeSelf,"Victory return to shelter without legacy HP");

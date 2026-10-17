@@ -10,7 +10,7 @@ public static class StorybookSkillDetailsAuthoring
 {
     const string Request="output/skills-ui/details-layout.request";
     static readonly Color Ink=new Color(.075f,.055f,.035f);
-    public static readonly string[] Descriptions={"", "每2秒恢复生命。", "有概率发动快速三连击。", "有概率触发范围攻击。\n敌人多于1名时生效。", "提升生命与防御。", "提升攻击与攻速，\n增加暴击与暴伤。", "阵亡时有概率复活。\n复活后恢复40%生命。", "击败敌人时，有概率恢复20%生命。", "每第三次攻击造成额外伤害。", "幼龙伙伴间歇造成攻击伤害。", "击败敌人时，有概率获得双倍经验。", "生命低于50%的敌人受到雷击，造成攻击伤害。", "对首领有概率发动六连击，造成150%伤害。", "受到暴击时，有概率获得10%生命吸收。", "面对多个敌人时，增加伤害。", "幼龙有概率发动二连或三连攻击。"};
+    public static readonly string[] Descriptions={"", "每2秒恢复生命。", "有概率发动快速三连击。", "有概率触发范围攻击。\n敌人多于1名时生效。", "提升生命与防御。", "提升攻击与攻速，\n增加暴击与暴伤。", "阵亡时有概率复活。\n复活后恢复40%生命。", "击败敌人时，有概率恢复20%生命。", "每第三次攻击造成额外伤害。", "书脊龙间歇造成攻击伤害。", "击败敌人时，有概率获得双倍经验。", "生命低于50%的敌人受到雷击，造成攻击伤害。", "对首领有概率发动六连击，造成150%伤害。", "受到暴击时，有概率获得10%生命吸收。", "面对多个敌人时，增加伤害。", "书脊龙有概率发动二连或三连攻击。"};
     static StorybookSkillDetailsAuthoring(){EditorApplication.update+=Poll;}
     static void Poll(){
         if(EditorApplication.isPlayingOrWillChangePlaymode||EditorApplication.isCompiling||EditorApplication.isUpdating||!File.Exists(Request))return;

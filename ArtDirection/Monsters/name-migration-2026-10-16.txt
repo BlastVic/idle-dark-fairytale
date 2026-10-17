@@ -1,0 +1,33 @@
+2026-10-16 中英文独立命名迁移
+
+用户确认的 11 个怪物与 1 个宠物全部迁移；完整对照、Prefab 路径、保留的 GUID 见同名 JSON。
+怪物键：MobTallowkin / MobGnarlo / MobDrowseed / MobHexmaw / MobVesperling / MobBramblet / MobSplinterjaw / MobGloamweb / MobRivenfang / MobMurmlet / MobStillmere。
+宠物键：PetCindrel。旧 PetDragon 生成键及控制器、旧书脊龙专用组件/制作工具均已统一。
+
+变更范围
+- 资产目录、Prefab、Spine JSON/atlas/材质/贴图名称、缩略图与对应 .meta 同步迁移，保留 GUID。
+- 数据库、Addressables、Gameplay 波次、MonsterAnimationTest 扫描目录与 Prefab 引用同步更新。
+- CreatureNames 是英文资源键与中文显示名的统一来源；测试卡片和标题只显示中文，中英文均可搜索。
+- 两个 Boss 名称及宠物技能标题/描述同步更新。普通怪保留空 bossName，避免引入额外死亡震动。
+- 宠物技能枚举仍为数值 9，等级字段改为 cindrelLevel；显式读取旧 JSON 字段 taironTheDragonLevel，兼容已学等级，新字段存在时优先使用新值。
+- 制作脚本、验证工具、当前资源说明和第一章数值配置同步更新。第一章验证工具修复已失效的 Gameplay 场景路径。
+
+实际验证
+PASS Unity 编译；12 个资源键分别通过数据库引用和字符串 Addressables 加载同一 Prefab。
+PASS 197 个迁移资产/脚本 GUID 保持不变；133 个涉及迁移的二进制图片/骨架内容未变；17 个运行时骨架/特效 JSON 除名称外一致。
+PASS MonsterAnimationTest：全部 12 个条目、173 段动作、中文与英文搜索、持久化名称和缩略图、11 个怪物出场、宠物按钮禁用。
+PASS 720x1280、768x1024、720x1440：36 张实际预览截图；名称/出场按钮/播放控件边界检查通过。此项验证命名与引用，保持既有角色尺寸规则。
+PASS Gameplay 临时 11 个单怪波次及 1 个混编波次：真实出场隔离、怪物攻击导致玩家扣血、烬页攻击导致怪物扣血、受击回待机、死亡经验、销毁、推进波次、胜利与返回清理；运行时错误 0。
+PASS PetCindrel 专项实战：未学技能不生成、学习后唯一生成；三种攻击各一次真实伤害/音效/完成；特殊技能、跨波保留、胜利返回、玩家死亡时攻击中断/Exit/销毁；运行时错误 0。
+PASS 旧宠物技能 JSON 读取、新字段往返及新旧字段同时存在时的优先级。
+PASS 第一章独立 Python 数值/波次审计，以及 Unity 持久配置检查：8 种正式关卡怪物、5 个节点/22 波、Addressables、掉落、动作与 Boss 标记。临时战斗数据不落盘、不持久修改关卡或玩家存档；高血量仅用于集成测试。
+PASS 当前 Assets 与第一章有效配置中无旧资源键残留；原版 Assets/Prefab 与 Assets/Grfx 未修改。
+
+证据
+本地截图、运行日志、迁移前备份：output/creature-names-2026-10-16/。
+宠物完整实战报告：output/monster-animation/PetCindrel/combat-validation.txt。
+第一章审计：Docs/Balance/chapter01-audit.json。
+截图只保留在已忽略的 output，不提交 Git。
+
+历史说明
+2026-10-12 迁移清单、历史验收报告、提示词及 Docs/Balance/chapter01-validation.json 保留记录时的名称，用于追溯，不作为当前运行资源配置。
